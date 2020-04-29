@@ -1,0 +1,29 @@
+uuid: 1e05eb88-05f5-4cd3-82f0-d22ebd30f682
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.clinical_focus.field_file
+    - media.type.document
+  module:
+    - clinical_focus
+id: clinical_focus.clinical_focus.field_file
+field_name: field_file
+entity_type: clinical_focus
+bundle: clinical_focus
+label: File
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

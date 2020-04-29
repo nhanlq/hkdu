@@ -1,0 +1,21 @@
+uuid: 9224a967-b438-4a11-b0cd-b8a464677e30
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_description
+  module:
+    - cme_quiz
+    - text
+id: quiz.quiz.field_description
+field_name: field_description
+entity_type: quiz
+bundle: quiz
+label: Description
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

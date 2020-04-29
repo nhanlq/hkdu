@@ -1,0 +1,26 @@
+uuid: e96d9ccb-41ed-4a78-b14b-fa5e9e237bab
+langcode: en
+status: true
+dependencies:
+  module:
+    - global_hkdu
+    - system
+  theme:
+    - hkdu
+id: sliderhomeblock
+theme: hkdu
+region: highlighted
+weight: -8
+provider: null
+plugin: slider_home_block
+settings:
+  id: slider_home_block
+  label: 'Slider home block'
+  provider: global_hkdu
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/e-pharm"
+    negate: false
+    context_mapping: {  }

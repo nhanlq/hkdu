@@ -1,0 +1,5 @@
+name: 'CME Quiz'
+type: module
+description: 'CME Quizzes'
+core: 8.x
+package: 'HKDU'

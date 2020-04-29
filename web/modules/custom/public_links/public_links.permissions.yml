@@ -1,0 +1,31 @@
+add public links entities:
+  title: 'Create new Public links entities'
+
+administer public links entities:
+  title: 'Administer Public links entities'
+  description: 'Allow to access the administration form to configure Public links entities.'
+  restrict access: true
+
+delete public links entities:
+  title: 'Delete Public links entities'
+
+edit public links entities:
+  title: 'Edit Public links entities'
+
+view published public links entities:
+  title: 'View published Public links entities'
+
+view unpublished public links entities:
+  title: 'View unpublished Public links entities'
+
+view all public links revisions:
+  title: 'View all Public links revisions'
+
+revert all public links revisions:
+  title: 'Revert all Public links revisions'
+  description: 'Role requires permission <em>view Public links revisions</em> and <em>edit rights</em> for public links entities in question or <em>administer public links entities</em>.'
+
+delete all public links revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Public links revisions</em> and <em>delete rights</em> for public links entities in question or <em>administer public links entities</em>.'
+

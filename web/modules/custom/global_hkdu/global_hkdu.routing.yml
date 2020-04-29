@@ -1,0 +1,24 @@
+
+global_hkdu.default_controller_index:
+  path: '/admin/hkdu'
+  defaults:
+    _controller: '\Drupal\global_hkdu\Controller\DefaultController::index'
+    _title: 'HKDU'
+  requirements:
+    _permission: 'access hkdu epharm'
+
+global_hkdu.suppliers_hkdu_controller_supplier:
+  path: '/admin/hkdu/suppliers'
+  defaults:
+    _controller: '\Drupal\global_hkdu\Controller\SuppliersHkduController::supplier'
+    _title: 'Supplier HKDU'
+  requirements:
+    _permission: 'suppliers hkdu sites'
+
+global_hkdu.front_controller_front:
+  path: '/front'
+  defaults:
+    _controller: '\Drupal\global_hkdu\Controller\FrontController::front'
+    _title: 'Hong Kong Doctor Union'
+  requirements:
+    _permission: 'access content'

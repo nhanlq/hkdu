@@ -1,0 +1,26 @@
+uuid: 23bf6ae1-040f-4531-9b39-a86b131dc363
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_event
+    - system
+  theme:
+    - hkdu
+id: cmeeventhomeblock
+theme: hkdu
+region: content
+weight: 0
+provider: null
+plugin: home_block
+settings:
+  id: home_block
+  label: 'CME Event Home Block'
+  provider: cme_event
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /cme
+    negate: false
+    context_mapping: {  }

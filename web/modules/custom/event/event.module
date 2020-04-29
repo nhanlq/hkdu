@@ -1,0 +1,160 @@
+<?php
+
+/**
+ * @file
+ * Contains event.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\commerce_product\Entity\ProductVariation;
+use Drupal\commerce_product\Entity\Product;
+use Drupal\commerce_price\Price;
+/**
+ * Implements hook_help().
+ */
+function event_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the event module.
+    case 'help.page.event':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Event Registration') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function event_theme($existing, $type, $theme, $path) {
+    return [
+        'event' => [                            // the entity id// template directory in module or theme
+            'template'  => 'event',                // defines base template as /artwork.html.twig
+            'render element' => 'elements',          // Theme API call to define the container of the entity in the render array
+            // The entity will be prefixed with a hash sign as ['elements']['#artwork']
+        ],
+        'event_list' => [
+            'variables' => ['events' => NULL, 'author'=>NULL, 'date' =>NULL, 'tags' => NULL,'get' => NULL,'search'=>NULL],
+            'path' => $path . '/templates/',
+            'template' => 'event-list'
+        ],
+        'event_home' => [
+            'variables' => ['events' => NULL, 'author'=>NULL, 'date' =>NULL],
+            'path' => $path . '/templates/',
+            'template' => 'event-home'
+        ],
+        'event_banner_block' => [
+            'variables' => ['event' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'event-banner'
+        ],
+    ];
+}
+
+function event_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+
+    // Insert the new entity into a fictional table of all entities.
+    if($entity->getEntityTypeId() =='event'){
+        // create variation first
+        $variation = ProductVariation::create([
+            'type' => 'default',
+            'sku' => 'EVENT-'.$entity->id(),
+            'price' => new Price($entity->get('field_price')->number, 'HKD'),
+        ]);
+        $variation->save();
+
+        // Create product using variations previously saved
+
+        $product = Product::create([
+            'type' => 'default',
+            'title' => $entity->get('name')->value,
+            'field_event' => $entity->id(),
+            'variations' => [$variation],
+        ]);
+        $product->save();
+
+    }
+
+}
+
+
+function event_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+
+    // Insert the new entity into a fictional table of all entities.
+    if($entity->getEntityTypeId() =='event'){
+        if(!getProductEvent($entity->id())){
+            // create variation first
+            $variation = ProductVariation::create([
+                'type' => 'default',
+                'sku' => 'EVENT-'.$entity->id(),
+                'price' => new Price($entity->get('field_price')->number, 'HKD'),
+            ]);
+            $variation->save();
+
+            // Create product using variations previously saved
+
+            $product = Product::create([
+                'type' => 'default',
+                'title' => $entity->get('name')->value,
+                'field_event' => $entity->id(),
+                'variations' => [$variation],
+            ]);
+            $product->save();
+        }
+    }
+
+}
+
+function getProductEvent($event_id){
+    $ids = \Drupal::entityQuery('commerce_product')
+        ->condition('type', 'default')
+        ->condition('status', 1)
+        ->condition('field_event', $event_id)
+        ->execute();
+    $results = \Drupal\commerce_product\Entity\Product::loadMultiple($ids);
+    $result = reset($results);
+    return $result;
+}
+
+function checkExpiredEvent($event){
+    $current = time();
+    $date = strtotime($event->get('field_date')->value.' 00:00:00');
+    if($current > $date){
+        return true;
+    }else{
+        return null;
+    }
+}
+
+/**
+ * get product by Event
+ */
+function getProduct($event_id){
+    $ids = \Drupal::entityQuery('commerce_product')
+        ->condition('type', 'default')
+        ->condition('status', 1)
+        ->condition('field_event', $event_id)
+        ->execute();
+    $results = \Drupal\commerce_product\Entity\Product::loadMultiple($ids);
+    $result = reset($results);
+    return $result;
+}
+
+function checkEventStatusUser($event_id){
+    $return = null;
+    $user = \Drupal::currentUser();
+    $uid = $user->id();
+    $ids = \Drupal::entityQuery('event_tracking')
+        ->condition('status', 1)
+        ->condition('field_event', $event_id)
+        ->condition('field_user', $uid)
+        ->execute();
+    $results = \Drupal\event_tracking\Entity\EventTracking::loadMultiple($ids);
+    if($results){
+        $return = true;
+    }
+    return $return;
+}
+

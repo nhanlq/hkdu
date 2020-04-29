@@ -1,0 +1,25 @@
+uuid: a26bfdfa-d6f7-4dc9-8d12-5e8942732c22
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_event
+    - entity_reference_revisions
+    - field_permissions
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: cme_event.field_hkdu_point
+field_name: field_hkdu_point
+entity_type: cme_event
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

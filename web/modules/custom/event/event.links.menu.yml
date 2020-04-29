@@ -1,0 +1,24 @@
+
+# Event menu items definition
+entity.event.collection:
+  title: 'Event'
+  route_name: entity.event.collection
+  description: 'List Event entities'
+  parent: global_hkdu.admin_epharm_hkdu
+  weight: 100
+
+event.admin.structure.settings:
+  title: 'Event settings'
+  description: 'Configure Event entities'
+  route_name: event.settings
+  parent: entity.event.collection
+
+event.admin.enrolled.offline:
+  title: 'Enrolled Offline Event'
+  route_name: event.enroll_form
+  parent: entity.event.collection
+
+event.admin.import:
+  title: 'Event Batch Import'
+  route_name: event.import_xls_form
+  parent: entity.event.collection

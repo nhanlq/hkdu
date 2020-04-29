@@ -1,0 +1,20 @@
+uuid: 8450d28c-ec80-4992-adc1-66eb5930dfbf
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_stripe
+id: stripe
+label: Stripe
+weight: null
+plugin: stripe
+configuration:
+  publishable_key: pk_test_YtaqVmSVCyMYnehSwEQhCm2S00VK1kFAXY
+  secret_key: sk_test_dzIPnqAjpp2mj2oIs5sWdC2I00grDVqlkI
+  display_label: Stripe
+  mode: test
+  payment_method_types:
+    - credit_card
+  collect_billing_information: true
+conditions: {  }
+conditionOperator: OR

@@ -1,0 +1,29 @@
+uuid: ec3f66fa-6fdd-43c7-8c9c-d45a4ab4c4f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_photo
+    - media.type.image
+  module:
+    - doctor
+id: doctor.doctor.field_photo
+field_name: field_photo
+entity_type: doctor
+bundle: doctor
+label: Photo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

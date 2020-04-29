@@ -1,0 +1,33 @@
+add drug search entities:
+  title: 'Create new Drug search entities'
+
+administer drug search entities:
+  title: 'Administer Drug search entities'
+  description: 'Allow to access the administration form to configure Drug search entities.'
+  restrict access: true
+
+delete drug search entities:
+  title: 'Delete Drug search entities'
+
+edit drug search entities:
+  title: 'Edit Drug search entities'
+
+view published drug search entities:
+  title: 'View published Drug search entities'
+
+view unpublished drug search entities:
+  title: 'View unpublished Drug search entities'
+
+view all drug search revisions:
+  title: 'View all Drug search revisions'
+
+revert all drug search revisions:
+  title: 'Revert all Drug search revisions'
+  description: 'Role requires permission <em>view Drug search revisions</em> and <em>edit rights</em> for drug search entities in question or <em>administer drug search entities</em>.'
+
+delete all drug search revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Drug search revisions</em> and <em>delete rights</em> for drug search entities in question or <em>administer drug search entities</em>.'
+
+view list drug search:
+  title: 'View list Drug Search'

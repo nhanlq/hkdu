@@ -1,0 +1,5 @@
+entity.media_entity.add_form:
+  route_name: entity.media_entity.add_form
+  title: 'Add Media entity'
+  appears_on:
+    - entity.media_entity.collection

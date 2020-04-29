@@ -1,0 +1,26 @@
+uuid: 21c5cfa9-1f1c-464e-ad8f-e848a6cffdad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_point
+  module:
+    - user
+id: user.user.field_point
+field_name: field_point
+entity_type: user
+bundle: user
+label: Point
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: !!float 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

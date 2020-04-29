@@ -1,0 +1,20 @@
+uuid: 7d6e5877-76d5-4bdd-a8ed-3a2532021cf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_clinic_phone
+  module:
+    - doctor
+id: doctor.doctor.field_clinic_phone
+field_name: field_clinic_phone
+entity_type: doctor
+bundle: doctor
+label: 'Clinic Phone'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

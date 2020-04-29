@@ -1,0 +1,93 @@
+uuid: ee9860b2-6263-464c-b735-10b364037042
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.event_org.event_org.field_address
+    - field.field.event_org.event_org.field_description
+    - field.field.event_org.event_org.field_email
+    - field.field.event_org.event_org.field_fax
+    - field.field.event_org.event_org.field_media
+    - field.field.event_org.event_org.field_phone
+    - field.field.event_org.event_org.field_short_name
+  module:
+    - cme_event_organizer
+    - text
+    - user
+id: event_org.event_org.default
+targetEntityType: event_org
+bundle: event_org
+mode: default
+content:
+  field_address:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_description:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_email:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_fax:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_media:
+    type: entity_reference_entity_view
+    weight: 6
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_phone:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_short_name:
+    weight: 7
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  name:
+    label: hidden
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true

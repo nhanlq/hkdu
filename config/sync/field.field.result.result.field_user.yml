@@ -1,0 +1,29 @@
+uuid: 9919e679-bd1f-4cda-bc81-92fe457984ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.result.field_user
+  module:
+    - cme_result
+id: result.result.field_user
+field_name: field_user
+entity_type: result
+bundle: result
+label: User
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

@@ -1,0 +1,15 @@
+uuid: a9c2a359-5e64-4514-811b-9c1c9355811a
+langcode: en
+status: true
+dependencies: {  }
+name: 228x228
+label: 228x228
+effects:
+  b9432b7a-fd84-41f1-bdd4-560fcedc5fc4:
+    uuid: b9432b7a-fd84-41f1-bdd4-560fcedc5fc4
+    id: image_scale
+    weight: 1
+    data:
+      width: 228
+      height: 228
+      upscale: true

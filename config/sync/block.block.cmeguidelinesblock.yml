@@ -1,0 +1,26 @@
+uuid: 2552dcaf-eeb5-49e3-8af9-c50d31d657dd
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_guidelines
+    - system
+  theme:
+    - hkdu
+id: cmeguidelinesblock
+theme: hkdu
+region: header
+weight: -8
+provider: null
+plugin: cmeguidelines_block
+settings:
+  id: cmeguidelines_block
+  label: 'CME Guidelines Block'
+  provider: cme_guidelines
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/cme/guidelines/*'
+    negate: false
+    context_mapping: {  }

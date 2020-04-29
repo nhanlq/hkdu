@@ -1,0 +1,15 @@
+global_hkdu_slider:
+  version: VERSION
+  css:
+    theme:
+      css/slick.css: {}
+      css/slick-theme.css: {}
+  js:
+    js/slick.js: { }
+    js/global_hkdu.js: { }
+
+global_hkdu_menu:
+  version: VERSION
+  css:
+    theme:
+      css/global_hkdu.icons.css: {}

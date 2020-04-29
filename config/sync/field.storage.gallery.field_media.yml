@@ -1,0 +1,20 @@
+uuid: 3394b7da-cc54-4fd1-a884-c14f1a698832
+langcode: en
+status: true
+dependencies:
+  module:
+    - gallery
+    - media
+id: gallery.field_media
+field_name: field_media
+entity_type: gallery
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

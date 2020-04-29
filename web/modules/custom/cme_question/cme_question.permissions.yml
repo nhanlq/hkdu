@@ -1,0 +1,31 @@
+add question entities:
+  title: 'Create new Question entities'
+
+administer question entities:
+  title: 'Administer Question entities'
+  description: 'Allow to access the administration form to configure Question entities.'
+  restrict access: true
+
+delete question entities:
+  title: 'Delete Question entities'
+
+edit question entities:
+  title: 'Edit Question entities'
+
+view published question entities:
+  title: 'View published Question entities'
+
+view unpublished question entities:
+  title: 'View unpublished Question entities'
+
+view all question revisions:
+  title: 'View all Question revisions'
+
+revert all question revisions:
+  title: 'Revert all Question revisions'
+  description: 'Role requires permission <em>view Question revisions</em> and <em>edit rights</em> for question entities in question or <em>administer question entities</em>.'
+
+delete all question revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Question revisions</em> and <em>delete rights</em> for question entities in question or <em>administer question entities</em>.'
+

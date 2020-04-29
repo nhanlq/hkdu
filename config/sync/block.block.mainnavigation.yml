@@ -1,0 +1,30 @@
+uuid: 61a43623-df78-4259-881a-52b0c214df3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - hkdu
+id: mainnavigation
+theme: hkdu
+region: navigation
+weight: -13
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    pages: "/e-pharm\r\n/e-pharm/*\r\n/cme\r\n/cme/*"
+    negate: true
+    context_mapping: {  }

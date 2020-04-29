@@ -1,0 +1,88 @@
+uuid: 3b80efd4-6d9a-4343-a4db-ca8739db9ca8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.commerce_remote_id
+    - field.field.user.user.field_contact_number
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_point
+    - field.field.user.user.field_registration_no
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - image
+    - telephone
+    - user
+_core:
+  default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  account:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_contact_number:
+    weight: 3
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_first_name:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_last_name:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_point:
+    weight: 5
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_registration_no:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  user_picture:
+    type: image_image
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  commerce_remote_id: true
+  contact: true
+  council_member_profiles: true
+  customer_profiles: true
+  doctor_profiles: true
+  drug_supplier_profiles: true
+  hkdu_member_profiles: true
+  langcode: true
+  language: true
+  path: true
+  timezone: true
+  translation: true

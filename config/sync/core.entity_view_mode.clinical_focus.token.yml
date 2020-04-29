@@ -1,0 +1,10 @@
+uuid: cd44a54d-5f97-47f0-83ab-ebd397d69eb8
+langcode: en
+status: true
+dependencies:
+  module:
+    - clinical_focus
+id: clinical_focus.token
+label: Token
+targetEntityType: clinical_focus
+cache: true

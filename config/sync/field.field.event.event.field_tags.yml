@@ -1,0 +1,30 @@
+uuid: 7fe0bc4f-7326-4af6-9b50-a4aef8cf9d9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event.field_tags
+    - taxonomy.vocabulary.event
+  module:
+    - event
+id: event.event.field_tags
+field_name: field_tags
+entity_type: event
+bundle: event
+label: Tags
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      event: event
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

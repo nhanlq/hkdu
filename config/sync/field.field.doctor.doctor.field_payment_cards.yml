@@ -1,0 +1,20 @@
+uuid: d37ff819-cc0f-45d6-abe5-f96cc18e4d2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_payment_cards
+  module:
+    - doctor
+id: doctor.doctor.field_payment_cards
+field_name: field_payment_cards
+entity_type: doctor
+bundle: doctor
+label: 'Payment Cards'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

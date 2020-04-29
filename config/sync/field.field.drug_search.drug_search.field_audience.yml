@@ -1,0 +1,21 @@
+uuid: 0a51048b-5099-4788-979f-3cbf073c999c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.drug_search.field_audience
+  module:
+    - drug_search
+    - options
+id: drug_search.drug_search.field_audience
+field_name: field_audience
+entity_type: drug_search
+bundle: drug_search
+label: Audience
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

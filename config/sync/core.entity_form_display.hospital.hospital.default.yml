@@ -1,0 +1,174 @@
+uuid: 067481a1-c526-46d7-84ed-e15c53911a6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.hospital.hospital.field_about_us
+    - field.field.hospital.hospital.field_address
+    - field.field.hospital.hospital.field_email
+    - field.field.hospital.hospital.field_emergency_service
+    - field.field.hospital.hospital.field_fax
+    - field.field.hospital.hospital.field_location
+    - field.field.hospital.hospital.field_media
+    - field.field.hospital.hospital.field_tel
+    - field.field.hospital.hospital.field_type
+    - field.field.hospital.hospital.field_website
+  module:
+    - field_group
+    - geolocation
+    - hospital
+    - media_library
+    - path
+    - telephone
+    - text
+third_party_settings:
+  field_group:
+    group_contact_information:
+      children:
+        - field_email
+        - field_tel
+        - field_fax
+        - field_address
+        - field_location
+        - field_website
+      parent_name: ''
+      weight: 6
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Contact Information'
+    group_about_us:
+      children:
+        - field_about_us
+      parent_name: ''
+      weight: 7
+      format_type: html_element
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'About Us'
+id: hospital.hospital.default
+targetEntityType: hospital
+bundle: hospital
+mode: default
+content:
+  field_about_us:
+    weight: 13
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_address:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_email:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_emergency_service:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_fax:
+    weight: 9
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_location:
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
+    type: geolocation_latlng
+    region: content
+  field_media:
+    type: media_library_widget
+    weight: 5
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  field_tel:
+    weight: 8
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_type:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_website:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,64 @@
+uuid: 70d5d73e-683e-45bf-b2d0-755020ee7ecf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.tools.tools.field_link
+    - field.field.tools.tools.field_weight
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - link
+    - tools
+id: tools.tools.default
+targetEntityType: tools
+bundle: tools
+mode: default
+content:
+  field_link:
+    weight: 26
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_weight:
+    weight: 101
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

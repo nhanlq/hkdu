@@ -1,0 +1,14 @@
+uuid: 2b2d48a6-0454-448a-8ff0-619b942d7fc8
+langcode: en
+status: true
+dependencies:
+  module:
+    - special_offer
+id: special_offer
+label: 'Special Offer'
+type: 'canonical_entities:special_offer'
+pattern: '/e-pharm/special-offer/[special_offer:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

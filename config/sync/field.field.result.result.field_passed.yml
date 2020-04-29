@@ -1,0 +1,24 @@
+uuid: 154b0eb7-788d-4ae4-ba0e-bc27f27a74d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.result.field_passed
+  module:
+    - cme_result
+id: result.result.field_passed
+field_name: field_passed
+entity_type: result
+bundle: result
+label: Passed
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

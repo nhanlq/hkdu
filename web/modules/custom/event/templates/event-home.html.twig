@@ -1,0 +1,46 @@
+<div class="leBAWZ">
+    <div class="dacuFr">
+        <div display="flex" class="dUVjnM"><h2 class="ikSlXj">
+                Events</h2><a variant="default" class="jzqdsa" href="/e-pharm/event"><span
+                        class="fjQIzu">More</span></a></div>
+    </div>
+    <div display="flex" class="fSsnif">
+        {% for event in events %}
+            <div class="eBeRpv">
+                <a class="fOtgzp" href="{{ path('entity.event.canonical', {'event': event.id.value}) }}">
+                    <div class="kZuHUf">
+                        <div class="giwJrm">
+                            <div class="Owdni">
+                                <span class="etLNEt">{{ event.field_date.value|date("Y-m-d") }}</span>
+                                {% if event.check_event %}
+                                    <span type="success" class="cUAFfx">Enrolled</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="isAOXn">
+                            <div><h3 class="flCmuI">{{ event.name.value }}</h3>
+                            </div>
+                        </div>
+                        <div class="hFnlYM">
+                            <ul class="eNSAVL">
+                                <li class="CardInfo__Info-sc-1ty8kif-2 lbZLFv">
+                                    <i class="fa fa-map-marker-alt"></i>
+                                    <span class="hMzfje">{{ event.field_location.value }}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+                <div class="event list-tags eclIQj">
+                    <div class="gPcWZD">
+                        {% for tagEntity in  event.field_tags %}
+                            <a href="/e-pharm/event?tags={{ tagEntity.entity.name.value }}"
+                               class="iyiBrq">{{ tagEntity.entity.name.value }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>

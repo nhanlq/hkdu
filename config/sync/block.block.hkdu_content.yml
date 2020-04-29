@@ -1,0 +1,22 @@
+uuid: 3320a0ad-423a-47e0-9f51-30c2caad1127
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - hkdu
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: hkdu_content
+theme: hkdu
+region: content
+weight: -8
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,5 @@
+name: 'Zero'
+type: module
+description: 'Zero custom'
+core: 8.x
+package: 'HKDU'

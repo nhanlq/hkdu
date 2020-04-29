@@ -1,0 +1,14 @@
+uuid: c8965cff-c72a-42c4-be04-bf9ea9056bb3
+langcode: en
+status: true
+dependencies:
+  module:
+    - event
+id: event
+label: Event
+type: 'canonical_entities:event'
+pattern: '/e-pharm/event/[event:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

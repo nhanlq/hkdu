@@ -1,0 +1,8 @@
+
+news.news_list_controller_list:
+  path: '/news'
+  defaults:
+    _controller: '\Drupal\news\Controller\NewsListController::list'
+    _title: "What's News"
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,21 @@
+uuid: 2d1e28e3-49a0-46de-bff1-a813dc0fe976
+langcode: en
+status: true
+dependencies:
+  module:
+    - doctor
+id: doctor.field_basic_qualifications
+field_name: field_basic_qualifications
+entity_type: doctor
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,29 @@
+uuid: 7dc4130b-ea10-4ae8-be10-e71ec3282a33
+langcode: en
+status: false
+dependencies:
+  module:
+    - search_api
+    - drug_news
+id: drug_search
+name: drug_search
+description: ''
+read_only: false
+field_settings: {  }
+datasource_settings:
+  'entity:drug_news':
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  rendered_item: {  }
+  add_url: {  }
+  language_with_fallback: {  }
+  aggregated_field: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: ''

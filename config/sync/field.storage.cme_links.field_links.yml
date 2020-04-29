@@ -1,0 +1,23 @@
+uuid: 38b31108-5d80-4e8b-9fe3-fd2959b683df
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_link
+    - field_permissions
+    - link
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: cme_links.field_links
+field_name: field_links
+entity_type: cme_links
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 44540b9e-122d-40e1-963e-938c508e5912
+langcode: en
+status: true
+dependencies:
+  module:
+    - hospital
+id: hospital.field_type
+field_name: field_type
+entity_type: hospital
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,34 @@
+uuid: 7e663838-5521-4e1f-bd49-26f30a0aded5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.org_point.field_organizer
+    - field.field.paragraph.org_point.field_point
+    - paragraphs.paragraphs_type.org_point
+id: paragraph.org_point.default
+targetEntityType: paragraph
+bundle: org_point
+mode: default
+content:
+  field_organizer:
+    weight: 0
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_point:
+    weight: 1
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+hidden:
+  search_api_excerpt: true

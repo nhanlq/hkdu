@@ -1,0 +1,14 @@
+uuid: f7cad004-ce31-4b5a-9f21-68291f1c4658
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.drug_suppliers
+  module:
+    - user
+id: user_remove_role_action.drug_suppliers
+label: 'Remove the Drug suppliers role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: drug_suppliers

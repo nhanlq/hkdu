@@ -1,0 +1,19 @@
+uuid: 35bccb2a-625e-4732-bee9-9b5bd3c0b403
+langcode: en
+status: false
+dependencies: {  }
+id: offline
+label: Offline
+weight: null
+plugin: manual
+configuration:
+  instructions:
+    value: ''
+    format: plain_text
+  display_label: 'Offline Payment'
+  mode: n/a
+  payment_method_types:
+    - credit_card
+  collect_billing_information: false
+conditions: {  }
+conditionOperator: OR

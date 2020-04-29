@@ -1,0 +1,58 @@
+{#
+/**
+ * @file about.html.twig
+ * Default theme implementation to present Default entity data.
+ *
+ * This template is used when viewing Default entity pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_about()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% if medias %}
+<div class="about-us-wrapper">
+    <div class="Grid__Box-f9ujw0-0 ArticleCardList__ListBox-sc-1nl1zr5-0 hKtiWd">
+        {% for media in medias %}
+        <div class="Grid__Box-f9ujw0-0 hftOhy col-xs-12 col-sm-12 col-lg-12">
+            <a variant="vertical,horizontal" class="Card__Wrapper-sc-1phbti1-0 dlodqi"
+               href="{{ path('entity.media_entity.canonical', {'media_entity': media.id.value}) }}">
+                <div class="Card__Cover-sc-1phbti1-1 eFKGnI" style="background-image: url({{ media.field_media.entity.field_media_image.entity.uri.value | image_style('original') }})">
+                    {#<img src="{{ about.field_image.entity.uri.value | image_style('about_thumb') }}"/>#}
+                </div>
+                <div class="Card__Container-sc-1phbti1-3 kZuHUf">
+                    <div class="Card__Header-sc-1phbti1-2 hYpLPh">
+                        <div class="ArticleCard__Head-jc3vpl-3 cLNuli">
+                            <div class="ArticleCard__AuthorInfo-jc3vpl-0 jyYtMa">
+                                <div class="ArticleCard__Avatar-jc3vpl-1 iFBalX"></div>
+                                {{ media.Owner.name.value }}
+                            </div>
+                            <span class="ArticleCard__Date-jc3vpl-2 kASIaT">{{ media.created.value|date("Y-m-d") }}</span></div>
+                    </div>
+                    <div class="CardMeta__MetaContent-mwcsl3-0 isAOXn">
+                        <div><h3 class="CardMeta__Title-mwcsl3-1 flCmuI">{{ media.name.value }}</h3>
+                            <p class="CardMeta__Description-mwcsl3-2 itSPxh">{{ media.field_description.value|striptags }}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </a>
+            <div class="CardMeta__Content-mwcsl3-3 list-tags eclIQj">
+                <div class="gPcWZD">
+                    {% for tag in  media.field_tags %}
+                        <a href="/media-release?tags={{ tag.entity.name.value }}" class="iyiBrq">{{ tag.entity.name.value }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+    {{ pager }}
+</div>
+{% endif %}

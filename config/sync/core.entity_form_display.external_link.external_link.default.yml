@@ -1,0 +1,56 @@
+uuid: 70e11d38-da66-4809-a0a9-fd5373b1fe25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.external_link.external_link.field_link
+    - field.field.external_link.external_link.field_weight
+  module:
+    - external_link
+    - link
+id: external_link.external_link.default
+targetEntityType: external_link
+bundle: external_link
+mode: default
+content:
+  field_link:
+    weight: 26
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_weight:
+    weight: 27
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

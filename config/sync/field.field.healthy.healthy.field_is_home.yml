@@ -1,0 +1,24 @@
+uuid: b018ad10-a380-4510-ae33-7490d20c536f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.healthy.field_is_home
+  module:
+    - healthy
+id: healthy.healthy.field_is_home
+field_name: field_is_home
+entity_type: healthy
+bundle: healthy
+label: 'Is Home'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

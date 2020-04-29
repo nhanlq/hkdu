@@ -1,0 +1,8 @@
+
+gallery.gallery_list_controller_list:
+  path: '/gallery'
+  defaults:
+    _controller: '\Drupal\gallery\Controller\GalleryListController::list'
+    _title: 'Photo Gallery'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,72 @@
+uuid: e18ecc9e-17b4-457b-b6d8-ed4462dbe873
+langcode: en
+status: true
+dependencies:
+  module:
+    - banner
+    - options
+id: banner.field_page
+field_name: field_page
+entity_type: banner
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: about-us
+      label: 'About Us'
+    -
+      value: healthy
+      label: E-Healthy
+    -
+      value: media-release
+      label: 'Press Release'
+    -
+      value: news
+      label: 'What''s News'
+    -
+      value: doctors
+      label: Doctor
+    -
+      value: hospital
+      label: Hospital
+    -
+      value: gallery
+      label: Gallery
+    -
+      value: drug-news
+      label: 'E-pharm Drug News'
+    -
+      value: external-links
+      label: 'External Links'
+    -
+      value: links
+      label: Links
+    -
+      value: downloads
+      label: Downloads
+    -
+      value: clinical-focus
+      label: 'Clinical Focus'
+    -
+      value: event
+      label: Events
+    -
+      value: drug-search
+      label: 'Drug Search'
+    -
+      value: tools
+      label: Tools
+    -
+      value: special-offer
+      label: 'Special Offer'
+    -
+      value: pharm-dir
+      label: 'Pharm Dir'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

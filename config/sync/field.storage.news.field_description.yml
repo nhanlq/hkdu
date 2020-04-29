@@ -1,0 +1,19 @@
+uuid: 83cf1b12-e7dc-425e-bcf2-350fa42ee9a6
+langcode: en
+status: true
+dependencies:
+  module:
+    - news
+    - text
+id: news.field_description
+field_name: field_description
+entity_type: news
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

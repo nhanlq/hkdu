@@ -1,0 +1,20 @@
+uuid: 0bb89835-32c2-4b99-911f-7dc9892d6c0b
+langcode: en
+status: true
+dependencies:
+  module:
+    - event
+    - event_tracking
+id: event_tracking.field_event
+field_name: field_event
+entity_type: event_tracking
+type: entity_reference
+settings:
+  target_type: event
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

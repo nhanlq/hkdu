@@ -1,0 +1,20 @@
+uuid: 407d51b0-8afb-4ce3-8d1b-ce038d2da85a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.hospital.field_address
+  module:
+    - hospital
+id: hospital.hospital.field_address
+field_name: field_address
+entity_type: hospital
+bundle: hospital
+label: Address
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,26 @@
+uuid: afec71ac-e81f-466c-a279-3764aa9c5943
+langcode: en
+status: true
+dependencies:
+  module:
+    - drug_news
+    - system
+  theme:
+    - hkdu
+id: drugbannerblock
+theme: hkdu
+region: header
+weight: -11
+provider: null
+plugin: drug_banner_block
+settings:
+  id: drug_banner_block
+  label: 'Drug banner block'
+  provider: drug_news
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/e-pharm/drug-news/*'
+    negate: false
+    context_mapping: {  }

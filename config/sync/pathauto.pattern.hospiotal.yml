@@ -1,0 +1,14 @@
+uuid: 11f2d066-82a9-41fc-9df9-f3f28097d42e
+langcode: en
+status: true
+dependencies:
+  module:
+    - hospital
+id: hospiotal
+label: Hospiotal
+type: 'canonical_entities:hospital'
+pattern: 'hospital/[hospital:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

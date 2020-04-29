@@ -1,0 +1,5 @@
+entity.healthy.add_form:
+  route_name: entity.healthy.add_form
+  title: 'Add Healthy'
+  appears_on:
+    - entity.healthy.collection

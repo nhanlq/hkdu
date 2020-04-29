@@ -1,0 +1,22 @@
+{#
+/**
+ * @file healthy.html.twig
+ * Default theme implementation to present Healthy data.
+ *
+ * This template is used when viewing Healthy pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_healthy()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('healthy') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

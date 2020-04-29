@@ -1,0 +1,20 @@
+uuid: 8d123938-788c-46f8-b4be-4a94398f7232
+langcode: en
+status: true
+dependencies:
+  module:
+    - clinical_focus
+    - media
+id: clinical_focus.field_media
+field_name: field_media
+entity_type: clinical_focus
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

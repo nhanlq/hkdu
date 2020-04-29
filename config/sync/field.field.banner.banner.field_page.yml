@@ -1,0 +1,21 @@
+uuid: dda01b39-763a-4788-9399-08ccf2d1080d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.banner.field_page
+  module:
+    - banner
+    - options
+id: banner.banner.field_page
+field_name: field_page
+entity_type: banner
+bundle: banner
+label: Page
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

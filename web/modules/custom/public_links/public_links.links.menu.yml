@@ -1,0 +1,14 @@
+
+# Public links menu items definition
+entity.public_links.collection:
+  title: 'Links'
+  route_name: entity.public_links.collection
+  description: 'List Public links entities'
+  parent: global_hkdu.admin_hkdu
+  weight: 100
+
+public_links.admin.structure.settings:
+  title: 'Links settings'
+  description: 'Configure Public links entities'
+  route_name: public_links.settings
+  parent: entity.public_links.collection

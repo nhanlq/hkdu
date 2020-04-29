@@ -1,0 +1,16 @@
+uuid: f8d71b0a-3598-434d-b291-93da27451e43
+langcode: en
+status: true
+dependencies: {  }
+third_party_settings:
+  commerce_order:
+    customer_profile_type: false
+id: hkdu_member
+label: 'HKDU Member'
+display_label: ''
+multiple: false
+registration: true
+roles:
+  hkdu_members: hkdu_members
+allow_revisions: false
+new_revision: false

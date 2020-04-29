@@ -1,0 +1,22 @@
+{#
+/**
+ * @file event_tracking.html.twig
+ * Default theme implementation to present Event tracking data.
+ *
+ * This template is used when viewing Event tracking pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_event_tracking()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('event_tracking') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

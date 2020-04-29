@@ -1,0 +1,21 @@
+uuid: 15033d5a-9cc6-4eac-803f-9e1b0b886271
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_start_date
+  module:
+    - cme_event
+    - datetime
+id: cme_event.cme_event.field_start_date
+field_name: field_start_date
+entity_type: cme_event
+bundle: cme_event
+label: 'Start Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

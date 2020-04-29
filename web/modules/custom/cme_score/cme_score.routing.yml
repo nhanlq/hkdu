@@ -1,0 +1,7 @@
+cme_score.event_attend:
+  path: '/admin/cme/event-attendance/import'
+  defaults:
+    _form: '\Drupal\cme_score\Form\EventAttend'
+    _title: 'EventAttend'
+  requirements:
+    _access: 'TRUE'

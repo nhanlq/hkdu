@@ -1,0 +1,31 @@
+add pharm dir entities:
+  title: 'Create new Pharm dir entities'
+
+administer pharm dir entities:
+  title: 'Administer Pharm dir entities'
+  description: 'Allow to access the administration form to configure Pharm dir entities.'
+  restrict access: true
+
+delete pharm dir entities:
+  title: 'Delete Pharm dir entities'
+
+edit pharm dir entities:
+  title: 'Edit Pharm dir entities'
+
+view published pharm dir entities:
+  title: 'View published Pharm dir entities'
+
+view unpublished pharm dir entities:
+  title: 'View unpublished Pharm dir entities'
+
+view all pharm dir revisions:
+  title: 'View all Pharm dir revisions'
+
+revert all pharm dir revisions:
+  title: 'Revert all Pharm dir revisions'
+  description: 'Role requires permission <em>view Pharm dir revisions</em> and <em>edit rights</em> for pharm dir entities in question or <em>administer pharm dir entities</em>.'
+
+delete all pharm dir revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Pharm dir revisions</em> and <em>delete rights</em> for pharm dir entities in question or <em>administer pharm dir entities</em>.'
+

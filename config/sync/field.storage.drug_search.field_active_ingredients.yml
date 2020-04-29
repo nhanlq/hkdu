@@ -1,0 +1,21 @@
+uuid: e2d1864e-6309-4473-8296-aabab00bf17d
+langcode: en
+status: true
+dependencies:
+  module:
+    - drug_search
+id: drug_search.field_active_ingredients
+field_name: field_active_ingredients
+entity_type: drug_search
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

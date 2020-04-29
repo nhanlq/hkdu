@@ -1,0 +1,19 @@
+
+# Clinical focus menu items definition
+entity.clinical_focus.collection:
+  title: 'Clinical focus'
+  route_name: entity.clinical_focus.collection
+  description: 'List Clinical focus entities'
+  parent: global_hkdu.admin_epharm_hkdu
+  weight: 100
+
+clinical_focus.admin.structure.settings:
+  title: 'Clinical focus settings'
+  description: 'Configure Clinical focus entities'
+  route_name: clinical_focus.settings
+  parent: entity.clinical_focus.collection
+
+clinical_focus.admin.import:
+  title: 'Clinical focus Batch Import'
+  route_name: clinical_focus.import_xls_form
+  parent: entity.clinical_focus.collection

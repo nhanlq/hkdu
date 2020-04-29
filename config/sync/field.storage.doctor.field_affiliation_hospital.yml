@@ -1,0 +1,19 @@
+uuid: 3e4254da-6fbc-4613-aa3a-6c75e1fbd955
+langcode: en
+status: true
+dependencies:
+  module:
+    - doctor
+    - link
+id: doctor.field_affiliation_hospital
+field_name: field_affiliation_hospital
+entity_type: doctor
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

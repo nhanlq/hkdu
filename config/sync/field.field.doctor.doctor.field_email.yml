@@ -1,0 +1,20 @@
+uuid: 027465b6-a653-4853-91d3-dabcd46e05dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_email
+  module:
+    - doctor
+id: doctor.doctor.field_email
+field_name: field_email
+entity_type: doctor
+bundle: doctor
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

@@ -1,0 +1,21 @@
+uuid: 01b3c22c-de6c-41a7-96c6-eabd8f5ff795
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_audience
+  module:
+    - cme_quiz
+    - options
+id: quiz.quiz.field_audience
+field_name: field_audience
+entity_type: quiz
+bundle: quiz
+label: Audience
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

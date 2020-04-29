@@ -1,0 +1,5 @@
+entity.guidelines.add_form:
+  route_name: entity.guidelines.add_form
+  title: 'Add Guidelines'
+  appears_on:
+    - entity.guidelines.collection

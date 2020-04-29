@@ -1,0 +1,23 @@
+uuid: 6c439dfb-91df-4d79-a5a6-c96410be637a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.tools.field_link
+  module:
+    - link
+    - tools
+id: tools.tools.field_link
+field_name: field_link
+entity_type: tools
+bundle: tools
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

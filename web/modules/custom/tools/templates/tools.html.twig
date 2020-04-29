@@ -1,0 +1,22 @@
+{#
+/**
+ * @file tools.html.twig
+ * Default theme implementation to present Tools data.
+ *
+ * This template is used when viewing Tools pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_tools()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('tools') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

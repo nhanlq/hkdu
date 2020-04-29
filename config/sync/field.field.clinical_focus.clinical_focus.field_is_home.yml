@@ -1,0 +1,24 @@
+uuid: b7b84afa-2794-4128-a50a-b2b27f9d8d7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.clinical_focus.field_is_home
+  module:
+    - clinical_focus
+id: clinical_focus.clinical_focus.field_is_home
+field_name: field_is_home
+entity_type: clinical_focus
+bundle: clinical_focus
+label: 'Is Home'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,26 @@
+# Special offer routing definition
+special_offer.settings_tab:
+  route_name: special_offer.settings
+  title: 'Settings'
+  base_route: special_offer.settings
+
+entity.special_offer.canonical:
+  route_name: entity.special_offer.canonical
+  base_route: entity.special_offer.canonical
+  title: 'View'
+
+entity.special_offer.edit_form:
+  route_name: entity.special_offer.edit_form
+  base_route: entity.special_offer.canonical
+  title: 'Edit'
+
+entity.special_offer.version_history:
+  route_name: entity.special_offer.version_history
+  base_route: entity.special_offer.canonical
+  title: 'Revisions'
+
+entity.special_offer.delete_form:
+  route_name:  entity.special_offer.delete_form
+  base_route:  entity.special_offer.canonical
+  title: Delete
+  weight: 10

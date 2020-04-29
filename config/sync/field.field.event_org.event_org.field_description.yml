@@ -1,0 +1,21 @@
+uuid: 40c0ebc5-8ef3-4491-bcf8-72c71fdfa3e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event_org.field_description
+  module:
+    - cme_event_organizer
+    - text
+id: event_org.event_org.field_description
+field_name: field_description
+entity_type: event_org
+bundle: event_org
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

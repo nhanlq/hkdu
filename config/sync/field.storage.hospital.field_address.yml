@@ -1,0 +1,21 @@
+uuid: 8a0218ff-2af8-42c7-87d3-c8639ae3b657
+langcode: en
+status: true
+dependencies:
+  module:
+    - hospital
+id: hospital.field_address
+field_name: field_address
+entity_type: hospital
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,22 @@
+uuid: 8f957596-57ff-4ca0-9da5-89232a05650a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.clinical_focus.field_expired
+  module:
+    - clinical_focus
+id: clinical_focus.clinical_focus.field_expired
+field_name: field_expired
+entity_type: clinical_focus
+bundle: clinical_focus
+label: Expired
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1584680813
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

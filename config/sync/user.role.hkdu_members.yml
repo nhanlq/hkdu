@@ -1,0 +1,12 @@
+uuid: 8d2e0e89-a872-4ff2-97f5-dfd03338dbba
+langcode: en
+status: true
+dependencies: {  }
+id: hkdu_members
+label: 'HKDU members'
+weight: 5
+is_admin: null
+permissions:
+  - 'access epharm'
+  - 'use text format full_html'
+  - 'view published cme event entities'

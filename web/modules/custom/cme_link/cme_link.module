@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Contains cme_link.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function cme_link_help($route_name, RouteMatchInterface $route_match)
+{
+    switch ($route_name) {
+        // Main module help for the cme_link module.
+        case 'help.page.cme_link':
+            $output = '';
+            $output .= '<h3>' . t('About') . '</h3>';
+            $output .= '<p>' . t('My Awesome Module') . '</p>';
+            return $output;
+
+        default:
+    }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function cme_link_theme($existing, $type, $theme, $path)
+{
+    return [
+        'cme_link' => [
+            'render element' => 'children',
+        ],
+        'cme_link_list' => [
+            'variables' => ['external_link' => NULL, 'get' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'cme-link-list'
+        ],
+        'cme_link_banner_block' => [
+            'variables' => ['external_link' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'cme-link-banner'
+        ],
+    ];
+}

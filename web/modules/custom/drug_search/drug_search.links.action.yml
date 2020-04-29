@@ -1,0 +1,5 @@
+entity.drug_search.add_form:
+  route_name: entity.drug_search.add_form
+  title: 'Add Drug search'
+  appears_on:
+    - entity.drug_search.collection

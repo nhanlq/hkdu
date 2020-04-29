@@ -1,0 +1,5 @@
+name: 'Download'
+type: module
+description: 'Download Entity'
+core: 8.x
+package: 'HKDU'

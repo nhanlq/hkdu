@@ -1,0 +1,14 @@
+
+# Hospital entity menu items definition
+entity.hospital.collection:
+  title: 'Hospital'
+  route_name: entity.hospital.collection
+  description: 'List Hospital entity entities'
+  parent: global_hkdu.admin_hkdu
+  weight: 100
+
+hospital.admin.structure.settings:
+  title: 'Hospital settings'
+  description: 'Configure Hospital entity entities'
+  route_name: hospital.settings
+  parent: entity.hospital.collection

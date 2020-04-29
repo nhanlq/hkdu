@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Contains cme_event_organizer.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function cme_event_organizer_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the cme_event_organizer module.
+    case 'help.page.cme_event_organizer':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Event Organizers') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function cme_event_organizer_theme($existing, $type, $theme, $path) {
+    return [
+        'event_org' => [                            // the entity id
+            // template directory in module or theme
+            'template'  => 'event_org',                // defines base template as /artwork.html.twig
+            'render element' => 'elements',          // Theme API call to define the container of the entity in the render array
+            // The entity will be prefixed with a hash sign as ['elements']['#artwork']
+        ],
+        'cme_event_organizer_list' => [
+            'variables' => ['orgs' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'cme-event-organizer-list'
+        ],
+        'cme_event_organizer_block' => [
+            'variables' => ['orgs' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'cme-event-organizer-banner'
+        ],
+    ];
+}

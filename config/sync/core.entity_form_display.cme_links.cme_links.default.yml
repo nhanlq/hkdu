@@ -1,0 +1,56 @@
+uuid: b0132bdf-2666-4407-b29b-d8cfc24d7114
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.cme_links.cme_links.field_links
+    - field.field.cme_links.cme_links.field_weight
+  module:
+    - cme_link
+    - link
+id: cme_links.cme_links.default
+targetEntityType: cme_links
+bundle: cme_links
+mode: default
+content:
+  field_links:
+    weight: 26
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_weight:
+    weight: 27
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,61 @@
+<article{{ attributes.addClass(classes) }}>
+    <div class="ekkoDz">
+        <div class="bwVcPs">
+            <img src="{{ hospital.field_media.entity.field_media_image.entity.uri.value | image_style('max_650x650') }}"/>
+        </div>
+        <h2 class="kFMZqR">{{ hospital.name.value }}</h2>
+        <div class="fSioVs">
+            <div class="bXXHPz">
+                <div class="jBxOzO">Type</div>
+                <div class="hnOpua">{{ hospital.field_type.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Emergency
+                    Service
+                </div>
+                <div class="hnOpua">{{ hospital.field_emergency_service.value }}</div>
+            </div>
+        </div>
+        <div class="fSioVs">
+            <div class="cxovFu">Contact Information</div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">E-mail
+                </div>
+                <div class="hnOpua"><a
+                            href="{{ hospital.field_email.value }}" class="iIttWr">{{ hospital.field_email.value }}</a>
+                </div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Tel.</div>
+                <div class="hnOpua">{{ hospital.field_tel.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Fax</div>
+                <div class="hnOpua">{{ hospital.field_fax.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Address
+                </div>
+                <div class="hnOpua"><a href="#">{{ hospital.field_address.value }}</a>
+                    <div class="bJCWne">
+                        <div class="iKSPAB">
+                            {{ content }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Website
+                </div>
+                <div class="hnOpua"><a
+                            href="{{ hospital.field_website.value }}" target="_blank" rel="noopener"
+                            class="iIttWr">{{ hospital.field_website.value }}</a></div>
+            </div>
+        </div>
+        <div class="fSioVs">
+            <div class="jvveZx">
+                <h3>About Us</h3>
+                {{ hospital.field_about_us.value|raw }}</div>
+        </div>
+    </div>
+</article>

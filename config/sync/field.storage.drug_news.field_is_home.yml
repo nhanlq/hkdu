@@ -1,0 +1,18 @@
+uuid: 04379445-4836-46c5-94b6-f4648a41a0c2
+langcode: en
+status: true
+dependencies:
+  module:
+    - drug_news
+id: drug_news.field_is_home
+field_name: field_is_home
+entity_type: drug_news
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

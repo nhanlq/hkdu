@@ -1,0 +1,14 @@
+uuid: edf612e1-18ac-4a50-888e-8072bab051a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.hkdu_members
+  module:
+    - user
+id: user_add_role_action.hkdu_members
+label: 'Add the HKDU members role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: hkdu_members

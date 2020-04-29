@@ -1,0 +1,8 @@
+uuid: ab60aa53-6ad6-4722-9f95-a7a05da9b922
+langcode: en
+status: true
+dependencies: {  }
+name: 'Drug Classification'
+vid: drug
+description: ''
+weight: 0

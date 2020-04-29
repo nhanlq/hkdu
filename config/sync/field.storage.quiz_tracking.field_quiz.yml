@@ -1,0 +1,24 @@
+uuid: 2139a7da-3df4-401b-9625-2944662d1499
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_quiz
+    - field_permissions
+    - quiz_tracking
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: quiz_tracking.field_quiz
+field_name: field_quiz
+entity_type: quiz_tracking
+type: entity_reference
+settings:
+  target_type: quiz
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

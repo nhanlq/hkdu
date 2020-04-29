@@ -1,0 +1,19 @@
+
+# Drug news menu items definition
+entity.drug_news.collection:
+  title: 'Drug news'
+  route_name: entity.drug_news.collection
+  description: 'List Drug news entities'
+  parent: global_hkdu.admin_epharm_hkdu
+  weight: 100
+
+drug_news.admin.structure.settings:
+  title: 'Drug news settings'
+  description: 'Configure Drug news entities'
+  route_name: drug_news.settings
+  parent: entity.drug_news.collection
+
+drug_news.admin.import:
+  title: 'Drug News Batch Import'
+  route_name: drug_news.import_xls_form
+  parent: entity.drug_news.collection

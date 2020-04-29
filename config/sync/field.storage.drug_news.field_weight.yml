@@ -1,0 +1,20 @@
+uuid: a7d8d533-668a-463e-b517-3176f335cd5e
+langcode: en
+status: true
+dependencies:
+  module:
+    - drug_news
+id: drug_news.field_weight
+field_name: field_weight
+entity_type: drug_news
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,181 @@
+<article{{ attributes.addClass(classes) }}>
+    <div class="jBmhUe">
+
+        <div class="jXYawz">
+            <div display="flex"
+                 class="fCkIUK">
+                <div class="bNtIbe">
+                    <img src="{{ doctor.field_photo.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}"/>
+                </div>
+                <div class="jILbrN">{{ doctor.name.value }}</div>
+            </div>
+        </div>
+        <div class="ixbjLe">
+            <div class="cxovFu">Contact Information</div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">
+                    Registration No
+                </div>
+                <div class="hnOpua">{{ doctor.field_registration_no.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">HKDU
+                    Membership No
+                </div>
+                <div class="hnOpua">{{ doctor.field_membership_no.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Membership
+                    Joining Iteration
+                </div>
+                <div class="hnOpua">{{ doctor.field_joining_iteration.value }}</div>
+            </div>
+        </div>
+        <div class="ixbjLe">
+            <div class="cxovFu">Member Details</div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Gender
+                </div>
+                <div class="hnOpua">{{ doctor.field_gender.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Language</div>
+                <div class="hnOpua">{{ doctor.field_language.value }}</div>
+            </div>
+            <div class="XXHPz">
+                <div class="jBxOzO">E-mail
+                </div>
+                <div class="hnOpua"><a href="mailto:{{ doctor.field_email.value }}" class="iIttWr">{{ doctor.field_email.value }}</a></div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Mobile
+                </div>
+                <div class="hnOpua">{{ doctor.field_mobile.value }}</div>
+            </div>
+            <div  class="bXXHPz">
+                <div class="jBxOzO">Fax</div>
+                <div class="hnOpua">{{ doctor.field_fax.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Whatsapp
+                </div>
+                <div class="hnOpua">{{ doctor.field_whatsapp.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">WeChat
+                </div>
+                <div class="hnOpua">{{ doctor.field_wechat.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">
+                    Correspondence Address
+                </div>
+                <div class="hnOpua">{{ doctor.field_correspondence_address.value }}</div>
+            </div>
+        </div>
+        <div class="ixbjLe">
+            <div class="cxovFu">Qualifications</div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Basic
+                    Qualifications
+                </div>
+                <div class="hnOpua">{{ doctor.field_basic_qualifications.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">
+                    Professional Qualifications
+                </div>
+                <div class="hnOpua">{{ doctor.field_professional_qualification.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Recognized Specialties
+                </div>
+                <div class="hnOpua">{{ doctor.field_recognized_specialties.value }}</div>
+            </div>
+        </div>
+        <div class="ixbjLe">
+            <div class="cxovFu">Clinic Details</div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Clinic Name
+                </div>
+                <div class="hnOpua">{{ doctor.field_clinic_name.value }}</div>
+            </div>
+            <div  class="bXXHPz">
+                <div class="jBxOzO">Phone
+                </div>
+                <div class="hnOpua">{{ doctor.field_clinic_phone.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Fax</div>
+                <div class="hnOpua">{{ doctor.field_clinic_fax.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Clinic
+                    Address
+                </div>
+                <div class="hnOpua">
+                    <div class="bJCWne">
+                        {{ content }}
+                    </div>
+                </div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Emergency Service
+                </div>
+                <div class="hnOpua">{{ doctor.field_emergency_service.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Emergency Service Contact
+                </div>
+                <div class="hnOpua">{{ doctor.field_emergency_service_contact.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Out-going Services
+                </div>
+                <div class="hnOpua">{{ doctor.field_out_going_services.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Vaccine Service
+                </div>
+                <div class="hnOpua">{{ doctor.field_vaccine_service.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Insurance Scheme Supported
+                </div>
+                <div class="hnOpua">{{ doctor.field_insurance_scheme_supported.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Medical Cards Supported
+                </div>
+                <div class="hnOpua">{{ doctor.field_medical_cards_supported.value }}</div>
+            </div>
+            <div class="bXXHPz">
+                <div class="jBxOzO">Payment Cards
+                </div>
+                <div class="hnOpua">{{ doctor.field_payment_cards.value }}</div>
+            </div>
+        </div>
+        <div class="bBfiTw">
+            <div class="cxovFu">Affiliation of Hospitals</div>
+            <div class="elduio">
+                <div class="fXdYUi">
+                    {% for hospital in doctor.field_affiliation_hospital %}
+                    <a href="{{ hospital.url }}" target="_blank"
+                            class="Content__HyperLink-sc-1pqyh3d-8 yBfEW">
+                        <div class="gkTKde">
+                            <div class="Grid__Box-f9ujw0-0 kwihHI">
+                                <div class="Grid__Box-f9ujw0-0 Content__Title-sc-1pqyh3d-1 cScPFp">{{ hospital.title }}</div>
+                            </div>
+                            <button class="Button__StyledButton-sc-1ocp2z9-2 bySPsk Content__LinkButton-sc-1pqyh3d-7 hpAFsu">
+                                <i class="fa fa-external-link"></i><span
+                                        class="Button__Text-sc-1ocp2z9-1 fjQIzu"></span></button>
+                        </div>
+                    </a>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</article>

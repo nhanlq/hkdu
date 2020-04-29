@@ -1,0 +1,21 @@
+uuid: c116b9d0-da22-4ce7-907c-a08eba05c40d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_clinic_location
+  module:
+    - doctor
+    - geolocation
+id: doctor.doctor.field_clinic_location
+field_name: field_clinic_location
+entity_type: doctor
+bundle: doctor
+label: 'Clinic Location'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geolocation

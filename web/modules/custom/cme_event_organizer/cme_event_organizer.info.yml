@@ -1,0 +1,5 @@
+name: 'CME Event Organizer'
+type: module
+description: 'Event Organizers'
+core: 8.x
+package: 'HKDU'

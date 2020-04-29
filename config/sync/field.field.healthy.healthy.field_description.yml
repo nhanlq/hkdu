@@ -1,0 +1,21 @@
+uuid: cb38f36e-31fb-4a83-bd31-6efdadfd9664
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.healthy.field_description
+  module:
+    - healthy
+    - text
+id: healthy.healthy.field_description
+field_name: field_description
+entity_type: healthy
+bundle: healthy
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

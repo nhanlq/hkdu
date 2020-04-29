@@ -1,0 +1,19 @@
+uuid: 0f1522ca-8172-4f7b-82d1-58b8218248cf
+langcode: en
+status: true
+dependencies:
+  module:
+    - healthy
+    - text
+id: healthy.field_description
+field_name: field_description
+entity_type: healthy
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

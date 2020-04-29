@@ -1,0 +1,22 @@
+uuid: ad08825d-02a9-436c-afcc-67f35602b780
+langcode: en
+status: true
+dependencies:
+  module:
+    - clinical_focus
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: clinical_focus.field_expired
+field_name: field_expired
+entity_type: clinical_focus
+type: timestamp
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

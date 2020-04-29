@@ -1,0 +1,26 @@
+uuid: 9ead8fac-63b5-4500-b2bc-7af5e758a36c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event_tracking.field_cme_event
+  module:
+    - event_tracking
+id: event_tracking.event_tracking.field_cme_event
+field_name: field_cme_event
+entity_type: event_tracking
+bundle: event_tracking
+label: 'CME Event'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:cme_event'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

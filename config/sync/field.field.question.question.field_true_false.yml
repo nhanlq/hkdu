@@ -1,0 +1,46 @@
+uuid: 21f98167-1ef6-42f6-9559-9c87aa6a2563
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.question.field_true_false
+    - paragraphs.paragraphs_type.true_false
+  module:
+    - cme_question
+    - entity_reference_revisions
+id: question.question.field_true_false
+field_name: field_true_false
+entity_type: question
+bundle: question
+label: 'True False'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      true_false: true_false
+    target_bundles_drag_drop:
+      document:
+        weight: 7
+        enabled: false
+      long_answer:
+        weight: 8
+        enabled: false
+      multiple_choice:
+        weight: 9
+        enabled: false
+      short_answer:
+        weight: 10
+        enabled: false
+      single_choice:
+        weight: 11
+        enabled: false
+      true_false:
+        enabled: true
+        weight: 12
+field_type: entity_reference_revisions

@@ -1,0 +1,14 @@
+uuid: 3da410a0-78f3-431d-a59e-a2a8b9af8ee1
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.cme_member
+  module:
+    - user
+id: user_remove_role_action.cme_member
+label: 'Remove the CME Member role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: cme_member

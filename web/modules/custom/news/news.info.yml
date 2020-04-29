@@ -1,0 +1,5 @@
+name: 'News'
+type: module
+description: 'Public News'
+core: 8.x
+package: 'HKDU'

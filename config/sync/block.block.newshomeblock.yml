@@ -1,0 +1,26 @@
+uuid: 35221b1c-79f1-49d3-9b1a-05364a77c50c
+langcode: en
+status: true
+dependencies:
+  module:
+    - news
+    - system
+  theme:
+    - hkdu
+id: newshomeblock
+theme: hkdu
+region: content
+weight: -11
+provider: null
+plugin: news_home_block
+settings:
+  id: news_home_block
+  label: 'News home block'
+  provider: news
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

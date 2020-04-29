@@ -1,0 +1,6 @@
+services:
+  event.order_events_success:
+    class: Drupal\event\EventSubscriber\EventSuccessSubscriber
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: event_subscriber }

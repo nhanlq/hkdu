@@ -1,0 +1,21 @@
+uuid: d2568fde-8c9f-42d2-9065-4f9eb03e86dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_audience
+  module:
+    - cme_event
+    - options
+id: cme_event.cme_event.field_audience
+field_name: field_audience
+entity_type: cme_event
+bundle: cme_event
+label: Audience
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

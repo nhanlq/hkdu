@@ -1,0 +1,26 @@
+# Tools routing definition
+tools.settings_tab:
+  route_name: tools.settings
+  title: 'Settings'
+  base_route: tools.settings
+
+entity.tools.canonical:
+  route_name: entity.tools.canonical
+  base_route: entity.tools.canonical
+  title: 'View'
+
+entity.tools.edit_form:
+  route_name: entity.tools.edit_form
+  base_route: entity.tools.canonical
+  title: 'Edit'
+
+entity.tools.version_history:
+  route_name: entity.tools.version_history
+  base_route: entity.tools.canonical
+  title: 'Revisions'
+
+entity.tools.delete_form:
+  route_name:  entity.tools.delete_form
+  base_route:  entity.tools.canonical
+  title: Delete
+  weight: 10

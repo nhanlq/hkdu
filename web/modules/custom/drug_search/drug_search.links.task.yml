@@ -1,0 +1,26 @@
+# Drug search routing definition
+drug_search.settings_tab:
+  route_name: drug_search.settings
+  title: 'Settings'
+  base_route: drug_search.settings
+
+entity.drug_search.canonical:
+  route_name: entity.drug_search.canonical
+  base_route: entity.drug_search.canonical
+  title: 'View'
+
+entity.drug_search.edit_form:
+  route_name: entity.drug_search.edit_form
+  base_route: entity.drug_search.canonical
+  title: 'Edit'
+
+entity.drug_search.version_history:
+  route_name: entity.drug_search.version_history
+  base_route: entity.drug_search.canonical
+  title: 'Revisions'
+
+entity.drug_search.delete_form:
+  route_name:  entity.drug_search.delete_form
+  base_route:  entity.drug_search.canonical
+  title: Delete
+  weight: 10

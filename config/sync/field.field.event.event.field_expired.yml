@@ -1,0 +1,22 @@
+uuid: 18a34875-1935-43bd-ba3a-7e7c9ba28ea6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event.field_expired
+  module:
+    - event
+id: event.event.field_expired
+field_name: field_expired
+entity_type: event
+bundle: event
+label: Expired
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1584680917
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

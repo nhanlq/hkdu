@@ -1,0 +1,22 @@
+uuid: bcd5cdc8-4f1c-4693-9d11-ad35f105f580
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - hkdu
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: hkdu_help
+theme: hkdu
+region: content
+weight: -12
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

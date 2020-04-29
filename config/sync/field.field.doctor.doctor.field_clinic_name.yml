@@ -1,0 +1,20 @@
+uuid: a3043956-9dad-428e-a896-b1a872b438b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_clinic_name
+  module:
+    - doctor
+id: doctor.doctor.field_clinic_name
+field_name: field_clinic_name
+entity_type: doctor
+bundle: doctor
+label: 'Clinic Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

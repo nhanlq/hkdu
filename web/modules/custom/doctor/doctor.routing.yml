@@ -1,0 +1,8 @@
+
+doctor.doctor_list_controller_list:
+  path: '/doctors'
+  defaults:
+    _controller: '\Drupal\doctor\Controller\DoctorListController::list'
+    _title: 'Doctors'
+  requirements:
+    _permission: 'access content'

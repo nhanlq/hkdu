@@ -1,0 +1,5 @@
+name: 'Event Tracking'
+type: module
+description: 'Event Tracking Order'
+core: 8.x
+package: 'HKDU'

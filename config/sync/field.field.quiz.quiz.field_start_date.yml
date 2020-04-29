@@ -1,0 +1,24 @@
+uuid: a8527297-62cb-4a7a-b708-407a4954d80f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_start_date
+  module:
+    - cme_quiz
+    - datetime
+id: quiz.quiz.field_start_date
+field_name: field_start_date
+entity_type: quiz
+bundle: quiz
+label: 'Start Date'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

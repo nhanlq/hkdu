@@ -1,0 +1,31 @@
+add event tracking entities:
+  title: 'Create new Event tracking entities'
+
+administer event tracking entities:
+  title: 'Administer Event tracking entities'
+  description: 'Allow to access the administration form to configure Event tracking entities.'
+  restrict access: true
+
+delete event tracking entities:
+  title: 'Delete Event tracking entities'
+
+edit event tracking entities:
+  title: 'Edit Event tracking entities'
+
+view published event tracking entities:
+  title: 'View published Event tracking entities'
+
+view unpublished event tracking entities:
+  title: 'View unpublished Event tracking entities'
+
+view all event tracking revisions:
+  title: 'View all Event tracking revisions'
+
+revert all event tracking revisions:
+  title: 'Revert all Event tracking revisions'
+  description: 'Role requires permission <em>view Event tracking revisions</em> and <em>edit rights</em> for event tracking entities in question or <em>administer event tracking entities</em>.'
+
+delete all event tracking revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Event tracking revisions</em> and <em>delete rights</em> for event tracking entities in question or <em>administer event tracking entities</em>.'
+

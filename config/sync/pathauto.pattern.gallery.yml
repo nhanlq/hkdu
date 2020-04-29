@@ -1,0 +1,14 @@
+uuid: 29492e9e-68d7-4073-b729-2c3397673847
+langcode: en
+status: true
+dependencies:
+  module:
+    - gallery
+id: gallery
+label: Gallery
+type: 'canonical_entities:gallery'
+pattern: 'gallery/[gallery:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

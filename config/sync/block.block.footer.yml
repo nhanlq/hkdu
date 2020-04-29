@@ -1,0 +1,25 @@
+uuid: 3eda27f0-0954-40b5-bac2-3e4f2a240e77
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:66459378-03cd-446d-93a5-6f60da1ed898'
+  module:
+    - block_content
+  theme:
+    - hkdu
+id: footer
+theme: hkdu
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:66459378-03cd-446d-93a5-6f60da1ed898'
+settings:
+  id: 'block_content:66459378-03cd-446d-93a5-6f60da1ed898'
+  label: Footer
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

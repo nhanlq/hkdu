@@ -1,0 +1,5 @@
+name: 'Special Offer'
+type: module
+description: 'Special Offer Entity'
+core: 8.x
+package: 'HKDU'

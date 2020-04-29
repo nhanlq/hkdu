@@ -1,0 +1,21 @@
+
+# Score menu items definition
+entity.score.collection:
+  title: 'Score'
+  route_name: entity.score.collection
+  description: 'List Score entities'
+  parent: cme.admin_cme
+  weight: 100
+
+score.admin.structure.settings:
+  title: 'Score settings'
+  description: 'Configure Score entities'
+  route_name: score.settings
+  parent: entity.score.collection
+
+entity.score.attend:
+  title: 'Import Attendance'
+  route_name: cme_score.event_attend
+  description: 'List Score entities'
+  parent: cme.admin_cme
+  weight: 100

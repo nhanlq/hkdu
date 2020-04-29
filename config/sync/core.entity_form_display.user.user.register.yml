@@ -1,0 +1,83 @@
+uuid: ac4090e3-4306-4ea6-958e-059e2b8697ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.user.register
+    - field.field.user.user.commerce_remote_id
+    - field.field.user.user.field_contact_number
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_point
+    - field.field.user.user.field_registration_no
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - image
+    - telephone
+    - user
+_core:
+  default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
+id: user.user.register
+targetEntityType: user
+bundle: user
+mode: register
+content:
+  account:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_contact_number:
+    type: telephone_default
+    weight: 2
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_first_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_last_name:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_registration_no:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_picture:
+    type: image_image
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  commerce_remote_id: true
+  contact: true
+  council_member_profiles: true
+  customer_profiles: true
+  doctor_profiles: true
+  drug_supplier_profiles: true
+  field_point: true
+  hkdu_member_profiles: true
+  langcode: true
+  language: true
+  path: true
+  timezone: true
+  translation: true

@@ -1,0 +1,15 @@
+
+clinical_focus.clinical_list_controller_list:
+  path: '/e-pharm/clinical-focus'
+  defaults:
+    _controller: '\Drupal\clinical_focus\Controller\ClinicalListController::list'
+    _title: 'Clinical Focus'
+  requirements:
+    _permission: 'view list clinical focus'
+clinical_focus.import_xls_form:
+  path: '/admin/hkdu/clinical-focus/import'
+  defaults:
+    _form: '\Drupal\clinical_focus\Form\ImportXLSForm'
+    _title: 'Clinical Forcus Batch Import'
+  requirements:
+    _permission: 'view list clinical focus'

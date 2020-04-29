@@ -1,0 +1,4 @@
+services:
+  cme_question.question:
+    class: Drupal\cme_question\Question
+    arguments: []

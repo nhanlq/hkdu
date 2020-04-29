@@ -1,0 +1,13 @@
+{
+    "name": "cme_quiz_tracking",
+    "type": "drupal-module",
+    "description": "My Awesome Module",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/cme_quiz_tracking",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/cme_quiz_tracking",
+        "source": "http://cgit.drupalcode.org/cme_quiz_tracking",
+    },
+}

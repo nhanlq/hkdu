@@ -1,0 +1,14 @@
+uuid: 7fbd2c73-e23b-41ff-b78f-6d0d8456136a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.hkdu_members
+  module:
+    - user
+id: user_remove_role_action.hkdu_members
+label: 'Remove the HKDU members role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: hkdu_members

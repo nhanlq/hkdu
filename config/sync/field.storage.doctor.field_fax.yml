@@ -1,0 +1,21 @@
+uuid: e1948278-6474-4c35-b3c8-fe5792f64e1e
+langcode: en
+status: true
+dependencies:
+  module:
+    - doctor
+id: doctor.field_fax
+field_name: field_fax
+entity_type: doctor
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

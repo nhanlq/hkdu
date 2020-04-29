@@ -1,0 +1,22 @@
+{#
+/**
+ * @file drug_search.html.twig
+ * Default theme implementation to present Drug search data.
+ *
+ * This template is used when viewing Drug search pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_drug_search()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('drug_search') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

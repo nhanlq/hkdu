@@ -1,0 +1,5 @@
+name: 'Clinical Focus'
+type: module
+description: 'Clinical Focus Entity'
+core: 8.x
+package: 'HKDU'

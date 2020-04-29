@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Contains zero.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function zero_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the zero module.
+    case 'help.page.zero':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Zero custom') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function zero_theme() {
+  return [
+    'zero' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+
+function zero_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+    if($form_id=='clinical_focus_edit_form'){
+
+    }
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+//function zero_field_widget_form_alter(&$element, \Drupal\Core\Form\FormStateInterface &$form_state, $context) {
+//
+//    if (get_class($context['widget']) === 'Drupal\content_moderation\Plugin\Field\FieldWidget\ModerationStateWidget' && !empty($context['form']['#attributes'])) {
+//       $element['state']['#options'] = ['draft' =>t('Draft'),'pending_review' => t('Pending Review')];
+//        return;
+//    }
+//}

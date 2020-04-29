@@ -1,0 +1,26 @@
+uuid: cc7b07ed-fe15-4a49-b4ef-13ba138d8595
+langcode: en
+status: true
+dependencies:
+  module:
+    - healthy
+    - system
+  theme:
+    - hkdu
+id: healthyhomeblock
+theme: hkdu
+region: content
+weight: -10
+provider: null
+plugin: healthy_home_block
+settings:
+  id: healthy_home_block
+  label: 'Healthy home block'
+  provider: healthy
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

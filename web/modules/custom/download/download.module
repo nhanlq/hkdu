@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Contains download.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function download_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the download module.
+    case 'help.page.download':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Download Entity') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function download_theme($existing, $type, $theme, $path) {
+    return [
+        'download' => [                            // the entity id// template directory in module or theme
+            'template'  => 'download',                // defines base template as /artwork.html.twig
+            'render element' => 'elements',          // Theme API call to define the container of the entity in the render array
+            // The entity will be prefixed with a hash sign as ['elements']['#artwork']
+        ],
+        'download_list' => [
+            'variables' => ['downloads' => NULL,'get'=>NULL, 'paragraphs' =>NULL],
+            'path' => $path . '/templates/',
+            'template' => 'download-list'
+        ],
+        'download_banner_block' => [
+            'variables' => ['download' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'download-banner'
+        ],
+    ];
+}
+

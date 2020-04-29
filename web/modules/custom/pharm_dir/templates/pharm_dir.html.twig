@@ -1,0 +1,22 @@
+{#
+/**
+ * @file pharm_dir.html.twig
+ * Default theme implementation to present Pharm dir data.
+ *
+ * This template is used when viewing Pharm dir pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_pharm_dir()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('pharm_dir') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

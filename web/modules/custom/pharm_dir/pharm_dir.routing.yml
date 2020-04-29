@@ -1,0 +1,15 @@
+
+pharm_dir.pharm_dir_list_controller_list:
+  path: '/e-pharm/pharm-dir'
+  defaults:
+    _controller: '\Drupal\pharm_dir\Controller\PharmDirListController::list'
+    _title: 'Pharm Dir'
+  requirements:
+    _permission: 'access content'
+pharm_dir.import_xls_form:
+  path: '/admin/hkdu/pharm-dir/import'
+  defaults:
+    _form: '\Drupal\pharm_dir\Form\ImportXlsForm'
+    _title: 'ImportXlsForm'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,20 @@
+uuid: 3008d474-5551-4ae7-8291-7a9beea27565
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_recognized_specialties
+  module:
+    - doctor
+id: doctor.doctor.field_recognized_specialties
+field_name: field_recognized_specialties
+entity_type: doctor
+bundle: doctor
+label: 'Recognized Specialties'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

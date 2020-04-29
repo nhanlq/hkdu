@@ -1,0 +1,25 @@
+uuid: 8fba332c-c940-4af7-9add-a57ca79a9b03
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_organizer
+    - paragraphs.paragraphs_type.org_point
+id: paragraph.org_point.field_organizer
+field_name: field_organizer
+entity_type: paragraph
+bundle: org_point
+label: Organizer
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:event_org'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

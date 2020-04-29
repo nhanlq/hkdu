@@ -1,0 +1,28 @@
+uuid: 8111d3fb-f435-4521-8888-194bd93704aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.pharm_dir.field_price_list
+  module:
+    - link
+    - pharm_dir
+id: pharm_dir.pharm_dir.field_price_list
+field_name: field_price_list
+entity_type: pharm_dir
+bundle: pharm_dir
+label: 'Price List'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    attributes: {  }
+    uri: 'route:<nolink>'
+    title: ''
+    options: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

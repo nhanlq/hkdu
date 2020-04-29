@@ -1,0 +1,14 @@
+uuid: e9cb56ca-1ce6-4e4e-b545-09d6a13e0a45
+langcode: en
+status: true
+dependencies:
+  module:
+    - healthy
+id: healthy
+label: Healthy
+type: 'canonical_entities:healthy'
+pattern: 'healthy/[healthy:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

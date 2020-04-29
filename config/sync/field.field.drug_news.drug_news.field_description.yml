@@ -1,0 +1,21 @@
+uuid: f3335576-bd1d-4d1b-a98f-41901c5a523b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.drug_news.field_description
+  module:
+    - drug_news
+    - text
+id: drug_news.drug_news.field_description
+field_name: field_description
+entity_type: drug_news
+bundle: drug_news
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

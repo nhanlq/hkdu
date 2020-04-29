@@ -1,0 +1,26 @@
+uuid: 15caf1c3-d0a2-4073-97ca-13b39b3ab626
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event.field_count
+  module:
+    - event
+id: event.event.field_count
+field_name: field_count
+entity_type: event
+bundle: event
+label: Count
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: !!float 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

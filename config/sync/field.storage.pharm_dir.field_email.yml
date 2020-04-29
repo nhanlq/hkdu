@@ -1,0 +1,18 @@
+uuid: 67c00b05-681e-43df-8641-5949095804f8
+langcode: en
+status: true
+dependencies:
+  module:
+    - pharm_dir
+id: pharm_dir.field_email
+field_name: field_email
+entity_type: pharm_dir
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

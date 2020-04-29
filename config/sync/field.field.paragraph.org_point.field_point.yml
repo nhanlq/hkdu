@@ -1,0 +1,23 @@
+uuid: 4ea52f11-a72c-4bcf-98e1-bed291578cd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_point
+    - paragraphs.paragraphs_type.org_point
+id: paragraph.org_point.field_point
+field_name: field_point
+entity_type: paragraph
+bundle: org_point
+label: 'CME Point'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

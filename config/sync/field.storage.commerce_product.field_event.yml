@@ -1,0 +1,20 @@
+uuid: a5f9dc84-988d-43ee-98e8-b0c0e3c4cca1
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - event
+id: commerce_product.field_event
+field_name: field_event
+entity_type: commerce_product
+type: entity_reference
+settings:
+  target_type: event
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

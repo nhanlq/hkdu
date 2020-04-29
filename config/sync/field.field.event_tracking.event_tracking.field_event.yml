@@ -1,0 +1,26 @@
+uuid: bea059d2-33f1-402e-8890-1c9a6a5788ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event_tracking.field_event
+  module:
+    - event_tracking
+id: event_tracking.event_tracking.field_event
+field_name: field_event
+entity_type: event_tracking
+bundle: event_tracking
+label: Event
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:event'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

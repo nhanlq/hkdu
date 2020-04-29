@@ -1,0 +1,20 @@
+uuid: 585d6d38-b315-42da-af15-607e07bdb240
+langcode: en
+status: true
+dependencies:
+  module:
+    - special_offer
+id: special_offer.field_count
+field_name: field_count
+entity_type: special_offer
+type: decimal
+settings:
+  precision: 10
+  scale: 0
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

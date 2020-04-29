@@ -1,0 +1,40 @@
+<!-- Add you custom twig html here -->
+<div display="flex" class="dYgNtr">
+        <form action="/cme/quiz/{{ quiz.id.value }}" method="post" name="quiz_test">
+            <div class="leBAWZ">
+                <div class="cxovFu">Test Result</div>
+                <div display="block,flex" class="bXXHPz">
+                    <div width="100%,236" class="jBxOzO">CME Point</div>
+                    <div class="hnOpua">{{ quiz.field_point.value }}</div>
+                </div>
+                <div display="block,flex" class="bXXHPz">
+                    <div width="100%,236" class="jBxOzO">Correct Answered</div>
+                    <div class="hnOpua">{{ result.correct }}</div>
+                </div>
+                <div display="block,flex" class="bXXHPz">
+                    <div width="100%,236" class="jBxOzO">Passing Percentage</div>
+                    <div class="hnOpua">{{ result.field_percent.value }}%</div>
+                </div>
+                <div display="block,flex" class="bXXHPz">
+                    <div width="100%,236" class="jBxOzO">Passed/False</div>
+                    <div class="hnOpua">{{ result.pass }}
+                    </div>
+                </div>
+            </div>
+            {% for question in questions %}
+                <div class="dDPfwp">
+                    <div class="kHgOap">
+                        <span class="gvmZok">Q{{ loop.index }}</span></div>
+                    <div class="gdnuxf">{{ question.question.name.value }}</div>
+                    <div class="cWWxaz">
+                        <div class="kBLJXs">
+                            {{ question.type|raw }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="submit-button">
+                <input class="submit-btn" type="submit" name="submit" value="Try again"/>
+            </div>
+        </form>
+</div>

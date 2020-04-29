@@ -1,0 +1,15 @@
+uuid: 0986c03a-cf06-40c1-a972-ec987818b0f2
+name: 'Hong Kong Doctor Union'
+mail: hkdu@branch8.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/3
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yTxtFqBHnEWxQswuWvkjE8mKw2t8oKuCL1q8KnfHuGE
+mail_notification: ''

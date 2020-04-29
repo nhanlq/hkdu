@@ -1,0 +1,26 @@
+uuid: 9ae2f69a-ec51-4836-9fd9-f4a211c71614
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.drug_search.field_weight
+  module:
+    - drug_search
+id: drug_search.drug_search.field_weight
+field_name: field_weight
+entity_type: drug_search
+bundle: drug_search
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

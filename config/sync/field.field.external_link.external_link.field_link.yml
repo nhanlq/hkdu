@@ -1,0 +1,23 @@
+uuid: 1459cfc8-f882-40b8-afe3-25451161250d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.external_link.field_link
+  module:
+    - external_link
+    - link
+id: external_link.external_link.field_link
+field_name: field_link
+entity_type: external_link
+bundle: external_link
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

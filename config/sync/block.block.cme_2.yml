@@ -1,0 +1,30 @@
+uuid: a15bacf5-9f92-4007-9166-f331819b3b6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.cme
+  module:
+    - system
+  theme:
+    - hkdu
+id: cme_2
+theme: hkdu
+region: navigation_collapsible
+weight: -12
+provider: null
+plugin: 'system_menu_block:cme'
+settings:
+  id: 'system_menu_block:cme'
+  label: CME
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    pages: "/cme\r\n/cme/*"
+    negate: false
+    context_mapping: {  }

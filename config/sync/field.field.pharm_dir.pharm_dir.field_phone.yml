@@ -1,0 +1,20 @@
+uuid: 4208a7ad-020f-4165-82de-a8c80024abca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.pharm_dir.field_phone
+  module:
+    - pharm_dir
+id: pharm_dir.pharm_dir.field_phone
+field_name: field_phone
+entity_type: pharm_dir
+bundle: pharm_dir
+label: Phone
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,21 @@
+uuid: fea663bf-107a-40c8-b248-a712bf915f71
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.drug_search.field_indications
+  module:
+    - drug_search
+    - text
+id: drug_search.drug_search.field_indications
+field_name: field_indications
+entity_type: drug_search
+bundle: drug_search
+label: Indications
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

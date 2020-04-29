@@ -1,0 +1,20 @@
+uuid: 2a65252f-0b17-4eac-aa22-d77e06005404
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_clinic_address
+  module:
+    - doctor
+id: doctor.doctor.field_clinic_address
+field_name: field_clinic_address
+entity_type: doctor
+bundle: doctor
+label: 'Clinic Address'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

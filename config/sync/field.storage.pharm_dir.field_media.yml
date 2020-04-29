@@ -1,0 +1,20 @@
+uuid: ad13bcd0-10cf-4eb8-b69d-3e9583e99a98
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - pharm_dir
+id: pharm_dir.field_media
+field_name: field_media
+entity_type: pharm_dir
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

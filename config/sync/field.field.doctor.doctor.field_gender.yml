@@ -1,0 +1,21 @@
+uuid: 9a281a4e-568e-427c-8472-6278df8abd54
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_gender
+  module:
+    - doctor
+    - options
+id: doctor.doctor.field_gender
+field_name: field_gender
+entity_type: doctor
+bundle: doctor
+label: Gender
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

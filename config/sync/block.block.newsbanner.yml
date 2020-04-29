@@ -1,0 +1,26 @@
+uuid: 935e3025-174d-46c7-a752-a8ea37947791
+langcode: en
+status: true
+dependencies:
+  module:
+    - news
+    - system
+  theme:
+    - hkdu
+id: newsbanner
+theme: hkdu
+region: header
+weight: -9
+provider: null
+plugin: banner
+settings:
+  id: banner
+  label: 'News Banner'
+  provider: news
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/news/*'
+    negate: false
+    context_mapping: {  }

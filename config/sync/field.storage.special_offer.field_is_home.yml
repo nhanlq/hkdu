@@ -1,0 +1,18 @@
+uuid: 4bccb851-a1f7-4ae2-a31c-29311ee66454
+langcode: en
+status: true
+dependencies:
+  module:
+    - special_offer
+id: special_offer.field_is_home
+field_name: field_is_home
+entity_type: special_offer
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,26 @@
+# Healthy routing definition
+healthy.settings_tab:
+  route_name: healthy.settings
+  title: 'Settings'
+  base_route: healthy.settings
+
+entity.healthy.canonical:
+  route_name: entity.healthy.canonical
+  base_route: entity.healthy.canonical
+  title: 'View'
+
+entity.healthy.edit_form:
+  route_name: entity.healthy.edit_form
+  base_route: entity.healthy.canonical
+  title: 'Edit'
+
+entity.healthy.version_history:
+  route_name: entity.healthy.version_history
+  base_route: entity.healthy.canonical
+  title: 'Revisions'
+
+entity.healthy.delete_form:
+  route_name:  entity.healthy.delete_form
+  base_route:  entity.healthy.canonical
+  title: Delete
+  weight: 10

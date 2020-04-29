@@ -1,0 +1,26 @@
+# Event Organizer routing definition
+event_org.settings_tab:
+  route_name: event_org.settings
+  title: 'Settings'
+  base_route: event_org.settings
+
+entity.event_org.canonical:
+  route_name: entity.event_org.canonical
+  base_route: entity.event_org.canonical
+  title: 'View'
+
+entity.event_org.edit_form:
+  route_name: entity.event_org.edit_form
+  base_route: entity.event_org.canonical
+  title: 'Edit'
+
+entity.event_org.version_history:
+  route_name: entity.event_org.version_history
+  base_route: entity.event_org.canonical
+  title: 'Revisions'
+
+entity.event_org.delete_form:
+  route_name:  entity.event_org.delete_form
+  base_route:  entity.event_org.canonical
+  title: Delete
+  weight: 10

@@ -1,0 +1,26 @@
+# Gallery routing definition
+gallery.settings_tab:
+  route_name: gallery.settings
+  title: 'Settings'
+  base_route: gallery.settings
+
+entity.gallery.canonical:
+  route_name: entity.gallery.canonical
+  base_route: entity.gallery.canonical
+  title: 'View'
+
+entity.gallery.edit_form:
+  route_name: entity.gallery.edit_form
+  base_route: entity.gallery.canonical
+  title: 'Edit'
+
+entity.gallery.version_history:
+  route_name: entity.gallery.version_history
+  base_route: entity.gallery.canonical
+  title: 'Revisions'
+
+entity.gallery.delete_form:
+  route_name:  entity.gallery.delete_form
+  base_route:  entity.gallery.canonical
+  title: Delete
+  weight: 10

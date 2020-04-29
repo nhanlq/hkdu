@@ -1,0 +1,21 @@
+uuid: 2e4ea264-3389-4167-9db8-6c609db02106
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.special_offer.field_audience
+  module:
+    - options
+    - special_offer
+id: special_offer.special_offer.field_audience
+field_name: field_audience
+entity_type: special_offer
+bundle: special_offer
+label: Audience
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

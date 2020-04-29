@@ -1,0 +1,116 @@
+uuid: 2a5716bd-31cb-48be-9895-44e70a5b69d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.drug_news.drug_news.field_audience
+    - field.field.drug_news.drug_news.field_count
+    - field.field.drug_news.drug_news.field_description
+    - field.field.drug_news.drug_news.field_expired
+    - field.field.drug_news.drug_news.field_file
+    - field.field.drug_news.drug_news.field_is_home
+    - field.field.drug_news.drug_news.field_media
+    - field.field.drug_news.drug_news.field_tags
+    - field.field.drug_news.drug_news.field_thumb
+    - field.field.drug_news.drug_news.field_weight
+  module:
+    - drug_news
+    - options
+id: drug_news.drug_news.default
+targetEntityType: drug_news
+bundle: drug_news
+mode: default
+content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_audience:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_count:
+    weight: 6
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_expired:
+    weight: 8
+    label: above
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+    type: timestamp
+    region: content
+  field_file:
+    type: entity_reference_entity_view
+    weight: 5
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_is_home:
+    weight: 1
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_media:
+    type: entity_reference_entity_view
+    weight: 3
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_thumb:
+    type: entity_reference_entity_view
+    weight: 4
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_weight:
+    weight: 2
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  name:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  field_description: true
+  field_tags: true
+  langcode: true
+  search_api_excerpt: true
+  user_id: true

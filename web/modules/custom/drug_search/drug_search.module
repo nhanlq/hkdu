@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Contains drug_search.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function drug_search_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the drug_search module.
+    case 'help.page.drug_search':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Drug Search') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function drug_search_theme($existing, $type, $theme, $path) {
+    return [
+        'drug_search' => [                            // the entity id// template directory in module or theme
+            'template'  => 'drug_search',                // defines base template as /artwork.html.twig
+            'render element' => 'elements',          // Theme API call to define the container of the entity in the render array
+            // The entity will be prefixed with a hash sign as ['elements']['#artwork']
+        ],
+        'drug_search_list' => [
+            'variables' => ['drug_search' => NULL, 'author'=>NULL, 'date' =>NULL, 'tags' => NULL,
+                'keys' => NULL,'search'=>NULL, 'ind' => NULL, 'ing' =>NULL, 'name'=>NULL],
+            'path' => $path . '/templates/',
+            'template' => 'drug-search-list'
+        ],
+        'drug_search_home' => [
+            'variables' => ['drug_search' => NULL, 'author'=>NULL, 'date' =>NULL],
+            'path' => $path . '/templates/',
+            'template' => 'drug-search-home'
+        ],
+        'drug_search_banner_block' => [
+            'variables' => ['drug_search' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'drug-search-banner'
+        ],
+    ];
+}

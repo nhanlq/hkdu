@@ -1,0 +1,29 @@
+uuid: 3710e666-ad3c-46ba-a35a-ad64dd5bbded
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.special_offer.field_media
+    - media.type.image
+  module:
+    - special_offer
+id: special_offer.special_offer.field_media
+field_name: field_media
+entity_type: special_offer
+bundle: special_offer
+label: Media
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

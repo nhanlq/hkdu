@@ -1,0 +1,5 @@
+name: 'Hospital'
+type: module
+description: 'Hospital Entity'
+core: 8.x
+package: 'HKDU'

@@ -1,0 +1,20 @@
+uuid: 98578a35-fcaa-414f-80af-7efd9e521859
+langcode: en
+status: true
+dependencies:
+  module:
+    - pharm_dir
+id: pharm_dir.field_weight
+field_name: field_weight
+entity_type: pharm_dir
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: d720e245-7cf9-447a-a790-97fdd0754127
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page
+    - node.type.banner_home
+  module:
+    - options
+id: node.banner_home.field_page
+field_name: field_page
+entity_type: node
+bundle: banner_home
+label: Page
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

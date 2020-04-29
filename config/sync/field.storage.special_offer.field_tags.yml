@@ -1,0 +1,20 @@
+uuid: c54bc8ab-e267-498e-9323-ce7c0b8cbd46
+langcode: en
+status: true
+dependencies:
+  module:
+    - special_offer
+    - taxonomy
+id: special_offer.field_tags
+field_name: field_tags
+entity_type: special_offer
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

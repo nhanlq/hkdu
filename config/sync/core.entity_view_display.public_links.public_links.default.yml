@@ -1,0 +1,44 @@
+uuid: 3cd3954e-8a70-4709-bc79-51e06bb9c784
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.public_links.public_links.field_link
+  module:
+    - link
+    - public_links
+    - user
+id: public_links.public_links.default
+targetEntityType: public_links
+bundle: public_links
+mode: default
+content:
+  field_link:
+    weight: 1
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  name:
+    label: above
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

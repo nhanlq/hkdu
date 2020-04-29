@@ -1,0 +1,21 @@
+uuid: 92cdc38e-abd4-4b77-9aa9-5b2b6c61ef04
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.pharm_dir.field_audience
+  module:
+    - options
+    - pharm_dir
+id: pharm_dir.pharm_dir.field_audience
+field_name: field_audience
+entity_type: pharm_dir
+bundle: pharm_dir
+label: Audience
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

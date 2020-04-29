@@ -1,0 +1,14 @@
+uuid: 7eb13552-7faf-455a-97ee-62c6483f7907
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.drug_suppliers
+  module:
+    - user
+id: user_add_role_action.drug_suppliers
+label: 'Add the Drug suppliers role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: drug_suppliers

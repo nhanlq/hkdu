@@ -1,0 +1,26 @@
+uuid: 56fc4fee-a4ad-42ea-bfd5-d3dbc00ce375
+langcode: en
+status: true
+dependencies:
+  module:
+    - special_offer
+    - system
+  theme:
+    - hkdu
+id: specialbannerblock
+theme: hkdu
+region: header
+weight: -10
+provider: null
+plugin: special_banner_block
+settings:
+  id: special_banner_block
+  label: 'Special banner block'
+  provider: special_offer
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/e-pharm/special-offer/*'
+    negate: false
+    context_mapping: {  }

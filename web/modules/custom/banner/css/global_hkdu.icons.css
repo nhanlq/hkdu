@@ -1,0 +1,21 @@
+/**
+ * @file
+ * Commerce toolbar icon styling.
+ */
+
+/* Bar styling (first row), currently unused. */
+.toolbar-icon-global-hkdu-admin-hkdu:before {
+  background-image: url("../icons/orgchart.svg");
+}
+ .toolbar-icon-global-hkdu-admin-hkdu:active:before {
+  background-image: url("../icons/orgchart.svg");
+}
+
+/* Tray styling (second row) */
+.toolbar-icon-global-hkdu-admin-hkdu:before {
+  background-image: url("../icons/orgchart.svg");
+}
+.toolbar-icon-global-hkdu-admin-hkdu:active:before,
+.toolbar-icon-global-hkdu-admin-hkdu.is-active:before {
+  background-image: url("../icons/orgchart.svg");
+}

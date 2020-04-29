@@ -1,0 +1,29 @@
+uuid: 93c628a4-a03c-47bb-ac60-33cdfc6f6c5c
+langcode: en
+status: true
+dependencies: {  }
+id: admins
+label: Admins
+weight: 3
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access epharm'
+  - 'access hkdu epharm'
+  - 'access toolbar'
+  - 'add cme event entities'
+  - 'create field_audience'
+  - 'delete all cme event revisions'
+  - 'delete cme event entities'
+  - 'edit cme event entities'
+  - 'edit field_audience'
+  - 'edit own field_audience'
+  - 'revert all cme event revisions'
+  - 'suppliers hkdu sites'
+  - 'use text format full_html'
+  - 'view all cme event revisions'
+  - 'view field_audience'
+  - 'view own field_audience'
+  - 'view published cme event entities'
+  - 'view the administration theme'
+  - 'view unpublished cme event entities'

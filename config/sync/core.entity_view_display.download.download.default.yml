@@ -1,0 +1,42 @@
+uuid: 0edf454c-0722-47c3-8638-36959aa6b4c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.download.download.field_media
+  module:
+    - download
+    - entity_reference_revisions
+    - user
+id: download.download.default
+targetEntityType: download
+bundle: download
+mode: default
+content:
+  field_media:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  name:
+    label: above
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true

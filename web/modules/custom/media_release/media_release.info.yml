@@ -1,0 +1,5 @@
+name: 'Media Release'
+type: module
+description: 'Media Release Entity'
+core: 8.x
+package: 'HKDU'

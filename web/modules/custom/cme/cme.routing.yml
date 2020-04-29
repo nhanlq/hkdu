@@ -1,0 +1,32 @@
+
+cme.default_controller_index:
+  path: '/admin/cme'
+  defaults:
+    _controller: '\Drupal\cme\Controller\DefaultController::index'
+    _title: 'CME Administrator'
+  requirements:
+    _permission: 'manage cme'
+
+cme.default_controller_index_20:
+  path: '/cme'
+  defaults:
+    _controller: '\Drupal\cme\Controller\IndexController::index'
+    _title: 'CME'
+  requirements:
+    _permission: 'view published cme event entities'
+
+cme.import_controller_import:
+  path: '/admin/cme/import'
+  defaults:
+    _controller: '\Drupal\cme\Controller\ImportController::import'
+    _title: 'Import Video Users'
+  requirements:
+    _permission: 'access content'
+
+cme.index_controller_index:
+  path: '/cme/index'
+  defaults:
+    _controller: '\Drupal\cme\Controller\IndexController::index'
+    _title: 'CME'
+  requirements:
+    _permission: 'view published cme event entities'

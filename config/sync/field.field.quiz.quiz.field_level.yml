@@ -1,0 +1,21 @@
+uuid: 6990ed46-7692-4f1f-8224-92dd9d611320
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_level
+  module:
+    - cme_quiz
+    - options
+id: quiz.quiz.field_level
+field_name: field_level
+entity_type: quiz
+bundle: quiz
+label: Level
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

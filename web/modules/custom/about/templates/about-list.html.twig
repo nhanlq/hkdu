@@ -1,0 +1,51 @@
+{#
+/**
+ * @file about.html.twig
+ * Default theme implementation to present Default entity data.
+ *
+ * This template is used when viewing Default entity pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_about()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if abouts %}
+<div class="about-us-wrapper">
+    <div class="Grid__Box-f9ujw0-0 ArticleCardList__ListBox-sc-1nl1zr5-0 hKtiWd">
+        {% for about in abouts %}
+        <div class="Grid__Box-f9ujw0-0 hftOhy col-xs-12 col-sm-12 col-lg-12">
+            <a variant="vertical,horizontal" class="Card__Wrapper-sc-1phbti1-0 dlodqi"
+               href="{{ path('entity.about.canonical', {'about': about.id.value}) }}">
+                <div class="Card__Cover-sc-1phbti1-1 eFKGnI" style="background-image: url({{ about.field_media.entity.field_media_image.entity.uri.value | image_style('original') }})">
+                    {#<img src="{{ about.field_image.entity.uri.value | image_style('about_thumb') }}"/>#}
+                </div>
+                <div class="Card__Container-sc-1phbti1-3 kZuHUf">
+                    <div class="Card__Header-sc-1phbti1-2 hYpLPh">
+                        <div class="ArticleCard__Head-jc3vpl-3 cLNuli">
+                            <div class="ArticleCard__AuthorInfo-jc3vpl-0 jyYtMa">
+                                <div class="ArticleCard__Avatar-jc3vpl-1 iFBalX"></div>
+                                {{ about.Owner.name.value }}
+                            </div>
+                            <span class="ArticleCard__Date-jc3vpl-2 kASIaT">{{ about.created.value|date("Y-m-d") }}</span></div>
+                    </div>
+                    <div class="CardMeta__MetaContent-mwcsl3-0 isAOXn">
+                        <div><h3 class="CardMeta__Title-mwcsl3-1 flCmuI">{{ about.name.value }}</h3>
+                            <p class="CardMeta__Description-mwcsl3-2 itSPxh">{{ about.field_description.value|striptags }}</p>
+                        </div>
+                        <div class="CardMeta__Content-mwcsl3-3 eclIQj">
+                            <div width="100%" class="Group__List-nb4rtt-0 gPcWZD"></div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+      {% endfor %}
+    </div>
+</div>
+{% endif %}

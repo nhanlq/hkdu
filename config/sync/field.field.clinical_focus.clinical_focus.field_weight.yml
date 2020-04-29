@@ -1,0 +1,26 @@
+uuid: a0816a3a-3b2b-42d4-950a-668dc6f52944
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.clinical_focus.field_weight
+  module:
+    - clinical_focus
+id: clinical_focus.clinical_focus.field_weight
+field_name: field_weight
+entity_type: clinical_focus
+bundle: clinical_focus
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,23 @@
+uuid: 7b9d09d5-059f-4515-b4d9-4423fa1b28c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_affiliation_hospital
+  module:
+    - doctor
+    - link
+id: doctor.doctor.field_affiliation_hospital
+field_name: field_affiliation_hospital
+entity_type: doctor
+bundle: doctor
+label: 'Affiliation of Hospitals'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

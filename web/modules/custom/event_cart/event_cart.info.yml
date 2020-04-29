@@ -1,0 +1,5 @@
+name: 'Event Cart'
+type: module
+description: 'Event AddTo Cart'
+core: 8.x
+package: 'HKDU'

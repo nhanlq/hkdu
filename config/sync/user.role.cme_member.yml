@@ -1,0 +1,9 @@
+uuid: cdc9358d-0ec7-4f5c-b164-4ed99041ade3
+langcode: en
+status: true
+dependencies: {  }
+id: cme_member
+label: 'CME Member'
+weight: 8
+is_admin: null
+permissions: {  }

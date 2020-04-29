@@ -1,0 +1,16 @@
+uuid: 9659be88-b536-49ab-956b-5e7a61fa9337
+langcode: en
+status: true
+dependencies: {  }
+third_party_settings:
+  commerce_order:
+    customer_profile_type: false
+id: drug_supplier
+label: 'Drug Supplier'
+display_label: ''
+multiple: false
+registration: true
+roles:
+  drug_suppliers: drug_suppliers
+allow_revisions: false
+new_revision: false

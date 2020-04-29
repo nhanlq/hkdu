@@ -1,0 +1,19 @@
+uuid: 478367a2-e6f4-4025-9184-be429aca78aa
+langcode: en
+status: true
+dependencies:
+  module:
+    - drug_search
+    - text
+id: drug_search.field_indications
+field_name: field_indications
+entity_type: drug_search
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

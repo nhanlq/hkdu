@@ -1,0 +1,23 @@
+uuid: 90814471-d8bc-4b7e-ad12-943660b66ad5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_member_price
+  module:
+    - cme_event
+    - commerce_price
+id: cme_event.cme_event.field_member_price
+field_name: field_member_price
+entity_type: cme_event
+bundle: cme_event
+label: 'Member Price'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_currencies:
+    - '0'
+field_type: commerce_price

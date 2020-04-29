@@ -1,0 +1,8 @@
+
+healthy.healthy_controller_list:
+  path: '/healthy'
+  defaults:
+    _controller: '\Drupal\healthy\Controller\HealthyController::list'
+    _title: 'E-Healthy'
+  requirements:
+    _permission: 'access content'

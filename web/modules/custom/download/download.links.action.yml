@@ -1,0 +1,5 @@
+entity.download.add_form:
+  route_name: entity.download.add_form
+  title: 'Add Download'
+  appears_on:
+    - entity.download.collection

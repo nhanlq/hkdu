@@ -1,0 +1,26 @@
+uuid: 89df9bec-fc88-45dc-861a-58d6e2c730e6
+langcode: en
+status: true
+dependencies:
+  module:
+    - drug_news
+    - system
+  theme:
+    - hkdu
+id: drugnewhomeblock
+theme: hkdu
+region: content
+weight: -6
+provider: null
+plugin: drug_new_home_block
+settings:
+  id: drug_new_home_block
+  label: 'Drug new home block'
+  provider: drug_news
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /e-pharm
+    negate: false
+    context_mapping: {  }

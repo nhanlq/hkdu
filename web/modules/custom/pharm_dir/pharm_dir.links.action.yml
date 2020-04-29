@@ -1,0 +1,5 @@
+entity.pharm_dir.add_form:
+  route_name: entity.pharm_dir.add_form
+  title: 'Add Pharm dir'
+  appears_on:
+    - entity.pharm_dir.collection

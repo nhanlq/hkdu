@@ -1,0 +1,21 @@
+uuid: 58909fef-f6a0-4410-982a-9f6b3e998f81
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.hospital.field_location
+  module:
+    - geolocation
+    - hospital
+id: hospital.hospital.field_location
+field_name: field_location
+entity_type: hospital
+bundle: hospital
+label: Location
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geolocation

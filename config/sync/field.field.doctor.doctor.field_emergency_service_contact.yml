@@ -1,0 +1,20 @@
+uuid: 4126cec7-4483-4571-9e30-85dc44b6e034
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_emergency_service_contact
+  module:
+    - doctor
+id: doctor.doctor.field_emergency_service_contact
+field_name: field_emergency_service_contact
+entity_type: doctor
+bundle: doctor
+label: 'Emergency Service Contact'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

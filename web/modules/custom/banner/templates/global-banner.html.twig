@@ -1,0 +1,36 @@
+{% if banner %}
+    {#<div class="huGJVP">#}
+        {#<div class="slick-list1">#}
+            {#<div class="slick-track1">#}
+                {#<div data-index="0"  tabindex="-1" aria-hidden="false"#}
+                     {#style="outline: none;">#}
+                    {#<div>#}
+                        {#<a class="lDEAa" style="background-image: url({{ banner.field_image.entity.uri.value | image_style('original') }})"#}
+                           {#rel="noopener" target="_blank" tabindex="-1" color="white"#}
+                           {#class="Carousel__SlideWrap-nw3uw1-0 gABttI" style="width: 100%; display: inline-block;">#}
+                            {#<div class="Carousel__SlideContent-nw3uw1-1 bMILwk">#}
+                                {#<h2 class="Carousel__SlideTitle-nw3uw1-2 cHdsrC">{{ banner.field_short_desc.value }}</h2>#}
+                                {#<p class="Carousel__SlideDescription-nw3uw1-3 kMAhQW">{{ banner.field_description.value }}</p>#}
+                            {#</div>#}
+                        {#</a>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+
+    <div class="slick-slider">
+        {% for media in banner.field_media %}
+            <div>
+                <a rel="noopener" target="_blank" tabindex="-1" color="white"
+                   class="gIVySV" style="background-image: url({{ media.entity.field_media_image.entity.uri.value | image_style('original') }})">
+                    <div class="bMILwk">
+                        <h2 class="cHdsrC">{{ banner.field_short_desc.value|raw  }}</h2>
+                        <p class="kMAhQW">{{ banner.field_description.value|raw }}</p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endif %}

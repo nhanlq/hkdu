@@ -1,0 +1,60 @@
+uuid: 76c9932b-24cf-49c3-90c4-7da0e154e35f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.tools.tools.field_link
+    - field.field.tools.tools.field_weight
+  module:
+    - link
+    - tools
+    - user
+id: tools.tools.default
+targetEntityType: tools
+bundle: tools
+mode: default
+content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_link:
+    weight: 1
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_weight:
+    weight: 2
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  name:
+    label: inline
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true

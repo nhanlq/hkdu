@@ -1,0 +1,121 @@
+<article{{ attributes.addClass(classes) }}>
+    <div class="ekkoDz">
+        <div class="eFGCwC"><img style="max-width:100%"
+                                 src="{{ pharm_dir.field_media.entity.field_media_image.entity.uri.value | image_style('original') }}"/>
+        </div>
+        <h2 class=" ijKZUF">{{ pharm_dir.name.value }}</h2>
+        {% if pharm_dir.field_file is not empty %}
+            <div class="Grid__Box-f9ujw0-0 bBnAZb">
+                <div display="block,flex" class="cWPhzd">
+                    <div width="100%,236" class="Grid__Box-f9ujw0-0 MedicalContent__RowLabel-sc-1jlbeob-2 jBxOzO">File
+                        for
+                        Download
+                    </div>
+                    <div class="gKKegu">
+                        <div class="kCsMFd">
+                            <div display="flex" class="fSsnif">
+                                <div width="1,0.3333333333333333" class="culkFL">
+                                    <a target="_blank" height="120px"
+                                       href="{{ file_url(pharm_dir.field_file.entity.field_media_document.entity.uri.value) }}"
+                                       class="htzoqv">
+                                        <div class="kZuHUf">
+                                            <div class="isAOXn">
+                                                <div>
+                                                    <h3 class="flCmuI">{{ pharm_dir.field_file.entity.field_media_document.entity.filename.value }}</h3>
+                                                </div>
+                                                <div class="eclIQj">
+                                                    <div class="jamtIE" width="100%"><span
+                                                                rel="noopener" target="_blank" color="#4A90E2"
+                                                                font-size="13px"
+                                                                class="fLaWbo">
+                                    <i font-size="20" name="LINK" color="icon" class="fal fa fa-paperclip"></i>
+
+                                </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div class="fSioVs">
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">E-mail</div>
+                <div class="hnOpua"><a href="mailto:{{ pharm_dir.field_email.value }}"
+                                       class="iIttWr">{{ pharm_dir.field_email.value }}</a>
+                </div>
+            </div>
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">Website</div>
+                <div class="hnOpua">
+                    <a href="{{ pharm_dir.field_website.value }}" target="_blank" rel="noopener"
+                       class="iIttWr">{{ pharm_dir.field_website.value }}</a>
+                </div>
+            </div>
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">Phone</div>
+                <div class="hnOpua">{{ pharm_dir.field_phone.value }}</div>
+            </div>
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">Fax</div>
+                <div class="hnOpua">{{ pharm_dir.field_fax.value }}</div>
+            </div>
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">Address</div>
+                <div class="hnOpua">{{ pharm_dir.field_address.value }}
+                </div>
+            </div>
+            <div class="fSioVs">
+                <div class="jvveZx">
+                    {{ pharm_dir.field_description.value|raw }}
+                </div>
+            </div>
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">Order Form
+                </div>
+                <div class="hnOpua">
+                    <div display="flex" class="doLCQt"><a
+                                href="" rel="noopener" target="_blank" class="iIttWr">
+                            <button disabled="" class="hOzyft"><span
+                                        class="fjQIzu">Download</span></button>
+                        </a><a href="mailto:{{ pharm_dir.field_order_form.title }}"
+                               class="iIttWr">
+                            <button class="hkBURO"><span
+                                        class="fjQIzu">Email Order Form</span></button>
+                        </a></div>
+                </div>
+            </div>
+            <div display="block,flex" class=" bXXHPz">
+                <div width="100%,236" class="jBxOzO">Price List
+                </div>
+                <div class=" hnOpua">
+                    <div display="flex" class="doLCQt"><a
+                                href="" rel="noopener" target="_blank" class="iIttWr">
+                            <button disabled="" class="hOzyft"><span
+                                        class="fjQIzu">Download</span></button>
+                        </a><a href="mailto:{{ pharm_dir.field_price_list.title }}"
+                               class="iIttWr">
+                            <button class="hkBURO"><span
+                                        class="fjQIzu">Price List Request</span></button>
+                        </a></div>
+                </div>
+            </div>
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">Sales Visit
+                </div>
+                <div class="hnOpua"><a
+                            href="mailto:{{ pharm_dir.field_sales_visit.value }}"
+                            class="iIttWr">
+                        <button class="hkBURO"><span
+                                    class="fjQIzu">Sales Visit Request</span></button>
+                    </a></div>
+            </div>
+        </div>
+        <div class="fSioVs"></div>
+    </div>
+</article>

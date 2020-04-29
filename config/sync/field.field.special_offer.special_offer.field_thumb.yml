@@ -1,0 +1,29 @@
+uuid: 246aa589-66cf-446f-9b08-0d895c697010
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.special_offer.field_thumb
+    - media.type.image
+  module:
+    - special_offer
+id: special_offer.special_offer.field_thumb
+field_name: field_thumb
+entity_type: special_offer
+bundle: special_offer
+label: Thumb
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

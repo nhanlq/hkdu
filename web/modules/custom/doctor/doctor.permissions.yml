@@ -1,0 +1,31 @@
+add doctor entity entities:
+  title: 'Create new Doctor entity entities'
+
+administer doctor entity entities:
+  title: 'Administer Doctor entity entities'
+  description: 'Allow to access the administration form to configure Doctor entity entities.'
+  restrict access: true
+
+delete doctor entity entities:
+  title: 'Delete Doctor entity entities'
+
+edit doctor entity entities:
+  title: 'Edit Doctor entity entities'
+
+view published doctor entity entities:
+  title: 'View published Doctor entity entities'
+
+view unpublished doctor entity entities:
+  title: 'View unpublished Doctor entity entities'
+
+view all doctor entity revisions:
+  title: 'View all Doctor entity revisions'
+
+revert all doctor entity revisions:
+  title: 'Revert all Doctor entity revisions'
+  description: 'Role requires permission <em>view Doctor entity revisions</em> and <em>edit rights</em> for doctor entity entities in question or <em>administer doctor entity entities</em>.'
+
+delete all doctor entity revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Doctor entity revisions</em> and <em>delete rights</em> for doctor entity entities in question or <em>administer doctor entity entities</em>.'
+

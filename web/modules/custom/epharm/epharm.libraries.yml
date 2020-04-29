@@ -1,0 +1,5 @@
+epharm_menu:
+  version: VERSION
+
+  js:
+    js/epharm.js: { }

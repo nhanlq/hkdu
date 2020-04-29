@@ -1,0 +1,17 @@
+<article{{ attributes.addClass(classes) }}>
+    <div class="gFJypg">
+        <div class="kkSVuL">{{ gallery.name.value }}</div>
+        <div class="cgfNGU">{{ gallery.field_date.value }} at {{ gallery.field_place.value }}</div>
+        <div class="hRFBJC">{{ gallery.field_description.value|raw }}</div>
+    </div>
+    <div class="dAtiMd">
+        {% for img in gallery.field_media %}
+            <div class="ckWGLZ">
+                <a class="gallery-group" href="{{ img.entity.field_media_image.entity.uri.value | image_style('original') }}">
+                    <div style="background-image: url({{ img.entity.uri.value | image_style('original') }})"
+                         class="dZXNdD"></div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</article>

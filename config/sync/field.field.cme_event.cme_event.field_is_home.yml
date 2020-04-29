@@ -1,0 +1,24 @@
+uuid: 83be13ea-6304-41af-9c02-ae3b47a36916
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_is_home
+  module:
+    - cme_event
+id: cme_event.cme_event.field_is_home
+field_name: field_is_home
+entity_type: cme_event
+bundle: cme_event
+label: 'Is home'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

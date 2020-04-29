@@ -1,0 +1,5 @@
+name: 'Healthy'
+type: module
+description: 'Healthy Entity'
+core: 8.x
+package: 'HKDU'

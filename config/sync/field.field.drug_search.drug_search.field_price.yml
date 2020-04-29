@@ -1,0 +1,20 @@
+uuid: b4912243-3250-4413-a21f-4627ee599c73
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.drug_search.field_price
+  module:
+    - drug_search
+id: drug_search.drug_search.field_price
+field_name: field_price
+entity_type: drug_search
+bundle: drug_search
+label: Price
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

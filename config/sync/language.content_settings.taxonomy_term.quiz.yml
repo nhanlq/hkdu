@@ -1,0 +1,11 @@
+uuid: 7255db6b-598b-4609-bf9e-3d467459d027
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.quiz
+id: taxonomy_term.quiz
+target_entity_type_id: taxonomy_term
+target_bundle: quiz
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains cme_user.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function cme_user_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the cme_user module.
+    case 'help.page.cme_user':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Customer relation for users') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function cme_user_theme() {
+  return [
+    'cme_user' => [
+      'render element' => 'children',
+    ],
+  ];
+}

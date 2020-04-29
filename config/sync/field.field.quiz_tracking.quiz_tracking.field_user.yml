@@ -1,0 +1,29 @@
+uuid: 3171ad58-fda6-44c5-8713-247e2d6eb870
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz_tracking.field_user
+  module:
+    - quiz_tracking
+id: quiz_tracking.quiz_tracking.field_user
+field_name: field_user
+entity_type: quiz_tracking
+bundle: quiz_tracking
+label: User
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

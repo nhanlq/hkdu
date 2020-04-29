@@ -1,0 +1,10 @@
+uuid: 915f0aba-4ebe-401b-8483-bae7d92edfb1
+langcode: en
+status: true
+dependencies: {  }
+id: single_choice
+label: 'Single Choice'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

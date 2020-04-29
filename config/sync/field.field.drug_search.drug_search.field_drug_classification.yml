@@ -1,0 +1,30 @@
+uuid: ff077171-9e5f-40a2-9431-228b93aea7fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.drug_search.field_drug_classification
+    - taxonomy.vocabulary.drug
+  module:
+    - drug_search
+id: drug_search.drug_search.field_drug_classification
+field_name: field_drug_classification
+entity_type: drug_search
+bundle: drug_search
+label: 'Drug Classification'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      drug: drug
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

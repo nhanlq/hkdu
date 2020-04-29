@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Contains banner.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function banner_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the banner module.
+    case 'help.page.banner':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Banner Global') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function banner_theme($existing, $type, $theme, $path) {
+  return [
+    'banner' => [
+      'render element' => 'children',
+    ],
+      'global_banner_block' => [
+          'variables' => ['banner' => NULL],
+          'path' => $path . '/templates/',
+          'template' => 'global-banner'
+      ],
+  ];
+}

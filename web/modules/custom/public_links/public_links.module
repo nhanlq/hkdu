@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * @file
+ * Contains public_links.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function public_links_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the public_links module.
+    case 'help.page.public_links':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Public Links') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+/**
+ * Implements hook_theme().
+ */
+function public_links_theme($existing, $type, $theme, $path) {
+    return [
+        'public_links' => [                            // the entity id// template directory in module or theme
+            'template'  => 'public_links',                // defines base template as /artwork.html.twig
+            'render element' => 'elements',          // Theme API call to define the container of the entity in the render array
+            // The entity will be prefixed with a hash sign as ['elements']['#artwork']
+        ],
+        'public_links_list' => [
+            'variables' => ['public_links' => NULL,'get'=>NULL],
+            'path' => $path . '/templates/',
+            'template' => 'public-links-list'
+        ],
+        'public_links_banner_block' => [
+            'variables' => ['public_links' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'public-links-banner'
+        ],
+    ];
+}
+

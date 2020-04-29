@@ -1,0 +1,26 @@
+<div display="flex" class="dYgNtr">
+    {% for tool in tools %}
+    <div class="feBSwY"><h3 class="Khytj">{{ tool.name.value }}</h3></div>
+    <div display="flex" class="bwcSmZ">
+        {% for link in tool.field_link %}
+        <div width="1,0.3333333333333333" class="culkFL">
+            <a target="_blank" height="120px" href="{{ link.url }}" class="htzoqv">
+                <div class="kZuHUf">
+                    <div class="isAOXn">
+                        <div><h3 class="flCmuI">{{ link.title }}</h3></div>
+                        <div class="eclIQj">
+                            <div class="jamtIE" width="100%"><span
+                                        rel="noopener" target="_blank" color="#4A90E2" font-size="13px"
+                                        class="fLaWbo">
+                                    <i font-size="20" name="LINK" color="icon" class="fal fa fa-external-link"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,5 @@
+entity.score.add_form:
+  route_name: entity.score.add_form
+  title: 'Add Score'
+  appears_on:
+    - entity.score.collection

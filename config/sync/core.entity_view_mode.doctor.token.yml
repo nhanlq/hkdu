@@ -1,0 +1,10 @@
+uuid: 7cd23beb-8b03-49bf-bf6f-658c6ceeb8c0
+langcode: en
+status: true
+dependencies:
+  module:
+    - doctor
+id: doctor.token
+label: Token
+targetEntityType: doctor
+cache: true

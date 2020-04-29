@@ -1,0 +1,20 @@
+uuid: a4d2dc3c-6805-4b2e-a9fe-730dcf9b83f7
+langcode: en
+status: true
+dependencies:
+  module:
+    - special_offer
+id: special_offer.field_weight
+field_name: field_weight
+entity_type: special_offer
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

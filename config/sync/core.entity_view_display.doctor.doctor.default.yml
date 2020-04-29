@@ -1,0 +1,114 @@
+uuid: ede9de58-844c-46e2-aedf-efe4cdd02656
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.doctor.doctor.field_affiliation_hospital
+    - field.field.doctor.doctor.field_basic_qualifications
+    - field.field.doctor.doctor.field_clinic_address
+    - field.field.doctor.doctor.field_clinic_fax
+    - field.field.doctor.doctor.field_clinic_location
+    - field.field.doctor.doctor.field_clinic_name
+    - field.field.doctor.doctor.field_clinic_phone
+    - field.field.doctor.doctor.field_correspondence_address
+    - field.field.doctor.doctor.field_email
+    - field.field.doctor.doctor.field_emergency_service
+    - field.field.doctor.doctor.field_emergency_service_contact
+    - field.field.doctor.doctor.field_fax
+    - field.field.doctor.doctor.field_gender
+    - field.field.doctor.doctor.field_insurance_scheme_supported
+    - field.field.doctor.doctor.field_joining_iteration
+    - field.field.doctor.doctor.field_language
+    - field.field.doctor.doctor.field_medical_cards_supported
+    - field.field.doctor.doctor.field_membership_no
+    - field.field.doctor.doctor.field_mobile
+    - field.field.doctor.doctor.field_out_going_services
+    - field.field.doctor.doctor.field_payment_cards
+    - field.field.doctor.doctor.field_photo
+    - field.field.doctor.doctor.field_professional_qualification
+    - field.field.doctor.doctor.field_recognized_specialties
+    - field.field.doctor.doctor.field_registration_no
+    - field.field.doctor.doctor.field_vaccine_service
+    - field.field.doctor.doctor.field_wechat
+    - field.field.doctor.doctor.field_whatsapp
+  module:
+    - doctor
+    - geolocation
+id: doctor.doctor.default
+targetEntityType: doctor
+bundle: doctor
+mode: default
+content:
+  field_clinic_location:
+    weight: 0
+    label: hidden
+    settings:
+      set_marker: '1'
+      title: ''
+      info_text: ''
+      google_map_settings:
+        height: 200px
+        width: 100%
+        type: ROADMAP
+        zoom: '10'
+        maxZoom: 18
+        minZoom: 0
+        mapTypeControl: 1
+        streetViewControl: 1
+        zoomControl: 1
+        scrollwheel: 1
+        gestureHandling: auto
+        draggable: 1
+        style: ''
+        info_auto_display: 1
+        marker_icon_path: ''
+        disableAutoPan: 1
+        rotateControl: 0
+        fullscreenControl: 0
+        preferScrollingToZooming: 0
+        disableDoubleClickZoom: 0
+      use_overridden_map_settings: 0
+      common_map: ''
+    third_party_settings: {  }
+    type: geolocation_map
+    region: content
+  field_photo:
+    type: entity_reference_entity_view
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_affiliation_hospital: true
+  field_basic_qualifications: true
+  field_clinic_address: true
+  field_clinic_fax: true
+  field_clinic_name: true
+  field_clinic_phone: true
+  field_correspondence_address: true
+  field_email: true
+  field_emergency_service: true
+  field_emergency_service_contact: true
+  field_fax: true
+  field_gender: true
+  field_insurance_scheme_supported: true
+  field_joining_iteration: true
+  field_language: true
+  field_medical_cards_supported: true
+  field_membership_no: true
+  field_mobile: true
+  field_out_going_services: true
+  field_payment_cards: true
+  field_professional_qualification: true
+  field_recognized_specialties: true
+  field_registration_no: true
+  field_vaccine_service: true
+  field_wechat: true
+  field_whatsapp: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  user_id: true

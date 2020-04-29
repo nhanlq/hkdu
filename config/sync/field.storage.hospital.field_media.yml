@@ -1,0 +1,20 @@
+uuid: 84f57fce-ffb4-401d-893d-ef97c12048a0
+langcode: en
+status: true
+dependencies:
+  module:
+    - hospital
+    - media
+id: hospital.field_media
+field_name: field_media
+entity_type: hospital
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

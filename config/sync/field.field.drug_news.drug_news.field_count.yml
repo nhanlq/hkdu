@@ -1,0 +1,26 @@
+uuid: 11f95177-ae42-4948-8500-884252c3a7e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.drug_news.field_count
+  module:
+    - drug_news
+id: drug_news.drug_news.field_count
+field_name: field_count
+entity_type: drug_news
+bundle: drug_news
+label: Count
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: !!float 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

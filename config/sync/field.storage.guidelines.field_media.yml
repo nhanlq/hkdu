@@ -1,0 +1,24 @@
+uuid: 4f7226b5-ef17-4b6f-920d-f1705feadf9c
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_guidelines
+    - field_permissions
+    - media
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: guidelines.field_media
+field_name: field_media
+entity_type: guidelines
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

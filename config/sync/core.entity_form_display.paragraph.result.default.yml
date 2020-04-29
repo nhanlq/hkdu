@@ -1,0 +1,51 @@
+uuid: a50b3cb5-87a0-4f51-a2a5-2c2d5ffabcd4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.result.field_answer
+    - field.field.paragraph.result.field_correct_answer
+    - field.field.paragraph.result.field_paragraph_id
+    - field.field.paragraph.result.field_question
+    - paragraphs.paragraphs_type.result
+id: paragraph.result.default
+targetEntityType: paragraph
+bundle: result
+mode: default
+content:
+  field_answer:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_correct_answer:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_paragraph_id:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_question:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true

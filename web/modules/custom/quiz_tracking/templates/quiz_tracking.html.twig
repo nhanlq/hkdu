@@ -1,0 +1,22 @@
+{#
+/**
+ * @file quiz_tracking.html.twig
+ * Default theme implementation to present Quiz tracking data.
+ *
+ * This template is used when viewing Quiz tracking pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_quiz_tracking()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('quiz_tracking') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

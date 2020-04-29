@@ -1,0 +1,14 @@
+
+# Banner entity menu items definition
+entity.banner.collection:
+  title: 'Banner'
+  route_name: entity.banner.collection
+  description: 'List Banner entity entities'
+  parent: global_hkdu.admin_hkdu
+  weight: 100
+
+banner.admin.structure.settings:
+  title: 'Banner settings'
+  description: 'Configure Banner entity entities'
+  route_name: banner.settings
+  parent: entity.banner.collection

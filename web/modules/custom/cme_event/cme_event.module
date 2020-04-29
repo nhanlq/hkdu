@@ -1,0 +1,273 @@
+<?php
+
+/**
+ * @file
+ * Contains cme_event.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\commerce_product\Entity\ProductVariation;
+use Drupal\commerce_product\Entity\Product;
+use Drupal\commerce_price\Price;
+use Drupal\commerce_promotion\Entity\Promotion;
+
+/**
+ * Implements hook_help().
+ */
+function cme_event_help($route_name, RouteMatchInterface $route_match)
+{
+    switch ($route_name) {
+        // Main module help for the cme_event module.
+        case 'help.page.cme_event':
+            $output = '';
+            $output .= '<h3>' . t('About') . '</h3>';
+            $output .= '<p>' . t('CME Event') . '</p>';
+            return $output;
+
+        default:
+    }
+}
+
+/**
+ * Implements hook_theme().
+ */
+/**
+ * Implements hook_theme().
+ */
+function cme_event_theme($existing, $type, $theme, $path)
+{
+    return [
+        'cme_event' => [                            // the entity id// template directory in module or theme
+            'template' => 'cme_event',                // defines base template as /artwork.html.twig
+            'render element' => 'elements',          // Theme API call to define the container of the entity in the render array
+            // The entity will be prefixed with a hash sign as ['elements']['#artwork']
+        ],
+        'cme_event_list' => [
+            'variables' => ['events' => NULL, 'author' => NULL, 'date' => NULL, 'tags' => NULL, 'get' => NULL, 'search' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'cme-event-list'
+        ],
+        'cme_event_home' => [
+            'variables' => ['events' => NULL, 'author' => NULL, 'date' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'cme-event-home'
+        ],
+        'cme_event_banner_block' => [
+            'variables' => ['event' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'cme-event-banner'
+        ],
+    ];
+}
+
+
+function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
+{
+
+    // Insert the new entity into a fictional table of all entities.
+    if ($entity->getEntityTypeId() == 'cme_event') {
+        // create variation first
+        $variation = ProductVariation::create([
+            'type' => 'default',
+            'sku' => 'CME-EVENT-' . $entity->id(),
+            'price' => new Price($entity->get('field_price')->number, 'HKD'),
+            'list_price' => $entity->get('field_member_price')->number ? new Price($entity->get('field_member_price')->number, 'HKD') : 0,
+        ]);
+        $variation->save();
+
+        // Create product using variations previously saved
+
+        $product = Product::create([
+            'type' => 'default',
+            'title' => $entity->get('name')->value,
+            'field_cme_event' => $entity->id(),
+            'variations' => [$variation],
+        ]);
+        $product->save();
+
+        //create promotion if have pricelist
+        if ($entity->get('field_member_price')->number > 0) {
+            $price = $entity->get('field_price')->number - $entity->get('field_member_price')->number;
+            $promotion = Promotion::create([
+                'name' => 'CME-EVENT-' . $entity->id(),
+                'order_types' => ['default'],
+                'stores' => [1],
+                'offer' => [
+                    'target_plugin_id' => 'order_item_fixed_amount_off',
+                    'target_plugin_configuration' => [
+                        'display_inclusive' => TRUE,
+                        'conditions' => [
+                            [
+                                'plugin' => 'order_item_product',
+                                'configuration' => [
+                                    'products' => [
+                                        [
+                                            'product' => $product->uuid(),
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ],
+
+                        'amount' => [
+                            'number' => $price,
+                            'currency_code' => 'HKD'
+                        ],
+                    ],
+                ],
+                'conditions' => [
+                    'target_plugin_id' => 'order_customer_role',
+                    'target_plugin_configuration' => [
+                        'roles' => [
+                            'administrator' => 'administrator',
+                            'admins' => 'admins',
+                            'doctor' => 'doctor',
+                            'hkdu_members' => 'hkdu_members',
+                            'drug_suppliers' => 'drug_suppliers',
+                            'council_members' => 'council_members'
+                        ]
+                    ],
+                ],
+                'start_date' => date('Y-m-d') . 'T' . date('H:i:s'),
+                'status' => TRUE,
+            ]);
+
+            $promotion->save();
+        }
+
+    }
+
+}
+
+
+function cme_event_entity_update(Drupal\Core\Entity\EntityInterface $entity)
+{
+
+    // Insert the new entity into a fictional table of all entities.
+    if ($entity->getEntityTypeId() == 'cme_event') {
+        if (!getCmeProductEvent($entity->id())) {
+            // create variation first
+            $variation = ProductVariation::create([
+                'type' => 'default',
+                'sku' => 'CME-EVENT-' . $entity->id(),
+                'price' => new Price($entity->get('field_price')->number, 'HKD'),
+                'list_price' => $entity->get('field_member_price')->number ? new Price($entity->get('field_member_price')->number, 'HKD') : 0,
+            ]);
+            $variation->save();
+
+            // Create product using variations previously saved
+
+            $product = Product::create([
+                'type' => 'default',
+                'title' => $entity->get('name')->value,
+                'field_cme_event' => $entity->id(),
+                'variations' => [$variation],
+            ]);
+            $product->save();
+            //create promotion if have pricelist
+            if ($entity->get('field_member_price')->number > 0) {
+                $price = $entity->get('field_price')->number - $entity->get('field_member_price')->number;
+                $promotion = Promotion::create([
+                    'name' => 'CME-EVENT-' . $entity->id(),
+                    'order_types' => ['default'],
+                    'stores' => [1],
+                    'offer' => [
+                        'target_plugin_id' => 'order_item_fixed_amount_off',
+                        'target_plugin_configuration' => [
+                            'display_inclusive' => TRUE,
+                            'conditions' => [
+                                [
+                                    'plugin' => 'order_item_product',
+                                    'configuration' => [
+                                        'products' => [
+                                            [
+                                                'product' => $product->uuid(),
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'amount' => [
+                                'number' => $price,
+                                'currency_code' => 'HKD'
+                            ],
+                        ],
+                    ],
+                    'conditions' => [
+                        'target_plugin_id' => 'order_customer_role',
+                        'target_plugin_configuration' => [
+                            'roles' => [
+                                'administrator' => 'administrator',
+                                'admins' => 'admins',
+                                'doctor' => 'doctor',
+                                'hkdu_members' => 'hkdu_members',
+                                'drug_suppliers' => 'drug_suppliers',
+                                'council_members' => 'council_members'
+                            ]
+                        ],
+                    ],
+                    'start_date' => date('Y-m-d') . 'T' . date('H:i:s'),
+                    'status' => TRUE,
+                ]);
+
+                $promotion->save();
+            }
+        }
+    }
+
+}
+
+function getCmeProductEvent($event_id)
+{
+    $ids = \Drupal::entityQuery('commerce_product')
+        ->condition('type', 'default')
+        ->condition('status', 1)
+        ->condition('field_cme_event', $event_id)
+        ->execute();
+    $results = \Drupal\commerce_product\Entity\Product::loadMultiple($ids);
+    $result = reset($results);
+    return $result;
+}
+
+function checkExpiredCmeEvent($event)
+{
+    $current = time();
+    $date = strtotime($event->get('field_date')->value . ' 00:00:00');
+    if ($current > $date) {
+        return true;
+    } else {
+        return null;
+    }
+}
+
+/**
+ * get product by Event
+ */
+function getCmeProduct($event_id)
+{
+    $ids = \Drupal::entityQuery('commerce_product')
+        ->condition('type', 'default')
+        ->condition('status', 1)
+        ->condition('field_cme_event', $event_id)
+        ->execute();
+    $results = \Drupal\commerce_product\Entity\Product::loadMultiple($ids);
+    $result = reset($results);
+    return $result;
+}
+
+function checkCmeEventStatusUser($event_id)
+{
+    $return = null;
+    $user = \Drupal::currentUser();
+    $uid = $user->id();
+    $ids = \Drupal::entityQuery('event_tracking')
+        ->condition('status', 1)
+        ->condition('field_cme_event', $event_id)
+        ->condition('field_user', $uid)
+        ->execute();
+    $results = \Drupal\event_tracking\Entity\EventTracking::loadMultiple($ids);
+    if ($results) {
+        $return = true;
+    }
+    return $return;
+}

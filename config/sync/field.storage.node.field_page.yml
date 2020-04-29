@@ -1,0 +1,27 @@
+uuid: b227dc08-adf8-43b8-bdac-aea8d80212bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_page
+field_name: field_page
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: public
+      label: Public
+    -
+      value: e-pharm
+      label: E-Pharm
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,5 @@
+entity.event_tracking.add_form:
+  route_name: entity.event_tracking.add_form
+  title: 'Add Event tracking'
+  appears_on:
+    - entity.event_tracking.collection

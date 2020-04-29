@@ -1,0 +1,20 @@
+uuid: 780b43b0-9320-4a8f-966c-ec0825a0dca4
+langcode: en
+status: true
+dependencies:
+  theme:
+    - hkdu
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: hkdu_page_title
+theme: hkdu
+region: content
+weight: -14
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

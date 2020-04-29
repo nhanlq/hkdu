@@ -1,0 +1,48 @@
+uuid: 3c4c04ea-f663-4a6b-bff8-88ed1046377e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.compact
+    - field.field.user.user.commerce_remote_id
+    - field.field.user.user.field_contact_number
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_point
+    - field.field.user.user.field_registration_no
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - image
+    - user
+_core:
+  default_config_hash: '-cLsS3M3JycipXQt9rEb81_HxKneReoGuRh8ijcOPXs'
+id: user.user.compact
+targetEntityType: user
+bundle: user
+mode: compact
+content:
+  user_picture:
+    type: image
+    weight: 0
+    region: content
+    settings:
+      image_style: thumbnail
+      image_link: content
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  commerce_remote_id: true
+  council_member_profiles: true
+  customer_profiles: true
+  doctor_profiles: true
+  drug_supplier_profiles: true
+  field_contact_number: true
+  field_first_name: true
+  field_last_name: true
+  field_point: true
+  field_registration_no: true
+  hkdu_member_profiles: true
+  langcode: true
+  member_for: true
+  search_api_excerpt: true

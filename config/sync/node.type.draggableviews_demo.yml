@@ -1,0 +1,23 @@
+uuid: 83e8abb2-8dc5-4b0a-bac4-0263ede2610e
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - draggableviews_demo
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: CwhefYyfpEH-XAqaRa3PG9krOLFioO_NtDwAi548b7M
+name: 'Draggableviews Demo'
+type: draggableviews_demo
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

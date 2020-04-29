@@ -1,0 +1,20 @@
+uuid: 606b9a14-7385-42a0-a813-62367dda79e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.pharm_dir.field_fax
+  module:
+    - pharm_dir
+id: pharm_dir.pharm_dir.field_fax
+field_name: field_fax
+entity_type: pharm_dir
+bundle: pharm_dir
+label: Fax
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

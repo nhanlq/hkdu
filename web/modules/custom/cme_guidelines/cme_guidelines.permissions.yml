@@ -1,0 +1,31 @@
+add guidelines entities:
+  title: 'Create new Guidelines entities'
+
+administer guidelines entities:
+  title: 'Administer Guidelines entities'
+  description: 'Allow to access the administration form to configure Guidelines entities.'
+  restrict access: true
+
+delete guidelines entities:
+  title: 'Delete Guidelines entities'
+
+edit guidelines entities:
+  title: 'Edit Guidelines entities'
+
+view published guidelines entities:
+  title: 'View published Guidelines entities'
+
+view unpublished guidelines entities:
+  title: 'View unpublished Guidelines entities'
+
+view all guidelines revisions:
+  title: 'View all Guidelines revisions'
+
+revert all guidelines revisions:
+  title: 'Revert all Guidelines revisions'
+  description: 'Role requires permission <em>view Guidelines revisions</em> and <em>edit rights</em> for guidelines entities in question or <em>administer guidelines entities</em>.'
+
+delete all guidelines revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Guidelines revisions</em> and <em>delete rights</em> for guidelines entities in question or <em>administer guidelines entities</em>.'
+

@@ -1,0 +1,96 @@
+{#
+/**
+ * @file about.html.twig
+ * Default theme implementation to present Default entity data.
+ *
+ * This template is used when viewing Default entity pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_about()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if quizs %}
+    <div width="1,200px" class="yriL">
+        <div width="100%" class="ilpLeV">
+            <span class="ivzsxx"></span>
+            <form action="/cme/quizes" method="get" class="search">
+                <input placeholder="Search" name="keys" class="cAwIuR" value="{{ search }}">
+                <span class="fLrcjA">
+                    <button type="submit">
+                <i name="SEARCH" font-size="icon" color="icon" class="fa fa-search"></i>
+                        </button>
+            </span>
+            </form>
+        </div>
+    </div>
+    <div class="dacuFr">
+        <div class="cWWxaz">
+            <div display="flex" class="iNTbff">
+                {% if get %}
+                    <div class="dsGFaG"><a href="/cme/quiz">All</a></div>
+                {% else %}
+                    <div class="bkzBvv">All</div>
+                {% endif %}
+                {% for tag in tags %}
+                    {% if get == tag %}
+                        <div class="bkzBvv">{{ tag }}</div>
+                    {% else %}
+                        <div class="dsGFaG"><a href="/cme/quiz?tags={{ tag }}">{{ tag }}</a></div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div display="flex" class="fSsnif">
+        {% for quiz in quizs %}
+            <div class="
+            {% if quiz.expired %}
+            bSHJMg
+            {% else %}
+            eBeRpv
+            {% endif %}
+            ">
+                <a class="fOtgzp" href="{{ path('entity.quiz.canonical', {'quiz': quiz.id.value}) }}">
+                    <div class="kZuHUf">
+                        <div class="giwJrm">
+                            <div class="Owdni">
+                                <span class="etLNEt">{{ quiz.field_expired.value|date("Y-m-d") }}</span>
+                                {% if quiz.check_event %}
+                                <span type="success" class="cUAFfx">Submitted</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="isAOXn">
+                            <div><h3 class="flCmuI">{{ quiz.name.value }}</h3>
+                            </div>
+                        </div>
+                        <div class="hFnlYM">
+                            <ul class="eNSAVL">
+                                <li class="CardInfo__Info-sc-1ty8kif-2 lbZLFv">
+                                    <i class="fa fa-chevron-circle-right"></i>
+                                    <span class="hMzfje">{{ quiz.field_point.value }} Point</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+                <div class="cme-event list-tags eclIQj">
+                    <div class="gPcWZD">
+                        {% for tagEntity in  quiz.field_category %}
+                            <a href="/cme/quiz?tags={{ tagEntity.entity.name.value }}"
+                               class="iyiBrq">{{ tagEntity.entity.name.value }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endif %}

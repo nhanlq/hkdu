@@ -1,0 +1,14 @@
+uuid: e22e6ddc-016e-45f5-8baf-bdf9c3133bca
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.cme_member
+  module:
+    - user
+id: user_add_role_action.cme_member
+label: 'Add the CME Member role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: cme_member

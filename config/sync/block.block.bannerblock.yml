@@ -1,0 +1,26 @@
+uuid: c2f37e03-fd23-437d-8f70-3457d6e60035
+langcode: en
+status: true
+dependencies:
+  module:
+    - about
+    - system
+  theme:
+    - hkdu
+id: bannerblock
+theme: hkdu
+region: header
+weight: -16
+provider: null
+plugin: banner_block
+settings:
+  id: banner_block
+  label: 'Banner block'
+  provider: about
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/hkdu/about/*'
+    negate: false
+    context_mapping: {  }

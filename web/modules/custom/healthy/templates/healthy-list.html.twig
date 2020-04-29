@@ -1,0 +1,90 @@
+{#
+/**
+ * @file about.html.twig
+ * Default theme implementation to present Default entity data.
+ *
+ * This template is used when viewing Default entity pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_about()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if healthies %}
+    <div width="1,200px" class="yriL">
+        <div width="100%" class="ilpLeV">
+            <span class="ivzsxx"></span>
+            <form action="/healthy" method="get" class="search">
+                <input placeholder="Search" name="keys" class="cAwIuR" value="{{ search }}">
+                <span class="fLrcjA">
+                    <button type="submit">
+                <i name="SEARCH" font-size="icon" color="icon" class="fa fa-search"></i>
+                        </button>
+            </span>
+            </form>
+        </div>
+    </div>
+    <div class="dacuFr">
+        <div class="cWWxaz">
+            <div display="flex" class="iNTbff">
+                {% if get %}
+                    <div class="dsGFaG"><a href="/healthy">All</a></div>
+                {% else %}
+                    <div class="bkzBvv">All</div>
+                {% endif %}
+                {% for tag in tags %}
+                    {% if get == tag %}
+                        <div class="bkzBvv">{{ tag }}</div>
+                    {% else %}
+                        <div class="dsGFaG"><a href="/healthy?tags={{ tag }}">{{ tag }}</a></div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="about-us-wrapper">
+        <div class="Grid__Box-f9ujw0-0 ArticleCardList__ListBox-sc-1nl1zr5-0 hKtiWd">
+            {% for healthy in healthies %}
+                <div class="Grid__Box-f9ujw0-0 hftOhy col-xs-12 col-sm-12 col-lg-12">
+                    <a variant="vertical,horizontal" class="Card__Wrapper-sc-1phbti1-0 dlodqi"
+                       href="{{ path('entity.healthy.canonical', {'healthy': healthy.id.value}) }}">
+                        <div class="Card__Cover-sc-1phbti1-1 eFKGnI"
+                             style="background-image: url({{ healthy.field_media.entity.field_media_image.entity.uri.value | image_style('original') }})">
+                            {#<img src="{{ about.field_image.entity.uri.value | image_style('about_thumb') }}"/>#}
+                        </div>
+                        <div class="Card__Container-sc-1phbti1-3 kZuHUf">
+                            <div class="Card__Header-sc-1phbti1-2 hYpLPh">
+                                <div class="ArticleCard__Head-jc3vpl-3 cLNuli">
+                                    <div class="ArticleCard__AuthorInfo-jc3vpl-0 jyYtMa">
+                                        <div class="ArticleCard__Avatar-jc3vpl-1 iFBalX"></div>
+                                        {{ healthy.Owner.name.value }}
+                                    </div>
+                                    <span class="ArticleCard__Date-jc3vpl-2 kASIaT">{{ healthy.created.value|date("Y-m-d") }}</span>
+                                </div>
+                            </div>
+                            <div class="CardMeta__MetaContent-mwcsl3-0 isAOXn">
+                                <div><h3 class="CardMeta__Title-mwcsl3-1 flCmuI">{{ healthy.name.value }}</h3>
+                                    <p class="CardMeta__Description-mwcsl3-2 itSPxh">{{ healthy.field_description.value|striptags }}</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                    <div class="CardMeta__Content-mwcsl3-3 list-tags eclIQj">
+                        <div class="gPcWZD">
+                            {% for tag in  healthy.field_tags %}
+                                <a href="/healthy?tags={{ tag.entity.name.value }}" class="iyiBrq">{{ tag.entity.name.value }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {{ pager }}
+    </div>
+{% endif %}

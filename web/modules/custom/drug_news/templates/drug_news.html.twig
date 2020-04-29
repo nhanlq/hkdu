@@ -1,0 +1,22 @@
+{#
+/**
+ * @file drug_news.html.twig
+ * Default theme implementation to present Drug news data.
+ *
+ * This template is used when viewing Drug news pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_drug_news()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('drug_news') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

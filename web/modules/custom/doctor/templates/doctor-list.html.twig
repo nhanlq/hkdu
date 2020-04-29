@@ -1,0 +1,37 @@
+<div class="Grid__Box-f9ujw0-0 hFkgUL">
+    <div display="block" class="Grid__Box-f9ujw0-0 flTYXC">
+        <div class="Grid__Box-f9ujw0-0 gcrakC">
+            <div display="flex" class="Grid__Box-f9ujw0-0 Grid__Flex-f9ujw0-1 fSsnif">
+                {% for doctor in doctors %}
+                    <div class="Grid__Box-f9ujw0-0 MedicalCardList__CardBox-sc-1wmqbcj-0 iRgpNO">
+                        <a variant="vertical" class="Card__Wrapper-sc-1phbti1-0 kBceAS"
+                           href="{{ path('entity.doctor.canonical', {'doctor': doctor.id.value}) }}">
+                            <div class="Card__Cover-sc-1phbti1-1 eOFNUV" style="background-image: url({{ doctor.field_photo.entity.field_media_image.entity.uri.value | image_style('original') }})"></div>
+                            <div class="Card__Container-sc-1phbti1-3 kZuHUf">
+                                <div class="CardMeta__MetaContent-mwcsl3-0 isAOXn">
+                                    <div><h3 class="CardMeta__Title-mwcsl3-1 flCmuI">{{ doctor.name.value }}</h3></div>
+                                    <div class="CardMeta__Content-mwcsl3-3 eclIQj"></div>
+                                </div>
+                                <div class="Card__Footer-sc-1phbti1-4 hFnlYM">
+                                    <ul class="CardInfo__StyledCardInfo-sc-1ty8kif-0 eNSAVL">
+                                        <li class="CardInfo__Info-sc-1ty8kif-2 lbZLFv">
+                                            <i name="phone" font-size="icon" color="icon"
+                                               class="fa fa-phone-alt"></i>
+                                            <span class="CardInfo__Text-sc-1ty8kif-1 hMzfje">{{ doctor.field_mobile.value }}</span>
+                                        </li>
+                                        <li class="CardInfo__Info-sc-1ty8kif-2 lbZLFv">
+                                            <i name="location"
+                                                                                          font-size="icon" color="icon"
+                                                                                          class="fa fa-map-marker-alt"></i><span
+                                                    class="CardInfo__Text-sc-1ty8kif-1 hMzfje">{{ doctor.field_correspondence_address.value }}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </a></div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</div>

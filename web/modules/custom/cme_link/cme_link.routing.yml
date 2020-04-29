@@ -1,0 +1,8 @@
+
+cme_link.links_controller_list:
+  path: '/cme/links'
+  defaults:
+    _controller: '\Drupal\cme_link\Controller\LinksController::list'
+    _title: 'Useful Links'
+  requirements:
+    _permission: 'view published cme links entities'

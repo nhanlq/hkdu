@@ -1,0 +1,23 @@
+uuid: 1ba87839-45a4-418b-aa80-ea3fab552b05
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_links.field_links
+  module:
+    - cme_link
+    - link
+id: cme_links.cme_links.field_links
+field_name: field_links
+entity_type: cme_links
+bundle: cme_links
+label: Links
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

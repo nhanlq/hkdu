@@ -1,0 +1,19 @@
+uuid: ac2d7071-8b6b-4398-8c91-cef5c7635175
+langcode: en
+status: true
+dependencies:
+  module:
+    - geolocation
+    - hospital
+id: hospital.field_location
+field_name: field_location
+entity_type: hospital
+type: geolocation
+settings: {  }
+module: geolocation
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,43 @@
+uuid: 0557f73a-9602-4577-89e4-0268a2eff9e4
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_question
+    - field_permissions
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: question.field_question_type
+field_name: field_question_type
+entity_type: question
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: true_false
+      label: True/False
+    -
+      value: match
+      label: 'Matching Question'
+    -
+      value: single
+      label: 'Single Choice'
+    -
+      value: multiple
+      label: 'Multiple Choice'
+    -
+      value: short
+      label: 'Short Answer'
+    -
+      value: long
+      label: 'Long Answer'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

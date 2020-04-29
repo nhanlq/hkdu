@@ -1,0 +1,26 @@
+uuid: 2208b720-afae-495e-a471-c2ddadb9e71f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.special_offer.field_weight
+  module:
+    - special_offer
+id: special_offer.special_offer.field_weight
+field_name: field_weight
+entity_type: special_offer
+bundle: special_offer
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

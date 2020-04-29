@@ -1,0 +1,20 @@
+uuid: 39c7f8c7-0061-4994-b119-043adcc9d0ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_vaccine_service
+  module:
+    - doctor
+id: doctor.doctor.field_vaccine_service
+field_name: field_vaccine_service
+entity_type: doctor
+bundle: doctor
+label: 'Vaccine Service'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

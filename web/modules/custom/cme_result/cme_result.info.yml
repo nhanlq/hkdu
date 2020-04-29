@@ -1,0 +1,5 @@
+name: 'CME Result'
+type: module
+description: 'CME Result'
+core: 8.x
+package: 'HKDU'

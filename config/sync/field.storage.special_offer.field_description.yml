@@ -1,0 +1,19 @@
+uuid: d29c82e3-20e7-4de6-95e4-3e4807d079f0
+langcode: en
+status: true
+dependencies:
+  module:
+    - special_offer
+    - text
+id: special_offer.field_description
+field_name: field_description
+entity_type: special_offer
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

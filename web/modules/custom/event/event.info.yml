@@ -1,0 +1,5 @@
+name: 'Event'
+type: module
+description: 'Event Registration'
+core: 8.x
+package: 'HKDU'

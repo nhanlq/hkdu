@@ -1,0 +1,31 @@
+add healthy entities:
+  title: 'Create new Healthy entities'
+
+administer healthy entities:
+  title: 'Administer Healthy entities'
+  description: 'Allow to access the administration form to configure Healthy entities.'
+  restrict access: true
+
+delete healthy entities:
+  title: 'Delete Healthy entities'
+
+edit healthy entities:
+  title: 'Edit Healthy entities'
+
+view published healthy entities:
+  title: 'View published Healthy entities'
+
+view unpublished healthy entities:
+  title: 'View unpublished Healthy entities'
+
+view all healthy revisions:
+  title: 'View all Healthy revisions'
+
+revert all healthy revisions:
+  title: 'Revert all Healthy revisions'
+  description: 'Role requires permission <em>view Healthy revisions</em> and <em>edit rights</em> for healthy entities in question or <em>administer healthy entities</em>.'
+
+delete all healthy revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Healthy revisions</em> and <em>delete rights</em> for healthy entities in question or <em>administer healthy entities</em>.'
+

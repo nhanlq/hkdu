@@ -1,0 +1,21 @@
+uuid: c8d6f183-43df-4be3-9864-9ff5e8a0c904
+langcode: en
+status: true
+dependencies:
+  module:
+    - doctor
+id: doctor.field_insurance_scheme_supported
+field_name: field_insurance_scheme_supported
+entity_type: doctor
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

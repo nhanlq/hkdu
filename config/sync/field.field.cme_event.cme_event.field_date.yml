@@ -1,0 +1,21 @@
+uuid: 88f02487-d708-4938-a1b5-91b568135d86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_date
+  module:
+    - cme_event
+    - datetime
+id: cme_event.cme_event.field_date
+field_name: field_date
+entity_type: cme_event
+bundle: cme_event
+label: 'End Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

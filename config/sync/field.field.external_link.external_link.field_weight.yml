@@ -1,0 +1,26 @@
+uuid: 2c71b9a9-6213-4b0d-9595-f832a7ad6c78
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.external_link.field_weight
+  module:
+    - external_link
+id: external_link.external_link.field_weight
+field_name: field_weight
+entity_type: external_link
+bundle: external_link
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

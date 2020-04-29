@@ -1,0 +1,11 @@
+uuid: 587959e0-5995-4687-940b-899a53342637
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.drug
+id: taxonomy_term.drug
+target_entity_type_id: taxonomy_term
+target_bundle: drug
+default_langcode: site_default
+language_alterable: false

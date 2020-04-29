@@ -1,0 +1,160 @@
+<?php
+
+/**
+ * @file
+ * Contains cme_quiz.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function cme_quiz_help($route_name, RouteMatchInterface $route_match)
+{
+    switch ($route_name) {
+        // Main module help for the cme_quiz module.
+        case 'help.page.cme_quiz':
+            $output = '';
+            $output .= '<h3>' . t('About') . '</h3>';
+            $output .= '<p>' . t('CME Quizzes') . '</p>';
+            return $output;
+
+        default:
+    }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function cme_quiz_theme($existing, $type, $theme, $path)
+{
+    return [
+        'quiz' => [                            // the entity id// template directory in module or theme
+            'template' => 'quiz',                // defines base template as /artwork.html.twig
+            'render element' => 'elements',          // Theme API call to define the container of the entity in the render array
+            // The entity will be prefixed with a hash sign as ['elements']['#artwork']
+        ],
+        'quiz_list' => [
+            'variables' => ['quizs' => NULL, 'author' => NULL, 'date' => NULL, 'tags' => NULL, 'get' => NULL, 'search' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'quiz-list'
+        ],
+        'quiz_home' => [
+            'variables' => ['quizs' => NULL, 'author' => NULL, 'date' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'quiz-home'
+        ],
+        'quiz_banner_block' => [
+            'variables' => ['quiz' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'quiz-banner'
+        ],
+        'quiz_question' => [
+            'variables' => ['quizs' => NULL, 'author' => NULL, 'date' => NULL, 'questions' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'quiz-question'
+        ],
+        'cme_quiz_question' => [
+            'variables' => ['quiz' => NULL, 'questions' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'cme-quiz-question'
+        ],
+        'cme_quiz_question_answered' => [
+            'variables' => ['quiz' => NULL, 'questions' => NULL,'result' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'cme-quiz-question-answered'
+        ],
+    ];
+}
+
+function getQuestions($quiz_id)
+{
+    $ids = \Drupal::entityQuery('question')
+        ->condition('status', 1)
+        ->condition('field_quiz', $quiz_id)
+        ->execute();
+    $result = \Drupal\cme_question\Entity\Question::loadMultiple($ids);
+    // $result = reset($results);
+    return $result;
+}
+
+function checkQuizStatusUser($quiz_id)
+{
+    $return = null;
+    $user = \Drupal::currentUser();
+    $uid = $user->id();
+    $ids = \Drupal::entityQuery('result')
+        ->condition('status', 1)
+        ->condition('field_quiz', $quiz_id)
+        ->condition('field_user', $uid)
+        ->execute();
+    $results = \Drupal\cme_result\Entity\Result::loadMultiple($ids);
+    if ($results) {
+        $return = true;
+    }
+    return $return;
+}
+
+function checkExpiredQuiz($quiz)
+{
+    $current = time();
+    $date = strtotime($quiz->get('field_expired')->value . ' 00:00:00');
+    if ($current > $date) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function getQuestionNoTest($quiz)
+{
+    $service = \Drupal::service('cme_question.question');
+    $return = [];
+    $questions = getQuestions($quiz->id());
+    foreach ($questions as $question) {
+        $return[]= ['question' => $question,'type'=>$service->getQuestion($question)];
+    }
+    $theme = [
+        '#theme' => 'cme_quiz_question',
+        '#quiz' => $quiz,
+        '#questions' => $return,
+    ];
+    return $theme;
+}
+
+function getQuestionAnswered($quiz,$resultId){
+    $service = \Drupal::service('cme_question.question');
+    $return = [];
+    $questions = getQuestions($quiz->id());
+    $result = $service->getResultQuestion($quiz, $resultId);
+    $correct = 0;
+    foreach($result->get('field_result')->getValue() as $r){
+        $para = \Drupal\paragraphs\Entity\Paragraph::load($r['target_id']);
+        if($para->get('field_correct_answer')->value==1){
+            $correct+=1;
+        }
+    }
+    $result->correct = $correct;
+    if($result->get('field_passed')->value ==1){
+        $pass = 'Passed';
+    }else{
+        $pass = 'False';
+    }
+    $result->pass = $pass;
+    foreach ($questions as $question) {
+        $return[]= [
+            'question' => $question,
+            'type'=>$service->getQuestionAnswered($question, $quiz, $resultId),
+
+        ];
+    }
+    $theme = [
+        '#theme' => 'cme_quiz_question_answered',
+        '#quiz' => $quiz,
+        '#questions' => $return,
+        '#result' => $result,
+    ];
+    return $theme;
+}
+

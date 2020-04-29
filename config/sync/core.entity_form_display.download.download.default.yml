@@ -1,0 +1,52 @@
+uuid: 3e061c7e-fdff-411c-bcd2-3cf6d4eb0546
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.download.download.field_media
+  module:
+    - download
+    - paragraphs
+id: download.download.default
+targetEntityType: download
+bundle: download
+mode: default
+content:
+  field_media:
+    type: entity_reference_paragraphs
+    weight: 27
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

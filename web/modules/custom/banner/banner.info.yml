@@ -1,0 +1,5 @@
+name: 'Banner'
+type: module
+description: 'Banner Global'
+core: 8.x
+package: 'HKDU'

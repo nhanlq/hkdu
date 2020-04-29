@@ -1,0 +1,26 @@
+# Event tracking routing definition
+event_tracking.settings_tab:
+  route_name: event_tracking.settings
+  title: 'Settings'
+  base_route: event_tracking.settings
+
+entity.event_tracking.canonical:
+  route_name: entity.event_tracking.canonical
+  base_route: entity.event_tracking.canonical
+  title: 'View'
+
+entity.event_tracking.edit_form:
+  route_name: entity.event_tracking.edit_form
+  base_route: entity.event_tracking.canonical
+  title: 'Edit'
+
+entity.event_tracking.version_history:
+  route_name: entity.event_tracking.version_history
+  base_route: entity.event_tracking.canonical
+  title: 'Revisions'
+
+entity.event_tracking.delete_form:
+  route_name:  entity.event_tracking.delete_form
+  base_route:  entity.event_tracking.canonical
+  title: Delete
+  weight: 10

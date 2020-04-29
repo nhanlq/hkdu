@@ -1,0 +1,29 @@
+uuid: d1051bc9-67e0-4780-97b6-9d37d3bb2a12
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event_tracking.field_user
+  module:
+    - event_tracking
+id: event_tracking.event_tracking.field_user
+field_name: field_user
+entity_type: event_tracking
+bundle: event_tracking
+label: user
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

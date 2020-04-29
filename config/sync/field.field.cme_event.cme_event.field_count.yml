@@ -1,0 +1,26 @@
+uuid: 533571db-b561-4247-aa39-43b164b9c31c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_count
+  module:
+    - cme_event
+id: cme_event.cme_event.field_count
+field_name: field_count
+entity_type: cme_event
+bundle: cme_event
+label: Count
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: !!float 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

@@ -1,0 +1,21 @@
+uuid: cc765779-6d39-45d7-b013-41bde58d389e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.hospital.field_fax
+  module:
+    - hospital
+    - telephone
+id: hospital.hospital.field_fax
+field_name: field_fax
+entity_type: hospital
+bundle: hospital
+label: Fax
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

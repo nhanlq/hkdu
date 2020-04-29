@@ -1,0 +1,20 @@
+uuid: fd5d5f33-df2b-4540-9c0b-a39ff51dedaa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_wechat
+  module:
+    - doctor
+id: doctor.doctor.field_wechat
+field_name: field_wechat
+entity_type: doctor
+bundle: doctor
+label: WeChat
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

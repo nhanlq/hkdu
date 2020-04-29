@@ -1,0 +1,39 @@
+uuid: c196cc30-13fe-41e6-9feb-044a4c09c099
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_quiz
+    - options
+id: quiz.field_audience
+field_name: field_audience
+entity_type: quiz
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: administrator
+      label: Administrator
+    -
+      value: admins
+      label: Admins
+    -
+      value: doctor
+      label: Doctor
+    -
+      value: hkdu_members
+      label: 'HKDU Members'
+    -
+      value: drug_suppliers
+      label: 'Drug Suppliers'
+    -
+      value: council_members
+      label: 'Council Members'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,31 @@
+add cme links entities:
+  title: 'Create new CME Links entities'
+
+administer cme links entities:
+  title: 'Administer CME Links entities'
+  description: 'Allow to access the administration form to configure CME Links entities.'
+  restrict access: true
+
+delete cme links entities:
+  title: 'Delete CME Links entities'
+
+edit cme links entities:
+  title: 'Edit CME Links entities'
+
+view published cme links entities:
+  title: 'View published CME Links entities'
+
+view unpublished cme links entities:
+  title: 'View unpublished CME Links entities'
+
+view all cme links revisions:
+  title: 'View all CME Links revisions'
+
+revert all cme links revisions:
+  title: 'Revert all CME Links revisions'
+  description: 'Role requires permission <em>view CME Links revisions</em> and <em>edit rights</em> for cme links entities in question or <em>administer cme links entities</em>.'
+
+delete all cme links revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view CME Links revisions</em> and <em>delete rights</em> for cme links entities in question or <em>administer cme links entities</em>.'
+

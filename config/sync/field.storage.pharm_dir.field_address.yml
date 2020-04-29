@@ -1,0 +1,21 @@
+uuid: 21b04cd1-a5e2-47c7-88cd-6dbde0373cdd
+langcode: en
+status: true
+dependencies:
+  module:
+    - pharm_dir
+id: pharm_dir.field_address
+field_name: field_address
+entity_type: pharm_dir
+type: string
+settings:
+  max_length: 500
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

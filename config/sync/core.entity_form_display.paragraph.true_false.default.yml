@@ -1,0 +1,21 @@
+uuid: 7219301d-c39a-46d6-b3bc-31de6f5cbef9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.true_false.field_true_false
+    - paragraphs.paragraphs_type.true_false
+id: paragraph.true_false.default
+targetEntityType: paragraph
+bundle: true_false
+mode: default
+content:
+  field_true_false:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,20 @@
+uuid: d5cf61e4-e9c0-419c-9b19-aadb4e128fd2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_joining_iteration
+  module:
+    - doctor
+id: doctor.doctor.field_joining_iteration
+field_name: field_joining_iteration
+entity_type: doctor
+bundle: doctor
+label: 'Member Joining Iteration'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

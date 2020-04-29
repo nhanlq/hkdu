@@ -1,0 +1,43 @@
+uuid: aac73ac8-00e6-4ac8-a010-a116b180eb16
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - pharm_dir
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: pharm_dir.field_audience
+field_name: field_audience
+entity_type: pharm_dir
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: administrator
+      label: Administrator
+    -
+      value: admins
+      label: Admins
+    -
+      value: doctor
+      label: Doctor
+    -
+      value: hkdu_members
+      label: 'HKDU Members'
+    -
+      value: drug_suppliers
+      label: 'Drug Suppliers'
+    -
+      value: council_members
+      label: 'Council Members'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

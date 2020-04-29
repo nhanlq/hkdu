@@ -1,0 +1,20 @@
+uuid: ea02b874-9bf1-44d3-a70c-ea5386237123
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.hospital.field_website
+  module:
+    - hospital
+id: hospital.hospital.field_website
+field_name: field_website
+entity_type: hospital
+bundle: hospital
+label: Website
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

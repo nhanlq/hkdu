@@ -1,0 +1,19 @@
+uuid: 9911fe82-9b09-465e-8bbc-82b6ba8b00c9
+langcode: en
+status: true
+dependencies:
+  module:
+    - drug_news
+    - text
+id: drug_news.field_description
+field_name: field_description
+entity_type: drug_news
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

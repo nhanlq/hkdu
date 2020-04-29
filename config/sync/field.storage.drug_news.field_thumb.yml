@@ -1,0 +1,20 @@
+uuid: 2a87a9e8-f4a6-43c1-9693-a2c31e043869
+langcode: en
+status: true
+dependencies:
+  module:
+    - drug_news
+    - media
+id: drug_news.field_thumb
+field_name: field_thumb
+entity_type: drug_news
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

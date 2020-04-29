@@ -1,0 +1,14 @@
+
+# Tools menu items definition
+entity.tools.collection:
+  title: 'Tools'
+  route_name: entity.tools.collection
+  description: 'List Tools entities'
+  parent: global_hkdu.admin_epharm_hkdu
+  weight: 100
+
+tools.admin.structure.settings:
+  title: 'Tools settings'
+  description: 'Configure Tools entities'
+  route_name: tools.settings
+  parent: entity.tools.collection

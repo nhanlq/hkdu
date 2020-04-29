@@ -1,0 +1,21 @@
+uuid: 9d0b2931-5829-4f26-8b49-5a5deb09edc9
+langcode: en
+status: true
+dependencies:
+  module:
+    - doctor
+id: doctor.field_mobile
+field_name: field_mobile
+entity_type: doctor
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

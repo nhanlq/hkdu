@@ -1,0 +1,16 @@
+uuid: c1b4232b-e663-4e0f-8297-cffe6f4a702c
+langcode: en
+status: true
+dependencies: {  }
+third_party_settings:
+  commerce_order:
+    customer_profile_type: false
+id: council_member
+label: 'Council Member'
+display_label: ''
+multiple: false
+registration: true
+roles:
+  council_members: council_members
+allow_revisions: false
+new_revision: false

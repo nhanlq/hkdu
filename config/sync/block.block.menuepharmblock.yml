@@ -1,0 +1,34 @@
+uuid: e253a080-925c-4f3e-9477-ac6e099188a3
+langcode: en
+status: true
+dependencies:
+  module:
+    - epharm
+    - user
+  theme:
+    - hkdu
+id: menuepharmblock
+theme: hkdu
+region: navigation
+weight: -14
+provider: null
+plugin: menu_epharm_block
+settings:
+  id: menu_epharm_block
+  label: 'Menu epharm block'
+  provider: epharm
+  label_display: '0'
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+      administrator: administrator
+      admins: admins
+      doctor: doctor
+      hkdu_members: hkdu_members
+      drug_suppliers: drug_suppliers
+      council_members: council_members
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

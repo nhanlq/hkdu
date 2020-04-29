@@ -1,0 +1,26 @@
+uuid: 0dd6bd67-0da0-4707-b686-82255b1dd5e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.special_offer.field_count
+  module:
+    - special_offer
+id: special_offer.special_offer.field_count
+field_name: field_count
+entity_type: special_offer
+bundle: special_offer
+label: Count
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: !!float 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

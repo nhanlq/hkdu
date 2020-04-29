@@ -1,0 +1,14 @@
+uuid: 84578ca0-2bba-4972-bdef-d62ccc3d3483
+langcode: en
+status: true
+dependencies:
+  module:
+    - about
+id: about
+label: About
+type: 'canonical_entities:about'
+pattern: 'about-us/[about:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

@@ -1,0 +1,26 @@
+uuid: 3e178619-73f2-4ccd-9c77-21e39512156c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event.field_weight
+  module:
+    - event
+id: event.event.field_weight
+field_name: field_weight
+entity_type: event
+bundle: event
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,26 @@
+# Clinical focus routing definition
+clinical_focus.settings_tab:
+  route_name: clinical_focus.settings
+  title: 'Settings'
+  base_route: clinical_focus.settings
+
+entity.clinical_focus.canonical:
+  route_name: entity.clinical_focus.canonical
+  base_route: entity.clinical_focus.canonical
+  title: 'View'
+
+entity.clinical_focus.edit_form:
+  route_name: entity.clinical_focus.edit_form
+  base_route: entity.clinical_focus.canonical
+  title: 'Edit'
+
+entity.clinical_focus.version_history:
+  route_name: entity.clinical_focus.version_history
+  base_route: entity.clinical_focus.canonical
+  title: 'Revisions'
+
+entity.clinical_focus.delete_form:
+  route_name:  entity.clinical_focus.delete_form
+  base_route:  entity.clinical_focus.canonical
+  title: Delete
+  weight: 10

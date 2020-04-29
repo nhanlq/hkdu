@@ -1,0 +1,186 @@
+uuid: 3ab1f4c5-b38d-4f68-a728-873ee5d85839
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.pharm_dir.pharm_dir.field_address
+    - field.field.pharm_dir.pharm_dir.field_audience
+    - field.field.pharm_dir.pharm_dir.field_count
+    - field.field.pharm_dir.pharm_dir.field_description
+    - field.field.pharm_dir.pharm_dir.field_email
+    - field.field.pharm_dir.pharm_dir.field_fax
+    - field.field.pharm_dir.pharm_dir.field_file
+    - field.field.pharm_dir.pharm_dir.field_media
+    - field.field.pharm_dir.pharm_dir.field_order_form
+    - field.field.pharm_dir.pharm_dir.field_phone
+    - field.field.pharm_dir.pharm_dir.field_price_list
+    - field.field.pharm_dir.pharm_dir.field_sales_visit
+    - field.field.pharm_dir.pharm_dir.field_thumb
+    - field.field.pharm_dir.pharm_dir.field_website
+    - field.field.pharm_dir.pharm_dir.field_weight
+  module:
+    - link
+    - options
+    - pharm_dir
+    - text
+    - user
+id: pharm_dir.pharm_dir.default
+targetEntityType: pharm_dir
+bundle: pharm_dir
+mode: default
+content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_address:
+    weight: 5
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_audience:
+    weight: 16
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_count:
+    weight: 15
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_description:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_email:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_fax:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_file:
+    type: entity_reference_entity_view
+    weight: 14
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_media:
+    type: entity_reference_entity_view
+    weight: 12
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_order_form:
+    weight: 7
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_phone:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_price_list:
+    weight: 8
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_sales_visit:
+    weight: 9
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_thumb:
+    type: entity_reference_entity_view
+    weight: 13
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_website:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_weight:
+    weight: 11
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  name:
+    label: hidden
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true

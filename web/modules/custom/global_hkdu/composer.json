@@ -1,0 +1,13 @@
+{
+    "name": "global_hkdu",
+    "type": "drupal-module",
+    "description": "Global config",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/global_hkdu",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/global_hkdu",
+        "source": "http://cgit.drupalcode.org/global_hkdu",
+    },
+}

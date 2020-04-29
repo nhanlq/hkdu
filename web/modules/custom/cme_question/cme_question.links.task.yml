@@ -1,0 +1,26 @@
+# Question routing definition
+question.settings_tab:
+  route_name: question.settings
+  title: 'Settings'
+  base_route: question.settings
+
+entity.question.canonical:
+  route_name: entity.question.canonical
+  base_route: entity.question.canonical
+  title: 'View'
+
+entity.question.edit_form:
+  route_name: entity.question.edit_form
+  base_route: entity.question.canonical
+  title: 'Edit'
+
+entity.question.version_history:
+  route_name: entity.question.version_history
+  base_route: entity.question.canonical
+  title: 'Revisions'
+
+entity.question.delete_form:
+  route_name:  entity.question.delete_form
+  base_route:  entity.question.canonical
+  title: Delete
+  weight: 10

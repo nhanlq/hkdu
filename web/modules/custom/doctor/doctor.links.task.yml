@@ -1,0 +1,26 @@
+# Doctor entity routing definition
+doctor.settings_tab:
+  route_name: doctor.settings
+  title: 'Settings'
+  base_route: doctor.settings
+
+entity.doctor.canonical:
+  route_name: entity.doctor.canonical
+  base_route: entity.doctor.canonical
+  title: 'View'
+
+entity.doctor.edit_form:
+  route_name: entity.doctor.edit_form
+  base_route: entity.doctor.canonical
+  title: 'Edit'
+
+entity.doctor.version_history:
+  route_name: entity.doctor.version_history
+  base_route: entity.doctor.canonical
+  title: 'Revisions'
+
+entity.doctor.delete_form:
+  route_name:  entity.doctor.delete_form
+  base_route:  entity.doctor.canonical
+  title: Delete
+  weight: 10

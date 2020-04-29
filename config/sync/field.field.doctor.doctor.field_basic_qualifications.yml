@@ -1,0 +1,20 @@
+uuid: e9f3a07b-933e-40a1-ba86-78267fe2bab4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_basic_qualifications
+  module:
+    - doctor
+id: doctor.doctor.field_basic_qualifications
+field_name: field_basic_qualifications
+entity_type: doctor
+bundle: doctor
+label: 'Basic Qualifications'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

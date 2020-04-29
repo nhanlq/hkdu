@@ -1,0 +1,10 @@
+uuid: bf867fdb-4917-49bd-a664-fca7d52a12e9
+langcode: en
+status: true
+dependencies:
+  module:
+    - special_offer
+id: special_offer.token
+label: Token
+targetEntityType: special_offer
+cache: true

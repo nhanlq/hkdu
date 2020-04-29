@@ -1,0 +1,10 @@
+uuid: c3732f68-06d7-4efe-a293-0c5993b39744
+langcode: en
+status: true
+dependencies: {  }
+id: short_answer
+label: 'Short Answer'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,19 @@
+
+# Special offer menu items definition
+entity.special_offer.collection:
+  title: 'Special offer'
+  route_name: entity.special_offer.collection
+  description: 'List Special offer entities'
+  parent: global_hkdu.admin_epharm_hkdu
+  weight: 100
+
+special_offer.admin.structure.settings:
+  title: 'Special offer settings'
+  description: 'Configure Special offer entities'
+  route_name: special_offer.settings
+  parent: entity.special_offer.collection
+
+special_offer.admin.import:
+  title: 'Special Offer Batch Import'
+  route_name: special_offer.import_xls_form
+  parent: entity.special_offer.collection

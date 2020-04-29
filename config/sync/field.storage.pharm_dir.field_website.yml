@@ -1,0 +1,21 @@
+uuid: 72e77236-e250-402f-ab12-2184394a9f59
+langcode: en
+status: true
+dependencies:
+  module:
+    - pharm_dir
+id: pharm_dir.field_website
+field_name: field_website
+entity_type: pharm_dir
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

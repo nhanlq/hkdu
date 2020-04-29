@@ -1,0 +1,30 @@
+uuid: 9cdb896d-dc10-433b-9ca5-09fde5a8f7ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.special_offer.field_tags
+    - taxonomy.vocabulary.epharm_tags
+  module:
+    - special_offer
+id: special_offer.special_offer.field_tags
+field_name: field_tags
+entity_type: special_offer
+bundle: special_offer
+label: Tags
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      epharm_tags: epharm_tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

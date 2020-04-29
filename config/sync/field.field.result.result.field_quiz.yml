@@ -1,0 +1,26 @@
+uuid: 50f8a673-ce00-42c5-94b4-c78582e9197e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.result.field_quiz
+  module:
+    - cme_result
+id: result.result.field_quiz
+field_name: field_quiz
+entity_type: result
+bundle: result
+label: Quiz
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:quiz'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

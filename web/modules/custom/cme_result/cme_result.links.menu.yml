@@ -1,0 +1,14 @@
+
+# Result menu items definition
+entity.result.collection:
+  title: 'Result'
+  route_name: entity.result.collection
+  description: 'List Result entities'
+  parent: cme.admin_cme
+  weight: 100
+
+result.admin.structure.settings:
+  title: 'Result settings'
+  description: 'Configure Result entities'
+  route_name: result.settings
+  parent: entity.result.collection

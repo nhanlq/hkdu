@@ -1,0 +1,19 @@
+uuid: 6b0b509c-25a4-4d68-af60-c7257f9f4c8a
+langcode: en
+status: true
+dependencies:
+  module:
+    - gallery
+    - text
+id: gallery.field_description
+field_name: field_description
+entity_type: gallery
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

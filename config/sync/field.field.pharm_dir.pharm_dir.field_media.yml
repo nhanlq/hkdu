@@ -1,0 +1,29 @@
+uuid: af2f4505-460b-4a0e-abe4-9ff8148d8257
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.pharm_dir.field_media
+    - media.type.image
+  module:
+    - pharm_dir
+id: pharm_dir.pharm_dir.field_media
+field_name: field_media
+entity_type: pharm_dir
+bundle: pharm_dir
+label: Media
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

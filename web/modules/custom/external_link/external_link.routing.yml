@@ -1,0 +1,8 @@
+
+external_link.external_link_list_controller_list:
+  path: '/e-pharm/external-links'
+  defaults:
+    _controller: '\Drupal\external_link\Controller\ExternalLinkListController::list'
+    _title: 'External Links'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,23 @@
+uuid: 2d050f2a-dc76-4371-a21d-a543c5775c77
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_price
+  module:
+    - cme_event
+    - commerce_price
+id: cme_event.cme_event.field_price
+field_name: field_price
+entity_type: cme_event
+bundle: cme_event
+label: Price
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_currencies:
+    - '0'
+field_type: commerce_price

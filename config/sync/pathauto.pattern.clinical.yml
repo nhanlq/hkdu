@@ -1,0 +1,14 @@
+uuid: 78d72199-55a5-4b28-abd0-e1db9f35b27f
+langcode: en
+status: true
+dependencies:
+  module:
+    - clinical_focus
+id: clinical
+label: 'Clinical Focus'
+type: 'canonical_entities:clinical_focus'
+pattern: '/e-pharm/clinical-focus/[clinical_focus:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

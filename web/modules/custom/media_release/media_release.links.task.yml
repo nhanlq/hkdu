@@ -1,0 +1,26 @@
+# Media entity routing definition
+media_entity.settings_tab:
+  route_name: media_entity.settings
+  title: 'Settings'
+  base_route: media_entity.settings
+
+entity.media_entity.canonical:
+  route_name: entity.media_entity.canonical
+  base_route: entity.media_entity.canonical
+  title: 'View'
+
+entity.media_entity.edit_form:
+  route_name: entity.media_entity.edit_form
+  base_route: entity.media_entity.canonical
+  title: 'Edit'
+
+entity.media_entity.version_history:
+  route_name: entity.media_entity.version_history
+  base_route: entity.media_entity.canonical
+  title: 'Revisions'
+
+entity.media_entity.delete_form:
+  route_name:  entity.media_entity.delete_form
+  base_route:  entity.media_entity.canonical
+  title: Delete
+  weight: 10

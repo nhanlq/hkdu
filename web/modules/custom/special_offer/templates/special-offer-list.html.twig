@@ -1,0 +1,91 @@
+{#
+/**
+ * @file about.html.twig
+ * Default theme implementation to present Default entity data.
+ *
+ * This template is used when viewing Default entity pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_about()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if special_offer %}
+    <div width="1,200px" class="yriL">
+        <div width="100%" class="ilpLeV">
+            <span class="ivzsxx"></span>
+            <form action="/e-pharm/special-offer" method="get" class="search">
+                <input placeholder="Search" name="keys" class="cAwIuR" value="{{ search }}">
+                <span class="fLrcjA">
+                    <button type="submit">
+                <i name="SEARCH" font-size="icon" color="icon" class="fa fa-search"></i>
+                        </button>
+            </span>
+            </form>
+        </div>
+    </div>
+    <div class="dacuFr">
+        <div class="cWWxaz">
+            <div display="flex" class="iNTbff">
+                {% if get %}
+                    <div class="dsGFaG"><a href="/e-pharm/special-offer">All</a></div>
+                {% else %}
+                    <div class="bkzBvv">All</div>
+                {% endif %}
+                {% for tag in tags %}
+                    {% if get == tag %}
+                        <div class="bkzBvv">{{ tag }}</div>
+                    {% else %}
+                        <div class="dsGFaG"><a href="/e-pharm/special-offer?tags={{ tag }}">{{ tag }}</a></div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="about-us-wrapper">
+        <div class="hKtiWd">
+            {% for clinical in special_offer %}
+                <div class="hftOhy col-xs-12 col-sm-12 col-lg-12">
+                    <a variant="vertical,horizontal" class="Card__Wrapper-sc-1phbti1-0 dlodqi"
+                       href="{{ path('entity.special_offer.canonical', {'special_offer': clinical.id.value}) }}">
+                        <div class="eFKGnI"
+                             style="background-image: url({{ clinical.field_thumb.entity.field_media_image.entity.uri.value | image_style('original') }})">
+                            {#<img src="{{ about.field_image.entity.uri.value | image_style('about_thumb') }}"/>#}
+                        </div>
+                        <div class="kZuHUf">
+                            <div class="hYpLPh">
+                                <div class="cLNuli">
+                                    <div class="jyYtMa">
+                                        <div class="iFBalX"></div>
+                                        {{ clinical.Owner.name.value }}
+                                    </div>
+                                    <span class="kASIaT">{{ clinical.created.value|date("Y-m-d") }}</span>
+                                </div>
+                            </div>
+                            <div class="isAOXn">
+                                <div><h3 class="flCmuI">{{ clinical.name.value }}</h3>
+                                    <p class="itSPxh">{{ clinical.field_description.value|striptags }}</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                    <div class=" list-tags eclIQj">
+                        <div class="gPcWZD">
+                            {% for tagEntity in  clinical.field_tags %}
+                                <a href="/e-pharm/special-offer?tags={{ tagEntity.entity.name.value }}"
+                                   class="iyiBrq">{{ tagEntity.entity.name.value }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {{ pager }}
+    </div>
+{% endif %}

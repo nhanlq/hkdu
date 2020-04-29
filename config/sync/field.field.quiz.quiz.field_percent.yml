@@ -1,0 +1,26 @@
+uuid: a3fbb03e-c457-4f99-8b3b-ba02d98007eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_percent
+  module:
+    - cme_quiz
+id: quiz.quiz.field_percent
+field_name: field_percent
+entity_type: quiz
+bundle: quiz
+label: 'Passing Percentage'
+description: "Please in put the passing percentage\r\nEg: 70%"
+required: true
+translatable: false
+default_value:
+  -
+    value: 70
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: '%'
+field_type: integer

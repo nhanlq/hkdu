@@ -1,0 +1,20 @@
+uuid: f8ac1309-61f9-493b-9ae8-3489ae988855
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_out_going_services
+  module:
+    - doctor
+id: doctor.doctor.field_out_going_services
+field_name: field_out_going_services
+entity_type: doctor
+bundle: doctor
+label: 'Out-going Services'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

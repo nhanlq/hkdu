@@ -1,0 +1,20 @@
+uuid: 4ddb469c-e589-4286-b250-6d14e875d848
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event_org.field_fax
+  module:
+    - cme_event_organizer
+id: event_org.event_org.field_fax
+field_name: field_fax
+entity_type: event_org
+bundle: event_org
+label: Fax
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

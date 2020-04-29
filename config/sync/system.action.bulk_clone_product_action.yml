@@ -1,0 +1,13 @@
+uuid: d6875bec-43d5-4fd8-a56b-4e0696000078
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_bulk_clone
+_core:
+  default_config_hash: FfLP5KXGkk1SOVid7ZCHHRZdrSByxvWwg1FtO2_sXCw
+id: bulk_clone_product_action
+label: 'Bulk Clone'
+type: commerce_product
+plugin: bulk_clone_product_action
+configuration: {  }

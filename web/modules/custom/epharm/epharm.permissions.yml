@@ -1,0 +1,11 @@
+access epharm:
+  title: 'Access Epharm'
+  description: 'Allow access to Epharm'
+
+access hkdu epharm:
+  title: 'Access HKDU Epharm'
+  description: 'Allow access to Epharm'
+
+access suppliers epharm:
+  title: 'Access Suppliers Epharm'
+  description: 'Allow access to Epharm'

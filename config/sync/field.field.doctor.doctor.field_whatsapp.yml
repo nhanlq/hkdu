@@ -1,0 +1,20 @@
+uuid: 457f1dbb-6d41-4a78-bd31-4180092f2ec6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_whatsapp
+  module:
+    - doctor
+id: doctor.doctor.field_whatsapp
+field_name: field_whatsapp
+entity_type: doctor
+bundle: doctor
+label: Whatsapp
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Contains pharm_dir.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function pharm_dir_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the pharm_dir module.
+    case 'help.page.pharm_dir':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Pharm Dir') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function pharm_dir_theme($existing, $type, $theme, $path) {
+    return [
+        'pharm_dir' => [                            // the entity id// template directory in module or theme
+            'template'  => 'pharm_dir',                // defines base template as /artwork.html.twig
+            'render element' => 'elements',          // Theme API call to define the container of the entity in the render array
+            // The entity will be prefixed with a hash sign as ['elements']['#artwork']
+        ],
+        'pharm_dir_list' => [
+            'variables' => ['pharm_dir' => NULL,'get'=>NULL],
+            'path' => $path . '/templates/',
+            'template' => 'pharm-dir-list'
+        ],
+        'pharm_dir_banner_block' => [
+            'variables' => ['pharm_dir' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'pharm-dir-banner'
+        ],
+    ];
+}

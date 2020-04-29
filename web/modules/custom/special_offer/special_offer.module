@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Contains special_offer.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function special_offer_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the special_offer module.
+    case 'help.page.special_offer':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Special Offer Entity') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function special_offer_theme($existing, $type, $theme, $path) {
+    return [
+        'special_offer' => [                            // the entity id// template directory in module or theme
+            'template'  => 'special_offer',                // defines base template as /artwork.html.twig
+            'render element' => 'elements',          // Theme API call to define the container of the entity in the render array
+            // The entity will be prefixed with a hash sign as ['elements']['#artwork']
+        ],
+        'special_offer_list' => [
+            'variables' => ['special_offer' => NULL, 'author'=>NULL, 'date' =>NULL, 'tags' => NULL,'get' => NULL,'search'=>NULL],
+            'path' => $path . '/templates/',
+            'template' => 'special-offer-list'
+        ],
+        'special_offer_home' => [
+            'variables' => ['special_offer' => NULL, 'author'=>NULL, 'date' =>NULL],
+            'path' => $path . '/templates/',
+            'template' => 'special-offer-home'
+        ],
+        'special_offer_banner_block' => [
+            'variables' => ['special_offer' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'special-offer-banner'
+        ],
+    ];
+}
+

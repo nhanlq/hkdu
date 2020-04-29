@@ -1,0 +1,6 @@
+administer hkdu sites:
+  title: 'Administer HKDU Sites'
+  description: 'Allow to access the administration form to configure Special offer entities.'
+suppliers hkdu sites:
+  title: 'Suppliers HKDU Sites'
+  description: 'Allow to access the administration form to configure Special offer entities.'

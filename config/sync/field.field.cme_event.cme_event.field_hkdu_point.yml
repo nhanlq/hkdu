@@ -1,0 +1,52 @@
+uuid: 80b8d53a-3ad6-4c0b-8d1a-efd332ceea54
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_hkdu_point
+    - paragraphs.paragraphs_type.org_point
+  module:
+    - cme_event
+    - entity_reference_revisions
+id: cme_event.cme_event.field_hkdu_point
+field_name: field_hkdu_point
+entity_type: cme_event
+bundle: cme_event
+label: 'HKDU Point'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      org_point: org_point
+    target_bundles_drag_drop:
+      document:
+        weight: 9
+        enabled: false
+      long_answer:
+        weight: 10
+        enabled: false
+      multiple_choice:
+        weight: 11
+        enabled: false
+      org_point:
+        enabled: true
+        weight: 12
+      result:
+        weight: 13
+        enabled: false
+      short_answer:
+        weight: 14
+        enabled: false
+      single_choice:
+        weight: 15
+        enabled: false
+      true_false:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions

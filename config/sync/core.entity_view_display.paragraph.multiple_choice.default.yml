@@ -1,0 +1,33 @@
+uuid: 7b668a20-eee8-4a3d-89bd-c10323851aaf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.multiple_choice.field_answer
+    - field.field.paragraph.multiple_choice.field_correct_answer
+    - paragraphs.paragraphs_type.multiple_choice
+id: paragraph.multiple_choice.default
+targetEntityType: paragraph
+bundle: multiple_choice
+mode: default
+content:
+  field_answer:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_correct_answer:
+    weight: 0
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden:
+  search_api_excerpt: true

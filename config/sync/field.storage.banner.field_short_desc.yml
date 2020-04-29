@@ -1,0 +1,19 @@
+uuid: f6d792a0-bcd9-4511-8d3f-ae6392fe4ca9
+langcode: en
+status: true
+dependencies:
+  module:
+    - banner
+    - text
+id: banner.field_short_desc
+field_name: field_short_desc
+entity_type: banner
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

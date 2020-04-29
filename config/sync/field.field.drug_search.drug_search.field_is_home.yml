@@ -1,0 +1,24 @@
+uuid: 05012927-2c75-41d9-86da-5be3e0e7706b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.drug_search.field_is_home
+  module:
+    - drug_search
+id: drug_search.drug_search.field_is_home
+field_name: field_is_home
+entity_type: drug_search
+bundle: drug_search
+label: 'Is Home'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

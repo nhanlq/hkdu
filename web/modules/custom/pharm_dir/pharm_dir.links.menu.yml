@@ -1,0 +1,19 @@
+
+# Pharm dir menu items definition
+entity.pharm_dir.collection:
+  title: 'Pharm dir'
+  route_name: entity.pharm_dir.collection
+  description: 'List Pharm dir entities'
+  parent: global_hkdu.admin_epharm_hkdu
+  weight: 100
+
+pharm_dir.admin.structure.settings:
+  title: 'Pharm dir settings'
+  description: 'Configure Pharm dir entities'
+  route_name: pharm_dir.settings
+  parent: entity.pharm_dir.collection
+
+pharm_dir.admin.import:
+  title: 'Pharm Dir Batch Import'
+  route_name: pharm_dir.import_xls_form
+  parent: entity.pharm_dir.collection

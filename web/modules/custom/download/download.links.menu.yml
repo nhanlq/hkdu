@@ -1,0 +1,14 @@
+
+# Download menu items definition
+entity.download.collection:
+  title: 'Download'
+  route_name: entity.download.collection
+  description: 'List Download entities'
+  parent: global_hkdu.admin_hkdu
+  weight: 100
+
+download.admin.structure.settings:
+  title: 'Download settings'
+  description: 'Configure Download entities'
+  route_name: download.settings
+  parent: entity.download.collection

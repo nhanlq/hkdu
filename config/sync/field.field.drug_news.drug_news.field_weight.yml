@@ -1,0 +1,26 @@
+uuid: 013b8039-1f36-481f-9329-9bfcb20afe43
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.drug_news.field_weight
+  module:
+    - drug_news
+id: drug_news.drug_news.field_weight
+field_name: field_weight
+entity_type: drug_news
+bundle: drug_news
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

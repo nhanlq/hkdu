@@ -1,0 +1,10 @@
+field.widget.settings.role_field_widget:
+  type: mapping
+  label: 'Roles Widget widget settings'
+  mapping:
+    size:
+      type: integer
+      label: 'Size'
+    placeholder:
+      type: textfield
+      label: 'Placeholder'

@@ -1,0 +1,27 @@
+uuid: 4ec66c13-7195-4286-867b-7db731cc59e3
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: pq_mEIu_B4widZN7Ap81iCJSjShFFdcL0jEiCi8VrDk
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access checkout'
+  - 'access comments'
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'search content'
+  - 'use text format restricted_html'
+  - 'view commerce_product'
+  - 'view media'
+  - 'view published banner entity entities'
+  - 'view published default entity entities'
+  - 'view published doctor entity entities'
+  - 'view published gallery entities'
+  - 'view published healthy entities'
+  - 'view published hospital entity entities'
+  - 'view published media entity entities'
+  - 'view published news entities'

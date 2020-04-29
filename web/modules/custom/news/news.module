@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Contains news.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function news_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the news module.
+    case 'help.page.news':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Public News') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function news_theme($existing, $type, $theme, $path) {
+    return [
+        'news' => [                            // the entity id// template directory in module or theme
+            'template'  => 'news',                // defines base template as /artwork.html.twig
+            'render element' => 'elements',          // Theme API call to define the container of the entity in the render array
+            // The entity will be prefixed with a hash sign as ['elements']['#artwork']
+        ],
+        'news_list' => [
+            'variables' => ['news' => NULL, 'author'=>NULL, 'date' =>NULL, 'tags' => NULL,'get' => NULL,'search'=>NULL],
+            'path' => $path . '/templates/',
+            'template' => 'news-list'
+        ],
+        'news_home' => [
+            'variables' => ['news' => NULL, 'author'=>NULL, 'date' =>NULL],
+            'path' => $path . '/templates/',
+            'template' => 'news-home'
+        ],
+        'news_banner_block' => [
+            'variables' => ['news' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'news-banner'
+        ],
+    ];
+}

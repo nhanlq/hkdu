@@ -1,0 +1,184 @@
+uuid: 02c219cf-52cb-4801-aadb-a432e8a44857
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.pharm_dir.pharm_dir.field_address
+    - field.field.pharm_dir.pharm_dir.field_audience
+    - field.field.pharm_dir.pharm_dir.field_count
+    - field.field.pharm_dir.pharm_dir.field_description
+    - field.field.pharm_dir.pharm_dir.field_email
+    - field.field.pharm_dir.pharm_dir.field_fax
+    - field.field.pharm_dir.pharm_dir.field_file
+    - field.field.pharm_dir.pharm_dir.field_media
+    - field.field.pharm_dir.pharm_dir.field_order_form
+    - field.field.pharm_dir.pharm_dir.field_phone
+    - field.field.pharm_dir.pharm_dir.field_price_list
+    - field.field.pharm_dir.pharm_dir.field_sales_visit
+    - field.field.pharm_dir.pharm_dir.field_thumb
+    - field.field.pharm_dir.pharm_dir.field_website
+    - field.field.pharm_dir.pharm_dir.field_weight
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - link
+    - media_library
+    - path
+    - pharm_dir
+    - text
+id: pharm_dir.pharm_dir.default
+targetEntityType: pharm_dir
+bundle: pharm_dir
+mode: default
+content:
+  field_address:
+    weight: 11
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_audience:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_count:
+    weight: 19
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_description:
+    weight: 12
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_email:
+    weight: 16
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_fax:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_file:
+    type: media_library_widget
+    weight: 6
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  field_media:
+    type: media_library_widget
+    weight: 4
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  field_order_form:
+    weight: 13
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_phone:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_price_list:
+    weight: 14
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_sales_visit:
+    weight: 15
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_thumb:
+    type: media_library_widget
+    weight: 5
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  field_website:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_weight:
+    weight: 7
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 17
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 18
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

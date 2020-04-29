@@ -1,0 +1,14 @@
+
+# Gallery menu items definition
+entity.gallery.collection:
+  title: 'Gallery'
+  route_name: entity.gallery.collection
+  description: 'List Gallery entities'
+  parent: global_hkdu.admin_hkdu
+  weight: 100
+
+gallery.admin.structure.settings:
+  title: 'Gallery settings'
+  description: 'Configure Gallery entities'
+  route_name: gallery.settings
+  parent: entity.gallery.collection

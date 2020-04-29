@@ -1,0 +1,10 @@
+uuid: b4cd41f2-d46b-46c1-8034-cb9b6aa7c87f
+langcode: en
+status: true
+dependencies: {  }
+id: org_point
+label: 'Org Point'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

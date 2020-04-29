@@ -1,0 +1,20 @@
+uuid: 7c2d062c-2fe1-466b-954e-96f1f1a631ad
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+    - event_tracking
+id: event_tracking.field_order
+field_name: field_order
+entity_type: event_tracking
+type: entity_reference
+settings:
+  target_type: commerce_order
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

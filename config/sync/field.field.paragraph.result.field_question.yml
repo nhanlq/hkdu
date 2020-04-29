@@ -1,0 +1,25 @@
+uuid: 6bf84510-8c4e-46f6-ae48-2a309ac1e33c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_question
+    - paragraphs.paragraphs_type.result
+id: paragraph.result.field_question
+field_name: field_question
+entity_type: paragraph
+bundle: result
+label: Question
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:question'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

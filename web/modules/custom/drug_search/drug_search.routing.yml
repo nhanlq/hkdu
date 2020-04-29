@@ -1,0 +1,15 @@
+
+drug_search.drug_search_list_controller_list:
+  path: '/e-pharm/drug-search'
+  defaults:
+    _controller: '\Drupal\drug_search\Controller\DrugSearchListController::list'
+    _title: 'Drug Search'
+  requirements:
+    _permission: 'view list drug search'
+drug_search.import_xls_form:
+  path: '/admin/hkdu/drug-search/import'
+  defaults:
+    _form: '\Drupal\drug_search\Form\ImportXlsForm'
+    _title: 'ImportXlsForm'
+  requirements:
+    _permission: 'view list drug search'

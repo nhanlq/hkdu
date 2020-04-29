@@ -1,0 +1,26 @@
+uuid: dab6396b-ba0c-43c8-95f8-47265c24e842
+langcode: en
+status: true
+dependencies:
+  module:
+    - event
+    - system
+  theme:
+    - hkdu
+id: eventhomeblock
+theme: hkdu
+region: content
+weight: -7
+provider: null
+plugin: event_home_block
+settings:
+  id: event_home_block
+  label: 'Event home block'
+  provider: event
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /e-pharm
+    negate: false
+    context_mapping: {  }

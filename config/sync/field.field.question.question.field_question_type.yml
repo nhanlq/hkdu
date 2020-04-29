@@ -1,0 +1,21 @@
+uuid: 4c34420e-a80b-4d9e-8c64-b536e4ce7165
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.question.field_question_type
+  module:
+    - cme_question
+    - options
+id: question.question.field_question_type
+field_name: field_question_type
+entity_type: question
+bundle: question
+label: 'Question type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

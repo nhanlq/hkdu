@@ -1,0 +1,64 @@
+uuid: 6b385c29-2530-4dc0-bdd5-5f91c341f412
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.about.about.field_description
+    - field.field.about.about.field_media
+  module:
+    - about
+    - media_library
+    - path
+    - text
+id: about.about.default
+targetEntityType: about
+bundle: about
+mode: default
+content:
+  field_description:
+    weight: 26
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_media:
+    type: media_library_widget
+    weight: 31
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,5 @@
+entity.clinical_focus.add_form:
+  route_name: entity.clinical_focus.add_form
+  title: 'Add Clinical focus'
+  appears_on:
+    - entity.clinical_focus.collection

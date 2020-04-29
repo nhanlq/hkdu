@@ -1,0 +1,14 @@
+
+# Doctor entity menu items definition
+entity.doctor.collection:
+  title: 'Doctors'
+  route_name: entity.doctor.collection
+  description: 'List Doctor entity entities'
+  parent: global_hkdu.admin_hkdu
+  weight: 100
+
+doctor.admin.structure.settings:
+  title: 'Doctors settings'
+  description: 'Configure Doctor entity entities'
+  route_name: doctor.settings
+  parent: entity.doctor.collection

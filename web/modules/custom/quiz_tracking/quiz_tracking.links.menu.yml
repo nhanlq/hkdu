@@ -1,0 +1,14 @@
+
+# Quiz tracking menu items definition
+entity.quiz_tracking.collection:
+  title: 'Quiz tracking list'
+  route_name: entity.quiz_tracking.collection
+  description: 'List Quiz tracking entities'
+  parent: system.admin_structure
+  weight: 100
+
+quiz_tracking.admin.structure.settings:
+  title: 'Quiz tracking settings'
+  description: 'Configure Quiz tracking entities'
+  route_name: quiz_tracking.settings
+  parent: system.admin_structure

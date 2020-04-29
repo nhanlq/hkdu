@@ -1,0 +1,30 @@
+uuid: be0545f1-b586-4e0f-9143-a800c86bc011
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_category
+    - taxonomy.vocabulary.quiz
+  module:
+    - cme_quiz
+id: quiz.quiz.field_category
+field_name: field_category
+entity_type: quiz
+bundle: quiz
+label: Category
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      quiz: quiz
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

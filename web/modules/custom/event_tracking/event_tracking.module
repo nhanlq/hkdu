@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains event_tracking.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function event_tracking_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the event_tracking module.
+    case 'help.page.event_tracking':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Event Tracking Order') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function event_tracking_theme() {
+  return [
+    'event_tracking' => [
+      'render element' => 'children',
+    ],
+  ];
+}

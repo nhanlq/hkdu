@@ -1,0 +1,15 @@
+<div class="Grid__Box-f9ujw0-0 eXMIVa">
+    <select id="epharm-switch" class="epharm-switch">
+        <option value="public">Public</option>
+        {% if epharm %}
+            <option selected value="e-pharm">e-Pharm</option>
+        {% else %}
+            <option value="e-pharm">e-Pharm</option>
+        {% endif %}
+        {% if cme %}
+        <option selected value="cme">CME</option>
+        {% else %}
+            <option value="cme">CME</option>
+        {% endif %}
+    </select>
+</div><!-- Add you custom twig html here -->

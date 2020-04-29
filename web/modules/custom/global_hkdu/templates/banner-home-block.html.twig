@@ -1,0 +1,13 @@
+<div class="slick-slider">
+    {% for node in nodes %}
+    <div>
+        <a rel="noopener" target="_blank" href="{{ node.field_link.url }}" tabindex="-1" color="white"
+            class="gIVySV" style="background-image: url({{ node.field_image.entity.uri.value | image_style('original') }})">
+            <div class="bMILwk">
+                <h2 class="cHdsrC">{{ node.title.value }}</h2>
+                <p class="kMAhQW">{{ node.field_description.value }}</p>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>

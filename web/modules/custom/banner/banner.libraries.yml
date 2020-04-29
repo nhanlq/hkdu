@@ -1,0 +1,9 @@
+banner_slider:
+  version: VERSION
+  css:
+    theme:
+      css/slick.css: {}
+      css/slick-theme.css: {}
+  js:
+    js/slick.js: { }
+    js/banner.js: { }

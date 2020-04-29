@@ -1,0 +1,24 @@
+
+epharm.default_controller_index:
+  path: '/e-pharm'
+  defaults:
+    _controller: '\Drupal\epharm\Controller\DefaultController::index'
+    _title: 'e-Pharm'
+  requirements:
+    _permission: 'access content'
+
+epharm.admin_controller_admin:
+  path: '/admin/hkdu/e-pharm'
+  defaults:
+    _controller: '\Drupal\epharm\Controller\AdminController::admin'
+    _title: 'HKDU Epharm Aministrator'
+  requirements:
+    _permission: 'access content'
+
+epharm.clone_entity_controller_clone:
+  path: '/epharm/clone/{type}/{id}'
+  defaults:
+    _controller: '\Drupal\epharm\Controller\CloneEntityController::clone'
+    _title: 'Clone'
+  requirements:
+    _permission: 'access content'

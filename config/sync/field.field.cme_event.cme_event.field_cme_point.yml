@@ -1,0 +1,24 @@
+uuid: 7ff26dc9-b122-462d-8456-9bb83507963b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_cme_point
+  module:
+    - cme_event
+id: cme_event.cme_event.field_cme_point
+field_name: field_cme_point
+entity_type: cme_event
+bundle: cme_event
+label: 'CME Point'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

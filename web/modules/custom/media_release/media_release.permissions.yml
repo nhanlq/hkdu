@@ -1,0 +1,31 @@
+add media entity entities:
+  title: 'Create new Media entity entities'
+
+administer media entity entities:
+  title: 'Administer Media entity entities'
+  description: 'Allow to access the administration form to configure Media entity entities.'
+  restrict access: true
+
+delete media entity entities:
+  title: 'Delete Media entity entities'
+
+edit media entity entities:
+  title: 'Edit Media entity entities'
+
+view published media entity entities:
+  title: 'View published Media entity entities'
+
+view unpublished media entity entities:
+  title: 'View unpublished Media entity entities'
+
+view all media entity revisions:
+  title: 'View all Media entity revisions'
+
+revert all media entity revisions:
+  title: 'Revert all Media entity revisions'
+  description: 'Role requires permission <em>view Media entity revisions</em> and <em>edit rights</em> for media entity entities in question or <em>administer media entity entities</em>.'
+
+delete all media entity revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Media entity revisions</em> and <em>delete rights</em> for media entity entities in question or <em>administer media entity entities</em>.'
+

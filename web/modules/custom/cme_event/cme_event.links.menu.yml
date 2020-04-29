@@ -1,0 +1,14 @@
+
+# CME Event menu items definition
+entity.cme_event.collection:
+  title: 'CME Event'
+  route_name: entity.cme_event.collection
+  description: 'List CME Event entities'
+  parent: cme.admin_cme
+  weight: 100
+
+cme_event.admin.structure.settings:
+  title: 'CME Event settings'
+  description: 'Configure CME Event entities'
+  route_name: cme_event.settings
+  parent: entity.cme_event.collection

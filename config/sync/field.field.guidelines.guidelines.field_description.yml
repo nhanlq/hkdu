@@ -1,0 +1,21 @@
+uuid: 8dcbb6c0-5f83-4c36-ad15-3ea4a5d47ba4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.guidelines.field_description
+  module:
+    - cme_guidelines
+    - text
+id: guidelines.guidelines.field_description
+field_name: field_description
+entity_type: guidelines
+bundle: guidelines
+label: Description
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

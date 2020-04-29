@@ -1,0 +1,15 @@
+uuid: f1811055-1c69-49d4-9fca-e9747e6ade19
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: HUvL87WBThriDQ7QYMGpDEjkuSgTRXVZwvWWyXQNYp8
+id: order_default
+label: Default
+targetEntityType: commerce_order
+plugin: infinite
+configuration:
+  pattern: '[pattern:number]'
+  initial_number: 1
+  padding: 0
+  per_store_sequence: true

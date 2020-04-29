@@ -1,0 +1,20 @@
+uuid: 24f02ceb-7a97-4751-99a6-b2de99d1a1bd
+langcode: en
+status: true
+dependencies:
+  module:
+    - drug_search
+    - taxonomy
+id: drug_search.field_drug_classification
+field_name: field_drug_classification
+entity_type: drug_search
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

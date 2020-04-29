@@ -1,0 +1,23 @@
+uuid: bd1f3353-aff8-4e9e-bc83-e6af434fc8da
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_event
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: cme_event.field_location
+field_name: field_location
+entity_type: cme_event
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

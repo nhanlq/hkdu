@@ -1,0 +1,14 @@
+uuid: c7526a3e-6a31-4c94-bf29-83e2c15c08a1
+langcode: en
+status: true
+dependencies:
+  module:
+    - drug_news
+id: drug_news
+label: 'Drug News'
+type: 'canonical_entities:drug_news'
+pattern: '/e-pharm/drug-news/[drug_news:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

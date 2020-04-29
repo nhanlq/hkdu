@@ -1,0 +1,26 @@
+# Hospital entity routing definition
+hospital.settings_tab:
+  route_name: hospital.settings
+  title: 'Settings'
+  base_route: hospital.settings
+
+entity.hospital.canonical:
+  route_name: entity.hospital.canonical
+  base_route: entity.hospital.canonical
+  title: 'View'
+
+entity.hospital.edit_form:
+  route_name: entity.hospital.edit_form
+  base_route: entity.hospital.canonical
+  title: 'Edit'
+
+entity.hospital.version_history:
+  route_name: entity.hospital.version_history
+  base_route: entity.hospital.canonical
+  title: 'Revisions'
+
+entity.hospital.delete_form:
+  route_name:  entity.hospital.delete_form
+  base_route:  entity.hospital.canonical
+  title: Delete
+  weight: 10

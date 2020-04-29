@@ -1,0 +1,20 @@
+uuid: 990b4a31-cf8e-43a7-b77e-8b200231687e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_professional_qualification
+  module:
+    - doctor
+id: doctor.doctor.field_professional_qualification
+field_name: field_professional_qualification
+entity_type: doctor
+bundle: doctor
+label: 'Professional Qualifications'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

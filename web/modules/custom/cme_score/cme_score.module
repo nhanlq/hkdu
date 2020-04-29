@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains cme_score.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function cme_score_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the cme_score module.
+    case 'help.page.cme_score':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Score Management System') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function cme_score_theme() {
+  return [
+    'cme_score' => [
+      'render element' => 'children',
+    ],
+  ];
+}

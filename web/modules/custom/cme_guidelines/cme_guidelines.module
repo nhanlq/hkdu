@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Contains cme_guidelines.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function cme_guidelines_help($route_name, RouteMatchInterface $route_match)
+{
+    switch ($route_name) {
+        // Main module help for the cme_guidelines module.
+        case 'help.page.cme_guidelines':
+            $output = '';
+            $output .= '<h3>' . t('About') . '</h3>';
+            $output .= '<p>' . t('My Awesome Module') . '</p>';
+            return $output;
+
+        default:
+    }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function cme_guidelines_theme($existing, $type, $theme, $path)
+{
+    return [
+        'guidelines' => [
+            'template' => 'guidelines',
+            'render element' => 'children',
+        ],
+        'cme_guidelines_list' => [
+            'variables' => ['abouts' => NULL, 'author' => NULL, 'date' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'cme-guidelines-list'
+        ],
+        'cme_guidelines_banner_block' => [
+            'variables' => ['about' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'cme-guidelines-banner'
+        ],
+    ];
+}

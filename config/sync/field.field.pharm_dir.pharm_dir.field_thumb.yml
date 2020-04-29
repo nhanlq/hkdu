@@ -1,0 +1,29 @@
+uuid: 9d9604a6-0826-439f-9aaa-1a1f73976a2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.pharm_dir.field_thumb
+    - media.type.image
+  module:
+    - pharm_dir
+id: pharm_dir.pharm_dir.field_thumb
+field_name: field_thumb
+entity_type: pharm_dir
+bundle: pharm_dir
+label: Thumb
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

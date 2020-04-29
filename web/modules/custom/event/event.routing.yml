@@ -1,0 +1,22 @@
+
+event.event_list_controller_list:
+  path: '/e-pharm/event'
+  defaults:
+    _controller: '\Drupal\event\Controller\EventListController::list'
+    _title: 'Events'
+  requirements:
+    _permission: 'view event list'
+event.enroll_form:
+  path: '/admin/e-pharm/event/enroll/offline'
+  defaults:
+    _form: '\Drupal\event\Form\EnrollForm'
+    _title: 'Register Event Offline Tools'
+  requirements:
+    _permission: 'access epharm'
+event.import_xls_form:
+  path: '/admin/hkdu/event/import'
+  defaults:
+    _form: '\Drupal\event\Form\ImportXlsForm'
+    _title: 'ImportXlsForm'
+  requirements:
+    _permission: 'access epharm'

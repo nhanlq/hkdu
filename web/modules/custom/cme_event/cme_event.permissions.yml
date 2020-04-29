@@ -1,0 +1,31 @@
+add cme event entities:
+  title: 'Create new CME Event entities'
+
+administer cme event entities:
+  title: 'Administer CME Event entities'
+  description: 'Allow to access the administration form to configure CME Event entities.'
+  restrict access: true
+
+delete cme event entities:
+  title: 'Delete CME Event entities'
+
+edit cme event entities:
+  title: 'Edit CME Event entities'
+
+view published cme event entities:
+  title: 'View published CME Event entities'
+
+view unpublished cme event entities:
+  title: 'View unpublished CME Event entities'
+
+view all cme event revisions:
+  title: 'View all CME Event revisions'
+
+revert all cme event revisions:
+  title: 'Revert all CME Event revisions'
+  description: 'Role requires permission <em>view CME Event revisions</em> and <em>edit rights</em> for cme event entities in question or <em>administer cme event entities</em>.'
+
+delete all cme event revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view CME Event revisions</em> and <em>delete rights</em> for cme event entities in question or <em>administer cme event entities</em>.'
+

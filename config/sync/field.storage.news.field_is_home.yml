@@ -1,0 +1,18 @@
+uuid: dbb420b8-772b-4344-aba0-393035cc89db
+langcode: en
+status: true
+dependencies:
+  module:
+    - news
+id: news.field_is_home
+field_name: field_is_home
+entity_type: news
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

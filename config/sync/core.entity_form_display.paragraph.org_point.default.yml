@@ -1,0 +1,29 @@
+uuid: d598c033-0685-42a5-abe0-19c13d332291
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.org_point.field_organizer
+    - field.field.paragraph.org_point.field_point
+    - paragraphs.paragraphs_type.org_point
+id: paragraph.org_point.default
+targetEntityType: paragraph
+bundle: org_point
+mode: default
+content:
+  field_organizer:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_point:
+    weight: 1
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+hidden:
+  created: true
+  status: true

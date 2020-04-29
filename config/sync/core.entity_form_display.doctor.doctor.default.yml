@@ -1,0 +1,385 @@
+uuid: ad6531ee-9d46-491d-9e19-dfd31e222ec3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.doctor.doctor.field_affiliation_hospital
+    - field.field.doctor.doctor.field_basic_qualifications
+    - field.field.doctor.doctor.field_clinic_address
+    - field.field.doctor.doctor.field_clinic_fax
+    - field.field.doctor.doctor.field_clinic_location
+    - field.field.doctor.doctor.field_clinic_name
+    - field.field.doctor.doctor.field_clinic_phone
+    - field.field.doctor.doctor.field_correspondence_address
+    - field.field.doctor.doctor.field_email
+    - field.field.doctor.doctor.field_emergency_service
+    - field.field.doctor.doctor.field_emergency_service_contact
+    - field.field.doctor.doctor.field_fax
+    - field.field.doctor.doctor.field_gender
+    - field.field.doctor.doctor.field_insurance_scheme_supported
+    - field.field.doctor.doctor.field_joining_iteration
+    - field.field.doctor.doctor.field_language
+    - field.field.doctor.doctor.field_medical_cards_supported
+    - field.field.doctor.doctor.field_membership_no
+    - field.field.doctor.doctor.field_mobile
+    - field.field.doctor.doctor.field_out_going_services
+    - field.field.doctor.doctor.field_payment_cards
+    - field.field.doctor.doctor.field_photo
+    - field.field.doctor.doctor.field_professional_qualification
+    - field.field.doctor.doctor.field_recognized_specialties
+    - field.field.doctor.doctor.field_registration_no
+    - field.field.doctor.doctor.field_vaccine_service
+    - field.field.doctor.doctor.field_wechat
+    - field.field.doctor.doctor.field_whatsapp
+  module:
+    - doctor
+    - field_group
+    - geolocation
+    - link
+    - media_library
+    - path
+third_party_settings:
+  field_group:
+    group_contact_information:
+      children:
+        - field_registration_no
+        - field_membership_no
+        - field_joining_iteration
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Contact Information'
+    group_member_detail:
+      children:
+        - field_gender
+        - field_language
+        - field_email
+        - field_mobile
+        - field_fax
+        - field_whatsapp
+        - field_wechat
+        - field_correspondence_address
+      parent_name: ''
+      weight: 3
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Member Detail'
+    group_qualifications:
+      children:
+        - field_basic_qualifications
+        - field_recognized_specialties
+        - field_professional_qualification
+      parent_name: ''
+      weight: 4
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Qualifications
+    group_clinic_details:
+      children:
+        - field_clinic_name
+        - field_clinic_phone
+        - field_clinic_fax
+        - field_clinic_address
+        - field_clinic_location
+        - field_emergency_service
+        - field_emergency_service_contact
+        - field_out_going_services
+        - field_vaccine_service
+        - field_insurance_scheme_supported
+        - field_medical_cards_supported
+        - field_payment_cards
+      parent_name: ''
+      weight: 5
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Clinic Details'
+    group_affiliation_of_hospitals:
+      children:
+        - field_affiliation_hospital
+      parent_name: ''
+      weight: 6
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Affiliation of Hospitals'
+id: doctor.doctor.default
+targetEntityType: doctor
+bundle: doctor
+mode: default
+content:
+  field_affiliation_hospital:
+    weight: 11
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_basic_qualifications:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_clinic_address:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_clinic_fax:
+    weight: 11
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_clinic_location:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: geolocation_latlng
+    region: content
+  field_clinic_name:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_clinic_phone:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_correspondence_address:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_email:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_emergency_service:
+    weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_emergency_service_contact:
+    weight: 15
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_fax:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_gender:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_insurance_scheme_supported:
+    weight: 18
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_joining_iteration:
+    weight: 28
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_language:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_medical_cards_supported:
+    weight: 19
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_membership_no:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_mobile:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_out_going_services:
+    weight: 16
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_payment_cards:
+    weight: 20
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_photo:
+    type: media_library_widget
+    weight: 1
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  field_professional_qualification:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_recognized_specialties:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_registration_no:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_vaccine_service:
+    weight: 17
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_wechat:
+    weight: 11
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_whatsapp:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 7
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 8
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

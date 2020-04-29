@@ -1,0 +1,24 @@
+uuid: f50be19f-ddac-41c4-984c-1d7bd517d0e2
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_quiz
+    - field_permissions
+    - taxonomy
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: quiz.field_category
+field_name: field_category
+entity_type: quiz
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

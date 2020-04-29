@@ -1,0 +1,23 @@
+uuid: bc921a46-3f1e-493c-89ab-3d65e070c0ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.public_links.field_link
+  module:
+    - link
+    - public_links
+id: public_links.public_links.field_link
+field_name: field_link
+entity_type: public_links
+bundle: public_links
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

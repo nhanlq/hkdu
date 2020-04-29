@@ -1,0 +1,114 @@
+uuid: a3138693-b037-4f56-afe6-b0e810d2917a
+langcode: en
+status: true
+dependencies:
+  module:
+    - clinical_focus
+    - cme_event
+    - content_moderation
+    - drug_news
+    - drug_search
+    - event
+    - pharm_dir
+    - special_offer
+    - tools
+_core:
+  default_config_hash: Ln7YAg2WXZ-5wn9ib-v9qOKFxF2YZLnwSKtX-V455hE
+id: editorial
+label: Editorial
+type: content_moderation
+type_settings:
+  states:
+    archived:
+      label: Archived
+      weight: 1
+      published: false
+      default_revision: true
+    draft:
+      published: false
+      default_revision: false
+      label: Draft
+      weight: -3
+    expired:
+      published: false
+      default_revision: false
+      label: Expired
+      weight: 0
+    pending:
+      published: false
+      default_revision: false
+      label: 'Pending Review'
+      weight: -2
+    published:
+      label: Published
+      published: true
+      default_revision: true
+      weight: -1
+  transitions:
+    archive:
+      label: Archive
+      from:
+        - published
+      to: archived
+      weight: -1
+    archived_draft:
+      label: 'Restore to Draft'
+      from:
+        - archived
+      to: draft
+      weight: 0
+    archived_published:
+      label: Restore
+      from:
+        - archived
+      to: published
+      weight: 1
+    create_new_draft:
+      label: 'Create New Draft'
+      from:
+        - draft
+        - expired
+        - pending
+        - published
+      to: draft
+      weight: -4
+    exoired:
+      label: Expired
+      from:
+        - draft
+        - published
+      to: expired
+      weight: 2
+    pending_review:
+      label: 'Pending Review'
+      from:
+        - draft
+        - pending
+      to: pending
+      weight: -3
+    publish:
+      label: Publish
+      to: published
+      weight: -2
+      from:
+        - draft
+        - pending
+        - published
+  entity_types:
+    clinical_focus:
+      - clinical_focus
+    cme_event:
+      - cme_event
+    drug_news:
+      - drug_news
+    drug_search:
+      - drug_search
+    event:
+      - event
+    pharm_dir:
+      - pharm_dir
+    special_offer:
+      - special_offer
+    tools:
+      - tools
+  default_moderation_state: draft

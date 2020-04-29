@@ -1,0 +1,21 @@
+uuid: b0c64f37-dd03-46f8-94f6-b84e6ed90ae4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.clinical_focus.field_audience
+  module:
+    - clinical_focus
+    - options
+id: clinical_focus.clinical_focus.field_audience
+field_name: field_audience
+entity_type: clinical_focus
+bundle: clinical_focus
+label: Audience
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

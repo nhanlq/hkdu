@@ -1,0 +1,21 @@
+uuid: 1ce184eb-6223-46dd-9d95-314b57e99197
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.hospital.field_tel
+  module:
+    - hospital
+    - telephone
+id: hospital.hospital.field_tel
+field_name: field_tel
+entity_type: hospital
+bundle: hospital
+label: Tel
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

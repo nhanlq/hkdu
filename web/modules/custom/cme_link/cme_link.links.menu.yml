@@ -1,0 +1,14 @@
+
+# CME Links menu items definition
+entity.cme_links.collection:
+  title: 'CME Links'
+  route_name: entity.cme_links.collection
+  description: 'List CME Links entities'
+  parent: cme.admin_cme
+  weight: 100
+
+cme_links.admin.structure.settings:
+  title: 'CME Links settings'
+  description: 'Configure CME Links entities'
+  route_name: cme_links.settings
+  parent: entity.cme_links.collection

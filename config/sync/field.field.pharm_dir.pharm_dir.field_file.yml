@@ -1,0 +1,29 @@
+uuid: be910726-74cb-4646-a298-734ad6d282af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.pharm_dir.field_file
+    - media.type.document
+  module:
+    - pharm_dir
+id: pharm_dir.pharm_dir.field_file
+field_name: field_file
+entity_type: pharm_dir
+bundle: pharm_dir
+label: File
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

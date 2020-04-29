@@ -1,0 +1,13 @@
+<div class="jWxJo">
+    {% for gallery in gallerys %}
+        <div class="gEzcmW">
+            <a href="{{ path('entity.gallery.canonical', {'gallery': gallery.id.value}) }}">
+                <div style="background-image: url({{ gallery.field_media[0].entity.field_media_image.entity.uri.value | image_style('original') }})" class="cmYSky">
+                </div>
+            </a>
+            <div class="biunsS">{{ gallery.field_place.value }}</div>
+            <div class="ktLFkQ">{{ gallery.field_date.value }}</div>
+        </div>
+    {% endfor %}
+
+</div>

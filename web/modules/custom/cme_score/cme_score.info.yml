@@ -1,0 +1,5 @@
+name: 'CME Score'
+type: module
+description: 'Score Management System'
+core: 8.x
+package: 'HKDU'

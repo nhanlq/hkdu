@@ -1,0 +1,14 @@
+uuid: e7071b5c-a028-4da3-8e52-d5769ed09aa5
+langcode: en
+status: true
+dependencies:
+  module:
+    - drug_search
+id: drug_search
+label: 'Drug Search'
+type: 'canonical_entities:drug_search'
+pattern: '/e-pharm/drug-search/[drug_search:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

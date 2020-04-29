@@ -1,0 +1,26 @@
+uuid: ddc900e6-1fb7-4b21-94f6-32c7ffe85c5c
+langcode: en
+status: true
+dependencies:
+  module:
+    - clinical_focus
+    - system
+  theme:
+    - hkdu
+id: clinicalbannerblock
+theme: hkdu
+region: header
+weight: -12
+provider: null
+plugin: clinical_banner_block
+settings:
+  id: clinical_banner_block
+  label: 'Clinical banner block'
+  provider: clinical_focus
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/e-pharm/clinical-focus/*'
+    negate: false
+    context_mapping: {  }

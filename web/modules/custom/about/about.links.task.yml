@@ -1,0 +1,26 @@
+# Default entity routing definition
+about.settings_tab:
+  route_name: about.settings
+  title: 'Settings'
+  base_route: about.settings
+
+entity.about.canonical:
+  route_name: entity.about.canonical
+  base_route: entity.about.canonical
+  title: 'View'
+
+entity.about.edit_form:
+  route_name: entity.about.edit_form
+  base_route: entity.about.canonical
+  title: 'Edit'
+
+entity.about.version_history:
+  route_name: entity.about.version_history
+  base_route: entity.about.canonical
+  title: 'Revisions'
+
+entity.about.delete_form:
+  route_name:  entity.about.delete_form
+  base_route:  entity.about.canonical
+  title: Delete
+  weight: 10

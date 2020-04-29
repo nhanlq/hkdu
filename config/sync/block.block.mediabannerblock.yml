@@ -1,0 +1,26 @@
+uuid: 5883a43f-18c9-4e88-a4ff-bb5070d1dbc3
+langcode: en
+status: true
+dependencies:
+  module:
+    - media_release
+    - system
+  theme:
+    - hkdu
+id: mediabannerblock
+theme: hkdu
+region: header
+weight: -14
+provider: null
+plugin: media_banner_block
+settings:
+  id: media_banner_block
+  label: 'Media banner block'
+  provider: media_release
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/hkdu/media_entity/*'
+    negate: false
+    context_mapping: {  }

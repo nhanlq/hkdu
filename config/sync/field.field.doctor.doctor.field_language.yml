@@ -1,0 +1,20 @@
+uuid: 61cba64d-b376-46bf-bef1-1576c677c2a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_language
+  module:
+    - doctor
+id: doctor.doctor.field_language
+field_name: field_language
+entity_type: doctor
+bundle: doctor
+label: Language
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

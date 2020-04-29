@@ -1,0 +1,31 @@
+uuid: d7b87a59-12a1-43c2-948d-4788631cd7c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.download.field_media
+    - paragraphs.paragraphs_type.document
+  module:
+    - download
+    - entity_reference_revisions
+id: download.download.field_media
+field_name: field_media
+entity_type: download
+bundle: download
+label: Media
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      document: document
+    target_bundles_drag_drop:
+      document:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

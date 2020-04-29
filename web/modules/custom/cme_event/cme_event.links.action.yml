@@ -1,0 +1,5 @@
+entity.cme_event.add_form:
+  route_name: entity.cme_event.add_form
+  title: 'Add CME Event'
+  appears_on:
+    - entity.cme_event.collection

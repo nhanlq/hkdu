@@ -1,0 +1,25 @@
+uuid: b29ed583-8bb0-49ac-aeaf-0e2a7e4ea946
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_event_organizer
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: event_org.field_fax
+field_name: field_fax
+entity_type: event_org
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

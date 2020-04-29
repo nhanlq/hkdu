@@ -1,0 +1,14 @@
+
+# Question menu items definition
+entity.question.collection:
+  title: 'Questions'
+  route_name: entity.question.collection
+  description: 'List Question entities'
+  parent: cme.admin_cme
+  weight: 100
+
+question.admin.structure.settings:
+  title: 'Question settings'
+  description: 'Configure Question entities'
+  route_name: question.settings
+  parent: entity.question.collection

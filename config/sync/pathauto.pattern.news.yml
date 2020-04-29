@@ -1,0 +1,14 @@
+uuid: fe11a18c-ffba-4262-bbf3-9010f3212c32
+langcode: en
+status: true
+dependencies:
+  module:
+    - news
+id: news
+label: News
+type: 'canonical_entities:news'
+pattern: '/news/[news:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

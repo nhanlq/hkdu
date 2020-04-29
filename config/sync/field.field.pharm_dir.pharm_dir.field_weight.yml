@@ -1,0 +1,26 @@
+uuid: fe5d5685-eb98-4493-975f-6f9a7ed0aa6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.pharm_dir.field_weight
+  module:
+    - pharm_dir
+id: pharm_dir.pharm_dir.field_weight
+field_name: field_weight
+entity_type: pharm_dir
+bundle: pharm_dir
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

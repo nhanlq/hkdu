@@ -1,0 +1,7 @@
+single_choice:
+  version: VERSION
+  js:
+      js/single_choice.js: {}
+  css:
+    layout:
+      css/single_choice.css: {}

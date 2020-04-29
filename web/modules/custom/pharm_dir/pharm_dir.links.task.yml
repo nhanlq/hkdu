@@ -1,0 +1,26 @@
+# Pharm dir routing definition
+pharm_dir.settings_tab:
+  route_name: pharm_dir.settings
+  title: 'Settings'
+  base_route: pharm_dir.settings
+
+entity.pharm_dir.canonical:
+  route_name: entity.pharm_dir.canonical
+  base_route: entity.pharm_dir.canonical
+  title: 'View'
+
+entity.pharm_dir.edit_form:
+  route_name: entity.pharm_dir.edit_form
+  base_route: entity.pharm_dir.canonical
+  title: 'Edit'
+
+entity.pharm_dir.version_history:
+  route_name: entity.pharm_dir.version_history
+  base_route: entity.pharm_dir.canonical
+  title: 'Revisions'
+
+entity.pharm_dir.delete_form:
+  route_name:  entity.pharm_dir.delete_form
+  base_route:  entity.pharm_dir.canonical
+  title: Delete
+  weight: 10

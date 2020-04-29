@@ -1,0 +1,20 @@
+uuid: 91267d19-e612-4a50-b73e-8236b3b32c91
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_correspondence_address
+  module:
+    - doctor
+id: doctor.doctor.field_correspondence_address
+field_name: field_correspondence_address
+entity_type: doctor
+bundle: doctor
+label: 'Correspondence Address'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

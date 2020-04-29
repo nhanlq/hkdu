@@ -1,0 +1,30 @@
+uuid: b6829b29-f90c-4eea-9bcb-b3b7d1103f34
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.epharm
+  module:
+    - system
+  theme:
+    - hkdu
+id: epharm_2
+theme: hkdu
+region: navigation
+weight: -12
+provider: null
+plugin: 'system_menu_block:epharm'
+settings:
+  id: 'system_menu_block:epharm'
+  label: Epharm
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    pages: "/e-pharm\r\n/e-pharm/*"
+    negate: false
+    context_mapping: {  }

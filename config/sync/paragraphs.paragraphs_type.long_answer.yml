@@ -1,0 +1,10 @@
+uuid: b1625c84-4235-4abc-8597-de7ebec17d8b
+langcode: en
+status: true
+dependencies: {  }
+id: long_answer
+label: 'Long Answer'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

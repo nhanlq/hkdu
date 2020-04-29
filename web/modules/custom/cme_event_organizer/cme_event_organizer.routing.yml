@@ -1,0 +1,8 @@
+
+cme_event_organizer.org_list_controller_list:
+  path: '/cme/event-org'
+  defaults:
+    _controller: '\Drupal\cme_event_organizer\Controller\OrgListController::list'
+    _title: 'Event Organizers'
+  requirements:
+    _permission: 'view published event organizer entities'

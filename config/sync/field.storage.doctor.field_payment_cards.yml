@@ -1,0 +1,21 @@
+uuid: 89b62d61-7582-4037-9712-dfd468f9e721
+langcode: en
+status: true
+dependencies:
+  module:
+    - doctor
+id: doctor.field_payment_cards
+field_name: field_payment_cards
+entity_type: doctor
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

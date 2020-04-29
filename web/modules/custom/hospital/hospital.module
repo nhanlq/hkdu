@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Contains hospital.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function hospital_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the hospital module.
+    case 'help.page.hospital':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Hospital Entity') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function hospital_theme($existing, $type, $theme, $path) {
+    return [
+        'hospital' => [                            // the entity id
+            // template directory in module or theme
+            'template'  => 'hospital',                // defines base template as /artwork.html.twig
+            'render element' => 'elements',          // Theme API call to define the container of the entity in the render array
+            // The entity will be prefixed with a hash sign as ['elements']['#artwork']
+        ],
+        'hospital_list' => [
+            'variables' => ['hospitals' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'hospital-list'
+        ],
+        'hospital_banner_block' => [
+            'variables' => ['hospital' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'hospital-banner'
+        ],
+    ];
+}

@@ -1,0 +1,30 @@
+uuid: f61911b1-df32-4b41-b2cb-791b206272a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_tags
+    - taxonomy.vocabulary.event
+  module:
+    - cme_event
+id: cme_event.cme_event.field_tags
+field_name: field_tags
+entity_type: cme_event
+bundle: cme_event
+label: Tags
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      event: event
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

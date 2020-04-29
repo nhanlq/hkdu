@@ -1,0 +1,6 @@
+name: 'Global HKDU'
+type: module
+description: 'Global config'
+core: 8.x
+package: 'HKDU'
+

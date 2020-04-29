@@ -1,0 +1,14 @@
+uuid: 801e96b3-d577-43e2-9232-bce62483d997
+langcode: en
+status: true
+dependencies:
+  module:
+    - pharm_dir
+id: pharm
+label: 'Pharm Dir'
+type: 'canonical_entities:pharm_dir'
+pattern: '/e-pharm/pharm-dir/[pharm_dir:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

@@ -1,0 +1,24 @@
+uuid: 4f7bfe56-7318-49cd-8c00-66216a56831a
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_event
+    - field_permissions
+    - taxonomy
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: cme_event.field_tags
+field_name: field_tags
+entity_type: cme_event
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,15 @@
+uuid: 52447a42-ec8a-43ac-8da5-e377181280de
+langcode: en
+status: true
+dependencies: {  }
+name: about_thumb
+label: about_thumb
+effects:
+  f4f7b4ca-2bc9-461f-a15c-20143c462d8e:
+    uuid: f4f7b4ca-2bc9-461f-a15c-20143c462d8e
+    id: image_scale
+    weight: 1
+    data:
+      width: 200
+      height: 218
+      upscale: false

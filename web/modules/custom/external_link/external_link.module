@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Contains external_link.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function external_link_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the external_link module.
+    case 'help.page.external_link':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('External Link') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function external_link_theme($existing, $type, $theme, $path) {
+    return [
+        'external_link' => [                            // the entity id// template directory in module or theme
+            'template'  => 'external_link',                // defines base template as /artwork.html.twig
+            'render element' => 'elements',          // Theme API call to define the container of the entity in the render array
+            // The entity will be prefixed with a hash sign as ['elements']['#artwork']
+        ],
+        'external_link_list' => [
+            'variables' => ['external_link' => NULL,'get'=>NULL],
+            'path' => $path . '/templates/',
+            'template' => 'external-link-list'
+        ],
+        'external_link_banner_block' => [
+            'variables' => ['external_link' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'external-link-banner'
+        ],
+    ];
+}

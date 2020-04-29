@@ -1,0 +1,33 @@
+add clinical focus entities:
+  title: 'Create new Clinical focus entities'
+
+administer clinical focus entities:
+  title: 'Administer Clinical focus entities'
+  description: 'Allow to access the administration form to configure Clinical focus entities.'
+  restrict access: true
+
+delete clinical focus entities:
+  title: 'Delete Clinical focus entities'
+
+edit clinical focus entities:
+  title: 'Edit Clinical focus entities'
+
+view published clinical focus entities:
+  title: 'View published Clinical focus entities'
+
+view unpublished clinical focus entities:
+  title: 'View unpublished Clinical focus entities'
+
+view all clinical focus revisions:
+  title: 'View all Clinical focus revisions'
+
+revert all clinical focus revisions:
+  title: 'Revert all Clinical focus revisions'
+  description: 'Role requires permission <em>view Clinical focus revisions</em> and <em>edit rights</em> for clinical focus entities in question or <em>administer clinical focus entities</em>.'
+
+delete all clinical focus revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Clinical focus revisions</em> and <em>delete rights</em> for clinical focus entities in question or <em>administer clinical focus entities</em>.'
+
+view list clinical focus:
+  title: 'View List Clinical Focus'

@@ -1,0 +1,14 @@
+
+# Quiz menu items definition
+entity.quiz.collection:
+  title: 'Quiz'
+  route_name: entity.quiz.collection
+  description: 'List Quiz entities'
+  parent: cme.admin_cme
+  weight: 100
+
+quiz.admin.structure.settings:
+  title: 'Quiz settings'
+  description: 'Configure Quiz entities'
+  route_name: quiz.settings
+  parent: entity.quiz.collection

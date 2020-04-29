@@ -1,0 +1,26 @@
+uuid: 7cbfb419-8187-4820-bc9e-34e65e37d8d1
+langcode: en
+status: true
+dependencies:
+  module:
+    - healthy
+    - system
+  theme:
+    - hkdu
+id: healthybannerblock
+theme: hkdu
+region: header
+weight: -15
+provider: null
+plugin: healthy_banner_block
+settings:
+  id: healthy_banner_block
+  label: 'Healthy banner block'
+  provider: healthy
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/hkdu/healthy/*'
+    negate: false
+    context_mapping: {  }

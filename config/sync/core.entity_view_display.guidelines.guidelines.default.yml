@@ -1,0 +1,50 @@
+uuid: 179a5492-7856-4d3f-b93c-fc5f3cc3e786
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.guidelines.guidelines.field_description
+    - field.field.guidelines.guidelines.field_media
+  module:
+    - cme_guidelines
+    - text
+    - user
+id: guidelines.guidelines.default
+targetEntityType: guidelines
+bundle: guidelines
+mode: default
+content:
+  field_description:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_media:
+    type: entity_reference_entity_view
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  name:
+    label: hidden
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true

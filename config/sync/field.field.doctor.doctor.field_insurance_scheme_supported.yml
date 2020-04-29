@@ -1,0 +1,20 @@
+uuid: a2e5675b-dfc3-40a8-8ac2-2bdc6602953b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_insurance_scheme_supported
+  module:
+    - doctor
+id: doctor.doctor.field_insurance_scheme_supported
+field_name: field_insurance_scheme_supported
+entity_type: doctor
+bundle: doctor
+label: 'Insurance Scheme Supported'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

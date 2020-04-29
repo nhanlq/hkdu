@@ -1,0 +1,14 @@
+
+# Event tracking menu items definition
+entity.event_tracking.collection:
+  title: 'Event tracking list'
+  route_name: entity.event_tracking.collection
+  description: 'List Event tracking entities'
+  parent: system.admin_structure
+  weight: 100
+
+event_tracking.admin.structure.settings:
+  title: 'Event tracking settings'
+  description: 'Configure Event tracking entities'
+  route_name: event_tracking.settings
+  parent: system.admin_structure

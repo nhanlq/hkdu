@@ -1,0 +1,33 @@
+add drug news entities:
+  title: 'Create new Drug news entities'
+
+administer drug news entities:
+  title: 'Administer Drug news entities'
+  description: 'Allow to access the administration form to configure Drug news entities.'
+  restrict access: true
+
+delete drug news entities:
+  title: 'Delete Drug news entities'
+
+edit drug news entities:
+  title: 'Edit Drug news entities'
+
+view published drug news entities:
+  title: 'View published Drug news entities'
+
+view unpublished drug news entities:
+  title: 'View unpublished Drug news entities'
+
+view all drug news revisions:
+  title: 'View all Drug news revisions'
+
+revert all drug news revisions:
+  title: 'Revert all Drug news revisions'
+  description: 'Role requires permission <em>view Drug news revisions</em> and <em>edit rights</em> for drug news entities in question or <em>administer drug news entities</em>.'
+
+delete all drug news revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Drug news revisions</em> and <em>delete rights</em> for drug news entities in question or <em>administer drug news entities</em>.'
+
+view list drug news:
+  title: 'Views List Drug News'

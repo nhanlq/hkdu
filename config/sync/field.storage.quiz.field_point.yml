@@ -1,0 +1,24 @@
+uuid: 4585dcf5-1123-4fe5-8bc1-772c5e7a7151
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_quiz
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: quiz.field_point
+field_name: field_point
+entity_type: quiz
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

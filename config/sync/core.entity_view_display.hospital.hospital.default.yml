@@ -1,0 +1,78 @@
+uuid: 3a7c6e6c-d652-4b2a-aaa0-848ff77c8b39
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.hospital.hospital.field_about_us
+    - field.field.hospital.hospital.field_address
+    - field.field.hospital.hospital.field_email
+    - field.field.hospital.hospital.field_emergency_service
+    - field.field.hospital.hospital.field_fax
+    - field.field.hospital.hospital.field_location
+    - field.field.hospital.hospital.field_media
+    - field.field.hospital.hospital.field_tel
+    - field.field.hospital.hospital.field_type
+    - field.field.hospital.hospital.field_website
+  module:
+    - geolocation
+    - hospital
+id: hospital.hospital.default
+targetEntityType: hospital
+bundle: hospital
+mode: default
+content:
+  field_location:
+    weight: 0
+    label: hidden
+    settings:
+      set_marker: '1'
+      title: ''
+      info_text: ''
+      google_map_settings:
+        height: 200px
+        width: 100%
+        type: ROADMAP
+        zoom: '10'
+        maxZoom: 18
+        minZoom: 0
+        mapTypeControl: 1
+        streetViewControl: 1
+        zoomControl: 1
+        scrollwheel: 1
+        gestureHandling: auto
+        draggable: 1
+        style: ''
+        info_auto_display: 1
+        marker_icon_path: ''
+        disableAutoPan: 1
+        rotateControl: 0
+        fullscreenControl: 0
+        preferScrollingToZooming: 0
+        disableDoubleClickZoom: 0
+      use_overridden_map_settings: 0
+      common_map: ''
+    third_party_settings: {  }
+    type: geolocation_map
+    region: content
+  field_media:
+    type: entity_reference_entity_view
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_about_us: true
+  field_address: true
+  field_email: true
+  field_emergency_service: true
+  field_fax: true
+  field_tel: true
+  field_type: true
+  field_website: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  user_id: true

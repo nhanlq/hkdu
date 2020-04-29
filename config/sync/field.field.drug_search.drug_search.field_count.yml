@@ -1,0 +1,26 @@
+uuid: f4bfcfb5-2aca-4977-a518-64e3c791c444
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.drug_search.field_count
+  module:
+    - drug_search
+id: drug_search.drug_search.field_count
+field_name: field_count
+entity_type: drug_search
+bundle: drug_search
+label: Count
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: !!float 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

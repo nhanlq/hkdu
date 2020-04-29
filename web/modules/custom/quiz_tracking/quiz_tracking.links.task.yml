@@ -1,0 +1,26 @@
+# Quiz tracking routing definition
+quiz_tracking.settings_tab:
+  route_name: quiz_tracking.settings
+  title: 'Settings'
+  base_route: quiz_tracking.settings
+
+entity.quiz_tracking.canonical:
+  route_name: entity.quiz_tracking.canonical
+  base_route: entity.quiz_tracking.canonical
+  title: 'View'
+
+entity.quiz_tracking.edit_form:
+  route_name: entity.quiz_tracking.edit_form
+  base_route: entity.quiz_tracking.canonical
+  title: 'Edit'
+
+entity.quiz_tracking.version_history:
+  route_name: entity.quiz_tracking.version_history
+  base_route: entity.quiz_tracking.canonical
+  title: 'Revisions'
+
+entity.quiz_tracking.delete_form:
+  route_name:  entity.quiz_tracking.delete_form
+  base_route:  entity.quiz_tracking.canonical
+  title: Delete
+  weight: 10

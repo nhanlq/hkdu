@@ -1,0 +1,48 @@
+{#
+/**
+ * @file quiz.html.twig
+ * Default theme implementation to present Quiz data.
+ *
+ * This template is used when viewing Quiz pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_quiz()
+ *
+ * @ingroup themeable
+ */
+#}
+<article{{ attributes.addClass(classes) }}>
+    <div class="bBnAZb">
+        <div class="bnGjNu">
+            <div class="iyiBrq">Self Study</div>
+        </div>
+        <div class="leBAWZ">
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">CME Point
+                </div>
+                <div class="hnOpua">{{ quiz.field_point.value }}</div>
+            </div>
+            {% if quiz.field_hkdu_point is not empty %}
+                {% for hkdu_point in quiz.field_hkdu_point %}
+                    <div display="block,flex" class="bXXHPz">
+                        <div width="100%,236" class="jBxOzO">{{ hkdu_point.entity.field_organizer.entity.field_short_name.value }} Point</div>
+                        <div class="hnOpua">{{ hkdu_point.entity.field_point.value }}</div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">End Date
+                </div>
+                <div class="hnOpua">{{ quiz.field_expired.value|date("Y-m-d") }}</div>
+            </div>
+        </div>
+        <div class="jvveZx">
+            {{ quiz.field_description.value|raw }}
+        </div>
+        {{ question }}
+    </div>
+</article>

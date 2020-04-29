@@ -1,0 +1,23 @@
+uuid: d54dcaa2-e874-463d-9e19-181935980252
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.true_false.field_true_false
+    - paragraphs.paragraphs_type.true_false
+  module:
+    - options
+id: paragraph.true_false.default
+targetEntityType: paragraph
+bundle: true_false
+mode: default
+content:
+  field_true_false:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden:
+  search_api_excerpt: true

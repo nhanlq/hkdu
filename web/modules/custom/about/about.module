@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * @file
+ * Contains about.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function about_help($route_name, RouteMatchInterface $route_match)
+{
+    switch ($route_name) {
+        // Main module help for the about module.
+        case 'help.page.about':
+            $output = '';
+            $output .= '<h3>' . t('About') . '</h3>';
+            $output .= '<p>' . t('About us Entity') . '</p>';
+            return $output;
+
+        default:
+    }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function about_theme($existing, $type, $theme, $path)
+{
+    return array(
+        'about' => [                            // the entity id// template directory in module or theme
+            'template'  => 'about',                // defines base template as /artwork.html.twig
+            'render element' => 'elements',          // Theme API call to define the container of the entity in the render array
+            // The entity will be prefixed with a hash sign as ['elements']['#artwork']
+        ],
+        'about_list' => [
+            'variables' => ['abouts' => NULL, 'author'=>NULL, 'date' =>NULL],
+            'path' => $path . '/templates/',
+            'template' => 'about-list'
+        ],
+        'about_banner_block' => [
+            'variables' => ['about' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'about-banner'
+        ],
+    );
+}
+

@@ -1,0 +1,19 @@
+uuid: d3fe3e6b-69f3-45e1-8149-c535e12985d8
+langcode: en
+status: true
+dependencies:
+  module:
+    - pharm_dir
+    - text
+id: pharm_dir.field_description
+field_name: field_description
+entity_type: pharm_dir
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

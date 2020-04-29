@@ -1,0 +1,14 @@
+uuid: fdd710ed-a9f9-4755-9b95-7832855faefa
+langcode: en
+status: true
+dependencies:
+  module:
+    - doctor
+id: doctor
+label: Doctor
+type: 'canonical_entities:doctor'
+pattern: 'doctors/[doctor:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

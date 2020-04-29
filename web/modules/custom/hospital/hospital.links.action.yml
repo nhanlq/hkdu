@@ -1,0 +1,5 @@
+entity.hospital.add_form:
+  route_name: entity.hospital.add_form
+  title: 'Add Hospital entity'
+  appears_on:
+    - entity.hospital.collection

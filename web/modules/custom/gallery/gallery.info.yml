@@ -1,0 +1,5 @@
+name: 'Gallery'
+type: module
+description: 'Gallery entity'
+core: 8.x
+package: 'HKDU'

@@ -1,0 +1,19 @@
+
+# Drug search menu items definition
+entity.drug_search.collection:
+  title: 'Drug search'
+  route_name: entity.drug_search.collection
+  description: 'List Drug search entities'
+  parent: global_hkdu.admin_epharm_hkdu
+  weight: 100
+
+drug_search.admin.structure.settings:
+  title: 'Drug search settings'
+  description: 'Configure Drug search entities'
+  route_name: drug_search.settings
+  parent: entity.drug_search.collection
+
+drug_search.admin.import:
+  title: 'Drug Search Batch Import'
+  route_name: drug_search.import_xls_form
+  parent: entity.drug_search.collection

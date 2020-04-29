@@ -1,0 +1,16 @@
+uuid: 7905dbbc-5470-4132-8b7a-94d062c20990
+langcode: en
+status: true
+dependencies: {  }
+third_party_settings:
+  commerce_order:
+    customer_profile_type: false
+id: doctor
+label: Doctor
+display_label: ''
+multiple: true
+registration: true
+roles:
+  doctor: doctor
+allow_revisions: false
+new_revision: false

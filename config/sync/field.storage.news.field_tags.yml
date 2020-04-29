@@ -1,0 +1,20 @@
+uuid: 3d095c52-4c70-486f-86f4-b29ca2f3dfa0
+langcode: en
+status: true
+dependencies:
+  module:
+    - news
+    - taxonomy
+id: news.field_tags
+field_name: field_tags
+entity_type: news
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

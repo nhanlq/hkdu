@@ -1,0 +1,12 @@
+uuid: 27cff18b-048c-4fcf-b971-f71969444928
+langcode: en
+status: true
+dependencies: {  }
+id: council_members
+label: 'Council Members'
+weight: 7
+is_admin: null
+permissions:
+  - 'access epharm'
+  - 'use text format full_html'
+  - 'view published cme event entities'

@@ -1,0 +1,26 @@
+uuid: 0148541f-3ad1-438a-b343-d0d7778aa558
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_links.field_weight
+  module:
+    - cme_link
+id: cme_links.cme_links.field_weight
+field_name: field_weight
+entity_type: cme_links
+bundle: cme_links
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

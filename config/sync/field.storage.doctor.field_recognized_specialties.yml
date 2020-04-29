@@ -1,0 +1,21 @@
+uuid: 4e79ae6e-85f1-4832-bce8-7ebaa2a66db5
+langcode: en
+status: true
+dependencies:
+  module:
+    - doctor
+id: doctor.field_recognized_specialties
+field_name: field_recognized_specialties
+entity_type: doctor
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

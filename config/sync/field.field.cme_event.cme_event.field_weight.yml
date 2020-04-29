@@ -1,0 +1,26 @@
+uuid: c53af7be-86be-4ab1-8df8-70713207ee9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_weight
+  module:
+    - cme_event
+id: cme_event.cme_event.field_weight
+field_name: field_weight
+entity_type: cme_event
+bundle: cme_event
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

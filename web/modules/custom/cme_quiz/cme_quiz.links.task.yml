@@ -1,0 +1,26 @@
+# Quiz routing definition
+quiz.settings_tab:
+  route_name: quiz.settings
+  title: 'Settings'
+  base_route: quiz.settings
+
+entity.quiz.canonical:
+  route_name: entity.quiz.canonical
+  base_route: entity.quiz.canonical
+  title: 'View'
+
+entity.quiz.edit_form:
+  route_name: entity.quiz.edit_form
+  base_route: entity.quiz.canonical
+  title: 'Edit'
+
+entity.quiz.version_history:
+  route_name: entity.quiz.version_history
+  base_route: entity.quiz.canonical
+  title: 'Revisions'
+
+entity.quiz.delete_form:
+  route_name:  entity.quiz.delete_form
+  base_route:  entity.quiz.canonical
+  title: Delete
+  weight: 10

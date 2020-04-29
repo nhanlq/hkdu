@@ -1,0 +1,22 @@
+uuid: 697de730-16b6-4497-9992-510452a7f23a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.drug_search.field_expired
+  module:
+    - drug_search
+id: drug_search.drug_search.field_expired
+field_name: field_expired
+entity_type: drug_search
+bundle: drug_search
+label: Expired
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1584680881
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

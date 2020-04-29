@@ -1,0 +1,5 @@
+entity.drug_news.add_form:
+  route_name: entity.drug_news.add_form
+  title: 'Add Drug news'
+  appears_on:
+    - entity.drug_news.collection

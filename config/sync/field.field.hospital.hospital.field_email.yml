@@ -1,0 +1,20 @@
+uuid: 95abb0d4-bc91-4278-bcca-5dd87e5d8150
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.hospital.field_email
+  module:
+    - hospital
+id: hospital.hospital.field_email
+field_name: field_email
+entity_type: hospital
+bundle: hospital
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

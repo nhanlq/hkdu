@@ -1,0 +1,20 @@
+uuid: ad369caa-9155-4360-a681-d2401bf19a0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_fax
+  module:
+    - doctor
+id: doctor.doctor.field_fax
+field_name: field_fax
+entity_type: doctor
+bundle: doctor
+label: Fax
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

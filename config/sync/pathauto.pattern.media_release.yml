@@ -1,0 +1,14 @@
+uuid: 1f6a751e-31d1-44a5-a9cf-d5d3ef8e3aa6
+langcode: en
+status: true
+dependencies:
+  module:
+    - media_release
+id: media_release
+label: 'Media Release'
+type: 'canonical_entities:media_entity'
+pattern: '/media-release/[media_entity:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

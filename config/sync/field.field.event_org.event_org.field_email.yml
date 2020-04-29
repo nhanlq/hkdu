@@ -1,0 +1,20 @@
+uuid: b4ca9c8a-0c6d-4f1e-8baa-d19e1f470df6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event_org.field_email
+  module:
+    - cme_event_organizer
+id: event_org.event_org.field_email
+field_name: field_email
+entity_type: event_org
+bundle: event_org
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

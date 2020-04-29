@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * @file
+ * Contains media_release.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function media_release_help($route_name, RouteMatchInterface $route_match)
+{
+    switch ($route_name) {
+        // Main module help for the media_release module.
+        case 'help.page.media_release':
+            $output = '';
+            $output .= '<h3>' . t('About') . '</h3>';
+            $output .= '<p>' . t('Media Release Entity') . '</p>';
+            return $output;
+
+        default:
+    }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function media_release_theme($existing, $type, $theme, $path)
+{
+    return array(
+        'media' => [                            // the entity id// template directory in module or theme
+            'template' => 'media',                // defines base template as /artwork.html.twig
+            'render element' => 'elements',          // Theme API call to define the container of the entity in the render array
+            // The entity will be prefixed with a hash sign as ['elements']['#artwork']
+        ],
+        'media_list' => [
+            'variables' => ['medias' => NULL, 'author' => NULL, 'date' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'media-list'
+        ],
+        'media_banner_block' => [
+            'variables' => ['media' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'media-banner'
+        ],
+    );
+}
+

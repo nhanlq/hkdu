@@ -1,0 +1,137 @@
+uuid: dc0280a1-15ef-417c-8b07-db306c962f3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.clinical_focus.clinical_focus.field_audience
+    - field.field.clinical_focus.clinical_focus.field_count
+    - field.field.clinical_focus.clinical_focus.field_description
+    - field.field.clinical_focus.clinical_focus.field_expired
+    - field.field.clinical_focus.clinical_focus.field_file
+    - field.field.clinical_focus.clinical_focus.field_is_home
+    - field.field.clinical_focus.clinical_focus.field_media
+    - field.field.clinical_focus.clinical_focus.field_tags
+    - field.field.clinical_focus.clinical_focus.field_thumb
+    - field.field.clinical_focus.clinical_focus.field_weight
+    - workflows.workflow.editorial
+  module:
+    - clinical_focus
+    - content_moderation
+    - media_library
+    - path
+    - text
+id: clinical_focus.clinical_focus.default
+targetEntityType: clinical_focus
+bundle: clinical_focus
+mode: default
+content:
+  field_audience:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_count:
+    weight: 14
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_description:
+    weight: 11
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_expired:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_timestamp
+    region: content
+  field_file:
+    type: media_library_widget
+    weight: 7
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  field_is_home:
+    weight: 8
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_media:
+    type: media_library_widget
+    weight: 5
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  field_tags:
+    weight: 12
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_thumb:
+    type: media_library_widget
+    weight: 6
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  field_weight:
+    weight: 9
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 13
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

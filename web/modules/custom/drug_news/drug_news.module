@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Contains drug_news.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function drug_news_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the drug_news module.
+    case 'help.page.drug_news':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Drug News E-Pharm') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function drug_news_theme($existing, $type, $theme, $path) {
+    return [
+        'drug_news' => [                            // the entity id// template directory in module or theme
+            'template'  => 'drug_news',                // defines base template as /artwork.html.twig
+            'render element' => 'elements',          // Theme API call to define the container of the entity in the render array
+            // The entity will be prefixed with a hash sign as ['elements']['#artwork']
+        ],
+        'drug_news_list' => [
+            'variables' => ['drug_news' => NULL, 'author'=>NULL, 'date' =>NULL, 'tags' => NULL,'get' => NULL,'search'=>NULL],
+            'path' => $path . '/templates/',
+            'template' => 'drug-news-list'
+        ],
+        'drug_news_home' => [
+            'variables' => ['drug_news' => NULL, 'author'=>NULL, 'date' =>NULL,'drug_search'=>NULL],
+            'path' => $path . '/templates/',
+            'template' => 'drug-news-home'
+        ],
+        'drug_news_banner_block' => [
+            'variables' => ['drug_news' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'drug-news-banner'
+        ],
+    ];
+}

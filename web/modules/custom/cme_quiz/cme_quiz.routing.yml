@@ -1,0 +1,24 @@
+
+cme_quiz.quiz_list_controller_quizlist:
+  path: '/cme/quiz'
+  defaults:
+    _controller: '\Drupal\cme_quiz\Controller\QuizListController::quizlist'
+    _title: 'CME Quizzes'
+  requirements:
+    _permission: 'view published quiz entities'
+
+cme_quiz.quiz_test_controller_quiz_test:
+  path: '/cme/quiz/test/{quizId}'
+  defaults:
+    _controller: '\Drupal\cme_quiz\Controller\QuizTestController::quiz_test'
+    _title: 'Quiz Test'
+  requirements:
+    _permission: 'view published quiz entities'
+    quizId: \d+
+cme_quiz.quiz_result_controller_test_result:
+  path: '/cme/quiz/{quizId}/result/{resultId}'
+  defaults:
+    _controller: '\Drupal\cme_quiz\Controller\QuizResultController::test_result'
+    _title: 'Quiz Test Result'
+  requirements:
+    _permission: 'view published quiz entities'

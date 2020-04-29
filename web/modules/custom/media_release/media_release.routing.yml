@@ -1,0 +1,8 @@
+
+media_release.media_list_controller_list:
+  path: '/media-release'
+  defaults:
+    _controller: '\Drupal\media_release\Controller\MediaListController::list'
+    _title: 'Press Release'
+  requirements:
+    _permission: 'access content'

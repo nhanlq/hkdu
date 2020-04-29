@@ -1,0 +1,26 @@
+# CME Links routing definition
+cme_links.settings_tab:
+  route_name: cme_links.settings
+  title: 'Settings'
+  base_route: cme_links.settings
+
+entity.cme_links.canonical:
+  route_name: entity.cme_links.canonical
+  base_route: entity.cme_links.canonical
+  title: 'View'
+
+entity.cme_links.edit_form:
+  route_name: entity.cme_links.edit_form
+  base_route: entity.cme_links.canonical
+  title: 'Edit'
+
+entity.cme_links.version_history:
+  route_name: entity.cme_links.version_history
+  base_route: entity.cme_links.canonical
+  title: 'Revisions'
+
+entity.cme_links.delete_form:
+  route_name:  entity.cme_links.delete_form
+  base_route:  entity.cme_links.canonical
+  title: Delete
+  weight: 10

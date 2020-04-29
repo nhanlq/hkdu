@@ -1,0 +1,13 @@
+cme.admin_cme:
+  title: 'CME'
+  route_name: 'cme.default_controller_index'
+  parent: 'system.admin'
+  description: 'Administer and configure for CME Entity.'
+  weight: -10
+
+cme.admin_cme.import_point:
+  title: 'Import Point'
+  route_name: 'cme_user.import_point'
+  parent: 'cme.admin_cme'
+  description: ''
+  weight: -10

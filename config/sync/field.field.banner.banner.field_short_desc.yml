@@ -1,0 +1,21 @@
+uuid: 67ff46d6-510a-41dc-9dac-6ffa751fb8b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.banner.field_short_desc
+  module:
+    - banner
+    - text
+id: banner.banner.field_short_desc
+field_name: field_short_desc
+entity_type: banner
+bundle: banner
+label: 'Banner Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

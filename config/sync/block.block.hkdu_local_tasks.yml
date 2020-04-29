@@ -1,0 +1,32 @@
+uuid: dc409f86-ff9a-48ce-abd7-e6c3060e01dd
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+  theme:
+    - hkdu
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: hkdu_local_tasks
+theme: hkdu
+region: content
+weight: -13
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      administrator: administrator
+      admins: admins
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

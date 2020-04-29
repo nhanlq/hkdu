@@ -1,0 +1,20 @@
+uuid: cc6e711a-c9d6-4349-ad0c-a62292a3f859
+langcode: en
+status: true
+dependencies:
+  module:
+    - drug_search
+    - media
+id: drug_search.field_thumb
+field_name: field_thumb
+entity_type: drug_search
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

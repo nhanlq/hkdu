@@ -1,0 +1,29 @@
+uuid: 96345baa-577b-4f43-8d21-752ca87a8bd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event.field_file
+    - media.type.document
+  module:
+    - event
+id: event.event.field_file
+field_name: field_file
+entity_type: event
+bundle: event
+label: File
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

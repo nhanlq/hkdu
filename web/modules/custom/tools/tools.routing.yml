@@ -1,0 +1,8 @@
+
+tools.tool_list_controller_list:
+  path: '/e-pharm/tools'
+  defaults:
+    _controller: '\Drupal\tools\Controller\ToolListController::list'
+    _title: 'Tools'
+  requirements:
+    _permission: 'access content'

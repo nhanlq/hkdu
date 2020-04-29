@@ -1,0 +1,24 @@
+uuid: 132ed184-7aac-4f6d-a2ed-41931f59c840
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.result.field_percent
+  module:
+    - cme_result
+id: result.result.field_percent
+field_name: field_percent
+entity_type: result
+bundle: result
+label: 'Passing Percent'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: '%'
+field_type: integer

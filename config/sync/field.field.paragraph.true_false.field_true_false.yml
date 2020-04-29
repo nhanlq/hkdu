@@ -1,0 +1,23 @@
+uuid: 0e08d3de-34c9-483a-8adb-e30c0f667f0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_true_false
+    - paragraphs.paragraphs_type.true_false
+  module:
+    - options
+id: paragraph.true_false.field_true_false
+field_name: field_true_false
+entity_type: paragraph
+bundle: true_false
+label: True/False
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'True'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

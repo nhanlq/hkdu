@@ -1,0 +1,105 @@
+uuid: b6b90044-f3f9-4c24-8b42-5cf961d9bd42
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.special_offer.special_offer.field_audience
+    - field.field.special_offer.special_offer.field_count
+    - field.field.special_offer.special_offer.field_description
+    - field.field.special_offer.special_offer.field_file
+    - field.field.special_offer.special_offer.field_is_home
+    - field.field.special_offer.special_offer.field_media
+    - field.field.special_offer.special_offer.field_tags
+    - field.field.special_offer.special_offer.field_thumb
+    - field.field.special_offer.special_offer.field_weight
+  module:
+    - options
+    - special_offer
+id: special_offer.special_offer.default
+targetEntityType: special_offer
+bundle: special_offer
+mode: default
+content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_audience:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_count:
+    weight: 6
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_file:
+    type: entity_reference_entity_view
+    weight: 5
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_is_home:
+    weight: 1
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_media:
+    type: entity_reference_entity_view
+    weight: 3
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_thumb:
+    type: entity_reference_entity_view
+    weight: 4
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_weight:
+    weight: 2
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  name:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  field_description: true
+  field_tags: true
+  langcode: true
+  search_api_excerpt: true
+  user_id: true

@@ -1,0 +1,91 @@
+<div display="flex" class="kbJbHx">
+    <div display="flex" class="ixzoQI">
+        <div class="cIUGEs">
+            <div class="dacuFr">
+                <div display="flex" class="dUVjnM"><h2
+                            class="ikSlXj">Drug News</h2><a class="jzqdsa" href="/e-pharm/drug-news"><span
+                                class="fjQIzu">More</span></a></div>
+            </div>
+            <div display="flex" class="eFvzqL drug-new">
+                {% for drug in drug_news %}
+                    <div class="hftOhy col-xs-12 col-sm-12 col-lg-12">
+                        <a variant="vertical,horizontal" class="Card__Wrapper-sc-1phbti1-0 dlodqi"
+                           href="{{ path('entity.drug_news.canonical', {'drug_news': drug.id.value}) }}">
+                            <div class="eFKGnI"
+                                 style="background-image: url({{ drug.field_thumb.entity.field_media_image.entity.uri.value | image_style('original') }})">
+                                {#<img src="{{ about.field_image.entity.uri.value | image_style('about_thumb') }}"/>#}
+                            </div>
+                            <div class="kZuHUf">
+                                <div class="hYpLPh">
+                                    <div class="cLNuli">
+                                        <div class="jyYtMa">
+                                            <div class="iFBalX"></div>
+                                            {{ drug.Owner.name.value }}
+                                        </div>
+                                        <span class="kASIaT">{{ drug.created.value|date("Y-m-d") }}</span>
+                                    </div>
+                                </div>
+                                <div class="isAOXn">
+                                    <div><h3 class="flCmuI">{{ drug.name.value }}</h3>
+                                        <p class="itSPxh">{{ drug.field_description.value|striptags }}</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <div class=" list-tags eclIQj">
+                            <div class="gPcWZD">
+                                {% for tagEntity in  drug.field_tags %}
+                                    <a href="/e-pharm/drug-news?tags={{ tagEntity.entity.name.value }}"
+                                       class="iyiBrq">{{ tagEntity.entity.name.value }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div display="flex" class="drug-search dYgNtr">
+        <div class="iGyhwc">
+            <div class="dacuFr">
+                <div display="flex" class="dUVjnM"><h2
+                            class="ikSlXj">Drug Search</h2><a class="jzqdsa"
+                                                              href="/e-pharm/drug-search"><span
+                                class="fjQIzu">More</span></a></div>
+            </div>
+            <div class=" ezYoGz">
+                <div class="gcrakC">
+                    <div display="flex" class="fSsnif">
+                        {% for drugs in drug_search %}
+                            <div width="1,0.3333333333333333" class="eBeRpv">
+                                <a class=" gsvDvo" href="{{ path('entity.drug_search.canonical', {'drug_search': drugs.id.value}) }}">
+                                    <div style="background-image: url({{ drugs.field_thumb.entity.field_media_image.entity.uri.value | image_style('original') }})" class="eRqUIg"></div>
+                                    <div class="kZuHUf">
+                                        <div class="isAOXn">
+                                            <div><h3 class="flCmuI">{{ drugs.name.value }}</h3>
+                                                <p class="itSPxh">{{ drugs.field_active_ingredients.value }}</p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="eclIQj drug-search list-tags">
+                                    <div width="100%" class="gPcWZD">
+                                        {% for tagEntity in  drugs.field_drug_classification %}
+                                            <a href="/e-pharm/drug-search?tags={{ tagEntity.entity.name.value }}"
+                                               class="iyiBrq">{{ tagEntity.entity.name.value }}</a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div><!-- Add you custom twig html here -->
+

@@ -1,0 +1,22 @@
+uuid: ddabd2cb-900e-4320-8228-ebfec2368050
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_expired
+  module:
+    - cme_event
+id: cme_event.cme_event.field_expired
+field_name: field_expired
+entity_type: cme_event
+bundle: cme_event
+label: Expired
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1585530689
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

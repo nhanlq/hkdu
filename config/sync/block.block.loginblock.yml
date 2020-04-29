@@ -1,0 +1,20 @@
+uuid: 0bbed0b9-c06c-41d3-837c-83c349c8b3eb
+langcode: en
+status: true
+dependencies:
+  module:
+    - global_hkdu
+  theme:
+    - hkdu
+id: loginblock
+theme: hkdu
+region: navigation_collapsible
+weight: -11
+provider: null
+plugin: login_block
+settings:
+  id: login_block
+  label: 'Login block'
+  provider: global_hkdu
+  label_display: '0'
+visibility: {  }

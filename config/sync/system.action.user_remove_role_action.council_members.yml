@@ -1,0 +1,14 @@
+uuid: a071d914-0773-4d9d-9970-68988e103a13
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.council_members
+  module:
+    - user
+id: user_remove_role_action.council_members
+label: 'Remove the Council Members role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: council_members

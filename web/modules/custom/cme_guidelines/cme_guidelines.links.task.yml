@@ -1,0 +1,26 @@
+# Guidelines routing definition
+guidelines.settings_tab:
+  route_name: guidelines.settings
+  title: 'Settings'
+  base_route: guidelines.settings
+
+entity.guidelines.canonical:
+  route_name: entity.guidelines.canonical
+  base_route: entity.guidelines.canonical
+  title: 'View'
+
+entity.guidelines.edit_form:
+  route_name: entity.guidelines.edit_form
+  base_route: entity.guidelines.canonical
+  title: 'Edit'
+
+entity.guidelines.version_history:
+  route_name: entity.guidelines.version_history
+  base_route: entity.guidelines.canonical
+  title: 'Revisions'
+
+entity.guidelines.delete_form:
+  route_name:  entity.guidelines.delete_form
+  base_route:  entity.guidelines.canonical
+  title: Delete
+  weight: 10

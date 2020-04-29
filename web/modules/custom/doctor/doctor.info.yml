@@ -1,0 +1,5 @@
+name: 'Doctor'
+type: module
+description: 'Doctor Entity'
+core: 8.x
+package: 'HKDU'

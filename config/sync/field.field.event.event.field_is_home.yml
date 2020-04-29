@@ -1,0 +1,24 @@
+uuid: d283b423-542c-460b-b705-bff448b4680f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event.field_is_home
+  module:
+    - event
+id: event.event.field_is_home
+field_name: field_is_home
+entity_type: event
+bundle: event
+label: 'Is home'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Enable
+  off_label: Disable
+field_type: boolean

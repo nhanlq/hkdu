@@ -1,0 +1,31 @@
+add score entities:
+  title: 'Create new Score entities'
+
+administer score entities:
+  title: 'Administer Score entities'
+  description: 'Allow to access the administration form to configure Score entities.'
+  restrict access: true
+
+delete score entities:
+  title: 'Delete Score entities'
+
+edit score entities:
+  title: 'Edit Score entities'
+
+view published score entities:
+  title: 'View published Score entities'
+
+view unpublished score entities:
+  title: 'View unpublished Score entities'
+
+view all score revisions:
+  title: 'View all Score revisions'
+
+revert all score revisions:
+  title: 'Revert all Score revisions'
+  description: 'Role requires permission <em>view Score revisions</em> and <em>edit rights</em> for score entities in question or <em>administer score entities</em>.'
+
+delete all score revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Score revisions</em> and <em>delete rights</em> for score entities in question or <em>administer score entities</em>.'
+

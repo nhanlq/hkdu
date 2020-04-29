@@ -1,0 +1,23 @@
+uuid: 6c425567-49a3-489e-be02-456b17de267f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event.field_price
+  module:
+    - commerce_price
+    - event
+id: event.event.field_price
+field_name: field_price
+entity_type: event
+bundle: event
+label: Price
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_currencies:
+    - HKD
+field_type: commerce_price

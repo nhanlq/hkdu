@@ -1,0 +1,20 @@
+uuid: 8c69b050-4cf8-4c93-b0a2-21a3618bdffa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_mobile
+  module:
+    - doctor
+id: doctor.doctor.field_mobile
+field_name: field_mobile
+entity_type: doctor
+bundle: doctor
+label: Mobile
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

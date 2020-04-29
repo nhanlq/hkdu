@@ -1,0 +1,31 @@
+add tools entities:
+  title: 'Create new Tools entities'
+
+administer tools entities:
+  title: 'Administer Tools entities'
+  description: 'Allow to access the administration form to configure Tools entities.'
+  restrict access: true
+
+delete tools entities:
+  title: 'Delete Tools entities'
+
+edit tools entities:
+  title: 'Edit Tools entities'
+
+view published tools entities:
+  title: 'View published Tools entities'
+
+view unpublished tools entities:
+  title: 'View unpublished Tools entities'
+
+view all tools revisions:
+  title: 'View all Tools revisions'
+
+revert all tools revisions:
+  title: 'Revert all Tools revisions'
+  description: 'Role requires permission <em>view Tools revisions</em> and <em>edit rights</em> for tools entities in question or <em>administer tools entities</em>.'
+
+delete all tools revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Tools revisions</em> and <em>delete rights</em> for tools entities in question or <em>administer tools entities</em>.'
+

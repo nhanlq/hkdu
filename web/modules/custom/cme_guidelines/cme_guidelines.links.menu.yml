@@ -1,0 +1,14 @@
+
+# Guidelines menu items definition
+entity.guidelines.collection:
+  title: 'Guidelines'
+  route_name: entity.guidelines.collection
+  description: 'List Guidelines entities'
+  parent: cme.admin_cme
+  weight: 100
+
+guidelines.admin.structure.settings:
+  title: 'Guidelines settings'
+  description: 'Configure Guidelines entities'
+  route_name: guidelines.settings
+  parent: entity.guidelines.collection

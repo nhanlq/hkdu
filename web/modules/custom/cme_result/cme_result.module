@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains cme_result.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function cme_result_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the cme_result module.
+    case 'help.page.cme_result':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('CME Result') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function cme_result_theme() {
+  return [
+    'cme_result' => [
+      'render element' => 'children',
+    ],
+  ];
+}

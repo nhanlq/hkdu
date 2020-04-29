@@ -1,0 +1,46 @@
+uuid: 8853a3c1-c128-479a-a98f-ce9299453dd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.question.field_multiple_choice
+    - paragraphs.paragraphs_type.multiple_choice
+  module:
+    - cme_question
+    - entity_reference_revisions
+id: question.question.field_multiple_choice
+field_name: field_multiple_choice
+entity_type: question
+bundle: question
+label: 'Multiple Choice'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      multiple_choice: multiple_choice
+    target_bundles_drag_drop:
+      document:
+        weight: 7
+        enabled: false
+      long_answer:
+        weight: 8
+        enabled: false
+      multiple_choice:
+        enabled: true
+        weight: 9
+      short_answer:
+        weight: 10
+        enabled: false
+      single_choice:
+        weight: 11
+        enabled: false
+      true_false:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

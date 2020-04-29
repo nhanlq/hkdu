@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Contains gallery.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function gallery_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the gallery module.
+    case 'help.page.gallery':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Gallery entity') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function gallery_theme($existing, $type, $theme, $path) {
+    return [
+        'gallery' => [                            // the entity id// template directory in module or theme
+            'template'  => 'gallery',                // defines base template as /artwork.html.twig
+            'render element' => 'elements',          // Theme API call to define the container of the entity in the render array
+            // The entity will be prefixed with a hash sign as ['elements']['#artwork']
+        ],
+        'gallery_list' => [
+            'variables' => ['gallerys' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'gallery-list'
+        ],
+        'gallery_banner_block' => [
+            'variables' => ['gallery' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'gallery-banner'
+        ],
+    ];
+}

@@ -1,0 +1,23 @@
+
+cme_event.cme_event_list_controller_list:
+  path: '/cme/events'
+  defaults:
+    _controller: '\Drupal\cme_event\Controller\CmeEventListController::list'
+    _title: 'CME Events'
+  requirements:
+    _permission: 'view published cme event entities'
+
+cme_event.free_event_controller_free:
+  path: '/cme/free/event/{eventId}'
+  defaults:
+    _controller: '\Drupal\cme_event\Controller\FreeEventController::free'
+    _title: 'Free Event Action'
+  requirements:
+    _permission: 'access content'
+cme_event.import_event:
+  path: '/admin/cme/event/import'
+  defaults:
+    _form: '\Drupal\cme_event\Form\ImportEvent'
+    _title: 'ImportEvent'
+  requirements:
+    _access: 'TRUE'

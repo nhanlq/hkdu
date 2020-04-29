@@ -1,0 +1,51 @@
+uuid: 60f15aac-6a3f-4830-abcd-62c2b77d90db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.result.field_answer
+    - field.field.paragraph.result.field_correct_answer
+    - field.field.paragraph.result.field_paragraph_id
+    - field.field.paragraph.result.field_question
+    - paragraphs.paragraphs_type.result
+id: paragraph.result.default
+targetEntityType: paragraph
+bundle: result
+mode: default
+content:
+  field_answer:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_correct_answer:
+    weight: 2
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_paragraph_id:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_question:
+    weight: 3
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,5 @@
+entity.cme_links.add_form:
+  route_name: entity.cme_links.add_form
+  title: 'Add CME Links'
+  appears_on:
+    - entity.cme_links.collection

@@ -1,0 +1,26 @@
+# Score routing definition
+score.settings_tab:
+  route_name: score.settings
+  title: 'Settings'
+  base_route: score.settings
+
+entity.score.canonical:
+  route_name: entity.score.canonical
+  base_route: entity.score.canonical
+  title: 'View'
+
+entity.score.edit_form:
+  route_name: entity.score.edit_form
+  base_route: entity.score.canonical
+  title: 'Edit'
+
+entity.score.version_history:
+  route_name: entity.score.version_history
+  base_route: entity.score.canonical
+  title: 'Revisions'
+
+entity.score.delete_form:
+  route_name:  entity.score.delete_form
+  base_route:  entity.score.canonical
+  title: Delete
+  weight: 10

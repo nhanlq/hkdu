@@ -1,0 +1,31 @@
+uuid: b273736e-aa72-4433-81e4-5077a09e7f5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.document.field_file
+    - field.field.paragraph.document.field_title
+    - paragraphs.paragraphs_type.document
+id: paragraph.document.default
+targetEntityType: paragraph
+bundle: document
+mode: default
+content:
+  field_file:
+    type: entity_reference_entity_view
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_title:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  search_api_excerpt: true

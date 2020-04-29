@@ -1,0 +1,5 @@
+entity.public_links.add_form:
+  route_name: entity.public_links.add_form
+  title: 'Add Public links'
+  appears_on:
+    - entity.public_links.collection

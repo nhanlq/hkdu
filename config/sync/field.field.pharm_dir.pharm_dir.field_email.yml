@@ -1,0 +1,20 @@
+uuid: 0f4d7a51-4b87-47c5-846d-5c17f45bea43
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.pharm_dir.field_email
+  module:
+    - pharm_dir
+id: pharm_dir.pharm_dir.field_email
+field_name: field_email
+entity_type: pharm_dir
+bundle: pharm_dir
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

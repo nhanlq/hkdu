@@ -1,0 +1,29 @@
+uuid: 0ce3c47e-960e-42f7-b32a-65deeafeb484
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_file
+    - media.type.document
+  module:
+    - cme_event
+id: cme_event.cme_event.field_file
+field_name: field_file
+entity_type: cme_event
+bundle: cme_event
+label: File
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

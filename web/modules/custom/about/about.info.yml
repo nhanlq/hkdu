@@ -1,0 +1,5 @@
+name: 'About'
+type: module
+description: 'About us Entity'
+core: 8.x
+package: 'HKDU'

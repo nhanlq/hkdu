@@ -1,0 +1,31 @@
+add banner entity entities:
+  title: 'Create new Banner entity entities'
+
+administer banner entity entities:
+  title: 'Administer Banner entity entities'
+  description: 'Allow to access the administration form to configure Banner entity entities.'
+  restrict access: true
+
+delete banner entity entities:
+  title: 'Delete Banner entity entities'
+
+edit banner entity entities:
+  title: 'Edit Banner entity entities'
+
+view published banner entity entities:
+  title: 'View published Banner entity entities'
+
+view unpublished banner entity entities:
+  title: 'View unpublished Banner entity entities'
+
+view all banner entity revisions:
+  title: 'View all Banner entity revisions'
+
+revert all banner entity revisions:
+  title: 'Revert all Banner entity revisions'
+  description: 'Role requires permission <em>view Banner entity revisions</em> and <em>edit rights</em> for banner entity entities in question or <em>administer banner entity entities</em>.'
+
+delete all banner entity revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Banner entity revisions</em> and <em>delete rights</em> for banner entity entities in question or <em>administer banner entity entities</em>.'
+

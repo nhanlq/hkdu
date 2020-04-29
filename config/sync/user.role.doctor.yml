@@ -1,0 +1,12 @@
+uuid: 10d8804d-d157-4174-8b77-6b7e4582a118
+langcode: en
+status: true
+dependencies: {  }
+id: doctor
+label: Doctor
+weight: 4
+is_admin: null
+permissions:
+  - 'access epharm'
+  - 'use text format full_html'
+  - 'view published cme event entities'

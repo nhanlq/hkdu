@@ -1,0 +1,26 @@
+# Download routing definition
+download.settings_tab:
+  route_name: download.settings
+  title: 'Settings'
+  base_route: download.settings
+
+entity.download.canonical:
+  route_name: entity.download.canonical
+  base_route: entity.download.canonical
+  title: 'View'
+
+entity.download.edit_form:
+  route_name: entity.download.edit_form
+  base_route: entity.download.canonical
+  title: 'Edit'
+
+entity.download.version_history:
+  route_name: entity.download.version_history
+  base_route: entity.download.canonical
+  title: 'Revisions'
+
+entity.download.delete_form:
+  route_name:  entity.download.delete_form
+  base_route:  entity.download.canonical
+  title: Delete
+  weight: 10

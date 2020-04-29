@@ -1,0 +1,21 @@
+uuid: 63c1a3f6-5fc1-44ee-abf7-cc3dde4a3f28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.hospital.field_about_us
+  module:
+    - hospital
+    - text
+id: hospital.hospital.field_about_us
+field_name: field_about_us
+entity_type: hospital
+bundle: hospital
+label: 'About Us'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

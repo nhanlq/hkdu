@@ -1,0 +1,21 @@
+uuid: 219ff255-cce9-4c3d-bfc6-25fb43fd3f34
+langcode: en
+status: true
+dependencies:
+  module:
+    - doctor
+id: doctor.field_registration_no
+field_name: field_registration_no
+entity_type: doctor
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
