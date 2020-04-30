@@ -22,6 +22,7 @@
         "drupal/adminimal_admin_toolbar": "^1.10",
         "drupal/adminimal_theme": "^1.5",
         "drupal/bootstrap": "^3.21",
+        "drupal/ckeditor_font": "^1.0",
         "drupal/colorbox": "^1.4",
         "drupal/colorbutton": "^1.1",
         "drupal/commerce": "^2.16",
