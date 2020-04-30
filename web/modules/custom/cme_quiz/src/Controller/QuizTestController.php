@@ -30,6 +30,7 @@ class QuizTestController extends ControllerBase
         $passing_percent = $quiz->get('field_percent')->value;
         $total_question = count($questions);
         $total_correct = 0;
+        $total_percent = 0;
 
         foreach ($questions as $question) {
             $para_id = '';
@@ -124,18 +125,21 @@ class QuizTestController extends ControllerBase
         ]);
         try {
             $result->save();
-            $response = new RedirectResponse('/cme/quiz/'.$quizId.'/result/'.$result->id());
+            //add score to quiz
+            $score = 0;
+            if($pass==1){
+                $score = $quiz->get('field_point')->value;
+            }else{
+                $score = $quiz->get('field_point')->value * ($total_percent/100);
+            }
+            $this->CreateQuizScore($quizId, $score);
+
+            $response = new RedirectResponse('/cme/quiz/'.$quizId.'/message');
             $response->send();
         }catch(Exception $e){
             throw new \RuntimeException($e->getMessage());
         }
 
-        //add score to quiz
-        $score = 0;
-        if($pass==1){
-            $score = $quiz->get('field_point')->value;
-        }
-        $this->CreateQuizScore($quizId, $score);
 
         return [
             '#type' => 'markup',

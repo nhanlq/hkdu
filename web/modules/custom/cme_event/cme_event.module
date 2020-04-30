@@ -134,7 +134,16 @@ function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
 
             $promotion->save();
         }
-
+        //create the score
+//        $point = $entity->get('field_cme_point')->value;
+//        $score = \Drupal\cme_score\Entity\Score::create([
+//            'name' => 'Score of Event '.$entity->getName(),
+//            'field_event' => $entity->id(),
+//            'status' => 0,
+//            'created' => time(),
+//            'score' => $point,
+//        ]);
+//        $score->save();
     }
 
 }

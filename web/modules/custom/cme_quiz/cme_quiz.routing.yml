@@ -22,3 +22,19 @@ cme_quiz.quiz_result_controller_test_result:
     _title: 'Quiz Test Result'
   requirements:
     _permission: 'view published quiz entities'
+
+cme_quiz.result_message_quiz_controller_test_message:
+  path: '/cme/quiz/{id}/message'
+  defaults:
+    _controller: '\Drupal\cme_quiz\Controller\ResultMessageQuizController::test_message'
+    _title: 'Tested Success'
+  requirements:
+    _permission: 'view published quiz entities'
+
+cme_quiz.message_form:
+  path: '/admin/cme/quiz/form/message'
+  defaults:
+    _form: '\Drupal\cme_quiz\Form\MessageForm'
+    _title: 'MessageForm'
+  requirements:
+    _permission: 'view published quiz entities'

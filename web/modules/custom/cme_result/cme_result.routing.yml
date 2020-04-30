@@ -1,0 +1,8 @@
+
+cme_result.result_report_controller_report:
+  path: '/admin/cme/result/report'
+  defaults:
+    _controller: '\Drupal\cme_result\Controller\ResultReportController::report'
+    _title: 'Result Report'
+  requirements:
+    _permission: 'access content'

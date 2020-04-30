@@ -12,3 +12,9 @@ quiz.admin.structure.settings:
   description: 'Configure Quiz entities'
   route_name: quiz.settings
   parent: entity.quiz.collection
+
+quiz.admin.form.message:
+  title: 'Quiz Message Form'
+  description: 'Configure Quiz entities'
+  route_name: cme_quiz.message_form
+  parent: entity.quiz.collection

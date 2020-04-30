@@ -79,6 +79,11 @@ class QuizListController extends ControllerBase {
             }
             if($this->checkQuizStatusUser($r->id())){
                 $r->check_event = true;
+                if($this->checkUserAttempStatus($r)){
+                    $r->attemp = 'Passed';
+                }else{
+                    $r->attemp = 'Attempted';
+                }
             }else{
                 $r->check_event = false;
             }
@@ -151,6 +156,26 @@ class QuizListController extends ControllerBase {
         }else{
             return false;
         }
+    }
+    public function checkUserAttempStatus($quiz){
+        $return = null;
+        $user = \Drupal::currentUser();
+        $uid = $user->id();
+        $ids = \Drupal::entityQuery('result')
+            ->condition('status', 1)
+            ->condition('field_quiz', $quiz->id())
+            ->condition('field_user', $uid)
+            ->execute();
+        $results = \Drupal\cme_result\Entity\Result ::loadMultiple($ids);
+        if($results){
+           foreach($results as $result){
+               if($result->get('field_passed')->value == 1){
+                   $return = true;
+                   break;
+               }
+           }
+        }
+        return $return;
     }
 
 }
