@@ -1,0 +1,31 @@
+uuid: f97cb3d1-cee8-4dac-b8e6-0754ff09015a
+langcode: en
+status: true
+dependencies:
+  module:
+    - event_tracking
+    - field_permissions
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: event_tracking.field_attendance
+field_name: field_attendance
+entity_type: event_tracking
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: attended
+      label: Attended
+    -
+      value: absent
+      label: Absent
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

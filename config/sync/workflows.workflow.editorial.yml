@@ -5,6 +5,7 @@ dependencies:
   module:
     - clinical_focus
     - cme_event
+    - cme_guidelines
     - content_moderation
     - drug_news
     - drug_search
@@ -105,6 +106,8 @@ type_settings:
       - drug_search
     event:
       - event
+    guidelines:
+      - guidelines
     pharm_dir:
       - pharm_dir
     special_offer:

@@ -1,0 +1,26 @@
+uuid: 7ebae5f9-218b-4a35-9bab-2e973b0d16c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.score.field_event
+  module:
+    - cme_score
+id: score.score.field_event
+field_name: field_event
+entity_type: score
+bundle: score
+label: Event
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:cme_event'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

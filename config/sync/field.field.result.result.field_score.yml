@@ -1,0 +1,24 @@
+uuid: f2444da8-2b00-4e3c-b53b-d6fe0e77a992
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.result.field_score
+  module:
+    - cme_result
+id: result.result.field_score
+field_name: field_score
+entity_type: result
+bundle: result
+label: Score
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

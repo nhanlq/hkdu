@@ -1,25 +1,33 @@
-uuid: 53b1278f-548b-471d-ab1f-b597487db909
+uuid: 7d067432-0399-4e5b-9300-1072123ff42e
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.quiz.field_expired
+    - field.storage.quiz.field_category
     - field.storage.quiz.field_point
-    - field.storage.quiz.field_weight
+    - field.storage.result.field_passed
+    - field.storage.result.field_score
+    - field.storage.user.field_first_name
+    - field.storage.user.field_last_name
+    - field.storage.user.field_point
+    - system.menu.admin
     - user.role.administrator
     - user.role.admins
+    - user.role.drug_suppliers
   module:
     - cme_quiz
-    - datetime
-    - sortableviews
+    - cme_result
+    - csv_serialization
+    - rest
+    - serialization
     - user
-    - views_bulk_operations
-id: manage_cme_quiz
-label: 'Manage Quizzes'
+    - views_data_export
+id: quizzes_result_report
+label: 'Quizzes Result Report'
 module: views
 description: ''
 tag: ''
-base_table: quiz_field_data
+base_table: result_field_data
 base_field: id
 display:
   default:
@@ -34,6 +42,7 @@ display:
           role:
             administrator: administrator
             admins: admins
+            drug_suppliers: drug_suppliers
       cache:
         type: tag
         options: {  }
@@ -58,10 +67,13 @@ display:
       pager:
         type: mini
         options:
-          items_per_page: 20
+          items_per_page: 30
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -70,300 +82,19 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
       style:
-        type: sortable_table
-        options:
-          weight_field: field_weight
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          override: true
-          sticky: false
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            name: name
-            sortable_handle: sortable_handle
-          info:
-            name:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            sortable_handle:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: '-1'
-          empty_table: false
+        type: table
       row:
         type: fields
       fields:
-        views_bulk_operations_bulk_form:
-          id: views_bulk_operations_bulk_form
-          table: views
-          field: views_bulk_operations_bulk_form
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          batch: true
-          batch_size: 20
-          form_step: true
-          buttons: false
-          clear_on_exposed: true
-          action_title: Action
-          selected_actions:
-            1:
-              action_id: views_bulk_edit
-              preconfiguration:
-                get_bundles_from_results: 1
-            2:
-              action_id: views_bulk_operations_delete_entity
-            3:
-              action_id: pathauto_update_alias
-            4:
-              action_id: 'entity:publish_action:quiz'
-            5:
-              action_id: 'entity:unpublish_action:quiz'
-            6:
-              action_id: 'entity:save_action:quiz'
-          plugin_id: views_bulk_operations_bulk_form
-        id:
-          id: id
-          table: quiz_field_data
-          field: id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: quiz
-          entity_field: id
-          plugin_id: field
-        sortable_handle:
-          id: sortable_handle
-          table: quiz_field_data
-          field: sortable_handle
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          entity_type: quiz
-          plugin_id: sortable_views_handle
-        field_weight:
-          id: field_weight
-          table: quiz__field_weight
-          field: field_weight
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Weight
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        name:
-          id: name
+        name_1:
+          id: name_1
           table: quiz_field_data
           field: name
-          relationship: none
+          relationship: field_quiz
           group_type: group
           admin_label: ''
-          label: Name
+          label: 'Quiz Name'
           exclude: false
           alter:
             alter_text: false
@@ -407,7 +138,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -418,17 +149,207 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: null
+          entity_type: quiz
           entity_field: name
           plugin_id: field
-        field_point:
-          id: field_point
-          table: quiz__field_point
-          field: field_point
+        field_first_name:
+          id: field_first_name
+          table: user__field_first_name
+          field: field_first_name
+          relationship: field_user
+          group_type: group
+          admin_label: ''
+          label: 'First Name'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_last_name:
+          id: field_last_name
+          table: user__field_last_name
+          field: field_last_name
+          relationship: field_user
+          group_type: group
+          admin_label: ''
+          label: 'Last Name'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        mail:
+          id: mail
+          table: users_field_data
+          field: mail
+          relationship: field_user
+          group_type: group
+          admin_label: ''
+          label: Email
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: user
+          entity_field: mail
+          plugin_id: field
+        field_score:
+          id: field_score
+          table: result__field_score
+          field: field_score
           relationship: none
           group_type: group
           admin_label: ''
-          label: Point
+          label: Score
           exclude: false
           alter:
             alter_text: false
@@ -487,63 +408,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        nothing_1:
-          id: nothing_1
-          table: views
-          field: nothing
-          relationship: none
+        field_point:
+          id: field_point
+          table: quiz__field_point
+          field: field_point
+          relationship: field_quiz
           group_type: group
           admin_label: ''
-          label: 'Export Result'
-          exclude: false
-          alter:
-            alter_text: true
-            text: '<a target="_blank" href="/admin/cme/quiz/export/csv/{{ id }}">Export Result</a>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          plugin_id: custom
-        created:
-          id: created
-          table: quiz_field_data
-          field: created
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Created
+          label: 'Point of the Quiz'
           exclude: false
           alter:
             alter_text: false
@@ -585,11 +457,12 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: timestamp
+          type: number_decimal
           settings:
-            date_format: medium
-            custom_date_format: ''
-            timezone: ''
+            thousand_separator: ''
+            prefix_suffix: true
+            decimal_separator: .
+            scale: 2
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -600,17 +473,15 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: quiz
-          entity_field: created
           plugin_id: field
-        field_expired:
-          id: field_expired
-          table: quiz__field_expired
-          field: field_expired
+        field_passed:
+          id: field_passed
+          table: result__field_passed
+          field: field_passed
           relationship: none
           group_type: group
           admin_label: ''
-          label: Expired
+          label: Passed
           exclude: false
           alter:
             alter_text: false
@@ -652,10 +523,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: datetime_custom
+          type: boolean
           settings:
-            timezone_override: ''
-            date_format: Y-m-d
+            format: true-false
+            format_custom_true: ''
+            format_custom_false: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -667,14 +539,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        user_id:
-          id: user_id
-          table: quiz_field_data
-          field: user_id
-          relationship: none
+        field_category:
+          id: field_category
+          table: quiz__field_category
+          field: field_category
+          relationship: field_quiz
           group_type: group
           admin_label: ''
-          label: Authored
+          label: 'CME Type'
           exclude: false
           alter:
             alter_text: false
@@ -718,7 +590,7 @@ display:
           click_sort_column: target_id
           type: entity_reference_label
           settings:
-            link: false
+            link: true
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -729,17 +601,15 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: quiz
-          entity_field: user_id
           plugin_id: field
-        operations:
-          id: operations
-          table: quiz
-          field: operations
-          relationship: none
+        field_point_1:
+          id: field_point_1
+          table: user__field_point
+          field: field_point
+          relationship: field_user
           group_type: group
           admin_label: ''
-          label: Action
+          label: 'Accoumlated CME socre'
           exclude: false
           alter:
             alter_text: false
@@ -780,114 +650,31 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          destination: false
-          entity_type: quiz
-          plugin_id: entity_operations
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Clone
-          exclude: false
-          alter:
-            alter_text: true
-            text: '<a href="/epharm/clone/quiz/{{id}}">Clone</a>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          plugin_id: custom
-        nothing_2:
-          id: nothing_2
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Add Question'
-          exclude: false
-          alter:
-            alter_text: true
-            text: "<div id=\"block-seven-local-actions\">   \r\n        <ul class=\"action-links\">\r\n      <li><a href=\"/admin/cme/question/add?destination=/admin/cme/manage-quizzes&quiz={{ id }}\" class=\"button button-action button--primary button--small\" data-drupal-link-system-path=\"admin/cme/quiz/add\">Add Question for Quiz</a></li>\r\n    </ul>\r\n  </div>"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          plugin_id: custom
+          click_sort_column: value
+          type: number_decimal
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+            decimal_separator: .
+            scale: 2
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters:
         status:
           value: '1'
-          table: quiz_field_data
+          table: result_field_data
           field: status
           plugin_id: boolean
-          entity_type: quiz
+          entity_type: result
           entity_field: status
           id: status
           expose:
@@ -896,60 +683,92 @@ display:
             operator_list: {  }
           group: 1
       sorts: {  }
-      title: 'Manage Quizzes'
-      header:
-        area:
-          id: area
-          table: views
-          field: area
+      title: 'Quizzes Result Report'
+      header: {  }
+      footer: {  }
+      empty: {  }
+      relationships:
+        field_user:
+          id: field_user
+          table: result__field_user
+          field: field_user
           relationship: none
           group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content:
-            value: "<div id=\"block-seven-local-actions\">   \r\n        <ul class=\"action-links\">\r\n      <li><a href=\"/admin/cme/quiz/add?destination=/admin/cme/manage-quizzes\" class=\"button button-action button--primary button--small\" data-drupal-link-system-path=\"admin/cme/quiz/add\">Add Quiz</a></li>\r\n    </ul>\r\n  </div>"
-            format: full_html
-          plugin_id: text
-      footer:
-        save_sortable_changes:
-          id: save_sortable_changes
-          table: quiz_field_data
-          field: save_sortable_changes
+          admin_label: 'field_user: User'
+          required: false
+          plugin_id: standard
+        field_quiz:
+          id: field_quiz
+          table: result__field_quiz
+          field: field_quiz
           relationship: none
           group_type: group
-          admin_label: ''
-          empty: false
-          entity_type: quiz
-          plugin_id: save_sortable_changes
-      empty:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: "<div id=\"block-seven-local-actions\">   \r\n        <ul class=\"action-links\">\r\n      <li><a href=\"/admin/cme/quiz/add?destination=/admin/cme/manage-quizzes\" class=\"button button-action button--primary button--small\" data-drupal-link-system-path=\"admin/cme/quiz/add\">Add Quiz</a></li>\r\n    </ul>\r\n  </div>"
-            format: full_html
-          plugin_id: text
-      relationships: {  }
+          admin_label: 'field_quiz: Quiz'
+          required: false
+          plugin_id: standard
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
         - user.roles
       tags:
-        - 'config:field.storage.quiz.field_expired'
+        - 'config:field.storage.quiz.field_category'
         - 'config:field.storage.quiz.field_point'
-        - 'config:field.storage.quiz.field_weight'
+        - 'config:field.storage.result.field_passed'
+        - 'config:field.storage.result.field_score'
+        - 'config:field.storage.user.field_first_name'
+        - 'config:field.storage.user.field_last_name'
+        - 'config:field.storage.user.field_point'
+  data_export_1:
+    display_plugin: data_export
+    id: data_export_1
+    display_title: 'Data export'
+    position: 2
+    display_options:
+      display_extenders: {  }
+      path: admin/cme/quiz/result/export
+      filename: 'quiz_result_report_[date:raw].csv'
+      automatic_download: false
+      store_in_public_file_directory: null
+      redirect_to_display: none
+      custom_redirect_path: false
+      include_query_params: false
+      style:
+        type: data_export
+        options:
+          formats:
+            csv: csv
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
+            utf8_bom: '0'
+            use_serializer_encode_only: false
+      displays:
+        default: default
+        page_1: page_1
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - user.roles
+      tags:
+        - 'config:field.storage.quiz.field_category'
+        - 'config:field.storage.quiz.field_point'
+        - 'config:field.storage.result.field_passed'
+        - 'config:field.storage.result.field_score'
+        - 'config:field.storage.user.field_first_name'
+        - 'config:field.storage.user.field_last_name'
+        - 'config:field.storage.user.field_point'
   page_1:
     display_plugin: page
     id: page_1
@@ -957,15 +776,28 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: admin/cme/manage-quizzes
+      path: admin/cme/quiz/result/report
+      menu:
+        type: normal
+        title: 'Quiz Result Report'
+        description: ''
+        expanded: false
+        parent: entity.result.collection
+        weight: 0
+        context: '0'
+        menu_name: admin
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
         - user.roles
       tags:
-        - 'config:field.storage.quiz.field_expired'
+        - 'config:field.storage.quiz.field_category'
         - 'config:field.storage.quiz.field_point'
-        - 'config:field.storage.quiz.field_weight'
+        - 'config:field.storage.result.field_passed'
+        - 'config:field.storage.result.field_score'
+        - 'config:field.storage.user.field_first_name'
+        - 'config:field.storage.user.field_last_name'
+        - 'config:field.storage.user.field_point'

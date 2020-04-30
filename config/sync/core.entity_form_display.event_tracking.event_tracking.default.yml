@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.event_tracking.event_tracking.field_attendance
     - field.field.event_tracking.event_tracking.field_cme_event
     - field.field.event_tracking.event_tracking.field_event
     - field.field.event_tracking.event_tracking.field_order
@@ -15,6 +16,12 @@ targetEntityType: event_tracking
 bundle: event_tracking
 mode: default
 content:
+  field_attendance:
+    weight: 32
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_cme_event:
     weight: 31
     settings:

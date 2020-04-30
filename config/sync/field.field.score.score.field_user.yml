@@ -1,0 +1,29 @@
+uuid: 806f187b-372e-4a39-b5f6-4670077acc58
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.score.field_user
+  module:
+    - cme_score
+id: score.score.field_user
+field_name: field_user
+entity_type: score
+bundle: score
+label: User
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

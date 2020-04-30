@@ -1,20 +1,21 @@
-uuid: fb4e6f39-ee49-4462-9715-7f17b0f9c7c3
+uuid: f31ddebf-77ea-43be-a1f1-67c3891b1abd
 langcode: en
 status: true
 dependencies:
   module:
-    - commerce_price
-    - event
+    - cme_score
     - field_permissions
+    - user
 third_party_settings:
   field_permissions:
     permission_type: public
-id: event.field_price
-field_name: field_price
-entity_type: event
-type: commerce_price
-settings: {  }
-module: commerce_price
+id: score.field_user
+field_name: field_user
+entity_type: score
+type: entity_reference
+settings:
+  target_type: user
+module: core
 locked: false
 cardinality: 1
 translatable: true

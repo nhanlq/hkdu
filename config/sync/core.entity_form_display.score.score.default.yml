@@ -1,38 +1,38 @@
-uuid: 57fdf9a3-3dea-433d-aed3-2407d5f0bcba
+uuid: b2b8f9ab-f136-48b7-a7a2-3db457bc6301
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.result.result.field_passed
-    - field.field.result.result.field_percent
-    - field.field.result.result.field_quiz
-    - field.field.result.result.field_result
-    - field.field.result.result.field_score
-    - field.field.result.result.field_user
+    - field.field.score.score.field_accreditor
+    - field.field.score.score.field_attendance
+    - field.field.score.score.field_event
+    - field.field.score.score.field_quiz
+    - field.field.score.score.field_score
+    - field.field.score.score.field_user
   module:
-    - cme_result
-    - paragraphs
-id: result.result.default
-targetEntityType: result
-bundle: result
+    - cme_score
+id: score.score.default
+targetEntityType: score
+bundle: score
 mode: default
 content:
-  field_passed:
+  field_accreditor:
+    weight: 31
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_attendance:
     weight: 30
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
-  field_percent:
-    weight: 29
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
-  field_quiz:
-    weight: 26
+  field_event:
+    weight: 28
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -41,20 +41,18 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_result:
-    type: entity_reference_paragraphs
-    weight: 28
+  field_quiz:
+    weight: 29
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_score:
-    weight: 31
+    weight: 26
     settings:
       placeholder: ''
     third_party_settings: {  }

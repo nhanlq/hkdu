@@ -9,6 +9,7 @@ dependencies:
     - field.field.event.event.field_description
     - field.field.event.event.field_expired
     - field.field.event.event.field_file
+    - field.field.event.event.field_free
     - field.field.event.event.field_free_price_text
     - field.field.event.event.field_is_home
     - field.field.event.event.field_location
@@ -85,6 +86,16 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
+    region: content
+  field_free:
+    weight: 15
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_free_price_text:
     weight: 8

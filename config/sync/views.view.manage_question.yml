@@ -1,27 +1,23 @@
-uuid: d059a366-1ef9-43b2-b1a0-d398e1300d94
+uuid: e1a0b6c6-bda9-4a12-a54d-9fec2d3c8abb
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.result.field_passed
-    - field.storage.result.field_percent
-    - field.storage.result.field_quiz
-    - field.storage.result.field_user
+    - field.storage.question.field_question_type
+    - field.storage.question.field_quiz
     - user.role.administrator
     - user.role.admins
   module:
-    - cme_result
-    - csv_serialization
-    - rest
-    - serialization
+    - cme_question
+    - options
     - user
-    - views_data_export
-id: export_quiz_result
-label: 'Export Quiz Result'
+    - views_bulk_operations
+id: manage_question
+label: 'Manage Question'
 module: views
 description: ''
 tag: ''
-base_table: result_field_data
+base_table: question_field_data
 base_field: id
 display:
   default:
@@ -58,10 +54,23 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: some
+        type: mini
         options:
           items_per_page: 20
           offset: 0
+          id: 0
+          total_pages: null
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          tags:
+            previous: ‹‹
+            next: ››
       style:
         type: table
         options:
@@ -75,48 +84,10 @@ display:
           description: ''
           columns:
             name: name
-            field_user: field_user
-            field_quiz: field_quiz
-            field_percent: field_percent
-            field_passed: field_passed
-            field_result: field_result
           info:
             name:
               sortable: false
               default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_user:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_quiz:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_percent:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_passed:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_result:
               align: ''
               separator: ''
               empty_column: false
@@ -126,14 +97,87 @@ display:
       row:
         type: fields
       fields:
-        field_user:
-          id: field_user
-          table: result__field_user
-          field: field_user
+        views_bulk_operations_bulk_form:
+          id: views_bulk_operations_bulk_form
+          table: views
+          field: views_bulk_operations_bulk_form
           relationship: none
           group_type: group
           admin_label: ''
-          label: User
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          batch: true
+          batch_size: 20
+          form_step: true
+          buttons: false
+          clear_on_exposed: true
+          action_title: Action
+          selected_actions:
+            1:
+              action_id: views_bulk_edit
+              preconfiguration:
+                get_bundles_from_results: 1
+            2:
+              action_id: views_bulk_operations_delete_entity
+            3:
+              action_id: pathauto_update_alias
+            4:
+              action_id: 'entity:publish_action:question'
+            5:
+              action_id: 'entity:unpublish_action:question'
+            6:
+              action_id: 'entity:save_action:question'
+          plugin_id: views_bulk_operations_bulk_form
+        name:
+          table: question_field_data
+          field: name
+          id: name
+          entity_type: null
+          entity_field: name
+          plugin_id: field
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Name
           exclude: false
           alter:
             alter_text: false
@@ -174,11 +218,10 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
+          click_sort_column: value
+          type: string
+          settings: {  }
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -188,10 +231,9 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_quiz:
           id: field_quiz
-          table: result__field_quiz
+          table: question__field_quiz
           field: field_quiz
           relationship: none
           group_type: group
@@ -252,14 +294,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_percent:
-          id: field_percent
-          table: result__field_percent
-          field: field_percent
+        field_question_type:
+          id: field_question_type
+          table: question__field_question_type
+          field: field_question_type
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Passing Percent'
+          label: 'Question type'
           exclude: false
           alter:
             alter_text: false
@@ -301,10 +343,8 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: true
+          type: list_default
+          settings: {  }
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -316,14 +356,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_passed:
-          id: field_passed
-          table: result__field_passed
-          field: field_passed
+        user_id:
+          id: user_id
+          table: question_field_data
+          field: user_id
           relationship: none
           group_type: group
           admin_label: ''
-          label: Passed
+          label: 'Authored by'
           exclude: false
           alter:
             alter_text: false
@@ -364,13 +404,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: boolean
+          click_sort_column: target_id
+          type: entity_reference_label
           settings:
-            format: true-false
-            format_custom_true: ''
-            format_custom_false: ''
-          group_column: value
+            link: true
+          group_column: target_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -380,10 +418,12 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: question
+          entity_field: user_id
           plugin_id: field
         created:
           id: created
-          table: result_field_data
+          table: question_field_data
           field: created
           relationship: none
           group_type: group
@@ -432,8 +472,8 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: custom
-            custom_date_format: 'Y-m-d H:i:s'
+            date_format: medium
+            custom_date_format: ''
             timezone: ''
           group_column: value
           group_columns: {  }
@@ -445,16 +485,67 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: result
+          entity_type: question
           entity_field: created
           plugin_id: field
+        operations:
+          id: operations
+          table: question
+          field: operations
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Operations
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          destination: false
+          entity_type: question
+          plugin_id: entity_operations
       filters:
         status:
           value: '1'
-          table: result_field_data
+          table: question_field_data
           field: status
           plugin_id: boolean
-          entity_type: result
+          entity_type: question
           entity_field: status
           id: status
           expose:
@@ -463,105 +554,36 @@ display:
             operator_list: {  }
           group: 1
       sorts: {  }
-      title: 'Export Quiz Result'
+      title: 'Manage Question'
       header: {  }
       footer: {  }
-      empty: {  }
-      relationships: {  }
-      arguments:
-        field_quiz_target_id:
-          id: field_quiz_target_id
-          table: result__field_quiz
-          field: field_quiz_target_id
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
           relationship: none
           group_type: group
           admin_label: ''
-          default_action: default
-          exception:
-            value: all
-            title_enable: false
-            title: All
-          title_enable: false
-          title: ''
-          default_argument_type: raw
-          default_argument_options:
-            index: 5
-            use_alias: false
-          default_argument_skip_url: false
-          summary_options:
-            base_path: ''
-            count: true
-            items_per_page: 25
-            override: false
-          summary:
-            sort_order: asc
-            number_of_records: 0
-            format: default_summary
-          specify_validation: false
-          validate:
-            type: none
-            fail: 'not found'
-          validate_options: {  }
-          break_phrase: false
-          not: false
-          plugin_id: numeric
+          empty: true
+          tokenize: false
+          content:
+            value: "Result Not Found.\r\nClick <a href=\"/admin/cme/quiz/add?destination=/admin/cme/manage-quizzes\" >here</a> to create Content"
+            format: full_html
+          plugin_id: text
+      relationships: {  }
+      arguments: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
+        - url.query_args
         - user.roles
       tags:
-        - 'config:field.storage.result.field_passed'
-        - 'config:field.storage.result.field_percent'
-        - 'config:field.storage.result.field_quiz'
-        - 'config:field.storage.result.field_user'
-  data_export_1:
-    display_plugin: data_export
-    id: data_export_1
-    display_title: 'Data export'
-    position: 2
-    display_options:
-      display_extenders: {  }
-      path: admin/cme/quiz/export/csv/%
-      filename: 'Quiz_Result_export_[date:raw].csv'
-      automatic_download: true
-      store_in_public_file_directory: null
-      redirect_to_display: none
-      custom_redirect_path: false
-      include_query_params: false
-      displays:
-        default: default
-        page_1: page_1
-      style:
-        type: data_export
-        options:
-          formats:
-            csv: csv
-          csv_settings:
-            delimiter: ','
-            enclosure: '"'
-            escape_char: \
-            strip_tags: true
-            trim: true
-            encoding: utf8
-            utf8_bom: '0'
-            use_serializer_encode_only: false
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - request_format
-        - url
-        - user.roles
-      tags:
-        - 'config:field.storage.result.field_passed'
-        - 'config:field.storage.result.field_percent'
-        - 'config:field.storage.result.field_quiz'
-        - 'config:field.storage.result.field_user'
+        - 'config:field.storage.question.field_question_type'
+        - 'config:field.storage.question.field_quiz'
   page_1:
     display_plugin: page
     id: page_1
@@ -569,16 +591,14 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: admin/cme/quiz/export/%
+      path: admin/cme/manage-question
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
+        - url.query_args
         - user.roles
       tags:
-        - 'config:field.storage.result.field_passed'
-        - 'config:field.storage.result.field_percent'
-        - 'config:field.storage.result.field_quiz'
-        - 'config:field.storage.result.field_user'
+        - 'config:field.storage.question.field_question_type'
+        - 'config:field.storage.question.field_quiz'

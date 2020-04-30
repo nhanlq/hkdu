@@ -15,7 +15,11 @@ label: Price
 description: ''
 required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    number: '0'
+    currency_code: HKD
+    formatted: HK$0.00
 default_value_callback: ''
 settings:
   available_currencies:

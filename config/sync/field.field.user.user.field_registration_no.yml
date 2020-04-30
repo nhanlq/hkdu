@@ -5,7 +5,14 @@ dependencies:
   config:
     - field.storage.user.field_registration_no
   module:
+    - unique_field_ajax
     - user
+third_party_settings:
+  unique_field_ajax:
+    unique: 1
+    per_lang: 0
+    use_ajax: 1
+    message: ''
 id: user.user.field_registration_no
 field_name: field_registration_no
 entity_type: user

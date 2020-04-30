@@ -11,7 +11,6 @@ dependencies:
     - field.field.question.question.field_true_false
   module:
     - cme_question
-    - commerce
     - paragraphs
     - text
 id: question.question.default
@@ -32,7 +31,7 @@ content:
     third_party_settings: {  }
     region: content
   field_question:
-    weight: 4
+    weight: 5
     settings:
       rows: 5
       placeholder: ''
@@ -40,21 +39,21 @@ content:
     type: text_textarea
     region: content
   field_question_type:
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_quiz:
-    weight: 5
-    settings:
-      hide_single_entity: true
-      autocomplete_threshold: 7
-      autocomplete_size: 60
-      autocomplete_placeholder: ''
-    third_party_settings: {  }
-    type: commerce_entity_select
+    type: entity_reference_autocomplete
+    weight: 3
     region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_single_choice:
     type: entity_reference_paragraphs
     weight: 7

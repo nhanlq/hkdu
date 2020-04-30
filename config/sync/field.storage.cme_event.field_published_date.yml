@@ -1,20 +1,21 @@
-uuid: fb4e6f39-ee49-4462-9715-7f17b0f9c7c3
+uuid: a8121f78-f396-44af-9320-ea472e8699a7
 langcode: en
 status: true
 dependencies:
   module:
-    - commerce_price
-    - event
+    - cme_event
+    - datetime
     - field_permissions
 third_party_settings:
   field_permissions:
     permission_type: public
-id: event.field_price
-field_name: field_price
-entity_type: event
-type: commerce_price
-settings: {  }
-module: commerce_price
+id: cme_event.field_published_date
+field_name: field_published_date
+entity_type: cme_event
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
 locked: false
 cardinality: 1
 translatable: true

@@ -1,11 +1,11 @@
-uuid: 2fbafb3c-5eaa-44b9-9847-c98f5319b470
+uuid: 8cd2dbf0-3aeb-4f64-9fcc-76483871b127
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.event_org.field_short_name
+    - field.storage.score.field_accreditor
   module:
-    - cme_event_organizer
+    - cme_score
     - unique_field_ajax
 third_party_settings:
   unique_field_ajax:
@@ -13,11 +13,11 @@ third_party_settings:
     per_lang: 0
     use_ajax: 0
     message: ''
-id: event_org.event_org.field_short_name
-field_name: field_short_name
-entity_type: event_org
-bundle: event_org
-label: 'Short Name'
+id: score.score.field_accreditor
+field_name: field_accreditor
+entity_type: score
+bundle: score
+label: Accreditor
 description: ''
 required: false
 translatable: false

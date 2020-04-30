@@ -1,0 +1,23 @@
+uuid: d64a42fd-f915-47a7-9885-021f7fc10258
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event_tracking.field_attendance
+  module:
+    - event_tracking
+    - options
+id: event_tracking.event_tracking.field_attendance
+field_name: field_attendance
+entity_type: event_tracking
+bundle: event_tracking
+label: Attendance
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: absent
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,29 @@
+uuid: 97bf5c71-a2ed-4389-86e2-1095858c0fa3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_sponsor
+    - media.type.image
+  module:
+    - cme_event
+id: cme_event.cme_event.field_sponsor
+field_name: field_sponsor
+entity_type: cme_event
+bundle: cme_event
+label: Sponsor
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

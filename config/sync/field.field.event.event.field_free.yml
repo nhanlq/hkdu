@@ -1,0 +1,24 @@
+uuid: 958b5d60-96e1-4c2d-9cbc-18d7f457ca63
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event.field_free
+  module:
+    - event
+id: event.event.field_free
+field_name: field_free
+entity_type: event
+bundle: event
+label: Free
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

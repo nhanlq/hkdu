@@ -8,6 +8,7 @@ dependencies:
     - field.field.user.user.field_contact_number
     - field.field.user.user.field_first_name
     - field.field.user.user.field_last_name
+    - field.field.user.user.field_organization
     - field.field.user.user.field_point
     - field.field.user.user.field_registration_no
     - field.field.user.user.user_picture
@@ -74,6 +75,7 @@ hidden:
   customer_profiles: true
   doctor_profiles: true
   drug_supplier_profiles: true
+  field_organization: true
   field_point: true
   hkdu_member_profiles: true
   langcode: true

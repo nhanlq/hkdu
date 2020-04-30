@@ -1,0 +1,24 @@
+uuid: 796674c5-f4eb-411b-a14c-4517246bd17d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_free
+  module:
+    - cme_event
+id: cme_event.cme_event.field_free
+field_name: field_free
+entity_type: cme_event
+bundle: cme_event
+label: Free
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
