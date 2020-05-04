@@ -2384,6 +2384,7 @@ select.epharm-switch {
         margin-bottom: 0px;
         margin-right: 16px;
         width: 96%;
+        max-width: 318px;
     }
 
     .slick-track {
