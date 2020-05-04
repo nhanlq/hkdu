@@ -7,6 +7,7 @@ dependencies:
     - field.field.healthy.healthy.field_is_home
     - field.field.healthy.healthy.field_media
     - field.field.healthy.healthy.field_tags
+    - field.field.healthy.healthy.field_weight
   module:
     - healthy
     - media_library
@@ -48,6 +49,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_weight:
+    weight: 26
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   langcode:
     type: language_select

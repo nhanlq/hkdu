@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.public_links.public_links.field_link
+    - field.field.public_links.public_links.field_weight
   module:
     - link
+    - path
     - public_links
 id: public_links.public_links.default
 targetEntityType: public_links
@@ -19,6 +21,13 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
+  field_weight:
+    weight: 31
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   langcode:
     type: language_select
@@ -34,6 +43,12 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
     third_party_settings: {  }
   user_id:
     type: entity_reference_autocomplete

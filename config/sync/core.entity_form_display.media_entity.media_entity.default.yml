@@ -7,11 +7,13 @@ dependencies:
     - field.field.media_entity.media_entity.field_image
     - field.field.media_entity.media_entity.field_media
     - field.field.media_entity.media_entity.field_tags
+    - field.field.media_entity.media_entity.field_weight
     - image.style.thumbnail
   module:
     - image
     - inline_entity_form
     - media_release
+    - path
     - text
 id: media_entity.media_entity.default
 targetEntityType: media_entity
@@ -60,6 +62,13 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_weight:
+    weight: 31
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   langcode:
     type: language_select
     weight: 2
@@ -74,6 +83,12 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
     third_party_settings: {  }
   user_id:
     type: entity_reference_autocomplete

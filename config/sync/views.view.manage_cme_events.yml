@@ -1066,7 +1066,20 @@ display:
             label: ''
           plugin_id: standard
       title: 'Manage CME Events'
-      header: {  }
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: "<ul class=\"action-links\">\r\n      <li><a href=\"/admin/cme/cme-event/add?destination=/admin/cme/manage-events\" class=\"button button-action button--primary button--small\" data-drupal-link-system-path=\"/admin/cme/cme-event/add\">Add CME Event</a></li>\r\n\r\n    </ul>"
+            format: full_html
+          plugin_id: text
       footer:
         save_sortable_changes:
           id: save_sortable_changes

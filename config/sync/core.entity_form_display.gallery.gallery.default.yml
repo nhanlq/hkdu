@@ -7,6 +7,7 @@ dependencies:
     - field.field.gallery.gallery.field_description
     - field.field.gallery.gallery.field_media
     - field.field.gallery.gallery.field_place
+    - field.field.gallery.gallery.field_weight
   module:
     - datetime
     - gallery
@@ -46,6 +47,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_weight:
+    weight: 26
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   langcode:
     type: language_select

@@ -13,6 +13,7 @@ dependencies:
     - field.field.hospital.hospital.field_tel
     - field.field.hospital.hospital.field_type
     - field.field.hospital.hospital.field_website
+    - field.field.hospital.hospital.field_weight
   module:
     - geolocation
     - hospital
@@ -62,6 +63,15 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
+    region: content
+  field_weight:
+    weight: 2
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
 hidden:
   field_about_us: true

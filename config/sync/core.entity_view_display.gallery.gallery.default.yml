@@ -7,6 +7,7 @@ dependencies:
     - field.field.gallery.gallery.field_description
     - field.field.gallery.gallery.field_media
     - field.field.gallery.gallery.field_place
+    - field.field.gallery.gallery.field_weight
   module:
     - gallery
 id: gallery.gallery.default
@@ -22,6 +23,15 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
+    region: content
+  field_weight:
+    weight: 2
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   name:
     label: hidden

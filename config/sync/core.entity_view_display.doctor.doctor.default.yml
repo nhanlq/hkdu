@@ -30,6 +30,7 @@ dependencies:
     - field.field.doctor.doctor.field_registration_no
     - field.field.doctor.doctor.field_vaccine_service
     - field.field.doctor.doctor.field_wechat
+    - field.field.doctor.doctor.field_weight
     - field.field.doctor.doctor.field_whatsapp
   module:
     - doctor
@@ -80,6 +81,15 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
+    region: content
+  field_weight:
+    weight: 2
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
 hidden:
   field_affiliation_hospital: true
