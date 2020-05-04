@@ -150,6 +150,7 @@ class QuizTestController extends ControllerBase
     //check quiz score
     public function CreateQuizScore($quizId, $score){
         $user = \Drupal::currentUser();
+        $account = \Drupal\user\Entity\User::load($user->id());
         $ids = \Drupal::entityQuery('score')
             ->condition('status', 1)
             ->condition('field_quiz', $quizId)
@@ -157,10 +158,35 @@ class QuizTestController extends ControllerBase
             ->execute();
         $results = \Drupal\cme_score\Entity\Score ::loadMultiple($ids);
         if($results){
+            if($exist = $this->getHighestScore($quizId, $user)){
+                $highest = reset($exist);
+                $highest_score = $highest->get('field_score')->value;
+                if($highest_score < $score){
+                    $account->set('field_point',$account->get('field_point')->value - $highest_score + $score);
+                    $account->save();
+                }
+
+            }else{
+                $account->set('field_point',$account->get('field_point')->value + $score);
+                $account->save();
+            }
             $return = reset($results);
             $return->set('field_score',$score);
             $return->save();
+
         }else{
+            if($exist = $this->getHighestScore($quizId, $user)){
+                $highest = reset($exist);
+                $highest_score = $highest->get('field_score')->value;
+                if($highest_score < $score){
+                    $account->set('field_point',$account->get('field_point')->value - $highest_score + $score);
+                    $account->save();
+                }
+
+            }else{
+                $account->set('field_point',$account->get('field_point')->value + $score);
+                $account->save();
+            }
             $return = \Drupal\cme_score\Entity\Score::create([
                 'status' =>1,
                 'uid' => $user->id(),
@@ -174,6 +200,25 @@ class QuizTestController extends ControllerBase
             $return->save();
         }
         return $return;
+    }
+
+    public function getHighestScore($quizId, $user = null){
+      if(!$user){
+          $user = \Drupal::currentUser();
+      }
+      $ids = \Drupal::entityQuery('score')
+          ->condition('status', 1)
+          ->condition('field_quiz', $quizId)
+          ->condition('field_user', $user->id())
+          ->sort('field_score','DESC')
+          ->range(0,1)
+          ->execute();
+      $result = \Drupal\cme_score\Entity\Score::loadMultiple($ids);
+      if($result){
+        return $result;
+      }else{
+          return false;
+      }
     }
 
 }

@@ -107,6 +107,9 @@ class EventAttend extends FormBase
                             'uid' => $user->id()
                         ]);
                         $score->save();
+                        //set score for user
+                        $user->set('field_point',$user->get('field_point')->value + number_format($data['C'],2));
+                        $user->save();
                     }
 
                 } else {
@@ -122,6 +125,9 @@ class EventAttend extends FormBase
                                 'uid' => $user->id()
                             ]);
                             $score->save();
+                            //set point for user;
+                            $user->set('field_point',$user->get('field_point')->value + number_format($data['C'],2));
+                            $user->save();
                         }
                     }
                 }
