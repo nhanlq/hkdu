@@ -3,14 +3,24 @@ langcode: en
 status: true
 dependencies:
   module:
+    - about
     - clinical_focus
     - cme_event
+    - cme_event_organizer
     - cme_guidelines
     - content_moderation
+    - doctor
+    - download
     - drug_news
     - drug_search
     - event
+    - external_link
+    - gallery
+    - healthy
+    - hospital
+    - news
     - pharm_dir
+    - public_links
     - special_offer
     - tools
 _core:
@@ -96,20 +106,40 @@ type_settings:
         - pending
         - published
   entity_types:
+    about:
+      - about
     clinical_focus:
       - clinical_focus
     cme_event:
       - cme_event
+    doctor:
+      - doctor
+    download:
+      - download
     drug_news:
       - drug_news
     drug_search:
       - drug_search
     event:
       - event
+    event_org:
+      - event_org
+    external_link:
+      - external_link
+    gallery:
+      - gallery
     guidelines:
       - guidelines
+    healthy:
+      - healthy
+    hospital:
+      - hospital
+    news:
+      - news
     pharm_dir:
       - pharm_dir
+    public_links:
+      - public_links
     special_offer:
       - special_offer
     tools:

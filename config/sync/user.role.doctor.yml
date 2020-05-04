@@ -8,5 +8,7 @@ weight: 4
 is_admin: null
 permissions:
   - 'access epharm'
+  - 'manage cme'
   - 'use text format full_html'
   - 'view published cme event entities'
+  - 'view published event organizer entities'
