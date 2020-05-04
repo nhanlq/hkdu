@@ -66,6 +66,7 @@ class DrugSearchListController extends ControllerBase {
                 ->condition('name', $_GET['keys'], 'CONTAINS')
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
+                ->sort('created','DESC')
                 ->pager(15)
                 ->execute();
             $id2 = \Drupal::entityQuery('drug_search')
@@ -73,6 +74,7 @@ class DrugSearchListController extends ControllerBase {
                 ->condition('field_description', $_GET['keys'], 'CONTAINS')
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
+                ->sort('created','DESC')
                 ->pager(15)
                 ->execute();
             $id3 = \Drupal::entityQuery('drug_search')
@@ -80,6 +82,7 @@ class DrugSearchListController extends ControllerBase {
                 ->condition('field_active_ingredients', $_GET['keys'], 'CONTAINS')
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
+                ->sort('created','DESC')
                 ->pager(15)
                 ->execute();
             $id4 = \Drupal::entityQuery('drug_search')
@@ -87,6 +90,7 @@ class DrugSearchListController extends ControllerBase {
                 ->condition('field_indications', $_GET['keys'], 'CONTAINS')
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
+                ->sort('created','DESC')
                 ->pager(15)
                 ->execute();
             $ids = array_merge($id1,$id2, $id3, $id4);
@@ -96,6 +100,7 @@ class DrugSearchListController extends ControllerBase {
                 ->condition('name', $_GET['name'], 'CONTAINS')
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
+                ->sort('created','DESC')
                 ->pager(15)
                 ->execute();
         } elseif (isset($_GET['ing']) && !empty($_GET['ing'])) {
@@ -104,6 +109,7 @@ class DrugSearchListController extends ControllerBase {
                 ->condition('field_active_ingredients', $_GET['ing'], 'CONTAINS')
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
+                ->sort('created','DESC')
                 ->pager(15)
                 ->execute();
         }
@@ -113,6 +119,7 @@ class DrugSearchListController extends ControllerBase {
                 ->condition('field_indications', $_GET['ind'], 'CONTAINS')
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
+                ->sort('created','DESC')
                 ->pager(15)
                 ->execute();
         }elseif(isset($_GET['tags']) && !empty($_GET['tags'])){
@@ -122,6 +129,7 @@ class DrugSearchListController extends ControllerBase {
                 ->condition('field_drug_classification', $tid)
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
+                ->sort('created','DESC')
                 ->pager(15)
                 ->execute();
         }
@@ -130,6 +138,7 @@ class DrugSearchListController extends ControllerBase {
                 ->condition('status', 1)
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
+                ->sort('created','DESC')
                 ->pager(15)
                 ->execute();
         }

@@ -33,6 +33,7 @@ class LinksController extends ControllerBase {
         $ids = \Drupal::entityQuery('cme_links')
             ->condition('status', 1)
             ->sort('field_weight','ASC')
+            ->sort('created','DESC')
             ->pager(10)
             ->execute();
         $result = \Drupal\cme_link\Entity\CmeLinks::loadMultiple($ids);

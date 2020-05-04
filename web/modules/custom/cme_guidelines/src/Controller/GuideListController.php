@@ -25,6 +25,8 @@ class GuideListController extends ControllerBase {
     public function getAllAbout(){
         $ids = \Drupal::entityQuery('guidelines')
             ->condition('status', 1)
+            ->sort('field_weight','ASC')
+            ->sort('created','DESC')
             ->execute();
         $result = \Drupal\cme_guidelines\Entity\Guidelines::loadMultiple($ids);
         return $result;

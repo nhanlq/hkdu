@@ -52,6 +52,7 @@ class QuizListController extends ControllerBase {
                 ->condition('field_category', $tid)
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
+                ->sort('created','DESC')
                 ->pager(15)
                 ->execute();
         } elseif (isset($_GET['keys'])) {
@@ -60,6 +61,7 @@ class QuizListController extends ControllerBase {
                 ->condition('name', $_GET['keys'], 'CONTAINS')
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
+                ->sort('created','DESC')
                 ->pager(15)
                 ->execute();
         } else {
@@ -67,6 +69,7 @@ class QuizListController extends ControllerBase {
                 ->condition('status', 1)
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
+                ->sort('created','DESC')
                 ->pager(15)
                 ->execute();
         }

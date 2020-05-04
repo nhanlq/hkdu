@@ -36,6 +36,7 @@ class HomeBlock extends BlockBase {
             ->condition('field_is_home',1)
             ->condition('field_expired',$currentDate,'>=')
             ->range(0,3)
+            ->sort('field_weight','ASC')
             ->sort('created','DESC')
             ->execute();
 

@@ -252,17 +252,23 @@ class HealthyController extends ControllerBase implements ContainerInjectionInte
             $ids = \Drupal::entityQuery('healthy')
                 ->condition('status', 1)
                 ->condition('field_tags', $tid)
+                ->sort('field_weight','ASC')
+                ->sort('created','DESC')
                 ->pager(15)
                 ->execute();
         } elseif (isset($_GET['keys'])) {
             $ids = \Drupal::entityQuery('healthy')
                 ->condition('status', 1)
                 ->condition('name', $_GET['keys'], 'CONTAINS')
+                ->sort('field_weight','ASC')
+                ->sort('created','DESC')
                 ->pager(15)
                 ->execute();
         } else {
             $ids = \Drupal::entityQuery('healthy')
                 ->condition('status', 1)
+                ->sort('field_weight','ASC')
+                ->sort('created','DESC')
                 ->pager(15)
                 ->execute();
 

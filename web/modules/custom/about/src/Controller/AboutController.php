@@ -26,6 +26,7 @@ class AboutController extends ControllerBase {
   public function getAllAbout(){
       $ids = \Drupal::entityQuery('about')
           ->condition('status', 1)
+         ->sort('created','DESC')
           ->execute();
       $result = DefaultEntity::loadMultiple($ids);
       return $result;

@@ -34,6 +34,8 @@ class MediaListController extends ControllerBase {
     {
         $ids = \Drupal::entityQuery('media_entity')
             ->condition('status', 1)
+            ->sort('field_weight','ASC')
+            ->sort('created','DESC')
             ->pager(15)
             ->execute();
         $result = MediaEntity::loadMultiple($ids);

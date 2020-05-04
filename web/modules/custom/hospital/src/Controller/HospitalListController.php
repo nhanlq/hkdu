@@ -34,6 +34,8 @@ class HospitalListController extends ControllerBase {
     {
         $ids = \Drupal::entityQuery('doctor')
             ->condition('status', 1)
+            ->sort('field_weight','ASC')
+            ->sort('created','DESC')
             ->pager(15)
             ->execute();
         $result = HospitalEntity::loadMultiple($ids);

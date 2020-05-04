@@ -33,6 +33,7 @@ class DownloadListController extends ControllerBase {
 
         $ids = \Drupal::entityQuery('download')
             ->condition('status', 1)
+            ->sort('field_weight','ASC')
             ->sort('changed','DESC')
             ->pager(10)
             ->execute();

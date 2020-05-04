@@ -33,6 +33,7 @@ class ToolListController extends ControllerBase {
             $ids = \Drupal::entityQuery('tools')
                 ->condition('status', 1)
                 ->sort('field_weight','ASC')
+                ->sort('created','DESC')
                 ->pager(10)
                 ->execute();
         $result = \Drupal\tools\Entity\Tools::loadMultiple($ids);

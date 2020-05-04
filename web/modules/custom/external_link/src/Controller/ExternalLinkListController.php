@@ -33,6 +33,7 @@ class ExternalLinkListController extends ControllerBase {
         $ids = \Drupal::entityQuery('external_link')
             ->condition('status', 1)
             ->sort('field_weight','ASC')
+            ->sort('created','DESC')
             ->pager(10)
             ->execute();
         $result = \Drupal\external_link\Entity\ExternalLink::loadMultiple($ids);
