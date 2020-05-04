@@ -1,0 +1,24 @@
+uuid: a3fc2fc3-50d6-433f-9acf-25f2a2557793
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.public_links.field_weight
+  module:
+    - public_links
+id: public_links.public_links.field_weight
+field_name: field_weight
+entity_type: public_links
+bundle: public_links
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

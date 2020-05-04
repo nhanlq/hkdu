@@ -1,0 +1,24 @@
+uuid: ca84b2a6-dd81-4633-817d-790e5a250b9c
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - news
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: news.field_weight
+field_name: field_weight
+entity_type: news
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

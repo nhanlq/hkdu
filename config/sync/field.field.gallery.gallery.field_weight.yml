@@ -1,0 +1,24 @@
+uuid: 31cbe2ef-6b45-4229-8e43-3992bc737d50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.gallery.field_weight
+  module:
+    - gallery
+id: gallery.gallery.field_weight
+field_name: field_weight
+entity_type: gallery
+bundle: gallery
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

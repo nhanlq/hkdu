@@ -1,0 +1,26 @@
+uuid: 787ab7d3-bc0f-46f0-9eaa-c381b03dd945
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.download.field_weight
+  module:
+    - download
+id: download.download.field_weight
+field_name: field_weight
+entity_type: download
+bundle: download
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

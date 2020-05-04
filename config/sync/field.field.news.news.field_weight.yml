@@ -1,0 +1,24 @@
+uuid: 4cc2ab16-c931-4862-99ef-d1e366bea176
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.news.field_weight
+  module:
+    - news
+id: news.news.field_weight
+field_name: field_weight
+entity_type: news
+bundle: news
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

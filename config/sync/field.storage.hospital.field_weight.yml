@@ -1,0 +1,24 @@
+uuid: a30ef532-d8f6-4da3-bdec-edae37bcacb7
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - hospital
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: hospital.field_weight
+field_name: field_weight
+entity_type: hospital
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

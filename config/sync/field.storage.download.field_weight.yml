@@ -1,0 +1,24 @@
+uuid: 8d3a2839-a96e-48f9-b5a0-803332ea8f11
+langcode: en
+status: true
+dependencies:
+  module:
+    - download
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: download.field_weight
+field_name: field_weight
+entity_type: download
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
