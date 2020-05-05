@@ -158,35 +158,35 @@ class QuizTestController extends ControllerBase
             ->execute();
         $results = \Drupal\cme_score\Entity\Score ::loadMultiple($ids);
         if($results){
+            $return = reset($results);
             if($exist = $this->getHighestScore($quizId, $user)){
                 $highest = reset($exist);
                 $highest_score = $highest->get('field_score')->value;
                 if($highest_score < $score){
                     $account->set('field_point',$account->get('field_point')->value - $highest_score + $score);
                     $account->save();
+                    $return->set('field_score',$score);
                 }
 
             }else{
                 $account->set('field_point',$account->get('field_point')->value + $score);
                 $account->save();
             }
-            $return = reset($results);
-            $return->set('field_score',$score);
             $return->save();
 
         }else{
-            if($exist = $this->getHighestScore($quizId, $user)){
-                $highest = reset($exist);
-                $highest_score = $highest->get('field_score')->value;
-                if($highest_score < $score){
-                    $account->set('field_point',$account->get('field_point')->value - $highest_score + $score);
-                    $account->save();
-                }
-
-            }else{
-                $account->set('field_point',$account->get('field_point')->value + $score);
-                $account->save();
-            }
+//            if($exist = $this->getHighestScore($quizId, $user)){
+//                $highest = reset($exist);
+//                $highest_score = $highest->get('field_score')->value;
+//                if($highest_score < $score){
+//                    $account->set('field_point',$account->get('field_point')->value - $highest_score + $score);
+//                    $account->save();
+//                }
+//
+//            }else{
+//                $account->set('field_point',$account->get('field_point')->value + $score);
+//                $account->save();
+//            }
             $return = \Drupal\cme_score\Entity\Score::create([
                 'status' =>1,
                 'uid' => $user->id(),

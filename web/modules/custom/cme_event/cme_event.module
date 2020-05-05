@@ -124,7 +124,8 @@ function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
                             'doctor' => 'doctor',
                             'hkdu_members' => 'hkdu_members',
                             'drug_suppliers' => 'drug_suppliers',
-                            'council_members' => 'council_members'
+                            'council_members' => 'council_members',
+                            'cme_member' => 'cme_member'
                         ]
                     ],
                 ],
@@ -211,7 +212,8 @@ function cme_event_entity_update(Drupal\Core\Entity\EntityInterface $entity)
                                 'doctor' => 'doctor',
                                 'hkdu_members' => 'hkdu_members',
                                 'drug_suppliers' => 'drug_suppliers',
-                                'council_members' => 'council_members'
+                                'council_members' => 'council_members',
+                                'cme_member' => 'cme_member'
                             ]
                         ],
                     ],
