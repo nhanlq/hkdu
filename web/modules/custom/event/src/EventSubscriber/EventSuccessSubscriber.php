@@ -77,6 +77,16 @@ class EventSuccessSubscriber implements EventSubscriberInterface{
         }
         if($product->get('field_cme_event')){
             $cme_event = $product->get('field_cme_event')->target_id;
+            $cme_event_entity = \Drupal\cme_event\Entity\CmeEvent::load($cme_event);
+            $score = \Drupal\cme_score\Entity\Score::create([
+                'name' => 'Event Score of event ' . $cme_event_entity->getName() . ' of User ' . $user->getDisplayName(),
+                'field_score' => 0,
+                'field_user' => $user->id(),
+                'field_event' => $cme_event_entity->id(),
+                'field_attendance' => 0,
+                'uid' => $user->id()
+            ]);
+            $score->save();
         }
         $event_tracking = \Drupal\event_tracking\Entity\EventTracking::create([
             'name' => 'Order::'.$user->getAccountName().'::'.$order->getOrderNumber(),
