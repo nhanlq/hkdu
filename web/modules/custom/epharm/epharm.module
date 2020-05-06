@@ -113,8 +113,7 @@ function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity)
 {
 
     // Insert the new entity into a fictional table of all entities.
-    if ($entity->getEntityTypeId() != 'user' ||
-        $entity->getEntityTypeId() == 'clinical_focus' ||
+    if ($entity->getEntityTypeId() == 'clinical_focus' ||
         $entity->getEntityTypeId() == 'drug_news' ||
         $entity->getEntityTypeId() == 'pharm_dir' ||
         $entity->getEntityTypeId() == 'special_offer' ||
