@@ -1,0 +1,37 @@
+uuid: 0ff6c8b7-ce65-4e6b-a265-8e7622e50a83
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_event_type
+    - taxonomy.vocabulary.cme
+  module:
+    - cme_event
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: cme_event.cme_event.field_event_type
+field_name: field_event_type
+entity_type: cme_event
+bundle: cme_event
+label: 'Event Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cme: cme
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
