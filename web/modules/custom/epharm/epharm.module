@@ -85,15 +85,8 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
 {
 
     // Insert the new entity into a fictional table of all entities.
-    if ($entity->getEntityTypeId() == 'event' ||
-        $entity->getEntityTypeId() == 'clinical_focus' ||
-        $entity->getEntityTypeId() == 'drug_news' ||
-        $entity->getEntityTypeId() == 'pharm_dir' ||
-        $entity->getEntityTypeId() == 'special_offer' ||
-        $entity->getEntityTypeId() == 'drug_search' ||
-        $entity->getEntityTypeId() == 'cme_event'
-    ) {
-        $user = \Drupal::currentUser();
+    $user = \Drupal::currentUser();
+    if (!in_array('administrator',$user->getRoles()) || !in_array('admins',$user->getRoles())) {
         $mailManager = \Drupal::service('plugin.manager.mail');
         $module = 'epharm';
         $key = 'createPost';
@@ -120,14 +113,7 @@ function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity)
 {
 
     // Insert the new entity into a fictional table of all entities.
-    if ($entity->getEntityTypeId() == 'event' ||
-        $entity->getEntityTypeId() == 'clinical_focus' ||
-        $entity->getEntityTypeId() == 'drug_news' ||
-        $entity->getEntityTypeId() == 'pharm_dir' ||
-        $entity->getEntityTypeId() == 'special_offer' ||
-        $entity->getEntityTypeId() == 'drug_search' ||
-        $entity->getEntityTypeId() == 'cme_event'
-    ) {
+
         if(!$entity->get('status')->value && $entity->get('moderation_state')->value=='draft'
             || !$entity->get('status')->value && $entity->get('moderation_state')->value=='pending'){
             UpdateStateStatus($entity->id(), $entity->getEntityTypeId(), $entity->get('moderation_state')->value);
@@ -152,8 +138,7 @@ function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity)
                 \Drupal::messenger()->addMessage(t('Your message has been sent.'));
             }
         }
-
-    }
+    
 
 }
 
