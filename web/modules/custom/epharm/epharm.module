@@ -91,7 +91,7 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
         $module = 'epharm';
         $key = 'createPost';
         $to = \Drupal::config('system.site')->get('mail');
-        $params['message'] = $entity->get('field_description')->value;
+        $params['message'] = 'User '.$user->getDisplayName().' just create the post '.$entity->getName() .' of type '.$entity->getEntityTypeId();
         $params['title'] = $entity->getName();
         $params['user'] = $user->getDisplayName();
         $params['from'] = $user->getEmail();
