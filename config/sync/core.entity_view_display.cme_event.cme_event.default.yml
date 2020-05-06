@@ -9,6 +9,7 @@ dependencies:
     - field.field.cme_event.cme_event.field_date
     - field.field.cme_event.cme_event.field_description
     - field.field.cme_event.cme_event.field_end_time
+    - field.field.cme_event.cme_event.field_enrolled
     - field.field.cme_event.cme_event.field_expired
     - field.field.cme_event.cme_event.field_file
     - field.field.cme_event.cme_event.field_free
@@ -96,6 +97,16 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_enrolled:
+    weight: 26
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_expired:
     weight: 5

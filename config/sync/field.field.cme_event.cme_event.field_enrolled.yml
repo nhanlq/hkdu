@@ -1,0 +1,24 @@
+uuid: a6b4efb5-2d52-4606-9e34-320b3be8abf4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_enrolled
+  module:
+    - cme_event
+id: cme_event.cme_event.field_enrolled
+field_name: field_enrolled
+entity_type: cme_event
+bundle: cme_event
+label: Enrollable
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
