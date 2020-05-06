@@ -33,3 +33,4 @@ function cme_score_theme() {
     ],
   ];
 }
+
