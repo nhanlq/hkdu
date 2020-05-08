@@ -9,6 +9,9 @@ dependencies:
     - field.field.quiz.quiz.field_disclaimer
     - field.field.quiz.quiz.field_expired
     - field.field.quiz.quiz.field_hkdu_point
+    - field.field.quiz.quiz.field_lecture_content
+    - field.field.quiz.quiz.field_lecture_date
+    - field.field.quiz.quiz.field_lecture_time
     - field.field.quiz.quiz.field_level
     - field.field.quiz.quiz.field_percent
     - field.field.quiz.quiz.field_point
@@ -76,6 +79,28 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
+    region: content
+  field_lecture_content:
+    weight: 31
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_lecture_date:
+    weight: 29
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_lecture_time:
+    weight: 30
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_level:
     weight: 5

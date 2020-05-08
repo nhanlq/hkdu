@@ -39,31 +39,60 @@
                 </div>
                 <div class="hnOpua">{{ quiz.field_expired.value|date("Y-m-d") }}</div>
             </div>
+            {% if quiz.field_level is not empty %}
             <div display="block,flex" class="bXXHPz">
                 <div width="100%,236" class="jBxOzO">Level
                 </div>
                 <div class="hnOpua">{{ quiz.field_level.value }}</div>
             </div>
+            {% endif %}
             <div display="block,flex" class="bXXHPz">
                 <div width="100%,236" class="jBxOzO">Passing Percentage
                 </div>
                 <div class="hnOpua">{{ quiz.field_percent.value }}%</div>
             </div>
+            {% if quiz.field_disclaimer is not empty %}
             <div display="block,flex" class="bXXHPz">
                 <div width="100%,236" class="jBxOzO">Disclaimer
                 </div>
                 <div class="hnOpua">{{ quiz.field_disclaimer.value }}</div>
             </div>
+            {% endif %}
+            {% if quiz.field_speaker is not empty %}
             <div display="block,flex" class="bXXHPz">
                 <div width="100%,236" class="jBxOzO">Speaker
                 </div>
                 <div class="hnOpua">{{ quiz.field_speaker.value }}</div>
             </div>
+            {% endif %}
+            {% if quiz.field_speaker_photo is not empty %}
             <div display="block,flex" class="bXXHPz">
                 <div width="100%,236" class="jBxOzO">Speaker Photo</div>
                 <div class="hnOpua"><img src="{{ quiz.field_speaker_photo.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}"/>
                 </div>
             </div>
+            {% endif %}
+            {% if quiz.field_lecture_date is not empty %}
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">Lecture Date
+                </div>
+                <div class="hnOpua">{{ quiz.field_lecture_date.value|date('Y-m-d') }}</div>
+            </div>
+            {% endif %}
+            {% if quiz.field_lecture_time is not empty %}
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">Lecture Time
+                </div>
+                <div class="hnOpua">{{ quiz.field_lecture_time.value }}</div>
+            </div>
+            {% endif %}
+            {% if quiz.field_lecture_content is not empty %}
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">Lecture Content
+                </div>
+                <div class="hnOpua">{{ quiz.field_lecture_content.value|raw }}</div>
+            </div>
+            {% endif %}
         </div>
         <div class="jvveZx">
             {{ quiz.field_description.value|raw }}

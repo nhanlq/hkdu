@@ -1,0 +1,23 @@
+uuid: 57e822b1-8b8b-4b99-bf67-289edb916094
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_quiz
+    - field_permissions
+    - text
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: quiz.field_lecture_content
+field_name: field_lecture_content
+entity_type: quiz
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

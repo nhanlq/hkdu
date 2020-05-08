@@ -53,10 +53,12 @@
     {% endif %}
     <div class="leBAWZ">
         <div class="cxovFu">Event Information</div>
+        {% if quiz.field_event_type is not empty %}
         <div display="block,flex" class="bXXHPz">
             <div width="100%,236" class="jBxOzO">CME Event Type</div>
             <div class="hnOpua">{{ event.field_event_type.entity.name.value }}</div>
         </div>
+        {% endif %}
         <div display="block,flex" class="bXXHPz">
             <div width="100%,236" class="jBxOzO">CME Point</div>
             <div class="hnOpua">{{ event.field_cme_point.value }}</div>
@@ -106,21 +108,27 @@
             <div class="hnOpua">{{ event.field_organizer.entity.name.value }}
             </div>
         </div>
+        {% if quiz.field_speaker is not empty %}
         <div display="block,flex" class="bXXHPz">
             <div width="100%,236" class="jBxOzO">Speaker</div>
             <div class="hnOpua">{{ event.field_speaker.value }}
             </div>
         </div>
+        {% endif %}
+        {% if quiz.field_speaker_photo is not empty %}
         <div display="block,flex" class="bXXHPz">
             <div width="100%,236" class="jBxOzO">Speaker Photo</div>
             <div class="hnOpua"><img src="{{ event.field_speaker_photo.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}"/>
             </div>
         </div>
+        {% endif %}
+        {% if quiz.field_sponsor is not empty %}
         <div display="block,flex" class="bXXHPz">
             <div width="100%,236" class="jBxOzO">Sponsor</div>
             <div class="hnOpua"><img src="{{ event.field_sponsor.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}"/>
             </div>
         </div>
+        {% endif %}
     </div>
     {% if event.field_file is not empty %}
         <div class="Grid__Box-f9ujw0-0 bBnAZb">

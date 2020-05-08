@@ -1,0 +1,21 @@
+uuid: 60eac544-13ef-40b7-9243-0ef24a882f1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_lecture_content
+  module:
+    - cme_quiz
+    - text
+id: quiz.quiz.field_lecture_content
+field_name: field_lecture_content
+entity_type: quiz
+bundle: quiz
+label: 'Lecture Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
