@@ -2072,12 +2072,12 @@ select.epharm-switch {
     float: left;
 }
 .author span{
-    width: 150px;
+    width: 110px;
     float: left;
 }
 a .date, a .author{
     color: #000000;
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 16px;
 }
 .cme-event{
