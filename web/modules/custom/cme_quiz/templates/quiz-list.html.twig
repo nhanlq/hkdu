@@ -61,18 +61,23 @@
                     <div class="kZuHUf">
                         <div class="giwJrm">
                             <div class="Owdni">
-                                <span class="etLNEt">{{ quiz.field_expired.value|date("Y-m-d") }}</span>
+                                {% if quiz.field_expired is not null %}
+                                    <span class="etLNEt">{{ quiz.field_expired.value|date("Y-m-d") }}</span>
+                                {% endif %}
                                 {% if quiz.check_event %}
-                                <span type="success" class="cUAFfx">{{ quiz.attemp }}</span>
+                                    <span type="success" class="cUAFfx">{{ quiz.attemp }}</span>
                                 {% endif %}
                             </div>
                         </div>
                         <div class="isAOXn">
                             <div>
                                 <h3 class="flCmuI">{{ quiz.name.value }}</h3>
-                                <div class="date"><span>Created Date: </span>{{ quiz.created.value|date('Y-m-d') }}</div>
+                                <div class="date"><span>Created Date: </span>{{ quiz.created.value|date('Y-m-d') }}
+                                </div>
                                 {% if quiz.field_registration_dealine is not empty %}
-                                <div class="author"><span>Deadline: </span>{{ quiz.field_registration_dealine.value|date('Y-m-d H:i:s') }}</div>
+                                    <div class="author">
+                                        <span>Deadline: </span>{{ quiz.field_registration_dealine.value|date('Y-m-d H:i:s') }}
+                                    </div>
                                 {% endif %}
                                 <div class="author"><span>Author: </span>{{ quiz.author }}</div>
                             </div>
