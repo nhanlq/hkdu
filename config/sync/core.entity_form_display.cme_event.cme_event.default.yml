@@ -21,7 +21,6 @@ dependencies:
     - field.field.cme_event.cme_event.field_organizer
     - field.field.cme_event.cme_event.field_price
     - field.field.cme_event.cme_event.field_published_date
-    - field.field.cme_event.cme_event.field_registration_dealine
     - field.field.cme_event.cme_event.field_speaker
     - field.field.cme_event.cme_event.field_speaker_photo
     - field.field.cme_event.cme_event.field_sponsor
@@ -174,12 +173,6 @@ content:
     region: content
   field_published_date:
     weight: 10
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
-  field_registration_dealine:
-    weight: 30
     settings: {  }
     third_party_settings: {  }
     type: datetime_default

@@ -1,0 +1,24 @@
+uuid: 5204e129-4ed6-4649-9503-99d86f23a69c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_lecture_date
+  module:
+    - cme_quiz
+    - datetime
+id: quiz.quiz.field_lecture_date
+field_name: field_lecture_date
+entity_type: quiz
+bundle: quiz
+label: 'Lecture Date'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: relative
+    default_date: +30days
+default_value_callback: ''
+settings: {  }
+field_type: datetime

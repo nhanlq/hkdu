@@ -19,11 +19,21 @@ settings:
           items:
             - Bold
             - Italic
+            - Underline
             - Strike
             - Superscript
             - Subscript
             - '-'
             - RemoveFormat
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyRight
+            - JustifyBlock
+            - Outdent
+            - Indent
+            - Language
+            - SpecialChar
+            - Maximize
         -
           name: Linking
           items:
@@ -41,6 +51,7 @@ settings:
             - DrupalImage
             - Table
             - HorizontalRule
+            - DrupalMediaLibrary
         -
           name: 'Block Formatting'
           items:
@@ -53,14 +64,21 @@ settings:
         -
           name: Tools
           items:
+            - Redo
+            - Undo
             - DrupalFontAwesome
             - ShowBlocks
             - Source
+            - Cut
+            - PasteText
+            - Copy
+            - PasteFromWord
+            - Paste
   plugins:
-    language:
-      language_list: un
     stylescombo:
       styles: ''
+    language:
+      language_list: un
     colorbutton:
       colors: ''
 image_upload:

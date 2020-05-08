@@ -134,7 +134,7 @@ class QuizTestController extends ControllerBase
             }
             $this->CreateQuizScore($quizId, $score);
 
-            $response = new RedirectResponse('/cme/quiz/'.$quizId.'/message');
+            $response = new RedirectResponse('/cme/quiz/'.$quizId.'/result/'.$result->id());
             $response->send();
         }catch(Exception $e){
             throw new \RuntimeException($e->getMessage());

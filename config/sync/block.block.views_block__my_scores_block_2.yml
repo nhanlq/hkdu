@@ -1,0 +1,46 @@
+uuid: 71f13f56-24e3-4f5d-bf52-28f0f3152e73
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.my_scores
+  module:
+    - system
+    - user
+    - views
+  theme:
+    - hkdu
+id: views_block__my_scores_block_2
+theme: hkdu
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:my_scores-block_2'
+settings:
+  id: 'views_block:my_scores-block_2'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: "/user\r\n/user/*"
+    negate: false
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+      administrator: administrator
+      admins: admins
+      doctor: doctor
+      hkdu_members: hkdu_members
+      drug_suppliers: drug_suppliers
+      council_members: council_members
+      cme_member: cme_member
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
