@@ -68,8 +68,12 @@
                             </div>
                         </div>
                         <div class="isAOXn">
-                            <div><h3 class="flCmuI">{{ quiz.name.value }}</h3>
+                            <div>
+                                <h3 class="flCmuI">{{ quiz.name.value }}</h3>
+                                <div class="date"><span>Created Date: </span>{{ quiz.created.value|date('Y-m-d') }}</div>
+                                <div class="author"><span>Author: </span>{{ quiz.author }}</div>
                             </div>
+
                         </div>
                         <div class="hFnlYM">
                             <ul class="eNSAVL">

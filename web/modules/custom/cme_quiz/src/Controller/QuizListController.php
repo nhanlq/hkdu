@@ -75,6 +75,8 @@ class QuizListController extends ControllerBase {
         }
         $result = \Drupal\cme_quiz\Entity\Quiz::loadMultiple($ids);
         foreach($result as $r){
+
+            $r->author = $this->getAuthor($r->getOwnerId());
             if($this->checkExpiredQuiz($r)){
                 $r->expired = true;
             }else{
@@ -180,5 +182,20 @@ class QuizListController extends ControllerBase {
         }
         return $return;
     }
+    public function getAuthor($uid){
 
+        $user = \Drupal\user\Entity\User::load($uid);
+        $account = $user->toArray();
+        $name = '';
+        if($account['field_first_name']){
+            $name .= $account['field_first_name'][0]['value'];
+        }
+        if($account['field_last_name']){
+            $name .= ' '.$account['field_last_name'][0]['value'];
+        }
+        if($name == ''){
+            $name .= $account['name'][0]['value'];
+        }
+        return $name;
+    }
 }
