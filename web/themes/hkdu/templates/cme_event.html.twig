@@ -12,8 +12,51 @@
             {% endfor %}
         </div>
     </div>
+    {% if event.field_file is not empty %}
+        <div class="Grid__Box-f9ujw0-0 bBnAZb">
+            <div display="block,flex" class="cWPhzd">
+                <div width="100%,236" class="Grid__Box-f9ujw0-0 MedicalContent__RowLabel-sc-1jlbeob-2 jBxOzO">File
+                    for
+                    Download
+                </div>
+                <div class="gKKegu">
+                    <div class="kCsMFd">
+                        <div display="flex" class="fSsnif">
+                            <div width="1,0.3333333333333333" class="culkFL">
+                                <a target="_blank" height="120px"
+                                   href="{{ file_url(event.field_file.entity.field_media_document.entity.uri.value) }}"
+                                   class="htzoqv">
+                                    <div class="kZuHUf">
+                                        <div class="isAOXn">
+                                            <div>
+                                                <h3 class="flCmuI">{{ event.field_file.entity.field_media_document.entity.filename.value }}</h3>
+                                            </div>
+                                            <div class="eclIQj">
+                                                <div class="jamtIE" width="100%"><span
+                                                            rel="noopener" target="_blank" color="#4A90E2"
+                                                            font-size="13px"
+                                                            class="fLaWbo">
+                                    <i font-size="20" name="LINK" color="icon" class="fal fa fa-paperclip"></i>
+
+                                </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
     <div class="leBAWZ">
         <div class="cxovFu">Event Information</div>
+        <div display="block,flex" class="bXXHPz">
+            <div width="100%,236" class="jBxOzO">CME Event Type</div>
+            <div class="hnOpua">{{ event.field_event_type.value }}</div>
+        </div>
         <div display="block,flex" class="bXXHPz">
             <div width="100%,236" class="jBxOzO">CME Point</div>
             <div class="hnOpua">{{ event.field_cme_point.value }}</div>
@@ -38,6 +81,11 @@
             <div class="hnOpua">{{ event.field_start_time.value }} - {{ event.field_end_time.value }}</div>
         </div>
         <div display="block,flex" class="bXXHPz">
+            <div width="100%,236" class="jBxOzO">Registration Dealine</div>
+            <div class="hnOpua">{{ event.field_registration_dealine.value|date('Y-m-d H:i:s') }}
+            </div>
+        </div>
+        <div display="block,flex" class="bXXHPz">
             <div width="100%,236" class="jBxOzO">Location</div>
             <div class="hnOpua">{{ event.field_location.value }}
             </div>
@@ -54,8 +102,23 @@
             </div>
         </div>
         <div display="block,flex" class="bXXHPz">
+            <div width="100%,236" class="jBxOzO">Organizer</div>
+            <div class="hnOpua">{{ event.field_organizer.entity.name.value }}
+            </div>
+        </div>
+        <div display="block,flex" class="bXXHPz">
             <div width="100%,236" class="jBxOzO">Speaker</div>
             <div class="hnOpua">{{ event.field_speaker.value }}
+            </div>
+        </div>
+        <div display="block,flex" class="bXXHPz">
+            <div width="100%,236" class="jBxOzO">Speaker Photo</div>
+            <div class="hnOpua"><img src="{{ event.field_speaker_photo.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}"/>
+            </div>
+        </div>
+        <div display="block,flex" class="bXXHPz">
+            <div width="100%,236" class="jBxOzO">Sponsor</div>
+            <div class="hnOpua"><img src="{{ event.field_sponsor.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}"/>
             </div>
         </div>
     </div>

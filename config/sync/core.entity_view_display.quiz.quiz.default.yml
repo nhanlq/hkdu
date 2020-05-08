@@ -6,11 +6,14 @@ dependencies:
     - field.field.quiz.quiz.field_audience
     - field.field.quiz.quiz.field_category
     - field.field.quiz.quiz.field_description
+    - field.field.quiz.quiz.field_disclaimer
     - field.field.quiz.quiz.field_expired
     - field.field.quiz.quiz.field_hkdu_point
     - field.field.quiz.quiz.field_level
     - field.field.quiz.quiz.field_percent
     - field.field.quiz.quiz.field_point
+    - field.field.quiz.quiz.field_speaker
+    - field.field.quiz.quiz.field_speaker_photo
     - field.field.quiz.quiz.field_start_date
     - field.field.quiz.quiz.field_weight
   module:
@@ -46,6 +49,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_disclaimer:
+    weight: 13
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_expired:
     weight: 2
@@ -91,6 +102,23 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_decimal
+    region: content
+  field_speaker:
+    weight: 11
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_speaker_photo:
+    type: entity_reference_entity_view
+    weight: 12
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
     region: content
   field_start_date:
     weight: 1

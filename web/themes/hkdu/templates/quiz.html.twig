@@ -18,7 +18,7 @@
 <article{{ attributes.addClass(classes) }}>
     <div class="bBnAZb">
         <div class="bnGjNu">
-            <div class="iyiBrq">Self Study</div>
+            <div class="iyiBrq">{{ quiz.field_category.entity.name.value }}</div>
         </div>
         <div class="leBAWZ">
             <div display="block,flex" class="bXXHPz">
@@ -38,6 +38,31 @@
                 <div width="100%,236" class="jBxOzO">End Date
                 </div>
                 <div class="hnOpua">{{ quiz.field_expired.value|date("Y-m-d") }}</div>
+            </div>
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">Level
+                </div>
+                <div class="hnOpua">{{ quiz.field_level.value }}</div>
+            </div>
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">Passing Percentage
+                </div>
+                <div class="hnOpua">{{ quiz.field_percent.value }}%</div>
+            </div>
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">Disclaimer
+                </div>
+                <div class="hnOpua">{{ quiz.field_disclaimer.value }}</div>
+            </div>
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">Speaker
+                </div>
+                <div class="hnOpua">{{ quiz.field_speaker.value }}</div>
+            </div>
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">Speaker Photo</div>
+                <div class="hnOpua"><img src="{{ quiz.field_speaker_photo.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}"/>
+                </div>
             </div>
         </div>
         <div class="jvveZx">

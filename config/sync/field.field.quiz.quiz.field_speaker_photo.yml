@@ -1,0 +1,36 @@
+uuid: baf90bcd-e7fb-4250-bbfe-f821dd4a7559
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_speaker_photo
+    - media.type.image
+  module:
+    - cme_quiz
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: quiz.quiz.field_speaker_photo
+field_name: field_speaker_photo
+entity_type: quiz
+bundle: quiz
+label: 'Speaker Photo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

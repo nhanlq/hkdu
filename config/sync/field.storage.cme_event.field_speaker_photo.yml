@@ -1,0 +1,24 @@
+uuid: e6f7a298-5d99-4e60-be94-b2bebb574c4b
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_event
+    - field_permissions
+    - media
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: cme_event.field_speaker_photo
+field_name: field_speaker_photo
+entity_type: cme_event
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

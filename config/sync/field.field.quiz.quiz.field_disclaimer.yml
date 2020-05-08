@@ -1,0 +1,27 @@
+uuid: 8e3a2d3e-ec32-4d71-9e85-2c2793f40b73
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_disclaimer
+  module:
+    - cme_quiz
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: quiz.quiz.field_disclaimer
+field_name: field_disclaimer
+entity_type: quiz
+bundle: quiz
+label: Disclaimer
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

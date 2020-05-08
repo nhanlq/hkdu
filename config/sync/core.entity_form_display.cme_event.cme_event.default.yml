@@ -21,7 +21,9 @@ dependencies:
     - field.field.cme_event.cme_event.field_organizer
     - field.field.cme_event.cme_event.field_price
     - field.field.cme_event.cme_event.field_published_date
+    - field.field.cme_event.cme_event.field_registration_dealine
     - field.field.cme_event.cme_event.field_speaker
+    - field.field.cme_event.cme_event.field_speaker_photo
     - field.field.cme_event.cme_event.field_sponsor
     - field.field.cme_event.cme_event.field_start_date
     - field.field.cme_event.cme_event.field_start_time
@@ -176,6 +178,12 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_registration_dealine:
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_speaker:
     weight: 17
     settings:
@@ -183,6 +191,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_speaker_photo:
+    type: media_library_widget
+    weight: 29
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
     region: content
   field_sponsor:
     type: media_library_widget

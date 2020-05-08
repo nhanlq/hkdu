@@ -12,3 +12,9 @@ cme_event.admin.structure.settings:
   description: 'Configure CME Event entities'
   route_name: cme_event.settings
   parent: entity.cme_event.collection
+
+cme_event.admin.import:
+  title: 'Import CME Event'
+  description: 'Configure CME Event entities'
+  route_name: cme_event.import_event
+  parent: entity.cme_event.collection

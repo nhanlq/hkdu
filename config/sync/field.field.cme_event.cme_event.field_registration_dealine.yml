@@ -1,0 +1,21 @@
+uuid: 4dab886e-b6e4-4367-9326-47181bdecf3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_registration_dealine
+  module:
+    - cme_event
+    - datetime
+id: cme_event.cme_event.field_registration_dealine
+field_name: field_registration_dealine
+entity_type: cme_event
+bundle: cme_event
+label: 'Registration Dealine'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,36 @@
+uuid: 0406effe-9779-4885-859d-6e8684cc1965
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_speaker_photo
+    - media.type.image
+  module:
+    - cme_event
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: cme_event.cme_event.field_speaker_photo
+field_name: field_speaker_photo
+entity_type: cme_event
+bundle: cme_event
+label: 'Speaker Photo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference
