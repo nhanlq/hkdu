@@ -71,7 +71,7 @@
                             <div>
                                 <h3 class="flCmuI">{{ quiz.name.value }}</h3>
                                 <div class="date"><span>Created Date: </span>{{ quiz.created.value|date('Y-m-d') }}</div>
-                                <div class="author"><span>Deadline: </span>{{ quiz.field_registration_dealine|date('Y-m-d H:i:s') }}</div>
+                                <div class="author"><span>Deadline: </span>{{ quiz.field_registration_dealine.value|date('Y-m-d H:i:s') }}</div>
                                 <div class="author"><span>Author: </span>{{ quiz.author }}</div>
                             </div>
 
