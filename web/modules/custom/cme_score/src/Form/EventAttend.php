@@ -113,23 +113,26 @@ class EventAttend extends FormBase
                     }
 
                 } else {
-                    if ($user = user_load_by_mail($data['A'])) {
-                        if (!$this->getUserScoreExist($user->id(), $event->id())) {
-                            $score = \Drupal\cme_score\Entity\Score::create([
-                                'name' => 'Event Score of event ' . $event->getName() . ' of User ' . $user->getDisplayName(),
-                                'field_score' => number_format($data['C'],2),
-                                'field_user' => $user->id(),
-                                'field_event' => $event->id(),
-                                'field_attendance' => $attended,
-                                'field_accreditor' =>$data['E'],
-                                'uid' => $user->id()
-                            ]);
-                            $score->save();
-                            //set point for user;
-                            $user->set('field_point',$user->get('field_point')->value + number_format($data['C'],2));
-                            $user->save();
+                    if(!empty($data['A'])){
+                        if ($user = user_load_by_mail($data['A'])) {
+                            if (!$this->getUserScoreExist($user->id(), $event->id())) {
+                                $score = \Drupal\cme_score\Entity\Score::create([
+                                    'name' => 'Event Score of event ' . $event->getName() . ' of User ' . $user->getDisplayName(),
+                                    'field_score' => number_format($data['C'],2),
+                                    'field_user' => $user->id(),
+                                    'field_event' => $event->id(),
+                                    'field_attendance' => $attended,
+                                    'field_accreditor' =>$data['E'],
+                                    'uid' => $user->id()
+                                ]);
+                                $score->save();
+                                //set point for user;
+                                $user->set('field_point',$user->get('field_point')->value + number_format($data['C'],2));
+                                $user->save();
+                            }
                         }
                     }
+
                 }
 
             }
