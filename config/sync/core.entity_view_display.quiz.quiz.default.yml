@@ -18,6 +18,7 @@ dependencies:
     - field.field.quiz.quiz.field_registration_dealine
     - field.field.quiz.quiz.field_speaker
     - field.field.quiz.quiz.field_speaker_photo
+    - field.field.quiz.quiz.field_specialty
     - field.field.quiz.quiz.field_start_date
     - field.field.quiz.quiz.field_weight
   module:
@@ -157,6 +158,14 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
+    region: content
+  field_specialty:
+    weight: 18
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_start_date:
     weight: 1
