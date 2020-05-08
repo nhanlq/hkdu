@@ -93,6 +93,13 @@
                 <div class="hnOpua">{{ quiz.field_lecture_content.value|raw }}</div>
             </div>
             {% endif %}
+            {% if quiz.field_registration_dealine is not empty %}
+                <div display="block,flex" class="bXXHPz">
+                    <div width="100%,236" class="jBxOzO">Registration dealine
+                    </div>
+                    <div class="hnOpua">{{ quiz.field_registration_dealine.value|date('Y-m-d H:i:s') }}</div>
+                </div>
+            {% endif %}
         </div>
         <div class="jvveZx">
             {{ quiz.field_description.value|raw }}

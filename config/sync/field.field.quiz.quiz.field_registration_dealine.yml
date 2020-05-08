@@ -1,0 +1,22 @@
+uuid: de99aa41-ebdf-4025-82e9-b0e6e102085b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_registration_dealine
+  module:
+    - cme_quiz
+id: quiz.quiz.field_registration_dealine
+field_name: field_registration_dealine
+entity_type: quiz
+bundle: quiz
+label: 'Registration Dealine'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1590800400
+default_value_callback: ''
+settings: {  }
+field_type: timestamp
