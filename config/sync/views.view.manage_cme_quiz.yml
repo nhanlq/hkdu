@@ -498,7 +498,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a target="_blank" href="/admin/cme/quiz/export/csv/{{ id }}">Export Result</a>'
+            text: '<a target="_blank" href="/admin/cme/quiz/export/{{ id }}">Export Result</a>'
             make_link: false
             path: ''
             absolute: false
