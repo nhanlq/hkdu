@@ -2067,8 +2067,21 @@ select.epharm-switch {
     width: 100%;
     opacity: 0.5;
 }
+.date span{
+    width: 150px;
+    float: left;
+}
+.author span{
+    width: 150px;
+    float: left;
+}
+a .date, a .author{
+    color: #000000;
+    margin-top: 20px;
+    font-size: 16px;
+}
 .cme-event{
-    bottom: 133px;
+    bottom: 70px;
     left: 16px!important;
 }
 .bjjYsL {
