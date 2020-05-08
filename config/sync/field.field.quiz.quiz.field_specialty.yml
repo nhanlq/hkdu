@@ -1,0 +1,37 @@
+uuid: 32a4bdad-6021-4fdd-a790-f88cf5bbf1ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_specialty
+    - taxonomy.vocabulary.tags
+  module:
+    - cme_quiz
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: quiz.quiz.field_specialty
+field_name: field_specialty
+entity_type: quiz
+bundle: quiz
+label: Specialty
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference
