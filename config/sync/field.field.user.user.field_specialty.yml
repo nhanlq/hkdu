@@ -1,0 +1,27 @@
+uuid: 85019839-d2b3-4dc2-8328-d04e334f40d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_specialty
+  module:
+    - unique_field_ajax
+    - user
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: user.user.field_specialty
+field_name: field_specialty
+entity_type: user
+bundle: user
+label: Specialty
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

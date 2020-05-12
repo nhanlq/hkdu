@@ -10,6 +10,7 @@ dependencies:
     - field.field.user.user.field_organization
     - field.field.user.user.field_point
     - field.field.user.user.field_registration_no
+    - field.field.user.user.field_specialty
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
@@ -70,6 +71,14 @@ content:
     region: content
   field_registration_no:
     weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_specialty:
+    weight: 8
     settings:
       size: 60
       placeholder: ''

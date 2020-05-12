@@ -11,6 +11,7 @@ dependencies:
     - field.field.user.user.field_organization
     - field.field.user.user.field_point
     - field.field.user.user.field_registration_no
+    - field.field.user.user.field_specialty
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
@@ -44,6 +45,7 @@ hidden:
   field_organization: true
   field_point: true
   field_registration_no: true
+  field_specialty: true
   hkdu_member_profiles: true
   langcode: true
   member_for: true
