@@ -1,35 +1,24 @@
-uuid: 71f13f56-24e3-4f5d-bf52-28f0f3152e73
+uuid: 17cd902d-a5bc-4914-9cd3-c013fe6cee72
 langcode: en
 status: true
 dependencies:
-  config:
-    - views.view.my_scores
   module:
-    - system
+    - google_qr_code
     - user
-    - views
   theme:
     - hkdu
-id: views_block__my_scores_block_2
+id: googleqrcode
 theme: hkdu
 region: content
-weight: -6
+weight: -8
 provider: null
-plugin: 'views_block:my_scores-block_2'
+plugin: 'Google QR Code'
 settings:
-  id: 'views_block:my_scores-block_2'
-  label: ''
-  provider: views
+  id: 'Google QR Code'
+  label: 'QR CODE'
+  provider: google_qr_code
   label_display: visible
-  views_label: ''
-  items_per_page: none
-  context_mapping: {  }
 visibility:
-  request_path:
-    id: request_path
-    pages: "/user\r\n/user/*"
-    negate: false
-    context_mapping: {  }
   user_role:
     id: user_role
     roles:

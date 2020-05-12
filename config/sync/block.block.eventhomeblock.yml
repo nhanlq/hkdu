@@ -10,7 +10,7 @@ dependencies:
 id: eventhomeblock
 theme: hkdu
 region: content
-weight: -7
+weight: -11
 provider: null
 plugin: event_home_block
 settings:
