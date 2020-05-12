@@ -124,7 +124,7 @@ class EventRegisterOffline extends FormBase
         $module = 'epharm';
         $key = 'sendEventPayment';
         $to = $form_state->getValue('email');
-        $params['message'] = '<a href=""></a>';
+        $params['message'] = $body;
         $params['title'] = '[HKDU] Link for payment settlement for the event.';
         $params['user'] = $user->getDisplayName();
         $params['from'] = \Drupal::config('system.site')->get('mail');
