@@ -294,6 +294,12 @@ function epharm_views_pre_render(\Drupal\views\ViewExecutable $view)
             $value->_entity->set('field_count', getResultEntity($value->_entity->get('id')->value, 'cme_event'));
         }
     }
+    if ($view->id() == "quizzes_result_report") {
+        foreach ($view->result as $value) {
+           // var_dump($value->_entity);
+            $value->_entity->set('field_count', getResultEntity(getQuizbyResult($value->_entity->get('id')->value), 'quiz'));
+        }
+    }
 }
 
 function getResultEntity($id, $type)
@@ -330,5 +336,9 @@ function UpdateStatus($type, $id)
     ]);
     $query->condition('id', $id);
     $query->execute();
+}
+function getQuizbyResult($resultId){
+    $result = \Drupal\cme_result\Entity\Result::load($resultId);
+    return $result->get('field_quiz')->target_id;
 }
 

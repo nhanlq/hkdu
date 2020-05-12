@@ -163,14 +163,35 @@ function getQuestionAnswered($quiz,$resultId){
     return $theme;
 }
 
-function getLastestresult($quiz){
+function getLastestresult($quiz_id){
     $user = \Drupal::currentUser();
     $ids = \Drupal::entityQuery('result')
         ->condition('status', 1)
         ->condition('field_quiz', $quiz_id)
-        ->condition('field_user', $uid)
+        ->condition('field_user', $user->id())
+        ->sort('created','DESC')
         ->execute();
     $results = \Drupal\cme_result\Entity\Result::loadMultiple($ids);
-
+    if($results){
+        $result = reset($results);
+        return $result;
+    }else{
+        return false;
+    }
 }
 
+function getListResult($quiz_id){
+    $user = \Drupal::currentUser();
+    $ids = \Drupal::entityQuery('result')
+        ->condition('status', 1)
+        ->condition('field_quiz', $quiz_id)
+        ->condition('field_user', $user->id())
+        ->sort('created','DESC')
+        ->execute();
+    $results = \Drupal\cme_result\Entity\Result::loadMultiple($ids);
+    if($results){
+        return $results;
+    }else{
+        return false;
+    }
+}

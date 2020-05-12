@@ -479,6 +479,14 @@ function template_preprocess_quiz(array &$variables) {
     $variables['check_quiz'] = checkQuizStatusUser($id);
     $variables['expired'] = checkExpiredQuiz($quiz);
     $variables['question'] = getQuestionNoTest($quiz);
+    $variables['result'] = false;
+    $variables['results'] = false;
+    if(getLastestresult($id)){
+        $variables['result'] = getLastestresult($id);
+    }
+    if(getListResult($id)){
+        $variables['results'] = getListResult($id);
+    }
     // Helpful $content variable for templates.
     foreach (Element::children($variables['elements']) as $key) {
         $variables['content'][$key] = $variables['elements'][$key];

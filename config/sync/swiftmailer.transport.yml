@@ -6,7 +6,7 @@ smtp_credential_provider: swiftmailer
 smtp_credentials:
   swiftmailer:
     username: hkdu@branch8.com
-    password: branch8@123
+    password: hkdu@123
 sendmail_path: /usr/sbin/sendmail
 sendmail_mode: bs
 spool_directory: ''

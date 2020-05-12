@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.result.result.field_count
     - field.field.result.result.field_passed
     - field.field.result.result.field_percent
     - field.field.result.result.field_quiz
@@ -17,6 +18,13 @@ targetEntityType: result
 bundle: result
 mode: default
 content:
+  field_count:
+    weight: 32
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_passed:
     weight: 30
     settings:
