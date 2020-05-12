@@ -95,7 +95,7 @@ class EventSuccessSubscriber implements EventSubscriberInterface{
             $google_qr_image_url = "https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=" . $url . '&chld=H|0';
 
             // Write the alternate description for the QR image.
-            $google_qr_alt = $this->t('QR Code for @url', array('@url' => $url));
+            $google_qr_alt = 'QR Code for '.$url;
 
             // Return markup, and return the block as being cached per URL path.
             $code =  array(
