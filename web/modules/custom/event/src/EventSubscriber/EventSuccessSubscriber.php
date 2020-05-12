@@ -110,7 +110,7 @@ class EventSuccessSubscriber implements EventSubscriberInterface{
                 ),
             );
             $body .='This is the QRcode for Event Attendance. Please keep it then show when you coming the Event.';
-            $body .=''.render($code).'';
+            $body .= render($code);
             $mailManager = \Drupal::service('plugin.manager.mail');
             $module = 'epharm';
             $key = 'sendQRcode';

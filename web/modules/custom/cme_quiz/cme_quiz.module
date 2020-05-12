@@ -163,3 +163,9 @@ function getQuestionAnswered($quiz,$resultId){
     return $theme;
 }
 
+function getLastesresult($quiz){
+    $user = \Drupal::currentUser();
+    
+
+}
+
