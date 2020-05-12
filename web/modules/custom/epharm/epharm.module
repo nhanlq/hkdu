@@ -331,3 +331,4 @@ function UpdateStatus($type, $id)
     $query->condition('id', $id);
     $query->execute();
 }
+

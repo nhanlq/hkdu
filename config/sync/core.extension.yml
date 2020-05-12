@@ -130,6 +130,7 @@ module:
   slick: 0
   slick_ui: 0
   slick_views: 0
+  smtp: 0
   sortableviews: 0
   special_offer: 0
   state_machine: 0
