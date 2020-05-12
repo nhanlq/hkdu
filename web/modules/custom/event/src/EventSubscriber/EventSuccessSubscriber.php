@@ -87,6 +87,47 @@ class EventSuccessSubscriber implements EventSubscriberInterface{
                 'uid' => $user->id()
             ]);
             $score->save();
+            //send QR code
+            $body = '';
+            $url = '';
+            $host = \Drupal::request()->getSchemeAndHttpHost();
+            $url = $host.'/cme/event/qrcode/'.$cme_event.'/'.$user->id();
+            $google_qr_image_url = "https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=" . $url . '&chld=H|0';
+
+            // Write the alternate description for the QR image.
+            $google_qr_alt = $this->t('QR Code for @url', array('@url' => $url));
+
+            // Return markup, and return the block as being cached per URL path.
+            $code =  array(
+                '#theme' => 'image',
+                '#uri' => $google_qr_image_url,
+                '#width' => '250',
+                '#height' => '250',
+                '#alt' => $google_qr_alt,
+                '#class' => 'google-qr-code-image',
+                '#cache' => array(
+                    'contexts' => array('url.path'),
+                ),
+            );
+            $body .='<p>This is the QRcode for Event Attendance. Please keep it then show when you coming the Event.</p>';
+            $body .='<p>'.render($code).'</p>';
+            $mailManager = \Drupal::service('plugin.manager.mail');
+            $module = 'epharm';
+            $key = 'sendEventPayment';
+            $to = $user->getEmail();
+            $params['message'] = '<a href=""></a>';
+            $params['title'] = '[HKDU] QRCode for Event Attendance.';
+            $params['user'] = $user->getDisplayName();
+            $params['from'] = \Drupal::config('system.site')->get('mail');
+            $langcode = \Drupal::currentUser()->getPreferredLangcode();
+            $send = true;
+
+            $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+            if ($result['result'] !== true) {
+                \Drupal::messenger()->addMessage(t('There was a problem sending your message and it was not sent.'), 'error');
+            } else {
+                \Drupal::messenger()->addMessage(t('Your message has been sent.'));
+            }
         }
         $event_tracking = \Drupal\event_tracking\Entity\EventTracking::create([
             'name' => 'Order::'.$user->getAccountName().'::'.$order->getOrderNumber(),

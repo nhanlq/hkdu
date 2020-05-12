@@ -117,7 +117,7 @@ class EventRegisterOffline extends FormBase
         $product = getCmeProduct($event_id);
         $host = \Drupal::request()->getSchemeAndHttpHost();
         $body .='<p>Thank you for register event '.$event->getName().'</p>';
-        $link = $host.'/cme/event/'.$event_id.'/'.$uid.'/'.$product->get('product_id')->value.'/payment';
+        $link = $host.'/cme/payment/event/'.$product->get('product_id')->value.'/'.$uid;
         \Drupal::messenger()->addMessage(t('Payment Link: '.$link));
             $body .='<p>To final registertration this event, please click this link <a href="'.$link.'">'.$link.'</a> to finish payment step.</p>';
         $mailManager = \Drupal::service('plugin.manager.mail');
