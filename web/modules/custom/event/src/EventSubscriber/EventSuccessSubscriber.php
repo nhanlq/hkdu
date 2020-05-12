@@ -115,7 +115,7 @@ class EventSuccessSubscriber implements EventSubscriberInterface{
             $module = 'epharm';
             $key = 'sendQRcode';
             $to = $user->getEmail();
-            $params['message'] = '<a href=""></a>';
+            $params['message'] = $body;
             $params['title'] = '[HKDU] QRCode for Event Attendance.';
             $params['user'] = $user->getDisplayName();
             $params['from'] = \Drupal::config('system.site')->get('mail');
