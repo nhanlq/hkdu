@@ -21,7 +21,35 @@ body {
     background-color: white;
     z-index: 1010;
 }
-
+.review-button{
+    font-size: 15px;
+    color: white;
+    background-color: rgb(108, 201, 120);
+    max-width: 217px;
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 36px;
+    line-height: 24px;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 5px 20px;
+}
+.submit-button-result{
+    width: 50%;
+    float: left;
+}
+.result_button{
+    margin: 20px 0px;
+    padding: 10px;
+    border: 1px solid lightgray;
+    width: 100%;
+    float: left;
+}
 .navbar .logo {
     box-sizing: border-box;
     padding-right: 15px;

@@ -1,0 +1,24 @@
+uuid: e2c5bbce-aa13-431f-b63f-0ea0f9f68e2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.result.field_count
+  module:
+    - cme_result
+id: result.result.field_count
+field_name: field_count
+entity_type: result
+bundle: result
+label: Count
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal
