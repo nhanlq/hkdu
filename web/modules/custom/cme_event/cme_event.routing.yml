@@ -21,3 +21,18 @@ cme_event.import_event:
     _title: 'ImportEvent'
   requirements:
     _access: 'TRUE'
+cme_event.event_register_offline:
+  path: '/admin/cme/events/offline/register'
+  defaults:
+    _form: '\Drupal\cme_event\Form\EventRegisterOffline'
+    _title: 'EventRegisterOffline'
+  requirements:
+    _access: 'TRUE'
+
+cme_event.payment_controller_payment:
+  path: '/cme/event/{eventId}/{uid}/{productId}/payment'
+  defaults:
+    _controller: '\Drupal\cme_event\Controller\PaymentController::payment'
+    _title: 'Payment Settlement'
+  requirements:
+    _permission: 'access content'
