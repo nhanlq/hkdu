@@ -78,6 +78,11 @@ function epharm_mail($key, &$message, $params)
             $message['subject'] = t('Approved: @title by HKDU', array('@title' => $params['title']), $options);
             $message['body'][] = $params['message'];
             break;
+        case 'sendEventPayment':
+            $message['from'] = \Drupal::config('system.site')->get('mail');
+            $message['subject'] = t('Link for payment settlement for the event ready register for you.', array('@title' => $params['title']), $options);
+            $message['body'][] = $params['message'];
+            break;
     }
 }
 

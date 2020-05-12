@@ -18,3 +18,9 @@ cme_event.admin.import:
   description: 'Configure CME Event entities'
   route_name: cme_event.import_event
   parent: entity.cme_event.collection
+
+cme_event.admin.offline.register:
+  title: 'Offline Register Event'
+  description: 'Configure CME Event entities'
+  route_name: cme_event.event_register_offline
+  parent: entity.cme_event.collection
