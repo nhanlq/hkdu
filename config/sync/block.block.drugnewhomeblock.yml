@@ -10,7 +10,7 @@ dependencies:
 id: drugnewhomeblock
 theme: hkdu
 region: content
-weight: -6
+weight: -10
 provider: null
 plugin: drug_new_home_block
 settings:

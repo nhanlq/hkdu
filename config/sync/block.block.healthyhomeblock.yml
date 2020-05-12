@@ -10,7 +10,7 @@ dependencies:
 id: healthyhomeblock
 theme: hkdu
 region: content
-weight: -10
+weight: -14
 provider: null
 plugin: healthy_home_block
 settings:

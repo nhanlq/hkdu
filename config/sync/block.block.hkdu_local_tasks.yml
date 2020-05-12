@@ -11,7 +11,7 @@ _core:
 id: hkdu_local_tasks
 theme: hkdu
 region: content
-weight: -13
+weight: -17
 provider: null
 plugin: local_tasks_block
 settings:

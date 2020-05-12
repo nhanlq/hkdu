@@ -163,9 +163,14 @@ function getQuestionAnswered($quiz,$resultId){
     return $theme;
 }
 
-function getLastesresult($quiz){
+function getLastestresult($quiz){
     $user = \Drupal::currentUser();
-    
+    $ids = \Drupal::entityQuery('result')
+        ->condition('status', 1)
+        ->condition('field_quiz', $quiz_id)
+        ->condition('field_user', $uid)
+        ->execute();
+    $results = \Drupal\cme_result\Entity\Result::loadMultiple($ids);
 
 }
 
