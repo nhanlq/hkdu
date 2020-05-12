@@ -3,7 +3,6 @@ module:
   action: 0
   address: 0
   admin_toolbar: 0
-  admin_toolbar_search: 0
   admin_toolbar_tools: 0
   adminimal_admin_toolbar: 0
   automated_cron: 0
@@ -86,6 +85,7 @@ module:
   geolocation: 0
   geolocation_google_places_api: 0
   global_hkdu: 0
+  google_qr_code: 0
   healthy: 0
   help: 0
   history: 0

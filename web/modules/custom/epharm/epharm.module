@@ -83,6 +83,11 @@ function epharm_mail($key, &$message, $params)
             $message['subject'] = t('Link for payment settlement for the event ready register for you.', array('@title' => $params['title']), $options);
             $message['body'][] = $params['message'];
             break;
+        case 'sendQRcode':
+            $message['from'] = \Drupal::config('system.site')->get('mail');
+            $message['subject'] = t('QRcode for Event Attendance.', array('@title' => $params['title']), $options);
+            $message['body'][] = $params['message'];
+            break;
     }
 }
 

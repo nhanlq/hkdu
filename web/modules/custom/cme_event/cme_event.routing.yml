@@ -36,3 +36,18 @@ cme_event.payment_controller_payment:
     _title: 'Payment Settlement'
   requirements:
     _permission: 'access content'
+
+cme_event.q_rcode_controller_qrcode:
+  path: 'cme/event/qrcode/{event_id}/{uid}'
+  defaults:
+    _controller: '\Drupal\cme_event\Controller\QRcodeController::qrcode'
+    _title: 'Attendance success'
+  requirements:
+    _permission: 'access content'
+cme_event.payment_form:
+  path: '/cme/payment/event/{productId}/{uid}'
+  defaults:
+    _form: '\Drupal\cme_event\Form\PaymentForm'
+    _title: 'PaymentForm'
+  requirements:
+    _access: 'TRUE'
