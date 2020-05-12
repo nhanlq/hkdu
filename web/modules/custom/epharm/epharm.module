@@ -66,6 +66,11 @@ function epharm_mail($key, &$message, $params)
     $options = array(
         'langcode' => $message['langcode'],
     );
+    $message['headers']=array(
+        'MIME-Version' => '1.0',
+        'Content-Type' => 'text/html; charset=UTF-8; format=flowed; delsp=yes',
+        'Content-Transfer-Encoding' => '8Bit',
+    );
 
     switch ($key) {
         case 'createPost':
