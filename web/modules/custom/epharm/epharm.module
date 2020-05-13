@@ -112,7 +112,7 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
             $entity->getEntityTypeId() == 'event_org' ||
             $entity->getEntityTypeId() == 'guidelines' ||
             $entity->getEntityTypeId() == 'cme_links' ||
-            $entity->getEntityTypeId() == 'question' ||
+//            $entity->getEntityTypeId() == 'question' ||
             $entity->getEntityTypeId() == 'quiz' ||
             $entity->getEntityTypeId() == 'cme_event' ||
             $entity->getEntityTypeId() == 'doctor' ||
@@ -164,7 +164,7 @@ function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity)
         $entity->getEntityTypeId() == 'event_org' ||
         $entity->getEntityTypeId() == 'guidelines' ||
         $entity->getEntityTypeId() == 'cme_links' ||
-        $entity->getEntityTypeId() == 'question' ||
+//        $entity->getEntityTypeId() == 'question' ||
         $entity->getEntityTypeId() == 'quiz' ||
         $entity->getEntityTypeId() == 'cme_event' ||
         $entity->getEntityTypeId() == 'doctor' ||
