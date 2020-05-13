@@ -5,11 +5,13 @@ dependencies:
   config:
     - field.field.node.event_calendar.body
     - field.field.node.event_calendar.field_calendar
+    - field.field.node.event_calendar.field_date
     - field.field.node.event_calendar.field_event
     - field.field.node.event_calendar.field_event_url
     - node.type.event_calendar
   module:
     - content_moderation
+    - datetime
     - ics_field
     - path
     - text
@@ -39,6 +41,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: calendar_download_default_widget
+    region: content
+  field_date:
+    weight: 125
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_event:
     weight: 122
