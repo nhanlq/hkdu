@@ -145,6 +145,25 @@ function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
 //            'score' => $point,
 //        ]);
 //        $score->save();
+        //add calendar
+//        $host = \Drupal::request()->getSchemeAndHttpHost();
+//        $body = '';
+//        $body .= 'Event: '.$entity->getName();
+//        $body .= 'Start Date: '.$entity->get('field_start_date')->value;
+//        $body .= 'Start Time: '.$entity->get('field_start_time')->value;
+//        $body .='Expired: '.$entity->get('field_expired')->value;
+//        $body .='Location: '.$entity->get('field_location')->value;
+//        $body .='Veune: '.$entity->get('field_veune')->value;
+//        $node = \Drupal\node\Entity\Node::create([
+//            'type'=>'event_calendar',
+//            'title' => $entity->getName(),
+//            'created' => time(),
+//            'uid' => $entity->getOwnerId(),
+//            'body'=>$body,
+//            'field_event_url' => $host.'/cme/events/'.$entity->id(),
+//            'field_event' => $entity->id(),
+//        ]);
+//        $node->save();
     }
 
 }
@@ -243,7 +262,7 @@ function getCmeProductEvent($event_id)
 function checkExpiredCmeEvent($event)
 {
     $current = time();
-    $date = strtotime($event->get('field_date')->value . ' 00:00:00');
+    $date = strtotime($event->get('field_expired')->value);
     if ($current > $date) {
         return true;
     } else {

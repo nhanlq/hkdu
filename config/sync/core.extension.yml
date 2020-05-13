@@ -90,6 +90,7 @@ module:
   help: 0
   history: 0
   hospital: 0
+  ics_field: 0
   image: 0
   inline_entity_form: 0
   language: 0

@@ -1052,10 +1052,10 @@ display:
           hide_alter_empty: false
           plugin_id: custom
       filters:
-        field_date_value:
-          id: field_date_value
-          table: cme_event__field_date
-          field: field_date_value
+        field_expired_value:
+          id: field_expired_value
+          table: cme_event__field_expired
+          field: field_expired_value
           relationship: none
           group_type: group
           admin_label: ''

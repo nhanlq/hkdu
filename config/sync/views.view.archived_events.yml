@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.cme_event.field_cme_point
     - field.storage.cme_event.field_date
-    - field.storage.cme_event.field_expired
     - field.storage.cme_event.field_start_date
     - field.storage.cme_event.field_start_time
     - system.menu.admin
@@ -260,71 +259,6 @@ display:
           type: string
           settings:
             link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_expired:
-          id: field_expired
-          table: cme_event__field_expired
-          field: field_expired
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Expired
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: timestamp
-          settings:
-            date_format: custom
-            custom_date_format: 'Y-m-d h:i:s'
-            timezone: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -599,10 +533,10 @@ display:
           entity_field: user_id
           plugin_id: field
       filters:
-        field_date_value:
-          id: field_date_value
-          table: cme_event__field_date
-          field: field_date_value
+        field_expired_value:
+          id: field_expired_value
+          table: cme_event__field_expired
+          field: field_expired_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -662,7 +596,6 @@ display:
       tags:
         - 'config:field.storage.cme_event.field_cme_point'
         - 'config:field.storage.cme_event.field_date'
-        - 'config:field.storage.cme_event.field_expired'
         - 'config:field.storage.cme_event.field_start_date'
         - 'config:field.storage.cme_event.field_start_time'
   page_1:
@@ -692,6 +625,5 @@ display:
       tags:
         - 'config:field.storage.cme_event.field_cme_point'
         - 'config:field.storage.cme_event.field_date'
-        - 'config:field.storage.cme_event.field_expired'
         - 'config:field.storage.cme_event.field_start_date'
         - 'config:field.storage.cme_event.field_start_time'

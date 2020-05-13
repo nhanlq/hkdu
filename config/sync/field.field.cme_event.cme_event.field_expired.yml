@@ -1,4 +1,4 @@
-uuid: ddabd2cb-900e-4320-8228-ebfec2368050
+uuid: bfb9f262-0117-41e2-a027-0028e8da75e6
 langcode: en
 status: true
 dependencies:
@@ -6,6 +6,7 @@ dependencies:
     - field.storage.cme_event.field_expired
   module:
     - cme_event
+    - datetime
 id: cme_event.cme_event.field_expired
 field_name: field_expired
 entity_type: cme_event
@@ -16,7 +17,8 @@ required: false
 translatable: false
 default_value:
   -
-    value: 1585530689
+    default_date_type: relative
+    default_date: '+30 days'
 default_value_callback: ''
 settings: {  }
-field_type: timestamp
+field_type: datetime
