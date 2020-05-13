@@ -5,10 +5,12 @@ dependencies:
   config:
     - field.field.node.event_calendar.body
     - field.field.node.event_calendar.field_calendar
+    - field.field.node.event_calendar.field_date
     - field.field.node.event_calendar.field_event
     - field.field.node.event_calendar.field_event_url
     - node.type.event_calendar
   module:
+    - datetime
     - ics_field
     - text
     - user
@@ -30,6 +32,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: calendar_download_default_formatter
+    region: content
+  field_date:
+    weight: 105
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_event:
     weight: 102

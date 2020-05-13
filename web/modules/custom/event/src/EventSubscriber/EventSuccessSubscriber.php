@@ -125,6 +125,12 @@ class EventSuccessSubscriber implements EventSubscriberInterface{
             $params['title'] = '[HKDU] QRCode for Event Attendance.';
             $params['user'] = $user->getDisplayName();
             $params['from'] = \Drupal::config('system.site')->get('mail');
+            $attachment = array(
+                'filepath' => '/sites/default/files/ics/ICS_event_'.$cme_event_entity->id().'.ics',
+                'filename' => 'ICS_event_'.$cme_event_entity->id().'.ics',
+                'filemime' => 'application/ics'
+            );
+            $params['attachments'][] = $attachment;
             $langcode = \Drupal::currentUser()->getPreferredLangcode();
             $send = true;
 
