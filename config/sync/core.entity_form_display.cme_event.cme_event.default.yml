@@ -78,7 +78,7 @@ content:
     type: text_textarea
     region: content
   field_end_time:
-    weight: 15
+    weight: 14
     settings:
       size: 60
       placeholder: ''
@@ -103,10 +103,10 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_expired:
-    weight: 13
+    weight: 15
     settings: {  }
     third_party_settings: {  }
-    type: datetime_timestamp
+    type: datetime_default
     region: content
   field_file:
     type: media_library_widget
@@ -206,7 +206,7 @@ content:
     type: datetime_default
     region: content
   field_start_time:
-    weight: 14
+    weight: 13
     settings:
       size: 60
       placeholder: ''

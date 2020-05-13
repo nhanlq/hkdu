@@ -119,14 +119,13 @@ content:
     type: entity_reference_label
     region: content
   field_expired:
-    weight: 5
+    weight: 30
     label: above
     settings:
-      date_format: medium
-      custom_date_format: ''
-      timezone: ''
+      format_type: medium
+      timezone_override: ''
     third_party_settings: {  }
-    type: timestamp
+    type: datetime_default
     region: content
   field_file:
     type: entity_reference_entity_view

@@ -1,0 +1,27 @@
+uuid: 988de6db-85ac-4ad7-8e03-374fb317d518
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_url
+    - node.type.event_calendar
+  module:
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: node.event_calendar.field_event_url
+field_name: field_event_url
+entity_type: node
+bundle: event_calendar
+label: 'Event Url'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

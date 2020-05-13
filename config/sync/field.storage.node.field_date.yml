@@ -1,17 +1,17 @@
-uuid: 1586f933-1947-4b44-b7c0-47b003b70673
+uuid: 5e14a08d-ca64-4f2e-b123-8fc9e4ab3586
 langcode: en
 status: true
 dependencies:
   module:
-    - cme_event
     - datetime
     - field_permissions
+    - node
 third_party_settings:
   field_permissions:
     permission_type: public
-id: cme_event.field_expired
-field_name: field_expired
-entity_type: cme_event
+id: node.field_date
+field_name: field_date
+entity_type: node
 type: datetime
 settings:
   datetime_type: datetime

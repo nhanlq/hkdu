@@ -6,6 +6,8 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.article.body
     - field.field.node.article.comment
+    - field.field.node.article.field_calendar
+    - field.field.node.article.field_date
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
     - image.style.medium
@@ -29,6 +31,11 @@ content:
       trim_length: 600
     third_party_settings: {  }
     label: hidden
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_image:
     type: image
     weight: -1
@@ -51,6 +58,9 @@ content:
     region: content
 hidden:
   comment: true
+  field_calendar: true
+  field_date: true
   field_image: true
   field_tags: true
   langcode: true
+  search_api_excerpt: true

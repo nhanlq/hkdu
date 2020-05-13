@@ -404,7 +404,8 @@ function template_preprocess_cme_event(array &$variables)
     $current_user = \Drupal::currentUser();
     $current_roles = $current_user->getRoles();
     $date = time();
-    if($date > $event->get('field_expired')->value){
+    $expired = strtotime($event->get('field_expired')->value);
+    if($date > $expired){
         throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
     if ($event->get('field_audience')->getValue()) {
