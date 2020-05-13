@@ -5,8 +5,11 @@ dependencies:
   config:
     - field.field.guidelines.guidelines.field_description
     - field.field.guidelines.guidelines.field_media
+    - field.field.guidelines.guidelines.field_weight
+    - workflows.workflow.editorial
   module:
     - cme_guidelines
+    - content_moderation
     - media_library
     - text
 id: guidelines.guidelines.default
@@ -29,12 +32,25 @@ content:
       media_types: {  }
     third_party_settings: {  }
     region: content
+  field_weight:
+    weight: 101
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   langcode:
     type: language_select
     weight: 2
     region: content
     settings:
       include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
     third_party_settings: {  }
   name:
     type: string_textfield

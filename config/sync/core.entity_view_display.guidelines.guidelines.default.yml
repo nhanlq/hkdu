@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.guidelines.guidelines.field_description
     - field.field.guidelines.guidelines.field_media
+    - field.field.guidelines.guidelines.field_weight
   module:
     - cme_guidelines
     - text
@@ -14,6 +15,11 @@ targetEntityType: guidelines
 bundle: guidelines
 mode: default
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_description:
     weight: 2
     label: above
@@ -29,6 +35,15 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
+    region: content
+  field_weight:
+    weight: 3
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   name:
     label: hidden

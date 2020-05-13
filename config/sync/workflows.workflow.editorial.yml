@@ -2,12 +2,17 @@ uuid: a3138693-b037-4f56-afe6-b0e810d2917a
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.article
+    - node.type.page
   module:
     - about
     - clinical_focus
     - cme_event
     - cme_event_organizer
     - cme_guidelines
+    - cme_link
+    - cme_quiz
     - content_moderation
     - doctor
     - download
@@ -18,6 +23,7 @@ dependencies:
     - gallery
     - healthy
     - hospital
+    - media_release
     - news
     - pharm_dir
     - public_links
@@ -112,6 +118,8 @@ type_settings:
       - clinical_focus
     cme_event:
       - cme_event
+    cme_links:
+      - cme_links
     doctor:
       - doctor
     download:
@@ -134,12 +142,19 @@ type_settings:
       - healthy
     hospital:
       - hospital
+    media_entity:
+      - media_entity
     news:
       - news
+    node:
+      - article
+      - page
     pharm_dir:
       - pharm_dir
     public_links:
       - public_links
+    quiz:
+      - quiz
     special_offer:
       - special_offer
     tools:
