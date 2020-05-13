@@ -26,27 +26,39 @@ class QRcodeController extends ControllerBase {
           $excore->save();
           $user->set('field_point',$user->get('field_point')->value + number_format($event->get('field_cme_point')->value,2));
           $user->save();
+          return [
+              '#type' => 'markup',
+              '#markup' => $this->t('Update Score for user success.'),
+          ];
       }else{
-          $score = \Drupal\cme_score\Entity\Score::create([
-              'name' => 'Event Score of event ' . $event->getName() . ' of User ' . $user->getDisplayName(),
-              'field_score' => number_format($event->get('field_cme_point')->value,2),
-              'field_user' => $user->id(),
-              'field_event' => $event->id(),
-              'field_attendance' => 1,
-              'field_accreditor' =>null,
-              'uid' => $user->id()
-          ]);
-          $score->save();
-          //set point for user;
-          $user->set('field_point',$user->get('field_point')->value + number_format($event->get('field_cme_point')->value,2));
-          $user->save();
+          if(!getUserExistAttendance($uid, $event->id())){
+              $score = \Drupal\cme_score\Entity\Score::create([
+                  'name' => 'Event Score of event ' . $event->getName() . ' of User ' . $user->getDisplayName(),
+                  'field_score' => number_format($event->get('field_cme_point')->value,2),
+                  'field_user' => $user->id(),
+                  'field_event' => $event->id(),
+                  'field_attendance' => 1,
+                  'uid' => $user->id()
+              ]);
+              $score->save();
+              //set point for user;
+              $user->set('field_point',$user->get('field_point')->value + number_format($event->get('field_cme_point')->value,2));
+              $user->save();
+              return [
+                  '#type' => 'markup',
+                  '#markup' => $this->t('Update Score for user success.'),
+              ];
+          }else{
+              return [
+                  '#type' => 'markup',
+                  '#markup' => $this->t('Member: '.$user->getEmail().' ready attendanced this event. Please try again.'),
+              ];
+          }
+
       }
 
 
-    return [
-      '#type' => 'markup',
-      '#markup' => $this->t('Update Score for user success.'),
-    ];
+
   }
     public function getUserScoreExist($uid, $eventId)
     {
@@ -54,9 +66,26 @@ class QRcodeController extends ControllerBase {
             ->condition('status', 1)
             ->condition('field_user', $uid)
             ->condition('field_event', $eventId)
+            ->condition('field_attendance' ,0)
             ->execute();
         $results = \Drupal\cme_score\Entity\Score::loadMultiple($ids);
         return reset($results);
+    }
+    public function getUserExistAttendance($uid, $eventId)
+    {
+        $ids = \Drupal::entityQuery('score')
+            ->condition('status', 1)
+            ->condition('field_user', $uid)
+            ->condition('field_event', $eventId)
+            ->condition('field_attendance' ,1)
+            ->execute();
+        $results = \Drupal\cme_score\Entity\Score::loadMultiple($ids);
+        if($results){
+            return reset($results);
+        }else{
+            return false;
+        }
+
     }
 
 }

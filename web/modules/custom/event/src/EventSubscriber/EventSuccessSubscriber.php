@@ -109,7 +109,13 @@ class EventSuccessSubscriber implements EventSubscriberInterface{
                     'contexts' => array('url.path'),
                 ),
             );
-            $body .='This is the QRcode for Event Attendance. Please keep it then show when you coming the Event.';
+            $body .='<h2>Event information</h2>';
+            $body .='<p><strong>Event:</strong> '.$cme_event_entity->getName().'</p>';
+            $body .='<p><strong>Expired:</strong> '.$cme_event_entity->get('field_expired')->value.'</p>';
+            $body .='<p><strong>Location:</strong> '.$cme_event_entity->get('field_location')->value.'</p>';
+            $body .='<p><strong>Speaker:</strong> '.$cme_event_entity->get('field_speaker')->value.'</p>';
+            $body .='<p><strong>Veune:</strong> '.$cme_event_entity->get('field_veune')->value.'</p>';
+            $body .='<p><strong>QRCODE for Attendance:</strong></p>';
             $body .= render($code);
             $mailManager = \Drupal::service('plugin.manager.mail');
             $module = 'epharm';
