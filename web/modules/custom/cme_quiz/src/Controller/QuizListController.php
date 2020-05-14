@@ -155,7 +155,7 @@ class QuizListController extends ControllerBase {
 
     public function checkExpiredQuiz($quiz){
         $current = time();
-        $date = strtotime($quiz->get('field_expired')->value.' 00:00:00');
+        $date = strtotime($quiz->get('field_expired')->value);
         if($current > $date){
             return true;
         }else{
