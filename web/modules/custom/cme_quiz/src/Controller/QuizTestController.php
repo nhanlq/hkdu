@@ -32,6 +32,11 @@ class QuizTestController extends ControllerBase
         $total_correct = 0;
         $total_percent = 0;
 
+        if(count($post) <= 1){
+            \Drupal::messenger()->addMessage( 'Please choose answer before submit the test.','error');
+            $response = new RedirectResponse('/cme/quiz/'.$quizId);
+            $response->send();
+        }
         foreach ($questions as $question) {
             $para_id = '';
             $correct = 0;
