@@ -2094,6 +2094,7 @@ select.epharm-switch {
     padding-bottom: 16px;
     width: 100%;
     opacity: 0.5;
+    position: relative;
 }
 .date span{
     width: 110px;
