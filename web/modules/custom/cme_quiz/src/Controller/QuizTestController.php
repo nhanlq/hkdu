@@ -134,8 +134,6 @@ class QuizTestController extends ControllerBase
             $score = 0;
             if($pass==1){
                 $score = $quiz->get('field_point')->value;
-            }else{
-                $score = $quiz->get('field_point')->value * ($total_percent/100);
             }
             $this->CreateQuizScore($quizId, $score);
 

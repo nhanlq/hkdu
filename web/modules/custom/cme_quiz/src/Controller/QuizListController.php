@@ -31,6 +31,9 @@ class QuizListController extends ControllerBase {
               '#tags' => $this->getTags(),
               '#get' => $tags,
               '#search' => $search,
+              '#cache' => [
+                  'max-age' => 0,
+              ],
           ],
           'pager' => [
               '#type' => 'pager',
