@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.quiz.field_point
-    - field.storage.quiz.field_specialty
     - field.storage.result.field_passed
     - field.storage.result.field_percent
     - field.storage.result.field_quiz
@@ -13,6 +12,7 @@ dependencies:
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
     - field.storage.user.field_registration_no
+    - field.storage.user.field_specialty
     - user.role.administrator
     - user.role.admins
   module:
@@ -843,9 +843,9 @@ display:
           plugin_id: field
         field_specialty:
           id: field_specialty
-          table: quiz__field_specialty
+          table: user__field_specialty
           field: field_specialty
-          relationship: field_quiz
+          relationship: field_user
           group_type: group
           admin_label: ''
           label: Specialty
@@ -889,11 +889,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
+          click_sort_column: value
+          type: string
           settings:
-            link: false
-          group_column: target_id
+            link_to_entity: false
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -989,7 +989,6 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.quiz.field_point'
-        - 'config:field.storage.quiz.field_specialty'
         - 'config:field.storage.result.field_passed'
         - 'config:field.storage.result.field_percent'
         - 'config:field.storage.result.field_quiz'
@@ -998,6 +997,7 @@ display:
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
         - 'config:field.storage.user.field_registration_no'
+        - 'config:field.storage.user.field_specialty'
   data_export_1:
     display_plugin: data_export
     id: data_export_1
@@ -1039,7 +1039,6 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.quiz.field_point'
-        - 'config:field.storage.quiz.field_specialty'
         - 'config:field.storage.result.field_passed'
         - 'config:field.storage.result.field_percent'
         - 'config:field.storage.result.field_quiz'
@@ -1048,6 +1047,7 @@ display:
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
         - 'config:field.storage.user.field_registration_no'
+        - 'config:field.storage.user.field_specialty'
   page_1:
     display_plugin: page
     id: page_1
@@ -1065,7 +1065,6 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.quiz.field_point'
-        - 'config:field.storage.quiz.field_specialty'
         - 'config:field.storage.result.field_passed'
         - 'config:field.storage.result.field_percent'
         - 'config:field.storage.result.field_quiz'
@@ -1074,3 +1073,4 @@ display:
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
         - 'config:field.storage.user.field_registration_no'
+        - 'config:field.storage.user.field_specialty'
