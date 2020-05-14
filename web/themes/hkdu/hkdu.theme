@@ -492,5 +492,8 @@ function template_preprocess_quiz(array &$variables) {
     foreach (Element::children($variables['elements']) as $key) {
         $variables['content'][$key] = $variables['elements'][$key];
     }
+    $variables['#cache'] = [
+        'max-age' => 0,
+    ];
 }
 
