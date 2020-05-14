@@ -28,7 +28,7 @@
                         <h4>Answers result listing</h4>
                         <ul class="list_answer">
                             {% for resul in results %}
-                                <li><a href="/cme/quiz/{{ quiz.id.value }}/result/{{ resul.id.value }}">Result {{ loop.index }} on {{ resul.created.value|date('Y-m-d') }}</a></li>
+                                <li><a href="/cme/quiz/{{ quiz.id.value }}/result/{{ resul.id.value }}">Test result on {{ resul.created.value|date('Y-m-d H:i:s') }}</a></li>
                             {% endfor %}
                         </ul>
 
