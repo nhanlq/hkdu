@@ -116,6 +116,11 @@ class QuizTestController extends ControllerBase
         if($total_percent >= $passing_percent){
             $pass = 1;
         }
+        //add score to quiz
+        $score = 0;
+        if($pass==1){
+            $score = $quiz->get('field_point')->value;
+        }
         $result = \Drupal\cme_result\Entity\Result::create([
             'name' => 'Result of ' . $quiz->getName() . ' - User ' . $user->getAccountName(),
             'create' => time(),
@@ -127,14 +132,11 @@ class QuizTestController extends ControllerBase
             'field_percent' => $total_percent,
             'field_passed' => $pass,
             'uid' => $user->id(),
+            'field_score' => $score,
         ]);
         try {
             $result->save();
-            //add score to quiz
-            $score = 0;
-            if($pass==1){
-                $score = $quiz->get('field_point')->value;
-            }
+
             $this->CreateQuizScore($quizId, $score);
 
             $response = new RedirectResponse('/cme/quiz/'.$quizId.'/result/'.$result->id());
