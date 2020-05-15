@@ -10,6 +10,7 @@ dependencies:
     - user.role.admins
   module:
     - cme_quiz
+    - content_moderation
     - datetime
     - sortableviews
     - user
@@ -536,6 +537,12 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
+        moderation_state:
+          id: moderation_state
+          table: quiz_field_data
+          field: moderation_state
+          entity_type: quiz
+          plugin_id: moderation_state_field
         created:
           id: created
           table: quiz_field_data
@@ -882,19 +889,6 @@ display:
           hide_alter_empty: false
           plugin_id: custom
       filters:
-        status:
-          value: '1'
-          table: quiz_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: quiz
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-          group: 1
         field_expired_value:
           id: field_expired_value
           table: quiz__field_expired

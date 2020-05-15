@@ -1,0 +1,24 @@
+uuid: ea5db1f3-df6d-43c1-935a-280b3c92b6f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.score.field_main_score
+  module:
+    - cme_score
+id: score.score.field_main_score
+field_name: field_main_score
+entity_type: score
+bundle: score
+label: 'Main Score'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
