@@ -6,6 +6,7 @@ dependencies:
     - field.field.score.score.field_accreditor
     - field.field.score.score.field_attendance
     - field.field.score.score.field_event
+    - field.field.score.score.field_main_score
     - field.field.score.score.field_quiz
     - field.field.score.score.field_score
     - field.field.score.score.field_user
@@ -40,6 +41,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_main_score:
+    weight: 32
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_quiz:
     weight: 29
