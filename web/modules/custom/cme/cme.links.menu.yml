@@ -11,3 +11,10 @@ cme.admin_cme.import_point:
   parent: 'cme.admin_cme'
   description: ''
   weight: -10
+
+cme.admin_cme.import_user:
+  title: 'Import/Update Member'
+  route_name: 'cme_user.import_user'
+  parent: 'cme.admin_cme'
+  description: ''
+  weight: -10

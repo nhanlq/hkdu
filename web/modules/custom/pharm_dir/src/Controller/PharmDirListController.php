@@ -56,5 +56,8 @@ class PharmDirListController extends ControllerBase {
         $result = \Drupal\pharm_dir\Entity\PharmDir::loadMultiple($ids);
         return $result;
     }
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/e-pharm/pharm-dir','Pharm Dir'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+    }
 
 }

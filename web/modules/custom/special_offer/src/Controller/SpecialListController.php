@@ -103,5 +103,8 @@ class SpecialListController extends ControllerBase {
         $term_id = $term->id();
         return $term_id;
     }
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/e-pharm/special-offer','Special Offers'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+    }
 
 }

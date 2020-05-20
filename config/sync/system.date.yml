@@ -1,8 +1,8 @@
 country:
-  default: ''
+  default: HK
 first_day: 0
 timezone:
-  default: UTC
+  default: Asia/Hong_Kong
   user:
     configurable: true
     warn: false

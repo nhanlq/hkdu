@@ -201,4 +201,8 @@ class QuizListController extends ControllerBase {
         }
         return $name;
     }
+
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/cme/quiz','CME Quizzes'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+    }
 }

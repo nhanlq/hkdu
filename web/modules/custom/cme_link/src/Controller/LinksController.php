@@ -40,4 +40,8 @@ class LinksController extends ControllerBase {
         return $result;
     }
 
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/cme/links','Useful Links'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+    }
+
 }

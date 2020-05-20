@@ -3,6 +3,6 @@ public_links.links_list_controller_list:
   path: '/links'
   defaults:
     _controller: '\Drupal\public_links\Controller\LinksListController::list'
-    _title: 'Links'
+    _title_callback: '\Drupal\public_links\Controller\LinksListController::title'
   requirements:
     _permission: 'access content'

@@ -3,6 +3,6 @@ tools.tool_list_controller_list:
   path: '/e-pharm/tools'
   defaults:
     _controller: '\Drupal\tools\Controller\ToolListController::list'
-    _title: 'Tools'
+    _title_callback: '\Drupal\tools\Controller\ToolListController::title'
   requirements:
     _permission: 'access content'

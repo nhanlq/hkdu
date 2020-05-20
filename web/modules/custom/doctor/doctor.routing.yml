@@ -3,6 +3,6 @@ doctor.doctor_list_controller_list:
   path: '/doctors'
   defaults:
     _controller: '\Drupal\doctor\Controller\DoctorListController::list'
-    _title: 'Doctors'
+    _title_callback: '\Drupal\doctor\Controller\DoctorListController::title'
   requirements:
     _permission: 'access content'

@@ -3,7 +3,7 @@ drug_news.drug_news_list_controller_list:
   path: '/e-pharm/drug-news'
   defaults:
     _controller: '\Drupal\drug_news\Controller\DrugNewsListController::list'
-    _title: 'Drug News'
+    _title_callback: '\Drupal\drug_news\Controller\DrugNewsListController::title'
   requirements:
     _permission: 'view list drug news'
 drug_news.import_xls_form:

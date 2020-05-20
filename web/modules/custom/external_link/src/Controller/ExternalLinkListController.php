@@ -39,5 +39,8 @@ class ExternalLinkListController extends ControllerBase {
         $result = \Drupal\external_link\Entity\ExternalLink::loadMultiple($ids);
         return $result;
     }
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/e-pharm/external-links','External Links'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+    }
 
 }

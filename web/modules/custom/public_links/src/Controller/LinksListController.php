@@ -38,5 +38,8 @@ class LinksListController extends ControllerBase {
         $result = \Drupal\public_links\Entity\PublicLinks::loadMultiple($ids);
         return $result;
     }
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/links','Links'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+    }
 
 }

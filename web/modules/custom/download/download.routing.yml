@@ -3,6 +3,6 @@ download.download_list_controller_list:
   path: '/downloads'
   defaults:
     _controller: '\Drupal\download\Controller\DownloadListController::list'
-    _title: 'Downloads'
+    _title_callback: '\Drupal\download\Controller\DownloadListController::title'
   requirements:
     _permission: 'access content'

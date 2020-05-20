@@ -3,7 +3,7 @@ event.event_list_controller_list:
   path: '/e-pharm/event'
   defaults:
     _controller: '\Drupal\event\Controller\EventListController::list'
-    _title: 'Events'
+    _title_callback: '\Drupal\event\Controller\EventListController::title'
   requirements:
     _permission: 'view event list'
 event.enroll_form:

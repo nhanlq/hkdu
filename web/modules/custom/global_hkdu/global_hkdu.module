@@ -54,3 +54,18 @@ function global_hkdu_entity_view(array &$build, \Drupal\Core\Entity\EntityInterf
 }
 
 
+function global_hkdu_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+    if($entity->getEntityTypeId()=='menu_link_content'){
+        $data = $entity->toArray();
+        $link = str_replace('internal:','',$data['link'][0]['uri']);
+        \Drupal::state()->set($link, $data['title'][0]['value']);
+    }
+}
+function global_hkdu_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+    if($entity->getEntityTypeId()=='menu_link_content'){
+        $data = $entity->toArray();
+        $link = str_replace('internal:','',$data['link'][0]['uri']);
+        \Drupal::state()->set($link, $data['title'][0]['value']);
+    }
+}
+

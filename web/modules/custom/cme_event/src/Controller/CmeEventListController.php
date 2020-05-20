@@ -158,5 +158,8 @@ class CmeEventListController extends ControllerBase {
             return false;
         }
     }
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/cme/events','CME Events'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+    }
 
 }

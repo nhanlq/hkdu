@@ -48,5 +48,8 @@ class DownloadListController extends ControllerBase {
         }
         return $result;
     }
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/downloads','Downloads'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+    }
 
 }

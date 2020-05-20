@@ -165,5 +165,8 @@ class DrugSearchListController extends ControllerBase {
         $term_id = $term->id();
         return $term_id;
     }
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/e-pharm/drug-search','Drug Search'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+    }
 
 }

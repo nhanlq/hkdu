@@ -114,5 +114,9 @@ class DrugNewsListController extends ControllerBase
         return $term_id;
     }
 
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/e-pharm/drug-news','Drug News'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+    }
+
 
 }

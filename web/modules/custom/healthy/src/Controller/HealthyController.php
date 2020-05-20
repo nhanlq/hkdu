@@ -302,5 +302,9 @@ class HealthyController extends ControllerBase implements ContainerInjectionInte
         $term_id = $term->id();
         return $term_id;
     }
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/healthy','E-Healthy'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+
+    }
 
 }
