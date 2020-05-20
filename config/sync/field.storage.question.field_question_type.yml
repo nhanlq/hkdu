@@ -19,11 +19,20 @@ settings:
       value: true_false
       label: True/False
     -
+      value: match
+      label: 'Matching Question'
+    -
       value: single
       label: 'Single Choice'
     -
       value: multiple
       label: 'Multiple Choice'
+    -
+      value: short
+      label: 'Short Answer'
+    -
+      value: long
+      label: 'Long Answer'
   allowed_values_function: ''
 module: options
 locked: false

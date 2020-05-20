@@ -106,4 +106,8 @@ class ClinicalListController extends ControllerBase {
         return $term_id;
     }
 
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/e-pharm/clinical-focus','Clinical Focus'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+    }
+
 }

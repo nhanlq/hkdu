@@ -32,4 +32,8 @@ class AboutController extends ControllerBase {
       return $result;
   }
 
+  public function aboutTitle(){
+      return ['#markup' => \Drupal::state()->get('/about-us','About Us'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+  }
+
 }

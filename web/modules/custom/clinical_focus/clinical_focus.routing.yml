@@ -3,7 +3,7 @@ clinical_focus.clinical_list_controller_list:
   path: '/e-pharm/clinical-focus'
   defaults:
     _controller: '\Drupal\clinical_focus\Controller\ClinicalListController::list'
-    _title: 'Clinical Focus'
+    _title_callback: '\Drupal\clinical_focus\Controller\ClinicalListController::title'
   requirements:
     _permission: 'view list clinical focus'
 clinical_focus.import_xls_form:

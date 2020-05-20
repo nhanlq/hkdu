@@ -40,5 +40,8 @@ class OrgListController extends ControllerBase {
         $result = \Drupal\cme_event_organizer\Entity\EventOrg::loadMultiple($ids);
         return $result;
     }
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/cme/event-org','Event Organizers'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+    }
 
 }

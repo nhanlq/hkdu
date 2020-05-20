@@ -101,5 +101,8 @@ class NewsListController extends ControllerBase {
         $term_id = $term->id();
         return $term_id;
     }
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/news',"What's News"), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+    }
 
 }

@@ -3,7 +3,7 @@ cme_event.cme_event_list_controller_list:
   path: '/cme/events'
   defaults:
     _controller: '\Drupal\cme_event\Controller\CmeEventListController::list'
-    _title: 'CME Events'
+    _title_callback: '\Drupal\cme_event\Controller\CmeEventListController::title'
   requirements:
     _permission: 'view published cme event entities'
 

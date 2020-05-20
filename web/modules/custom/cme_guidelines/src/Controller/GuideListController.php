@@ -31,5 +31,8 @@ class GuideListController extends ControllerBase {
         $result = \Drupal\cme_guidelines\Entity\Guidelines::loadMultiple($ids);
         return $result;
     }
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/cme/guidelines','Guidelines'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+    }
 
 }

@@ -41,5 +41,9 @@ class GalleryListController extends ControllerBase {
         $result = Gallery::loadMultiple($ids);
         return $result;
     }
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/gallery','Gallery'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+
+    }
 
 }

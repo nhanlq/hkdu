@@ -169,6 +169,8 @@ class QuizTestController extends ControllerBase
                 $highest_score = $highest->get('field_score')->value;
                 if($highest_score < $score){
                     $return->set('field_score',$score);
+                    $account->set('field_point',($account->get('field_point')->value - $highest_score) + $score);
+                    $account->save();
                 }
             }
             $return->save();
@@ -185,6 +187,8 @@ class QuizTestController extends ControllerBase
                 'changed' => time(),
             ]);
             $return->save();
+            $account->set('field_point',$account->get('field_point')->value + $score);
+            $account->save();
         }
         return $return;
     }

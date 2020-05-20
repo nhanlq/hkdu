@@ -159,4 +159,7 @@ class EventListController extends ControllerBase {
             return false;
         }
     }
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/e-pharm/event','Events'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+    }
 }

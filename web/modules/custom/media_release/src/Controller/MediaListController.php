@@ -41,5 +41,8 @@ class MediaListController extends ControllerBase {
         $result = MediaEntity::loadMultiple($ids);
         return $result;
     }
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/media-release','Press Release'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+    }
 
 }

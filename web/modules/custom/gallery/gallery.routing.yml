@@ -3,6 +3,6 @@ gallery.gallery_list_controller_list:
   path: '/gallery'
   defaults:
     _controller: '\Drupal\gallery\Controller\GalleryListController::list'
-    _title: 'Photo Gallery'
+    _title_callback: '\Drupal\gallery\Controller\GalleryListController::title'
   requirements:
     _permission: 'access content'

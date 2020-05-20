@@ -3,6 +3,6 @@ hospital.hospital_list_controller_list:
   path: '/hospital'
   defaults:
     _controller: '\Drupal\hospital\Controller\HospitalListController::list'
-    _title: 'Hospital'
+    _title_callback: '\Drupal\hospital\Controller\HospitalListController::title'
   requirements:
     _permission: 'access content'

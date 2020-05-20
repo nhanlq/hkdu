@@ -3,6 +3,6 @@ media_release.media_list_controller_list:
   path: '/media-release'
   defaults:
     _controller: '\Drupal\media_release\Controller\MediaListController::list'
-    _title: 'Press Release'
+    _title_callback: '\Drupal\media_release\Controller\MediaListController::title'
   requirements:
     _permission: 'access content'

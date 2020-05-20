@@ -5,3 +5,10 @@ cme_user.import_point:
     _title: 'ImportPoint'
   requirements:
     _permission: 'view published cme event entities'
+cme_user.import_user:
+  path: '/admin/cme/import/user'
+  defaults:
+    _form: '\Drupal\cme_user\Form\ImportUser'
+    _title: 'ImportUser'
+  requirements:
+    _access: 'TRUE'

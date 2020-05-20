@@ -39,5 +39,9 @@ class ToolListController extends ControllerBase {
         $result = \Drupal\tools\Entity\Tools::loadMultiple($ids);
         return $result;
     }
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/e-pharm/tools','Tools'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+
+    }
 
 }

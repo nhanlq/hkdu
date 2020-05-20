@@ -41,5 +41,8 @@ class DoctorListController extends ControllerBase {
         $result = DoctorEntity::loadMultiple($ids);
         return $result;
     }
+    public function title(){
+        return ['#markup' => \Drupal::state()->get('/doctors','Doctors'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+    }
 
 }

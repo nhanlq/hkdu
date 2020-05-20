@@ -3,7 +3,7 @@ special_offer.special_list_controller_list:
   path: '/e-pharm/special-offer'
   defaults:
     _controller: '\Drupal\special_offer\Controller\SpecialListController::list'
-    _title: 'Special Offers'
+    _title_callback: '\Drupal\special_offer\Controller\SpecialListController::title'
   requirements:
     _permission: 'view all list special offer'
 special_offer.import_xls_form:

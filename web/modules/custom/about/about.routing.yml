@@ -3,6 +3,6 @@ about.about_controller_list:
   path: '/about-us'
   defaults:
     _controller: '\Drupal\about\Controller\AboutController::list'
-    _title: 'About Us'
+    _title_callback: '\Drupal\about\Controller\AboutController::aboutTitle'
   requirements:
     _permission: 'access content'

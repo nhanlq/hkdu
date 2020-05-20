@@ -3,7 +3,7 @@ pharm_dir.pharm_dir_list_controller_list:
   path: '/e-pharm/pharm-dir'
   defaults:
     _controller: '\Drupal\pharm_dir\Controller\PharmDirListController::list'
-    _title: 'Pharm Dir'
+    _title_callback: '\Drupal\pharm_dir\Controller\PharmDirListController::title'
   requirements:
     _permission: 'access content'
 pharm_dir.import_xls_form:

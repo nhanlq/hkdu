@@ -3,6 +3,6 @@ healthy.healthy_controller_list:
   path: '/healthy'
   defaults:
     _controller: '\Drupal\healthy\Controller\HealthyController::list'
-    _title: 'E-Healthy'
+    _title_callback: '\Drupal\healthy\Controller\HealthyController::title'
   requirements:
     _permission: 'access content'
