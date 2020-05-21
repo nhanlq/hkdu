@@ -7,7 +7,7 @@ body {
     background-color: rgb(244, 245, 248);
     margin-top: 0px;
     font-family: 'Noto Sans HK', sans-serif;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .navbar.container {
@@ -64,8 +64,8 @@ body {
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: rgba(0, 0, 0, 0.4);
-    font-size: 14px;
+    color: rgb(69, 96, 176);
+    font-size: 18px;
     margin-right: 16px;
     height: 60px;
     line-height: 60px;
@@ -76,7 +76,7 @@ body {
 }
 
 .navbar-default li.active a {
-    color: black;
+    color: rgb(69, 96, 176) !important;
     font-weight: 600;
     border-bottom: 3px solid rgb(69, 96, 176);
     background-color: inherit !important;
@@ -93,7 +93,7 @@ body {
 
 p, a, span {
     font-family: 'Noto Sans HK', sans-serif;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 h2, .dlCLcZ, h1 {
@@ -183,7 +183,7 @@ h2, .dlCLcZ, h1 {
     -webkit-box-orient: vertical;
     line-height: 1.5;
     color: rgba(0, 0, 0, 0.4);
-    font-size: 14px;
+    font-size: 18px;
     overflow: hidden;
     margin: 0px 0px 16px;
 }
@@ -296,7 +296,7 @@ p {
 }
 
 .jvveZx p, .jvveZx a {
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .navbar {
@@ -618,7 +618,7 @@ ul.eNSAVL li i.fa:before {
     margin-bottom: 8px;
     width: 100%;
     display: inline-block;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.43;
     color: rgba(0, 0, 0, 0.5);
 }
@@ -626,7 +626,7 @@ ul.eNSAVL li i.fa:before {
 .hnOpua {
     box-sizing: border-box;
     margin-left: 0px;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.43;
     flex: 1 1 0%;
 }
@@ -745,7 +745,7 @@ ul.eNSAVL li i.fa:before {
     margin-bottom: 8px;
     width: 100%;
     display: inline-block;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.43;
     color: rgba(0, 0, 0, 0.5);
 }
@@ -753,7 +753,7 @@ ul.eNSAVL li i.fa:before {
 .hnOpua {
     box-sizing: border-box;
     margin-left: 0px;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.43;
     flex: 1 1 0%;
 }
@@ -842,7 +842,7 @@ ul.eNSAVL li i.fa:before {
 .hRFBJC {
     box-sizing: border-box;
     margin-top: 24px;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.43;
     color: rgba(0, 0, 0, 0.6);
 }
@@ -904,7 +904,7 @@ ul.eNSAVL li i.fa:before {
 
 .lcAUJf {
     color: rgba(0, 0, 0, 0.4);
-    font-size: 14px;
+    font-size: 18px;
     margin-right: 16px;
     height: 60px;
     line-height: 60px;
@@ -1333,7 +1333,7 @@ ul.eNSAVL li i.fa:before {
 
 .menu--epharm > li > a, .menu--cme > li > a {
     color: rgba(0, 0, 0, 0.4);
-    font-size: 14px;
+    font-size: 18px;
     margin-right: 16px;
     height: 45px;
     line-height: 60px;
@@ -1844,7 +1844,7 @@ select.epharm-switch {
 .gKKegu {
     box-sizing: border-box;
     margin-left: 0px;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.43;
     flex: 1 1 0%;
     margin-bottom: 20px;
@@ -2080,7 +2080,7 @@ select.epharm-switch {
 
 .ilDcLX {
     width: 100%;
-    font-size: 14px;
+    font-size: 18px;
     color: rgba(0, 0, 0, 0.6);
     background-color: rgba(0, 0, 0, 0.1);
     text-align: center;

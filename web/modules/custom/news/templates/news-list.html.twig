@@ -60,16 +60,16 @@
                         <div class="kZuHUf">
                             <div class="hYpLPh">
                                 <div class="cLNuli">
-                                    <div class="jyYtMa">
-                                        <div class="iFBalX"></div>
-                                        {{ new.Owner.name.value }}
-                                    </div>
+                                    {#<div class="jyYtMa">#}
+                                        {#<div class="iFBalX"></div>#}
+                                        {#{{ new.Owner.name.value }}#}
+                                    {#</div>#}
                                     <span class="kASIaT">{{ new.created.value|date("Y-m-d") }}</span>
                                 </div>
                             </div>
                             <div class="isAOXn">
                                 <div><h3 class="flCmuI">{{ new.name.value }}</h3>
-                                    <p class="itSPxh">{{ new.field_description.value|striptags }}</p>
+                                    <p class="itSPxh">{{ new.field_description.value|striptags|raw }}</p>
                                 </div>
 
                             </div>
