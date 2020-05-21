@@ -39,21 +39,21 @@ function hkdu_preprocess_page(&$variables){
 /**
  * Implements hook_preprocess_menu().
  */
-function hkdu_preprocess_menu(&$variables, $hook) {
-    if ($hook == 'menu__main') { // We're doing that for main menu.
-        // Get the current path.
-        $current_path = \Drupal::request()->getRequestUri();
-        $items = $variables['items'];
-        foreach ($items as $key => $item) {
-            // If path is current_path, set active to li.
-            if ($item['url']->toString() == $current_path) {
-                // Add active link.
-//dpm($variables);
-               // $item['title']
-            }
-        }
-    }
-}
+//function hkdu_preprocess_menu(&$variables, $hook) {
+//    if ($hook == 'menu__main') { // We're doing that for main menu.
+//        // Get the current path.
+//        $current_path = \Drupal::request()->getRequestUri();
+//        $items = $variables['items'];
+//        foreach ($items as $key => $item) {
+//            // If path is current_path, set active to li.
+//            if ($item['url']->toString() == $current_path) {
+//                // Add active link.
+////dpm($variables);
+//               // $item['title']
+//            }
+//        }
+//    }
+//}
 
 function template_preprocess_about(array &$variables)
 {
@@ -136,7 +136,7 @@ function template_preprocess_gallery(array &$variables)
     $path = explode('/', $current_path);
     $id = $path[3];
     $variables['gallery'] = Gallery::load($id);
-    $variables['#attached']['library'][] = 'hkdu/colorbox-hkdu';
+    $variables['#attached']['library'][] = 'hkdu/lightbox-hkdu';
     // Helpful $content variable for templates.
     foreach (Element::children($variables['elements']) as $key) {
         $variables['content'][$key] = $variables['elements'][$key];

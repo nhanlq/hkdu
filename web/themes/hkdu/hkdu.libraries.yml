@@ -5,14 +5,13 @@ global-styling:
       css/style.css: {}
       'https://fonts.googleapis.com/css?family=Noto+Sans+HK&display=swap&subset=chinese-hongkong': { type: external }
 
-colorbox-hkdu:
+lightbox-hkdu:
   version: VERSION
   css:
     base:
-      css/colorbox.css: {}
+      css/lightbox.css: {}
   js:
-    js/jquery.colorbox.js: { }
-    js/hkdu.js: { }
+    js/lightbox-plus-jquery.min.js: { }
 
 
 # Uncomment for LESS source JavaScript files.
