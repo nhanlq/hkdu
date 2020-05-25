@@ -1,0 +1,36 @@
+uuid: 2542fb37-0d1d-4330-9836-d6a5143a3983
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.healthy.field_file
+    - media.type.document
+  module:
+    - healthy
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: healthy.healthy.field_file
+field_name: field_file
+entity_type: healthy
+bundle: healthy
+label: File
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

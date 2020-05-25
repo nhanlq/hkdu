@@ -62,7 +62,12 @@ body {
     float: left;
     align-items: center;
 }
-
+p.caption-img{
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
 .navbar-default .navbar-nav > li > a {
     color: rgb(69, 96, 176);
     font-size: 18px;

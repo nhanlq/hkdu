@@ -2,6 +2,37 @@
     <div class="Grid__Box-f9ujw0-0 bBnAZb">
         {#<h2 class="Title-qxmy6q-0 fxclof">{{  }}</h2>#}
         <div class="Grid__Box-f9ujw0-0 ArticleContent__Info-sc-1d950fx-0 cmcRwb">{{ healthy.Owner.name.value }} Published at {{ healthy.created.value|date("Y-m-d") }}</div>
+        {% if healthy.field_file is not empty %}
+            <div display="block,flex" class="cWPhzd">
+                <div width="100%,236" class="Grid__Box-f9ujw0-0 MedicalContent__RowLabel-sc-1jlbeob-2 jBxOzO">File for
+                    Download
+                </div>
+                <div class="gKKegu">
+                    <div class="kCsMFd">
+                        <div display="flex" class="fSsnif">
+                            <div width="1,0.3333333333333333" class="culkFL">
+                                <a target="_blank" height="120px" href="{{ file_url(healthy.field_file.entity.field_media_document.entity.uri.value) }}" class="htzoqv">
+                                    <div class="kZuHUf">
+                                        <div class="isAOXn">
+                                            <div><h3 class="flCmuI">{{ healthy.field_file.entity.field_media_document.entity.filename.value }}</h3></div>
+                                            <div class="eclIQj">
+                                                <div class="jamtIE" width="100%"><span
+                                                            rel="noopener" target="_blank" color="#4A90E2" font-size="13px"
+                                                            class="fLaWbo">
+                                    <i font-size="20" name="LINK" color="icon" class="fal fa fa-paperclip"></i>
+
+                                </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
         <div class="HTMLContent__HTMLContentWrapper-sc-16stxlc-0 jvveZx">
             {{ healthy.field_description.value|raw }}
         </div>

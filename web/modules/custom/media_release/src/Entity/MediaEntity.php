@@ -18,7 +18,7 @@ use Drupal\user\UserInterface;
  *
  * @ContentEntityType(
  *   id = "media_entity",
- *   label = @Translation("Media entity"),
+ *   label = @Translation("Media Release"),
  *   handlers = {
  *     "storage" = "Drupal\media_release\MediaEntityStorage",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",

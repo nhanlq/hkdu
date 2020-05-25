@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.media_entity.media_entity.field_description
+    - field.field.media_entity.media_entity.field_file
     - field.field.media_entity.media_entity.field_image
     - field.field.media_entity.media_entity.field_media
     - field.field.media_entity.media_entity.field_tags
+    - field.field.media_entity.media_entity.field_thumbnail
     - field.field.media_entity.media_entity.field_weight
   module:
     - media_release
@@ -16,6 +18,11 @@ targetEntityType: media_entity
 bundle: media_entity
 mode: default
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_description:
     type: text_default
     weight: 2
@@ -23,10 +30,28 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  field_file:
+    type: entity_reference_entity_view
+    weight: 4
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
   field_media:
     type: entity_reference_entity_view
     weight: 1
     label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_thumbnail:
+    type: entity_reference_entity_view
+    weight: 5
+    label: above
     settings:
       view_mode: default
       link: false
