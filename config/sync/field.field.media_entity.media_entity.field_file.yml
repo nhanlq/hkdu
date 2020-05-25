@@ -1,0 +1,36 @@
+uuid: 775cb4aa-3764-46ab-9577-bd6205ec6f48
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media_entity.field_file
+    - media.type.document
+  module:
+    - media_release
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: media_entity.media_entity.field_file
+field_name: field_file
+entity_type: media_entity
+bundle: media_entity
+label: File
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

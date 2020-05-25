@@ -1,0 +1,36 @@
+uuid: 9dd7503d-c40c-4e2a-919f-dd003a8cc5f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.about.field_thumbnail
+    - media.type.image
+  module:
+    - about
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: about.about.field_thumbnail
+field_name: field_thumbnail
+entity_type: about
+bundle: about
+label: thumbnail
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

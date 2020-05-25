@@ -4,7 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.about.about.field_description
+    - field.field.about.about.field_file
     - field.field.about.about.field_media
+    - field.field.about.about.field_thumbnail
     - field.field.about.about.field_weight
   module:
     - about
@@ -15,6 +17,11 @@ targetEntityType: about
 bundle: about
 mode: default
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_description:
     weight: 3
     label: hidden
@@ -22,9 +29,27 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
+  field_file:
+    type: entity_reference_entity_view
+    weight: 6
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
   field_media:
     type: entity_reference_entity_view
     weight: 4
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_thumbnail:
+    type: entity_reference_entity_view
+    weight: 7
     label: above
     settings:
       view_mode: default

@@ -59,6 +59,7 @@ permissions:
   - 'view published drug search entities'
   - 'view published event entities'
   - 'view published event organizer entities'
+  - 'view published gallery entities'
   - 'view published guidelines entities'
   - 'view published healthy entities'
   - 'view published hospital entity entities'

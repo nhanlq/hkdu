@@ -1,0 +1,36 @@
+uuid: 9c4cb687-566b-4cba-b170-7a9f06517d78
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.news.field_thumbnail
+    - media.type.image
+  module:
+    - news
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: news.news.field_thumbnail
+field_name: field_thumbnail
+entity_type: news
+bundle: news
+label: Thumbnail
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

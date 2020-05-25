@@ -13,6 +13,11 @@ lightbox-hkdu:
   js:
     js/lightbox-plus-jquery.min.js: { }
 
+caption-hkdu:
+  version: VERSION
+  js:
+    js/hkdu_caption.js: { }
+
 
 # Uncomment for LESS source JavaScript files.
 #  js:

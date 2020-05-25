@@ -8,6 +8,14 @@ weight: 5
 is_admin: null
 permissions:
   - 'access epharm'
+  - 'add external link entities'
+  - 'delete all external link revisions'
+  - 'delete external link entities'
+  - 'edit external link entities'
   - 'manage cme'
+  - 'revert all external link revisions'
   - 'use text format full_html'
+  - 'view all external link revisions'
   - 'view published cme event entities'
+  - 'view published external link entities'
+  - 'view unpublished external link entities'

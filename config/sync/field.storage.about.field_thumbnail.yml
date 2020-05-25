@@ -1,0 +1,24 @@
+uuid: 77affb4f-6376-41f3-a4fc-17439074d41e
+langcode: en
+status: true
+dependencies:
+  module:
+    - about
+    - field_permissions
+    - media
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: about.field_thumbnail
+field_name: field_thumbnail
+entity_type: about
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
