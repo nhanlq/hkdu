@@ -174,12 +174,21 @@
     {% if event.field_enrolled.value == 1 %}
         {% if expired is null %}
             {% if check_event is null %}
-                <div class="leBAWZ">
-                    <div display="flex" class="dGmSBT">
-                        <a href="/e-pharm/addcart/{{ product.product_id.value }}" class="eXdybn fUVRLe"><span
-                                    class="fjQIzu">Enroll</span></a>
+                {% if event.field_free.value == 1 %}
+                    <div class="leBAWZ">
+                        <div display="flex" class="dGmSBT">
+                            <a href="/cart/free/{{ event.id.value}}/cme" class="eXdybn fUVRLe"><span
+                                        class="fjQIzu">Enroll</span></a>
+                        </div>
                     </div>
-                </div>
+                {% else %}
+                    <div class="leBAWZ">
+                        <div display="flex" class="dGmSBT">
+                            <a href="/e-pharm/addcart/{{ product.product_id.value }}" class="eXdybn fUVRLe"><span
+                                        class="fjQIzu">Enroll</span></a>
+                        </div>
+                    </div>
+                {% endif %}
             {% endif %}
         {% endif %}
     {% endif %}
