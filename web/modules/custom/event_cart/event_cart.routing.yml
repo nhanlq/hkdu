@@ -7,3 +7,11 @@ event_cart.add_cart_controller_addCart:
   requirements:
     _permission: 'view published event entities'
     productId: \d+
+
+event_cart.free_cart_controller_free_cart:
+  path: '/cart/free/{id}/{type}'
+  defaults:
+    _controller: '\Drupal\event_cart\Controller\FreeCartController::free_cart'
+    _title: 'Free Cart'
+  requirements:
+    _permission: 'view published event entities'
