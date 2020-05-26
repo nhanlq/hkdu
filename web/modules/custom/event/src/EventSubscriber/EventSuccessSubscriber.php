@@ -75,7 +75,7 @@ class EventSuccessSubscriber implements EventSubscriberInterface{
         if($product->get('field_event')){
             $event = $product->get('field_event')->target_id;
         }
-        if($product->get('field_cme_event')){
+        if($product->get('field_cme_event')->target_id > 0){
             $cme_event = $product->get('field_cme_event')->target_id;
             $cme_event_entity = \Drupal\cme_event\Entity\CmeEvent::load($cme_event);
             $score = \Drupal\cme_score\Entity\Score::create([
