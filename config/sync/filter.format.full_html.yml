@@ -75,13 +75,6 @@ filters:
     status: true
     weight: -49
     settings: {  }
-  filter_url:
-    id: filter_url
-    provider: filter
-    status: true
-    weight: -50
-    settings:
-      filter_url_length: 128
   blazy_filter:
     id: blazy_filter
     provider: blazy
@@ -93,15 +86,22 @@ filters:
         iframe: iframe
       media_switch: ''
       use_data_uri: '0'
-  filter_html_image_secure:
-    id: filter_html_image_secure
-    provider: filter
-    status: false
-    weight: -40
-    settings: {  }
   filter_html_escape:
     id: filter_html_escape
     provider: filter
     status: false
     weight: -42
     settings: {  }
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: false
+    weight: -40
+    settings: {  }
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: -50
+    settings:
+      filter_url_length: 128

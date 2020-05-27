@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.about.about.field_count
     - field.field.about.about.field_description
     - field.field.about.about.field_file
     - field.field.about.about.field_media
@@ -20,6 +21,13 @@ targetEntityType: about
 bundle: about
 mode: default
 content:
+  field_count:
+    weight: 103
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_description:
     weight: 26
     settings:

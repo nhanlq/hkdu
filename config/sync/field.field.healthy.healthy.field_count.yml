@@ -1,0 +1,26 @@
+uuid: fc4404f1-b796-4100-872c-8a23d6a33fc4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.healthy.field_count
+  module:
+    - healthy
+id: healthy.healthy.field_count
+field_name: field_count
+entity_type: healthy
+bundle: healthy
+label: Count
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: !!float 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

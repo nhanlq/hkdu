@@ -109,6 +109,50 @@ class CloneEntityController extends ControllerBase {
             $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/admin/cme/quiz/'.$duplicate_entity->id().'/edit?destination=/admin/cme/manage-quizzes')->toString());
             $redirect->send();
             break;
+        case 'about':
+            $entity = \Drupal\about\Entity\DefaultEntity::load($id);
+            $duplicate_entity = $replicator->replicateByEntityId($entity->getEntityTypeId(), $entity->id());
+            $title = $duplicate_entity->getName();
+            $duplicate_entity->setName($title . ' - Cloned');
+            $request_time = \Drupal::time()->getRequestTime();
+            $duplicate_entity->setCreatedTime($request_time);
+            $duplicate_entity->save();
+            $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/admin/hkdu/about/'.$duplicate_entity->id().'/edit?destination=/admin/manage-about')->toString());
+            $redirect->send();
+            break;
+        case 'healthy':
+            $entity = \Drupal\healthy\Entity\Healthy::load($id);
+            $duplicate_entity = $replicator->replicateByEntityId($entity->getEntityTypeId(), $entity->id());
+            $title = $duplicate_entity->getName();
+            $duplicate_entity->setName($title . ' - Cloned');
+            $request_time = \Drupal::time()->getRequestTime();
+            $duplicate_entity->setCreatedTime($request_time);
+            $duplicate_entity->save();
+            $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/admin/hkdu/healthy/'.$duplicate_entity->id().'/edit?destination=/admin/manage-e-healthy')->toString());
+            $redirect->send();
+            break;
+        case 'media_release':
+            $entity = \Drupal\media_release\Entity\MediaEntity::load($id);
+            $duplicate_entity = $replicator->replicateByEntityId($entity->getEntityTypeId(), $entity->id());
+            $title = $duplicate_entity->getName();
+            $duplicate_entity->setName($title . ' - Cloned');
+            $request_time = \Drupal::time()->getRequestTime();
+            $duplicate_entity->setCreatedTime($request_time);
+            $duplicate_entity->save();
+            $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/admin/hkdu/media_entity/'.$duplicate_entity->id().'/edit?destination=/admin/manage-press-release')->toString());
+            $redirect->send();
+            break;
+        case 'news':
+            $entity = \Drupal\news\Entity\News::load($id);
+            $duplicate_entity = $replicator->replicateByEntityId($entity->getEntityTypeId(), $entity->id());
+            $title = $duplicate_entity->getName();
+            $duplicate_entity->setName($title . ' - Cloned');
+            $request_time = \Drupal::time()->getRequestTime();
+            $duplicate_entity->setCreatedTime($request_time);
+            $duplicate_entity->save();
+            $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/admin/hkdu/news/'.$duplicate_entity->id().'/edit?destination=/admin/manage-news')->toString());
+            $redirect->send();
+            break;
     }
 
     return [

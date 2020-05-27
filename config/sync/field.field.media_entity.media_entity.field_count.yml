@@ -1,0 +1,26 @@
+uuid: 49872d92-6f9a-4b27-98d0-2f97758e0a4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media_entity.field_count
+  module:
+    - media_release
+id: media_entity.media_entity.field_count
+field_name: field_count
+entity_type: media_entity
+bundle: media_entity
+label: Count
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: !!float 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

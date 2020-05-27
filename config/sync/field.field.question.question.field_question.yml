@@ -13,7 +13,7 @@ entity_type: question
 bundle: question
 label: Question
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
