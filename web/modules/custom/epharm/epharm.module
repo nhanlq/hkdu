@@ -300,6 +300,30 @@ function epharm_views_pre_render(\Drupal\views\ViewExecutable $view)
             $value->_entity->set('field_count', getResultEntity(getQuizbyResult($value->_entity->get('id')->value), 'quiz'));
         }
     }
+    if ($view->id() == "manage_about") {
+        foreach ($view->result as $value) {
+            // var_dump($value->_entity);
+            $value->_entity->set('field_count', getResultEntity($value->_entity->get('id')->value, 'about'));
+        }
+    }
+    if ($view->id() == "manage_e_healthy") {
+        foreach ($view->result as $value) {
+            // var_dump($value->_entity);
+            $value->_entity->set('field_count', getResultEntity($value->_entity->get('id')->value, 'healthy'));
+        }
+    }
+    if ($view->id() == "manage_news") {
+        foreach ($view->result as $value) {
+            // var_dump($value->_entity);
+            $value->_entity->set('field_count', getResultEntity($value->_entity->get('id')->value, 'news'));
+        }
+    }
+    if ($view->id() == "manage_press_release") {
+        foreach ($view->result as $value) {
+            // var_dump($value->_entity);
+            $value->_entity->set('field_count', getResultEntity($value->_entity->get('id')->value, 'media_entity'));
+        }
+    }
 }
 
 function getResultEntity($id, $type)

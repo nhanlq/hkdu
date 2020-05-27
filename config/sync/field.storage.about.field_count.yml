@@ -1,0 +1,24 @@
+uuid: 2e5f73b0-f7b5-4d88-ad4a-9b127aed10d0
+langcode: en
+status: true
+dependencies:
+  module:
+    - about
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: about.field_count
+field_name: field_count
+entity_type: about
+type: decimal
+settings:
+  precision: 10
+  scale: 0
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

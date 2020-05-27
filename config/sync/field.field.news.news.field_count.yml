@@ -1,0 +1,26 @@
+uuid: fd1551db-f8a7-4bab-b3f6-4eeaeca7b50f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.news.field_count
+  module:
+    - news
+id: news.news.field_count
+field_name: field_count
+entity_type: news
+bundle: news
+label: Count
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: !!float 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

@@ -1,14 +1,14 @@
 
 # Media entity menu items definition
 entity.media_entity.collection:
-  title: 'Media Release'
+  title: 'Press Release'
   route_name: entity.media_entity.collection
   description: 'List Media entity entities'
   parent: global_hkdu.admin_hkdu
   weight: 100
 
 media_entity.admin.structure.settings:
-  title: 'Media Release settings'
+  title: 'Press Release settings'
   description: 'Configure Media entity entities'
   route_name: media_entity.settings
   parent: entity.media_entity.collection

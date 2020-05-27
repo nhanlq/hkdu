@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.news.news.field_count
     - field.field.news.news.field_description
     - field.field.news.news.field_file
     - field.field.news.news.field_is_home
@@ -22,6 +23,13 @@ targetEntityType: news
 bundle: news
 mode: default
 content:
+  field_count:
+    weight: 103
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_description:
     weight: 6
     settings:

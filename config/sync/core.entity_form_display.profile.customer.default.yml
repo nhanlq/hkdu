@@ -25,3 +25,4 @@ content:
     region: content
 hidden:
   is_default: true
+  path: true

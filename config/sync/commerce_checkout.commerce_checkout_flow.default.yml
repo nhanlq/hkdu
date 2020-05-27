@@ -1,7 +1,12 @@
 uuid: 498fc128-85ae-4248-8b7e-e2c6c7ed298e
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - commerce_payment
+    - commerce_promotion
+    - commerce_stripe
+    - email_registration
 _core:
   default_config_hash: D34BCgbJ5zXYuNz6x0XsDBSL22XQjtHLbjJU2mlBvoA
 id: default
@@ -16,19 +21,42 @@ configuration:
       step: login
       weight: 0
     contact_information:
-      double_entry: true
-      step: order_information
-      weight: 1
-    billing_information:
-      step: order_information
-      weight: 2
+      double_entry: false
+      step: _disabled
+      weight: 9
     review:
       step: review
-      weight: 3
+      weight: 2
     completion_message:
       step: complete
-      weight: 4
+      weight: 5
     order_summary:
       view: null
       step: _sidebar
-      weight: 5
+      weight: 7
+    completion_register:
+      step: complete
+      weight: 6
+    payment_information:
+      step: order_information
+      weight: 1
+    payment_process:
+      capture: true
+      step: payment
+      weight: 4
+    coupon_redemption:
+      allow_multiple: false
+      step: _disabled
+      weight: 8
+    stripe_review:
+      button_id: edit-actions-next
+      step: review
+      weight: 3
+    email_registration_login:
+      allow_guest_checkout: true
+      allow_registration: false
+      step: _disabled
+      weight: 10
+    email_registration_completion_registration:
+      step: _disabled
+      weight: 11

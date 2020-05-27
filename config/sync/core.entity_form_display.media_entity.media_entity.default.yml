@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.media_entity.media_entity.field_count
     - field.field.media_entity.media_entity.field_description
     - field.field.media_entity.media_entity.field_file
     - field.field.media_entity.media_entity.field_image
@@ -25,6 +26,13 @@ targetEntityType: media_entity
 bundle: media_entity
 mode: default
 content:
+  field_count:
+    weight: 103
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_description:
     weight: 26
     settings:
