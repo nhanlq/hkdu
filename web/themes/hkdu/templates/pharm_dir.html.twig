@@ -75,6 +75,7 @@
                     {{ pharm_dir.field_description.value|raw }}
                 </div>
             </div>
+            {% if pharm_dir.field_order_form is not empty %}
             <div display="block,flex" class="bXXHPz">
                 <div width="100%,236" class="jBxOzO">Order Form
                 </div>
@@ -90,6 +91,8 @@
                         </a></div>
                 </div>
             </div>
+            {% endif %}
+            {% if pharm_dir.field_price_list is not empty %}
             <div display="block,flex" class=" bXXHPz">
                 <div width="100%,236" class="jBxOzO">Price List
                 </div>
@@ -105,16 +108,19 @@
                         </a></div>
                 </div>
             </div>
+            {% endif %}
+            {% if pharm_dir.field_sales_visit is not empty %}
             <div display="block,flex" class="bXXHPz">
                 <div width="100%,236" class="jBxOzO">Sales Visit
                 </div>
                 <div class="hnOpua"><a
                             href="mailto:{{ pharm_dir.field_sales_visit.value }}"
                             class="iIttWr">
-                        <button class="hkBURO"><span
+                        <button style="margin-left: 83px" class="hkBURO"><span
                                     class="fjQIzu">Sales Visit Request</span></button>
                     </a></div>
             </div>
+            {% endif %}
         </div>
         <div class="fSioVs"></div>
     </div>
