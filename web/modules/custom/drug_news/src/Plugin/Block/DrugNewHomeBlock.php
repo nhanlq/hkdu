@@ -48,7 +48,8 @@ class DrugNewHomeBlock extends BlockBase {
             ->condition('status', 1)
             ->condition('field_is_home',1)
             ->range(0,3)
-            ->sort('created','DESC')
+            ->sort('changed','DESC')
+            ->sort('name','ASC')
             ->execute();
         $result = \Drupal\drug_search\Entity\DrugSearch::loadMultiple($ids);
         return $result;
