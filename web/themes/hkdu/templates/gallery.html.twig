@@ -7,11 +7,13 @@
     <div class="dAtiMd">
         {% for img in gallery.field_media %}
             <div class="ckWGLZ">
-                <a class="gallery-group" data-lightbox="example-set" data-title="{{ gallery.name.value }}" href="{{ img.entity.field_media_image.entity.uri.value | image_style('original') }}">
+                <a class="gallery-group" data-lightbox="example-set" data-title="{{ img.entity.field_media_image.title }}" href="{{ img.entity.field_media_image.entity.uri.value | image_style('original') }}">
                     <div style="background-image: url({{ img.entity.field_media_image.entity.uri.value | image_style('original') }})"
                          class="dZXNdD"></div>
                 </a>
+                <div class="biunsS">{{ img.entity.field_media_image.title }}</div>
             </div>
+
         {% endfor %}
     </div>
 </article>
