@@ -25,7 +25,8 @@ function hkdu_preprocess_html(&$variables)
         $path[1] == 'e-pharm' && $path[2] == 'pharm-dir' ||
         $path[1] == 'cme' && $path[2] == 'events' ||
         $path[1] == 'cme' && empty($path[2]) ||
-        $path[1] == 'cme' && $path[2] == 'event-org' && !empty($path[3])
+        $path[1] == 'cme' && $path[2] == 'event-org' && !empty($path[3]) ||
+        $path[1] == 'checkout' && $path[3] == 'order_information'
     ) {
 
         $variables['attributes']['class'][] = 'doctor-detail-page';
@@ -492,7 +493,7 @@ function template_preprocess_cme_event(array &$variables)
         if (in_array('admins', $current_roles) || in_array('administrator', $current_roles)) {
             $au = true;
         }
-       
+
     }
     $user = $event->getOwner();
     if (in_array('administrator', $current_roles)) {
