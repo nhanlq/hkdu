@@ -23,7 +23,7 @@ function hkdu_preprocess_html(&$variables)
         $path[1] == 'e-pharm' && $path[2] == 'drug-search' && !empty($path[3]) ||
         $path[1] == 'e-pharm' && empty($path[2]) ||
         $path[1] == 'e-pharm' && $path[2] == 'pharm-dir' ||
-        $path[1] == 'e-pharm' && $path[2] == 'events' ||
+        $path[1] == 'e-pharm' && $path[2] == 'event' ||
         $path[1] == 'cme' && $path[2] == 'events' ||
         $path[1] == 'cme' && empty($path[2]) ||
         $path[1] == 'cme' && $path[2] == 'event-org' && !empty($path[3]) ||
