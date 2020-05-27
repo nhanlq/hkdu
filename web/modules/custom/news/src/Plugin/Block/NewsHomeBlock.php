@@ -54,6 +54,7 @@ class NewsHomeBlock extends BlockBase
         $ids = \Drupal::entityQuery('news')
             ->condition('status', 1)
             ->condition('field_is_home', 1)
+            ->sort('field_weight', 'DESC')
             ->sort('changed', 'DESC')
             ->range(0,3)
             ->execute();
