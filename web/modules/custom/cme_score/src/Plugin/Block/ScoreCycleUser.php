@@ -20,10 +20,11 @@ class ScoreCycleUser extends BlockBase
      */
     public function build()
     {
+        $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
 
         $build = [];
         $build['#theme'] = 'score_cycle_user';
-        $build['score_cycle_user']['#markup'] = '<div class="Member Cycle Score"><p>'.$this->getScoreCurrentYear().'</p><p>'.$this->getScoreThreeYear().'</p></p></div>';
+        $build['score_cycle_user']['#markup'] = '<div class="Member Cycle Score"><p>Current Total Point <strong>'.$user->get('field_point')->value.'</strong></p><p>'.$this->getScoreCurrentYear().'</p><p>'.$this->getScoreThreeYear().'</p></p></div>';
 
         return $build;
     }
