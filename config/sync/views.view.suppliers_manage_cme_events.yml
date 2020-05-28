@@ -1140,7 +1140,20 @@ display:
           empty: false
           entity_type: cme_event
           plugin_id: save_sortable_changes
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: "<ul class=\"action-links\">\r\n      <li><a href=\"/admin/cme/cme-event/add?destination=/admin/cme/manage-events\" class=\"button button-action button--primary button--small\" data-drupal-link-system-path=\"/admin/cme/cme-event/add\">Add CME Event</a></li>\r\n\r\n    </ul>\r\n<p>Item not found</p>"
+            format: full_html
+          plugin_id: text
       relationships:
         user_id:
           id: user_id

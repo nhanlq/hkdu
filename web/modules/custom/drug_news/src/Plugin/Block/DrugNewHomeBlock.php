@@ -44,9 +44,11 @@ class DrugNewHomeBlock extends BlockBase {
 
     public function getDrugSearch()
     {
+        $currentDate = time();
         $ids = \Drupal::entityQuery('drug_search')
             ->condition('status', 1)
             ->condition('field_is_home',1)
+            ->condition('field_expired',$currentDate,'>=')
             ->range(0,3)
             ->sort('changed','DESC')
             ->sort('name','ASC')
