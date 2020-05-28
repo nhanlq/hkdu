@@ -4,7 +4,8 @@ global-styling:
     base:
       css/style.css: {}
       'https://fonts.googleapis.com/css?family=Noto+Sans+HK&display=swap&subset=chinese-hongkong': { type: external }
-
+  js:
+    js/hkdu.js: { }
 lightbox-hkdu:
   version: VERSION
   css:
