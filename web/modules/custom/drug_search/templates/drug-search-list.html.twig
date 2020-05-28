@@ -15,7 +15,7 @@
  * @ingroup themeable
  */
 #}
-{% if drug_search %}
+
     <div class="Grid__Box-f9ujw0-0 List__FilterBox-vdcued-0 fJCdzw">
         <form class=hnOCtg" action="/e-pharm/drug-search" method="get">
             <div display="flex" class="hZIrar">
@@ -97,9 +97,11 @@
             </div>
         </form>
     </div>
+
     <div class=" ezYoGz">
         <div class="gcrakC">
             <div display="flex" class="fSsnif">
+                {% if drug_search %}
                 {% for drug in drug_search %}
                 <div width="1,0.3333333333333333" class="eBeRpv">
                     <a class=" gsvDvo" href="{{ path('entity.drug_search.canonical', {'drug_search': drug.id.value}) }}">
@@ -123,8 +125,11 @@
                     </div>
                 </div>
                 {% endfor %}
+                    {% else %}
+                <p>No results found.</p>
+                {% endif %}
 
             </div>
         </div>
     </div>
-{% endif %}
+
