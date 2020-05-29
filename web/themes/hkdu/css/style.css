@@ -1294,13 +1294,13 @@ ul.eNSAVL li i.fa:before {
     margin-bottom: 8px;
     display: inline-block;
     max-width: 120px;
-    font-size: 13px;
+    font-size: 18px;
     line-height: 1.4;
     cursor: pointer;
     color: white;
     background-color: rgb(69, 96, 176);
     overflow: hidden;
-    padding: 4px 8px;
+    padding: 2px 8px;
     border-width: 1px;
     border-style: solid;
     border-image: initial;
