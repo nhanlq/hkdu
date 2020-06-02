@@ -49,5 +49,11 @@ function drug_search_theme($existing, $type, $theme, $path) {
             'path' => $path . '/templates/',
             'template' => 'drug-search-banner'
         ],
+
+        'drug_search_search' => [
+            'variables' => ['url' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'drug-search-search'
+        ],
     ];
 }

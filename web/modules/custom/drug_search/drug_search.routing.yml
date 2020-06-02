@@ -13,3 +13,11 @@ drug_search.import_xls_form:
     _title: 'ImportXlsForm'
   requirements:
     _permission: 'view list drug search'
+
+drug_search.search_controller_search:
+  path: '/e-pharm/drug-search/search'
+  defaults:
+    _controller: '\Drupal\drug_search\Controller\SearchController::search'
+    _title: 'Drug Search Result'
+  requirements:
+    _permission: 'access content'
