@@ -22,13 +22,13 @@
                 <div class="hePnaS">
                     <div class="qSKwc">
                         <div class="iJnVjR">
-                            <label for="activeIngredients">Name</label>
+                            <label for="name">Name</label>
                         </div>
                         <div class="bqFJvH">
                             <div class="hagSsM">
                                 <div width="100%" class="ilpLeV">
                                     <span class="ivzsxx"></span>
-                                    <input name="name" placeholder="Search..." id="activeIngredients" class="hxkgST"
+                                    <input name="name" placeholder="Search..." id="name" class="hxkgST"
                                            value="{{ name }}">
                                     <span class="fLrcjA"></span>
                                 </div>
@@ -87,15 +87,63 @@
                     </div>
                 </div>
             </div>
+            <div class="left hXkywv">
+                <div display="flex" class="left">
+                    <div class=" bQbVud">
+                        <a class="advance-search" href="#">Advance Search</a>
+                    </div>
+                </div>
+            </div>
             <div class=" hXkywv">
                 <div display="flex" class=" hWLNYN">
                     <div class=" bQbVud">
-                        {#<a target="_blank" href="http://www.hkdu.org/">Search more</a>#}
                         <button class=" hkBURO"><span class="fjQIzu">Submit</span></button>
                     </div>
                 </div>
             </div>
         </form>
+        <div id="avandce_search" class="advance_search_detail" style="display: none">
+            <form method="get" action="/e-pharm/drug-search/search" _lpchecked="1">
+                <input type="hidden" name="form" value="4"><p> <select class="hxkgST" name="db" size="1">
+                        <option selected="" value="PubMed">PubMed</option>
+                        <option value="PubMed"> GenBank DNA Sequences </option>
+                        <option value="Nucleotide">Nucleotide</option>
+                        <option value="Protein">Protein</option>
+                        <option value="Genome">Genome</option>
+                        <option value="Structure">Structure</option>
+                        <option value="PMC">PMC</option>
+                        <option value="Taxonomy">Taxonomy</option>
+                        <option value="OMIM">OMIM</option>
+                        <option value="Books">Books</option>
+                    </select>
+                    <input class="hxkgST" placeholder="For..." name="term" size="45" value=""> <small><br>
+                        <span class="title">Number of documents to display per page: </span><select class="hxkgST" name="dispmax" size="1">
+                            <option> 10 </option>
+                            <option selected=""> 20 </option>
+                            <option> 50 </option>
+                            <option> 100 </option>
+                            <option> 200 </option>
+                            <option> 1000 </option>
+                            <option> 2000 </option>
+                            <option> 5000 </option>
+                        </select> <br>
+                        <span class="title">Entrez Date limit: </span><select class="hxkgST" name="relentrezdate" size="1">
+
+                            <option>30 Days </option>
+                            <option>60 Days </option>
+                            <option>90 Days </option>
+                            <option>180 Days </option>
+                            <option>1 Year </option>
+                            <option>2 Years </option>
+                            <option>5 Years </option>
+                            <option>10 Years </option>
+                            <option selected="">No Limit </option>
+                        </select> </small></p>
+                <div class=" bQbVud">
+                    <button type="submit" class=" hkBURO"><span class="fjQIzu">Search</span></button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <div class=" ezYoGz">
