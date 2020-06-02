@@ -41,6 +41,7 @@
         "drupal/field_permissions": "^1.0@RC",
         "drupal/fontawesome": "^2.15",
         "drupal/geolocation": "^1.11",
+        "drupal/gmap_store_locator": "^1.4",
         "drupal/google_qr_code": "^1.1",
         "drupal/ics_field": "^1.0",
         "drupal/libraries": "^3.0@alpha",
