@@ -153,6 +153,17 @@ class CloneEntityController extends ControllerBase {
             $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/admin/hkdu/news/'.$duplicate_entity->id().'/edit?destination=/admin/manage-news')->toString());
             $redirect->send();
             break;
+        case 'doctor':
+            $entity = \Drupal\doctor\Entity\DoctorEntity::load($id);
+            $duplicate_entity = $replicator->replicateByEntityId($entity->getEntityTypeId(), $entity->id());
+            $title = $duplicate_entity->getName();
+            $duplicate_entity->setName($title . ' - Cloned');
+            $request_time = \Drupal::time()->getRequestTime();
+            $duplicate_entity->setCreatedTime($request_time);
+            $duplicate_entity->save();
+            $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/admin/hkdu/doctor/'.$duplicate_entity->id().'/edit?destination=/admin/manage-doctor.')->toString());
+            $redirect->send();
+            break;
     }
 
     return [
