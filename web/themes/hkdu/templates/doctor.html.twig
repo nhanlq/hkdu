@@ -93,32 +93,36 @@
                 <div class="hnOpua">{{ doctor.field_recognized_specialties.value }}</div>
             </div>
         </div>
+
         <div class="ixbjLe">
+
+            {% if store is not empty %}
             <div class="cxovFu">Clinic Details</div>
             <div class="bXXHPz">
                 <div class="jBxOzO">Clinic Name
                 </div>
-                <div class="hnOpua">{{ doctor.field_clinic_name.value }}</div>
+                <div class="hnOpua">{{ store.name.value }}</div>
             </div>
             <div  class="bXXHPz">
                 <div class="jBxOzO">Phone
                 </div>
-                <div class="hnOpua">{{ doctor.field_clinic_phone.value }}</div>
+                <div class="hnOpua">{{ store.field_clinic_phone.value }}</div>
             </div>
             <div class="bXXHPz">
                 <div class="jBxOzO">Fax</div>
-                <div class="hnOpua">{{ doctor.field_clinic_fax.value }}</div>
+                <div class="hnOpua">{{ store.field_clinic_fax.value }}</div>
             </div>
             <div class="bXXHPz">
-                <div class="jBxOzO">Clinic
-                    Address
+                <div class="jBxOzO">Clinic Address
                 </div>
                 <div class="hnOpua">
+                    <p>{{ store.address_one.value }}</p>
                     <div class="bJCWne">
-                        {{ content }}
+                        <iframe width="100%" height="200" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{ store.latitude.value }},-{{ store.longitude.value }}&amp;key={{ key }}"></iframe>
                     </div>
                 </div>
             </div>
+            {% endif %}
             <div class="bXXHPz">
                 <div class="jBxOzO">Emergency Service
                 </div>

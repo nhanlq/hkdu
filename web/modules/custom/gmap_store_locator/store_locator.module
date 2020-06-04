@@ -61,7 +61,6 @@ function store_locator_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $
         if (isset($_GET['doctor_id'])) {
             $doctor = \Drupal\doctor\Entity\DoctorEntity::load($_GET['doctor_id']);
             $form['name']['widget'][0]['value']['#default_value'] = $doctor->getName();
-            $form['name']['#attributes']['class'][] = 'hidden';
             $form['field_doctor']['widget'][0]['target_id']['#default_value'] = $doctor;
             $form['field_doctor']['#attributes']['class'][] = 'hidden';
         }

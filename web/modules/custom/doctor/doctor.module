@@ -46,4 +46,17 @@ function doctor_theme($existing, $type, $theme, $path) {
     ];
 }
 
+function getStoreByDoctor($id){
+    $ids = \Drupal::entityQuery('store_locator')
+        ->condition('field_doctor',$id)
+        ->execute();
+    $result = \Drupal\store_locator\Entity\StoreLocator::loadMultiple($ids);
+    if($result){
+        $store = reset($result);
+        return $store;
+    }else{
+        return false;
+    }
+}
+
 
