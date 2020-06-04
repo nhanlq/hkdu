@@ -345,12 +345,9 @@ display:
           field_api_classes: false
           plugin_id: field
         name:
+          id: name
           table: doctor_field_data
           field: name
-          id: name
-          entity_type: null
-          entity_field: name
-          plugin_id: field
           relationship: none
           group_type: group
           admin_label: ''
@@ -397,7 +394,8 @@ display:
           hide_alter_empty: true
           click_sort_column: value
           type: string
-          settings: {  }
+          settings:
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -408,6 +406,9 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: null
+          entity_field: name
+          plugin_id: field
         user_id:
           id: user_id
           table: doctor_field_data
