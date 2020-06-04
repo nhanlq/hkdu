@@ -19,7 +19,7 @@ class GoogleApiKeyHelper {
     $key = \Drupal::config('store_locator.settings')->get('api_key');
     $mapKey = [
       '#tag' => 'script',
-      '#attributes' => ['src' => '//maps.googleapis.com/maps/api/js?key=' . $key],
+      '#attributes' => ['src' => '//maps.googleapis.com/maps/api/js?key=' . $key.'&callback=initMap'],
     ];
     return $mapKey;
   }
