@@ -1,0 +1,117 @@
+uuid: e594dbb9-f38c-4876-83b9-10b5edaa2396
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.store_locator.store_locator.field_clinic_fax
+    - field.field.store_locator.store_locator.field_clinic_phone
+    - field.field.store_locator.store_locator.field_doctor
+    - image.style.thumbnail
+  module:
+    - image
+    - store_locator
+id: store_locator.store_locator.default
+targetEntityType: store_locator
+bundle: store_locator
+mode: default
+content:
+  address_one:
+    type: string_textfield
+    weight: -8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  address_two:
+    type: string_textfield
+    weight: -7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  city:
+    type: string_textfield
+    weight: -9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_clinic_fax:
+    weight: 93
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_clinic_phone:
+    weight: 92
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_doctor:
+    weight: 91
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  latitude:
+    type: string_textfield
+    weight: 90
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  logo:
+    type: image_image
+    weight: -4
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  longitude:
+    type: string_textfield
+    weight: 90
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  postcode:
+    type: string_textfield
+    weight: -6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  website:
+    type: uri
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  user_id: true

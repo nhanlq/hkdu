@@ -1,0 +1,102 @@
+uuid: e67a3845-5d56-441c-819a-d6507ceeb977
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.store_locator.store_locator.field_clinic_fax
+    - field.field.store_locator.store_locator.field_clinic_phone
+    - field.field.store_locator.store_locator.field_doctor
+  module:
+    - image
+    - store_locator
+id: store_locator.store_locator.default
+targetEntityType: store_locator
+bundle: store_locator
+mode: default
+content:
+  address_one:
+    label: above
+    type: string
+    region: content
+    weight: 2
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  address_two:
+    label: above
+    type: string
+    region: content
+    weight: 3
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  city:
+    label: above
+    type: string
+    region: content
+    weight: 1
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_clinic_fax:
+    weight: 9
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_clinic_phone:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_doctor:
+    weight: 7
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  logo:
+    label: above
+    type: image
+    region: content
+    weight: 6
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  name:
+    label: above
+    type: string
+    region: content
+    weight: 0
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  postcode:
+    label: above
+    type: string
+    region: content
+    weight: 4
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  website:
+    label: above
+    type: string
+    region: content
+    weight: 5
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  latitude: true
+  longitude: true
+  search_api_excerpt: true
+  user_id: true

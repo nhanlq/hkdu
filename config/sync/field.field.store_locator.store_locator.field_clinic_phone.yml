@@ -1,0 +1,27 @@
+uuid: 6a186c01-cf47-4bb0-ab17-d4f1a2b62a20
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.store_locator.field_clinic_phone
+  module:
+    - store_locator
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: store_locator.store_locator.field_clinic_phone
+field_name: field_clinic_phone
+entity_type: store_locator
+bundle: store_locator
+label: 'Clinic Phone'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

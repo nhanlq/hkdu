@@ -1,0 +1,20 @@
+uuid: 290b38c7-95e2-45c5-a750-33c16d22f897
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.store_locator.field_clinic_fax
+  module:
+    - store_locator
+id: store_locator.store_locator.field_clinic_fax
+field_name: field_clinic_fax
+entity_type: store_locator
+bundle: store_locator
+label: 'Clinic Fax'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
