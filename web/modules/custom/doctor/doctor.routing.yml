@@ -6,3 +6,11 @@ doctor.doctor_list_controller_list:
     _title_callback: '\Drupal\doctor\Controller\DoctorListController::title'
   requirements:
     _permission: 'access content'
+
+doctor.clinic_controller_clinic:
+  path: '/admin/doctor/clinic'
+  defaults:
+    _controller: '\Drupal\doctor\Controller\ClinicController::clinic'
+    _title: 'Doctor Clinic'
+  requirements:
+    _permission: 'access content'

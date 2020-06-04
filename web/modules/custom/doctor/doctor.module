@@ -34,7 +34,7 @@ function doctor_theme($existing, $type, $theme, $path) {
             // The entity will be prefixed with a hash sign as ['elements']['#artwork']
         ],
         'doctor_list' => [
-            'variables' => ['doctors' => NULL],
+            'variables' => ['doctors' => NULL, 'name'=> NULL],
             'path' => $path . '/templates/',
             'template' => 'doctor-list'
         ],
@@ -45,3 +45,5 @@ function doctor_theme($existing, $type, $theme, $path) {
         ],
     ];
 }
+
+

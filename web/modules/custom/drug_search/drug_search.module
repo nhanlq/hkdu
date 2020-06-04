@@ -51,7 +51,7 @@ function drug_search_theme($existing, $type, $theme, $path) {
         ],
 
         'drug_search_search' => [
-            'variables' => ['url' => NULL],
+            'variables' => ['url' => NULL, 'get'=> NULL],
             'path' => $path . '/templates/',
             'template' => 'drug-search-search'
         ],

@@ -5,11 +5,6 @@ dependencies:
   config:
     - field.field.doctor.doctor.field_affiliation_hospital
     - field.field.doctor.doctor.field_basic_qualifications
-    - field.field.doctor.doctor.field_clinic_address
-    - field.field.doctor.doctor.field_clinic_fax
-    - field.field.doctor.doctor.field_clinic_location
-    - field.field.doctor.doctor.field_clinic_name
-    - field.field.doctor.doctor.field_clinic_phone
     - field.field.doctor.doctor.field_correspondence_address
     - field.field.doctor.doctor.field_email
     - field.field.doctor.doctor.field_emergency_service
@@ -34,44 +29,15 @@ dependencies:
     - field.field.doctor.doctor.field_whatsapp
   module:
     - doctor
-    - geolocation
 id: doctor.doctor.default
 targetEntityType: doctor
 bundle: doctor
 mode: default
 content:
-  field_clinic_location:
-    weight: 0
-    label: hidden
-    settings:
-      set_marker: '1'
-      title: ''
-      info_text: ''
-      google_map_settings:
-        height: 200px
-        width: 100%
-        type: ROADMAP
-        zoom: '10'
-        maxZoom: 18
-        minZoom: 0
-        mapTypeControl: 1
-        streetViewControl: 1
-        zoomControl: 1
-        scrollwheel: 1
-        gestureHandling: auto
-        draggable: 1
-        style: ''
-        info_auto_display: 1
-        marker_icon_path: ''
-        disableAutoPan: 1
-        rotateControl: 0
-        fullscreenControl: 0
-        preferScrollingToZooming: 0
-        disableDoubleClickZoom: 0
-      use_overridden_map_settings: 0
-      common_map: ''
+  content_moderation_control:
+    weight: -20
+    settings: {  }
     third_party_settings: {  }
-    type: geolocation_map
     region: content
   field_photo:
     type: entity_reference_entity_view
@@ -94,10 +60,6 @@ content:
 hidden:
   field_affiliation_hospital: true
   field_basic_qualifications: true
-  field_clinic_address: true
-  field_clinic_fax: true
-  field_clinic_name: true
-  field_clinic_phone: true
   field_correspondence_address: true
   field_email: true
   field_emergency_service: true

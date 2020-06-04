@@ -16,6 +16,7 @@ permissions:
   - 'access media overview'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'access store location'
   - 'create audio media'
   - 'create document media'
   - 'create image media'

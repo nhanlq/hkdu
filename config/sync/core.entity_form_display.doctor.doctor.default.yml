@@ -5,11 +5,6 @@ dependencies:
   config:
     - field.field.doctor.doctor.field_affiliation_hospital
     - field.field.doctor.doctor.field_basic_qualifications
-    - field.field.doctor.doctor.field_clinic_address
-    - field.field.doctor.doctor.field_clinic_fax
-    - field.field.doctor.doctor.field_clinic_location
-    - field.field.doctor.doctor.field_clinic_name
-    - field.field.doctor.doctor.field_clinic_phone
     - field.field.doctor.doctor.field_correspondence_address
     - field.field.doctor.doctor.field_email
     - field.field.doctor.doctor.field_emergency_service
@@ -32,10 +27,11 @@ dependencies:
     - field.field.doctor.doctor.field_wechat
     - field.field.doctor.doctor.field_weight
     - field.field.doctor.doctor.field_whatsapp
+    - workflows.workflow.editorial
   module:
+    - content_moderation
     - doctor
     - field_group
-    - geolocation
     - link
     - media_library
     - path
@@ -143,44 +139,6 @@ content:
     region: content
   field_basic_qualifications:
     weight: 6
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_clinic_address:
-    weight: 12
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_clinic_fax:
-    weight: 11
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_clinic_location:
-    weight: 13
-    settings: {  }
-    third_party_settings: {  }
-    type: geolocation_latlng
-    region: content
-  field_clinic_name:
-    weight: 9
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_clinic_phone:
-    weight: 10
     settings:
       size: 60
       placeholder: ''
@@ -365,6 +323,12 @@ content:
     region: content
     settings:
       include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
     third_party_settings: {  }
   name:
     type: string_textfield
