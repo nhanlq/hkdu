@@ -2,7 +2,7 @@
 
     Drupal.behaviors.initSwitchMenu = {
         attach: function (context, settings) {
-            $("#epharm-switch").on('change',function(){
+            $("#epharm-switch").change(function(){
                 if($(this).val()=='e-pharm'){
                     window.location.href = "/e-pharm";
                 }else if($(this).val()=='cme'){
