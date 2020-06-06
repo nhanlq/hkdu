@@ -1341,7 +1341,7 @@ ul.eNSAVL li i.fa:before {
     font-size: 18px;
     margin-right: 16px;
     height: 45px;
-    line-height: 60px;
+    line-height: 30px;
     letter-spacing: normal;
     text-decoration: none;
     padding: 0px;
@@ -1442,6 +1442,7 @@ select.epharm-switch {
     border-bottom: 0px;
     border-top: 0px;
     border-color: rgba(0, 0, 0, 0.05);
+    -moz-appearance: none;
 }
 .path-user h4{
     color: #000;
@@ -2301,11 +2302,11 @@ a .date, a .author{
 }
 @media screen and (max-width: 992px) {
     .lcAUJf {
-        color: rgba(0, 0, 0, 0.4);
-        font-size: 14px;
+        color: rgb(69, 96, 176);
+        font-size: 18px;
         margin-right: 16px;
         height: 45px;
-        line-height: 60px;
+        line-height: 30px;
         letter-spacing: normal;
         text-decoration: none;
         width: 100%;
@@ -2336,6 +2337,7 @@ a .date, a .author{
     }
     .navbar-toggle {
         display: block !important;
+        margin-right: -15px!important;
     }
     #block-mainnavigation{
         display: none;
@@ -2359,7 +2361,7 @@ a .date, a .author{
         align-items: center;
         color: rgba(0, 0, 0, 0.4);
         font-size: 14px;
-        height: 60px;
+        height: 30px;
         line-height: 60px;
         padding-left: 16px;
         cursor: pointer;
@@ -2394,9 +2396,10 @@ a .date, a .author{
 
     .menu--epharm, .menu--cme {
         float: left;
-        margin: 0;
+        margin: 13px 0 0 0;
         display: flex;
     }
+
 
     .culkFL {
         width: 33.3333%;
@@ -2652,7 +2655,7 @@ a .date, a .author{
     #navbar-collapse {
         flex-direction: column;
         background-color: rgb(255, 255, 255);
-        width: 312px;
+        width: 60%;
         height: 100%;
         position: fixed;
         top: 45px;
@@ -2667,13 +2670,31 @@ a .date, a .author{
         display: flex;
         -webkit-box-align: center;
         align-items: center;
-        color: rgba(0, 0, 0, 0.4);
-        font-size: 14px;
-        height: 60px;
-        line-height: 60px;
+        color: rgb(69, 96, 176);
+        font-size: 18px;
+        height: 35px;
+        line-height: 30px;
         padding-left: 16px;
         cursor: pointer;
         text-decoration: none;
+    }
+    .main-container .row{
+        margin-left: 0px!important;
+        margin-right: 0px!important;
+    }
+    .bwndEN{
+        margin-bottom: 20px;
+    }
+    form.search{
+        width: 100%;
+    }
+    .author span, .date span {
+        width: 40%;
+        float: left;
+    }
+    .eXMIVa {
+        box-sizing: border-box;
+        margin-left: -10px!important;
     }
 
 }
