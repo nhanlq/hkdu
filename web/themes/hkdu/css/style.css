@@ -2696,5 +2696,18 @@ a .date, a .author{
         box-sizing: border-box;
         margin-left: -10px!important;
     }
+    .dYgNtr {
+        box-sizing: border-box;
+        display: block;
+        flex-direction: row;
+        width: 100%;
+        float: left;
+    }
+    #block-drugnewhomeblock .ixzoQI {
+        width: 100%;
+    }
+    .kbJbHx{
+        display: block!important;
+    }
 
 }
