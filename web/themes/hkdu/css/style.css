@@ -2709,5 +2709,8 @@ a .date, a .author{
     .kbJbHx{
         display: block!important;
     }
+    .path-e-pharm .event.list-tags{
+        bottom: 64px;
+    }
 
 }
