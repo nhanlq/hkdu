@@ -1457,8 +1457,8 @@ select.epharm-switch {
 
 .eBeRpv {
     box-sizing: border-box;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 0px;
+    padding-right: 0px;
     padding-bottom: 16px;
     width: 100%;
     position: relative;
@@ -2715,6 +2715,9 @@ a .date, a .author{
     .submit-button-result {
         width: 100%!important;
         float: left;
+    }
+    .jzqdsa {
+        margin-right: 0px!important;
     }
 
 }
