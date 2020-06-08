@@ -1,5 +1,7 @@
+
 <!-- Add you custom twig html here -->
 <div display="flex" class="dYgNtr">
+    {% if expired %}
         <form action="/cme/quiz/test/{{ quiz.id.value }}" method="post" name="quiz_test">
             {% for question in questions %}
                 <div class="dDPfwp">
@@ -18,4 +20,8 @@
                 <input class="submit-btn" type="submit" name="submit" value="Submit"/>
             </div>
         </form>
+    {% else %}
+    <p>This quiz has expired.</p>
+    {% endif %}
 </div>
+

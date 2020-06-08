@@ -56,7 +56,7 @@ function cme_quiz_theme($existing, $type, $theme, $path)
             'template' => 'quiz-question'
         ],
         'cme_quiz_question' => [
-            'variables' => ['quiz' => NULL, 'questions' => NULL],
+            'variables' => ['quiz' => NULL, 'questions' => NULL,'expired'=>NULL],
             'path' => $path . '/templates/',
             'template' => 'cme-quiz-question'
         ],
@@ -124,6 +124,7 @@ function getQuestionNoTest($quiz)
         '#theme' => 'cme_quiz_question',
         '#quiz' => $quiz,
         '#questions' => $return,
+        '#expired' => checkExpiredQuiz($quiz)
     ];
     return $theme;
 }
