@@ -110,8 +110,11 @@ class DrugNewsListController extends ControllerBase
             ->getStorage('taxonomy_term')
             ->loadByProperties(['name' => $name, 'vid' => 'epharm_tags']);
         $term = reset($term);
-        $term_id = $term->id();
-        return $term_id;
+        if($term){
+            $term_id = $term->id();
+            return $term_id;
+        }
+
     }
 
     public function title(){
