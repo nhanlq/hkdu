@@ -2198,17 +2198,18 @@ a {
     position: relative;
 }
 .date span{
-    width: 110px;
+    width: 126px;
     float: left;
 }
 .author span{
-    width: 110px;
+    width: 126px;
     float: left;
 }
 a .date, a .author{
     color: #000000;
     margin-top: 10px;
     font-size: 16px;
+    width: 100%;
 }
 .cme-event{
     bottom: 70px;
@@ -2309,6 +2310,9 @@ a .date, a .author{
     -webkit-box-align: center;
     align-items: center;
     color: rgb(69, 96, 176);
+}
+.list-tags.quiz{
+    bottom:60px;
 }
 .kHgOap::after {
     content: "";
