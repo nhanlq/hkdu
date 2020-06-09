@@ -543,26 +543,6 @@ a:hover {
     line-height: 1;
     font-variant: normal;
 }
-#block-scorecycleuser, #block-views-block-my-scores-block-1, #block-views-block-my-scores-block-2{
-    background-color: white;
-    margin-top: 10px;
-    padding: 15px;
-    font-size: 16px;
-    border: solid 1px #ddd;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-    border-radius: 5px 5px 5px 5px;
-}
-.path-user .label{
-    font-size: 18px;
-    font-weight: normal;
-    padding: 0px;
-}
-
-.path-user .form-group {
-     margin-bottom: 0px;
-}
-
-
 
 .lDEAa {
     display: block;
@@ -2181,9 +2161,9 @@ a {
 
 .ilDcLX {
     width: 100%;
-    font-size: 18px;
+    font-size: 14px;
     color: rgba(0, 0, 0, 0.6);
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0;
     text-align: center;
     padding: 16px 28px;
 }
@@ -2810,20 +2790,6 @@ a .date, a .author{
         font-size: 18px;
         color: white;
         margin-top: 8px;
-    }
-    .path-user p, .path-user .field--item, .path-user .field--label{
-        font-size: 16px;
-    }
-    .path-user .label {
-        font-size: 16px!important;
-        font-weight: normal;
-    }
-    .path-user h2, .dlCLcZ, h1 {
-        font-size: 21px;
-        line-height: 1.42;
-        font-weight: normal;
-        margin: 0px 0px 16px;
-        border-bottom: 0px;
     }
 
 }
