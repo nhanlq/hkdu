@@ -1,7 +1,7 @@
 
 <!-- Add you custom twig html here -->
 <div display="flex" class="dYgNtr">
-    {% if  is not expired %}
+    {% if expired == false %}
         <form action="/cme/quiz/test/{{ quiz.id.value }}" method="post" name="quiz_test">
             {% for question in questions %}
                 <div class="dDPfwp">
