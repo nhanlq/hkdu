@@ -4,7 +4,7 @@
  */
 body {
     min-height: 100vh;
-    background-color: rgb(244, 245, 248);
+    background-color: #f9f9f9;
     margin-top: 0px;
     font-family: 'Noto Sans HK', sans-serif;
     font-size: 18px;
@@ -69,7 +69,7 @@ p.caption-img{
     margin-top: 5px;
 }
 .navbar-default .navbar-nav > li > a {
-    color: rgb(69, 96, 176);
+    color: rgba(0, 0, 0, 0.7);
     font-size: 18px;
     margin-right: 16px;
     height: 60px;
@@ -83,7 +83,7 @@ p.caption-img{
 .navbar-default li.active a {
     color: rgb(69, 96, 176) !important;
     font-weight: 600;
-    border-bottom: 3px solid rgb(69, 96, 176);
+    border-bottom: 5px solid rgb(69, 96, 176);
     background-color: inherit !important;
 }
 
@@ -134,9 +134,14 @@ h2, .dlCLcZ, h1 {
     border-width: 1px;
     border-style: solid;
     border-image: initial;
-    border-radius: 0px;
-    border-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border-color: rgba(0, 0, 0, 0.1);
     text-decoration: none;
+    border-right: 3px solid rgb(69, 96, 176);
+}
+
+.dlodqi:hover {
+  border-color: rgb(69, 96, 176);
 }
 
 .hftOhy {
@@ -419,8 +424,10 @@ a:hover {
     border-style: solid;
     border-image: initial;
     border-radius: 0px;
-    border-color: rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 0, 0, 0.1);
     text-decoration: none;
+   border-top: 3px solid rgb(69, 96, 176);
+
 }
 
 .eOFNUV {
@@ -669,7 +676,7 @@ ul.eNSAVL li i.fa:before {
     padding: 10px 20px;
     border-width: 1px;
     border-style: solid;
-    border-color: rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 0, 0, 0.1);
     border-image: initial;
 }
 
@@ -781,6 +788,27 @@ ul.eNSAVL li i.fa:before {
     cursor: pointer;
     background-repeat: no-repeat;
     background-position: center center;
+    border-radius:4px;
+}
+
+button.btn-primary {
+  background-color: rgb(69, 96, 176);
+  border: 1px solid #f9f9f9;
+}
+
+button.btn-primary:hover, button.btn-primary:focus {
+  background-color: rgba(69, 96, 176, 0.95);
+}
+
+button {
+  transition: all .3s;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -o-transition: all .3s;
+}
+
+.main-container {
+  min-height: calc(100vh - 162px);
 }
 
 .jWxJo {
@@ -908,7 +936,7 @@ ul.eNSAVL li i.fa:before {
 }
 
 .lcAUJf {
-    color: rgba(0, 0, 0, 0.4);
+    color: rgba(0, 0, 0, 0.7);
     font-size: 18px;
     margin-right: 16px;
     height: 60px;
@@ -1012,9 +1040,13 @@ ul.eNSAVL li i.fa:before {
     border-image: initial;
     border-radius: 5px;
     text-decoration: none;
-    border-color: rgba(0, 0, 0, 0.4);
+    border-color: rgba(0, 0, 0, 0.1);
     padding: 0px 10px;
     margin-right: 15px;
+}
+
+.jzqdsa:hover {
+  border-color: rgb(69, 96, 176);
 }
 
 .fjQIzu {
@@ -1030,20 +1062,8 @@ ul.eNSAVL li i.fa:before {
     flex-direction: column;
 }
 
-.gsvDvo {
-    height: 389px;
-    flex-direction: column;
-    position: relative;
-    display: flex;
-    box-shadow: none;
-    background-color: white;
-    overflow: hidden;
-    border-width: 1px;
-    border-style: solid;
-    border-image: initial;
-    border-radius: 0px;
-    border-color: rgba(0, 0, 0, 0.2);
-    text-decoration: none;
+.gsvDvo:hover {
+  border-color: rgb(69, 96, 176);
 }
 
 .dCVoiR {
@@ -1185,7 +1205,7 @@ ul.eNSAVL li i.fa:before {
     padding: 4px 8px;
     border-width: 1px;
     border-style: solid;
-    border-color: rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 0, 0, 0.1);
     border-image: initial;
     border-radius: 9999px;
 }
@@ -1245,7 +1265,7 @@ ul.eNSAVL li i.fa:before {
     padding: 4px 8px;
     border-width: 1px;
     border-style: solid;
-    border-color: rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 0, 0, 0.1);
     border-image: initial;
     border-radius: 9999px;
 }
@@ -1293,14 +1313,14 @@ ul.eNSAVL li i.fa:before {
     margin-right: 4px;
     margin-bottom: 8px;
     display: inline-block;
-    max-width: 120px;
+    max-width: 150px;
     font-size: 18px;
     line-height: 1.4;
     cursor: pointer;
     color: white;
     background-color: rgb(69, 96, 176);
     overflow: hidden;
-    padding: 2px 8px;
+    padding: 4px 12px;
     border-width: 1px;
     border-style: solid;
     border-image: initial;
@@ -1316,28 +1336,35 @@ ul.eNSAVL li i.fa:before {
     margin-right: 4px;
     margin-bottom: 8px;
     display: inline-block;
-    max-width: 120px;
-    font-size: 13px;
+    max-width: 150px;
+    font-size: 12px;
     line-height: 1.4;
     color: rgba(0, 0, 0, 0.7);
     background-color: transparent;
     cursor: pointer;
     overflow: hidden;
-    padding: 4px 8px;
+    padding: 4px 12px;
     border-width: 1px;
     border-style: solid;
-    border-color: rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 0, 0, 0.1);
     border-image: initial;
-    border-radius: 9999px;
-    transition: color 180ms ease 0s, background-color 180ms ease 0s;
+    border-radius: 200px;
+    transition: all 0.3s;
 }
 
 .dsGFaG a {
     color: rgba(0, 0, 0, 0.7);
 }
+.dsGFaG:hover {
+  border-color: rgb(69, 96, 176);
+}
+
+form.search {
+  margin-left: -10px;
+}
 
 .menu--epharm > li > a, .menu--cme > li > a {
-    color: rgb(69, 96, 176);
+  color: rgba(0, 0, 0, 0.7);
     font-size: 18px;
     margin-right: 16px;
     height: 45px;
@@ -1403,7 +1430,7 @@ ul.eNSAVL li i.fa:before {
     border: 0px;
     background: transparent;
     position: relative;
-    top: -27px;
+    top: -30px;
     right: -7px;
 }
 
@@ -1453,6 +1480,7 @@ select.epharm-switch {
     display: flex;
     flex-wrap: wrap;
     position: relative;
+  justify-content: space-between;
 }
 
 .eBeRpv {
@@ -1475,9 +1503,14 @@ select.epharm-switch {
     border-width: 1px;
     border-style: solid;
     border-image: initial;
-    border-radius: 0px;
-    border-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border-color: rgba(0, 0, 0, 0.1);
     text-decoration: none;
+  border-top: 3px solid rgb(69, 96, 176);
+}
+
+.fOtgzp:hover {
+  border-color: rgb(69, 96, 176)
 }
 
 .kZuHUf {
@@ -1704,9 +1737,11 @@ select.epharm-switch {
     border-width: 1px;
     border-style: solid;
     border-image: initial;
-    border-radius: 0px;
-    border-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border-color: rgba(0, 0, 0, 0.1);
     text-decoration: none;
+  border-top: 3px solid rgb(69, 96, 176);
+
 }
 
 .eRqUIg {
@@ -1787,8 +1822,8 @@ select.epharm-switch {
     border-width: 1px;
     border-style: solid;
     border-image: initial;
-    border-radius: 0px;
-    border-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border-color: rgba(0, 0, 0, 0.1);
     text-decoration: none;
 }
 
@@ -1979,9 +2014,14 @@ select.epharm-switch {
     border-width: 1px;
     border-style: solid;
     border-image: initial;
-    border-radius: 0px;
-    border-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border-color: rgba(0, 0, 0, 0.1);
     text-decoration: none;
+  border-right: 3px solid rgb(69, 96, 176);
+}
+
+.htzoqv:hover {
+  border-color: rgb(69, 96, 176);
 }
 
 .kZuHUf {
@@ -2038,9 +2078,27 @@ select.epharm-switch {
     font-variant: normal;
 }
 
+a:focus {
+  text-decoration: none;
+}
+
 .nav > li > a:hover, .nav > li > a:focus {
     text-decoration: none;
     background-color: transparent;
+  color: rgb(69, 96, 176) !important;
+  border-bottom: 5px solid rgb(69, 96, 176);
+}
+
+ul.nav {
+  margin-left: 20px;
+}
+
+a {
+  transition: all .3s;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -o-transition: all .3s;
+  color: rgb(69, 96, 176);
 }
 
 .new-home.list-tags {
@@ -2302,7 +2360,6 @@ a .date, a .author{
 }
 @media screen and (max-width: 992px) {
     .lcAUJf {
-        color: rgb(69, 96, 176);
         font-size: 18px;
         margin-right: 16px;
         height: 45px;
@@ -2359,7 +2416,6 @@ a .date, a .author{
         display: flex;
         -webkit-box-align: center;
         align-items: center;
-        color: rgba(0, 0, 0, 0.4);
         font-size: 14px;
         height: 30px;
         line-height: 60px;
@@ -2439,7 +2495,7 @@ a .date, a .author{
     }
 
     .eBeRpv {
-        width: 33.3333%;
+        width: 31%;
     }
 
     .yriL {
@@ -2452,7 +2508,7 @@ a .date, a .author{
     }
 
     .list-tags {
-        left: 217px;
+        left: 267px;
     }
 
     .cFlllN {
@@ -2566,7 +2622,7 @@ a .date, a .author{
     }
 
     .iRgpNO {
-        width: 33.3333%;
+        width: 32%;
     }
 
     .gABttI {
@@ -2598,7 +2654,7 @@ a .date, a .author{
 
     .eFKGnI {
         height: auto;
-        width: 200px;
+        width: 250px;
     }
 
     .hYpLPh {
@@ -2670,7 +2726,7 @@ a .date, a .author{
         display: flex;
         -webkit-box-align: center;
         align-items: center;
-        color: rgb(69, 96, 176);
+        color: rgb(0, 0, 0);
         font-size: 18px;
         height: 35px;
         line-height: 30px;
