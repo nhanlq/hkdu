@@ -80,7 +80,7 @@ class EnrollForm extends FormBase
     public function submitForm(array &$form, FormStateInterface $form_state)
     {
         // Display result.
-        $product = \Drupal\commerce_product\Entity\Product::load($form_state->getValue('event'));
+        $product = $this->getEventProduct($form_state->getValue('event'));
         //load product variation
         $entity_manager = \Drupal::entityManager();
         $product_variation = $entity_manager->getStorage('commerce_product_variation')->load((int)$product->getVariationIds()[0]);
@@ -135,25 +135,40 @@ class EnrollForm extends FormBase
             'name'=>'Order::'.$user->getAccountName().'::'.$order->id(),
             'field_user' => $user->id(),
             'field_order' => $order->id(),
-            'field_event' => $product->get('field_event')->target_id,
+            'field_event' => $form_state->getValue('event'),
             'uid' => $user->id(),
         ]);
         $tracking->save();
         \Drupal::messenger()->addMessage('Enrolled success for '.$user->getEmail());
     }
 
-    public function getEvent(){
+    public function getEvents(){
+        $ids = \Drupal::entityQuery('event')
+            ->condition('status', 1)
+            ->sort('title','ASC')
+            ->execute();
+        $result = \Drupal\event\Entity\Event::loadMultiple($ids);
+        $events = [];
+        foreach ($result as $event){
+            if(!checkExpiredEvent($event)){
+                $events[$event->id()] = $event->getTitle();
+            }
+
+        }
+        return $event;
+    }
+    public function getEventProduct($event_id){
         $ids = \Drupal::entityQuery('commerce_product')
             ->condition('status', 1)
             ->condition('type', 'default')
-            ->sort('title','ASC')
+            ->condition('field_event',$event_id)
             ->execute();
         $result = \Drupal\commerce_product\Entity\Product::loadMultiple($ids);
-        $products = [];
-        foreach ($result as $product){
-            $products[$product->get('product_id')->value] = $product->getTitle();
+        if($result){
+            return reset($result);
+        }else{
+            return false;
         }
-        return $products;
     }
 
     public function getOrderNumber(){
