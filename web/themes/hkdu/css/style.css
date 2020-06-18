@@ -1493,7 +1493,7 @@ select.epharm-switch {
 }
 
 .fOtgzp {
-    height: 300px;
+    height: 320px;
     flex-direction: column;
     position: relative;
     display: flex;
@@ -2178,11 +2178,11 @@ a {
     position: relative;
 }
 .date span{
-    width: 126px;
+    width: 124px;
     float: left;
 }
 .author span{
-    width: 126px;
+    width: 124px;
     float: left;
 }
 a .date, a .author{
