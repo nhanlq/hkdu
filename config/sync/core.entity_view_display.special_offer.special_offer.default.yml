@@ -9,10 +9,12 @@ dependencies:
     - field.field.special_offer.special_offer.field_file
     - field.field.special_offer.special_offer.field_is_home
     - field.field.special_offer.special_offer.field_media
+    - field.field.special_offer.special_offer.field_publish_date
     - field.field.special_offer.special_offer.field_tags
     - field.field.special_offer.special_offer.field_thumb
     - field.field.special_offer.special_offer.field_weight
   module:
+    - datetime
     - options
     - special_offer
 id: special_offer.special_offer.default
@@ -70,6 +72,15 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
+    region: content
+  field_publish_date:
+    weight: 8
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_thumb:
     type: entity_reference_entity_view

@@ -5,11 +5,13 @@ dependencies:
   config:
     - field.field.guidelines.guidelines.field_description
     - field.field.guidelines.guidelines.field_media
+    - field.field.guidelines.guidelines.field_publish_date
     - field.field.guidelines.guidelines.field_weight
     - workflows.workflow.editorial
   module:
     - cme_guidelines
     - content_moderation
+    - datetime
     - media_library
     - text
 id: guidelines.guidelines.default
@@ -31,6 +33,12 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+    region: content
+  field_publish_date:
+    weight: 102
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_weight:
     weight: 101

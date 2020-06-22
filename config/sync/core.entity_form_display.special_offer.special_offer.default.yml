@@ -9,12 +9,14 @@ dependencies:
     - field.field.special_offer.special_offer.field_file
     - field.field.special_offer.special_offer.field_is_home
     - field.field.special_offer.special_offer.field_media
+    - field.field.special_offer.special_offer.field_publish_date
     - field.field.special_offer.special_offer.field_tags
     - field.field.special_offer.special_offer.field_thumb
     - field.field.special_offer.special_offer.field_weight
     - workflows.workflow.editorial
   module:
     - content_moderation
+    - datetime
     - media_library
     - path
     - special_offer
@@ -65,6 +67,12 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+    region: content
+  field_publish_date:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_tags:
     weight: 10

@@ -340,7 +340,7 @@ function checkExpiredCmeEvent($event)
     if ($current > $date) {
         return true;
     } else {
-        return null;
+        return false;
     }
 }
 

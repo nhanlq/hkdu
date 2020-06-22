@@ -1,0 +1,24 @@
+uuid: 8164b388-6126-4ac7-8e7a-e83bbbed92b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event_org.field_weight
+  module:
+    - cme_event_organizer
+id: event_org.event_org.field_weight
+field_name: field_weight
+entity_type: event_org
+bundle: event_org
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

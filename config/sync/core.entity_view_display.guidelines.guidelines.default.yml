@@ -5,9 +5,11 @@ dependencies:
   config:
     - field.field.guidelines.guidelines.field_description
     - field.field.guidelines.guidelines.field_media
+    - field.field.guidelines.guidelines.field_publish_date
     - field.field.guidelines.guidelines.field_weight
   module:
     - cme_guidelines
+    - datetime
     - text
     - user
 id: guidelines.guidelines.default
@@ -35,6 +37,15 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
+    region: content
+  field_publish_date:
+    weight: 4
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_weight:
     weight: 3

@@ -60,6 +60,11 @@ content:
 hidden:
   field_affiliation_hospital: true
   field_basic_qualifications: true
+  field_clinic_address: true
+  field_clinic_fax: true
+  field_clinic_location: true
+  field_clinic_name: true
+  field_clinic_phone: true
   field_correspondence_address: true
   field_email: true
   field_emergency_service: true

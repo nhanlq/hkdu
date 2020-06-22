@@ -1,0 +1,20 @@
+uuid: 723d42fb-348a-44cb-9046-8b3b6d0499ca
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_guidelines
+    - datetime
+id: guidelines.field_publish_date
+field_name: field_publish_date
+entity_type: guidelines
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

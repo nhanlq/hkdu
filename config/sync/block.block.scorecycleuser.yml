@@ -18,7 +18,7 @@ settings:
   id: score_cycle_user
   label: 'Score cycle'
   provider: cme_score
-  label_display: visible
+  label_display: '0'
 visibility:
   request_path:
     id: request_path

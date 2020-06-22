@@ -354,4 +354,9 @@ content:
       match_limit: 10
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_clinic_address: true
+  field_clinic_fax: true
+  field_clinic_location: true
+  field_clinic_name: true
+  field_clinic_phone: true

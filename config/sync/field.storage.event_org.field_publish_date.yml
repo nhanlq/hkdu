@@ -1,0 +1,24 @@
+uuid: 3704c825-3ec1-4caf-acde-98cd83a702bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_event_organizer
+    - datetime
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: event_org.field_publish_date
+field_name: field_publish_date
+entity_type: event_org
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 1aadcafe-ab1f-4f4b-8e6a-6acef7bdec0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.drug_search.field_publish_date
+  module:
+    - datetime
+    - drug_search
+id: drug_search.drug_search.field_publish_date
+field_name: field_publish_date
+entity_type: drug_search
+bundle: drug_search
+label: 'Publish Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

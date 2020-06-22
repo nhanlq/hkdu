@@ -17,8 +17,13 @@ class GuideListController extends ControllerBase {
    */
     public function list() {
         return array(
+            'results'=>[
             '#theme' => array('cme_guidelines_list'),
             '#abouts' => $this->getAllAbout(),
+                ],
+            'pager' => [
+                '#type' => 'pager',
+            ],
         );
     }
 
@@ -26,7 +31,8 @@ class GuideListController extends ControllerBase {
         $ids = \Drupal::entityQuery('guidelines')
             ->condition('status', 1)
             ->sort('field_weight','ASC')
-            ->sort('created','DESC')
+            ->sort('field_publish_date','DESC')
+            ->pager(10)
             ->execute();
         $result = \Drupal\cme_guidelines\Entity\Guidelines::loadMultiple($ids);
         return $result;

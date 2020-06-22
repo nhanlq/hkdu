@@ -151,7 +151,10 @@ class EventRegisterOffline extends FormBase
         $data = [];
         if ($events) {
             foreach ($events as $event) {
-                $data[$event->id()] = $event->getName();
+                if(!checkExpiredCmeEvent($event)){
+                    $data[$event->id()] = $event->getName();
+                }
+
             }
         }
         return $data;

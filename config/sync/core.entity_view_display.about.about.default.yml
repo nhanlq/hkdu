@@ -7,10 +7,12 @@ dependencies:
     - field.field.about.about.field_description
     - field.field.about.about.field_file
     - field.field.about.about.field_media
+    - field.field.about.about.field_publish_date
     - field.field.about.about.field_thumbnail
     - field.field.about.about.field_weight
   module:
     - about
+    - datetime
     - text
     - user
 id: about.about.default
@@ -58,6 +60,15 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
+    region: content
+  field_publish_date:
+    weight: 9
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_thumbnail:
     type: entity_reference_entity_view

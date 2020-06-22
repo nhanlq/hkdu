@@ -55,8 +55,8 @@ class ClinicalListController extends ControllerBase {
                 ->condition('field_tags', $tid)
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
-                ->sort('created','DESC')
-                ->pager(15)
+                ->sort('field_publish_date','DESC')
+                ->pager(10)
                 ->execute();
         } elseif (isset($_GET['keys'])) {
             $ids = \Drupal::entityQuery('clinical_focus')
@@ -64,16 +64,16 @@ class ClinicalListController extends ControllerBase {
                 ->condition('name', $_GET['keys'], 'CONTAINS')
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
-                ->sort('created','DESC')
-                ->pager(15)
+                ->sort('field_publish_date','DESC')
+                ->pager(10)
                 ->execute();
         } else {
             $ids = \Drupal::entityQuery('clinical_focus')
                 ->condition('status', 1)
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
-                ->sort('created','DESC')
-                ->pager(15)
+                ->sort('field_publish_date','DESC')
+                ->pager(10)
                 ->execute();
         }
         $result = ClinicalFocus::loadMultiple($ids);

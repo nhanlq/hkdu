@@ -5,7 +5,7 @@
                 <div style="background-image: url({{ gallery.field_media[0].entity.field_media_image.entity.uri.value | image_style('original') }})" class="cmYSky">
                 </div>
             </a>
-            <div class="biunsS">{{ gallery.field_place.value }}</div>
+            <div class="biunsS">{{ gallery.name.value }}</div>
             <div class="ktLFkQ">{{ gallery.field_date.value }}</div>
         </div>
     {% endfor %}

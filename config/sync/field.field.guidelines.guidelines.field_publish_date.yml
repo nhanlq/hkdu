@@ -1,0 +1,21 @@
+uuid: f6f0a0f3-8187-45ed-98e7-661d7f955f5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.guidelines.field_publish_date
+  module:
+    - cme_guidelines
+    - datetime
+id: guidelines.guidelines.field_publish_date
+field_name: field_publish_date
+entity_type: guidelines
+bundle: guidelines
+label: 'Publish Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

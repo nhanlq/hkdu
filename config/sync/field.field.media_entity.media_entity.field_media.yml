@@ -4,13 +4,16 @@ status: true
 dependencies:
   config:
     - field.storage.media_entity.field_media
-    - media.type.audio
-    - media.type.document
     - media.type.image
-    - media.type.remote_video
-    - media.type.video
   module:
     - media_release
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
 id: media_entity.media_entity.field_media
 field_name: field_media
 entity_type: media_entity
@@ -25,13 +28,9 @@ settings:
   handler: 'default:media'
   handler_settings:
     target_bundles:
-      audio: audio
-      document: document
       image: image
-      remote_video: remote_video
-      video: video
     sort:
       field: _none
     auto_create: true
-    auto_create_bundle: image
+    auto_create_bundle: remote_video
 field_type: entity_reference

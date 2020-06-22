@@ -10,10 +10,12 @@ dependencies:
     - field.field.drug_news.drug_news.field_file
     - field.field.drug_news.drug_news.field_is_home
     - field.field.drug_news.drug_news.field_media
+    - field.field.drug_news.drug_news.field_publish_date
     - field.field.drug_news.drug_news.field_tags
     - field.field.drug_news.drug_news.field_thumb
     - field.field.drug_news.drug_news.field_weight
   module:
+    - datetime
     - drug_news
     - options
 id: drug_news.drug_news.default
@@ -81,6 +83,15 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
+    region: content
+  field_publish_date:
+    weight: 9
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_thumb:
     type: entity_reference_entity_view

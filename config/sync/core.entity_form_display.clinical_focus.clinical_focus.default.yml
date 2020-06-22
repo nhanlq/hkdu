@@ -10,6 +10,7 @@ dependencies:
     - field.field.clinical_focus.clinical_focus.field_file
     - field.field.clinical_focus.clinical_focus.field_is_home
     - field.field.clinical_focus.clinical_focus.field_media
+    - field.field.clinical_focus.clinical_focus.field_publish_date
     - field.field.clinical_focus.clinical_focus.field_tags
     - field.field.clinical_focus.clinical_focus.field_thumb
     - field.field.clinical_focus.clinical_focus.field_weight
@@ -17,6 +18,7 @@ dependencies:
   module:
     - clinical_focus
     - content_moderation
+    - datetime
     - media_library
     - path
     - text
@@ -72,6 +74,12 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+    region: content
+  field_publish_date:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_tags:
     weight: 12

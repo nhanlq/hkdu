@@ -55,7 +55,7 @@ class NewsHomeBlock extends BlockBase
             ->condition('status', 1)
             ->condition('field_is_home', 1)
             ->sort('field_weight', 'ASC')
-            ->sort('created', 'DESC')
+            ->sort('field_publish_date', 'DESC')
             ->range(0,3)
             ->execute();
         $result = \Drupal\news\Entity\News::loadMultiple($ids);

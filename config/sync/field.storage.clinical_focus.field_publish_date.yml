@@ -1,0 +1,24 @@
+uuid: 4a3b5c02-bcab-4eb0-b221-9c6a4907cb4c
+langcode: en
+status: true
+dependencies:
+  module:
+    - clinical_focus
+    - datetime
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: clinical_focus.field_publish_date
+field_name: field_publish_date
+entity_type: clinical_focus
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

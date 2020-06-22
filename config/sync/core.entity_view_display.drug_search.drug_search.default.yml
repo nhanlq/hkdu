@@ -14,9 +14,11 @@ dependencies:
     - field.field.drug_search.drug_search.field_is_home
     - field.field.drug_search.drug_search.field_media
     - field.field.drug_search.drug_search.field_price
+    - field.field.drug_search.drug_search.field_publish_date
     - field.field.drug_search.drug_search.field_thumb
     - field.field.drug_search.drug_search.field_weight
   module:
+    - datetime
     - drug_search
     - options
     - text
@@ -124,6 +126,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_publish_date:
+    weight: 17
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_thumb:
     type: entity_reference_entity_view

@@ -1,0 +1,21 @@
+uuid: 200f98af-c266-4a47-b645-8eb7f6359480
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.pharm_dir.field_publish_date
+  module:
+    - datetime
+    - pharm_dir
+id: pharm_dir.pharm_dir.field_publish_date
+field_name: field_publish_date
+entity_type: pharm_dir
+bundle: pharm_dir
+label: 'Publish Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

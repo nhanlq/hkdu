@@ -34,8 +34,8 @@ class OrgListController extends ControllerBase {
         $ids = \Drupal::entityQuery('event_org')
             ->condition('status', 1)
             ->sort('field_weight','ASC')
-            ->sort('created','DESC')
-            ->pager(15)
+            ->sort('field_publish_date','DESC')
+            ->pager(10)
             ->execute();
         $result = \Drupal\cme_event_organizer\Entity\EventOrg::loadMultiple($ids);
         return $result;

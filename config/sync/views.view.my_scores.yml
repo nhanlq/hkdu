@@ -293,7 +293,20 @@ display:
           group: 1
       sorts: {  }
       title: 'My Quiz Scores'
-      header: {  }
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: "<div class=\"panel-heading\">\r\n                          <div class=\"panel-title\">My Quizzes Score</div>\r\n              </div>"
+            format: full_html
+          plugin_id: text
       footer: {  }
       empty:
         area:
@@ -430,6 +443,8 @@ display:
         filter_groups: false
         fields: false
         title: false
+        header: false
+        empty: false
       filter_groups:
         operator: AND
         groups:
@@ -565,6 +580,34 @@ display:
           field_api_classes: false
           plugin_id: field
       title: 'My Event Scores'
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: "<div class=\"panel-heading\">\r\n                          <div class=\"panel-title\">My Events Score</div>\r\n              </div>"
+            format: full_html
+          plugin_id: text
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: "<div class=\"panel-heading\">\r\n                          <div class=\"panel-title\">My Events Score</div>\r\n              </div>\r\n<div class=\"empty-score\">Your score is 0.</div>"
+            format: full_html
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:
@@ -646,6 +689,8 @@ display:
         filters: false
         filter_groups: false
         fields: false
+        header: false
+        empty: false
       filter_groups:
         operator: AND
         groups:
@@ -780,6 +825,34 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: "<div class=\"panel-heading\">\r\n                          <div class=\"panel-title\">My Quizzes Score</div>\r\n              </div>"
+            format: full_html
+          plugin_id: text
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: "<div class=\"panel-heading\">\r\n                          <div class=\"panel-title\">My Quizzes Score</div>\r\n              </div>\r\n<div class=\"empty-score\">Your score is 0.</div>"
+            format: full_html
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:
@@ -800,6 +873,9 @@ display:
     display_options:
       display_extenders: {  }
       path: my-scores
+      header: {  }
+      defaults:
+        header: false
     cache_metadata:
       max-age: -1
       contexts:

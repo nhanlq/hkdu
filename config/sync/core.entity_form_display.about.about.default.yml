@@ -7,12 +7,14 @@ dependencies:
     - field.field.about.about.field_description
     - field.field.about.about.field_file
     - field.field.about.about.field_media
+    - field.field.about.about.field_publish_date
     - field.field.about.about.field_thumbnail
     - field.field.about.about.field_weight
     - workflows.workflow.editorial
   module:
     - about
     - content_moderation
+    - datetime
     - media_library
     - path
     - text
@@ -49,6 +51,12 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+    region: content
+  field_publish_date:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_thumbnail:
     type: media_library_widget

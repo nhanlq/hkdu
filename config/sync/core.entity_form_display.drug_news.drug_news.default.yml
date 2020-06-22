@@ -10,12 +10,14 @@ dependencies:
     - field.field.drug_news.drug_news.field_file
     - field.field.drug_news.drug_news.field_is_home
     - field.field.drug_news.drug_news.field_media
+    - field.field.drug_news.drug_news.field_publish_date
     - field.field.drug_news.drug_news.field_tags
     - field.field.drug_news.drug_news.field_thumb
     - field.field.drug_news.drug_news.field_weight
     - workflows.workflow.editorial
   module:
     - content_moderation
+    - datetime
     - drug_news
     - media_library
     - path
@@ -72,6 +74,12 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+    region: content
+  field_publish_date:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_tags:
     weight: 11

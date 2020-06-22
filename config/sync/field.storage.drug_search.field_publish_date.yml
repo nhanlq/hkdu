@@ -1,0 +1,24 @@
+uuid: 13e03a4e-aba7-4764-8f5c-26c3918a0a4c
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - drug_search
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: drug_search.field_publish_date
+field_name: field_publish_date
+entity_type: drug_search
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -6,14 +6,16 @@ dependencies:
     - field.field.media_entity.media_entity.field_count
     - field.field.media_entity.media_entity.field_description
     - field.field.media_entity.media_entity.field_file
+    - field.field.media_entity.media_entity.field_image
     - field.field.media_entity.media_entity.field_media
+    - field.field.media_entity.media_entity.field_publish_date
     - field.field.media_entity.media_entity.field_tags
     - field.field.media_entity.media_entity.field_thumbnail
     - field.field.media_entity.media_entity.field_weight
     - workflows.workflow.editorial
   module:
     - content_moderation
-    - inline_entity_form
+    - datetime
     - media_library
     - media_release
     - path
@@ -46,21 +48,17 @@ content:
     third_party_settings: {  }
     region: content
   field_media:
-    type: inline_entity_form_complex
+    type: media_library_widget
     weight: 6
     settings:
-      form_mode: default
-      override_labels: false
-      label_singular: ''
-      label_plural: ''
-      collapsible: false
-      collapsed: false
-      allow_new: true
-      allow_existing: false
-      match_operator: CONTAINS
-      allow_duplicate: false
-      revision: false
+      media_types: {  }
     third_party_settings: {  }
+    region: content
+  field_publish_date:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_tags:
     weight: 8
@@ -123,4 +121,5 @@ content:
       match_limit: 10
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_image: true

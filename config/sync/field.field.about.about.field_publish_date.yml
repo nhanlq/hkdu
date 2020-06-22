@@ -1,0 +1,21 @@
+uuid: 4137dd30-f1c6-48ed-b6ed-2961d77957ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.about.field_publish_date
+  module:
+    - about
+    - datetime
+id: about.about.field_publish_date
+field_name: field_publish_date
+entity_type: about
+bundle: about
+label: 'Publish Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

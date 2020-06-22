@@ -1,0 +1,21 @@
+uuid: c10a3b8a-1125-4246-b12b-95fe09224d63
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.news.field_publish_date
+  module:
+    - datetime
+    - news
+id: news.news.field_publish_date
+field_name: field_publish_date
+entity_type: news
+bundle: news
+label: 'Publish Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

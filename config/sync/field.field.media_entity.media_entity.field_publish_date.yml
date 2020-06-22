@@ -1,0 +1,21 @@
+uuid: 2b9e2f6e-54ed-41c5-9e3c-169eb003cb59
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media_entity.field_publish_date
+  module:
+    - datetime
+    - media_release
+id: media_entity.media_entity.field_publish_date
+field_name: field_publish_date
+entity_type: media_entity
+bundle: media_entity
+label: 'Publish Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

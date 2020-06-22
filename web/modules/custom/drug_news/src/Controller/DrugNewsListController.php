@@ -57,8 +57,8 @@ class DrugNewsListController extends ControllerBase
                 ->condition('field_tags', $tid)
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
-                ->sort('created','DESC')
-                ->pager(15)
+                ->sort('field_publish_date','DESC')
+                ->pager(10)
                 ->execute();
         } elseif (isset($_GET['keys'])) {
             $ids = \Drupal::entityQuery('drug_news')
@@ -66,16 +66,16 @@ class DrugNewsListController extends ControllerBase
                 ->condition('field_expired',$currentDate,'>=')
                 ->condition('name', $_GET['keys'], 'CONTAINS')
                 ->sort('field_weight','ASC')
-                ->sort('created','DESC')
-                ->pager(15)
+                ->sort('field_publish_date','DESC')
+                ->pager(10)
                 ->execute();
         } else {
             $ids = \Drupal::entityQuery('drug_news')
                 ->condition('status', 1)
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
-                ->sort('created','DESC')
-                ->pager(15)
+                ->sort('field_publish_date','DESC')
+                ->pager(10)
                 ->execute();
         }
         $result = DrugNews::loadMultiple($ids);

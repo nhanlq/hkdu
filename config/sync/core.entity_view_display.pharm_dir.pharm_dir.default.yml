@@ -14,11 +14,13 @@ dependencies:
     - field.field.pharm_dir.pharm_dir.field_order_form
     - field.field.pharm_dir.pharm_dir.field_phone
     - field.field.pharm_dir.pharm_dir.field_price_list
+    - field.field.pharm_dir.pharm_dir.field_publish_date
     - field.field.pharm_dir.pharm_dir.field_sales_visit
     - field.field.pharm_dir.pharm_dir.field_thumb
     - field.field.pharm_dir.pharm_dir.field_website
     - field.field.pharm_dir.pharm_dir.field_weight
   module:
+    - datetime
     - link
     - options
     - pharm_dir
@@ -131,6 +133,15 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
+  field_publish_date:
+    weight: 17
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_sales_visit:
     weight: 9

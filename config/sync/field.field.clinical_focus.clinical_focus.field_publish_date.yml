@@ -1,0 +1,21 @@
+uuid: 14fc50ec-596f-4ae6-948a-0614fdae0b70
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.clinical_focus.field_publish_date
+  module:
+    - clinical_focus
+    - datetime
+id: clinical_focus.clinical_focus.field_publish_date
+field_name: field_publish_date
+entity_type: clinical_focus
+bundle: clinical_focus
+label: 'Publish Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

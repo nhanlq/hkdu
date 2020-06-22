@@ -32,7 +32,7 @@
                                 {#<div class="ArticleCard__Avatar-jc3vpl-1 iFBalX"></div>#}
                                 {#{{ about.Owner.name.value }}#}
                             {#</div>#}
-                            <span class="ArticleCard__Date-jc3vpl-2 kASIaT">{{ about.created.value|date("Y-m-d") }}</span></div>
+                            <span class="ArticleCard__Date-jc3vpl-2 kASIaT">{{ about.field_publish_date.value|date("Y-m-d") }}</span></div>
                     </div>
                     <div class="CardMeta__MetaContent-mwcsl3-0 isAOXn">
                         <div><h3 class="CardMeta__Title-mwcsl3-1 flCmuI">{{ about.name.value }}</h3>
@@ -47,5 +47,6 @@
         </div>
       {% endfor %}
     </div>
+    {{ pager }}
 </div>
 {% endif %}

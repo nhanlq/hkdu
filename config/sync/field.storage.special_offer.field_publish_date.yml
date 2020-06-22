@@ -1,0 +1,24 @@
+uuid: acc49b01-f1c3-424a-960a-c22b6fc6e4d5
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - field_permissions
+    - special_offer
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: special_offer.field_publish_date
+field_name: field_publish_date
+entity_type: special_offer
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

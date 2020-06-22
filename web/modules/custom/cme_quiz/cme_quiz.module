@@ -104,7 +104,8 @@ function checkQuizStatusUser($quiz_id)
 function checkExpiredQuiz($quiz)
 {
     $current = time();
-    $date = strtotime($quiz->get('field_expired')->value . ' 00:00:00');
+    //var_dump($quiz->get('field_expired')->value);die;
+    $date = strtotime($quiz->get('field_expired')->value);
     if ($current > $date) {
         return true;
     } else {

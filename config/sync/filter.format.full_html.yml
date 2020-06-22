@@ -41,6 +41,17 @@ filters:
     status: true
     weight: -45
     settings: {  }
+  blazy_filter:
+    id: blazy_filter
+    provider: blazy
+    status: false
+    weight: -41
+    settings:
+      filter_tags:
+        img: img
+        iframe: iframe
+      media_switch: ''
+      use_data_uri: '0'
   filter_html:
     id: filter_html
     provider: filter
@@ -75,17 +86,6 @@ filters:
     status: true
     weight: -49
     settings: {  }
-  blazy_filter:
-    id: blazy_filter
-    provider: blazy
-    status: false
-    weight: -41
-    settings:
-      filter_tags:
-        img: img
-        iframe: iframe
-      media_switch: ''
-      use_data_uri: '0'
   filter_html_escape:
     id: filter_html_escape
     provider: filter

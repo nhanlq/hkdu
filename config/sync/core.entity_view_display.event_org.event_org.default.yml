@@ -9,9 +9,12 @@ dependencies:
     - field.field.event_org.event_org.field_fax
     - field.field.event_org.event_org.field_media
     - field.field.event_org.event_org.field_phone
+    - field.field.event_org.event_org.field_publish_date
     - field.field.event_org.event_org.field_short_name
+    - field.field.event_org.event_org.field_weight
   module:
     - cme_event_organizer
+    - datetime
     - text
     - user
 id: event_org.event_org.default
@@ -19,6 +22,11 @@ targetEntityType: event_org
 bundle: event_org
 mode: default
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_address:
     weight: 4
     label: above
@@ -65,6 +73,15 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_publish_date:
+    weight: 9
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_short_name:
     weight: 7
     label: above
@@ -72,6 +89,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_weight:
+    weight: 8
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   name:
     label: hidden

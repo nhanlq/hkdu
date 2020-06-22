@@ -36,7 +36,7 @@ class DrugNewHomeBlock extends BlockBase {
                 ->condition('field_is_home',1)
                 ->condition('field_expired',$currentDate,'>=')
                 ->range(0,5)
-                ->sort('created','DESC')
+                ->sort('field_publish_date','DESC')
                 ->execute();
         $result = \Drupal\drug_news\Entity\DrugNews::loadMultiple($ids);
         return $result;
@@ -50,7 +50,7 @@ class DrugNewHomeBlock extends BlockBase {
             ->condition('field_is_home',1)
             ->condition('field_expired',$currentDate,'>=')
             ->range(0,3)
-            ->sort('changed','DESC')
+            ->sort('field_publish_date','DESC')
             ->sort('name','ASC')
             ->execute();
         $result = \Drupal\drug_search\Entity\DrugSearch::loadMultiple($ids);

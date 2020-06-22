@@ -1,0 +1,21 @@
+uuid: bb1e8edc-8424-48da-a70b-cb054513c961
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event_org.field_publish_date
+  module:
+    - cme_event_organizer
+    - datetime
+id: event_org.event_org.field_publish_date
+field_name: field_publish_date
+entity_type: event_org
+bundle: event_org
+label: 'Publish Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

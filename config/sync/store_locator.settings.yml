@@ -63,10 +63,10 @@ list:
 title: 'Doctor Clinic Locator'
 message: 'No Doictor Clinic Locator Record Found.'
 logo_style: thumbnail
-marker: '352'
+marker: '522'
 marker_width: '50'
 marker_height: '50'
-api_key: AIzaSyAKgNrmyy8HuIAyowslDmnp6kc62JOB2Po
+api_key: AIzaSyC14CiToSiJpgLZkqVsIOYQ073ttuZehm4
 _core:
   default_config_hash: rkVusYd0TqSp9LJcrKTHp0WsJFKEqlH03gROKpaddf8
 infowindow_direction: 1

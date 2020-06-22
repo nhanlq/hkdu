@@ -20,7 +20,7 @@ settings:
   id: 'views_block:my_scores-block_2'
   label: ''
   provider: views
-  label_display: visible
+  label_display: '0'
   views_label: ''
   items_per_page: none
   context_mapping: {  }

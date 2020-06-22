@@ -66,32 +66,32 @@ class DrugSearchListController extends ControllerBase {
                 ->condition('name', $_GET['keys'], 'CONTAINS')
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
-                ->sort('created','DESC')
-                ->pager(15)
+                ->sort('field_publish_date','DESC')
+                ->pager(10)
                 ->execute();
             $id2 = \Drupal::entityQuery('drug_search')
                 ->condition('status', 1)
                 ->condition('field_description', $_GET['keys'], 'CONTAINS')
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
-                ->sort('created','DESC')
-                ->pager(15)
+                ->sort('field_publish_date','DESC')
+                ->pager(10)
                 ->execute();
             $id3 = \Drupal::entityQuery('drug_search')
                 ->condition('status', 1)
                 ->condition('field_active_ingredients', $_GET['keys'], 'CONTAINS')
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
-                ->sort('created','DESC')
-                ->pager(15)
+                ->sort('field_publish_date','DESC')
+                ->pager(10)
                 ->execute();
             $id4 = \Drupal::entityQuery('drug_search')
                 ->condition('status', 1)
                 ->condition('field_indications', $_GET['keys'], 'CONTAINS')
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
-                ->sort('created','DESC')
-                ->pager(15)
+                ->sort('field_publish_date','DESC')
+                ->pager(10)
                 ->execute();
             $ids = array_merge($id1,$id2, $id3, $id4);
         }elseif (isset($_GET['name']) && !empty($_GET['name'])) {
@@ -100,8 +100,8 @@ class DrugSearchListController extends ControllerBase {
                 ->condition('name', $_GET['name'], 'CONTAINS')
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
-                ->sort('created','DESC')
-                ->pager(15)
+                ->sort('field_publish_date','DESC')
+                ->pager(10)
                 ->execute();
         } elseif (isset($_GET['ing']) && !empty($_GET['ing'])) {
             $ids = \Drupal::entityQuery('drug_search')
@@ -109,8 +109,8 @@ class DrugSearchListController extends ControllerBase {
                 ->condition('field_active_ingredients', $_GET['ing'], 'CONTAINS')
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
-                ->sort('created','DESC')
-                ->pager(15)
+                ->sort('field_publish_date','DESC')
+                ->pager(10)
                 ->execute();
         }
         elseif (isset($_GET['ind']) && !empty($_GET['ind'])) {
@@ -119,8 +119,8 @@ class DrugSearchListController extends ControllerBase {
                 ->condition('field_indications', $_GET['ind'], 'CONTAINS')
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
-                ->sort('created','DESC')
-                ->pager(15)
+                ->sort('field_publish_date','DESC')
+                ->pager(10)
                 ->execute();
         }elseif(isset($_GET['tags']) && !empty($_GET['tags'])){
             $tid = $this->getTagsTid($_GET['tags']);
@@ -129,8 +129,8 @@ class DrugSearchListController extends ControllerBase {
                 ->condition('field_drug_classification', $tid)
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
-                ->sort('created','DESC')
-                ->pager(15)
+                ->sort('field_publish_date','DESC')
+                ->pager(10)
                 ->execute();
         }
         else {
@@ -138,8 +138,8 @@ class DrugSearchListController extends ControllerBase {
                 ->condition('status', 1)
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
-                ->sort('created','DESC')
-                ->pager(15)
+                ->sort('field_publish_date','DESC')
+                ->pager(10)
                 ->execute();
         }
         $result = \Drupal\drug_search\Entity\DrugSearch::loadMultiple($ids);
