@@ -1,0 +1,25 @@
+uuid: fd576642-9bb9-4ab6-89c7-cab19e1208b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_guide_info
+  module:
+    - markup
+    - user
+id: user.user.field_guide_info
+field_name: field_guide_info
+entity_type: user
+bundle: user
+label: 'Guide info'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p>Please follow the following protocol for registration:</p>\r\n\r\n<ol>\r\n\t<li>Fill in the below registration form</li>\r\n\t<li>You will receive a verification email automatically. Click on the link included to verify your email address. If you cannot find this email, please check if it has fallen into your SPAM folder.</li>\r\n\t<li>Your account will not be active, until the HKDU Secretariat have checked and verify all the data you have submitted is correct. This is done for protection of all our doctors against unidentified illegitimate access</li>\r\n\t<li>Upon successful verification, you will receive another email of notification.</li>\r\n\t<li>You're all set with a new account, and you can access all CME Video Lectures and CME scores in the site.</li>\r\n</ol>\r\n"
+    format: full_html
+field_type: markup

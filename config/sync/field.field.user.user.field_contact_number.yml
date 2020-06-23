@@ -11,9 +11,9 @@ id: user.user.field_contact_number
 field_name: field_contact_number
 entity_type: user
 bundle: user
-label: 'Contact Number'
+label: 'Mobile (you might be contacted by our secretariat for verification of identity)'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

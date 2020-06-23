@@ -7,17 +7,43 @@ dependencies:
     - field.field.user.user.commerce_remote_id
     - field.field.user.user.field_contact_number
     - field.field.user.user.field_first_name
+    - field.field.user.user.field_guide_info
     - field.field.user.user.field_last_name
+    - field.field.user.user.field_mchk_license
+    - field.field.user.user.field_membership_type
     - field.field.user.user.field_organization
     - field.field.user.user.field_point
+    - field.field.user.user.field_policy
     - field.field.user.user.field_registration_no
     - field.field.user.user.field_specialty
     - field.field.user.user.user_picture
-    - image.style.thumbnail
   module:
-    - image
+    - field_group
+    - markup
     - telephone
     - user
+third_party_settings:
+  field_group:
+    group_register_group:
+      children:
+        - account
+        - field_first_name
+        - field_last_name
+        - field_contact_number
+        - field_registration_no
+        - field_mchk_license
+        - field_membership_type
+        - field_policy
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      region: content
+      format_settings:
+        description: ''
+        required_fields: true
+        id: ''
+        classes: register-group
+      label: ''
 _core:
   default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
 id: user.user.register
@@ -26,49 +52,67 @@ bundle: user
 mode: register
 content:
   account:
-    weight: 4
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_contact_number:
     type: telephone_default
-    weight: 2
+    weight: 5
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_first_name:
     type: string_textfield
-    weight: 0
+    weight: 3
     region: content
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_guide_info:
+    type: markup
+    weight: 0
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_last_name:
     type: string_textfield
-    weight: 1
+    weight: 4
     region: content
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_mchk_license:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_membership_type:
+    type: options_select
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_policy:
+    type: markup
+    weight: 9
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_registration_no:
     type: string_textfield
-    weight: 5
+    weight: 6
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  user_picture:
-    type: image_image
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    weight: 3
-    region: content
 hidden:
   commerce_remote_id: true
   contact: true
@@ -85,3 +129,4 @@ hidden:
   path: true
   timezone: true
   translation: true
+  user_picture: true

@@ -32,6 +32,9 @@ function hkdu_preprocess_html(&$variables)
 
         $variables['attributes']['class'][] = 'doctor-detail-page';
     }
+    if ($path[1] == 'user' && $path[2] == 'login' || $path[1] == 'user' && $path[2] == 'password') {
+        $variables['attributes']['class'][] = 'page-user-login';
+    }
 
 }
 
@@ -289,7 +292,7 @@ function template_preprocess_special_offer(array &$variables)
     if (in_array('administrator', $current_roles)) {
         $au = true;
     }
-    if($user->id() == $current_user->id()){
+    if ($user->id() == $current_user->id()) {
         $au = true;
     }
     if (!$au) {
@@ -342,7 +345,7 @@ function template_preprocess_event(array &$variables)
     if (in_array('administrator', $current_roles)) {
         $au = true;
     }
-    if($user->id() == $current_user->id()){
+    if ($user->id() == $current_user->id()) {
         $au = true;
     }
     if (!$au) {
@@ -398,7 +401,7 @@ function template_preprocess_drug_search(array &$variables)
     if (in_array('administrator', $current_roles)) {
         $au = true;
     }
-    if($user->id() == $current_user->id()){
+    if ($user->id() == $current_user->id()) {
         $au = true;
     }
     if (!$au) {
@@ -448,7 +451,7 @@ function template_preprocess_pharm_dir(array &$variables)
     if (in_array('administrator', $current_roles)) {
         $au = true;
     }
-    if($user->id() == $current_user->id()){
+    if ($user->id() == $current_user->id()) {
         $au = true;
     }
     if (!$au) {
@@ -502,7 +505,7 @@ function template_preprocess_cme_event(array &$variables)
     if (in_array('administrator', $current_roles)) {
         $au = true;
     }
-    if($user->id() == $current_user->id()){
+    if ($user->id() == $current_user->id()) {
         $au = true;
     }
     if (!$au) {

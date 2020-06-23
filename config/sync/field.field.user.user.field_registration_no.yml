@@ -17,7 +17,7 @@ id: user.user.field_registration_no
 field_name: field_registration_no
 entity_type: user
 bundle: user
-label: 'Registration No'
+label: 'HKDU Membership Number (mandatory field)'
 description: ''
 required: true
 translatable: false

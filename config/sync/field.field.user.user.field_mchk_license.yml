@@ -1,9 +1,9 @@
-uuid: 124d456a-bafb-40b5-b8ca-1da212fa8664
+uuid: 488522ab-8ed1-408e-8ebd-4e765efc15b4
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_first_name
+    - field.storage.user.field_mchk_license
   module:
     - unique_field_ajax
     - user
@@ -13,13 +13,13 @@ third_party_settings:
     per_lang: 0
     use_ajax: 0
     message: ''
-id: user.user.field_first_name
-field_name: field_first_name
+id: user.user.field_mchk_license
+field_name: field_mchk_license
 entity_type: user
 bundle: user
-label: 'First Name'
+label: 'MCHK License Number (mandatory field)'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

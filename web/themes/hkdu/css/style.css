@@ -2857,3 +2857,40 @@ a .date, a .author{
 .path-user .panel-heading .panel-title{
     font-size: 18px;
 }
+#edit-field-guide-info-wrapper{
+    border-top: 4px solid #4560b0;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    padding: 15px;
+
+}
+#user-register-form #edit-submit{
+    float: left;
+    margin-right: 15px;
+}
+.login-link{
+    padding-top: 5px;
+}
+.page-user-login .container{
+    width: 400px;
+}
+.page-user-login #edit-actions{
+    margin-top: 20px;
+}
+.password-link{
+    margin-left: 30px;
+}
+.register-link{
+    margin-top: 20px;
+}
+.page-user-login .ilDcLX{
+    background: transparent;
+
+}
+#user-pass #edit-submit{
+    float: left;
+    margin-right: 20px;
+}

@@ -6,9 +6,13 @@ dependencies:
     - field.field.user.user.commerce_remote_id
     - field.field.user.user.field_contact_number
     - field.field.user.user.field_first_name
+    - field.field.user.user.field_guide_info
     - field.field.user.user.field_last_name
+    - field.field.user.user.field_mchk_license
+    - field.field.user.user.field_membership_type
     - field.field.user.user.field_organization
     - field.field.user.user.field_point
+    - field.field.user.user.field_policy
     - field.field.user.user.field_registration_no
     - field.field.user.user.field_specialty
     - field.field.user.user.user_picture
@@ -16,6 +20,8 @@ dependencies:
   module:
     - field_group
     - image
+    - markup
+    - options
     - telephone
     - user
 third_party_settings:
@@ -28,7 +34,8 @@ third_party_settings:
         - field_first_name
         - field_last_name
         - field_contact_number
-        - field_organization
+        - field_mchk_license
+        - field_membership_type
         - field_specialty
       parent_name: ''
       weight: 0
@@ -62,6 +69,13 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_guide_info:
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_last_name:
     weight: 5
     label: inline
@@ -70,13 +84,27 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_organization:
+  field_mchk_license:
     weight: 7
-    label: inline
+    label: above
     settings:
-      link: true
+      link_to_entity: false
     third_party_settings: {  }
-    type: entity_reference_label
+    type: string
+    region: content
+  field_membership_type:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_policy:
+    weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
     region: content
   field_registration_no:
     weight: 3
@@ -88,7 +116,7 @@ content:
     region: content
   field_specialty:
     type: string
-    weight: 8
+    weight: 10
     region: content
     label: inline
     settings:
@@ -114,6 +142,7 @@ hidden:
   customer_profiles: true
   doctor_profiles: true
   drug_supplier_profiles: true
+  field_organization: true
   field_point: true
   hkdu_member_profiles: true
   langcode: true

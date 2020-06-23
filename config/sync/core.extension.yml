@@ -99,6 +99,7 @@ module:
   locale: 0
   mail_login: 0
   mailsystem: 0
+  markup: 0
   media: 0
   media_library: 0
   media_release: 0

@@ -1,0 +1,25 @@
+uuid: 38f64631-566c-4f03-9a53-f578dbcad3de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_policy
+  module:
+    - markup
+    - user
+id: user.user.field_policy
+field_name: field_policy
+entity_type: user
+bundle: user
+label: Policy
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p><strong>Note:</strong></p>\r\n\r\n<p>The email will be sent by HKDU. You may also check your SPAM folder if you don't receive the verification email within 24 hours</p>\r\n\r\n<p>The Secretariat might contact you further in case the data entered does not match the HKDU record.</p>\r\n\r\n<p>If you wish to join HKDU as member, please download this&nbsp;<a href=\"/sites/default/files/FORM101 (revised 20180821).doc\" target=\"_blank\">Membership Form</a>.&nbsp;<i></i></p>\r\n"
+    format: full_html
+field_type: markup
