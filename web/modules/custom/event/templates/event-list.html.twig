@@ -50,7 +50,8 @@
 
     <div display="flex" class="fSsnif">
         {% for event in events %}
-            <div class="
+            <div class=" event
+            {% if loop.index%3 == 0 %} end {% endif %}
             {% if event.expired %}
             bSHJMg
             {% else %}

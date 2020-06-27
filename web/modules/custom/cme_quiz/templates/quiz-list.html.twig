@@ -51,6 +51,7 @@
     <div display="flex" class="fSsnif">
         {% for quiz in quizs %}
             <div class="event
+            {% if loop.index%3 == 0 %} end {% endif %}
             {% if quiz.expired %}
             bSHJMg
             {% else %}

@@ -49,8 +49,9 @@
     </div>
 
     <div display="flex" class="fSsnif">
-        {% for event in events %}
-            <div class="event
+        {% for key,event in events %}
+            <div class="event {{ loop.index }}
+            {% if loop.index%3 ==0 %} end {% endif %}
             {% if event.expired %}
             bSHJMg
             {% else %}

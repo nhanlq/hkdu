@@ -6,7 +6,8 @@
     </div>
     <div display="flex" class="fSsnif">
         {% for event in events %}
-            <div class="eBeRpv">
+            <div class="eBeRpv event
+            {% if loop.index%3 == 0 %} end {% endif %} ">
                 <a class="fOtgzp" href="{{ path('entity.event.canonical', {'event': event.id.value}) }}">
                     <div class="kZuHUf">
                         <div class="giwJrm">

@@ -2457,6 +2457,12 @@ a .date, a .author{
 }
 
 @media screen and (min-width: 992px) {
+    .fSsnif .end{
+        margin-right: 0px!important;
+    }
+    .fSsnif .event{
+        margin-right: 33px;
+    }
     .advance_search_detail .hxkgST{
         width: 40%;
     }
@@ -2470,7 +2476,7 @@ a .date, a .author{
     }
 
     .bSHJMg {
-        width: 31.3333%;
+        width: 31%;
     }
 
     .menu--epharm, .menu--cme {
@@ -2894,9 +2900,4 @@ a .date, a .author{
     float: left;
     margin-right: 20px;
 }
-.fSsnif .event:last-child{
-    margin-right: 0px;
-}
-.fSsnif .event{
-    margin-right: 33px;
-}
+
