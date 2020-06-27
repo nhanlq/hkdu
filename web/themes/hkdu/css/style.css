@@ -2894,10 +2894,10 @@ a .date, a .author{
     float: left;
     margin-right: 20px;
 }
-.cme-event .fSsnif div:last-child{
+.cme-event .fSsnif > div:last-child{
     margin-right: 0px;
 }
-.cme-event .fSsnif div{
+.cme-event .fSsnif > div{
     margin-right: 33px;
 }
 .cme-event .leBAWZ .fSsnif{
