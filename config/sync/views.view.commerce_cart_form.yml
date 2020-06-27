@@ -65,9 +65,37 @@ display:
           summary: ''
           description: ''
           columns:
-            order_number: order_number
+            purchased_entity: purchased_entity
+            unit_price__number: unit_price__number
+            edit_quantity: edit_quantity
+            remove_button: remove_button
+            total_price__number: total_price__number
           info:
-            order_number:
+            purchased_entity:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            unit_price__number:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            edit_quantity:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            remove_button:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            total_price__number:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -133,9 +161,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: entity_reference_entity_view
+          type: entity_reference_label
           settings:
-            view_mode: cart
+            link: false
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -274,7 +302,7 @@ display:
           group_type: group
           admin_label: ''
           label: Remove
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
