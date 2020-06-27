@@ -2894,3 +2894,12 @@ a .date, a .author{
     float: left;
     margin-right: 20px;
 }
+.fSsnif .eBeRpv:last-child{
+    margin-right: 0px;
+}
+.fSsnif .eBeRpv{
+    margin-right: 33px;
+}
+.leBAWZ .fSsnif{
+    justify-content:end;
+}

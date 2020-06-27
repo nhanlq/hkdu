@@ -20,7 +20,6 @@ dependencies:
   module:
     - field_group
     - image
-    - markup
     - options
     - telephone
     - user
@@ -69,13 +68,6 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_guide_info:
-    weight: 11
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
   field_last_name:
     weight: 5
     label: inline
@@ -98,13 +90,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: list_default
-    region: content
-  field_policy:
-    weight: 12
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
     region: content
   field_registration_no:
     weight: 3
@@ -142,8 +127,10 @@ hidden:
   customer_profiles: true
   doctor_profiles: true
   drug_supplier_profiles: true
+  field_guide_info: true
   field_organization: true
   field_point: true
+  field_policy: true
   hkdu_member_profiles: true
   langcode: true
   search_api_excerpt: true
