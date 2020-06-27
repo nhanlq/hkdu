@@ -1499,7 +1499,7 @@ select.epharm-switch {
     display: flex;
     flex-wrap: wrap;
     position: relative;
-  justify-content: space-between;
+  justify-content: end;
 }
 
 .eBeRpv {
