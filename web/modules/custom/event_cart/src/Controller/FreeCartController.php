@@ -87,7 +87,7 @@ class FreeCartController extends ControllerBase {
               \Drupal::messenger()->addMessage(t('Your message has been sent.'));
           }
           $event = false;
-          $url = '/cme/event/'.$id;
+          $url = '/cme/events/'.$id;
 
       }
 
