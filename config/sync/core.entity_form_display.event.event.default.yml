@@ -13,6 +13,7 @@ dependencies:
     - field.field.event.event.field_free_price_text
     - field.field.event.event.field_is_home
     - field.field.event.event.field_location
+    - field.field.event.event.field_member_price
     - field.field.event.event.field_price
     - field.field.event.event.field_tags
     - field.field.event.event.field_time
@@ -100,6 +101,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+    region: content
+  field_member_price:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: commerce_price_default
     region: content
   field_price:
     weight: 12

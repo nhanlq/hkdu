@@ -1,0 +1,23 @@
+uuid: f2099b9b-6e88-4e34-9eaa-fd3cc8a413c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event.field_member_price
+  module:
+    - commerce_price
+    - event
+id: event.event.field_member_price
+field_name: field_member_price
+entity_type: event
+bundle: event
+label: 'Member Price'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_currencies:
+    - '0'
+field_type: commerce_price
