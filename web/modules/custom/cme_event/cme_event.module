@@ -65,7 +65,7 @@ function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
 {
 
     // Insert the new entity into a fictional table of all entities.
-    if ($entity->getEntityTypeId() == 'cme_event') {
+    if ($entity->getEntityTypeId() == 'cme_event' | $entity->getEntityTypeId() == 'event') {
         // create variation first
         $variation = ProductVariation::create([
             'type' => 'default',
@@ -76,13 +76,23 @@ function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
         $variation->save();
 
         // Create product using variations previously saved
+        if($entity->getEntityTypeId() == 'cme_event'){
+            $product = Product::create([
+                'type' => 'default',
+                'title' => $entity->get('name')->value,
+                'field_cme_event' => $entity->id(),
+                'variations' => [$variation],
+            ]);
+        }else{
+            $product = Product::create([
+                'type' => 'default',
+                'title' => $entity->get('name')->value,
+                'field_event' => $entity->id(),
+                'variations' => [$variation],
+            ]);
+        }
 
-        $product = Product::create([
-            'type' => 'default',
-            'title' => $entity->get('name')->value,
-            'field_cme_event' => $entity->id(),
-            'variations' => [$variation],
-        ]);
+
         $product->save();
 
         //create promotion if have pricelist
@@ -177,8 +187,8 @@ function cme_event_entity_update(Drupal\Core\Entity\EntityInterface $entity)
 {
 
     // Insert the new entity into a fictional table of all entities.
-    if ($entity->getEntityTypeId() == 'cme_event') {
-        if (!getCmeProductEvent($entity->id())) {
+    if ($entity->getEntityTypeId() == 'cme_event' | $entity->getEntityTypeId() == 'event') {
+        if (!getCmeProductEvent($entity->id(), $entity->getEntityTypeId())) {
             // create variation first
             $variation = ProductVariation::create([
                 'type' => 'default',
@@ -189,13 +199,22 @@ function cme_event_entity_update(Drupal\Core\Entity\EntityInterface $entity)
             $variation->save();
 
             // Create product using variations previously saved
+            if($entity->getEntityTypeId() == 'cme_event'){
+                $product = Product::create([
+                    'type' => 'default',
+                    'title' => $entity->get('name')->value,
+                    'field_cme_event' => $entity->id(),
+                    'variations' => [$variation],
+                ]);
+            }else{
+                $product = Product::create([
+                    'type' => 'default',
+                    'title' => $entity->get('name')->value,
+                    'field_event' => $entity->id(),
+                    'variations' => [$variation],
+                ]);
+            }
 
-            $product = Product::create([
-                'type' => 'default',
-                'title' => $entity->get('name')->value,
-                'field_cme_event' => $entity->id(),
-                'variations' => [$variation],
-            ]);
             $product->save();
             //create promotion if have pricelist
             if ($entity->get('field_member_price')->number > 0) {
@@ -247,7 +266,7 @@ function cme_event_entity_update(Drupal\Core\Entity\EntityInterface $entity)
                 $promotion->save();
             }
         }else{
-            $product = getCmeProductEvent($entity->id());
+            $product = getCmeProductEvent($entity->id(), $entity->getEntityTypeId());
             $arr_product = $product->toArray();
             $variation = ProductVariation::load($arr_product['variations'][0]['target_id']);
             $variation->set('price', new Price($entity->get('field_price')->number, 'HKD'));
@@ -321,13 +340,22 @@ function deletePromotion($id){
     return $Prid;
 }
 
-function getCmeProductEvent($event_id)
+function getCmeProductEvent($event_id, $type=null)
 {
-    $ids = \Drupal::entityQuery('commerce_product')
-        ->condition('type', 'default')
-        ->condition('status', 1)
-        ->condition('field_cme_event', $event_id)
-        ->execute();
+    if($type=='cme_event'){
+        $ids = \Drupal::entityQuery('commerce_product')
+            ->condition('type', 'default')
+            ->condition('status', 1)
+            ->condition('field_cme_event', $event_id)
+            ->execute();
+    }else{
+        $ids = \Drupal::entityQuery('commerce_product')
+            ->condition('type', 'default')
+            ->condition('status', 1)
+            ->condition('field_event', $event_id)
+            ->execute();
+    }
+
     $results = \Drupal\commerce_product\Entity\Product::loadMultiple($ids);
     $result = reset($results);
     return $result;
