@@ -56,26 +56,26 @@ function event_theme($existing, $type, $theme, $path) {
 function event_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
 
     // Insert the new entity into a fictional table of all entities.
-    if($entity->getEntityTypeId() =='event'){
-        // create variation first
-        $variation = ProductVariation::create([
-            'type' => 'default',
-            'sku' => 'EVENT-'.$entity->id(),
-            'price' => new Price($entity->get('field_price')->number, 'HKD'),
-        ]);
-        $variation->save();
-
-        // Create product using variations previously saved
-
-        $product = Product::create([
-            'type' => 'default',
-            'title' => $entity->get('name')->value,
-            'field_event' => $entity->id(),
-            'variations' => [$variation],
-        ]);
-        $product->save();
-
-    }
+//    if($entity->getEntityTypeId() =='event'){
+//        // create variation first
+//        $variation = ProductVariation::create([
+//            'type' => 'default',
+//            'sku' => 'EVENT-'.$entity->id(),
+//            'price' => new Price($entity->get('field_price')->number, 'HKD'),
+//        ]);
+//        $variation->save();
+//
+//        // Create product using variations previously saved
+//
+//        $product = Product::create([
+//            'type' => 'default',
+//            'title' => $entity->get('name')->value,
+//            'field_event' => $entity->id(),
+//            'variations' => [$variation],
+//        ]);
+//        $product->save();
+//
+//    }
 
 }
 
@@ -83,27 +83,27 @@ function event_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
 function event_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
 
     // Insert the new entity into a fictional table of all entities.
-    if($entity->getEntityTypeId() =='event'){
-        if(!getProductEvent($entity->id())){
-            // create variation first
-            $variation = ProductVariation::create([
-                'type' => 'default',
-                'sku' => 'EVENT-'.$entity->id(),
-                'price' => new Price($entity->get('field_price')->number, 'HKD'),
-            ]);
-            $variation->save();
-
-            // Create product using variations previously saved
-
-            $product = Product::create([
-                'type' => 'default',
-                'title' => $entity->get('name')->value,
-                'field_event' => $entity->id(),
-                'variations' => [$variation],
-            ]);
-            $product->save();
-        }
-    }
+//    if($entity->getEntityTypeId() =='event'){
+//        if(!getProductEvent($entity->id())){
+//            // create variation first
+//            $variation = ProductVariation::create([
+//                'type' => 'default',
+//                'sku' => 'EVENT-'.$entity->id(),
+//                'price' => new Price($entity->get('field_price')->number, 'HKD'),
+//            ]);
+//            $variation->save();
+//
+//            // Create product using variations previously saved
+//
+//            $product = Product::create([
+//                'type' => 'default',
+//                'title' => $entity->get('name')->value,
+//                'field_event' => $entity->id(),
+//                'variations' => [$variation],
+//            ]);
+//            $product->save();
+//        }
+//    }
 
 }
 
