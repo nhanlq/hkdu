@@ -324,6 +324,13 @@ function epharm_views_pre_render(\Drupal\views\ViewExecutable $view)
             $value->_entity->set('field_count', getResultEntity($value->_entity->get('id')->value, 'media_entity'));
         }
     }
+
+//    if ($view->id() == "manage_event_enrolled") {
+//        foreach ($view->result as $value) {
+//            // var_dump($value->_entity);
+//            $value->_entity->set('order_number', getResultEntity($value->_entity->get('id')->value, 'media_entity'));
+//        }
+//    }
 }
 
 function getResultEntity($id, $type)
