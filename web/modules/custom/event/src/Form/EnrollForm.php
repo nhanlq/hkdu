@@ -47,7 +47,7 @@ class EnrollForm extends FormBase
             '#type' => 'select',
             '#title' => $this->t('Event'),
             '#description' => $this->t('Choose event'),
-            '#options' => $this->getEvent(),
+            '#options' => $this->getEvents(),
             '#weight' => '3',
             '#required' =>true
         ];
