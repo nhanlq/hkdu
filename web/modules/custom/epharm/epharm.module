@@ -189,7 +189,7 @@ function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity)
             $module = 'epharm';
             $key = 'updatePost';
             $to = $user->getEmail();
-            $params['message'] = $entity->get('field_description')->value;
+            $params['message'] = isset($entity->get('field_description')->value) ? $entity->get('field_description')->value : $entity->getName();
             $params['title'] = $entity->getName();
             $params['user'] = $user->getDisplayName();
             $params['from'] = \Drupal::config('system.site')->get('mail');
