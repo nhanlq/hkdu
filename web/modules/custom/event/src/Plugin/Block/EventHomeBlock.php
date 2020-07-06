@@ -38,6 +38,7 @@ class EventHomeBlock extends BlockBase
             ->condition('field_expired',$currentDate,'>=')
             ->range(0,3)
             ->sort('created','DESC')
+            ->sort('field_weight','ASC')
             ->execute();
 
         $result = \Drupal\event\Entity\Event::loadMultiple($ids);

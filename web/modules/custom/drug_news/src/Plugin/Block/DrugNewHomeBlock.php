@@ -33,9 +33,9 @@ class DrugNewHomeBlock extends BlockBase {
         $currentDate = time();
             $ids = \Drupal::entityQuery('drug_news')
                 ->condition('status', 1)
-                ->condition('field_is_home',1)
                 ->condition('field_expired',$currentDate,'>=')
                 ->range(0,5)
+                ->sort('field_weight','ASC')
                 ->sort('field_publish_date','DESC')
                 ->execute();
         $result = \Drupal\drug_news\Entity\DrugNews::loadMultiple($ids);
@@ -50,8 +50,8 @@ class DrugNewHomeBlock extends BlockBase {
             ->condition('field_is_home',1)
             ->condition('field_expired',$currentDate,'>=')
             ->range(0,3)
+            ->sort('field_weight','ASC')
             ->sort('field_publish_date','DESC')
-            ->sort('name','ASC')
             ->execute();
         $result = \Drupal\drug_search\Entity\DrugSearch::loadMultiple($ids);
         return $result;
