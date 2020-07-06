@@ -20,7 +20,8 @@
         <div class="Grid__Box-f9ujw0-0 gcrakC">
             <div display="flex" class="Grid__Box-f9ujw0-0 Grid__Flex-f9ujw0-1 fSsnif">
                 {% for pharm in pharm_dir %}
-                    <div class="Grid__Box-f9ujw0-0 MedicalCardList__CardBox-sc-1wmqbcj-0 iRgpNO">
+                    <div class="event
+            {% if loop.index%3 == 0 %} end {% endif %} iRgpNO">
                         <a variant="vertical" class="Card__Wrapper-sc-1phbti1-0 kBceAS"
                            href="{{ path('entity.pharm_dir.canonical', {'pharm_dir': pharm.id.value}) }}">
                             <div class="Card__Cover-sc-1phbti1-1 eOFNUV"
