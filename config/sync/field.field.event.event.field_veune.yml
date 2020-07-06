@@ -1,0 +1,20 @@
+uuid: a9641651-2cd6-4cd4-aa1f-2a3b41d6de30
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event.field_veune
+  module:
+    - event
+id: event.event.field_veune
+field_name: field_veune
+entity_type: event
+bundle: event
+label: Veune
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

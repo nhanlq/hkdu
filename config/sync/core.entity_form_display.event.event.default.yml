@@ -15,8 +15,11 @@ dependencies:
     - field.field.event.event.field_location
     - field.field.event.event.field_member_price
     - field.field.event.event.field_price
+    - field.field.event.event.field_start_date
+    - field.field.event.event.field_start_time
     - field.field.event.event.field_tags
     - field.field.event.event.field_time
+    - field.field.event.event.field_veune
     - field.field.event.event.field_weight
     - workflows.workflow.editorial
   module:
@@ -103,7 +106,7 @@ content:
     type: string_textarea
     region: content
   field_member_price:
-    weight: 26
+    weight: 19
     settings: {  }
     third_party_settings: {  }
     type: commerce_price_default
@@ -176,4 +179,7 @@ content:
       match_limit: 10
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_start_date: true
+  field_start_time: true
+  field_veune: true
