@@ -153,7 +153,7 @@ display:
           id: field_first_name
           table: user__field_first_name
           field: field_first_name
-          relationship: user_id
+          relationship: field_user
           group_type: group
           admin_label: ''
           label: 'First Name'
@@ -216,7 +216,7 @@ display:
           id: field_last_name
           table: user__field_last_name
           field: field_last_name
-          relationship: user_id
+          relationship: field_user
           group_type: group
           admin_label: ''
           label: 'Last Name'
@@ -279,7 +279,7 @@ display:
           id: mail_1
           table: users_field_data
           field: mail
-          relationship: user_id
+          relationship: field_user
           group_type: group
           admin_label: ''
           label: Email
@@ -834,16 +834,14 @@ display:
           admin_label: 'field_event: Event'
           required: false
           plugin_id: standard
-        user_id:
-          id: user_id
-          table: event_tracking_field_data
-          field: user_id
+        field_user:
+          id: field_user
+          table: event_tracking__field_user
+          field: field_user
           relationship: none
           group_type: group
-          admin_label: User
+          admin_label: 'field_user: User'
           required: false
-          entity_type: event_tracking
-          entity_field: user_id
           plugin_id: standard
       arguments:
         id:

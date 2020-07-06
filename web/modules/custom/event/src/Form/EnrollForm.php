@@ -96,6 +96,7 @@ class EnrollForm extends FormBase
         //create user first with email
         //create order
         $user = user_load_by_mail($form_state->getValue('email'));
+       // var_dump($form_state->getValue('email'));die;
         if(!$user){
             $user = \Drupal\user\Entity\User::create(array(
                 'name' => $form_state->getValue('email'),
