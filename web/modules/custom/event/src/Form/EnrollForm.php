@@ -151,7 +151,7 @@ class EnrollForm extends FormBase
         $events = [];
         foreach ($result as $event){
             if(!checkExpiredEvent($event)){
-                $events[$event->id()] = $event->getTitle();
+                $events[$event->id()] = $event->getName();
             }
 
         }
