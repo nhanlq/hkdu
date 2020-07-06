@@ -36,7 +36,7 @@ class GalleryListController extends ControllerBase {
             ->condition('status', 1)
             ->sort('field_weight','ASC')
             ->sort('created','DESC')
-            ->pager(10)
+            ->pager(12)
             ->execute();
         $result = Gallery::loadMultiple($ids);
         return $result;

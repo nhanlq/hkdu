@@ -42,14 +42,14 @@ class PharmDirListController extends ControllerBase {
                 ->condition('name',$name,'CONTAINS')
                 ->sort('field_weight','ASC')
                 ->sort('field_publish_date','DESC')
-                ->pager(10)
+                ->pager(12)
                 ->execute();
         }else{
             $ids = \Drupal::entityQuery('pharm_dir')
                 ->condition('status', 1)
                 ->sort('field_weight','ASC')
                 ->sort('field_publish_date','DESC')
-                ->pager(10)
+                ->pager(12)
                 ->execute();
         }
 
