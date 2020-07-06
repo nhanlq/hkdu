@@ -34,8 +34,8 @@ class GalleryListController extends ControllerBase {
     {
         $ids = \Drupal::entityQuery('gallery')
             ->condition('status', 1)
-            ->sort('field_weight','ASC')
             ->sort('field_date','DESC')
+            ->sort('field_weight','ASC')
             ->pager(12)
             ->execute();
         $result = Gallery::loadMultiple($ids);
