@@ -35,7 +35,6 @@ class EventHomeBlock extends BlockBase
         $currentDate = time();
         $ids = \Drupal::entityQuery('event')
             ->condition('status', 1)
-            ->condition('field_is_home',1)
             ->condition('field_expired',$currentDate,'>=')
             ->range(0,3)
             ->sort('created','DESC')

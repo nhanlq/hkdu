@@ -145,7 +145,7 @@ class EnrollForm extends FormBase
     public function getEvents(){
         $ids = \Drupal::entityQuery('event')
             ->condition('status', 1)
-            ->sort('title','ASC')
+            ->sort('name','ASC')
             ->execute();
         $result = \Drupal\event\Entity\Event::loadMultiple($ids);
         $events = [];
