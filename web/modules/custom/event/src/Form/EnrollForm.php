@@ -155,7 +155,7 @@ class EnrollForm extends FormBase
             }
 
         }
-        return $event;
+        return $events;
     }
     public function getEventProduct($event_id){
         $ids = \Drupal::entityQuery('commerce_product')
