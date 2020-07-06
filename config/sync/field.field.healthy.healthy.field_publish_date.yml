@@ -1,16 +1,16 @@
-uuid: 14fc50ec-596f-4ae6-948a-0614fdae0b70
+uuid: aec3c684-86a1-4b21-97ad-01f6ea03ebd7
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.clinical_focus.field_publish_date
+    - field.storage.healthy.field_publish_date
   module:
-    - clinical_focus
     - datetime
-id: clinical_focus.clinical_focus.field_publish_date
+    - healthy
+id: healthy.healthy.field_publish_date
 field_name: field_publish_date
-entity_type: clinical_focus
-bundle: clinical_focus
+entity_type: healthy
+bundle: healthy
 label: 'Publish Date'
 description: ''
 required: true

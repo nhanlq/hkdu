@@ -8,12 +8,14 @@ dependencies:
     - field.field.healthy.healthy.field_file
     - field.field.healthy.healthy.field_is_home
     - field.field.healthy.healthy.field_media
+    - field.field.healthy.healthy.field_publish_date
     - field.field.healthy.healthy.field_tags
     - field.field.healthy.healthy.field_thumbnail
     - field.field.healthy.healthy.field_weight
     - workflows.workflow.editorial
   module:
     - content_moderation
+    - datetime
     - healthy
     - media_library
     - path
@@ -58,6 +60,12 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+    region: content
+  field_publish_date:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_tags:
     weight: 8

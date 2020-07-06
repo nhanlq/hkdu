@@ -1,17 +1,17 @@
-uuid: 723d42fb-348a-44cb-9046-8b3b6d0499ca
+uuid: 94f6291e-c6c3-4c98-9407-dc76a48b4488
 langcode: en
 status: true
 dependencies:
   module:
-    - cme_guidelines
     - datetime
     - field_permissions
+    - healthy
 third_party_settings:
   field_permissions:
     permission_type: public
-id: guidelines.field_publish_date
+id: healthy.field_publish_date
 field_name: field_publish_date
-entity_type: guidelines
+entity_type: healthy
 type: datetime
 settings:
   datetime_type: date

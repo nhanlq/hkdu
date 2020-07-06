@@ -6,6 +6,8 @@ dependencies:
     - field.storage.user.field_contact_number
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
+    - field.storage.user.field_mchk_license
+    - field.storage.user.field_membership_type
     - field.storage.user.field_point
     - field.storage.user.field_registration_no
     - field.storage.user.field_specialty
@@ -14,6 +16,7 @@ dependencies:
     - user.role.admins
   module:
     - csv_serialization
+    - options
     - rest
     - serialization
     - telephone
@@ -608,6 +611,194 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_registration_no_1:
+          id: field_registration_no_1
+          table: user__field_registration_no
+          field: field_registration_no
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'HKDU Membership Number (mandatory field)'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_mchk_license:
+          id: field_mchk_license
+          table: user__field_mchk_license
+          field: field_mchk_license
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'MCHK License Number (mandatory field)'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_membership_type:
+          id: field_membership_type
+          table: user__field_membership_type
+          field: field_membership_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Membership Type'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters: {  }
       sorts:
         field_first_name_value:
@@ -640,6 +831,8 @@ display:
         - 'config:field.storage.user.field_contact_number'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
+        - 'config:field.storage.user.field_mchk_license'
+        - 'config:field.storage.user.field_membership_type'
         - 'config:field.storage.user.field_point'
         - 'config:field.storage.user.field_registration_no'
         - 'config:field.storage.user.field_specialty'
@@ -685,6 +878,8 @@ display:
         - 'config:field.storage.user.field_contact_number'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
+        - 'config:field.storage.user.field_mchk_license'
+        - 'config:field.storage.user.field_membership_type'
         - 'config:field.storage.user.field_point'
         - 'config:field.storage.user.field_registration_no'
         - 'config:field.storage.user.field_specialty'
@@ -716,6 +911,8 @@ display:
         - 'config:field.storage.user.field_contact_number'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
+        - 'config:field.storage.user.field_mchk_license'
+        - 'config:field.storage.user.field_membership_type'
         - 'config:field.storage.user.field_point'
         - 'config:field.storage.user.field_registration_no'
         - 'config:field.storage.user.field_specialty'
