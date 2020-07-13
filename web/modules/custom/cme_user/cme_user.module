@@ -48,5 +48,5 @@ function cme_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_
 }
 
 function user_validation_membership(&$form, \Drupal\Core\Form\FormStateInterface $form_state){
-   
+
 }
