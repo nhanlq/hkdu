@@ -14,7 +14,9 @@ dependencies:
     - field.field.user.user.field_organization
     - field.field.user.user.field_point
     - field.field.user.user.field_policy
+    - field.field.user.user.field_referee
     - field.field.user.user.field_registration_no
+    - field.field.user.user.field_specialist_fellow_number
     - field.field.user.user.field_specialty
     - field.field.user.user.user_picture
     - image.style.thumbnail
@@ -52,7 +54,9 @@ hidden:
   field_organization: true
   field_point: true
   field_policy: true
+  field_referee: true
   field_registration_no: true
+  field_specialist_fellow_number: true
   field_specialty: true
   hkdu_member_profiles: true
   langcode: true

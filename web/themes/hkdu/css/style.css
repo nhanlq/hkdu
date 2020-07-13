@@ -1746,7 +1746,7 @@ select.epharm-switch {
 }
 
 .gsvDvo {
-    height: 360px;
+    height: auto;
     flex-direction: column;
     position: relative;
     display: flex;
@@ -1760,7 +1760,14 @@ select.epharm-switch {
     border-color: rgba(0, 0, 0, 0.1);
     text-decoration: none;
   border-top: 3px solid rgb(69, 96, 176);
+    min-height: 390px;
 
+}
+.leBAWZ.about-home{
+    margin-top: 0px;
+}
+.field--name-field-contact-number .form-control{
+    display: block;
 }
 
 .eRqUIg {

@@ -40,6 +40,11 @@ function media_release_theme($existing, $type, $theme, $path)
             'path' => $path . '/templates/',
             'template' => 'media-list'
         ],
+        'media_home' => [
+            'variables' => ['medias' => NULL, 'author'=>NULL, 'date' =>NULL],
+            'path' => $path . '/templates/',
+            'template' => 'media-home'
+        ],
         'media_banner_block' => [
             'variables' => ['media' => NULL],
             'path' => $path . '/templates/',

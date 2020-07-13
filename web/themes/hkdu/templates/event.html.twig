@@ -35,60 +35,74 @@
                 {% endif %}
             </div>
         </div>
+        {% if event.field_external_register_link is not empty %}
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">Register Event</div>
+                <div class="hnOpua"><a target="_blank" href="{{ event.field_external_register_link.value }}">{{ event.field_external_register_link.value }}</a>
+                </div>
+            </div>
+        {% endif %}
     </div>
     {% if event.field_file is not empty %}
-    <div class="Grid__Box-f9ujw0-0 bBnAZb">
-        <div display="block,flex" class="cWPhzd">
-            <div width="100%,236" class="Grid__Box-f9ujw0-0 MedicalContent__RowLabel-sc-1jlbeob-2 jBxOzO">File for
-                Download
-            </div>
-            <div class="gKKegu">
-                <div class="kCsMFd">
-                    <div display="flex" class="fSsnif">
-                        <div width="1,0.3333333333333333" class="culkFL">
-                            <a target="_blank" height="120px" href="{{ file_url(event.field_file.entity.field_media_document.entity.uri.value) }}" class="htzoqv">
-                                <div class="kZuHUf">
-                                    <div class="isAOXn">
-                                        <div><h3 class="flCmuI">{{ event.field_file.entity.field_media_document.entity.filename.value }}</h3></div>
-                                        <div class="eclIQj">
-                                            <div class="jamtIE" width="100%"><span
-                                                        rel="noopener" target="_blank" color="#4A90E2" font-size="13px"
-                                                        class="fLaWbo">
+        <div class="Grid__Box-f9ujw0-0 bBnAZb">
+            <div display="block,flex" class="cWPhzd">
+                <div width="100%,236" class="Grid__Box-f9ujw0-0 MedicalContent__RowLabel-sc-1jlbeob-2 jBxOzO">File for
+                    Download
+                </div>
+                <div class="gKKegu">
+                    <div class="kCsMFd">
+                        <div display="flex" class="fSsnif">
+                            <div width="1,0.3333333333333333" class="culkFL">
+                                <a target="_blank" height="120px"
+                                   href="{{ file_url(event.field_file.entity.field_media_document.entity.uri.value) }}"
+                                   class="htzoqv">
+                                    <div class="kZuHUf">
+                                        <div class="isAOXn">
+                                            <div>
+                                                <h3 class="flCmuI">{{ event.field_file.entity.field_media_document.entity.filename.value }}</h3>
+                                            </div>
+                                            <div class="eclIQj">
+                                                <div class="jamtIE" width="100%"><span
+                                                            rel="noopener" target="_blank" color="#4A90E2"
+                                                            font-size="13px"
+                                                            class="fLaWbo">
                                     <i font-size="20" name="LINK" color="icon" class="fal fa fa-paperclip"></i>
 
                                 </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     {% endif %}
     <div class="jvveZx">
         {{ event.field_description.value|raw }}
     </div>
-    {% if expired is null %}
-        {% if check_event is null %}
-            {% if event.field_free.value == 1 %}
-                <div class="leBAWZ">
-                    <div display="flex" class="dGmSBT">
-                        <a href="/cart/free/{{ event.id.value}}/epharm" class="eXdybn fUVRLe"><span
-                                    class="fjQIzu">Enroll</span></a>
+    {% if event.field_external_register_link is empty %}
+        {% if expired is null %}
+            {% if check_event is null %}
+                {% if event.field_free.value == 1 %}
+                    <div class="leBAWZ">
+                        <div display="flex" class="dGmSBT">
+                            <a href="/cart/free/{{ event.id.value }}/epharm" class="eXdybn fUVRLe"><span
+                                        class="fjQIzu">Enroll</span></a>
+                        </div>
                     </div>
-                </div>
-            {% else %}
-            <div class="leBAWZ">
-                <div display="flex" class="dGmSBT">
-                    <a href="/e-pharm/addcart/{{ product.product_id.value }}" class="eXdybn fUVRLe"><span
-                                class="fjQIzu">Enroll</span></a>
-                </div>
-            </div>
+                {% else %}
+                    <div class="leBAWZ">
+                        <div display="flex" class="dGmSBT">
+                            <a href="/e-pharm/addcart/{{ product.product_id.value }}" class="eXdybn fUVRLe"><span
+                                        class="fjQIzu">Enroll</span></a>
+                        </div>
+                    </div>
                 {% endif %}
+            {% endif %}
         {% endif %}
     {% endif %}
 </article>

@@ -13,7 +13,9 @@ dependencies:
     - field.field.user.user.field_organization
     - field.field.user.user.field_point
     - field.field.user.user.field_policy
+    - field.field.user.user.field_referee
     - field.field.user.user.field_registration_no
+    - field.field.user.user.field_specialist_fellow_number
     - field.field.user.user.field_specialty
     - field.field.user.user.user_picture
   module:
@@ -88,8 +90,24 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_referee:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_registration_no:
     weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_specialist_fellow_number:
+    weight: 11
     settings:
       size: 60
       placeholder: ''

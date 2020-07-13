@@ -40,6 +40,11 @@ function about_theme($existing, $type, $theme, $path)
             'path' => $path . '/templates/',
             'template' => 'about-list'
         ],
+        'about_home' => [
+            'variables' => ['abouts' => NULL, 'author'=>NULL, 'date' =>NULL],
+            'path' => $path . '/templates/',
+            'template' => 'about-home'
+        ],
         'about_banner_block' => [
             'variables' => ['about' => NULL],
             'path' => $path . '/templates/',

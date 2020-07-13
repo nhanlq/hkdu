@@ -108,26 +108,34 @@
             <div class="hnOpua">{{ event.field_organizer.entity.name.value }}
             </div>
         </div>
-        {% if quiz.field_speaker is not empty %}
+        {% if event.field_speaker is not empty %}
         <div display="block,flex" class="bXXHPz">
             <div width="100%,236" class="jBxOzO">Speaker</div>
             <div class="hnOpua">{{ event.field_speaker.value }}
             </div>
         </div>
         {% endif %}
-        {% if quiz.field_speaker_photo is not empty %}
+        {% if event.field_speaker_photo is not empty %}
         <div display="block,flex" class="bXXHPz">
             <div width="100%,236" class="jBxOzO">Speaker Photo</div>
             <div class="hnOpua"><img src="{{ event.field_speaker_photo.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}"/>
             </div>
         </div>
         {% endif %}
-        {% if quiz.field_sponsor is not empty %}
+        {% if event.field_sponsor is not empty %}
         <div display="block,flex" class="bXXHPz">
             <div width="100%,236" class="jBxOzO">Sponsor</div>
             <div class="hnOpua"><img src="{{ event.field_sponsor.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}"/>
             </div>
         </div>
+        {% endif %}
+
+        {% if event.field_external_register_link is not empty %}
+            <div display="block,flex" class="bXXHPz">
+                <div width="100%,236" class="jBxOzO">Register Event</div>
+                <div class="hnOpua"><a target="_blank" href="{{ event.field_external_register_link.value }}">{{ event.field_external_register_link.value }}</a>
+                </div>
+            </div>
         {% endif %}
     </div>
     {% if event.field_file is not empty %}
@@ -171,6 +179,7 @@
     <div class="jvveZx">
         {{ event.field_description.value|raw }}
     </div>
+
     {% if event.field_enrolled.value == 1 %}
         {% if expired is null %}
             {% if check_event is null %}

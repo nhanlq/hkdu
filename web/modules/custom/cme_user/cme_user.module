@@ -37,7 +37,7 @@ function cme_user_theme() {
 function cme_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
     if($form_id=='user_register_form'){
         $form['actions']['submit']['#suffix'] = '<div class="login-link"><a href="/user/login">Login</a></div>';
-
+        $form['#validate'][] = 'user_validation_membership';
     }
     if($form_id=='user_login_form'){
         $form['actions']['submit']['#suffix'] = '<div class="register-link"><a href="/user/register">Request an account</a><a class="password-link" href="/user/password">Forgot password?</a></div>';
@@ -45,4 +45,8 @@ function cme_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_
     if($form_id=='user_pass'){
         $form['actions']['submit']['#suffix'] = '<div class="login-link"><a href="/user/login">Login</a></div>';
     }
+}
+
+function user_validation_membership(&$form, \Drupal\Core\Form\FormStateInterface $form_state){
+   
 }

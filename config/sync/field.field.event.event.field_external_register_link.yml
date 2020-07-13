@@ -1,0 +1,27 @@
+uuid: 3f090b35-d47e-4d1e-a09c-379d27a39224
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event.field_external_register_link
+  module:
+    - event
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: event.event.field_external_register_link
+field_name: field_external_register_link
+entity_type: event
+bundle: event
+label: 'External Register Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

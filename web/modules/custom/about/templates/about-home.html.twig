@@ -1,37 +1,37 @@
-{% if news %}
-<div class="leBAWZ">
+{% if abouts %}
+<div class="leBAWZ about-home">
     <div class="dacuFr">
         <div display="flex" class="dUVjnM">
-            <div class="ffcmhf">News</div>
-            <a variant="default" class="jzqdsa" href="/news"><span
+            <div class="ffcmhf">About Us</div>
+            <a variant="default" class="jzqdsa" href="/about-us"><span
                         class="fjQIzu">More</span></a></div>
     </div>
     <div display="flex" class="cFlllN">
-        {% for new in news %}
+        {% for about in abouts %}
         <div width="1,0.3333333333333333" class="bwndEN event {{ loop.index }}
             {% if loop.index%3 ==0 %} end {% endif %}"><a class=" gsvDvo"
-                                                            href="{{ path('entity.news.canonical', {'news': new.id.value}) }}">
-                <div style="background-image: url({{ new.field_media.entity.field_media_image.entity.uri.value | image_style('original') }})"
+                                                            href="{{ path('entity.news.canonical', {'news': about.id.value}) }}">
+                <div style="background-image: url({{ about.field_media.entity.field_media_image.entity.uri.value | image_style('original') }})"
                      class="dCVoiR"></div>
                 <div class="kZuHUf">
                     <div class="jdoHDE">
                         <div class="cLNuli">
                             <div class="fwejcs">
                                 {#<div class="iFBalX"></div>#}
-                                {{ new.Owner.name.value }}
+                                {{ about.Owner.name.value }}
                             </div>
-                            <span class="kVIvyA">{{ new.field_publish_date.value|date("Y-m-d") }}</span></div>
+                            <span class="kVIvyA">{{ about.field_publish_date.value|date("Y-m-d") }}</span></div>
                     </div>
                     <div class="isAOXn">
                         <div>
-                            <h3 class="flCmuI">{{ new.name.value }}</h3>
-                            <p class="itSPxh">{{ new.field_description.value|striptags }}</p></div>
+                            <h3 class="flCmuI">{{ about.name.value }}</h3>
+                            <p class="itSPxh">{{ about.field_description.value|striptags }}</p></div>
                     </div>
                 </div>
             </a>
             <div class=" new-home list-tags eclIQj">
                 <div class="gPcWZD">
-                    {% for tagEntity in  new.field_tags %}
+                    {% for tagEntity in  about.field_tags %}
                         <a href="/news?tags={{ tagEntity.entity.name.value }}"
                            class="iyiBrq">{{ tagEntity.entity.name.value }}</a>
                     {% endfor %}

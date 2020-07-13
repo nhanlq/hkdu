@@ -13,7 +13,9 @@ dependencies:
     - field.field.user.user.field_organization
     - field.field.user.user.field_point
     - field.field.user.user.field_policy
+    - field.field.user.user.field_referee
     - field.field.user.user.field_registration_no
+    - field.field.user.user.field_specialist_fellow_number
     - field.field.user.user.field_specialty
     - field.field.user.user.user_picture
     - image.style.thumbnail
@@ -34,6 +36,8 @@ third_party_settings:
         - field_last_name
         - field_contact_number
         - field_mchk_license
+        - field_specialist_fellow_number
+        - field_referee
         - field_membership_type
         - field_specialty
       parent_name: ''
@@ -85,11 +89,19 @@ content:
     type: string
     region: content
   field_membership_type:
-    weight: 8
+    weight: 10
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
+    region: content
+  field_referee:
+    weight: 9
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_registration_no:
     weight: 3
@@ -99,9 +111,17 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_specialist_fellow_number:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_specialty:
     type: string
-    weight: 10
+    weight: 11
     region: content
     label: inline
     settings:

@@ -1,0 +1,27 @@
+uuid: 1bcbca2b-1c7f-4eba-b4ca-c4d55181b811
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_referee
+  module:
+    - unique_field_ajax
+    - user
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: user.user.field_referee
+field_name: field_referee
+entity_type: user
+bundle: user
+label: Referee
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

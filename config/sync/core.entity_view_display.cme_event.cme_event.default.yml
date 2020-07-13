@@ -12,6 +12,7 @@ dependencies:
     - field.field.cme_event.cme_event.field_enrolled
     - field.field.cme_event.cme_event.field_event_type
     - field.field.cme_event.cme_event.field_expired
+    - field.field.cme_event.cme_event.field_external_register_link
     - field.field.cme_event.cme_event.field_file
     - field.field.cme_event.cme_event.field_free
     - field.field.cme_event.cme_event.field_hkdu_point
@@ -21,6 +22,7 @@ dependencies:
     - field.field.cme_event.cme_event.field_organizer
     - field.field.cme_event.cme_event.field_price
     - field.field.cme_event.cme_event.field_published_date
+    - field.field.cme_event.cme_event.field_registration_dealine
     - field.field.cme_event.cme_event.field_speaker
     - field.field.cme_event.cme_event.field_speaker_photo
     - field.field.cme_event.cme_event.field_sponsor
@@ -126,6 +128,14 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_external_register_link:
+    weight: 31
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_file:
     type: entity_reference_entity_view

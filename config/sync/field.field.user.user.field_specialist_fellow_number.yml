@@ -1,0 +1,27 @@
+uuid: 87349738-3c14-423c-8c8f-f730a852f6a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_specialist_fellow_number
+  module:
+    - unique_field_ajax
+    - user
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: user.user.field_specialist_fellow_number
+field_name: field_specialist_fellow_number
+entity_type: user
+bundle: user
+label: 'Specialist and Fellow number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

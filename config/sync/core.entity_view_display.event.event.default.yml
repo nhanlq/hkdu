@@ -8,6 +8,7 @@ dependencies:
     - field.field.event.event.field_date
     - field.field.event.event.field_description
     - field.field.event.event.field_expired
+    - field.field.event.event.field_external_register_link
     - field.field.event.event.field_file
     - field.field.event.event.field_free
     - field.field.event.event.field_free_price_text
@@ -81,6 +82,14 @@ content:
       timezone: ''
     third_party_settings: {  }
     type: timestamp
+    region: content
+  field_external_register_link:
+    weight: 20
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_file:
     type: entity_reference_entity_view
