@@ -1,0 +1,49 @@
+uuid: d58745b3-0eae-4f35-b311-3c45e5977076
+langcode: en
+status: true
+dependencies: {  }
+id: send_email_to_admin
+label: 'Send email to admin'
+events:
+  -
+    event_name: 'rules_entity_insert:user'
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: 2eab0848-43f9-43f8-8df6-1c0113146f0f
+  conditions:
+    id: rules_and
+    uuid: b64e7fe3-4904-433a-b3a5-84786b0d1125
+    conditions: {  }
+  actions:
+    id: rules_action_set
+    uuid: 89a6adb9-d3bc-4f76-b512-ed8139b3eb3b
+    actions:
+      -
+        id: rules_action
+        uuid: 6abdc96e-4ff1-40a4-b4cf-105c24363292
+        context_values:
+          to:
+            - hkdu@branch8.com
+            - nhan.le@outlook.com
+            - matt@branch8.com
+          subject: 'Has user just created'
+          message: 'Have user just created in our system, please go to Admin/People then check'
+          reply: ''
+          language: ''
+        context_mapping: {  }
+        context_processors:
+          to:
+            rules_tokens: {  }
+          subject:
+            rules_tokens: {  }
+          message:
+            rules_tokens: {  }
+          reply:
+            rules_tokens: {  }
+          language:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_send_email

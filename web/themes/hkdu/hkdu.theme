@@ -222,7 +222,9 @@ function template_preprocess_drug_news(array &$variables)
     if ($date > $drug_news->get('field_expired')->value) {
         throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
+
     if ($drug_news->get('field_audience')->getValue()) {
+
         $au = true;
         foreach ($drug_news->get('field_audience')->getValue() as $audience) {
             if (!in_array($audience['value'], $current_roles)) {
@@ -246,6 +248,7 @@ function template_preprocess_drug_news(array &$variables)
     if ($user->id() == $current_user->id()) {
         $au = true;
     }
+    
     if (!$au) {
         throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
