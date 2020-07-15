@@ -36,6 +36,10 @@ function hkdu_preprocess_html(&$variables)
         $variables['attributes']['class'][] = 'page-user-login';
     }
 
+    if($path[1] == 'e-pharm' && empty($path[2])){
+        $variables['attributes']['class'][] = 'epharm-landing-page';
+    }
+
 }
 
 function hkdu_preprocess_page(&$variables)

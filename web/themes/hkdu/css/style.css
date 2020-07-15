@@ -1002,7 +1002,7 @@ button {
 
 .gIVySV {
     display: block;
-    height: 200px;
+    height: 150px;
     color: white;
     background-color: rgb(185, 196, 227);
     background-size: cover;
@@ -1010,7 +1010,9 @@ button {
     background-repeat: no-repeat;
     text-decoration: none;
 }
-
+.path-frontpage .gIVySV , .epharm-landing-page .gIVySV{
+    height: 200px;
+}
 .slick-dots {
     position: absolute;
     bottom: 9px;
@@ -2568,6 +2570,9 @@ a .date, a .author{
     }
 
     .gIVySV {
+        height: 300px;
+    }
+    .path-frontpage .gIVySV, .epharm-landing-page .gIVySV {
         height: 500px;
     }
 
