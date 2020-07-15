@@ -100,7 +100,10 @@ function template_preprocess_media_entity(array &$variables)
 {
     // Fetch MediaEntity Entity Object.
     $media_entity = $variables['elements']['#media_entity'];
-    $variables['media'] = $media_entity;
+    $current_path = \Drupal::service('path.current')->getPath();
+    $path = explode('/', $current_path);
+    $id = $path[3];
+    $variables['media'] = \Drupal\media_release\Entity\MediaEntity::load($id);
     // Helpful $content variable for templates.
     foreach (Element::children($variables['elements']) as $key) {
         $variables['content'][$key] = $variables['elements'][$key];
