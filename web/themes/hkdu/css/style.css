@@ -1002,7 +1002,7 @@ button {
 
 .gIVySV {
     display: block;
-    height: 150px;
+    height: 200px;
     color: white;
     background-color: rgb(185, 196, 227);
     background-size: cover;
@@ -2568,7 +2568,7 @@ a .date, a .author{
     }
 
     .gIVySV {
-        height: 300px;
+        height: 500px;
     }
 
     .gFJypg {
