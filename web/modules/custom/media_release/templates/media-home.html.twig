@@ -10,7 +10,7 @@
         {% for media in medias %}
         <div width="1,0.3333333333333333" class="bwndEN event {{ loop.index }}
             {% if loop.index%3 ==0 %} end {% endif %}"><a class=" gsvDvo"
-                                                            href="{{ path('entity.news.canonical', {'news': media.id.value}) }}">
+                                                            href="{{ path('entity.media_entity.canonical', {'media_entity': media.id.value}) }}">
                 <div style="background-image: url({{ media.field_media.entity.field_media_image.entity.uri.value | image_style('original') }})"
                      class="dCVoiR"></div>
                 <div class="kZuHUf">
