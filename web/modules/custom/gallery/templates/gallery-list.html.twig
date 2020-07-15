@@ -2,7 +2,7 @@
     {% for gallery in gallerys %}
         <div class="gEzcmW">
             <a href="{{ path('entity.gallery.canonical', {'gallery': gallery.id.value}) }}">
-                <div style="background-image: url({{ gallery.field_media[0].entity.field_media_image.entity.uri.value | image_style('original') }})" class="cmYSky">
+                <div style="background-image: url({{ gallery.field_media[0].entity.field_media_image.entity.uri.value | image_style('max_325x325') }})" class="cmYSky">
                 </div>
             </a>
             <div class="biunsS">{{ gallery.name.value }}</div>
