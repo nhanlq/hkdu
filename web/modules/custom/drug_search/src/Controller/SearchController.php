@@ -19,7 +19,7 @@ class SearchController extends ControllerBase
     public function search()
     {
         $get = $_GET;
-        $url = 'http://pubmed.ncbi.nlm.nih.gov/?SUBMIT=y&db=' . $_GET['db'] . '&term=' . $_GET['term'] . '&dispmax=' . $_GET['dispmax'] . '&relentrezdate=' . $_GET['relentrezdate'];
+        $url = 'https://pubmed.ncbi.nlm.nih.gov/?SUBMIT=y&db=' . $_GET['db'] . '&term=' . $_GET['term'] . '&dispmax=' . $_GET['dispmax'] . '&relentrezdate=' . $_GET['relentrezdate'];
         return [
             '#theme' => 'drug_search_search',
             '#url' => $url,
