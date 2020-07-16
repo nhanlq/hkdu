@@ -40,7 +40,7 @@ function cme_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_
         $form['#validate'][] = 'user_validation_membership';
     }
     if($form_id=='user_login_form'){
-        $form['actions']['submit']['#suffix'] = '<div class="register-link"><a href="/user/register">Request an account</a><a class="password-link" href="/user/password">Forgot password?</a></div>';
+        $form['actions']['submit']['#suffix'] = '<div class="register-link"><a href="/user/register">Request an account</a><a class="password-link" href="/user/password">Reset password?</a></div>';
     }
     if($form_id=='user_pass'){
         $form['actions']['submit']['#suffix'] = '<div class="login-link"><a href="/user/login">Login</a></div>';
