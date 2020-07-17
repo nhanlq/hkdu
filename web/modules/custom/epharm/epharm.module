@@ -373,3 +373,11 @@ function getQuizbyResult($resultId){
     return $result->get('field_quiz')->target_id;
 }
 
+
+function epharm_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+    //var_dump($form['field_audience']);die;
+    if(isset($form['field_audience'])){
+      unset($form['field_audience']['widget']['#options']['_none']);
+    }
+
+}
