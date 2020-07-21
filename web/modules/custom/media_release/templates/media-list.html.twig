@@ -23,7 +23,13 @@
         <div class="Grid__Box-f9ujw0-0 hftOhy col-xs-12 col-sm-12 col-lg-12">
             <a variant="vertical,horizontal" class="Card__Wrapper-sc-1phbti1-0 dlodqi"
                href="{{ path('entity.media_entity.canonical', {'media_entity': media.id.value}) }}">
-                <div class="Card__Cover-sc-1phbti1-1 eFKGnI" style="background-image: url({{ media.field_thumbnail.entity.field_media_image.entity.uri.value | image_style('original') }})">
+                <div class="Card__Cover-sc-1phbti1-1 eFKGnI" style="background-image:
+                {% if media.field_thumbnail is not empty %}
+                        url({{ media.field_thumbnail.entity.field_media_image.entity.uri.value | image_style('original') }})
+                {% else %}
+                        url({{ media.field_media.entity.field_media_image.entity.uri.value | image_style('original') }})
+                {% endif %}
+                       ">
                     {#<img src="{{ about.field_image.entity.uri.value | image_style('about_thumb') }}"/>#}
                 </div>
                 <div class="Card__Container-sc-1phbti1-3 kZuHUf">
