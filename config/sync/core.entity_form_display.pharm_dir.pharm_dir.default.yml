@@ -23,7 +23,6 @@ dependencies:
   module:
     - content_moderation
     - datetime
-    - link
     - media_library
     - path
     - pharm_dir
@@ -95,10 +94,10 @@ content:
   field_order_form:
     weight: 13
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: link_default
+    type: email_default
     region: content
   field_phone:
     weight: 9
@@ -111,13 +110,13 @@ content:
   field_price_list:
     weight: 14
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: link_default
+    type: email_default
     region: content
   field_publish_date:
-    weight: 26
+    weight: 20
     settings: {  }
     third_party_settings: {  }
     type: datetime_default

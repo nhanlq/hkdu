@@ -1,28 +1,27 @@
-uuid: 59ad8aad-f8fd-49b1-ac59-1c656e11b13b
+uuid: 5d23bec3-4e5c-450b-8d2a-b15efaaa8d12
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.pharm_dir.field_order_form
   module:
-    - link
     - pharm_dir
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
 id: pharm_dir.pharm_dir.field_order_form
 field_name: field_order_form
 entity_type: pharm_dir
 bundle: pharm_dir
-label: 'Order form'
+label: 'Order Form'
 description: ''
 required: false
 translatable: false
-default_value:
-  -
-    attributes: {  }
-    uri: 'route:<nolink>'
-    title: ''
-    options: {  }
+default_value: {  }
 default_value_callback: ''
-settings:
-  link_type: 17
-  title: 1
-field_type: link
+settings: {  }
+field_type: email

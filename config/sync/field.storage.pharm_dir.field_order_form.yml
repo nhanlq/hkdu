@@ -1,16 +1,19 @@
-uuid: 0fc32e23-b37e-4693-a5b6-93d968297d19
+uuid: a50d8a92-3ee8-439a-b99b-2db713e29bae
 langcode: en
 status: true
 dependencies:
   module:
-    - link
+    - field_permissions
     - pharm_dir
+third_party_settings:
+  field_permissions:
+    permission_type: public
 id: pharm_dir.field_order_form
 field_name: field_order_form
 entity_type: pharm_dir
-type: link
+type: email
 settings: {  }
-module: link
+module: core
 locked: false
 cardinality: 1
 translatable: true

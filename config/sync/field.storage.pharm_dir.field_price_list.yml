@@ -1,16 +1,19 @@
-uuid: fe0dcdf9-320f-4c46-b496-a3dffa5f3513
+uuid: 27a94add-8f5b-47ee-8a0c-44bdbf8aeffa
 langcode: en
 status: true
 dependencies:
   module:
-    - link
+    - field_permissions
     - pharm_dir
+third_party_settings:
+  field_permissions:
+    permission_type: public
 id: pharm_dir.field_price_list
 field_name: field_price_list
 entity_type: pharm_dir
-type: link
+type: email
 settings: {  }
-module: link
+module: core
 locked: false
 cardinality: 1
 translatable: true

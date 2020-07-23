@@ -1,12 +1,18 @@
-uuid: 8111d3fb-f435-4521-8888-194bd93704aa
+uuid: ddb86268-734e-4a5f-a7f2-0ade686dc91f
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.pharm_dir.field_price_list
   module:
-    - link
     - pharm_dir
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
 id: pharm_dir.pharm_dir.field_price_list
 field_name: field_price_list
 entity_type: pharm_dir
@@ -15,14 +21,7 @@ label: 'Price List'
 description: ''
 required: false
 translatable: false
-default_value:
-  -
-    attributes: {  }
-    uri: 'route:<nolink>'
-    title: ''
-    options: {  }
+default_value: {  }
 default_value_callback: ''
-settings:
-  link_type: 17
-  title: 1
-field_type: link
+settings: {  }
+field_type: email

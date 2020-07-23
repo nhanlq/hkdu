@@ -21,7 +21,6 @@ dependencies:
     - field.field.pharm_dir.pharm_dir.field_weight
   module:
     - datetime
-    - link
     - options
     - pharm_dir
     - text
@@ -103,16 +102,11 @@ content:
     third_party_settings: {  }
     region: content
   field_order_form:
-    weight: 7
+    weight: 18
     label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+    settings: {  }
     third_party_settings: {  }
-    type: link
+    type: basic_string
     region: content
   field_phone:
     weight: 3
@@ -123,16 +117,11 @@ content:
     type: string
     region: content
   field_price_list:
-    weight: 8
+    weight: 19
     label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+    settings: {  }
     third_party_settings: {  }
-    type: link
+    type: basic_string
     region: content
   field_publish_date:
     weight: 17
