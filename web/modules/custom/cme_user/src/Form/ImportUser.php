@@ -88,6 +88,11 @@ class ImportUser extends FormBase
                         $user->set('field_specialty',$data['H']);
                         $user->set('field_point',$data['D']);
                         $user->set('field_registration_no',$data['C']);
+                        $user->set('field_mchk_license',$data['I']);
+                        $user->set('field_membership_type',$data['J']);
+                        $user->set('field_referee',$data['K']);
+                        $user->set('field_specialist_fellow_number',$data['L']);
+
                         try{
                             $user->save();
                             \Drupal::messenger()->addMessage('Update member '.$data['A'].' success.');
@@ -116,6 +121,10 @@ class ImportUser extends FormBase
                         $user->set('field_specialty',$data['H']);
                         $user->set('field_point',$data['D']);
                         $user->set('field_registration_no',$data['C']);
+                        $user->set('field_mchk_license',$data['I']);
+                        $user->set('field_membership_type',$data['J']);
+                        $user->set('field_referee',$data['K']);
+                        $user->set('field_specialist_fellow_number',$data['L']);
                         //$user->set("setting_name", 'setting_value');
                         $user->activate();
 
