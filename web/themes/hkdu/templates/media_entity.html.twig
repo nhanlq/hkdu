@@ -2,7 +2,7 @@
 
     <div class="Grid__Box-f9ujw0-0 bBnAZb">
         {#<h2 class="Title-qxmy6q-0 fxclof">{{  }}</h2>#}
-        <div class="Grid__Box-f9ujw0-0 ArticleContent__Info-sc-1d950fx-0 cmcRwb">{{ media.Owner.name.value }} Published at {{ media.created.value|date("Y-m-d") }}</div>
+        <div class="Grid__Box-f9ujw0-0 ArticleContent__Info-sc-1d950fx-0 cmcRwb">{{ media.Owner.name.value }} Published at {{ media.field_publish_date.value|date("Y-m-d") }}</div>
         {% if media.field_file is not empty %}
             <div display="block,flex" class="cWPhzd">
                 <div width="100%,236" class="Grid__Box-f9ujw0-0 MedicalContent__RowLabel-sc-1jlbeob-2 jBxOzO">File for

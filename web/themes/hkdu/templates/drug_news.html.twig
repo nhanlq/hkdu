@@ -32,7 +32,7 @@
         </div>
         {% endif %}
         {#<h2 class="Title-qxmy6q-0 fxclof">{{  }}</h2>#}
-        <div class="Grid__Box-f9ujw0-0 ArticleContent__Info-sc-1d950fx-0 cmcRwb">{{ drug_news.Owner.name.value }} Published at {{ drug_news.created.value|date("Y-m-d") }}</div>
+        <div class="Grid__Box-f9ujw0-0 ArticleContent__Info-sc-1d950fx-0 cmcRwb">{{ drug_news.Owner.name.value }} Published at {{ drug_news.field_publish_date.value|date("Y-m-d") }}</div>
         <div class="HTMLContent__HTMLContentWrapper-sc-16stxlc-0 jvveZx">
             {{ drug_news.field_description.value|raw }}
         </div>
