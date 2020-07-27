@@ -92,9 +92,16 @@ class ImportUser extends FormBase
                         $user->set('field_membership_type',$data['J']);
                         $user->set('field_referee',$data['K']);
                         $user->set('field_specialist_fellow_number',$data['L']);
-
+                        $userRolesArray = array($data['N']);//role id
+                        if($data['M'] == 1){
+                            $user->activate();
+                        }
+                        foreach ($userRolesArray as $key => $role) {
+                            $user->addRole($role);
+                        }
                         try{
                             $user->save();
+
                             \Drupal::messenger()->addMessage('Update member '.$data['A'].' success.');
                         }catch (\Exception $e){
                             \Drupal::messenger()->addMessage('Update member '.$data['A'].' error '.$e->getMessage(),'error');
@@ -125,9 +132,16 @@ class ImportUser extends FormBase
                         $user->set('field_membership_type',$data['J']);
                         $user->set('field_referee',$data['K']);
                         $user->set('field_specialist_fellow_number',$data['L']);
+                        $userRolesArray = array($data['N']);//role id
+                       // $user->set('status',$data['M']);
+                        foreach ($userRolesArray as $key => $role) {
+                            $user->addRole($role);
+                        }
                         //$user->set("setting_name", 'setting_value');
-                        $user->activate();
-
+                        if($data['M'] == 1){
+                            $user->activate();
+                        }
+                        
                         try{
                             $user->save();
                             \Drupal::messenger()->addMessage('Create member '.$data['A'].' success.');
