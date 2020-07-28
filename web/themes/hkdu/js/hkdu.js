@@ -12,7 +12,12 @@
                $(".advance_search_detail").show();
 
            });
+
+
+
         }
+
+
     };
 
 })(jQuery, Drupal);

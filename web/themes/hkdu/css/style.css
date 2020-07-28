@@ -2272,6 +2272,16 @@ a .date, a .author{
     color: rgba(0, 0, 0, 0.2);
     padding: 0px 8px;
 }
+.image-center{
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+.image-right{
+    margin-right: 0;
+    margin-left: auto;
+    display: block;
+}
 .fWHevc {
     box-sizing: border-box;
     margin-bottom: 32px;
