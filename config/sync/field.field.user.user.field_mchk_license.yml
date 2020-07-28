@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.user.field_mchk_license
   module:
+    - field_display_label
     - unique_field_ajax
     - user
 third_party_settings:
@@ -13,6 +14,8 @@ third_party_settings:
     per_lang: 0
     use_ajax: 0
     message: ''
+  field_display_label:
+    display_label: 'MCHK License Number'
 id: user.user.field_mchk_license
 field_name: field_mchk_license
 entity_type: user

@@ -37,6 +37,7 @@
         "drupal/email_registration": "^1.0",
         "drupal/entity_browser_entity_form": "^2.5",
         "drupal/entity_bulk_clone": "^1.7",
+        "drupal/field_display_label": "^1.1",
         "drupal/field_group": "^3.0",
         "drupal/field_permissions": "^1.0@RC",
         "drupal/fontawesome": "^2.15",

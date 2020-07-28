@@ -75,6 +75,7 @@ module:
   event_tracking: 0
   external_link: 0
   field: 0
+  field_display_label: 0
   field_group: 0
   field_permissions: 0
   field_ui: 0

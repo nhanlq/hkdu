@@ -82,7 +82,7 @@ content:
     region: content
   field_mchk_license:
     weight: 7
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -90,14 +90,14 @@ content:
     region: content
   field_membership_type:
     weight: 10
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_referee:
     weight: 9
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -113,7 +113,7 @@ content:
     region: content
   field_specialist_fellow_number:
     weight: 8
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }

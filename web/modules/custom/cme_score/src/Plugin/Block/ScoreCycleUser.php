@@ -24,7 +24,13 @@ class ScoreCycleUser extends BlockBase
 
         $build = [];
         $build['#theme'] = 'score_cycle_user';
-        $build['score_cycle_user']['#markup'] = '<div class="panel-heading"><div class="panel-title">Score cycle</div></div><div class="Member-Cycle-Score"><p>Current Total Point: <strong>'.$user->get('field_point')->value .'</strong></p><p>'.$this->getScoreCurrentYear().'</p><p>'.$this->getScoreThreeYear().'</p></p></div>';
+        if($user->get('field_point')->value > 0){
+            $content = '<div class="panel-heading"><div class="panel-title">Score cycle</div></div><div class="Member-Cycle-Score"><p>Current Total Point: <strong>'.$user->get('field_point')->value .'</strong></p><p>'.$this->getScoreCurrentYear().'</p><p>'.$this->getScoreThreeYear().'</p></p></div>';
+
+        }else{
+            $content = '';
+        }
+        $build['score_cycle_user']['#markup'] = $content;
 
         return $build;
     }

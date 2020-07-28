@@ -2,6 +2,7 @@
 <div class="Grid__Box-f9ujw0-0 hFxHpv">
     {% if islogin %}
         <a class="lcAUJf welcome" href="/user">My Profile</a>
+        <a class="lcAUJf welcome" href="/user/{{ user.id }}/edit">Edit Profile</a>
         <a href="/user/logout" class="lcAUJf">Logout</a>
     {% else %}
         <a class="lcAUJf register" href="/user/register">Apply</a>

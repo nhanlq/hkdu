@@ -21,6 +21,7 @@ class LoginBlock extends BlockBase
     public function build()
     {
         $islogin = false;
+        $user = null;
         if (\Drupal::currentUser()->isAuthenticated()) {
             $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
             $islogin = true;

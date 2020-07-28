@@ -594,20 +594,7 @@ display:
             value: "<div class=\"panel-heading\">\r\n                          <div class=\"panel-title\">My Events Score</div>\r\n              </div>"
             format: full_html
           plugin_id: text
-      empty:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: "<div class=\"panel-heading\">\r\n                          <div class=\"panel-title\">My Events Score</div>\r\n              </div>\r\n<div class=\"empty-score\">Your score is 0.</div>"
-            format: full_html
-          plugin_id: text
+      empty: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -839,20 +826,7 @@ display:
             value: "<div class=\"panel-heading\">\r\n                          <div class=\"panel-title\">My Quizzes Score</div>\r\n              </div>"
             format: full_html
           plugin_id: text
-      empty:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: "<div class=\"panel-heading\">\r\n                          <div class=\"panel-title\">My Quizzes Score</div>\r\n              </div>\r\n<div class=\"empty-score\">Your score is 0.</div>"
-            format: full_html
-          plugin_id: text
+      empty: {  }
     cache_metadata:
       max-age: -1
       contexts:
