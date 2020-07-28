@@ -20,7 +20,13 @@ class ScoreCycleUser extends BlockBase
      */
     public function build()
     {
-        $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+        $current_path = \Drupal::service('path.current')->getPath();
+        $path = explode('/', $current_path);
+        $id = $path[2];
+        if(!$id){
+            $id = \Drupal::currentUser()->id();
+        }
+        $user = \Drupal\user\Entity\User::load($id);
 
         $build = [];
         $build['#theme'] = 'score_cycle_user';
