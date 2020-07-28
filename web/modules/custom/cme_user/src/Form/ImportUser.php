@@ -92,7 +92,8 @@ class ImportUser extends FormBase
                         $user->set('field_membership_type',$data['J']);
                         $user->set('field_referee',$data['K']);
                         $user->set('field_specialist_fellow_number',$data['L']);
-                        $userRolesArray = array($data['N']);//role id
+                        $userRolesArray = explode(',',$data['N']);//role id
+                        $user->set('status',$data['M']);
                         if($data['M'] == 1){
                             $user->activate();
                         }
@@ -132,7 +133,8 @@ class ImportUser extends FormBase
                         $user->set('field_membership_type',$data['J']);
                         $user->set('field_referee',$data['K']);
                         $user->set('field_specialist_fellow_number',$data['L']);
-                        $userRolesArray = array($data['N']);//role id
+                        $user->set('status',$data['M']);
+                        $userRolesArray = explode(',',$data['N']);//role id
                        // $user->set('status',$data['M']);
                         foreach ($userRolesArray as $key => $role) {
                             $user->addRole($role);
