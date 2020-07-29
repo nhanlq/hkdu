@@ -51,7 +51,7 @@ function epharm_theme($existing, $type, $theme, $path)
             'template' => 'epharm-banner'
         ],
         'epharm_menu_block' => [
-            'variables' => ['epharm' => NULL, 'cme' => NULL],
+            'variables' => ['epharm' => NULL, 'cme' => NULL,'admin' =>NULL],
             'path' => $path . '/templates/',
             'template' => 'epharm-menu'
         ],

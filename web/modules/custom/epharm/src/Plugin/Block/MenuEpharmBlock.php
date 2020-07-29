@@ -22,6 +22,12 @@ class MenuEpharmBlock extends BlockBase {
       $cme = false;
       $current_path = \Drupal::service('path.current')->getPath();
       $ep = explode('/',$current_path);
+     $au = 0;
+      $current_user = \Drupal::currentUser();
+      $current_roles = $current_user->getRoles();
+      if (in_array('administrator', $current_roles)) {
+          $au = 1;
+      }
       $id = $ep[1];
       if($id=='e-pharm'){
           $epharm = $id;
@@ -32,7 +38,9 @@ class MenuEpharmBlock extends BlockBase {
       return [
           '#theme' => ['epharm_menu_block'],
           '#epharm' => $epharm,
+          '#admin' => $au,
           '#cme' => $cme,
+
           '#attached' => [
               'library' => [
                   'epharm/epharm_menu',

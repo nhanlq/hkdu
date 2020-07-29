@@ -7,10 +7,12 @@
         {% else %}
             <option value="e-pharm">e-Pharm</option>
         {% endif %}
-        {% if cme %}
-        <option selected value="cme">CME</option>
-        {% else %}
-            <option value="cme">CME</option>
+        {% if admin == 1 %}
+            {% if cme %}
+                <option selected value="cme">CME</option>
+            {% else %}
+                <option value="cme">CME</option>
+            {% endif %}
         {% endif %}
     </select>
 </div><!-- Add you custom twig html here -->
