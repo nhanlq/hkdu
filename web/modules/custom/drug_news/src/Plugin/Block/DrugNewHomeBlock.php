@@ -21,7 +21,6 @@ class DrugNewHomeBlock extends BlockBase {
       return [
           '#theme' => ['drug_news_home'],
           '#drug_news' => $this->getDrug(),
-          '#drug_search' => $this->getDrugSearch(),
           '#cache' => [
               'max-age' => 0,
           ],
@@ -34,7 +33,7 @@ class DrugNewHomeBlock extends BlockBase {
             $ids = \Drupal::entityQuery('drug_news')
                 ->condition('status', 1)
                 ->condition('field_expired',$currentDate,'>=')
-                ->range(0,5)
+                ->range(0,3)
                 ->sort('field_weight','ASC')
                 ->sort('field_publish_date','DESC')
                 ->execute();
@@ -42,19 +41,6 @@ class DrugNewHomeBlock extends BlockBase {
         return $result;
     }
 
-    public function getDrugSearch()
-    {
-        $currentDate = time();
-        $ids = \Drupal::entityQuery('drug_search')
-            ->condition('status', 1)
-            ->condition('field_is_home',1)
-            ->condition('field_expired',$currentDate,'>=')
-            ->range(0,3)
-            ->sort('field_weight','ASC')
-            ->sort('field_publish_date','DESC')
-            ->execute();
-        $result = \Drupal\drug_search\Entity\DrugSearch::loadMultiple($ids);
-        return $result;
-    }
+
 
 }

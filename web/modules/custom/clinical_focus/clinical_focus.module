@@ -41,7 +41,7 @@ function clinical_focus_theme($existing, $type, $theme, $path) {
         'clinical_focus_home' => [
             'variables' => ['clinical_focus' => NULL, 'author'=>NULL, 'date' =>NULL],
             'path' => $path . '/templates/',
-            'template' => 'clinical-focus-home'
+            'template' => 'clinical-home'
         ],
         'clinical_focus_banner_block' => [
             'variables' => ['clinical_focus' => NULL],

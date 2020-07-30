@@ -1,16 +1,16 @@
-{% if drug_news %}
+{% if clinical_focus %}
     <div class="leBAWZ about-home">
         <div class="dacuFr">
             <div display="flex" class="dUVjnM">
-                <div class="ffcmhf">Drug News</div>
-                <a variant="default" class="jzqdsa" href="/e-pharm/drug-news"><span
+                <div class="ffcmhf">Clinical Focus</div>
+                <a variant="default" class="jzqdsa" href="/e-pharm/clinical-focus"><span
                             class="fjQIzu">More</span></a></div>
         </div>
         <div display="flex" class="cFlllN">
-            {% for drug in drug_news %}
+            {% for drug in clinical_focus %}
                 <div width="1,0.3333333333333333" class="bwndEN event {{ loop.index }}
             {% if loop.index%3 ==0 %} end {% endif %}"><a class=" gsvDvo"
-                                                          href="{{ path('entity.drug_news.canonical', {'drug_news': drug.id.value}) }}">
+                                                          href="{{ path('entity.clinical_focus.canonical', {'clinical_focus': drug.id.value}) }}">
                         <div style="background-image:
                         {% if drug.field_thumbnail is not empty %}
                                 url({{ drug.field_thumbnail.entity.field_media_image.entity.uri.value | image_style('original') }})
@@ -49,5 +49,3 @@
         </div>
     </div>
 {% endif %}
-
-

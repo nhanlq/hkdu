@@ -1,0 +1,26 @@
+uuid: c8ffe4ce-1e0c-4a87-86f9-0628d9fd58a6
+langcode: en
+status: true
+dependencies:
+  module:
+    - clinical_focus
+    - system
+  theme:
+    - hkdu
+id: clinicalhomeblock
+theme: hkdu
+region: content
+weight: 0
+provider: null
+plugin: clinical_home_block
+settings:
+  id: clinical_home_block
+  label: 'Clinical home block'
+  provider: clinical_focus
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /e-pharm
+    negate: false
+    context_mapping: {  }
