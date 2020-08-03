@@ -18,7 +18,9 @@ dependencies:
     - field.field.user.user.field_specialist_fellow_number
     - field.field.user.user.field_specialty
     - field.field.user.user.user_picture
+    - image.style.thumbnail
   module:
+    - image
     - markup
     - telephone
     - user
@@ -35,27 +37,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_contact_number:
-    weight: 4
+    weight: 5
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: telephone_default
     region: content
   field_first_name:
-    weight: 1
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_guide_info:
-    weight: 9
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_last_name:
     weight: 2
     settings:
       size: 60
@@ -63,8 +51,22 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_guide_info:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_last_name:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_mchk_license:
-    weight: 6
+    weight: 7
     settings:
       size: 60
       placeholder: ''
@@ -72,26 +74,26 @@ content:
     type: string_textfield
     region: content
   field_membership_type:
-    weight: 7
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_point:
-    weight: 3
+    weight: 4
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_policy:
-    weight: 10
+    weight: 11
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
   field_referee:
-    weight: 12
+    weight: 13
     settings:
       size: 60
       placeholder: ''
@@ -99,7 +101,7 @@ content:
     type: string_textfield
     region: content
   field_registration_no:
-    weight: 5
+    weight: 6
     settings:
       size: 60
       placeholder: ''
@@ -107,7 +109,7 @@ content:
     type: string_textfield
     region: content
   field_specialist_fellow_number:
-    weight: 11
+    weight: 12
     settings:
       size: 60
       placeholder: ''
@@ -115,13 +117,21 @@ content:
     type: string_textfield
     region: content
   field_specialty:
-    weight: 8
+    weight: 9
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
+  user_picture:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
 hidden:
   commerce_remote_id: true
   contact: true
@@ -136,4 +146,3 @@ hidden:
   path: true
   timezone: true
   translation: true
-  user_picture: true

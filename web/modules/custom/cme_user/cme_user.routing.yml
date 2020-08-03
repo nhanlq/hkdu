@@ -12,3 +12,11 @@ cme_user.import_user:
     _title: 'ImportUser'
   requirements:
     _access: 'TRUE'
+
+cme_user.user_qrcode_controller_qrcode:
+  path: '/account/{uid}/profile'
+  defaults:
+    _controller: '\Drupal\cme_user\Controller\UserQrcodeController::qrcode'
+    _title: 'Account Profile'
+  requirements:
+    _permission: 'access content'

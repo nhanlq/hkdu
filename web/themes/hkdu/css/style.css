@@ -2075,7 +2075,34 @@ select.epharm-switch {
     width: 100%;
     display: flex;
 }
+.user-picture .picture{
+    background: #4560B0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 20px;
+}
 
+.user-picture{
+    text-align: center;
+
+}
+.user-picture img{
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+}
+.user-picture p{
+    color: #ffffff;
+}
+.user-picture .qrcode{
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+    width: 200px;
+}
 .fLaWbo {
     display: inline-block;
     max-width: 100%;

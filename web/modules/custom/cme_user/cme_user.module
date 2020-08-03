@@ -26,11 +26,16 @@ function cme_user_help($route_name, RouteMatchInterface $route_match) {
 /**
  * Implements hook_theme().
  */
-function cme_user_theme() {
+function cme_user_theme($existing, $type, $theme, $path) {
   return [
     'cme_user' => [
       'render element' => 'children',
     ],
+      'cme_user_code' => [
+          'variables' => ['user' => NULL, 'qrcode'=>NULL],
+          'path' => $path . '/templates/',
+          'template' => 'qrcode'
+      ],
   ];
 }
 

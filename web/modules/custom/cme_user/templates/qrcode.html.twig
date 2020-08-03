@@ -1,0 +1,18 @@
+<!-- Add you custom twig html here -->
+<div class="user-qrcode">
+    <div class="user-picture">
+        <div class="picture">
+            {% if user.user_picture is not empty %}
+                <div class="image-radius">
+                <img src="{{user.user_picture.entity.uri.value | image_style('medium') }}"/>
+                </div>
+            {% endif %}
+            {% if user.field_registration_no is not empty %}
+                <p>NO.{{ user.field_registration_no.value }}</p>
+            {% endif %}
+        </div>
+        <div class="qrcode">
+            {{ qrcode }}
+        </div>
+    </div>
+</div>
