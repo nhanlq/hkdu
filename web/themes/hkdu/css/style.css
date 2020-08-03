@@ -2087,7 +2087,7 @@ select.epharm-switch {
     text-align: center;
 
 }
-.user-picture img{
+.user-picture .picture img{
     border-radius: 100px;
     width: 200px;
     height: 200px;
@@ -2101,7 +2101,7 @@ select.epharm-switch {
     margin-right: auto;
     display: block;
     text-align: center;
-    width: 200px;
+    width: 250px;
 }
 .fLaWbo {
     display: inline-block;
