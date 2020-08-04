@@ -2,14 +2,16 @@
 <div class="user-qrcode">
     <div class="user-picture">
         <div class="picture">
-            {% if user.user_picture is not empty %}
-                <div class="image-radius">
-                <img src="{{user.user_picture.entity.uri.value | image_style('medium') }}"/>
-                </div>
-            {% endif %}
-            {% if user.field_registration_no is not empty %}
-                <p>NO.{{ user.field_registration_no.value }}</p>
-            {% endif %}
+            <div class="image-radius">
+                {% if user.user_picture is not empty %}
+                    <img src="{{ user.user_picture.entity.uri.value | image_style('medium') }}"/>
+                {% else %}
+                    <img src="/themes/hkdu/images/no_image.png"/>
+                {% endif %}
+            </div>
+            <p>
+                NO.{% if user.field_registration_no is not empty %}{{ user.field_registration_no.value }}{% else %}N/A
+                {% endif %}</p>
         </div>
         <div class="qrcode">
             {{ qrcode }}
