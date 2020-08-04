@@ -9,7 +9,7 @@ _core:
 id: hkdu_page_title
 theme: hkdu
 region: content
-weight: -19
+weight: -20
 provider: null
 plugin: page_title_block
 settings:

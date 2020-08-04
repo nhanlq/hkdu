@@ -10,7 +10,7 @@ dependencies:
 id: clinicalhomeblock
 theme: hkdu
 region: content
-weight: 0
+weight: -4
 provider: null
 plugin: clinical_home_block
 settings:

@@ -54,7 +54,6 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
-  devel: 0
   doctor: 0
   download: 0
   draggableviews: 0
