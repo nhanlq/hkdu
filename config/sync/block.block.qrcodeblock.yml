@@ -28,7 +28,6 @@ visibility:
   user_role:
     id: user_role
     roles:
-      anonymous: anonymous
       authenticated: authenticated
       administrator: administrator
       admins: admins

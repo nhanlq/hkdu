@@ -20,7 +20,7 @@ class QRcodeBlock extends BlockBase
      */
     public function build()
     {
-        
+
         $google_qr_current_url = \Drupal::request()->getUri();
         $current_path = \Drupal::service('path.current')->getPath();
         $path = explode('/', $current_path);

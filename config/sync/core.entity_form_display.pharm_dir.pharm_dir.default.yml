@@ -12,8 +12,10 @@ dependencies:
     - field.field.pharm_dir.pharm_dir.field_file
     - field.field.pharm_dir.pharm_dir.field_media
     - field.field.pharm_dir.pharm_dir.field_order_form
+    - field.field.pharm_dir.pharm_dir.field_order_form_pdf
     - field.field.pharm_dir.pharm_dir.field_phone
     - field.field.pharm_dir.pharm_dir.field_price_list
+    - field.field.pharm_dir.pharm_dir.field_price_list_pdf
     - field.field.pharm_dir.pharm_dir.field_publish_date
     - field.field.pharm_dir.pharm_dir.field_sales_visit
     - field.field.pharm_dir.pharm_dir.field_thumb
@@ -47,7 +49,7 @@ content:
     type: options_select
     region: content
   field_count:
-    weight: 19
+    weight: 21
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -62,7 +64,7 @@ content:
     type: text_textarea
     region: content
   field_email:
-    weight: 16
+    weight: 18
     settings:
       size: 60
       placeholder: ''
@@ -99,6 +101,13 @@ content:
     third_party_settings: {  }
     type: email_default
     region: content
+  field_order_form_pdf:
+    type: media_library_widget
+    weight: 14
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
   field_phone:
     weight: 9
     settings:
@@ -108,21 +117,28 @@ content:
     type: string_textfield
     region: content
   field_price_list:
-    weight: 14
+    weight: 15
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: email_default
     region: content
+  field_price_list_pdf:
+    type: media_library_widget
+    weight: 16
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
   field_publish_date:
-    weight: 20
+    weight: 22
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_sales_visit:
-    weight: 15
+    weight: 17
     settings:
       size: 60
       placeholder: ''
@@ -160,7 +176,7 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 17
+    weight: 19
     settings: {  }
     region: content
     third_party_settings: {  }
@@ -174,7 +190,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 18
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }

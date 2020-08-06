@@ -1,0 +1,36 @@
+uuid: 62648d63-7260-4f21-82b9-a6bf9e298d64
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.pharm_dir.field_price_list_pdf
+    - media.type.document
+  module:
+    - pharm_dir
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: pharm_dir.pharm_dir.field_price_list_pdf
+field_name: field_price_list_pdf
+entity_type: pharm_dir
+bundle: pharm_dir
+label: 'Price List PDF'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

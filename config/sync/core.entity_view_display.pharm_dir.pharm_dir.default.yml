@@ -12,8 +12,10 @@ dependencies:
     - field.field.pharm_dir.pharm_dir.field_file
     - field.field.pharm_dir.pharm_dir.field_media
     - field.field.pharm_dir.pharm_dir.field_order_form
+    - field.field.pharm_dir.pharm_dir.field_order_form_pdf
     - field.field.pharm_dir.pharm_dir.field_phone
     - field.field.pharm_dir.pharm_dir.field_price_list
+    - field.field.pharm_dir.pharm_dir.field_price_list_pdf
     - field.field.pharm_dir.pharm_dir.field_publish_date
     - field.field.pharm_dir.pharm_dir.field_sales_visit
     - field.field.pharm_dir.pharm_dir.field_thumb
@@ -108,6 +110,15 @@ content:
     third_party_settings: {  }
     type: basic_string
     region: content
+  field_order_form_pdf:
+    type: entity_reference_entity_view
+    weight: 20
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
   field_phone:
     weight: 3
     label: above
@@ -122,6 +133,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
+  field_price_list_pdf:
+    type: entity_reference_entity_view
+    weight: 21
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
     region: content
   field_publish_date:
     weight: 17
