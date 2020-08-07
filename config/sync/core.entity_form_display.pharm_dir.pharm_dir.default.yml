@@ -6,6 +6,7 @@ dependencies:
     - field.field.pharm_dir.pharm_dir.field_address
     - field.field.pharm_dir.pharm_dir.field_audience
     - field.field.pharm_dir.pharm_dir.field_count
+    - field.field.pharm_dir.pharm_dir.field_department
     - field.field.pharm_dir.pharm_dir.field_description
     - field.field.pharm_dir.pharm_dir.field_email
     - field.field.pharm_dir.pharm_dir.field_fax
@@ -26,6 +27,7 @@ dependencies:
     - content_moderation
     - datetime
     - media_library
+    - paragraphs
     - path
     - pharm_dir
     - text
@@ -54,6 +56,18 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_department:
+    type: entity_reference_paragraphs
+    weight: 26
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
     region: content
   field_description:
     weight: 12

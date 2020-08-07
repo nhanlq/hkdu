@@ -1,0 +1,10 @@
+uuid: 06a47eb8-95cb-42c2-8518-e3758c5e3fae
+langcode: en
+status: true
+dependencies: {  }
+id: department
+label: Department
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -6,6 +6,7 @@ dependencies:
     - field.field.pharm_dir.pharm_dir.field_address
     - field.field.pharm_dir.pharm_dir.field_audience
     - field.field.pharm_dir.pharm_dir.field_count
+    - field.field.pharm_dir.pharm_dir.field_department
     - field.field.pharm_dir.pharm_dir.field_description
     - field.field.pharm_dir.pharm_dir.field_email
     - field.field.pharm_dir.pharm_dir.field_fax
@@ -23,6 +24,7 @@ dependencies:
     - field.field.pharm_dir.pharm_dir.field_weight
   module:
     - datetime
+    - entity_reference_revisions
     - options
     - pharm_dir
     - text
@@ -62,6 +64,15 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_decimal
+    region: content
+  field_department:
+    type: entity_reference_revisions_entity_view
+    weight: 22
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
     region: content
   field_description:
     weight: 6

@@ -1,0 +1,40 @@
+uuid: cf397c66-99c7-4b56-b301-975e0e93cfd1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.department.field_department_name
+    - field.field.paragraph.department.field_document
+    - field.field.paragraph.department.field_email
+    - paragraphs.paragraphs_type.department
+id: paragraph.department.default
+targetEntityType: paragraph
+bundle: department
+mode: default
+content:
+  field_department_name:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_document:
+    type: entity_reference_entity_view
+    weight: 2
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_email:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  search_api_excerpt: true

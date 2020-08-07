@@ -102,6 +102,7 @@ module:
   mailsystem: 0
   markup: 0
   media: 0
+  media_directories: 0
   media_library: 0
   media_release: 0
   menu_link_attributes: 0

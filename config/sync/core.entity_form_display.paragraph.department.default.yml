@@ -1,0 +1,42 @@
+uuid: 9d70b1bc-3d4d-4b50-a17e-649a9750ff99
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.department.field_department_name
+    - field.field.paragraph.department.field_document
+    - field.field.paragraph.department.field_email
+    - paragraphs.paragraphs_type.department
+  module:
+    - media_library
+id: paragraph.department.default
+targetEntityType: paragraph
+bundle: department
+mode: default
+content:
+  field_department_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_document:
+    type: media_library_widget
+    weight: 2
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  field_email:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+hidden:
+  created: true
+  status: true

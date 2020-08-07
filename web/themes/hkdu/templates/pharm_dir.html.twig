@@ -75,65 +75,94 @@
                     {{ pharm_dir.field_description.value|raw }}
                 </div>
             </div>
-
+            {% if pharm_dir.field_order_form_pdf is not empty  or pharm_dir.field_order_form is not empty %}
             <div display="block,flex" class="bXXHPz">
                 <div width="100%,236" class="jBxOzO">Order Form
                 </div>
                 <div class="hnOpua">
                     <div display="flex" class="doLCQt">
                         {% if pharm_dir.field_order_form_pdf is not empty %}
-                            <a href="{{ file_url(pharm_dir.field_order_form_pdf.entity.field_media_document.entity.uri.value) }}" rel="noopener" target="_blank" class="iIttWr">
+                            <a href="{{ file_url(pharm_dir.field_order_form_pdf.entity.field_media_document.entity.uri.value) }}"
+                               rel="noopener" target="_blank" class="iIttWr">
                                 <button disabled="" class="hOzyft"><span
                                             class="fjQIzu">Download</span></button>
                             </a>
                         {% endif %}
                         {% if pharm_dir.field_order_form is not empty %}
-                        <a href="mailto:{{ pharm_dir.field_order_form.value }}"
+                            <a href="mailto:{{ pharm_dir.field_order_form.value }}"
                                class="iIttWr">
-                            <button class="hkBURO"><span
-                                        class="fjQIzu">Email</span></button>
-                        </a>
+                                <button class="hkBURO"><span
+                                            class="fjQIzu">Email</span></button>
+                            </a>
                         {% endif %}
                     </div>
                 </div>
             </div>
+            {% endif %}
 
-
-
+            {% if pharm_dir.field_price_list_pdf is not empty  or pharm_dir.field_price_list is not empty %}
             <div display="block,flex" class=" bXXHPz">
                 <div width="100%,236" class="jBxOzO">Price List
                 </div>
                 <div class=" hnOpua">
                     <div display="flex" class="doLCQt">
                         {% if pharm_dir.field_price_list_pdf is not empty %}
-                        <a href="{{ file_url(pharm_dir.field_price_list_pdf.entity.field_media_document.entity.uri.value) }}" rel="noopener" target="_blank" class="iIttWr">
-                            <button disabled="" class="hOzyft"><span
-                                        class="fjQIzu">Download</span></button>
-                        </a>
+                            <a href="{{ file_url(pharm_dir.field_price_list_pdf.entity.field_media_document.entity.uri.value) }}"
+                               rel="noopener" target="_blank" class="iIttWr">
+                                <button disabled="" class="hOzyft"><span
+                                            class="fjQIzu">Download</span></button>
+                            </a>
                         {% endif %}
                         {% if pharm_dir.field_price_list is not empty %}
-                        <a href="mailto:{{ pharm_dir.field_price_list.value }}"
+                            <a href="mailto:{{ pharm_dir.field_price_list.value }}"
                                class="iIttWr">
-                            <button class="hkBURO"><span
-                                        class="fjQIzu">Email</span></button>
-                        </a>
+                                <button class="hkBURO"><span
+                                            class="fjQIzu">Email</span></button>
+                            </a>
                         {% endif %}
                     </div>
                 </div>
             </div>
+            {% endif %}
 
-            {#{% if pharm_dir.field_sales_visit is not empty %}#}
-            {#<div display="block,flex" class="bXXHPz">#}
-                {#<div width="100%,236" class="jBxOzO">Sales Visit#}
-                {#</div>#}
-                {#<div class="hnOpua"><a#}
-                            {#href="mailto:{{ pharm_dir.field_sales_visit.value }}"#}
-                            {#class="iIttWr">#}
-                        {#<button style="margin-left: 83px" class="hkBURO"><span#}
-                                    {#class="fjQIzu">Email</span></button>#}
-                    {#</a></div>#}
-            {#</div>#}
-            {#{% endif %}#}
+            {% if pharm_dir.field_department is not empty %}
+                <div display="block,flex" class="bXXHPz">
+                    <div width="100%,236" class="jBxOzO">Sales Contact Directory
+                    </div>
+                </div>
+                <div class="department">
+                    {% for para in pharm_dir.field_department %}
+                        <div display="block,flex" class=" bXXHPz">
+                            <div display="flex" class="doLCQt">
+                                <div width="100%,236" class="jBxOzO">{{ para.entity.field_department_name.value }}
+                                </div>
+
+                                {% if para.entity.field_document is not empty %}
+                                    <a class="sale-left" href="{{ file_url(para.entity.field_document.entity.field_media_document.entity.uri.value) }}"
+                                       rel="noopener" target="_blank" class="iIttWr">
+                                        <button class="hkBURO"><span
+                                                    class="fjQIzu">Download</span></button>
+                                    </a>
+
+                                 {% else %}
+                                     <a class="sale-left" href="#"
+                                        rel="noopener" target="_blank" class="iIttWr">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                     </a>
+                                {% endif %}
+
+                                {% if para.entity.field_email is not empty %}
+                                    <a class="sale-right" href="mailto:{{ para.entity.field_email.value }}"
+                                       class="iIttWr">
+                                        <button class="hkBURO"><span
+                                                    class="fjQIzu">Request Sales Visit</span></button>
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
         </div>
         <div class="fSioVs"></div>
     </div>

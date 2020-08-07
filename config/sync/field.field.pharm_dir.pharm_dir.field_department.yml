@@ -1,0 +1,55 @@
+uuid: 7d365ab5-35a9-460a-a094-70354bb3af72
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.pharm_dir.field_department
+    - paragraphs.paragraphs_type.department
+  module:
+    - entity_reference_revisions
+    - pharm_dir
+id: pharm_dir.pharm_dir.field_department
+field_name: field_department
+entity_type: pharm_dir
+bundle: pharm_dir
+label: Department
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      department: department
+    target_bundles_drag_drop:
+      document:
+        weight: 9
+        enabled: false
+      department:
+        enabled: true
+        weight: 10
+      long_answer:
+        weight: 10
+        enabled: false
+      multiple_choice:
+        weight: 11
+        enabled: false
+      org_point:
+        weight: 12
+        enabled: false
+      result:
+        weight: 13
+        enabled: false
+      short_answer:
+        weight: 14
+        enabled: false
+      single_choice:
+        weight: 15
+        enabled: false
+      true_false:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions

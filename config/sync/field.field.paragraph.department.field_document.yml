@@ -1,0 +1,36 @@
+uuid: 8cd2a649-38f4-4161-9123-90cc5bc3d307
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_document
+    - media.type.document
+    - paragraphs.paragraphs_type.department
+  module:
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: paragraph.department.field_document
+field_name: field_document
+entity_type: paragraph
+bundle: department
+label: Document
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -2082,6 +2082,19 @@ select.epharm-switch {
     display: block;
     padding: 20px;
 }
+.sale-left{
+    margin-right: 30px;
+}
+.department{
+    padding-left: 20px;
+}
+.department .download{
+    width: 100px;
+    display: block;
+}
+.department .jBxOzO{
+    color: #000000;
+}
 
 .user-picture{
     text-align: center;
