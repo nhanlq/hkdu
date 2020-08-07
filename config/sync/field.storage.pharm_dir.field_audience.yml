@@ -33,6 +33,9 @@ settings:
     -
       value: council_members
       label: 'Council Members'
+    -
+      value: cme_member
+      label: 'CME Member'
   allowed_values_function: ''
 module: options
 locked: false
