@@ -2103,6 +2103,8 @@ select.epharm-switch {
     padding-bottom: 30px;
     border-radius: 5px;
     border-bottom: 4px solid #4560B0;
+    margin-right: auto;
+    margin-left: auto;
 }
 .path-account .logo-register{
     text-align: center;
