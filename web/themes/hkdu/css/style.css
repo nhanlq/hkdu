@@ -2081,6 +2081,8 @@ select.epharm-switch {
     margin-right: auto;
     display: block;
     padding: 20px;
+    border-radius: 0 0 45% 45%;
+    border-bottom: 10px solid lightgrey;
 }
 .sale-left{
     margin-right: 30px;
@@ -2095,10 +2097,12 @@ select.epharm-switch {
 .department .jBxOzO{
     color: #000000;
 }
-.user-qrcode{
-    margin-left: auto;
-    margin-right: auto;
-    width: 320px;
+.user-qrcode {
+    width: 380px;
+    border: 1px solid grey;
+    padding-bottom: 30px;
+    border-radius: 5px;
+    border-bottom: 4px solid #4560B0;
 }
 .path-account .logo-register{
     text-align: center;
@@ -2136,6 +2140,9 @@ select.epharm-switch {
     text-align: center;
     width: 250px;
 }
+
+
+
 .fLaWbo {
     display: inline-block;
     max-width: 100%;
