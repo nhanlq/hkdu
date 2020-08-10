@@ -33,7 +33,9 @@ function hkdu_preprocess_html(&$variables)
 
         $variables['attributes']['class'][] = 'doctor-detail-page';
     }
-    if ($path[1] == 'user' && $path[2] == 'login' || $path[1] == 'user' && $path[2] == 'password') {
+    if ($path[1] == 'user' && $path[2] == 'login' ||
+        $path[1] == 'user' && $path[2] == 'reset' || 
+        $path[1] == 'user' && $path[2] == 'password') {
         $variables['attributes']['class'][] = 'page-user-login';
     }
 
