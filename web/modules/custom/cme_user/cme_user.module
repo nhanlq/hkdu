@@ -45,8 +45,17 @@ function cme_user_theme($existing, $type, $theme, $path)
 function cme_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
 {
     if ($form_id == 'user_register_form') {
-        // dpm($form);
-        $form['field_membership_type']['widget']['#options']['_none'] = t('Select a membership Type');
+        $rolesobs = \Drupal::entityTypeManager()->getStorage('user_role')->loadMultiple();
+        $roles = [];
+        $roles['_none'] = t('Select a membership Type');
+        foreach($rolesobs as $r){
+            $role = $r->toArray();
+            if($role['id'] != 'anonymous' || $role['id'] != 'authenticated'){
+                $roles[$role['id']] = $role['label'];
+            }
+        }
+       //  dpm(\Drupal::entityTypeManager()->getStorage('user_role')->loadMultiple());
+        $form['field_membership_type']['widget']['#options'] = $roles;
         unset($form['field_membership_type']['widget']['#options']['anonymous']);
         unset($form['field_membership_type']['widget']['#options']['authenticated']);
         $form['actions']['submit']['#suffix'] = '<div class="login-link"><a href="/user/login">Login</a></div>';
@@ -58,9 +67,11 @@ function cme_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_
     if ($form_id == 'user_pass') {
         $form['actions']['submit']['#suffix'] = '<div class="login-link"><a href="/user/login">Login</a></div>';
     }
-//    if($form_id == 'user_form'){
-//        dpm($form['account']['status']['#options']);
-//    }
+    if($form_id == 'user_form'){
+     //   dpm($form);
+        unset($form['field_policy']);
+        unset($form['field_guide_info']);
+    }
 }
 
 function cme_user_menu_local_tasks_alter(&$data, $route_name)
