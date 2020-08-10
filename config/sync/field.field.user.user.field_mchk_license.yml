@@ -15,12 +15,12 @@ third_party_settings:
     use_ajax: 0
     message: ''
   field_display_label:
-    display_label: 'MCHK License Number'
+    display_label: 'MCHK No.'
 id: user.user.field_mchk_license
 field_name: field_mchk_license
 entity_type: user
 bundle: user
-label: 'MCHK License Number (mandatory field)'
+label: 'MCHK No.'
 description: ''
 required: true
 translatable: false

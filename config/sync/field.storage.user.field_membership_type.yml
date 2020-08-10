@@ -1,10 +1,9 @@
-uuid: 0fc61dfa-3a52-47e4-8921-80879855ab9e
+uuid: 88c3fe16-0f27-4cbf-a4db-b85c730b3ee1
 langcode: en
 status: true
 dependencies:
   module:
     - field_permissions
-    - options
     - user
 third_party_settings:
   field_permissions:
@@ -12,23 +11,10 @@ third_party_settings:
 id: user.field_membership_type
 field_name: field_membership_type
 entity_type: user
-type: list_string
+type: entity_reference
 settings:
-  allowed_values:
-    -
-      value: hkdu_member
-      label: 'HKDU Member'
-    -
-      value: cme_admin
-      label: 'Non-Member: HKDU as CME Administrator'
-    -
-      value: invited
-      label: 'Non-Member: Invited'
-    -
-      value: tester
-      label: 'Tester (Office use only)'
-  allowed_values_function: ''
-module: options
+  target_type: user_role
+module: core
 locked: false
 cardinality: 1
 translatable: true

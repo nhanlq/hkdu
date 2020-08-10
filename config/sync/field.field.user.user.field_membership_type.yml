@@ -1,11 +1,10 @@
-uuid: 8c941686-d8ae-4da2-a7ad-a3847eac8c30
+uuid: ed8500b5-507b-4f7e-9578-5cb567e6e9dd
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.user.field_membership_type
   module:
-    - options
     - unique_field_ajax
     - user
 third_party_settings:
@@ -24,5 +23,9 @@ required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: list_string
+settings:
+  handler: 'default:user_role'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

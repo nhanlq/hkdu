@@ -74,10 +74,14 @@ content:
     type: string_textfield
     region: content
   field_membership_type:
-    weight: 8
-    settings: {  }
+    weight: 14
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: options_select
+    type: entity_reference_autocomplete
     region: content
   field_point:
     weight: 4
