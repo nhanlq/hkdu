@@ -2095,6 +2095,26 @@ select.epharm-switch {
 .department .jBxOzO{
     color: #000000;
 }
+.user-qrcode{
+    margin-left: auto;
+    margin-right: auto;
+    width: 320px;
+}
+.path-account .logo-register{
+    text-align: center;
+
+}
+.path-account .logo-register img{
+    width: 200px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 40px;
+}
+.qrcode img{
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .user-picture{
     text-align: center;

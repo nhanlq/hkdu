@@ -10,6 +10,14 @@
                 {% endif %}
             </div>
             <p>
+                {% if user.field_first_name is not empty %}
+                    {{ user.field_first_name.value }}
+                {% endif %}
+                {% if user.field_last_name is not empty %}
+                    {{ user.field_last_name.value }}
+                {% endif %}
+            </p>
+            <p>
                 NO.{% if user.field_registration_no is not empty %}{{ user.field_registration_no.value }}{% else %}N/A
                 {% endif %}</p>
         </div>
