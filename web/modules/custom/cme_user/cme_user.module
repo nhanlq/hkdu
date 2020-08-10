@@ -41,8 +41,12 @@ function cme_user_theme($existing, $type, $theme, $path) {
 
 function cme_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
     if($form_id=='user_register_form'){
+       // dpm($form);
+        $form['field_membership_type']['widget']['#options']['_none'] = t('Select a membership Type');
+        unset($form['field_membership_type']['widget']['#options']['anonymous']);
+        unset($form['field_membership_type']['widget']['#options']['authenticated']);
         $form['actions']['submit']['#suffix'] = '<div class="login-link"><a href="/user/login">Login</a></div>';
-        $form['#validate'][] = 'user_validation_membership';
+      //  $form['#validate'][] = 'cme_user_validation_membership';
     }
     if($form_id=='user_login_form'){
         $form['actions']['submit']['#suffix'] = '<div class="register-link"><a href="/user/register">Request an account</a><a class="password-link" href="/user/password">Reset password?</a></div>';
@@ -77,3 +81,4 @@ function cme_user_menu_local_tasks_alter(&$data, $route_name) {
 
     //try to get the currently displayed node
 }
+

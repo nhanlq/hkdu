@@ -91,11 +91,7 @@
     {#</header>#}
   {#{% endblock %}#}
 {#{% endif %}#}
-{% if page.highlighted %}
-    {% block highlighted %}
-        <div class="highlighted">{{ page.highlighted }}</div>
-    {% endblock %}
-{% endif %}
+
 
 {# Main #}
 {% block main %}
@@ -144,6 +140,11 @@
             <div class="logo-register">
                 <a href="/"><img src="/themes/hkdu/images/logo.png"/></a>
             </div>
+            {% if page.highlighted %}
+                {% block highlighted %}
+                    <div class="highlighted">{{ page.highlighted }}</div>
+                {% endblock %}
+            {% endif %}
           {{ page.content }}
         {% endblock %}
       </section>
