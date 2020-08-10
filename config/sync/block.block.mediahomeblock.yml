@@ -10,7 +10,7 @@ dependencies:
 id: mediahomeblock
 theme: hkdu
 region: content
-weight: -14
+weight: -15
 provider: null
 plugin: media_home_block
 settings:

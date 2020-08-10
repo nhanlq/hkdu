@@ -10,7 +10,7 @@ dependencies:
 id: newshomeblock
 theme: hkdu
 region: content
-weight: -16
+weight: -17
 provider: null
 plugin: news_home_block
 settings:

@@ -1,4 +1,4 @@
-uuid: 99d31b8e-7923-4bc8-809f-5167d1886cf3
+uuid: cd2db966-f401-41b3-8008-521844abbbe0
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ dependencies:
 id: qrcodeblock
 theme: hkdu
 region: content
-weight: -17
+weight: -12
 provider: null
 plugin: qrcode_block
 settings:
@@ -28,14 +28,7 @@ visibility:
   user_role:
     id: user_role
     roles:
-      authenticated: authenticated
-      administrator: administrator
-      admins: admins
-      doctor: doctor
       hkdu_members: hkdu_members
-      drug_suppliers: drug_suppliers
-      council_members: council_members
-      cme_member: cme_member
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'

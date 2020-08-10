@@ -10,7 +10,7 @@ dependencies:
 id: abouthomeblock
 theme: hkdu
 region: content
-weight: -15
+weight: -16
 provider: null
 plugin: about_home_block
 settings:
