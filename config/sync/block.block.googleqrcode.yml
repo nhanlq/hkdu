@@ -1,11 +1,10 @@
-uuid: fbcc39b2-9fdb-4364-966b-e43f51e613d5
+uuid: 85658c6d-79ac-41d1-b673-997871caf1fe
 langcode: en
 status: true
 dependencies:
   module:
     - google_qr_code
     - system
-    - user
   theme:
     - hkdu
 id: googleqrcode
@@ -22,20 +21,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/user\r\n/user/*"
+    pages: /ascsdasc
     negate: false
     context_mapping: {  }
-  user_role:
-    id: user_role
-    roles:
-      authenticated: authenticated
-      administrator: administrator
-      admins: admins
-      doctor: doctor
-      hkdu_members: hkdu_members
-      drug_suppliers: drug_suppliers
-      council_members: council_members
-      cme_member: cme_member
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'

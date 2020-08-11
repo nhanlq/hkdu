@@ -11,6 +11,7 @@ permissions:
   - 'access draggableviews'
   - 'access suppliers epharm'
   - 'access toolbar'
+  - 'access user profiles'
   - 'add banner entity entities'
   - 'add clinical focus entities'
   - 'add cme event entities'

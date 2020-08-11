@@ -8,6 +8,7 @@ weight: 5
 is_admin: null
 permissions:
   - 'access epharm'
+  - 'access user profiles'
   - 'add external link entities'
   - 'delete all external link revisions'
   - 'delete external link entities'

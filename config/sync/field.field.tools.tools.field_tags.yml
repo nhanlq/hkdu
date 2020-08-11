@@ -1,0 +1,30 @@
+uuid: 17c3c0e8-4b13-41f8-968f-7d55627bf4f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.tools.field_tags
+    - taxonomy.vocabulary.epharm_tags
+  module:
+    - tools
+id: tools.tools.field_tags
+field_name: field_tags
+entity_type: tools
+bundle: tools
+label: Tags
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      epharm_tags: epharm_tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference
