@@ -34,7 +34,7 @@ function external_link_theme($existing, $type, $theme, $path) {
             // The entity will be prefixed with a hash sign as ['elements']['#artwork']
         ],
         'external_link_list' => [
-            'variables' => ['external_link' => NULL,'get'=>NULL],
+            'variables' => ['external_link' => NULL,'get'=>NULL,'tags','search'=>NULL],
             'path' => $path . '/templates/',
             'template' => 'external-link-list'
         ],

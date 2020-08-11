@@ -1,0 +1,24 @@
+uuid: ca0bebee-1c3c-4762-9a91-477b45e7539a
+langcode: en
+status: true
+dependencies:
+  module:
+    - external_link
+    - field_permissions
+    - taxonomy
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: external_link.field_tags
+field_name: field_tags
+entity_type: external_link
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
