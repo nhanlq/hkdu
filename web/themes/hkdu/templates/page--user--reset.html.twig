@@ -99,13 +99,13 @@
     <div class="row">
 
       {# Header #}
-      {% if page.header %}
-        {% block header %}
-          <div class="col-sm-12" role="heading">
-            {{ page.header }}
-          </div>
-        {% endblock %}
-      {% endif %}
+      {#{% if page.header %}#}
+        {#{% block header %}#}
+          {#<div class="col-sm-12" role="heading">#}
+            {#{{ page.header }}#}
+          {#</div>#}
+        {#{% endblock %}#}
+      {#{% endif %}#}
 
       {# Sidebar First #}
       {% if page.sidebar_first %}
@@ -128,11 +128,11 @@
       <section{{ content_attributes.addClass(content_classes) }}>
 
         {# Help #}
-        {% if page.help %}
-          {% block help %}
-            {{ page.help }}
-          {% endblock %}
-        {% endif %}
+        {#{% if page.help %}#}
+          {#{% block help %}#}
+            {#{{ page.help }}#}
+          {#{% endblock %}#}
+        {#{% endif %}#}
 
         {# Content #}
         {% block content %}
