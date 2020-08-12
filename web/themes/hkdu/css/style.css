@@ -2097,6 +2097,9 @@ select.epharm-switch {
 .department .jBxOzO{
     color: #000000;
 }
+.user-qrcode .logo-register{
+    text-align:  center;
+}
 .user-qrcode {
     width: 380px;
     border: 1px solid grey;
