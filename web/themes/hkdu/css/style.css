@@ -2100,7 +2100,7 @@ select.epharm-switch {
 .user-qrcode .logo-register{
     text-align:  center;
 }
-.qrcode p{
+.user-picture .qrcode p{
     color: #4560B0;
 }
 .user-qrcode {
