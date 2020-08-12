@@ -81,9 +81,6 @@ class EventSuccessSubscriber implements EventSubscriberInterface{
             $body .='<p><strong>Event:</strong> '.$event_entity->getName().'</p>';
             $body .='<p><strong>Expired:</strong> '.$event_entity->get('field_expired')->value.'</p>';
             $body .='<p><strong>Location:</strong> '.$event_entity->get('field_location')->value.'</p>';
-            $body .='<p><strong>Speaker:</strong> '.$event_entity->get('field_speaker')->value.'</p>';
-            $body .='<p><strong>Veune:</strong> '.$event_entity->get('field_veune')->value.'</p>';
-            $body .='<p><strong>QRCODE for Attendance:</strong></p>';
             $body .= render($code);
             $mailManager = \Drupal::service('plugin.manager.mail');
             $module = 'epharm';
