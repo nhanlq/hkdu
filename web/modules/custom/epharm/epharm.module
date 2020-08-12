@@ -90,7 +90,7 @@ function epharm_mail($key, &$message, $params)
             break;
         case 'sendQRcode':
             $message['from'] = \Drupal::config('system.site')->get('mail');
-            $message['subject'] = t('QRcode for Event Attendance.', array('@title' => $params['title']), $options);
+            $message['subject'] = t('@title.', array('@title' => $params['title']), $options);
             $message['body'][] = $params['message'];
             break;
     }
