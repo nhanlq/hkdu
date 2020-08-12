@@ -63,6 +63,8 @@ class EventSuccessSubscriber implements EventSubscriberInterface{
     $state = $order->getState();
     $status = $state->getId();
     $user = \Drupal:: currentUser();
+      $host = \Drupal::request()->getSchemeAndHttpHost();
+      $body = '';
     if($status == 'completed'){
         foreach($order->getItems() as $key => $item){
             $product_item = $item->getPurchasedEntity();
@@ -74,6 +76,38 @@ class EventSuccessSubscriber implements EventSubscriberInterface{
         $cme_event = false;
         if($product->get('field_event')){
             $event = $product->get('field_event')->target_id;
+            $event_entity = \Drupal\event\Entity\Event::load($event);
+            $body .='<h2>Event information</h2>';
+            $body .='<p><strong>Event:</strong> '.$event_entity->getName().'</p>';
+            $body .='<p><strong>Expired:</strong> '.$event_entity->get('field_expired')->value.'</p>';
+            $body .='<p><strong>Location:</strong> '.$event_entity->get('field_location')->value.'</p>';
+            $body .='<p><strong>Speaker:</strong> '.$event_entity->get('field_speaker')->value.'</p>';
+            $body .='<p><strong>Veune:</strong> '.$event_entity->get('field_veune')->value.'</p>';
+            $body .='<p><strong>QRCODE for Attendance:</strong></p>';
+            $body .= render($code);
+            $mailManager = \Drupal::service('plugin.manager.mail');
+            $module = 'epharm';
+            $key = 'sendQRcode';
+            $to = $user->getEmail();
+            $params['message'] = $body;
+            $params['title'] = '[HKDU] Event Calendar.';
+            $params['user'] = $user->getDisplayName();
+            $params['from'] = \Drupal::config('system.site')->get('mail');
+            $attachment = array(
+                'filepath' => $host.'/sites/default/files/ics/ICS_event_'.$event_entity->id().'.ics',
+                'filename' => 'ICS_event_'.$event_entity->id().'.ics',
+                'filemime' => 'application/ics'
+            );
+            $params['attachments'][] = $attachment;
+            $langcode = \Drupal::currentUser()->getPreferredLangcode();
+            $send = true;
+
+            $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+            if ($result['result'] !== true) {
+                \Drupal::messenger()->addMessage(t('There was a problem sending your message and it was not sent.'), 'error');
+            } else {
+                \Drupal::messenger()->addMessage(t('Your message has been sent.'));
+            }
         }
         if($product->get('field_cme_event')->target_id > 0){
             $cme_event = $product->get('field_cme_event')->target_id;
@@ -88,7 +122,7 @@ class EventSuccessSubscriber implements EventSubscriberInterface{
             ]);
             $score->save();
             //send QR code
-            $body = '';
+
             $url = '';
             $host = \Drupal::request()->getSchemeAndHttpHost();
             $url = $host.'/cme/event/qrcode/'.$cme_event.'/'.$user->id();
@@ -126,7 +160,7 @@ class EventSuccessSubscriber implements EventSubscriberInterface{
             $params['user'] = $user->getDisplayName();
             $params['from'] = \Drupal::config('system.site')->get('mail');
             $attachment = array(
-                'filepath' => $host.'/sites/default/files/ics/ICS_event_'.$cme_event_entity->id().'.ics',
+                'filepath' => $host.'/sites/default/files/ics/ICS_CME_event_'.$cme_event_entity->id().'.ics',
                 'filename' => 'ICS_event_'.$cme_event_entity->id().'.ics',
                 'filemime' => 'application/ics'
             );
