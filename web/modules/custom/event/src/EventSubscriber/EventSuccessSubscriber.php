@@ -79,7 +79,7 @@ class EventSuccessSubscriber implements EventSubscriberInterface{
             $event_entity = \Drupal\event\Entity\Event::load($event);
             $body .='<h2>Event information</h2>';
             $body .='<p><strong>Event:</strong> '.$event_entity->getName().'</p>';
-            $body .='<p><strong>Expired:</strong> '.$event_entity->get('field_expired')->value.'</p>';
+            $body .='<p><strong>Expired:</strong> '.date('d/m/Y',$event_entity->get('field_expired')->value).'</p>';
             $body .='<p><strong>Location:</strong> '.$event_entity->get('field_location')->value.'</p>';
             $body .= render($code);
             $mailManager = \Drupal::service('plugin.manager.mail');
