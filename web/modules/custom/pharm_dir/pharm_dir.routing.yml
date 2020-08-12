@@ -5,11 +5,11 @@ pharm_dir.pharm_dir_list_controller_list:
     _controller: '\Drupal\pharm_dir\Controller\PharmDirListController::list'
     _title_callback: '\Drupal\pharm_dir\Controller\PharmDirListController::title'
   requirements:
-    _permission: 'access content'
+    _permission: 'view published pharm dir entities'
 pharm_dir.import_xls_form:
   path: '/admin/hkdu/pharm-dir/import'
   defaults:
     _form: '\Drupal\pharm_dir\Form\ImportXlsForm'
     _title: 'ImportXlsForm'
   requirements:
-    _permission: 'access content'
+    _permission: 'view published pharm dir entities'
