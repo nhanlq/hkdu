@@ -126,7 +126,7 @@ class EventSuccessSubscriber implements EventSubscriberInterface{
             $params['user'] = $user->getDisplayName();
             $params['from'] = \Drupal::config('system.site')->get('mail');
             $attachment = array(
-                'filepath' => '/sites/default/files/ics/ICS_event_'.$cme_event_entity->id().'.ics',
+                'filepath' => $host.'/sites/default/files/ics/ICS_event_'.$cme_event_entity->id().'.ics',
                 'filename' => 'ICS_event_'.$cme_event_entity->id().'.ics',
                 'filemime' => 'application/ics'
             );
