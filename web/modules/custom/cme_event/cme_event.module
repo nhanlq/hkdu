@@ -165,16 +165,16 @@ function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
 function createICSFile($entity)
 {
     $start = $entity->get('field_start_date')->value;
-    $end = $entity->get('field_expired')->value;
+    $end = $entity->get('field_date')->value;
     $name = $entity->getName();
     $location = $entity->get('field_location')->value;
     $body = '';
-    $body .= 'Event: ' . $entity->getName();
-    $body .= 'Start Date: ' . $entity->get('field_start_date')->value;
-    $body .= 'Start Time: ' . $entity->get('field_start_time')->value;
-    $body .= 'Expired: ' . $entity->get('field_expired')->value;
-    $body .= 'Location: ' . $entity->get('field_location')->value;
-    $body .= 'Veune: ' . $entity->get('field_veune')->value;
+    $body .= 'Event: ' . $entity->getName().'\n';
+    $body .= 'Start Date: ' . $entity->get('field_start_date')->value.'\n';
+    $body .= 'Start Time: ' . $entity->get('field_start_time')->value.'\n';
+    $body .= 'Expired: ' . $entity->get('field_expired')->value.'\n';
+    $body .= 'Location: ' . $entity->get('field_location')->value.'\n';
+    $body .= 'Veune: ' . $entity->get('field_veune')->value.'\n';
     $description = $body;
     $filename = 'ICS_event_' . $entity->id().'.ics';
     $data = "BEGIN:VCALENDAR\nVERSION:2.0\nMETHOD:PUBLISH\nBEGIN:VEVENT\nDTSTART:" . date("Ymd\THis\Z", strtotime($start)) . "\nDTEND:" . date("Ymd\THis\Z", strtotime($end)) . "\nLOCATION:" . $location . "\nTRANSP: OPAQUE\nSEQUENCE:0\nUID:\nDTSTAMP:" . date("Ymd\THis\Z") . "\nSUMMARY:" . $name . "\nDESCRIPTION:" . $description . "\nPRIORITY:1\nCLASS:PUBLIC\nBEGIN:VALARM\nTRIGGER:-PT10080M\nACTION:DISPLAY\nDESCRIPTION:Reminder\nEND:VALARM\nEND:VEVENT\nEND:VCALENDAR\n";
