@@ -603,7 +603,7 @@ display:
           settings:
             format: custom
             format_custom_true: Active
-            format_custom_false: Block
+            format_custom_false: Inactive
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1517,7 +1517,7 @@ display:
           exposed: true
           expose:
             operator_id: ''
-            label: STatus
+            label: Status
             description: ''
             use_operator: false
             operator: status_op

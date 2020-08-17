@@ -58,13 +58,22 @@ class ExternalLinkListController extends ControllerBase
                 ->pager(10)
                 ->execute();
         } elseif (isset($_GET['keys'])) {
-            $ids = \Drupal::entityQuery('external_link')
+            $ids1 = \Drupal::entityQuery('external_link')
                 ->condition('status', 1)
                 ->condition('name', $_GET['keys'], 'CONTAINS')
                 ->sort('field_weight', 'ASC')
                 ->sort('created', 'DESC')
                 ->pager(10)
                 ->execute();
+
+
+            $query = \Drupal::database()->select('external_link__field_link', 'ex');
+            $query->addField('ex', 'entity_id');
+            $query->condition('field_link_title', '%'.$_GET['keys'].'%','like');
+
+            $ids2 = $query->execute()->fetchCol();
+            $ids = array_merge($ids1, $ids2);
+
         } else {
             $ids = \Drupal::entityQuery('external_link')
                 ->condition('status', 1)

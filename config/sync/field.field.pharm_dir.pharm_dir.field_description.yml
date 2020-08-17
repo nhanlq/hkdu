@@ -11,7 +11,7 @@ id: pharm_dir.pharm_dir.field_description
 field_name: field_description
 entity_type: pharm_dir
 bundle: pharm_dir
-label: Description
+label: Content
 description: ''
 required: false
 translatable: false

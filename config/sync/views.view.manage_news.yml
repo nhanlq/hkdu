@@ -120,8 +120,8 @@ display:
               empty_column: false
               responsive: ''
             id:
-              sortable: false
-              default_sort_order: asc
+              sortable: true
+              default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
@@ -173,7 +173,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-          default: field_weight
+          default: id
           empty_table: false
       row:
         type: fields

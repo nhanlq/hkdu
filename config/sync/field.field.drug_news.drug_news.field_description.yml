@@ -11,7 +11,7 @@ id: drug_news.drug_news.field_description
 field_name: field_description
 entity_type: drug_news
 bundle: drug_news
-label: Description
+label: Content
 description: ''
 required: false
 translatable: false

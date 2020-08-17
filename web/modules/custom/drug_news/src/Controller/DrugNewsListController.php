@@ -61,7 +61,7 @@ class DrugNewsListController extends ControllerBase
                 ->pager(10)
                 ->execute();
         } elseif (isset($_GET['keys'])) {
-            $ids = \Drupal::entityQuery('drug_news')
+            $ids1 = \Drupal::entityQuery('drug_news')
                 ->condition('status', 1)
                 ->condition('field_expired', $currentDate, '>=')
                 ->condition('name', $_GET['keys'], 'CONTAINS')
@@ -69,6 +69,15 @@ class DrugNewsListController extends ControllerBase
                 ->sort('field_publish_date', 'DESC')
                 ->pager(10)
                 ->execute();
+            $ids2 = \Drupal::entityQuery('drug_news')
+                ->condition('status', 1)
+                ->condition('field_expired', $currentDate, '>=')
+                ->condition('field_description', $_GET['keys'], 'CONTAINS')
+                ->sort('field_weight', 'ASC')
+                ->sort('field_publish_date', 'DESC')
+                ->pager(10)
+                ->execute();
+            $ids = array_merge($ids1, $ids2);
         } else {
             $ids = \Drupal::entityQuery('drug_news')
                 ->condition('status', 1)
