@@ -56,6 +56,9 @@ class QRcodeBlock extends BlockBase
             '#theme' => 'cme_user_code',
             '#user' => $user,
             '#qrcode' => $code,
+            '#cache' => [
+                'max-age' => 0,
+            ],
         ];
     }
 

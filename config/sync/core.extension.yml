@@ -105,6 +105,7 @@ module:
   media_directories: 0
   media_library: 0
   media_release: 0
+  menu_item_role_access: 0
   menu_link_attributes: 0
   menu_ui: 0
   news: 0
