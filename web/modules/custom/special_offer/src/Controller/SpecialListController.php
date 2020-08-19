@@ -75,6 +75,7 @@ class SpecialListController extends ControllerBase {
                 ->execute();
             $ids = array_merge($ids1,$ids2);
         } else {
+
             $ids = \Drupal::entityQuery('special_offer')
                 ->condition('status', 1)
                 ->sort('field_weight','ASC')
