@@ -106,31 +106,13 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
             $entity->getEntityTypeId() == 'drug_news' ||
             $entity->getEntityTypeId() == 'pharm_dir' ||
             $entity->getEntityTypeId() == 'special_offer' ||
-            $entity->getEntityTypeId() == 'drug_search' ||
-            $entity->getEntityTypeId() == 'about' ||
-            $entity->getEntityTypeId() == 'banner' ||
-            $entity->getEntityTypeId() == 'event_org' ||
-            $entity->getEntityTypeId() == 'guidelines' ||
-            $entity->getEntityTypeId() == 'cme_links' ||
-//            $entity->getEntityTypeId() == 'question' ||
-            $entity->getEntityTypeId() == 'quiz' ||
-            $entity->getEntityTypeId() == 'cme_event' ||
-            $entity->getEntityTypeId() == 'doctor' ||
-            $entity->getEntityTypeId() == 'download' ||
-            $entity->getEntityTypeId() == 'external_link' ||
-            $entity->getEntityTypeId() == 'gallery' ||
-            $entity->getEntityTypeId() == 'healthy' ||
-            $entity->getEntityTypeId() == 'hospital' ||
-            $entity->getEntityTypeId() == 'media_entity' ||
-            $entity->getEntityTypeId() == 'news' ||
-            $entity->getEntityTypeId() == 'public_links' ||
-            $entity->getEntityTypeId() == 'tools'
+            $entity->getEntityTypeId() == 'drug_search'
 
         ) {
             $mailManager = \Drupal::service('plugin.manager.mail');
             $module = 'epharm';
             $key = 'createPost';
-            $to = \Drupal::config('system.site')->get('mail');
+            $to = 'hkdumail@gmail.com,dr.alfredtang@gmail.com';
             $params['message'] = 'User ' . $user->getDisplayName() . ' just create the post ' . $entity->getName() . ' of type ' . $entity->getEntityTypeId();
             $params['title'] = $entity->getName();
             $params['user'] = $user->getDisplayName();
@@ -158,37 +140,19 @@ function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity)
         $entity->getEntityTypeId() == 'drug_news' ||
         $entity->getEntityTypeId() == 'pharm_dir' ||
         $entity->getEntityTypeId() == 'special_offer' ||
-        $entity->getEntityTypeId() == 'drug_search' ||
-        $entity->getEntityTypeId() == 'about' ||
-        $entity->getEntityTypeId() == 'banner' ||
-        $entity->getEntityTypeId() == 'event_org' ||
-        $entity->getEntityTypeId() == 'guidelines' ||
-        $entity->getEntityTypeId() == 'cme_links' ||
-//        $entity->getEntityTypeId() == 'question' ||
-        $entity->getEntityTypeId() == 'quiz' ||
-        $entity->getEntityTypeId() == 'cme_event' ||
-        $entity->getEntityTypeId() == 'doctor' ||
-        $entity->getEntityTypeId() == 'download' ||
-        $entity->getEntityTypeId() == 'external_link' ||
-        $entity->getEntityTypeId() == 'gallery' ||
-        $entity->getEntityTypeId() == 'healthy' ||
-        $entity->getEntityTypeId() == 'hospital' ||
-        $entity->getEntityTypeId() == 'media_entity' ||
-        $entity->getEntityTypeId() == 'news' ||
-        $entity->getEntityTypeId() == 'public_links' ||
-        $entity->getEntityTypeId() == 'tools'
+        $entity->getEntityTypeId() == 'drug_search'
 
     ) {
         if (!$entity->get('status')->value && $entity->get('moderation_state')->value == 'draft'
             || !$entity->get('status')->value && $entity->get('moderation_state')->value == 'pending') {
             UpdateStateStatus($entity->id(), $entity->getEntityTypeId(), $entity->get('moderation_state')->value);
         }
-        if ($entity->get('status')->value == 1) {
+        if ($entity->get('moderation_state')->value == 'pending') {
             $user = \Drupal\user\Entity\User::load($entity->getOwnerId());
             $mailManager = \Drupal::service('plugin.manager.mail');
             $module = 'epharm';
             $key = 'updatePost';
-            $to = $user->getEmail();
+            $to = $user->getEmail().',hkdumail@gmail.com,dr.alfredtang@gmail.com';
             $params['message'] = $entity->getName();
             $params['title'] = $entity->getName();
             $params['user'] = $user->getDisplayName();
