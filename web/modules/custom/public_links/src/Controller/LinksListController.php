@@ -27,7 +27,7 @@ class LinksListController extends ControllerBase {
         return [
             'results' => [
                 '#theme' => 'public_links_list',
-                '#public_links' => $this->getExternalLink(),
+                '#data' => $this->getExternalLink(),
                 '#tags' => $this->getTags(),
                 '#get' => $tags,
                 '#search' => $search,
@@ -53,32 +53,41 @@ class LinksListController extends ControllerBase {
                 ->condition('field_tags', $tid)
                 ->sort('field_weight', 'ASC')
                 ->sort('created', 'DESC')
-                ->pager(10)
+             //   ->pager(20)
                 ->execute();
         } elseif (isset($_GET['keys'])) {
-            $ids1 = \Drupal::entityQuery('public_links')
+            $ids = \Drupal::entityQuery('public_links')
                 ->condition('status', 1)
                 ->condition('name', $_GET['keys'], 'CONTAINS')
                 ->sort('field_weight', 'ASC')
                 ->sort('created', 'DESC')
-                ->pager(10)
+              //  ->pager(20)
                 ->execute();
-            $query = \Drupal::database()->select('public_links__field_link', 'ex');
-            $query->addField('ex', 'entity_id');
-            $query->condition('field_link_title', '%'.$_GET['keys'].'%','like');
-
-            $ids2 = $query->execute()->fetchCol();
-            $ids = array_merge($ids1, $ids2);
         } else {
             $ids = \Drupal::entityQuery('public_links')
                 ->condition('status', 1)
                 ->sort('field_weight', 'ASC')
                 ->sort('created', 'DESC')
-                ->pager(10)
+               // ->pager(20)
                 ->execute();
         }
         $result = \Drupal\public_links\Entity\PublicLinks::loadMultiple($ids);
-        return $result;
+        $data = [];
+        $vid = 'link';
+        $terms =\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
+        foreach ($terms as $term) {
+            $link_data = [];
+            foreach($result as $id => $link){
+                if($term->tid == $link->get('field_category')->target_id){
+                    $link_data[$id]= $link;
+                    $data[$term->tid] = ['cate'=>$term->name, 'links' => $link_data];
+                }
+            }
+
+        }
+
+        //var_dump($data);die;
+        return $data;
     }
     public function getTags()
     {
@@ -86,9 +95,9 @@ class LinksListController extends ControllerBase {
         $ids = \Drupal::entityQuery('public_links')
             ->condition('status', 1)
             ->execute();
-        $result = \Drupal\news\Entity\News::loadMultiple($ids);
-        foreach ($result as $drug) {
-            foreach ($drug->get('field_tags')->getValue() as $tag) {
+        $result = \Drupal\public_links\Entity\PublicLinks::loadMultiple($ids);
+        foreach ($result as $link) {
+            foreach ($link->get('field_tags')->getValue() as $tag) {
                 $term = \Drupal\taxonomy\Entity\Term::load($tag['target_id']);
                 $tags[$tag['target_id']] = $term->getName();
             }

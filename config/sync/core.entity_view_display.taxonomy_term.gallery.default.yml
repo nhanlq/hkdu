@@ -1,0 +1,44 @@
+uuid: 8f815d2e-7e5d-43de-be73-71a379bb852e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.gallery.field_date
+    - field.field.taxonomy_term.gallery.field_media
+    - taxonomy.vocabulary.gallery
+  module:
+    - datetime
+    - text
+id: taxonomy_term.gallery.default
+targetEntityType: taxonomy_term
+bundle: gallery
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_date:
+    weight: 2
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_media:
+    type: entity_reference_entity_view
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

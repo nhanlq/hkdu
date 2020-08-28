@@ -1,0 +1,37 @@
+uuid: f2bae8ca-d054-44b8-be1d-1315614f854a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.external_link.field_category
+    - taxonomy.vocabulary.useful_link
+  module:
+    - external_link
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: external_link.external_link.field_category
+field_name: field_category
+entity_type: external_link
+bundle: external_link
+label: Category
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      useful_link: useful_link
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

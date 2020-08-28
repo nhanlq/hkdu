@@ -1,17 +1,17 @@
-uuid: 7caeab53-d961-42b6-9102-1b307f3d3f5f
+uuid: 648c802f-550c-49a8-bb4b-d569d76d9f99
 langcode: en
 status: true
 dependencies:
   module:
-    - external_link
     - field_permissions
     - link
+    - public_links
 third_party_settings:
   field_permissions:
     permission_type: public
-id: external_link.field_link
-field_name: field_link
-entity_type: external_link
+id: public_links.field_links
+field_name: field_links
+entity_type: public_links
 type: link
 settings: {  }
 module: link

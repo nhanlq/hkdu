@@ -55,35 +55,42 @@ class ExternalLinkListController extends ControllerBase
                 ->condition('field_tags', $tid)
                 ->sort('field_weight', 'ASC')
                 ->sort('created', 'DESC')
-                ->pager(10)
+            //    ->pager(10)
                 ->execute();
         } elseif (isset($_GET['keys'])) {
-            $ids1 = \Drupal::entityQuery('external_link')
+            $ids = \Drupal::entityQuery('external_link')
                 ->condition('status', 1)
                 ->condition('name', $_GET['keys'], 'CONTAINS')
                 ->sort('field_weight', 'ASC')
                 ->sort('created', 'DESC')
-                ->pager(10)
+             //   ->pager(10)
                 ->execute();
-
-
-            $query = \Drupal::database()->select('external_link__field_link', 'ex');
-            $query->addField('ex', 'entity_id');
-            $query->condition('field_link_title', '%'.$_GET['keys'].'%','like');
-
-            $ids2 = $query->execute()->fetchCol();
-            $ids = array_merge($ids1, $ids2);
 
         } else {
             $ids = \Drupal::entityQuery('external_link')
                 ->condition('status', 1)
                 ->sort('field_weight', 'ASC')
                 ->sort('created', 'DESC')
-                ->pager(10)
+             //   ->pager(10)
                 ->execute();
         }
         $result = \Drupal\external_link\Entity\ExternalLink::loadMultiple($ids);
-        return $result;
+        $data = [];
+        $vid = 'useful_link';
+        $terms =\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
+        foreach ($terms as $term) {
+            $link_data = [];
+            foreach($result as $id => $link){
+                if($term->tid == $link->get('field_category')->target_id){
+                    $link_data[$id]= $link;
+                    $data[$term->tid] = ['cate'=>$term->name, 'links' => $link_data];
+                }
+            }
+
+        }
+
+        //var_dump($data);die;
+        return $data;
     }
 
     public function getTags()
@@ -92,13 +99,14 @@ class ExternalLinkListController extends ControllerBase
         $ids = \Drupal::entityQuery('external_link')
             ->condition('status', 1)
             ->execute();
-        $result = \Drupal\news\Entity\News::loadMultiple($ids);
+        $result = \Drupal\external_link\Entity\ExternalLink::loadMultiple($ids);
         foreach ($result as $drug) {
             foreach ($drug->get('field_tags')->getValue() as $tag) {
                 $term = \Drupal\taxonomy\Entity\Term::load($tag['target_id']);
                 $tags[$tag['target_id']] = $term->getName();
             }
         }
+      //  var_dump($tags);die;
         return $tags;
     }
 
@@ -106,7 +114,7 @@ class ExternalLinkListController extends ControllerBase
     {
         $term = \Drupal::entityTypeManager()
             ->getStorage('taxonomy_term')
-            ->loadByProperties(['name' => $name, 'vid' => 'tags']);
+            ->loadByProperties(['name' => $name, 'vid' => 'epharm_tags']);
         $term = reset($term);
         $term_id = $term->id();
         return $term_id;

@@ -1,23 +1,23 @@
-uuid: 509f58ac-d420-4867-bd20-2dbf7ca3c03b
+uuid: 8d4bb761-6c99-4733-8350-ee7dba77255f
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.external_link.field_category
-    - system.menu.admin
+    - field.storage.gallery.field_category
+    - field.storage.gallery.field_weight
     - user.role.administrator
     - user.role.admins
   module:
-    - external_link
+    - gallery
     - sortableviews
     - user
     - views_bulk_operations
-id: manage_external_links
-label: 'Manage External Links'
+id: manage_gallery
+label: 'Manage Gallery'
 module: views
 description: ''
 tag: ''
-base_table: external_link_field_data
+base_table: gallery_field_data
 base_field: id
 display:
   default:
@@ -54,17 +54,12 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: full
+        type: mini
         options:
-          items_per_page: 50
+          items_per_page: 10
           offset: 0
           id: 0
           total_pages: null
-          tags:
-            previous: ‹‹
-            next: ››
-            first: '« First'
-            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -73,7 +68,9 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          quantity: 9
+          tags:
+            previous: ‹‹
+            next: ››
       style:
         type: sortable_table
         options:
@@ -89,8 +86,11 @@ display:
           columns:
             views_bulk_operations_bulk_form: views_bulk_operations_bulk_form
             sortable_handle: sortable_handle
+            id: id
+            field_weight: field_weight
             name: name
-            created: created
+            field_category: field_category
+            operations: operations
           info:
             views_bulk_operations_bulk_form:
               align: ''
@@ -102,21 +102,40 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            id:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_weight:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             name:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            created:
-              sortable: false
+            field_category:
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-          default: '-1'
+            operations:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: name
           empty_table: false
       row:
         type: fields
@@ -128,7 +147,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'Views bulk operations'
           exclude: false
           alter:
             alter_text: false
@@ -161,7 +180,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -175,30 +194,16 @@ display:
           buttons: false
           clear_on_exposed: true
           action_title: Action
-          selected_actions:
-            1:
-              action_id: views_bulk_edit
-              preconfiguration:
-                get_bundles_from_results: 1
-            2:
-              action_id: views_bulk_operations_delete_entity
-            3:
-              action_id: pathauto_update_alias
-            4:
-              action_id: 'entity:publish_action:external_link'
-            5:
-              action_id: 'entity:unpublish_action:external_link'
-            6:
-              action_id: 'entity:save_action:external_link'
+          selected_actions: {  }
           plugin_id: views_bulk_operations_bulk_form
         sortable_handle:
           id: sortable_handle
-          table: external_link_field_data
+          table: gallery_field_data
           field: sortable_handle
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'Drag and drop handle.'
           exclude: false
           alter:
             alter_text: false
@@ -231,7 +236,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -239,15 +244,142 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          entity_type: external_link
+          entity_type: gallery
           plugin_id: sortable_views_handle
-        name:
-          table: external_link_field_data
-          field: name
-          id: name
-          entity_type: null
-          entity_field: name
+        id:
+          id: id
+          table: gallery_field_data
+          field: id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ID
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: gallery
+          entity_field: id
           plugin_id: field
+        field_weight:
+          id: field_weight
+          table: gallery__field_weight
+          field: field_weight
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Weight
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        name:
+          id: name
+          table: gallery_field_data
+          field: name
           relationship: none
           group_type: group
           admin_label: ''
@@ -294,7 +426,8 @@ display:
           hide_alter_empty: true
           click_sort_column: value
           type: string
-          settings: {  }
+          settings:
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -305,9 +438,12 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: null
+          entity_field: name
+          plugin_id: field
         field_category:
           id: field_category
-          table: external_link__field_category
+          table: gallery__field_category
           field: field_category
           relationship: none
           group_type: group
@@ -368,76 +504,9 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        created:
-          id: created
-          table: external_link_field_data
-          field: created
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Created
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: timestamp
-          settings:
-            date_format: medium
-            custom_date_format: ''
-            timezone: ''
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: external_link
-          entity_field: created
-          plugin_id: field
         operations:
           id: operations
-          table: external_link
+          table: gallery
           field: operations
           relationship: none
           group_type: group
@@ -484,23 +553,11 @@ display:
           empty_zero: false
           hide_alter_empty: true
           destination: false
-          entity_type: external_link
+          entity_type: gallery
           plugin_id: entity_operations
       filters: {  }
-      sorts:
-        field_weight_value:
-          id: field_weight_value
-          table: external_link__field_weight
-          field: field_weight_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: standard
-      title: 'Manage External Links'
+      sorts: {  }
+      title: 'Manage Gallery'
       header:
         area:
           id: area
@@ -512,19 +569,19 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "<div id=\"block-seven-local-actions\">\r\n  \r\n    \r\n        <ul class=\"action-links\">\r\n      <li><a href=\"/admin/hkdu/external_link/add?destination=/admin/hkdu/manage-external-links\" class=\"button button-action button--primary button--small\" data-drupal-link-system-path=\"admin/hkdu/external_link/add\" tabindex=\"-1\">Add External link</a></li>\r\n\r\n    </ul>\r\n  </div>"
+            value: "<ul class=\"action-links\">\r\n      <li><a href=\"/admin/hkdu/gallery/add?destination=/admin/manage-gallery\" class=\"button button-action button--primary button--small\" data-drupal-link-system-path=\"admin/hkdu/gallery/add\">Add Gallery</a></li>\r\n\r\n    </ul>"
             format: full_html
           plugin_id: text
       footer:
         save_sortable_changes:
           id: save_sortable_changes
-          table: external_link_field_data
+          table: gallery_field_data
           field: save_sortable_changes
           relationship: none
           group_type: group
           admin_label: ''
           empty: false
-          entity_type: external_link
+          entity_type: gallery
           plugin_id: save_sortable_changes
       empty:
         area:
@@ -537,7 +594,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "<div id=\"block-seven-local-actions\">\r\n  \r\n    \r\n        <ul class=\"action-links\">\r\n      <li><a href=\"/admin/hkdu/external_link/add?destination=/admin/hkdu/manage-external-links\" class=\"button button-action button--primary button--small\" data-drupal-link-system-path=\"admin/hkdu/external_link/add\" tabindex=\"-1\">Add External link</a></li>\r\n\r\n    </ul>\r\n  </div>\r\n<p>Item not found</p>"
+            value: "<p>Items not found.</p>\r\n<ul class=\"action-links\">\r\n      <li><a href=\"/admin/hkdu/gallery/add?destination=/admin/manage-gallery\" class=\"button button-action button--primary button--small\" data-drupal-link-system-path=\"admin/hkdu/gallery/add\">Add Gallery</a></li>\r\n\r\n    </ul>"
             format: full_html
           plugin_id: text
       relationships: {  }
@@ -551,7 +608,8 @@ display:
         - url.query_args
         - user.roles
       tags:
-        - 'config:field.storage.external_link.field_category'
+        - 'config:field.storage.gallery.field_category'
+        - 'config:field.storage.gallery.field_weight'
   page_1:
     display_plugin: page
     id: page_1
@@ -559,16 +617,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: admin/hkdu/manage-external-links
-      menu:
-        type: normal
-        title: 'Manage External Links'
-        description: ''
-        expanded: false
-        parent: entity.external_link.collection
-        weight: 0
-        context: '0'
-        menu_name: admin
+      path: admin/manage-gallery
     cache_metadata:
       max-age: 0
       contexts:
@@ -577,4 +626,5 @@ display:
         - url.query_args
         - user.roles
       tags:
-        - 'config:field.storage.external_link.field_category'
+        - 'config:field.storage.gallery.field_category'
+        - 'config:field.storage.gallery.field_weight'

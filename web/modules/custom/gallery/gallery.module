@@ -34,7 +34,7 @@ function gallery_theme($existing, $type, $theme, $path) {
             // The entity will be prefixed with a hash sign as ['elements']['#artwork']
         ],
         'gallery_list' => [
-            'variables' => ['gallerys' => NULL],
+            'variables' => ['gallerys' => NULL,'taxonomy' => NULL],
             'path' => $path . '/templates/',
             'template' => 'gallery-list'
         ],

@@ -1,20 +1,21 @@
-uuid: 7caeab53-d961-42b6-9102-1b307f3d3f5f
+uuid: de04f20a-7348-4561-9eed-3383455e18ed
 langcode: en
 status: true
 dependencies:
   module:
-    - external_link
     - field_permissions
-    - link
+    - public_links
+    - taxonomy
 third_party_settings:
   field_permissions:
     permission_type: public
-id: external_link.field_link
-field_name: field_link
-entity_type: external_link
-type: link
-settings: {  }
-module: link
+id: public_links.field_category
+field_name: field_category
+entity_type: public_links
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
 locked: false
 cardinality: 1
 translatable: true

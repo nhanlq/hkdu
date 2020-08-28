@@ -6,3 +6,11 @@ gallery.gallery_list_controller_list:
     _title_callback: '\Drupal\gallery\Controller\GalleryListController::title'
   requirements:
     _permission: 'access content'
+
+gallery.category_controller_category:
+  path: '/gallery/category/{id}'
+  defaults:
+    _controller: '\Drupal\gallery\Controller\CategoryController::category'
+    _title_callback: '\Drupal\gallery\Controller\CategoryController::title'
+  requirements:
+    _permission: 'access content'

@@ -3,7 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.public_links.public_links.field_link
+    - field.field.public_links.public_links.field_category
+    - field.field.public_links.public_links.field_links
     - field.field.public_links.public_links.field_tags
     - field.field.public_links.public_links.field_weight
     - workflows.workflow.editorial
@@ -17,8 +18,18 @@ targetEntityType: public_links
 bundle: public_links
 mode: default
 content:
-  field_link:
-    weight: 26
+  field_category:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_links:
+    weight: 2
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -26,7 +37,7 @@ content:
     type: link_default
     region: content
   field_tags:
-    weight: 101
+    weight: 4
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -36,7 +47,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_weight:
-    weight: 31
+    weight: 3
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -44,20 +55,20 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 2
+    weight: 5
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 100
+    weight: 8
     settings: {  }
     region: content
     third_party_settings: {  }
   name:
     type: string_textfield
-    weight: -4
+    weight: 1
     region: content
     settings:
       size: 60
@@ -65,13 +76,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   user_id:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60

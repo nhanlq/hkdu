@@ -86,6 +86,7 @@ module:
   geolocation: 0
   geolocation_google_places_api: 0
   global_hkdu: 0
+  google_analytics: 0
   google_qr_code: 0
   healthy: 0
   help: 0

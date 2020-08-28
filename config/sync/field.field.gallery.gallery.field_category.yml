@@ -1,0 +1,37 @@
+uuid: 2e4304f6-0400-4efa-ae12-481850109963
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.gallery.field_category
+    - taxonomy.vocabulary.gallery
+  module:
+    - gallery
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: gallery.gallery.field_category
+field_name: field_category
+entity_type: gallery
+bundle: gallery
+label: Category
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      gallery: gallery
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

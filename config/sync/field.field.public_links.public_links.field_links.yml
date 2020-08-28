@@ -1,0 +1,23 @@
+uuid: 2330987f-7f89-4169-88df-f00bf0fd1bd2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.public_links.field_links
+  module:
+    - link
+    - public_links
+id: public_links.public_links.field_links
+field_name: field_links
+entity_type: public_links
+bundle: public_links
+label: Links
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link
