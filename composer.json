@@ -55,6 +55,7 @@
         "drupal/nocurrent_pass": "^1.0",
         "drupal/paragraphs": "^1.11",
         "drupal/pathauto": "^1.6",
+        "drupal/permissions_by_term": "^3.1",
         "drupal/phpexcel": "^3.0",
         "drupal/range": "^1.1",
         "drupal/redirect": "^1.5",
