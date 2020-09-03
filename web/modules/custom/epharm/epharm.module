@@ -153,8 +153,8 @@ function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity)
             $module = 'epharm';
             $key = 'updatePost';
             $to = $user->getEmail().',hkdumail@gmail.com,dr.alfredtang@gmail.com';
-            $params['message'] = $entity->getName();
-            $params['title'] = $entity->getName();
+            $params['message'] = $user->getDisplayName().' has a content in '.$entity->getName().' waiting for your approval. The content as bellow: '.$entity->get('field_description')->value;
+            $params['title'] = 'Pending Review: '.$entity->getName().' by '.$user->getDisplayName();
             $params['user'] = $user->getDisplayName();
             $params['from'] = \Drupal::config('system.site')->get('mail');
             $langcode = \Drupal::currentUser()->getPreferredLangcode();
