@@ -169,7 +169,7 @@ function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity)
                 $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hhenryy@gmail.com,henry.association@gmail.com,hkdumail@gmail.com';
             }
           //  $to = $user->getEmail().',hkdumail@gmail.com,dr.alfredtang@gmail.com';
-            $params['message'] = $user->getDisplayName().' has a content in '.$entity->getName().' waiting for your approval. The content as bellow: '.$entity->get('field_description')->value;
+            $params['message'] = $user->getDisplayName().' has a content in '.mapping_key($entity->getEntityTypeId()).' waiting for your approval. The content as bellow: '.$entity->get('field_description')->value;
             $params['title'] = 'Pending Review: '.$entity->getName().' by '.$user->getDisplayName();
             $params['user'] = $user->getDisplayName();
             $params['from'] = \Drupal::config('system.site')->get('mail');
@@ -210,6 +210,28 @@ function epharm_entity_presave(Drupal\Core\Entity\EntityInterface $entity)
 //
 //    }
 
+}
+function mapping_key($key){
+    $type = '';
+    switch($key){
+        case 'event':
+            $type = 'Event';
+            break;
+        case 'clinical_focus':
+            $type = 'Clinical Focus';
+            break;
+        case 'drug_news':
+            $type = 'Drug News';
+            break;
+        case 'pharm_dir':
+            $type = 'Pharm Dir';
+            break;
+        case 'special_offer':
+            $type = 'Special Offers';
+            break;
+
+    }
+    return $type;
 }
 
 function UpdateStateStatus($id, $type, $state)
