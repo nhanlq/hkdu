@@ -69,6 +69,7 @@ function cme_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_
     }
     if($form_id == 'user_form'){
      //   dpm($form);
+      //  $form['user_picture']['#description']
         unset($form['field_policy']);
         unset($form['field_guide_info']);
     }

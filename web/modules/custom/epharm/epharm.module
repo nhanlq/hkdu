@@ -140,7 +140,7 @@ function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity)
         $entity->getEntityTypeId() == 'drug_news' ||
         $entity->getEntityTypeId() == 'pharm_dir' ||
         $entity->getEntityTypeId() == 'special_offer' ||
-        $entity->getEntityTypeId() == 'drug_search'
+        $entity->getEntityTypeId() == 'event'
 
     ) {
         if (!$entity->get('status')->value && $entity->get('moderation_state')->value == 'draft'
@@ -152,6 +152,21 @@ function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity)
             $mailManager = \Drupal::service('plugin.manager.mail');
             $module = 'epharm';
             $key = 'updatePost';
+            if($entity->getEntityTypeId() == 'clinical_focus'){
+                $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hhenryy@gmail.com,henry.association@gmail.com,hkdumail@gmail.com,drwucw@gmail.com ';
+            }
+            if($entity->getEntityTypeId() == 'drug_news'){
+                $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hhenryy@gmail.com,henry.association@gmail.com,hkdumail@gmail.com,changiris1@gmail.com ';
+            }
+            if($entity->getEntityTypeId() == 'pharm_dir'){
+                $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hhenryy@gmail.com,henry.association@gmail.com,hkdumail@gmail.com';
+            }
+            if($entity->getEntityTypeId() == 'special_offer'){
+                $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hhenryy@gmail.com,henry.association@gmail.com,hkdumail@gmail.com,chliiy2k@yahoo.com.hk';
+            }
+            if($entity->getEntityTypeId() == 'event'){
+                $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hhenryy@gmail.com,henry.association@gmail.com,hkdumail@gmail.com';
+            }
             $to = $user->getEmail().',hkdumail@gmail.com,dr.alfredtang@gmail.com';
             $params['message'] = $user->getDisplayName().' has a content in '.$entity->getName().' waiting for your approval. The content as bellow: '.$entity->get('field_description')->value;
             $params['title'] = 'Pending Review: '.$entity->getName().' by '.$user->getDisplayName();
