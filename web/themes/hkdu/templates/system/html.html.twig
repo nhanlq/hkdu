@@ -59,8 +59,12 @@
   <head>
     <head-placeholder token="{{ placeholder_token|raw }}">
     <title>{{ head_title|safe_join(' | ') }}</title>
+      <script src="/themes/hkdu/js/addtohomescreen.js"></script>
       <link rel="apple-touch-icon" sizes="128x128" href="/sites/default/files/favicon.png">
       <link rel="icon" sizes="192x192" href="/sites/default/files/favicon.png">
+      <script>
+          addToHomescreen();
+      </script>
     <css-placeholder token="{{ placeholder_token|raw }}">
     <js-placeholder token="{{ placeholder_token|raw }}">
   </head>
