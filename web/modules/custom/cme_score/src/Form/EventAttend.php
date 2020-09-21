@@ -99,11 +99,15 @@ class EventAttend extends FormBase
                     if (!$this->getUserScoreExist($user->id(), $event->id())) {
                         $score = \Drupal\cme_score\Entity\Score::create([
                             'name' => 'Event Score of event ' . $event->getName() . ' of User ' . $user->getDisplayName(),
-                            'field_score' => number_format($data['C'],2),
+                            'field_score' => number_format($data['H'],2),
                             'field_user' => $user->id(),
                             'field_event' => $event->id(),
                             'field_attendance' => $attended,
-                            'field_accreditor' =>$data['E'],
+                            'field_accreditor' =>$data['I'],
+                            'field_date' =>$data['K'],
+                            'field_time' =>$data['L'],
+                            'field_venue' =>$data['M'],
+                            'field_speaker' =>$data['N'],
                             'uid' => $user->id()
                         ]);
                         $score->save();
@@ -114,15 +118,20 @@ class EventAttend extends FormBase
 
                 } else {
                     if(!empty($data['A'])){
+
                         if ($user = user_load_by_mail($data['A'])) {
                             if (!$this->getUserScoreExist($user->id(), $event->id())) {
                                 $score = \Drupal\cme_score\Entity\Score::create([
                                     'name' => 'Event Score of event ' . $event->getName() . ' of User ' . $user->getDisplayName(),
-                                    'field_score' => number_format($data['C'],2),
+                                    'field_score' => number_format($data['H'],2),
                                     'field_user' => $user->id(),
                                     'field_event' => $event->id(),
                                     'field_attendance' => $attended,
-                                    'field_accreditor' =>$data['E'],
+                                    'field_accreditor' =>$data['I'],
+                                    'field_date' =>$data['K'],
+                                    'field_time' =>$data['L'],
+                                    'field_venue' =>$data['M'],
+                                    'field_speaker' =>$data['N'],
                                     'uid' => $user->id()
                                 ]);
                                 $score->save();
@@ -130,6 +139,22 @@ class EventAttend extends FormBase
                                 $user->set('field_point',$user->get('field_point')->value + number_format($data['C'],2));
                                 $user->save();
                             }
+                        }else{
+                            $user = $this->create_user($data);
+                            $score = \Drupal\cme_score\Entity\Score::create([
+                                'name' => 'Event Score of event ' . $event->getName() . ' of User ' . $user->getDisplayName(),
+                                'field_score' => number_format($data['H'],2),
+                                'field_user' => $user->id(),
+                                'field_event' => $event->id(),
+                                'field_attendance' => $attended,
+                                'field_accreditor' =>$data['I'],
+                                'field_date' =>$data['K'],
+                                'field_time' =>$data['L'],
+                                'field_venue' =>$data['M'],
+                                'field_speaker' =>$data['N'],
+                                'uid' => $user->id()
+                            ]);
+                            $score->save();
                         }
                     }
 
@@ -179,6 +204,40 @@ class EventAttend extends FormBase
         if ($results) {
             return true;
         } else {
+            return false;
+        }
+    }
+
+    public function create_user($data){
+        $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        $user = \Drupal\user\Entity\User::create();
+
+        //Mandatory settings
+        $user->setPassword('hkdu123');
+        $user->enforceIsNew();
+        $user->setEmail($data['A']);
+        $user->setUsername($data['A']); //This username must be unique and accept only a-Z,0-9, - _ @ .
+
+        //Optional settings
+        $user->set("init", $data['A']);
+        $user->set("langcode", $language);
+        $user->set("preferred_langcode", $language);
+        $user->set("preferred_admin_langcode", $language);
+        $user->set('field_first_name',$data['D']);
+        $user->set('field_last_name',$data['E']);
+        $user->set('field_point',$data['H']);
+        $user->set('field_registration_no',$data['B']);
+        $user->set('field_mchk_license',$data['C']);
+        $user->set('field_membership_type',$data['G']);
+        $user->set('field_referee',$data['F']);
+            $user->activate();
+
+        try{
+            $user->save();
+            return $user;
+            \Drupal::messenger()->addMessage('Create member '.$data['A'].' success.');
+        }catch (\Exception $e){
+            \Drupal::messenger()->addMessage('Create member '.$data['A'].' error '.$e->getMessage(),'error');
             return false;
         }
     }
