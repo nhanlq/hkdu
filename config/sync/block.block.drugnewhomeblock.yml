@@ -5,6 +5,7 @@ dependencies:
   module:
     - drug_news
     - system
+    - user
   theme:
     - hkdu
 id: drugnewhomeblock
@@ -24,3 +25,10 @@ visibility:
     pages: /e-pharm
     negate: false
     context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

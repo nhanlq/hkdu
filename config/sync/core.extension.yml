@@ -82,6 +82,7 @@ module:
   file: 0
   filter: 0
   fontawesome: 0
+  fullcalendar_view: 0
   gallery: 0
   geolocation: 0
   geolocation_google_places_api: 0
@@ -117,6 +118,7 @@ module:
   panelbutton: 0
   path: 0
   path_alias: 0
+  permissions_by_term: 0
   pharm_dir: 0
   phpexcel: 0
   profile: 0

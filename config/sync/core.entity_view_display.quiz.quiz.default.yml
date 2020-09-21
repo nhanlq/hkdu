@@ -8,19 +8,26 @@ dependencies:
     - field.field.quiz.quiz.field_count
     - field.field.quiz.quiz.field_description
     - field.field.quiz.quiz.field_disclaimer
+    - field.field.quiz.quiz.field_end_date
     - field.field.quiz.quiz.field_expired
+    - field.field.quiz.quiz.field_hkam_point
     - field.field.quiz.quiz.field_hkdu_point
     - field.field.quiz.quiz.field_lecture_content
     - field.field.quiz.quiz.field_lecture_date
     - field.field.quiz.quiz.field_lecture_time
     - field.field.quiz.quiz.field_level
+    - field.field.quiz.quiz.field_organiser
     - field.field.quiz.quiz.field_percent
     - field.field.quiz.quiz.field_point
+    - field.field.quiz.quiz.field_reference_code
     - field.field.quiz.quiz.field_registration_dealine
     - field.field.quiz.quiz.field_speaker
     - field.field.quiz.quiz.field_speaker_photo
     - field.field.quiz.quiz.field_specialty
+    - field.field.quiz.quiz.field_sponsor
+    - field.field.quiz.quiz.field_sponsor_logo
     - field.field.quiz.quiz.field_start_date
+    - field.field.quiz.quiz.field_state
     - field.field.quiz.quiz.field_weight
   module:
     - cme_quiz
@@ -34,6 +41,11 @@ targetEntityType: quiz
 bundle: quiz
 mode: default
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_audience:
     weight: 4
     label: above
@@ -68,12 +80,20 @@ content:
     type: text_default
     region: content
   field_disclaimer:
-    weight: 13
+    weight: 21
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_end_date:
+    weight: 27
     label: above
     settings:
-      link_to_entity: false
+      format_type: medium
+      timezone_override: ''
     third_party_settings: {  }
-    type: string
+    type: datetime_default
     region: content
   field_expired:
     weight: 2
@@ -83,6 +103,14 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_hkam_point:
+    weight: 20
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_hkdu_point:
     type: entity_reference_revisions_entity_view
@@ -124,6 +152,14 @@ content:
     third_party_settings: {  }
     type: list_default
     region: content
+  field_organiser:
+    weight: 23
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_percent:
     weight: 9
     label: above
@@ -143,6 +179,14 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_decimal
+    region: content
+  field_reference_code:
+    weight: 22
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_registration_dealine:
     weight: 17
@@ -179,6 +223,23 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_sponsor:
+    weight: 24
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_sponsor_logo:
+    type: entity_reference_entity_view
+    weight: 25
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
   field_start_date:
     weight: 1
     label: above
@@ -187,6 +248,14 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_state:
+    weight: 26
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_weight:
     weight: 5

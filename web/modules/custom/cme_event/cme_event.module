@@ -57,6 +57,11 @@ function cme_event_theme($existing, $type, $theme, $path)
             'path' => $path . '/templates/',
             'template' => 'cme-event-banner'
         ],
+        'cme_event_calendar' => [
+            'variables' => ['events' => NULL, 'author' => NULL, 'date' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'cme-event-calendar'
+        ],
     ];
 }
 

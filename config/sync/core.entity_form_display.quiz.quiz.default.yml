@@ -8,22 +8,31 @@ dependencies:
     - field.field.quiz.quiz.field_count
     - field.field.quiz.quiz.field_description
     - field.field.quiz.quiz.field_disclaimer
+    - field.field.quiz.quiz.field_end_date
     - field.field.quiz.quiz.field_expired
+    - field.field.quiz.quiz.field_hkam_point
     - field.field.quiz.quiz.field_hkdu_point
     - field.field.quiz.quiz.field_lecture_content
     - field.field.quiz.quiz.field_lecture_date
     - field.field.quiz.quiz.field_lecture_time
     - field.field.quiz.quiz.field_level
+    - field.field.quiz.quiz.field_organiser
     - field.field.quiz.quiz.field_percent
     - field.field.quiz.quiz.field_point
+    - field.field.quiz.quiz.field_reference_code
     - field.field.quiz.quiz.field_registration_dealine
     - field.field.quiz.quiz.field_speaker
     - field.field.quiz.quiz.field_speaker_photo
     - field.field.quiz.quiz.field_specialty
+    - field.field.quiz.quiz.field_sponsor
+    - field.field.quiz.quiz.field_sponsor_logo
     - field.field.quiz.quiz.field_start_date
+    - field.field.quiz.quiz.field_state
     - field.field.quiz.quiz.field_weight
+    - workflows.workflow.editorial
   module:
     - cme_quiz
+    - content_moderation
     - datetime
     - media_library
     - paragraphs
@@ -41,23 +50,19 @@ content:
     region: content
   field_category:
     weight: 4
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_count:
-    weight: 34
+    weight: 22
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_description:
-    weight: 12
+    weight: 16
     settings:
       rows: 5
       placeholder: ''
@@ -65,22 +70,36 @@ content:
     type: text_textarea
     region: content
   field_disclaimer:
-    weight: 28
+    weight: 24
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_end_date:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_expired:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_hkam_point:
+    weight: 12
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_expired:
-    weight: 11
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_hkdu_point:
     type: entity_reference_paragraphs
-    weight: 7
+    weight: 11
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -91,7 +110,7 @@ content:
     third_party_settings: {  }
     region: content
   field_lecture_content:
-    weight: 31
+    weight: 19
     settings:
       rows: 5
       placeholder: ''
@@ -99,13 +118,13 @@ content:
     type: text_textarea
     region: content
   field_lecture_date:
-    weight: 29
+    weight: 17
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_lecture_time:
-    weight: 30
+    weight: 18
     settings:
       size: 60
       placeholder: ''
@@ -118,28 +137,44 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
+  field_organiser:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_percent:
-    weight: 8
+    weight: 13
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_point:
-    weight: 6
+    weight: 10
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
+  field_reference_code:
+    weight: 25
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_registration_dealine:
-    weight: 32
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: datetime_timestamp
     region: content
   field_speaker:
-    weight: 26
+    weight: 14
     settings:
       size: 60
       placeholder: ''
@@ -148,13 +183,13 @@ content:
     region: content
   field_speaker_photo:
     type: media_library_widget
-    weight: 27
+    weight: 15
     settings:
       media_types: {  }
     third_party_settings: {  }
     region: content
   field_specialty:
-    weight: 33
+    weight: 20
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -163,14 +198,37 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_sponsor:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_sponsor_logo:
+    type: media_library_widget
+    weight: 28
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
   field_start_date:
-    weight: 10
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_state:
+    weight: 29
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_weight:
-    weight: 9
+    weight: 21
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -182,6 +240,12 @@ content:
     region: content
     settings:
       include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 23
+    settings: {  }
+    region: content
     third_party_settings: {  }
   name:
     type: string_textfield

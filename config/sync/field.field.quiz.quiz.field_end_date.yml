@@ -1,21 +1,21 @@
-uuid: dcd00b46-a061-4a4f-b7f3-f5f923e6b549
+uuid: 664b74b6-05c3-426d-81cb-291ae58c5e0a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.quiz.field_disclaimer
+    - field.storage.quiz.field_end_date
   module:
     - cme_quiz
-    - text
-id: quiz.quiz.field_disclaimer
-field_name: field_disclaimer
+    - datetime
+id: quiz.quiz.field_end_date
+field_name: field_end_date
 entity_type: quiz
 bundle: quiz
-label: Disclaimer
+label: 'End Date'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text_long
+field_type: datetime

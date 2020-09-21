@@ -1,0 +1,27 @@
+uuid: cfcd0863-e593-4208-8f37-e8b6f431c50c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_organiser
+  module:
+    - cme_quiz
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: quiz.quiz.field_organiser
+field_name: field_organiser
+entity_type: quiz
+bundle: quiz
+label: Organiser
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -3,7 +3,7 @@ name: 'Hong Kong Doctor Union'
 mail: hkdu@branch8.com
 slogan: ''
 page:
-  403: ''
+  403: /user/login
   404: ''
   front: /front
 admin_compact_mode: false

@@ -1,20 +1,22 @@
-uuid: 8989f86f-71e9-4401-9401-554072cb85e5
+uuid: c0196376-acad-4bd7-93ec-366818393840
 langcode: en
 status: true
 dependencies:
   module:
     - cme_quiz
     - field_permissions
-    - text
 third_party_settings:
   field_permissions:
     permission_type: public
-id: quiz.field_disclaimer
-field_name: field_disclaimer
+id: quiz.field_hkam_point
+field_name: field_hkam_point
 entity_type: quiz
-type: text_long
-settings: {  }
-module: text
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

@@ -1646,7 +1646,14 @@ select.epharm-switch {
     margin-bottom: 16px;
     overflow: hidden;
     padding: 0px 16px;
-    width: 100%;
+    width: 50%;
+}
+li.sponsor-logo{
+    float: right;
+    width: 50%;
+    text-align: right;
+    padding-right: 10px;
+    padding-bottom: 10px;
 }
 .doctor-detail-page.path-cme .cme-event {
     bottom: 138px;

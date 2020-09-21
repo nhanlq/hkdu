@@ -51,3 +51,11 @@ cme_event.payment_form:
     _title: 'PaymentForm'
   requirements:
     _access: 'TRUE'
+
+cme_event.event_calendar_controller_calendar:
+  path: '/cme/event/calendar'
+  defaults:
+    _controller: '\Drupal\cme_event\Controller\EventCalendarController::calendar'
+    _title: 'Events Calendar'
+  requirements:
+    _permission: 'view published cme event entities'

@@ -12,7 +12,7 @@ id: quiz.quiz.field_hkdu_point
 field_name: field_hkdu_point
 entity_type: quiz
 bundle: quiz
-label: 'HKDU Point'
+label: 'CME Point'
 description: ''
 required: false
 translatable: false
@@ -27,6 +27,9 @@ settings:
     target_bundles_drag_drop:
       document:
         weight: 9
+        enabled: false
+      department:
+        weight: 10
         enabled: false
       long_answer:
         weight: 10
