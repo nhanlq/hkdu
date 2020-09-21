@@ -44,6 +44,7 @@
         "drupal/fullcalendar_view": "^2.7",
         "drupal/geolocation": "^1.11",
         "drupal/gmap_store_locator": "^1.4",
+        "drupal/google_analytics": "^2.4",
         "drupal/google_qr_code": "^1.1",
         "drupal/ics_field": "^1.0",
         "drupal/libraries": "^3.0@alpha",
