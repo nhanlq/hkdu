@@ -1,25 +1,25 @@
-uuid: 124d456a-bafb-40b5-b8ca-1da212fa8664
+uuid: 3a45b843-f4cc-4311-b194-b78ce5408ded
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_first_name
+    - field.storage.score.field_venue
   module:
+    - cme_score
     - unique_field_ajax
-    - user
 third_party_settings:
   unique_field_ajax:
     unique: 0
     per_lang: 0
     use_ajax: 0
     message: ''
-id: user.user.field_first_name
-field_name: field_first_name
-entity_type: user
-bundle: user
-label: 'English Name'
+id: score.score.field_venue
+field_name: field_venue
+entity_type: score
+bundle: score
+label: Venue
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

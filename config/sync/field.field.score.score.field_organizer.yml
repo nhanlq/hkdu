@@ -1,25 +1,25 @@
-uuid: 124d456a-bafb-40b5-b8ca-1da212fa8664
+uuid: ad601a3a-e47e-4247-9f6a-2952e607b0e5
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_first_name
+    - field.storage.score.field_organizer
   module:
+    - cme_score
     - unique_field_ajax
-    - user
 third_party_settings:
   unique_field_ajax:
     unique: 0
     per_lang: 0
     use_ajax: 0
     message: ''
-id: user.user.field_first_name
-field_name: field_first_name
-entity_type: user
-bundle: user
-label: 'English Name'
+id: score.score.field_organizer
+field_name: field_organizer
+entity_type: score
+bundle: score
+label: Organizer
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

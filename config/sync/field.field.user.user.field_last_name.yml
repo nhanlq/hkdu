@@ -17,7 +17,7 @@ id: user.user.field_last_name
 field_name: field_last_name
 entity_type: user
 bundle: user
-label: 'Last Name'
+label: 中文姓名
 description: ''
 required: true
 translatable: false

@@ -1,0 +1,20 @@
+uuid: d4877450-26dd-4dd0-9ff1-06b59cf93cf6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.score.field_speaker
+  module:
+    - cme_score
+id: score.score.field_speaker
+field_name: field_speaker
+entity_type: score
+bundle: score
+label: Speaker
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,25 +1,25 @@
-uuid: 124d456a-bafb-40b5-b8ca-1da212fa8664
+uuid: 1462e1fd-d5cf-42bc-8c73-807b8a68f0f6
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_first_name
+    - field.storage.score.field_time
   module:
+    - cme_score
     - unique_field_ajax
-    - user
 third_party_settings:
   unique_field_ajax:
     unique: 0
     per_lang: 0
     use_ajax: 0
     message: ''
-id: user.user.field_first_name
-field_name: field_first_name
-entity_type: user
-bundle: user
-label: 'English Name'
+id: score.score.field_time
+field_name: field_time
+entity_type: score
+bundle: score
+label: Time
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

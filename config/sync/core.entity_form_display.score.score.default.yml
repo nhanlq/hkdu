@@ -5,13 +5,19 @@ dependencies:
   config:
     - field.field.score.score.field_accreditor
     - field.field.score.score.field_attendance
+    - field.field.score.score.field_date
     - field.field.score.score.field_event
     - field.field.score.score.field_main_score
+    - field.field.score.score.field_organizer
     - field.field.score.score.field_quiz
     - field.field.score.score.field_score
+    - field.field.score.score.field_speaker
+    - field.field.score.score.field_time
     - field.field.score.score.field_user
+    - field.field.score.score.field_venue
   module:
     - cme_score
+    - datetime
 id: score.score.default
 targetEntityType: score
 bundle: score
@@ -32,6 +38,12 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  field_date:
+    weight: 34
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_event:
     weight: 28
     settings:
@@ -48,6 +60,14 @@ content:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
+  field_organizer:
+    weight: 33
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_quiz:
     weight: 29
@@ -66,6 +86,22 @@ content:
     third_party_settings: {  }
     type: number
     region: content
+  field_speaker:
+    weight: 37
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_time:
+    weight: 35
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_user:
     weight: 27
     settings:
@@ -75,6 +111,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_venue:
+    weight: 36
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   langcode:
     type: language_select

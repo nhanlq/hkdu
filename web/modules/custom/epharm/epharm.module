@@ -154,24 +154,22 @@ function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity)
             $key = 'updatePost';
             $to = \Drupal::config('system.site')->get('mail');
             if($entity->getEntityTypeId() == 'clinical_focus'){
-                $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hhenryy@gmail.com,henry.association@gmail.com,hkdumail@gmail.com,drwucw@gmail.com ';
+                $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hkdu.content.notification@gmail.com,hkdumail@gmail.com,drwucw@gmail.com ';
             }
             if($entity->getEntityTypeId() == 'drug_news'){
-                $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hhenryy@gmail.com,henry.association@gmail.com,hkdumail@gmail.com,changiris1@gmail.com ';
+                $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hkdu.content.notification@gmail.com,hkdumail@gmail.com,changiris1@gmail.com ';
             }
             if($entity->getEntityTypeId() == 'pharm_dir'){
                 $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hhenryy@gmail.com,henry.association@gmail.com,hkdumail@gmail.com';
             }
             if($entity->getEntityTypeId() == 'special_offer'){
-                $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hhenryy@gmail.com,henry.association@gmail.com,hkdumail@gmail.com,chliiy2k@yahoo.com.hk';
+                $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hkdu.content.notification@gmail.com,hkdumail@gmail.com,chliiy2k@yahoo.com.hk';
             }
             if($entity->getEntityTypeId() == 'event'){
-                $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hhenryy@gmail.com,henry.association@gmail.com,hkdumail@gmail.com';
+                $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hkdu.content.notification@gmail.com,hkdumail@gmail.com';
             }
           //  $to = $user->getEmail().',hkdumail@gmail.com,dr.alfredtang@gmail.com';
-            $params['message'] = $user->getDisplayName().' has a content in '.mapping_key($entity->getEntityTypeId()).' waiting for your approval. The content as bellow: '.$entity->get('field_description')->value;
-            $params['title'] = 'Pending Review: '.$entity->getName().' by '.$user->getDisplayName();
-            $params['user'] = $user->getDisplayName();
+            $params['message'] = '<p>Body:</p><p>'.$entity->get('name')->value.'</p><p>'.$user->getDisplayName().' has a content in '.mapping_key($entity->getEntityTypeId()).' waiting for your approval, the content as below:</p><p>'.$entity->get('field_description')->value.'</p>'.$user->getDisplayName().' has a content in '.mapping_key($entity->getEntityTypeId()).' waiting for your approval. The content as bellow: '.$entity->get('field_description')->value;
             $params['from'] = \Drupal::config('system.site')->get('mail');
             $langcode = \Drupal::currentUser()->getPreferredLangcode();
             $send = true;
