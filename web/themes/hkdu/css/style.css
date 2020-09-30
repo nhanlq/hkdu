@@ -1648,6 +1648,15 @@ select.epharm-switch {
     padding: 0px 16px;
     width: 50%;
 }
+.doctor-detail-page .breadcrumb{
+    display: none;
+}
+.doctor-detail-page input.username, .doctor-detail-page .form-item-name{
+    display:none;
+}
+.doctor-detail-page .form-actions{
+    margin-top: 20px;
+}
 li.sponsor-logo{
     float: right;
     width: 50%;

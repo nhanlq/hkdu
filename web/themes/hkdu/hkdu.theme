@@ -28,7 +28,9 @@ function hkdu_preprocess_html(&$variables)
         $path[1] == 'cme' && empty($path[2]) ||
         $path[1] == 'cme' && $path[2] == 'event-org' && !empty($path[3]) ||
         $path[1] == 'checkout' && $path[3] == 'order_information' ||
-        $path[1] == 'account'
+        $path[1] == 'account' ||
+        $path[1] == 'user' && is_numeric($path[2]) ||
+        $path[1] == 'user' && is_numeric($path[2]) && $path[3] == 'edit'
     ) {
 
         $variables['attributes']['class'][] = 'doctor-detail-page';

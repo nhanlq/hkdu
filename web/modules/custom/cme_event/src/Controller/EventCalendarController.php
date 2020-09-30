@@ -51,7 +51,7 @@ class EventCalendarController extends ControllerBase
             $event_obj = new \stdClass();
             $event_obj->title = $event->getName();
             $event_obj->start = $event->get('field_start_date')->value;
-            $time = str_replace('-','',$event->get('field_start_date')->value).'T/'.str_replace('-','',$event->get('field_date')->value).'T';
+            $time = str_replace('-','',$event->get('field_start_date')->value).'T'.str_replace(':','',$event->get('field_start_time')->value).'/'.str_replace('-','',$event->get('field_date')->value).'T'.str_replace(':','',$event->get('field_end_time')->value);
             $options = ['absolute' => TRUE];
             $url_object = \Drupal\Core\Url::fromRoute('entity.cme_event.canonical', ['cme_event' => $key], $options)->toString();
             $event_obj->url = 'https://calendar.google.com/calendar/u/0/r/eventedit?text='.$event->getName().'&dates='.$time.'&details=For+details,+link+here:+'.$url_object.'&location='.$event->get('field_location')->value.'&sf=true&output=xml';
@@ -83,7 +83,13 @@ class EventCalendarController extends ControllerBase
                 $date = $quiz->get('field_start_date')->value;
             }
             $event_obj->start = $date;
-            $time = str_replace('-','',$date).'T/'.str_replace('-','',$quiz->get('field_end_date')->value).'T';
+            if(isset($quiz->get('field_lecture_time')->value)){
+                $lecture_time = str_replace(':','',$quiz->get('field_lecture_time')->value);
+            }else{
+                $lecture_time  = '080000';
+            }
+
+            $time = str_replace('-','',$date).'T'.$lecture_time.'/'.str_replace(':','',str_replace('-','',$quiz->get('field_end_date')->value));
             $options = ['absolute' => TRUE];
             $url_object = \Drupal\Core\Url::fromRoute('entity.quiz.canonical', ['quiz' => $key], $options)->toString();
             $event_obj->url = 'https://calendar.google.com/calendar/u/0/r/eventedit?text='.$quiz->getName().'&dates='.$time.'&details=For+details,+link+here:+'.$url_object.'&sf=true&output=xml';

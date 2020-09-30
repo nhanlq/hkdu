@@ -18,6 +18,7 @@ permissions:
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'access store location'
+  - 'change own username'
   - 'create audio media'
   - 'create document media'
   - 'create field_membership_type'

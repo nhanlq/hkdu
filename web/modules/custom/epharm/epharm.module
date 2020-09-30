@@ -51,7 +51,7 @@ function epharm_theme($existing, $type, $theme, $path)
             'template' => 'epharm-banner'
         ],
         'epharm_menu_block' => [
-            'variables' => ['epharm' => NULL, 'cme' => NULL,'admin' =>NULL],
+            'variables' => ['epharm' => NULL, 'cme' => NULL, 'admin' => NULL],
             'path' => $path . '/templates/',
             'template' => 'epharm-menu'
         ],
@@ -66,7 +66,7 @@ function epharm_mail($key, &$message, $params)
     $options = array(
         'langcode' => $message['langcode'],
     );
-    $message['headers']=array(
+    $message['headers'] = array(
         'MIME-Version' => '1.0',
         'Content-Type' => 'text/html; charset=UTF-8; format=flowed; delsp=yes',
         'Content-Transfer-Encoding' => '8Bit',
@@ -152,24 +152,9 @@ function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity)
             $mailManager = \Drupal::service('plugin.manager.mail');
             $module = 'epharm';
             $key = 'updatePost';
-            $to = \Drupal::config('system.site')->get('mail');
-            if($entity->getEntityTypeId() == 'clinical_focus'){
-                $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hkdu.content.notification@gmail.com,hkdumail@gmail.com,drwucw@gmail.com ';
-            }
-            if($entity->getEntityTypeId() == 'drug_news'){
-                $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hkdu.content.notification@gmail.com,hkdumail@gmail.com,changiris1@gmail.com ';
-            }
-            if($entity->getEntityTypeId() == 'pharm_dir'){
-                $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hhenryy@gmail.com,henry.association@gmail.com,hkdumail@gmail.com';
-            }
-            if($entity->getEntityTypeId() == 'special_offer'){
-                $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hkdu.content.notification@gmail.com,hkdumail@gmail.com,chliiy2k@yahoo.com.hk';
-            }
-            if($entity->getEntityTypeId() == 'event'){
-                $to = $user->getEmail().',tang.eric233@gmail.com,dr.alfredtang@gmail.com,hkdu.content.notification@gmail.com,hkdumail@gmail.com';
-            }
-          //  $to = $user->getEmail().',hkdumail@gmail.com,dr.alfredtang@gmail.com';
-            $params['message'] = '<p>Body:</p><p>'.$entity->get('name')->value.'</p><p>'.$user->getDisplayName().' has a content in '.mapping_key($entity->getEntityTypeId()).' waiting for your approval, the content as below:</p><p>'.$entity->get('field_description')->value.'</p>'.$user->getDisplayName().' has a content in '.mapping_key($entity->getEntityTypeId()).' waiting for your approval. The content as bellow: '.$entity->get('field_description')->value;
+            $to = \Drupal::state()->get($entity->getEntityTypeId());
+            //  $to = $user->getEmail().',hkdumail@gmail.com,dr.alfredtang@gmail.com';
+            $params['message'] = '<p>Body:</p><p>' . $entity->get('name')->value . '</p><p>' . $user->getDisplayName() . ' has a content in ' . mapping_key($entity->getEntityTypeId()) . ' waiting for your approval, the content as below:</p><p>' . $entity->get('field_description')->value . '</p>' . $user->getDisplayName() . ' has a content in ' . mapping_key($entity->getEntityTypeId()) . ' waiting for your approval. The content as bellow: ' . $entity->get('field_description')->value;
             $params['from'] = \Drupal::config('system.site')->get('mail');
             $langcode = \Drupal::currentUser()->getPreferredLangcode();
             $send = true;
@@ -209,9 +194,11 @@ function epharm_entity_presave(Drupal\Core\Entity\EntityInterface $entity)
 //    }
 
 }
-function mapping_key($key){
+
+function mapping_key($key)
+{
     $type = '';
-    switch($key){
+    switch ($key) {
         case 'event':
             $type = 'Event';
             break;
@@ -296,7 +283,7 @@ function epharm_views_pre_render(\Drupal\views\ViewExecutable $view)
     }
     if ($view->id() == "quizzes_result_report") {
         foreach ($view->result as $value) {
-           // var_dump($value->_entity);
+            // var_dump($value->_entity);
             $value->_entity->set('field_count', getResultEntity(getQuizbyResult($value->_entity->get('id')->value), 'quiz'));
         }
     }
@@ -368,16 +355,19 @@ function UpdateStatus($type, $id)
     $query->condition('id', $id);
     $query->execute();
 }
-function getQuizbyResult($resultId){
+
+function getQuizbyResult($resultId)
+{
     $result = \Drupal\cme_result\Entity\Result::load($resultId);
     return $result->get('field_quiz')->target_id;
 }
 
 
-function epharm_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function epharm_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
+{
     //var_dump($form['field_audience']);die;
-    if(isset($form['field_audience'])){
-      unset($form['field_audience']['widget']['#options']['_none']);
+    if (isset($form['field_audience'])) {
+        unset($form['field_audience']['widget']['#options']['_none']);
     }
 
 }
