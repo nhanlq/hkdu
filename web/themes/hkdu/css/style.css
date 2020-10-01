@@ -2572,7 +2572,11 @@ a .date, a .author{
         margin-right: -17px;
     }
 }
-
+@media screen and (min-width: 768px) {
+    .col-sm-3{
+        width: 15%!important;
+    }
+}
 @media screen and (min-width: 992px) {
     .fSsnif .end{
         margin-right: 0px!important;
@@ -2845,6 +2849,16 @@ a .date, a .author{
     .container {
         width: 992px;
     }
+}
+.sidebar-right{
+    float: right!important;
+}
+.region-sidebar-first img{
+    width: 100%;
+}
+.well{
+    border: 0!important;
+    background: none!important;
 }
 
 @media screen and (max-width: 767px) {

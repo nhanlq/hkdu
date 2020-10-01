@@ -1,0 +1,20 @@
+uuid: ff9c7e2f-38c1-48d9-8979-345c50c030f9
+langcode: en
+status: true
+dependencies:
+  module:
+    - ads_system
+  theme:
+    - hkdu
+id: adblocksidebarright
+theme: hkdu
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'ad_block:sidebar_2'
+settings:
+  id: 'ad_block:sidebar_2'
+  label: 'Ad block Sidebar Right'
+  provider: ads_system
+  label_display: '0'
+visibility: {  }
