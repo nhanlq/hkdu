@@ -17,9 +17,11 @@ dependencies:
     - field.field.user.user.field_registration_no
     - field.field.user.user.field_specialist_fellow_number
     - field.field.user.user.field_specialty
+    - field.field.user.user.field_subscription
     - field.field.user.user.user_picture
   module:
     - field_group
+    - options
     - telephone
     - user
 third_party_settings:
@@ -124,6 +126,13 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+  field_subscription:
+    weight: 14
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   member_for:
     weight: 2
     region: content

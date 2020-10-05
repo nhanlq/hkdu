@@ -1,0 +1,24 @@
+uuid: 1e8ef172-972c-4b31-aa75-cdb5437abfa6
+langcode: en
+status: true
+dependencies:
+  module:
+    - advert
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: ads.field_weight
+field_name: field_weight
+entity_type: ads
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

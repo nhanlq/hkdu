@@ -92,7 +92,7 @@
                                      </div>
                                 {% endif %}
                                 {% if quiz.field_speaker is not empty %}
-                                <div class="author"><span>Author: </span>{{ quiz.field_speaker.value }}</div>
+                                <div class="author"><span>Speaker: </span>{{ quiz.field_speaker.value }}</div>
                                 {% endif %}
                             </div>
 
@@ -103,13 +103,13 @@
                                     <i class="fa fa-chevron-circle-right"></i>
                                     <span class="hMzfje">
                                         {% if quiz.field_point is not empty %}
-                                        {{ quiz.field_point.value }}
+                                            MCHK CME {{ quiz.field_point.value }}
                                             {% elseif quiz.field_hkdu_point is not empty %}
                                                 MCHK CME {{ quiz.field_point.value }}
                                             {% elseif quiz.field_hkam_point is not empty %}
                                             HKAM CME {{ quiz.field_hkam_point.value }}
                                         {% endif %}
-                                        Point</span>
+                                        </span>
                                 </li>
                                 {% if quiz.field_sponsor_logo is not empty %}
                                     <li class="sponsor-logo">

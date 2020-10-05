@@ -1,0 +1,36 @@
+uuid: 81ab5558-e331-488e-b6f9-5e97ac29a722
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.ads.field_media
+    - media.type.image
+  module:
+    - advert
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: ads.ads.field_media
+field_name: field_media
+entity_type: ads
+bundle: ads
+label: Media
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

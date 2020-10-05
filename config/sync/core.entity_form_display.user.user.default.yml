@@ -17,6 +17,7 @@ dependencies:
     - field.field.user.user.field_registration_no
     - field.field.user.user.field_specialist_fellow_number
     - field.field.user.user.field_specialty
+    - field.field.user.user.field_subscription
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
@@ -128,6 +129,17 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_subscription:
+    weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  google_analytics:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   user_picture:
     type: image_image
     weight: 1

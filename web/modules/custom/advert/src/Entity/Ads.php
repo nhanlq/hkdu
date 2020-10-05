@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\media_release\Entity;
+namespace Drupal\advert\Entity;
 
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
@@ -12,37 +12,37 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\user\UserInterface;
 
 /**
- * Defines the Media entity entity.
+ * Defines the Ads entity.
  *
- * @ingroup media_release
+ * @ingroup advert
  *
  * @ContentEntityType(
- *   id = "media_entity",
- *   label = @Translation("Media Release"),
+ *   id = "ads",
+ *   label = @Translation("Ads"),
  *   handlers = {
- *     "storage" = "Drupal\media_release\MediaEntityStorage",
+ *     "storage" = "Drupal\advert\AdsStorage",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
- *     "list_builder" = "Drupal\media_release\MediaEntityListBuilder",
- *     "views_data" = "Drupal\media_release\Entity\MediaEntityViewsData",
- *     "translation" = "Drupal\media_release\MediaEntityTranslationHandler",
+ *     "list_builder" = "Drupal\advert\AdsListBuilder",
+ *     "views_data" = "Drupal\advert\Entity\AdsViewsData",
+ *     "translation" = "Drupal\advert\AdsTranslationHandler",
  *
  *     "form" = {
- *       "default" = "Drupal\media_release\Form\MediaEntityForm",
- *       "add" = "Drupal\media_release\Form\MediaEntityForm",
- *       "edit" = "Drupal\media_release\Form\MediaEntityForm",
- *       "delete" = "Drupal\media_release\Form\MediaEntityDeleteForm",
+ *       "default" = "Drupal\advert\Form\AdsForm",
+ *       "add" = "Drupal\advert\Form\AdsForm",
+ *       "edit" = "Drupal\advert\Form\AdsForm",
+ *       "delete" = "Drupal\advert\Form\AdsDeleteForm",
  *     },
  *     "route_provider" = {
- *       "html" = "Drupal\media_release\MediaEntityHtmlRouteProvider",
+ *       "html" = "Drupal\advert\AdsHtmlRouteProvider",
  *     },
- *     "access" = "Drupal\media_release\MediaEntityAccessControlHandler",
+ *     "access" = "Drupal\advert\AdsAccessControlHandler",
  *   },
- *   base_table = "media_entity",
- *   data_table = "media_entity_field_data",
- *   revision_table = "media_entity_revision",
- *   revision_data_table = "media_entity_field_revision",
+ *   base_table = "ads",
+ *   data_table = "ads_field_data",
+ *   revision_table = "ads_revision",
+ *   revision_data_table = "ads_field_revision",
  *   translatable = TRUE,
- *   admin_permission = "administer media entity entities",
+ *   admin_permission = "administer ads entities",
  *   entity_keys = {
  *     "id" = "id",
  *     "revision" = "vid",
@@ -53,21 +53,21 @@ use Drupal\user\UserInterface;
  *     "published" = "status",
  *   },
  *   links = {
- *     "canonical" = "/media-release/{media_entity}",
- *     "add-form" = "/admin/hkdu/media_entity/add",
- *     "edit-form" = "/admin/hkdu/media_entity/{media_entity}/edit",
- *     "delete-form" = "/admin/hkdu/media_entity/{media_entity}/delete",
- *     "version-history" = "/admin/hkdu/media_entity/{media_entity}/revisions",
- *     "revision" = "/admin/hkdu/media_entity/{media_entity}/revisions/{media_entity_revision}/view",
- *     "revision_revert" = "/admin/hkdu/media_entity/{media_entity}/revisions/{media_entity_revision}/revert",
- *     "revision_delete" = "/admin/hkdu/media_entity/{media_entity}/revisions/{media_entity_revision}/delete",
- *     "translation_revert" = "/admin/hkdu/media_entity/{media_entity}/revisions/{media_entity_revision}/revert/{langcode}",
- *     "collection" = "/admin/hkdu/media_entity",
+ *     "canonical" = "/admin/hkdu/ads/{ads}",
+ *     "add-form" = "/admin/hkdu/ads/add",
+ *     "edit-form" = "/admin/hkdu/ads/{ads}/edit",
+ *     "delete-form" = "/admin/hkdu/ads/{ads}/delete",
+ *     "version-history" = "/admin/hkdu/ads/{ads}/revisions",
+ *     "revision" = "/admin/hkdu/ads/{ads}/revisions/{ads_revision}/view",
+ *     "revision_revert" = "/admin/hkdu/ads/{ads}/revisions/{ads_revision}/revert",
+ *     "revision_delete" = "/admin/hkdu/ads/{ads}/revisions/{ads_revision}/delete",
+ *     "translation_revert" = "/admin/hkdu/ads/{ads}/revisions/{ads_revision}/revert/{langcode}",
+ *     "collection" = "/admin/hkdu/ads",
  *   },
- *   field_ui_base_route = "media_entity.settings"
+ *   field_ui_base_route = "ads.settings"
  * )
  */
-class MediaEntity extends EditorialContentEntityBase implements MediaEntityInterface {
+class Ads extends EditorialContentEntityBase implements AdsInterface {
 
   use EntityChangedTrait;
   use EntityPublishedTrait;
@@ -114,7 +114,7 @@ class MediaEntity extends EditorialContentEntityBase implements MediaEntityInter
     }
 
     // If no revision author has been set explicitly,
-    // make the media_entity owner the revision author.
+    // make the ads owner the revision author.
     if (!$this->getRevisionUser()) {
       $this->setRevisionUserId($this->getOwnerId());
     }
@@ -191,7 +191,7 @@ class MediaEntity extends EditorialContentEntityBase implements MediaEntityInter
 
     $fields['user_id'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Authored by'))
-      ->setDescription(t('The user ID of author of the Media entity entity.'))
+      ->setDescription(t('The user ID of author of the Ads entity.'))
       ->setRevisionable(TRUE)
       ->setSetting('target_type', 'user')
       ->setSetting('handler', 'default')
@@ -216,10 +216,10 @@ class MediaEntity extends EditorialContentEntityBase implements MediaEntityInter
 
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
-      ->setDescription(t('The name of the Media entity entity.'))
+      ->setDescription(t('The name of the Ads entity.'))
       ->setRevisionable(TRUE)
       ->setSettings([
-        'max_length' => 255,
+        'max_length' => 250,
         'text_processing' => 0,
       ])
       ->setDefaultValue('')
@@ -236,7 +236,7 @@ class MediaEntity extends EditorialContentEntityBase implements MediaEntityInter
       ->setDisplayConfigurable('view', TRUE)
       ->setRequired(TRUE);
 
-    $fields['status']->setDescription(t('A boolean indicating whether the Media entity is published.'))
+    $fields['status']->setDescription(t('A boolean indicating whether the Ads is published.'))
       ->setDisplayOptions('form', [
         'type' => 'boolean_checkbox',
         'weight' => -3,

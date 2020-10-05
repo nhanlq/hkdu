@@ -1,0 +1,27 @@
+uuid: 168e9821-5df8-4989-b605-88b4712a12cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.ads.field_path
+  module:
+    - advert
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: ads.ads.field_path
+field_name: field_path
+entity_type: ads
+bundle: ads
+label: Path
+description: "Add the link to page which to show the ads\r\neg: /news/20200824-rthk-news. We can add for home page by add the path with <front>"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

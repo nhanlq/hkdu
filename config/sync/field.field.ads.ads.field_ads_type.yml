@@ -1,0 +1,28 @@
+uuid: 6440a0bf-ef78-49d6-a65f-ccbc1ed99783
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.ads.field_ads_type
+  module:
+    - advert
+    - options
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: ads.ads.field_ads_type
+field_name: field_ads_type
+entity_type: ads
+bundle: ads
+label: 'Ads Type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

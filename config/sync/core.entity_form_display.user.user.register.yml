@@ -18,6 +18,7 @@ dependencies:
     - field.field.user.user.field_registration_no
     - field.field.user.user.field_specialist_fellow_number
     - field.field.user.user.field_specialty
+    - field.field.user.user.field_subscription
     - field.field.user.user.user_picture
   module:
     - field_group
@@ -143,6 +144,8 @@ hidden:
   field_organization: true
   field_point: true
   field_specialty: true
+  field_subscription: true
+  google_analytics: true
   hkdu_member_profiles: true
   langcode: true
   language: true

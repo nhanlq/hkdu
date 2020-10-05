@@ -1,0 +1,20 @@
+uuid: 538231b0-7e69-41e8-884e-63d33eb156a7
+langcode: en
+status: true
+dependencies:
+  module:
+    - advert
+  theme:
+    - hkdu
+id: adsright
+theme: hkdu
+region: sidebar_second
+weight: 0
+provider: null
+plugin: adsright
+settings:
+  id: adsright
+  label: Adsright
+  provider: advert
+  label_display: '0'
+visibility: {  }

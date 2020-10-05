@@ -1,0 +1,26 @@
+uuid: 1b0f58bc-b0b3-4719-abed-379dde08e516
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.ads.field_weight
+  module:
+    - advert
+id: ads.ads.field_weight
+field_name: field_weight
+entity_type: ads
+bundle: ads
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

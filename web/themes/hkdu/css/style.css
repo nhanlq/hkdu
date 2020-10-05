@@ -1663,6 +1663,7 @@ li.sponsor-logo{
     text-align: right;
     padding-right: 10px;
     padding-bottom: 10px;
+    list-style: none;
 }
 .doctor-detail-page.path-cme .cme-event {
     bottom: 138px;

@@ -1,0 +1,86 @@
+uuid: d898844c-4c28-4731-9c50-802475fc6498
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.ads.ads.field_ads_type
+    - field.field.ads.ads.field_link
+    - field.field.ads.ads.field_media
+    - field.field.ads.ads.field_path
+    - field.field.ads.ads.field_section
+    - field.field.ads.ads.field_weight
+  module:
+    - advert
+    - options
+    - user
+id: ads.ads.default
+targetEntityType: ads
+bundle: ads
+mode: default
+content:
+  field_ads_type:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_link:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_media:
+    type: entity_reference_entity_view
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_path:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_section:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_weight:
+    weight: 5
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  name:
+    label: above
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true
