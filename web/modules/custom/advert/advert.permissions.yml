@@ -1,0 +1,31 @@
+add ads entities:
+  title: 'Create new Ads entities'
+
+administer ads entities:
+  title: 'Administer Ads entities'
+  description: 'Allow to access the administration form to configure Ads entities.'
+  restrict access: true
+
+delete ads entities:
+  title: 'Delete Ads entities'
+
+edit ads entities:
+  title: 'Edit Ads entities'
+
+view published ads entities:
+  title: 'View published Ads entities'
+
+view unpublished ads entities:
+  title: 'View unpublished Ads entities'
+
+view all ads revisions:
+  title: 'View all Ads revisions'
+
+revert all ads revisions:
+  title: 'Revert all Ads revisions'
+  description: 'Role requires permission <em>view Ads revisions</em> and <em>edit rights</em> for ads entities in question or <em>administer ads entities</em>.'
+
+delete all ads revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Ads revisions</em> and <em>delete rights</em> for ads entities in question or <em>administer ads entities</em>.'
+

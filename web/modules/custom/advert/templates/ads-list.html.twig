@@ -1,0 +1,27 @@
+{#
+/**
+ * @file ads.html.twig
+ * Default theme implementation to present Ads data.
+ *
+ * This template is used when viewing Ads pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_ads()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% if ads %}
+    {% for ad in ads %}
+        <div class="ads-item" style="margin-bottom: 20px">
+            <a target="_blank" href="{{ ad.field_link.value }}">
+                <img src="{{ ad.field_media.entity.field_media_image.entity.uri.value | image_style('original') }}"/>
+            </a>
+        </div>
+    {% endfor %}
+{% endif %}

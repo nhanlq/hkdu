@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Contains advert.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function advert_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the advert module.
+    case 'help.page.advert':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('HKDU Advertising') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function advert_theme($existing, $type, $theme, $path) {
+  return [
+    'advert' => [
+      'render element' => 'children',
+    ],
+      'ads_list' => [
+          'variables' => ['ads' => NULL],
+          'path' => $path . '/templates/',
+          'template' => 'ads-list'
+      ],
+  ];
+}

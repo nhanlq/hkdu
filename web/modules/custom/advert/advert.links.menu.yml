@@ -1,0 +1,14 @@
+
+# Ads menu items definition
+entity.ads.collection:
+  title: 'Ads list'
+  route_name: entity.ads.collection
+  description: 'List Ads entities'
+  parent: global_hkdu.admin_hkdu
+  weight: 100
+
+ads.admin.structure.settings:
+  title: 'Ads settings'
+  description: 'Configure Ads entities'
+  route_name: ads.settings
+  parent: entity.ads.collection
