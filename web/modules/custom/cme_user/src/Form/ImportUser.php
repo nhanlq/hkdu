@@ -97,13 +97,6 @@ class ImportUser extends FormBase
                         if($data['M'] == 1){
                             $user->activate();
                         }
-//                        $rolesobs = \Drupal::entityTypeManager()->getStorage('user_role')->loadMultiple();
-//
-//                        foreach($rolesobs as $r){
-//                            $role = $r->toArray();
-//                            $user->removeRole($role['rid']);
-//                        }
-
                         foreach ($userRolesArray as $key => $role) {
                             $user->addRole($role);
                         }

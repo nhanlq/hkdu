@@ -5,7 +5,7 @@ epharm.default_controller_index:
     _controller: '\Drupal\epharm\Controller\DefaultController::index'
     _title: 'e-Pharm'
   requirements:
-    _permission: 'access epharm'
+    _permission: 'access content'
 
 epharm.admin_controller_admin:
   path: '/admin/hkdu/e-pharm'
@@ -22,10 +22,3 @@ epharm.clone_entity_controller_clone:
     _title: 'Clone'
   requirements:
     _permission: 'access content'
-epharm.email_notify:
-  path: '/admin/config/system/email-notify'
-  defaults:
-    _form: '\Drupal\epharm\Form\EmailNotify'
-    _title: 'EmailNotify'
-  requirements:
-    _access: 'TRUE'

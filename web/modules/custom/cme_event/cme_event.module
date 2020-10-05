@@ -57,11 +57,6 @@ function cme_event_theme($existing, $type, $theme, $path)
             'path' => $path . '/templates/',
             'template' => 'cme-event-banner'
         ],
-        'cme_event_calendar' => [
-            'variables' => ['events' => NULL, 'author' => NULL, 'date' => NULL],
-            'path' => $path . '/templates/',
-            'template' => 'cme-event-calendar'
-        ],
     ];
 }
 
@@ -71,7 +66,6 @@ function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
 
     // Insert the new entity into a fictional table of all entities.
     if ($entity->getEntityTypeId() == 'cme_event' | $entity->getEntityTypeId() == 'event') {
-        $type = '';
         // create variation first
         $variation = ProductVariation::create([
             'type' => 'default',
@@ -83,7 +77,6 @@ function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
 
         // Create product using variations previously saved
         if($entity->getEntityTypeId() == 'cme_event'){
-            $type = 'cme';
             $product = Product::create([
                 'type' => 'default',
                 'title' => $entity->get('name')->value,
@@ -97,7 +90,6 @@ function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
                 'field_event' => $entity->id(),
                 'variations' => [$variation],
             ]);
-            $type = 'event';
         }
 
 
@@ -164,52 +156,31 @@ function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
 //        ]);
 //        $score->save();
         //add calendar
-        createICSFile($entity, $type);
+        createICSFile($entity);
 
     }
 
 }
 
-function createICSFile($entity, $type)
+function createICSFile($entity)
 {
-    if($type=='cme'){
-        $start = $entity->get('field_start_date')->value;
-        $end = $entity->get('field_date')->value;
-        $name = $entity->getName();
-        $location = $entity->get('field_location')->value;
-        $body = '';
-        $body .= 'Event: ' . $entity->getName().'\n';
-        $body .= 'Start Date: ' . $entity->get('field_start_date')->value.'\n';
-        $body .= 'Start Time: ' . $entity->get('field_start_time')->value.'\n';
-        $body .= 'Expired: ' . $entity->get('field_expired')->value.'\n';
-        $body .= 'Location: ' . $entity->get('field_location')->value.'\n';
-        $body .= 'Veune: ' . $entity->get('field_veune')->value.'\n';
-        $description = $body;
-        $filename = 'ICS_CME_event_' . $entity->id().'.ics';
-        $data = "BEGIN:VCALENDAR\nVERSION:2.0\nMETHOD:PUBLISH\nBEGIN:VEVENT\nDTSTART:" . date("Ymd\THis\Z", strtotime($start)) . "\nDTEND:" . date("Ymd\THis\Z", strtotime($end)) . "\nLOCATION:" . $location . "\nTRANSP: OPAQUE\nSEQUENCE:0\nUID:\nDTSTAMP:" . date("Ymd\THis\Z") . "\nSUMMARY:" . $name . "\nDESCRIPTION:" . $description . "\nPRIORITY:1\nCLASS:PUBLIC\nBEGIN:VALARM\nTRIGGER:-PT10080M\nACTION:DISPLAY\nDESCRIPTION:Reminder\nEND:VALARM\nEND:VEVENT\nEND:VCALENDAR\n";
-        $root = getcwd();
-        $filepath = $root.'/sites/default/files/ics/'.$filename;
-        file_put_contents($filepath, $data);
-    }else{
-        $start = $entity->get('field_start_date')->value;
-        $end = $entity->get('field_date')->value;
-        $name = $entity->getName();
-        $location = $entity->get('field_location')->value;
-        $body = '';
-        $body .= 'Event: ' . $entity->getName().'\n';
-        $body .= 'Start Date: ' . $entity->get('field_start_date')->value.'\n';
-        $body .= 'Start Time: ' . $entity->get('field_start_time')->value.'\n';
-        $body .= 'Expired: ' . $entity->get('field_expired')->value.'\n';
-        $body .= 'Location: ' . $entity->get('field_location')->value.'\n';
-        $body .= 'Veune: ' . $entity->get('field_veune')->value.'\n';
-        $description = $body;
-        $filename = 'ICS_event_' . $entity->id().'.ics';
-        $data = "BEGIN:VCALENDAR\nVERSION:2.0\nMETHOD:PUBLISH\nBEGIN:VEVENT\nDTSTART:" . date("Ymd\THis\Z", strtotime($start)) . "\nDTEND:" . date("Ymd\THis\Z", strtotime($end)) . "\nLOCATION:" . $location . "\nTRANSP: OPAQUE\nSEQUENCE:0\nUID:\nDTSTAMP:" . date("Ymd\THis\Z") . "\nSUMMARY:" . $name . "\nDESCRIPTION:" . $description . "\nPRIORITY:1\nCLASS:PUBLIC\nBEGIN:VALARM\nTRIGGER:-PT10080M\nACTION:DISPLAY\nDESCRIPTION:Reminder\nEND:VALARM\nEND:VEVENT\nEND:VCALENDAR\n";
-        $root = getcwd();
-        $filepath = $root.'/sites/default/files/ics/'.$filename;
-        file_put_contents($filepath, $data);
-    }
-
+    $start = $entity->get('field_start_date')->value;
+    $end = $entity->get('field_expired')->value;
+    $name = $entity->getName();
+    $location = $entity->get('field_location')->value;
+    $body = '';
+    $body .= 'Event: ' . $entity->getName();
+    $body .= 'Start Date: ' . $entity->get('field_start_date')->value;
+    $body .= 'Start Time: ' . $entity->get('field_start_time')->value;
+    $body .= 'Expired: ' . $entity->get('field_expired')->value;
+    $body .= 'Location: ' . $entity->get('field_location')->value;
+    $body .= 'Veune: ' . $entity->get('field_veune')->value;
+    $description = $body;
+    $filename = 'ICS_event_' . $entity->id().'.ics';
+    $data = "BEGIN:VCALENDAR\nVERSION:2.0\nMETHOD:PUBLISH\nBEGIN:VEVENT\nDTSTART:" . date("Ymd\THis\Z", strtotime($start)) . "\nDTEND:" . date("Ymd\THis\Z", strtotime($end)) . "\nLOCATION:" . $location . "\nTRANSP: OPAQUE\nSEQUENCE:0\nUID:\nDTSTAMP:" . date("Ymd\THis\Z") . "\nSUMMARY:" . $name . "\nDESCRIPTION:" . $description . "\nPRIORITY:1\nCLASS:PUBLIC\nBEGIN:VALARM\nTRIGGER:-PT10080M\nACTION:DISPLAY\nDESCRIPTION:Reminder\nEND:VALARM\nEND:VEVENT\nEND:VCALENDAR\n";
+    $root = getcwd();
+    $filepath = $root.'/sites/default/files/ics/'.$filename;
+    file_put_contents($filepath, $data);
 }
 
 function cme_event_entity_update(Drupal\Core\Entity\EntityInterface $entity)
@@ -217,9 +188,7 @@ function cme_event_entity_update(Drupal\Core\Entity\EntityInterface $entity)
 
     // Insert the new entity into a fictional table of all entities.
     if ($entity->getEntityTypeId() == 'cme_event' | $entity->getEntityTypeId() == 'event') {
-        $type = '';
         if (!getCmeProductEvent($entity->id(), $entity->getEntityTypeId())) {
-
             // create variation first
             $variation = ProductVariation::create([
                 'type' => 'default',
@@ -231,7 +200,6 @@ function cme_event_entity_update(Drupal\Core\Entity\EntityInterface $entity)
 
             // Create product using variations previously saved
             if($entity->getEntityTypeId() == 'cme_event'){
-                $type = 'cme';
                 $product = Product::create([
                     'type' => 'default',
                     'title' => $entity->get('name')->value,
@@ -296,9 +264,7 @@ function cme_event_entity_update(Drupal\Core\Entity\EntityInterface $entity)
                 ]);
 
                 $promotion->save();
-
             }
-            createICSFile($entity, $type);
         }else{
             $product = getCmeProductEvent($entity->id(), $entity->getEntityTypeId());
             $arr_product = $product->toArray();
@@ -359,6 +325,8 @@ function cme_event_entity_update(Drupal\Core\Entity\EntityInterface $entity)
                 $promotion->save();
             }
         }
+
+        createICSFile($entity);
     }
 
 }

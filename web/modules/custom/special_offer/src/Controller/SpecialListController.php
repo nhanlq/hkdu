@@ -59,23 +59,14 @@ class SpecialListController extends ControllerBase {
                 ->pager(10)
                 ->execute();
         } elseif (isset($_GET['keys'])) {
-            $ids1 = \Drupal::entityQuery('special_offer')
+            $ids = \Drupal::entityQuery('special_offer')
                 ->condition('status', 1)
                 ->condition('name', $_GET['keys'], 'CONTAINS')
                 ->sort('field_weight','ASC')
                 ->sort('field_publish_date','DESC')
                 ->pager(10)
                 ->execute();
-            $ids2 = \Drupal::entityQuery('special_offer')
-                ->condition('status', 1)
-                ->condition('field_description', $_GET['keys'], 'CONTAINS')
-                ->sort('field_weight','ASC')
-                ->sort('field_publish_date','DESC')
-                ->pager(10)
-                ->execute();
-            $ids = array_merge($ids1,$ids2);
         } else {
-
             $ids = \Drupal::entityQuery('special_offer')
                 ->condition('status', 1)
                 ->sort('field_weight','ASC')

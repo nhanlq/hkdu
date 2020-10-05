@@ -1,34 +1,3 @@
-<div width="1,200px" class="yriL">
-    <div width="100%" class="ilpLeV">
-        <span class="ivzsxx"></span>
-        <form action="/e-pharm/tools" method="get" class="search">
-            <input placeholder="Search" name="keys" class="cAwIuR" value="{{ search }}">
-            <span class="fLrcjA">
-                    <button type="submit">
-                <i name="SEARCH" font-size="icon" color="icon" class="fa fa-search"></i>
-                        </button>
-            </span>
-        </form>
-    </div>
-</div>
-<div class="dacuFr">
-    <div class="cWWxaz">
-        <div display="flex" class="iNTbff">
-            {% if get or search %}
-                <div class="dsGFaG"><a href="/e-pharm/tools">All</a></div>
-            {% else %}
-                <div class="bkzBvv">All</div>
-            {% endif %}
-            {% for tag in tags %}
-                {% if get == tag %}
-                    <div class="bkzBvv">{{ tag }}</div>
-                {% else %}
-                    <div class="dsGFaG"><a href="/e-pharm/tools?tags={{ tag }}">{{ tag }}</a></div>
-                {% endif %}
-            {% endfor %}
-        </div>
-    </div>
-</div>
 <div display="flex" class="dYgNtr">
     {% for tool in tools %}
     <div class="feBSwY"><h3 class="Khytj">{{ tool.name.value }}</h3></div>

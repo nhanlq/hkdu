@@ -18,4 +18,3 @@ global_hkdu.admin_epharm_hkdu_suppliers:
   parent: 'system.admin'
   description: 'E-Pharm Suppliers Administration.'
   weight: -10
-

@@ -5,4 +5,4 @@ external_link.external_link_list_controller_list:
     _controller: '\Drupal\external_link\Controller\ExternalLinkListController::list'
     _title_callback: '\Drupal\external_link\Controller\ExternalLinkListController::title'
   requirements:
-    _permission: 'view published external link entities'
+    _permission: 'access content'

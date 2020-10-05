@@ -1,5 +1,0 @@
-entity.ads.add_form:
-  route_name: entity.ads.add_form
-  title: 'Add Ads'
-  appears_on:
-    - entity.ads.collection
