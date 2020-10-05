@@ -1,0 +1,33 @@
+<!-- Add you custom twig html here -->
+<div class="user-qrcode">
+    <div class="user-picture">
+        <div class="picture">
+            <div class="image-radius">
+                {% if user.user_picture is not empty %}
+                    <img src="{{ user.user_picture.entity.uri.value | image_style('medium') }}"/>
+                {% else %}
+                    <img src="/themes/hkdu/images/no_image.png"/>
+                {% endif %}
+            </div>
+            <p>
+                {% if user.field_first_name is not empty %}
+                    {{ user.field_first_name.value }}
+                {% endif %}
+                {% if user.field_last_name is not empty %}
+                    {{ user.field_last_name.value }}
+                {% endif %}
+            </p>
+            <p>
+                HKDU# {% if user.field_registration_no is not empty %}{{ user.field_registration_no.value }}{% else %}N/A
+                {% endif %}</p>
+        </div>
+        <div class="qrcode">
+            <p>HKDU e-Membership Card</p>
+            {{ qrcode }}
+
+        </div>
+    </div>
+    <div class="logo-register">
+        <a href="/"><img src="/themes/hkdu/images/logo.png"/></a>
+    </div>
+</div>

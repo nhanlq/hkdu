@@ -6,52 +6,110 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
 
 /**
  * Implements hook_help().
  */
-function cme_user_help($route_name, RouteMatchInterface $route_match) {
-  switch ($route_name) {
-    // Main module help for the cme_user module.
-    case 'help.page.cme_user':
-      $output = '';
-      $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('Customer relation for users') . '</p>';
-      return $output;
+function cme_user_help($route_name, RouteMatchInterface $route_match)
+{
+    switch ($route_name) {
+        // Main module help for the cme_user module.
+        case 'help.page.cme_user':
+            $output = '';
+            $output .= '<h3>' . t('About') . '</h3>';
+            $output .= '<p>' . t('Customer relation for users') . '</p>';
+            return $output;
 
-    default:
-  }
+        default:
+    }
 }
 
 /**
  * Implements hook_theme().
  */
-function cme_user_theme($existing, $type, $theme, $path) {
-  return [
-    'cme_user' => [
-      'render element' => 'children',
-    ],
-      'cme_user_code' => [
-          'variables' => ['user' => NULL],
-          'path' => $path . '/templates/',
-          'template' => 'qrcode'
-      ],
-  ];
+function cme_user_theme($existing, $type, $theme, $path)
+{
+    return [
+        'cme_user' => [
+            'render element' => 'children',
+        ],
+        'cme_user_code' => [
+            'variables' => ['user' => NULL, 'qrcode' => NULL],
+            'path' => $path . '/templates/',
+            'template' => 'qrcode'
+        ],
+    ];
 }
 
-function cme_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-    if($form_id=='user_register_form'){
+function cme_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
+{
+    if ($form_id == 'user_register_form') {
+        $rolesobs = \Drupal::entityTypeManager()->getStorage('user_role')->loadMultiple();
+        $roles = [];
+        $roles['_none'] = t('Select a membership Type');
+        foreach($rolesobs as $r){
+            $role = $r->toArray();
+            if($role['id'] != 'anonymous' || $role['id'] != 'authenticated'){
+                $roles[$role['id']] = $role['label'];
+            }
+        }
+       //  dpm(\Drupal::entityTypeManager()->getStorage('user_role')->loadMultiple());
+        $form['field_membership_type']['widget']['#options'] = $roles;
+        unset($form['field_membership_type']['widget']['#options']['anonymous']);
+        unset($form['field_membership_type']['widget']['#options']['authenticated']);
         $form['actions']['submit']['#suffix'] = '<div class="login-link"><a href="/user/login">Login</a></div>';
-        $form['#validate'][] = 'user_validation_membership';
+        //  $form['#validate'][] = 'cme_user_validation_membership';
     }
-    if($form_id=='user_login_form'){
+    if ($form_id == 'user_login_form') {
         $form['actions']['submit']['#suffix'] = '<div class="register-link"><a href="/user/register">Request an account</a><a class="password-link" href="/user/password">Reset password?</a></div>';
     }
-    if($form_id=='user_pass'){
+    if ($form_id == 'user_pass') {
         $form['actions']['submit']['#suffix'] = '<div class="login-link"><a href="/user/login">Login</a></div>';
+    }
+    if($form_id == 'user_form'){
+     //   dpm($form);
+      //  $form['user_picture']['#description']
+        unset($form['field_policy']);
+        unset($form['field_guide_info']);
     }
 }
 
-function user_validation_membership(&$form, \Drupal\Core\Form\FormStateInterface $form_state){
+function cme_user_menu_local_tasks_alter(&$data, $route_name)
+{
 
+    //do nothing if this ain't a display page
+
+    if ($route_name == 'entity.user.canonical') {
+        $current_path = \Drupal::service('path.current')->getPath();
+        $path = explode('/', $current_path);
+        $id = $path[2];
+
+        $data['tabs'][0]['cme_user.user_qrcode_controller_qrcode.qrcode'] = [
+            '#theme' => 'menu_local_task',
+            '#weight' => -10,
+            '#link' => [
+                'title' => t('QR Code'),
+                //create a url object. here from a route, but can be Url object.
+                'url' => Url::fromRoute('cme_user.user_qrcode_controller_qrcode', [
+                    //set route parameters. check modulename.routing.yml for parameters
+                    'uid' => $id,
+                ]),
+            ],
+        ];
+    }
+
+    //try to get the currently displayed node
 }
+
+/**
+ * Implements hook_entity_presave().
+ */
+function cme_user_entity_presave(Drupal\Core\Entity\EntityInterface $entity)
+{
+
+    if ($entity->getEntityTypeId() == 'user') {
+        $entity->addRole($entity->get('field_membership_type')->target_id);
+    }
+}
+

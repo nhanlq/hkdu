@@ -37,7 +37,7 @@ function public_links_theme($existing, $type, $theme, $path) {
             // The entity will be prefixed with a hash sign as ['elements']['#artwork']
         ],
         'public_links_list' => [
-            'variables' => ['public_links' => NULL,'get'=>NULL],
+            'variables' => ['data' => NULL,'get'=>NULL,'tags'=>NULL, 'search'=>NULL],
             'path' => $path . '/templates/',
             'template' => 'public-links-list'
         ],

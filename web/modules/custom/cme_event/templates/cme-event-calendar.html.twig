@@ -1,0 +1,38 @@
+<link href='/modules/custom/cme_event/assets/main.css' rel='stylesheet' />
+<script src='/modules/custom/cme_event/assets/main.js'></script>
+<script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            height: '600px',
+            width: '700px',
+            expandRows: true,
+            slotMinTime: '08:00',
+            slotMaxTime: '20:00',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+            },
+            initialView: 'dayGridMonth',
+            initialDate: '{{ date }}',
+            navLinks: true, // can click day/week names to navigate views
+            editable: true,
+            selectable: true,
+            nowIndicator: true,
+            dayMaxEvents: true, // allow "more" link when too many events
+            events: {{ events|raw }}
+        });
+
+        calendar.render();
+    });
+
+</script>
+
+
+
+<div id='calendar-container'>
+  <div id='calendar'></div>
+</div>

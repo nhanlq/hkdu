@@ -56,7 +56,7 @@ class EventListController extends ControllerBase {
                 ->condition('field_tags', $tid)
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
-                ->sort('created','DESC')
+                ->sort('field_date','ASC')
                 ->pager(15)
                 ->execute();
         } elseif (isset($_GET['keys'])) {
@@ -65,7 +65,7 @@ class EventListController extends ControllerBase {
                 ->condition('name', $_GET['keys'], 'CONTAINS')
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
-                ->sort('created','DESC')
+                ->sort('field_date','ASC')
                 ->pager(15)
                 ->execute();
         } else {
@@ -73,7 +73,7 @@ class EventListController extends ControllerBase {
                 ->condition('status', 1)
                 ->condition('field_expired',$currentDate,'>=')
                 ->sort('field_weight','ASC')
-                ->sort('created','DESC')
+                ->sort('field_date','ASC')
                 ->pager(15)
                 ->execute();
         }

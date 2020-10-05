@@ -55,26 +55,35 @@ class DrugNewsListController extends ControllerBase
             $ids = \Drupal::entityQuery('drug_news')
                 ->condition('status', 1)
                 ->condition('field_tags', $tid)
-                ->condition('field_expired',$currentDate,'>=')
-                ->sort('field_weight','ASC')
-                ->sort('field_publish_date','DESC')
+                ->condition('field_expired', $currentDate, '>=')
+                ->sort('field_weight', 'ASC')
+                ->sort('field_publish_date', 'DESC')
                 ->pager(10)
                 ->execute();
         } elseif (isset($_GET['keys'])) {
-            $ids = \Drupal::entityQuery('drug_news')
+            $ids1 = \Drupal::entityQuery('drug_news')
                 ->condition('status', 1)
-                ->condition('field_expired',$currentDate,'>=')
+                ->condition('field_expired', $currentDate, '>=')
                 ->condition('name', $_GET['keys'], 'CONTAINS')
-                ->sort('field_weight','ASC')
-                ->sort('field_publish_date','DESC')
+                ->sort('field_weight', 'ASC')
+                ->sort('field_publish_date', 'DESC')
                 ->pager(10)
                 ->execute();
+            $ids2 = \Drupal::entityQuery('drug_news')
+                ->condition('status', 1)
+                ->condition('field_expired', $currentDate, '>=')
+                ->condition('field_description', $_GET['keys'], 'CONTAINS')
+                ->sort('field_weight', 'ASC')
+                ->sort('field_publish_date', 'DESC')
+                ->pager(10)
+                ->execute();
+            $ids = array_merge($ids1, $ids2);
         } else {
             $ids = \Drupal::entityQuery('drug_news')
                 ->condition('status', 1)
-                ->condition('field_expired',$currentDate,'>=')
-                ->sort('field_weight','ASC')
-                ->sort('field_publish_date','DESC')
+                ->condition('field_expired', $currentDate, '>=')
+                ->sort('field_weight', 'ASC')
+                ->sort('field_publish_date', 'DESC')
                 ->pager(10)
                 ->execute();
         }
@@ -89,11 +98,11 @@ class DrugNewsListController extends ControllerBase
             ->condition('status', 1)
             ->execute();
         $result = DrugNews::loadMultiple($ids);
-        if($result){
+        if ($result) {
             foreach ($result as $drug) {
                 foreach ($drug->get('field_tags')->getValue() as $tag) {
                     $term = Term::load($tag['target_id']);
-                    if($term){
+                    if ($term) {
                         $tags[$tag['target_id']] = $term->getName();
                     }
 
@@ -110,15 +119,16 @@ class DrugNewsListController extends ControllerBase
             ->getStorage('taxonomy_term')
             ->loadByProperties(['name' => $name, 'vid' => 'epharm_tags']);
         $term = reset($term);
-        if($term){
+        if ($term) {
             $term_id = $term->id();
             return $term_id;
         }
 
     }
 
-    public function title(){
-        return ['#markup' => \Drupal::state()->get('/e-pharm/drug-news','Drug News'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
+    public function title()
+    {
+        return ['#markup' => \Drupal::state()->get('/e-pharm/drug-news', 'Drug News'), '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList()];
     }
 
 

@@ -5,4 +5,4 @@ tools.tool_list_controller_list:
     _controller: '\Drupal\tools\Controller\ToolListController::list'
     _title_callback: '\Drupal\tools\Controller\ToolListController::title'
   requirements:
-    _permission: 'access content'
+    _permission: 'view published tools entities'

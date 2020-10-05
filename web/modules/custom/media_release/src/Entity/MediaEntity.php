@@ -53,7 +53,7 @@ use Drupal\user\UserInterface;
  *     "published" = "status",
  *   },
  *   links = {
- *     "canonical" = "/hkdu/media_entity/{media_entity}",
+ *     "canonical" = "/media-release/{media_entity}",
  *     "add-form" = "/admin/hkdu/media_entity/add",
  *     "edit-form" = "/admin/hkdu/media_entity/{media_entity}/edit",
  *     "delete-form" = "/admin/hkdu/media_entity/{media_entity}/delete",

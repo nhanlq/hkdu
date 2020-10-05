@@ -1,13 +1,44 @@
+<div width="1,200px" class="yriL">
+    <div width="100%" class="ilpLeV">
+        <span class="ivzsxx"></span>
+        <form action="/e-pharm/external-links" method="get" class="search">
+            <input placeholder="Search" name="keys" class="cAwIuR" value="{{ search }}">
+            <span class="fLrcjA">
+                    <button type="submit">
+                <i name="SEARCH" font-size="icon" color="icon" class="fa fa-search"></i>
+                        </button>
+            </span>
+        </form>
+    </div>
+</div>
+<div class="dacuFr">
+    <div class="cWWxaz">
+        <div display="flex" class="iNTbff">
+            {% if get or search %}
+                <div class="dsGFaG"><a href="/e-pharm/external-links">All</a></div>
+            {% else %}
+                <div class="bkzBvv">All</div>
+            {% endif %}
+            {% for tag in tags %}
+                {% if get == tag %}
+                    <div class="bkzBvv">{{ tag }}</div>
+                {% else %}
+                    <div class="dsGFaG"><a href="/e-pharm/external-links?tags={{ tag }}">{{ tag }}</a></div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
 <div display="flex" class="dYgNtr">
     {% for ext in external_link %}
-    <div class="feBSwY"><h3 class="Khytj">{{ ext.name.value }}</h3></div>
+    <div class="feBSwY"><h3 class="Khytj">{{ ext.cate }}</h3></div>
     <div display="flex" class="bwcSmZ">
-        {% for link in ext.field_link %}
+        {% for link in ext.links %}
         <div width="1,0.3333333333333333" class="culkFL">
-            <a target="_blank" height="120px" href="{{ link.url }}" class="htzoqv">
+            <a target="_blank" height="120px" href="{{ link.field_link.uri }}" class="htzoqv">
                 <div class="kZuHUf">
                     <div class="isAOXn">
-                        <div><h3 class="flCmuI">{{ link.title }}</h3></div>
+                        <div><h3 class="flCmuI">{{ link.name.value }}</h3></div>
                         <div class="eclIQj">
                             <div class="jamtIE" width="100%"><span
                                         rel="noopener" target="_blank" color="#4A90E2" font-size="13px"

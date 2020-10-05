@@ -73,14 +73,27 @@
                         <div class="isAOXn">
                             <div>
                                 <h3 class="flCmuI">{{ quiz.name.value }}</h3>
-                                <div class="date"><span>Created Date: </span>{{ quiz.created.value|date('Y-m-d') }}
+                                <div class="date"><span>Created Date: </span>
+                                    {% if quiz.field_lecture_date is not empty %}
+                                        {{ quiz.field_lecture_date.value|date('Y-m-d') }}
+                                    {% elseif quiz.field_start_date is not empty %}
+                                        {{ quiz.field_start_date.value|date('Y-m-d') }}
+                                    {% else %}
+                                    {{ quiz.created.value|date('Y-m-d') }}
+                                    {% endif %}
                                 </div>
                                 {% if quiz.field_registration_dealine is not empty %}
                                     <div class="author">
                                         <span>Deadline: </span>{{ quiz.field_registration_dealine.value|date('Y-m-d H:i:s') }}
                                     </div>
+                                 {% elseif quiz.field_end_date is not empty %}
+                                     <div class="author">
+                                         <span>Deadline: </span>{{ quiz.field_end_date.value|date('Y-m-d H:i:s') }}
+                                     </div>
                                 {% endif %}
-                                <div class="author"><span>Author: </span>{{ quiz.author }}</div>
+                                {% if quiz.field_speaker is not empty %}
+                                <div class="author"><span>Speaker: </span>{{ quiz.field_speaker.value }}</div>
+                                {% endif %}
                             </div>
 
                         </div>
@@ -88,8 +101,21 @@
                             <ul class="eNSAVL">
                                 <li class="CardInfo__Info-sc-1ty8kif-2 lbZLFv">
                                     <i class="fa fa-chevron-circle-right"></i>
-                                    <span class="hMzfje">{{ quiz.field_point.value }} Point</span>
+                                    <span class="hMzfje">
+                                        {% if quiz.field_point is not empty %}
+                                            MCHK CME {{ quiz.field_point.value }}
+                                            {% elseif quiz.field_hkdu_point is not empty %}
+                                                MCHK CME {{ quiz.field_point.value }}
+                                            {% elseif quiz.field_hkam_point is not empty %}
+                                            HKAM CME {{ quiz.field_hkam_point.value }}
+                                        {% endif %}
+                                        </span>
                                 </li>
+                                {% if quiz.field_sponsor_logo is not empty %}
+                                    <li class="sponsor-logo">
+                                    <img src="{{ quiz.field_sponsor_logo.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}" width="50px" height="auto"/>
+                                    </li>
+                                        {% endif %}
 
                             </ul>
                         </div>

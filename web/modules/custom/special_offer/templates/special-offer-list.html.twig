@@ -32,7 +32,7 @@
     <div class="dacuFr">
         <div class="cWWxaz">
             <div display="flex" class="iNTbff">
-                {% if get %}
+                {% if get or search %}
                     <div class="dsGFaG"><a href="/e-pharm/special-offer">All</a></div>
                 {% else %}
                     <div class="bkzBvv">All</div>
@@ -69,7 +69,7 @@
                             </div>
                             <div class="isAOXn">
                                 <div><h3 class="flCmuI">{{ clinical.name.value }}</h3>
-                                    <p class="itSPxh">{{ clinical.field_description.value|striptags|raw }}</p>
+                                    {#<p class="itSPxh">{{ clinical.field_description.value|striptags|raw }}</p>#}
                                 </div>
 
                             </div>

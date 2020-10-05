@@ -3,11 +3,11 @@
 namespace Drupal\global_hkdu\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-
+use Drupal\system\Controller\SystemController;
 /**
  * Class DefaultController.
  */
-class DefaultController extends ControllerBase {
+class DefaultController extends SystemController {
 
   /**
    * Index.
@@ -16,10 +16,8 @@ class DefaultController extends ControllerBase {
    *   Return Hello string.
    */
   public function index() {
-    return [
-      '#type' => 'markup',
-      '#markup' => $this->t('Welcome to HKDU Administrator')
-    ];
+      $build['blocks'] = parent::overview('global_hkdu.admin_hkdu');
+      return $build;
   }
 
 }
