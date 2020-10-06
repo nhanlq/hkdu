@@ -941,11 +941,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Add Question'
+          label: 'Manage Question'
           exclude: false
           alter:
             alter_text: true
-            text: "<div id=\"block-seven-local-actions\">   \r\n        <ul class=\"action-links\">\r\n      <li><a href=\"/admin/cme/question/add?destination=/admin/cme/manage-quizzes&quiz={{ id }}\" class=\"button button-action button--primary button--small\" data-drupal-link-system-path=\"admin/cme/quiz/add\">Add Question for Quiz</a></li>\r\n    </ul>\r\n  </div>"
+            text: "<div id=\"block-seven-local-actions\">   \r\n        <ul class=\"action-links\">\r\n      <li><a href=\"/admin/cme/manage-question-by-quiz/{{ id }}\" class=\"button button-action button--primary button--small\" data-drupal-link-system-path=\"admin/cme/quiz/add\">Manage Questions</a></li>\r\n    </ul>\r\n  </div>"
             make_link: false
             path: ''
             absolute: false
