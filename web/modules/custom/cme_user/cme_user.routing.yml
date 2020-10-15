@@ -20,3 +20,11 @@ cme_user.user_qrcode_controller_qrcode:
     _title: 'Account Profile'
   requirements:
     _permission: 'access content'
+
+cme_user.report_controller_report:
+  path: '/user/report/{uid}'
+  defaults:
+    _controller: '\Drupal\cme_user\Controller\ReportController::report'
+    _title: 'report'
+  requirements:
+    _permission: 'access content'
