@@ -62,6 +62,11 @@ class Adsleft extends BlockBase {
             if ($pathArr[2] == $section['value']) {
               $data[$key] = $ad;
             }
+            if(empty($pathArr[2])){
+              if($pathArr[1] == $section['value']){
+                $data[$key] = $ad;
+              }
+            }
           }
           elseif ($pathArr[1] == 'cme') {
             if ($pathArr[2] == $section['value']) {
