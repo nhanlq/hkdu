@@ -119,6 +119,7 @@ module:
   panelbutton: 0
   path: 0
   path_alias: 0
+  pdf_api: 0
   permissions_by_term: 0
   pharm_dir: 0
   phpexcel: 0
@@ -162,10 +163,14 @@ module:
   unique_field_ajax: 0
   update: 0
   user: 0
+  video_embed_field: 0
+  video_embed_media: 0
+  video_embed_wysiwyg: 0
   views_bulk_edit: 0
   views_bulk_operations: 0
   views_data_export: 0
   views_ui: 0
+  wkhtmltopdf: 0
   workflows: 0
   menu_link_content: 1
   pathauto: 1
