@@ -20,7 +20,7 @@
     {% for ad in ads %}
         <div class="ads-item" style="margin-bottom: 20px">
             <a target="_blank" href="{{ ad.field_link.value }}">
-                <img src="{{ ad.field_media.entity.field_media_image.entity.uri.value | image_style('original') }}"/>
+                <img src="{{ file_url(ad.field_media.entity.field_media_image.entity.uri.value) }}"/>
             </a>
         </div>
     {% endfor %}
