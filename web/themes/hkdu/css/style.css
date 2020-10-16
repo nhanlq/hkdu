@@ -1708,7 +1708,12 @@ li.sponsor-logo{
     padding-right: 8px;
     flex: 1 1 0%;
 }
-
+.region-sidebar-second{
+    padding: 1px!important;
+}
+.region-sidebar-second img{
+    width: 100%;
+}
 .qSKwc {
     flex-direction: column;
     display: flex;
