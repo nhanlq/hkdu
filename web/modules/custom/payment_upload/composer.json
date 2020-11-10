@@ -1,0 +1,13 @@
+{
+    "name": "payment_upload",
+    "type": "drupal-module",
+    "description": "Payment Upload",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/payment_upload",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/payment_upload",
+        "source": "http://cgit.drupalcode.org/payment_upload",
+    },
+}

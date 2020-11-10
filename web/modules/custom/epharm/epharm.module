@@ -93,6 +93,11 @@ function epharm_mail($key, &$message, $params)
             $message['subject'] = t('@title.', array('@title' => $params['title']), $options);
             $message['body'][] = $params['message'];
             break;
+      case 'payment':
+        $message['from'] = \Drupal::config('system.site')->get('mail');
+        $message['subject'] = t('@title.', array('@title' => $params['title']), $options);
+        $message['body'][] = $params['message'];
+        break;
     }
 }
 

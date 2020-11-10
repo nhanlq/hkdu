@@ -1,0 +1,5 @@
+entity.payment_upload.add_form:
+  route_name: entity.payment_upload.add_form
+  title: 'Add Payment upload'
+  appears_on:
+    - entity.payment_upload.collection

@@ -193,8 +193,10 @@
                 {% else %}
                     <div class="leBAWZ">
                         <div display="flex" class="dGmSBT">
-                            <a href="/e-pharm/addcart/{{ product.product_id.value }}" class="eXdybn fUVRLe"><span
-                                        class="fjQIzu">Enroll</span></a>
+                            <a href="/payment/method/{{ event.id.value }}/{{ product.product_id.value }}/cme" class="eXdybn fUVRLe"><span
+                                    class="fjQIzu">Enroll</span></a>
+                            {#<a href="/e-pharm/addcart/{{ product.product_id.value }}" class="eXdybn fUVRLe"><span#}
+                                        {#class="fjQIzu">Enroll</span></a>#}
                         </div>
                     </div>
                 {% endif %}

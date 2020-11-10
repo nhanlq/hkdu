@@ -1,0 +1,5 @@
+name: 'payment_upload'
+type: module
+description: 'Payment Upload'
+core: 8.x
+package: 'HKDU'
