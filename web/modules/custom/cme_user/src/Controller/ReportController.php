@@ -17,8 +17,9 @@ class ReportController extends ControllerBase {
    */
   public function report($uid) {
     return [
-      '#type' => 'markup',
-      '#markup' => $this->t('Implement method: report with parameter(s): $id'),
+      '#theme' => 'user_report',
+     // '#user' => $user,
+     // '#qrcode' => $code,
     ];
   }
 

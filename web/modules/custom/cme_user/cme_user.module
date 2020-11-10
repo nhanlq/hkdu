@@ -39,6 +39,12 @@ function cme_user_theme($existing, $type, $theme, $path)
             'path' => $path . '/templates/',
             'template' => 'qrcode'
         ],
+
+      'user_report' => [
+        'variables' => ['user' => NULL, 'score' => NULL, 'result' =>NULL],
+        'path' => $path . '/templates/',
+        'template' => 'report'
+      ],
     ];
 }
 

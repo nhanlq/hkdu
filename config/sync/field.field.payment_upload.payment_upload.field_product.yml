@@ -1,0 +1,36 @@
+uuid: 4f98bdfc-88f8-4030-8708-693a03bcb0f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.payment_upload.field_product
+  module:
+    - payment_upload
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: payment_upload.payment_upload.field_product
+field_name: field_product
+entity_type: payment_upload
+bundle: payment_upload
+label: Product
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_product'
+  handler_settings:
+    target_bundles:
+      default: default
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

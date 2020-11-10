@@ -1,0 +1,50 @@
+{#
+/**
+ * @file payment_upload.html.twig
+ * Default theme implementation to present Payment upload data.
+ *
+ * This template is used when viewing Payment upload pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_payment_upload()
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="payment-select">
+  <table>
+    <thead>
+    <th>Event</th><th>Price</th>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{ event.name.value }}</td>
+      <td>{{ event.field_price.value }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <form action="/payment/action" method="post">
+    <div class="method">
+      <p>
+      <label>
+      <input type="radio" required name="type" value="upload"/>
+        <span>Upload Receipt</span>
+      </label>
+      </p>
+      <p>
+      <label>
+        <input type="radio" name="type" value="stipe"/>
+        <span>Credit Card</span>
+      </label>
+      </p>
+    </div>
+    <input type="hidden" name="product_id" value="{{ product_id }}"/>
+    <div class="submit">
+      <input class="fUVRLe" type="submit" value="Next Payment">
+    </div>
+  </form>
+</div>

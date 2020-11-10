@@ -1693,6 +1693,9 @@ li.sponsor-logo{
     background-color: white;
     padding: 16px;
 }
+.payment-select .submit{
+    margin-top: 30px;
+}
 
 .hZIrar {
     box-sizing: border-box;

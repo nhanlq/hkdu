@@ -12,49 +12,44 @@ use Drupal\gallery\Entity\Gallery;
  * Place your custom PHP code in this file.
  */
 
-function hkdu_preprocess_html(&$variables)
-{
-    $current_path = \Drupal::service('path.current')->getPath();
-    $path = explode('/', $current_path);
+function hkdu_preprocess_html(&$variables) {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path = explode('/', $current_path);
 
-    if ($path[1] == 'hkdu' && $path[2] == 'doctor' ||
-        $path[1] == 'hkdu' && $path[2] == 'hospital' ||
-        $path[1] == 'hkdu' && $path[2] == 'gallery' ||
-        $path[1] == 'e-pharm' && $path[2] == 'drug-search' && !empty($path[3]) ||
-        $path[1] == 'e-pharm' && empty($path[2]) ||
-        $path[1] == 'e-pharm' && $path[2] == 'pharm-dir' ||
-        $path[1] == 'e-pharm' && $path[2] == 'event' ||
-        $path[1] == 'cme' && $path[2] == 'events' ||
-        $path[1] == 'cme' && empty($path[2]) ||
-        $path[1] == 'cme' && $path[2] == 'event-org' && !empty($path[3]) ||
-        $path[1] == 'checkout' && $path[3] == 'order_information' ||
-        $path[1] == 'account' ||
-        $path[1] == 'user' && is_numeric($path[2]) ||
-        $path[1] == 'user' && is_numeric($path[2]) && $path[3] == 'edit'
-    ) {
+  if ($path[1] == 'hkdu' && $path[2] == 'doctor' ||
+    $path[1] == 'hkdu' && $path[2] == 'hospital' ||
+    $path[1] == 'hkdu' && $path[2] == 'gallery' ||
+    $path[1] == 'e-pharm' && $path[2] == 'drug-search' && !empty($path[3]) ||
+    $path[1] == 'e-pharm' && empty($path[2]) ||
+    $path[1] == 'e-pharm' && $path[2] == 'pharm-dir' ||
+    $path[1] == 'e-pharm' && $path[2] == 'event' ||
+    $path[1] == 'cme' && $path[2] == 'events' ||
+    $path[1] == 'cme' && empty($path[2]) ||
+    $path[1] == 'cme' && $path[2] == 'event-org' && !empty($path[3]) ||
+    $path[1] == 'checkout' && $path[3] == 'order_information' ||
+    $path[1] == 'account' || $path[1] == 'user' && is_numeric($path[2]) ||
+    $path[1] == 'user' && is_numeric($path[2]) && $path[3] == 'edit' ||
+    $path[1] == 'report' && is_numeric($path[2])) {
 
-        $variables['attributes']['class'][] = 'doctor-detail-page';
-    }
-    if ($path[1] == 'user' && $path[2] == 'login' ||
-        $path[1] == 'user' && $path[2] == 'reset' || 
-        $path[1] == 'user' && $path[2] == 'password') {
-        $variables['attributes']['class'][] = 'page-user-login';
-    }
+    $variables['attributes']['class'][] = 'doctor-detail-page';
+  }
+  if ($path[1] == 'user' && $path[2] == 'login' || $path[1] == 'user' && $path[2] == 'reset' || $path[1] == 'user' && $path[2] == 'password') {
+    $variables['attributes']['class'][] = 'page-user-login';
+  }
 
-    if($path[1] == 'e-pharm' && empty($path[2])) {
-        $variables['attributes']['class'][] = 'epharm-landing-page';
+  if ($path[1] == 'e-pharm' && empty($path[2])) {
+    $variables['attributes']['class'][] = 'epharm-landing-page';
+  }
+  if ($path[1] == 'e-pharm') {
+    if (\Drupal::currentUser()->isAnonymous()) {
+      $variables['attributes']['class'][] = 'epharm-no-login';
     }
-    if($path[1] == 'e-pharm'){
-        if(\Drupal::currentUser()->isAnonymous()){
-            $variables['attributes']['class'][] = 'epharm-no-login';
-        }
-    }
+  }
 
 }
 
-function hkdu_preprocess_page(&$variables)
-{
-    $variables['#attached']['library'][] = 'hkdu/caption-hkdu';
+function hkdu_preprocess_page(&$variables) {
+  $variables['#attached']['library'][] = 'hkdu/caption-hkdu';
 }
 
 /**
@@ -76,530 +71,527 @@ function hkdu_preprocess_page(&$variables)
 //    }
 //}
 
-function template_preprocess_about(array &$variables)
-{
-    // Fetch DefaultEntity Entity Object.
-    $about = $variables['elements']['#about'];
-    $variables['about'] = $about;
+function template_preprocess_about(array &$variables) {
+  // Fetch DefaultEntity Entity Object.
+  $about = $variables['elements']['#about'];
+  $variables['about'] = $about;
 
-    // Helpful $content variable for templates.
-    foreach (Element::children($variables['elements']) as $key) {
-        $variables['content'][$key] = $variables['elements'][$key];
-    }
+  // Helpful $content variable for templates.
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
 }
 
-function template_preprocess_news(array &$variables)
-{
-    // Fetch NewsEntity Entity Object.
-    $news = $variables['elements']['#news'];
-    $variables['new'] = $news;
-    // Helpful $content variable for templates.
-    foreach (Element::children($variables['elements']) as $key) {
-        $variables['content'][$key] = $variables['elements'][$key];
-    }
+function template_preprocess_news(array &$variables) {
+  // Fetch NewsEntity Entity Object.
+  $news = $variables['elements']['#news'];
+  $variables['new'] = $news;
+  // Helpful $content variable for templates.
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
 }
 
-function template_preprocess_healthy(array &$variables)
-{
-    // Fetch NewsEntity Entity Object.
-    $news = $variables['elements']['#healthy'];
-    $variables['healthy'] = $news;
-    // Helpful $content variable for templates.
-    foreach (Element::children($variables['elements']) as $key) {
-        $variables['content'][$key] = $variables['elements'][$key];
-    }
+function template_preprocess_healthy(array &$variables) {
+  // Fetch NewsEntity Entity Object.
+  $news = $variables['elements']['#healthy'];
+  $variables['healthy'] = $news;
+  // Helpful $content variable for templates.
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
 }
 
-function template_preprocess_media_entity(array &$variables)
-{
-    // Fetch MediaEntity Entity Object.
-    $media_entity = $variables['elements']['#media_entity'];
-    $current_path = \Drupal::service('path.current')->getPath();
-    $path = explode('/', $current_path);
-    $id = $path[3];
-    $variables['media'] = \Drupal\media_release\Entity\MediaEntity::load($id);
-    // Helpful $content variable for templates.
-    foreach (Element::children($variables['elements']) as $key) {
-        $variables['content'][$key] = $variables['elements'][$key];
-    }
+function template_preprocess_media_entity(array &$variables) {
+  // Fetch MediaEntity Entity Object.
+  $media_entity = $variables['elements']['#media_entity'];
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path = explode('/', $current_path);
+  $id = $path[3];
+  $variables['media'] = \Drupal\media_release\Entity\MediaEntity::load($id);
+  // Helpful $content variable for templates.
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
 }
 
-function template_preprocess_doctor(array &$variables)
-{
-    // Fetch DoctorEntity Entity Object.
-    $doctor = $variables['elements']['#doctor'];
-    $current_path = \Drupal::service('path.current')->getPath();
-    $path = explode('/', $current_path);
-    $id = $path[3];
-    $variables['doctor'] = DoctorEntity::load($id);
-    $variables['store'] = getStoreByDoctor($id);
-    $variables['key'] = \Drupal::config('store_locator.settings')->get('api_key');
-    // Helpful $content variable for templates.
-    foreach (Element::children($variables['elements']) as $key) {
-        $variables['content'][$key] = $variables['elements'][$key];
-    }
+function template_preprocess_doctor(array &$variables) {
+  // Fetch DoctorEntity Entity Object.
+  $doctor = $variables['elements']['#doctor'];
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path = explode('/', $current_path);
+  $id = $path[3];
+  $variables['doctor'] = DoctorEntity::load($id);
+  $variables['store'] = getStoreByDoctor($id);
+  $variables['key'] = \Drupal::config('store_locator.settings')->get('api_key');
+  // Helpful $content variable for templates.
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
 }
 
-function template_preprocess_hospital(array &$variables)
-{
-    // Fetch HospitalEntity Entity Object.
-    $hospital = $variables['elements']['#hospital'];
-    $current_path = \Drupal::service('path.current')->getPath();
-    $path = explode('/', $current_path);
-    $id = $path[3];
-    $variables['hospital'] = HospitalEntity::load($id);
-    // Helpful $content variable for templates.
-    foreach (Element::children($variables['elements']) as $key) {
-        $variables['content'][$key] = $variables['elements'][$key];
-    }
+function template_preprocess_hospital(array &$variables) {
+  // Fetch HospitalEntity Entity Object.
+  $hospital = $variables['elements']['#hospital'];
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path = explode('/', $current_path);
+  $id = $path[3];
+  $variables['hospital'] = HospitalEntity::load($id);
+  // Helpful $content variable for templates.
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
 }
 
-function template_preprocess_gallery(array &$variables)
-{
-    // Fetch Gallery Entity Object.
-    $gallery = $variables['elements']['#gallery'];
-    $current_path = \Drupal::service('path.current')->getPath();
-    $path = explode('/', $current_path);
-    $id = $path[3];
-    $variables['gallery'] = Gallery::load($id);
-    $variables['#attached']['library'][] = 'hkdu/lightbox-hkdu';
-    // Helpful $content variable for templates.
-    foreach (Element::children($variables['elements']) as $key) {
-        $variables['content'][$key] = $variables['elements'][$key];
-    }
+function template_preprocess_gallery(array &$variables) {
+  // Fetch Gallery Entity Object.
+  $gallery = $variables['elements']['#gallery'];
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path = explode('/', $current_path);
+  $id = $path[3];
+  $variables['gallery'] = Gallery::load($id);
+  $variables['#attached']['library'][] = 'hkdu/lightbox-hkdu';
+  // Helpful $content variable for templates.
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
 }
 
-function template_preprocess_clinical_focus(array &$variables)
-{
-    // Fetch ClinicalFocus Entity Object.
+function template_preprocess_clinical_focus(array &$variables) {
+  // Fetch ClinicalFocus Entity Object.
 
-    $current_path = \Drupal::service('path.current')->getPath();
-    $path = explode('/', $current_path);
-    $id = $path[3];
-    $clinical_focus = \Drupal\clinical_focus\Entity\ClinicalFocus::load($id);
-    $current_user = \Drupal::currentUser();
-    $current_roles = $current_user->getRoles();
-    $date = time();
-    if ($date > $clinical_focus->get('field_expired')->value) {
-        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-    }
-    $au = true;
-    if ($clinical_focus->get('field_audience')->getValue()) {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path = explode('/', $current_path);
+  $id = $path[3];
+  $clinical_focus = \Drupal\clinical_focus\Entity\ClinicalFocus::load($id);
+  $current_user = \Drupal::currentUser();
+  $current_roles = $current_user->getRoles();
+  $date = time();
+  if ($date > $clinical_focus->get('field_expired')->value) {
+    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+  }
+  $au = TRUE;
+  if ($clinical_focus->get('field_audience')->getValue()) {
 
-        foreach ($clinical_focus->get('field_audience')->getValue() as $audience) {
-            if (!in_array($audience['value'], $current_roles)) {
-                $au = false;
-            }
-        }
-        foreach ($clinical_focus->get('field_audience')->getValue() as $audience) {
-            if (in_array($audience['value'], $current_roles)) {
-                $au = true;
-            }
-        }
-        if (in_array('admins', $current_roles) || in_array('administrator', $current_roles)) {
-            $au = true;
-        }
-
+    foreach ($clinical_focus->get('field_audience')->getValue() as $audience) {
+      if (!in_array($audience['value'], $current_roles)) {
+        $au = FALSE;
+      }
     }
-    $user = $clinical_focus->getOwner();
-    if (in_array('administrator', $current_roles)) {
-        $au = true;
+    foreach ($clinical_focus->get('field_audience')->getValue() as $audience) {
+      if (in_array($audience['value'], $current_roles)) {
+        $au = TRUE;
+      }
     }
-    if ($user->id() == $current_user->id()) {
-        $au = true;
-    }
-    if (!$au) {
-        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+    if (in_array('admins', $current_roles) || in_array('administrator',
+        $current_roles)) {
+      $au = TRUE;
     }
 
-    $roles = $user->getRoles();
-    if (in_array('drug_suppliers', $current_roles)) {
-        if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
-            throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-        }
+  }
+  $user = $clinical_focus->getOwner();
+  if (in_array('administrator', $current_roles)) {
+    $au = TRUE;
+  }
+  if ($user->id() == $current_user->id()) {
+    $au = TRUE;
+  }
+  if (!$au) {
+    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+  }
+
+  $roles = $user->getRoles();
+  if (in_array('drug_suppliers', $current_roles)) {
+    if (in_array('drug_suppliers',
+        $roles) && $current_user->id() != $user->id()) {
+      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
-    $variables['clinical_focus'] = $clinical_focus;
-    // Helpful $content variable for templates.
-    foreach (Element::children($variables['elements']) as $key) {
-        $variables['content'][$key] = $variables['elements'][$key];
-    }
+  }
+  $variables['clinical_focus'] = $clinical_focus;
+  // Helpful $content variable for templates.
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
 }
 
-function template_preprocess_drug_news(array &$variables)
-{
-    // Fetch DrugNews Entity Object.
+function template_preprocess_drug_news(array &$variables) {
+  // Fetch DrugNews Entity Object.
 
-    $current_path = \Drupal::service('path.current')->getPath();
-    $path = explode('/', $current_path);
-    $id = $path[3];
-    $drug_news = \Drupal\drug_news\Entity\DrugNews::load($id);
-    $current_user = \Drupal::currentUser();
-    $current_roles = $current_user->getRoles();
-    $date = time();
-    if ($date > $drug_news->get('field_expired')->value) {
-        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path = explode('/', $current_path);
+  $id = $path[3];
+  $drug_news = \Drupal\drug_news\Entity\DrugNews::load($id);
+  $current_user = \Drupal::currentUser();
+  $current_roles = $current_user->getRoles();
+  $date = time();
+  if ($date > $drug_news->get('field_expired')->value) {
+    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+  }
+
+  if ($drug_news->get('field_audience')->getValue()) {
+
+    $au = TRUE;
+    foreach ($drug_news->get('field_audience')->getValue() as $audience) {
+      if (!in_array($audience['value'], $current_roles)) {
+        $au = FALSE;
+      }
+    }
+    foreach ($drug_news->get('field_audience')->getValue() as $audience) {
+      if (in_array($audience['value'], $current_roles)) {
+        $au = TRUE;
+      }
+    }
+    if (in_array('admins', $current_roles) || in_array('administrator',
+        $current_roles)) {
+      $au = TRUE;
     }
 
-    if ($drug_news->get('field_audience')->getValue()) {
+  }
+  $user = $drug_news->getOwner();
+  if (in_array('administrator', $current_roles)) {
+    $au = TRUE;
+  }
+  if ($user->id() == $current_user->id()) {
+    $au = TRUE;
+  }
 
-        $au = true;
-        foreach ($drug_news->get('field_audience')->getValue() as $audience) {
-            if (!in_array($audience['value'], $current_roles)) {
-                $au = false;
-            }
-        }
-        foreach ($drug_news->get('field_audience')->getValue() as $audience) {
-            if (in_array($audience['value'], $current_roles)) {
-                $au = true;
-            }
-        }
-        if (in_array('admins', $current_roles) || in_array('administrator', $current_roles)) {
-            $au = true;
-        }
-
+  if (!$au) {
+    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+  }
+  $roles = $user->getRoles();
+  if (in_array('drug_suppliers', $current_roles)) {
+    if (in_array('drug_suppliers',
+        $roles) && $current_user->id() != $user->id()) {
+      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
-    $user = $drug_news->getOwner();
-    if (in_array('administrator', $current_roles)) {
-        $au = true;
-    }
-    if ($user->id() == $current_user->id()) {
-        $au = true;
-    }
-    
-    if (!$au) {
-        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-    }
-    $roles = $user->getRoles();
-    if (in_array('drug_suppliers', $current_roles)) {
-        if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
-            throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-        }
-    }
-    $variables['drug_news'] = $drug_news;
-    // Helpful $content variable for templates.
-    foreach (Element::children($variables['elements']) as $key) {
-        $variables['content'][$key] = $variables['elements'][$key];
-    }
+  }
+  $variables['drug_news'] = $drug_news;
+  // Helpful $content variable for templates.
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
 }
 
-function template_preprocess_special_offer(array &$variables)
-{
-    // Fetch SpecialOffer Entity Object.
-    $current_path = \Drupal::service('path.current')->getPath();
-    $path = explode('/', $current_path);
-    $id = $path[3];
-    $special_offer = \Drupal\special_offer\Entity\SpecialOffer::load($id);
-    $current_user = \Drupal::currentUser();
-    $current_roles = $current_user->getRoles();
-    if ($special_offer->get('field_audience')->getValue()) {
-        $au = true;
-        foreach ($special_offer->get('field_audience')->getValue() as $audience) {
-            if (!in_array($audience['value'], $current_roles)) {
-                $au = false;
-            }
-        }
-        foreach ($special_offer->get('field_audience')->getValue() as $audience) {
-            if (in_array($audience['value'], $current_roles)) {
-                $au = true;
-            }
-        }
-        if (in_array('admins', $current_roles) || in_array('administrator', $current_roles)) {
-            $au = true;
-        }
+function template_preprocess_special_offer(array &$variables) {
+  // Fetch SpecialOffer Entity Object.
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path = explode('/', $current_path);
+  $id = $path[3];
+  $special_offer = \Drupal\special_offer\Entity\SpecialOffer::load($id);
+  $current_user = \Drupal::currentUser();
+  $current_roles = $current_user->getRoles();
+  if ($special_offer->get('field_audience')->getValue()) {
+    $au = TRUE;
+    foreach ($special_offer->get('field_audience')->getValue() as $audience) {
+      if (!in_array($audience['value'], $current_roles)) {
+        $au = FALSE;
+      }
+    }
+    foreach ($special_offer->get('field_audience')->getValue() as $audience) {
+      if (in_array($audience['value'], $current_roles)) {
+        $au = TRUE;
+      }
+    }
+    if (in_array('admins', $current_roles) || in_array('administrator',
+        $current_roles)) {
+      $au = TRUE;
+    }
 
+  }
+  $user = $special_offer->getOwner();
+  if (in_array('administrator', $current_roles)) {
+    $au = TRUE;
+  }
+  if ($user->id() == $current_user->id()) {
+    $au = TRUE;
+  }
+  if (!$au) {
+    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+  }
+  $roles = $user->getRoles();
+  if (in_array('drug_suppliers', $current_roles)) {
+    if (in_array('drug_suppliers',
+        $roles) && $current_user->id() != $user->id()) {
+      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
-    $user = $special_offer->getOwner();
-    if (in_array('administrator', $current_roles)) {
-        $au = true;
-    }
-    if ($user->id() == $current_user->id()) {
-        $au = true;
-    }
-    if (!$au) {
-        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-    }
-    $roles = $user->getRoles();
-    if (in_array('drug_suppliers', $current_roles)) {
-        if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
-            throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-        }
-    }
-    $variables['special_offer'] = $special_offer;
-    // Helpful $content variable for templates.
-    foreach (Element::children($variables['elements']) as $key) {
-        $variables['content'][$key] = $variables['elements'][$key];
-    }
+  }
+  $variables['special_offer'] = $special_offer;
+  // Helpful $content variable for templates.
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
 }
 
-function template_preprocess_event(array &$variables)
-{
-    // Fetch Event Entity Object.
-    $current_path = \Drupal::service('path.current')->getPath();
-    $path = explode('/', $current_path);
-    $id = $path[3];
-    $event = \Drupal\event\Entity\Event::load($id);
-    $current_user = \Drupal::currentUser();
-    $current_roles = $current_user->getRoles();
-    $date = time();
-    if ($date > $event->get('field_expired')->value) {
-        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+function template_preprocess_event(array &$variables) {
+  // Fetch Event Entity Object.
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path = explode('/', $current_path);
+  $id = $path[3];
+  $event = \Drupal\event\Entity\Event::load($id);
+  $current_user = \Drupal::currentUser();
+  $current_roles = $current_user->getRoles();
+  $date = time();
+  if ($date > $event->get('field_expired')->value) {
+    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+  }
+  if ($event->get('field_audience')->getValue()) {
+    $au = TRUE;
+    foreach ($event->get('field_audience')->getValue() as $audience) {
+      if (!in_array($audience['value'], $current_roles)) {
+        $au = FALSE;
+      }
     }
-    if ($event->get('field_audience')->getValue()) {
-        $au = true;
-        foreach ($event->get('field_audience')->getValue() as $audience) {
-            if (!in_array($audience['value'], $current_roles)) {
-                $au = false;
-            }
-        }
-        foreach ($event->get('field_audience')->getValue() as $audience) {
-            if (in_array($audience['value'], $current_roles)) {
-                $au = true;
-            }
-        }
-        if (in_array('admins', $current_roles) || in_array('administrator', $current_roles)) {
-            $au = true;
-        }
+    foreach ($event->get('field_audience')->getValue() as $audience) {
+      if (in_array($audience['value'], $current_roles)) {
+        $au = TRUE;
+      }
+    }
+    if (in_array('admins', $current_roles) || in_array('administrator',
+        $current_roles)) {
+      $au = TRUE;
+    }
 
+  }
+  $user = $event->getOwner();
+  if (in_array('administrator', $current_roles)) {
+    $au = TRUE;
+  }
+  if ($user->id() == $current_user->id()) {
+    $au = TRUE;
+  }
+  if (!$au) {
+    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+  }
+  $roles = $user->getRoles();
+  if (in_array('drug_suppliers', $current_roles)) {
+    if (in_array('drug_suppliers',
+        $roles) && $current_user->id() != $user->id()) {
+      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
-    $user = $event->getOwner();
-    if (in_array('administrator', $current_roles)) {
-        $au = true;
-    }
-    if ($user->id() == $current_user->id()) {
-        $au = true;
-    }
-    if (!$au) {
-        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-    }
-    $roles = $user->getRoles();
-    if (in_array('drug_suppliers', $current_roles)) {
-        if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
-            throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-        }
-    }
-    $variables['event'] = $event;
-    $variables['product'] = getProduct($id);
-    $variables['check_event'] = checkEventStatusUser($id);
-    $variables['expired'] = checkExpiredEvent($event);
-    // Helpful $content variable for templates.
-    foreach (Element::children($variables['elements']) as $key) {
-        $variables['content'][$key] = $variables['elements'][$key];
-    }
+  }
+  $variables['event'] = $event;
+  $variables['product'] = getProduct($id);
+  $variables['check_event'] = checkEventStatusUser($id);
+  $variables['expired'] = checkExpiredEvent($event);
+  // Helpful $content variable for templates.
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
 }
 
-function template_preprocess_drug_search(array &$variables)
-{
-    // Fetch DrugSearch Entity Object.
-    $current_path = \Drupal::service('path.current')->getPath();
-    $path = explode('/', $current_path);
-    $id = $path[3];
-    $drug_search = \Drupal\drug_search\Entity\DrugSearch::load($id);
-    $current_user = \Drupal::currentUser();
-    $current_roles = $current_user->getRoles();
-    $date = time();
-    if ($date > $drug_search->get('field_expired')->value) {
-        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+function template_preprocess_drug_search(array &$variables) {
+  // Fetch DrugSearch Entity Object.
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path = explode('/', $current_path);
+  $id = $path[3];
+  $drug_search = \Drupal\drug_search\Entity\DrugSearch::load($id);
+  $current_user = \Drupal::currentUser();
+  $current_roles = $current_user->getRoles();
+  $date = time();
+  if ($date > $drug_search->get('field_expired')->value) {
+    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+  }
+  if ($drug_search->get('field_audience')->getValue()) {
+    $au = TRUE;
+    foreach ($drug_search->get('field_audience')->getValue() as $audience) {
+      if (!in_array($audience['value'], $current_roles)) {
+        $au = FALSE;
+      }
     }
-    if ($drug_search->get('field_audience')->getValue()) {
-        $au = true;
-        foreach ($drug_search->get('field_audience')->getValue() as $audience) {
-            if (!in_array($audience['value'], $current_roles)) {
-                $au = false;
-            }
-        }
-        foreach ($drug_search->get('field_audience')->getValue() as $audience) {
-            if (in_array($audience['value'], $current_roles)) {
-                $au = true;
-            }
-        }
-        if (in_array('admins', $current_roles) || in_array('administrator', $current_roles)) {
-            $au = true;
-        }
+    foreach ($drug_search->get('field_audience')->getValue() as $audience) {
+      if (in_array($audience['value'], $current_roles)) {
+        $au = TRUE;
+      }
+    }
+    if (in_array('admins', $current_roles) || in_array('administrator',
+        $current_roles)) {
+      $au = TRUE;
+    }
 
+  }
+  $user = $drug_search->getOwner();
+  if (in_array('administrator', $current_roles)) {
+    $au = TRUE;
+  }
+  if ($user->id() == $current_user->id()) {
+    $au = TRUE;
+  }
+  if (!$au) {
+    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+  }
+  $roles = $user->getRoles();
+  if (in_array('drug_suppliers', $current_roles)) {
+    if (in_array('drug_suppliers',
+        $roles) && $current_user->id() != $user->id()) {
+      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
-    $user = $drug_search->getOwner();
-    if (in_array('administrator', $current_roles)) {
-        $au = true;
-    }
-    if ($user->id() == $current_user->id()) {
-        $au = true;
-    }
-    if (!$au) {
-        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-    }
-    $roles = $user->getRoles();
-    if (in_array('drug_suppliers', $current_roles)) {
-        if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
-            throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-        }
-    }
-    $variables['drug_search'] = $drug_search;
-    // Helpful $content variable for templates.
-    foreach (Element::children($variables['elements']) as $key) {
-        $variables['content'][$key] = $variables['elements'][$key];
-    }
+  }
+  $variables['drug_search'] = $drug_search;
+  // Helpful $content variable for templates.
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
 }
 
-function template_preprocess_pharm_dir(array &$variables)
-{
-    // Fetch PharmDir Entity Object.
+function template_preprocess_pharm_dir(array &$variables) {
+  // Fetch PharmDir Entity Object.
 
-    $current_path = \Drupal::service('path.current')->getPath();
-    $path = explode('/', $current_path);
-    $id = $path[3];
-    $pharm_dir = \Drupal\pharm_dir\Entity\PharmDir::load($id);
-    $current_user = \Drupal::currentUser();
-    $current_roles = $current_user->getRoles();
-    if ($pharm_dir->get('field_audience')->getValue()) {
-        $au = true;
-        foreach ($pharm_dir->get('field_audience')->getValue() as $audience) {
-            if (!in_array($audience['value'], $current_roles)) {
-                $au = false;
-            }
-        }
-        foreach ($pharm_dir->get('field_audience')->getValue() as $audience) {
-            if (in_array($audience['value'], $current_roles)) {
-                $au = true;
-            }
-        }
-        if (in_array('admins', $current_roles) || in_array('administrator', $current_roles)) {
-            $au = true;
-        }
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path = explode('/', $current_path);
+  $id = $path[3];
+  $pharm_dir = \Drupal\pharm_dir\Entity\PharmDir::load($id);
+  $current_user = \Drupal::currentUser();
+  $current_roles = $current_user->getRoles();
+  if ($pharm_dir->get('field_audience')->getValue()) {
+    $au = TRUE;
+    foreach ($pharm_dir->get('field_audience')->getValue() as $audience) {
+      if (!in_array($audience['value'], $current_roles)) {
+        $au = FALSE;
+      }
+    }
+    foreach ($pharm_dir->get('field_audience')->getValue() as $audience) {
+      if (in_array($audience['value'], $current_roles)) {
+        $au = TRUE;
+      }
+    }
+    if (in_array('admins', $current_roles) || in_array('administrator',
+        $current_roles)) {
+      $au = TRUE;
+    }
 
+  }
+  $user = $pharm_dir->getOwner();
+  if (in_array('administrator', $current_roles)) {
+    $au = TRUE;
+  }
+  if ($user->id() == $current_user->id()) {
+    $au = TRUE;
+  }
+  if (!$au) {
+    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+  }
+  $roles = $user->getRoles();
+  if (in_array('drug_suppliers', $current_roles)) {
+    if (in_array('drug_suppliers',
+        $roles) && $current_user->id() != $user->id()) {
+      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
-    $user = $pharm_dir->getOwner();
-    if (in_array('administrator', $current_roles)) {
-        $au = true;
-    }
-    if ($user->id() == $current_user->id()) {
-        $au = true;
-    }
-    if (!$au) {
-        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-    }
-    $roles = $user->getRoles();
-    if (in_array('drug_suppliers', $current_roles)) {
-        if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
-            throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-        }
-    }
-    $variables['pharm_dir'] = $pharm_dir;
-    // Helpful $content variable for templates.
-    foreach (Element::children($variables['elements']) as $key) {
-        $variables['content'][$key] = $variables['elements'][$key];
-    }
+  }
+  $variables['pharm_dir'] = $pharm_dir;
+  // Helpful $content variable for templates.
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
 }
 
-function template_preprocess_cme_event(array &$variables)
-{
-    // Fetch Event Entity Object.
-    $current_path = \Drupal::service('path.current')->getPath();
-    $path = explode('/', $current_path);
-    $id = $path[3];
-    $event = \Drupal\cme_event\Entity\CmeEvent::load($id);
-    $current_user = \Drupal::currentUser();
-    $current_roles = $current_user->getRoles();
-    $date = time();
-    $expired = strtotime($event->get('field_expired')->value);
-    if ($date > $expired) {
-        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+function template_preprocess_cme_event(array &$variables) {
+  // Fetch Event Entity Object.
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path = explode('/', $current_path);
+  $id = $path[3];
+  $event = \Drupal\cme_event\Entity\CmeEvent::load($id);
+  $current_user = \Drupal::currentUser();
+  $current_roles = $current_user->getRoles();
+  $date = time();
+  $expired = strtotime($event->get('field_expired')->value);
+  if ($date > $expired) {
+    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+  }
+  if ($event->get('field_audience')->getValue()) {
+    $au = TRUE;
+    foreach ($event->get('field_audience')->getValue() as $audience) {
+      if (!in_array($audience['value'], $current_roles)) {
+        $au = FALSE;
+      }
     }
-    if ($event->get('field_audience')->getValue()) {
-        $au = true;
-        foreach ($event->get('field_audience')->getValue() as $audience) {
-            if (!in_array($audience['value'], $current_roles)) {
-                $au = false;
-            }
-        }
-        foreach ($event->get('field_audience')->getValue() as $audience) {
-            if (in_array($audience['value'], $current_roles)) {
-                $au = true;
-            }
-        }
-        if (in_array('admins', $current_roles) || in_array('administrator', $current_roles)) {
-            $au = true;
-        }
+    foreach ($event->get('field_audience')->getValue() as $audience) {
+      if (in_array($audience['value'], $current_roles)) {
+        $au = TRUE;
+      }
+    }
+    if (in_array('admins', $current_roles) || in_array('administrator',
+        $current_roles)) {
+      $au = TRUE;
+    }
 
+  }
+  $user = $event->getOwner();
+  if (in_array('administrator', $current_roles)) {
+    $au = TRUE;
+  }
+  if ($user->id() == $current_user->id()) {
+    $au = TRUE;
+  }
+  if (!$au) {
+    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+  }
+  $roles = $user->getRoles();
+  if (in_array('drug_suppliers', $current_roles)) {
+    if (in_array('drug_suppliers',
+        $roles) && $current_user->id() != $user->id()) {
+      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
-    $user = $event->getOwner();
-    if (in_array('administrator', $current_roles)) {
-        $au = true;
-    }
-    if ($user->id() == $current_user->id()) {
-        $au = true;
-    }
-    if (!$au) {
-        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-    }
-    $roles = $user->getRoles();
-    if (in_array('drug_suppliers', $current_roles)) {
-        if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
-            throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-        }
-    }
-    $variables['event'] = $event;
-    $variables['product'] = getCmeProduct($id);
-    $variables['check_event'] = checkCmeEventStatusUser($id);
-    $variables['expired'] = checkExpiredCmeEvent($event);
-    // Helpful $content variable for templates.
-    foreach (Element::children($variables['elements']) as $key) {
-        $variables['content'][$key] = $variables['elements'][$key];
-    }
+  }
+  $variables['event'] = $event;
+  $variables['product'] = getCmeProduct($id);
+  $variables['check_event'] = checkCmeEventStatusUser($id);
+  $variables['expired'] = checkExpiredCmeEvent($event);
+  // Helpful $content variable for templates.
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
 }
 
-function template_preprocess_event_org(array &$variables)
-{
-    // Fetch EventOrg Entity Object.
-    $current_path = \Drupal::service('path.current')->getPath();
-    $path = explode('/', $current_path);
-    $id = $path[3];
-    $event_org = \Drupal\cme_event_organizer\Entity\EventOrg::load($id);
-    $variables['event_org'] = $event_org;
-    // Helpful $content variable for templates.
-    foreach (Element::children($variables['elements']) as $key) {
-        $variables['content'][$key] = $variables['elements'][$key];
-    }
+function template_preprocess_event_org(array &$variables) {
+  // Fetch EventOrg Entity Object.
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path = explode('/', $current_path);
+  $id = $path[3];
+  $event_org = \Drupal\cme_event_organizer\Entity\EventOrg::load($id);
+  $variables['event_org'] = $event_org;
+  // Helpful $content variable for templates.
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
 }
 
-function template_preprocess_guidelines(array &$variables)
-{
-    // Fetch Guidelines Entity Object.
-    $current_path = \Drupal::service('path.current')->getPath();
-    $path = explode('/', $current_path);
-    $id = $path[3];
-    $event_org = \Drupal\cme_guidelines\Entity\Guidelines::load($id);
-    $variables['cme_guidelines'] = $event_org;
-    // Helpful $content variable for templates.
-//    foreach (Element::children($variables['elements']) as $key) {
-//        $variables['content'][$key] = $variables['elements'][$key];
-//    }
+function template_preprocess_guidelines(array &$variables) {
+  // Fetch Guidelines Entity Object.
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path = explode('/', $current_path);
+  $id = $path[3];
+  $event_org = \Drupal\cme_guidelines\Entity\Guidelines::load($id);
+  $variables['cme_guidelines'] = $event_org;
+  // Helpful $content variable for templates.
+  //    foreach (Element::children($variables['elements']) as $key) {
+  //        $variables['content'][$key] = $variables['elements'][$key];
+  //    }
 }
 
-function template_preprocess_quiz(array &$variables)
-{
-    // Fetch Quiz Entity Object.
-    $current_path = \Drupal::service('path.current')->getPath();
-    $path = explode('/', $current_path);
-    $id = $path[3];
-    $quiz = \Drupal\cme_quiz\Entity\Quiz::load($id);
-    $variables['quiz'] = $quiz;
-    $variables['check_quiz'] = checkQuizStatusUser($id);
-    $variables['expired'] = checkExpiredQuiz($quiz);
-    $variables['question'] = getQuestionNoTest($quiz);
-    $variables['result'] = false;
-    $variables['results'] = false;
-    if (getLastestresult($id)) {
-        $variables['result'] = getLastestresult($id);
-    }
-    if (getListResult($id)) {
-        $variables['results'] = getListResult($id);
-    }
-    // Helpful $content variable for templates.
-    foreach (Element::children($variables['elements']) as $key) {
-        $variables['content'][$key] = $variables['elements'][$key];
-    }
-    $variables['#cache'] = [
-        'max-age' => 0,
-    ];
+function template_preprocess_quiz(array &$variables) {
+  // Fetch Quiz Entity Object.
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path = explode('/', $current_path);
+  $id = $path[3];
+  $quiz = \Drupal\cme_quiz\Entity\Quiz::load($id);
+  $variables['quiz'] = $quiz;
+  $variables['check_quiz'] = checkQuizStatusUser($id);
+  $variables['expired'] = checkExpiredQuiz($quiz);
+  $variables['question'] = getQuestionNoTest($quiz);
+  $variables['result'] = FALSE;
+  $variables['results'] = FALSE;
+  if (getLastestresult($id)) {
+    $variables['result'] = getLastestresult($id);
+  }
+  if (getListResult($id)) {
+    $variables['results'] = getListResult($id);
+  }
+  // Helpful $content variable for templates.
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+  $variables['#cache'] = [
+    'max-age' => 0,
+  ];
 }
 
