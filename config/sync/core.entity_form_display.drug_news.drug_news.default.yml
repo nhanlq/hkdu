@@ -10,6 +10,7 @@ dependencies:
     - field.field.drug_news.drug_news.field_file
     - field.field.drug_news.drug_news.field_is_home
     - field.field.drug_news.drug_news.field_media
+    - field.field.drug_news.drug_news.field_newsletter
     - field.field.drug_news.drug_news.field_publish_date
     - field.field.drug_news.drug_news.field_tags
     - field.field.drug_news.drug_news.field_thumb
@@ -74,6 +75,16 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+    region: content
+  field_newsletter:
+    weight: 27
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_publish_date:
     weight: 26

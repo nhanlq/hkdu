@@ -1,0 +1,8 @@
+uuid: 37c483bf-6171-4016-aa1c-ab060976b94f
+langcode: en
+status: true
+dependencies: {  }
+name: Subscriber
+vid: subscriber
+description: ''
+weight: 0

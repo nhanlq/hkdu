@@ -104,10 +104,10 @@ function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
         $product->save();
 
         //create promotion if have pricelist
-        if ($entity->get('field_member_price')->number >= 0) {
+        if ($entity->get('field_member_price')->number > 0) {
             $price = $entity->get('field_price')->number - $entity->get('field_member_price')->number;
             $promotion = Promotion::create([
-                'name' => 'CME-EVENT-' . $entity->id(),
+                'name' => $entity->get('name')->value,
                 'order_types' => ['default'],
                 'stores' => [1],
                 'offer' => [
@@ -154,15 +154,6 @@ function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
             $promotion->save();
         }
         //create the score
-//        $point = $entity->get('field_cme_point')->value;
-//        $score = \Drupal\cme_score\Entity\Score::create([
-//            'name' => 'Score of Event '.$entity->getName(),
-//            'field_event' => $entity->id(),
-//            'status' => 0,
-//            'created' => time(),
-//            'score' => $point,
-//        ]);
-//        $score->save();
         //add calendar
         createICSFile($entity, $type);
 
@@ -249,10 +240,10 @@ function cme_event_entity_update(Drupal\Core\Entity\EntityInterface $entity)
 
             $product->save();
             //create promotion if have pricelist
-            if ($entity->get('field_member_price')->number >= 0) {
+            if ($entity->get('field_member_price')->number > 0) {
                 $price = $entity->get('field_price')->number - $entity->get('field_member_price')->number;
                 $promotion = Promotion::create([
-                    'name' => 'CME-EVENT-' . $entity->id(),
+                    'name' => $entity->get('name')->value,
                     'order_types' => ['default'],
                     'stores' => [1],
                     'offer' => [
@@ -313,7 +304,7 @@ function cme_event_entity_update(Drupal\Core\Entity\EntityInterface $entity)
                     $pro->delete();
                 }
                 $promotion = Promotion::create([
-                    'name' => 'CME-EVENT-' . $entity->id(),
+                    'name' => $entity->get('name')->value,
                     'order_types' => ['default'],
                     'stores' => [1],
                     'offer' => [
