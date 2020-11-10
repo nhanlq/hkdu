@@ -1,0 +1,26 @@
+<!-- Add you custom twig html here -->
+<div{{ attributes.addClass('payment_upload') }}>
+  <table>
+    <thead>
+    <th>User</th><th>Event</th><th>Price</th><th>Receipt</th><th>Status</th><th>Action</th>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{ payment.field_user.entity.getEmail() }}</td>
+      <td>{{ payment.field_product.entity.getTitle() }}</td>
+      <td>{{ payment.field_product.entity.variations.0.entity.getPrice()}}</td>
+      <td><a href="{{ file_url(payment.field_receipt.0.entity.uri.value) }}">{{ payment.field_receipt.0.entity.filename.value }}</a></td>
+      {% set status = "Pending" %}
+      {% if payment.status.value == 1 %}
+        {% set status = "Approved" %}
+      {% endif %}
+      <td>{{ status }}</td>
+      <td>
+        {% if payment.status.value == 0 %}
+        <a class="button button-action button--primary button--small" href="/payment/upload/{{ payment.id.value }}/approval">Approve</a>
+        {% endif %}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

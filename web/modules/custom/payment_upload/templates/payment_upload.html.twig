@@ -1,0 +1,23 @@
+{#
+/**
+ * @file payment_upload.html.twig
+ * Default theme implementation to present Payment upload data.
+ *
+ * This template is used when viewing Payment upload pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_payment_upload()
+ *
+ * @ingroup themeable
+ */
+#}
+nhan test
+<div{{ attributes.addClass('payment_upload') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

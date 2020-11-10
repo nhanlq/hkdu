@@ -1,0 +1,68 @@
+uuid: cc091aba-eebb-4daa-81cc-82beaf6e0553
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.payment_upload.payment_upload.field_product
+    - field.field.payment_upload.payment_upload.field_quiz
+    - field.field.payment_upload.payment_upload.field_receipt
+    - field.field.payment_upload.payment_upload.field_user
+  module:
+    - file
+    - payment_upload
+    - user
+id: payment_upload.payment_upload.default
+targetEntityType: payment_upload
+bundle: payment_upload
+mode: default
+content:
+  field_product:
+    weight: 5
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_quiz:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_receipt:
+    weight: 6
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_user:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  name:
+    label: above
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true

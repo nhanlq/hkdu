@@ -1,0 +1,26 @@
+# Payment upload routing definition
+payment_upload.settings_tab:
+  route_name: payment_upload.settings
+  title: 'Settings'
+  base_route: payment_upload.settings
+
+entity.payment_upload.canonical:
+  route_name: entity.payment_upload.canonical
+  base_route: entity.payment_upload.canonical
+  title: 'View'
+
+entity.payment_upload.edit_form:
+  route_name: entity.payment_upload.edit_form
+  base_route: entity.payment_upload.canonical
+  title: 'Edit'
+
+entity.payment_upload.version_history:
+  route_name: entity.payment_upload.version_history
+  base_route: entity.payment_upload.canonical
+  title: 'Revisions'
+
+entity.payment_upload.delete_form:
+  route_name:  entity.payment_upload.delete_form
+  base_route:  entity.payment_upload.canonical
+  title: Delete
+  weight: 10

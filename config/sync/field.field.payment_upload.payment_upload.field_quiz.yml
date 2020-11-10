@@ -1,0 +1,33 @@
+uuid: e3f7051c-39ee-4093-a537-87ac3b89fc49
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.payment_upload.field_quiz
+  module:
+    - payment_upload
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: payment_upload.payment_upload.field_quiz
+field_name: field_quiz
+entity_type: payment_upload
+bundle: payment_upload
+label: Quiz
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:quiz'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference
