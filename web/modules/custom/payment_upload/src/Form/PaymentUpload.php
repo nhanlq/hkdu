@@ -79,7 +79,7 @@ class PaymentUpload extends FormBase {
     else {
       $event = \Drupal\cme_event\Entity\CmeEvent::load($product->get('field_cme_event')->target_id);
     }
-
+    $host = \Drupal::request()->getSchemeAndHttpHost();
     $file = $form_state->getValue('receipt');
     $payment = \Drupal\payment_upload\Entity\PaymentUpload::create([
       'name' => 'Payment Receipt upload of '.$user->getAccountName() . ' for event ' .
@@ -101,12 +101,12 @@ class PaymentUpload extends FormBase {
     $body = '';
     $body .='<h2>Event detail:</h2>';
     $body .='<p><strong>Event Name:</strong> '.$event->getName().'</p>';
-    $body .='<p><a href="/admin/hkdu/payment_upload/'.$payment->id().'">Click to Approve for Receipt</a></p>';
+    $body .='<p><a href="'.$host.'/admin/hkdu/payment_upload/'.$payment->id().'">Click to Approve for Receipt</a></p>';
     $body .= render($code);
     $mailManager = \Drupal::service('plugin.manager.mail');
     $module = 'epharm';
     $key = 'payment';
-    $to = 'nhanlq@outlook.com';'hkdu.content.notification@gmail.com';
+    $to = 'nhanlq@outlook.com,hkdu.content.notification@gmail.com';
     $params['message'] = $body;
     $params['title'] = '[HKDU] Payment Upload Receipt.';
     $params['user'] = $user->getDisplayName();

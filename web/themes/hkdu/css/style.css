@@ -1696,6 +1696,12 @@ li.sponsor-logo{
 .payment-select .submit{
     margin-top: 30px;
 }
+.payment-select table th, .payment-select table tr, .payment-select table td{
+    padding: 10px;
+}
+.payment-select table{
+    width: 50%;
+}
 
 .hZIrar {
     box-sizing: border-box;

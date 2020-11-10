@@ -10,369 +10,444 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements hook_help().
  */
-function epharm_help($route_name, RouteMatchInterface $route_match)
-{
-    switch ($route_name) {
-        // Main module help for the epharm module.
-        case 'help.page.epharm':
-            $output = '';
-            $output .= '<h3>' . t('About') . '</h3>';
-            $output .= '<p>' . t('Epharm section site') . '</p>';
-            return $output;
+function epharm_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the epharm module.
+    case 'help.page.epharm':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Epharm section site') . '</p>';
+      return $output;
 
-        default:
-    }
+    default:
+  }
 }
 
 /**
  * Implements hook_theme().
  */
-function epharm_theme($existing, $type, $theme, $path)
-{
-    return [
-        'epharm' => [                            // the entity id// template directory in module or theme
-            'template' => 'epharm',                // defines base template as /artwork.html.twig
-            'render element' => 'elements',          // Theme API call to define the container of the entity in the render array
-            // The entity will be prefixed with a hash sign as ['elements']['#artwork']
-        ],
-        'epharm_list' => [
-            'variables' => ['epharm' => NULL, 'author' => NULL, 'date' => NULL, 'tags' => NULL, 'get' => NULL, 'search' => NULL],
-            'path' => $path . '/templates/',
-            'template' => 'epharm-list'
-        ],
-        'epharm_home' => [
-            'variables' => ['epharm' => NULL, 'author' => NULL, 'date' => NULL],
-            'path' => $path . '/templates/',
-            'template' => 'epharm-home'
-        ],
-        'epharm_banner_block' => [
-            'variables' => ['epharm' => NULL],
-            'path' => $path . '/templates/',
-            'template' => 'epharm-banner'
-        ],
-        'epharm_menu_block' => [
-            'variables' => ['epharm' => NULL, 'cme' => NULL, 'admin' => NULL],
-            'path' => $path . '/templates/',
-            'template' => 'epharm-menu'
-        ],
-    ];
+function epharm_theme($existing, $type, $theme, $path) {
+  return [
+    'epharm' => [                            // the entity id// template directory in module or theme
+      'template' => 'epharm',
+      // defines base template as /artwork.html.twig
+      'render element' => 'elements',
+      // Theme API call to define the container of the entity in the render array
+      // The entity will be prefixed with a hash sign as ['elements']['#artwork']
+    ],
+    'epharm_list' => [
+      'variables' => [
+        'epharm' => NULL,
+        'author' => NULL,
+        'date' => NULL,
+        'tags' => NULL,
+        'get' => NULL,
+        'search' => NULL,
+      ],
+      'path' => $path . '/templates/',
+      'template' => 'epharm-list',
+    ],
+    'epharm_home' => [
+      'variables' => ['epharm' => NULL, 'author' => NULL, 'date' => NULL],
+      'path' => $path . '/templates/',
+      'template' => 'epharm-home',
+    ],
+    'epharm_banner_block' => [
+      'variables' => ['epharm' => NULL],
+      'path' => $path . '/templates/',
+      'template' => 'epharm-banner',
+    ],
+    'epharm_menu_block' => [
+      'variables' => ['epharm' => NULL, 'cme' => NULL, 'admin' => NULL],
+      'path' => $path . '/templates/',
+      'template' => 'epharm-menu',
+    ],
+  ];
 }
 
 /**
  * Implements hook_mail().
  */
-function epharm_mail($key, &$message, $params)
-{
-    $options = array(
-        'langcode' => $message['langcode'],
-    );
-    $message['headers'] = array(
-        'MIME-Version' => '1.0',
-        'Content-Type' => 'text/html; charset=UTF-8; format=flowed; delsp=yes',
-        'Content-Transfer-Encoding' => '8Bit',
-    );
+function epharm_mail($key, &$message, $params) {
+  $options = [
+    'langcode' => $message['langcode'],
+  ];
+  $message['headers'] = [
+    'MIME-Version' => '1.0',
+    'Content-Type' => 'text/html; charset=UTF-8; format=flowed; delsp=yes',
+    'Content-Transfer-Encoding' => '8Bit',
+  ];
 
-    switch ($key) {
-        case 'createPost':
-            $message['from'] = $params['from'];
-            $message['subject'] = t('Post created: @title by @user', array('@title' => $params['title'], '@user' => $params['user']), $options);
-            $message['body'][] = $params['message'];
-            break;
-        case 'updatePost':
-            $message['from'] = \Drupal::config('system.site')->get('mail');
-            $message['subject'] = t('Approved: @title by HKDU', array('@title' => $params['title']), $options);
-            $message['body'][] = $params['message'];
-            break;
-        case 'sendEventPayment':
-            $message['from'] = \Drupal::config('system.site')->get('mail');
-            $message['subject'] = t('Link for payment settlement for the event ready register for you.', array('@title' => $params['title']), $options);
-            $message['body'][] = $params['message'];
-            break;
-        case 'sendQRcode':
-            $message['from'] = \Drupal::config('system.site')->get('mail');
-            $message['subject'] = t('@title.', array('@title' => $params['title']), $options);
-            $message['body'][] = $params['message'];
-            break;
-      case 'payment':
-        $message['from'] = \Drupal::config('system.site')->get('mail');
-        $message['subject'] = t('@title.', array('@title' => $params['title']), $options);
-        $message['body'][] = $params['message'];
-        break;
-    }
+  switch ($key) {
+    case 'createPost':
+      $message['from'] = $params['from'];
+      $message['subject'] = t('Post created: @title by @user',
+        ['@title' => $params['title'], '@user' => $params['user']], $options);
+      $message['body'][] = $params['message'];
+      break;
+    case 'updatePost':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('Approved: @title by HKDU',
+        ['@title' => $params['title']], $options);
+      $message['body'][] = $params['message'];
+      break;
+    case 'subscription':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('[Subscriber] @title',
+        ['@title' => $params['title']], $options);
+      $message['body'][] = $params['message'];
+      break;
+    case 'sendEventPayment':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('Link for payment settlement for the event ready register for you.',
+        ['@title' => $params['title']], $options);
+      $message['body'][] = $params['message'];
+      break;
+    case 'sendQRcode':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('@title.', ['@title' => $params['title']],
+        $options);
+      $message['body'][] = $params['message'];
+      break;
+    case 'payment':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('@title.', ['@title' => $params['title']],
+        $options);
+      $message['body'][] = $params['message'];
+      break;
+  }
 }
 
-function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
-{
+function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
 
-    // Insert the new entity into a fictional table of all entities.
-    $user = \Drupal::currentUser();
-    if (!in_array('administrator', $user->getRoles()) || !in_array('admins', $user->getRoles())) {
-        if ($entity->getEntityTypeId() == 'clinical_focus' ||
-            $entity->getEntityTypeId() == 'drug_news' ||
-            $entity->getEntityTypeId() == 'pharm_dir' ||
-            $entity->getEntityTypeId() == 'special_offer' ||
-            $entity->getEntityTypeId() == 'drug_search'
+  // Insert the new entity into a fictional table of all entities.
+  $user = \Drupal::currentUser();
+  if (!in_array('administrator', $user->getRoles()) || !in_array('admins',
+      $user->getRoles())) {
+    if ($entity->getEntityTypeId() == 'clinical_focus' || $entity->getEntityTypeId() == 'drug_news' || $entity->getEntityTypeId() == 'pharm_dir' || $entity->getEntityTypeId() == 'special_offer' || $entity->getEntityTypeId() == 'event') {
+      $mailManager = \Drupal::service('plugin.manager.mail');
+      $module = 'epharm';
+      $key = 'createPost';
+      $to = \Drupal::state()->get($entity->getEntityTypeId());
+      $params['message'] = '<p>Body:</p><p>' . $entity->get('name')->value . '</p><p>' . $user->getDisplayName() . ' has a content in ' . mapping_key($entity->getEntityTypeId()) . '  for your approval, the content as below:</p><p>' . $entity->get('field_description')->value . '</p>' . $user->getDisplayName() . ' has a content in ' . mapping_key($entity->getEntityTypeId()) . ' waiting for your approval. The content as bellow: ' . $entity->get('field_description')->value;
 
-        ) {
-            $mailManager = \Drupal::service('plugin.manager.mail');
-            $module = 'epharm';
-            $key = 'createPost';
-            $to = 'hkdumail@gmail.com,dr.alfredtang@gmail.com';
-            $params['message'] = 'User ' . $user->getDisplayName() . ' just create the post ' . $entity->getName() . ' of type ' . $entity->getEntityTypeId();
-            $params['title'] = $entity->getName();
-            $params['user'] = $user->getDisplayName();
-            $params['from'] = $user->getEmail();
-            $langcode = \Drupal::currentUser()->getPreferredLangcode();
-            $send = true;
+      $params['title'] = $entity->getName();
+      $params['user'] = $user->getDisplayName();
+      $params['from'] = $user->getEmail();
+      $langcode = \Drupal::currentUser()->getPreferredLangcode();
+      $send = TRUE;
 
-            $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
-            if ($result['result'] !== true) {
-                \Drupal::messenger()->addMessage(t('There was a problem sending your message and it was not sent.'), 'error');
-            } else {
-                \Drupal::messenger()->addMessage(t('Your message has been sent.'));
-            }
-        }
+      $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL,
+        $send);
+      if ($result['result'] !== TRUE) {
+        \Drupal::messenger()
+          ->addMessage(t('There was a problem sending your message and it was not sent.'),
+            'error');
+      }
+      else {
+        \Drupal::messenger()->addMessage(t('Your message has been sent.'));
+      }
     }
+  }
 
 }
 
 
-function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity)
-{
+function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
 
-    // Insert the new entity into a fictional table of all entities.
-    if ($entity->getEntityTypeId() == 'clinical_focus' ||
-        $entity->getEntityTypeId() == 'drug_news' ||
-        $entity->getEntityTypeId() == 'pharm_dir' ||
-        $entity->getEntityTypeId() == 'special_offer' ||
-        $entity->getEntityTypeId() == 'event'
+  // Insert the new entity into a fictional table of all entities.
+  if ($entity->getEntityTypeId() == 'clinical_focus' || $entity->getEntityTypeId() == 'drug_news' || $entity->getEntityTypeId() == 'pharm_dir' || $entity->getEntityTypeId() == 'special_offer' || $entity->getEntityTypeId() == 'event'
 
-    ) {
-        if (!$entity->get('status')->value && $entity->get('moderation_state')->value == 'draft'
-            || !$entity->get('status')->value && $entity->get('moderation_state')->value == 'pending') {
-            UpdateStateStatus($entity->id(), $entity->getEntityTypeId(), $entity->get('moderation_state')->value);
-        }
-        if ($entity->get('moderation_state')->value == 'pending') {
-            $user = \Drupal\user\Entity\User::load($entity->getOwnerId());
-            $mailManager = \Drupal::service('plugin.manager.mail');
-            $module = 'epharm';
-            $key = 'updatePost';
-            $to = \Drupal::state()->get($entity->getEntityTypeId());
-            //  $to = $user->getEmail().',hkdumail@gmail.com,dr.alfredtang@gmail.com';
-            $params['message'] = '<p>Body:</p><p>' . $entity->get('name')->value . '</p><p>' . $user->getDisplayName() . ' has a content in ' . mapping_key($entity->getEntityTypeId()) . ' waiting for your approval, the content as below:</p><p>' . $entity->get('field_description')->value . '</p>' . $user->getDisplayName() . ' has a content in ' . mapping_key($entity->getEntityTypeId()) . ' waiting for your approval. The content as bellow: ' . $entity->get('field_description')->value;
-            $params['from'] = \Drupal::config('system.site')->get('mail');
-            $langcode = \Drupal::currentUser()->getPreferredLangcode();
-            $send = true;
-
-            $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
-            if ($result['result'] !== true) {
-                \Drupal::messenger()->addMessage(t('There was a problem sending your message and it was not sent.'), 'error');
-            } else {
-                \Drupal::messenger()->addMessage(t('Your message has been sent.'));
-            }
-        }
-
+  ) {
+    if (!$entity->get('status')->value && $entity->get('moderation_state')->value == 'draft' || !$entity->get('status')->value && $entity->get('moderation_state')->value == 'pending') {
+      UpdateStateStatus($entity->id(), $entity->getEntityTypeId(),
+        $entity->get('moderation_state')->value);
     }
+    if ($entity->get('moderation_state')->value == 'pending') {
+      $user = \Drupal\user\Entity\User::load($entity->getOwnerId());
+      $mailManager = \Drupal::service('plugin.manager.mail');
+      $module = 'epharm';
+      $key = 'subscription';
+      $to = \Drupal::config('system.site')->get('mail');
+      if (getEmailsubscription($entity->getEntityTypeId())) {
+        $to .= getEmailsubscription($entity->getEntityTypeId());
+      }
+      if ($entity->get('field_newsletter')->getValue()) {
+        $to .= ',' . getEmailNewsletter($entity->get('field_newsletter')
+            ->getValue());
+      }
+      $params['title'] = $entity->get('name')->value;
+      //  $to = $user->getEmail().',hkdumail@gmail.com,dr.alfredtang@gmail.com';
+      $params['message'] = '<p>Body:</p><p>' . $entity->get('name')->value . '</p><p>' . $entity->get('field_description')->value . '</p>';
+      $params['from'] = \Drupal::config('system.site')->get('mail');
+      $langcode = \Drupal::currentUser()->getPreferredLangcode();
+      $send = TRUE;
+
+      $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL,
+        $send);
+      if ($result['result'] !== TRUE) {
+        \Drupal::messenger()
+          ->addMessage(t('There was a problem sending your message and it was not sent.'),
+            'error');
+      }
+      else {
+        \Drupal::messenger()->addMessage(t('Your message has been sent.'));
+      }
+    }
+
+  }
 
 }
 
 /**
  * Implements hook_entity_presave().
  */
-function epharm_entity_presave(Drupal\Core\Entity\EntityInterface $entity)
-{
-    // Insert the new entity into a fictional table of all entities.
-//    if ($entity->getEntityTypeId() == 'event' ||
-//        $entity->getEntityTypeId() == 'clinical_focus' ||
-//        $entity->getEntityTypeId() == 'drug_news' ||
-//        $entity->getEntityTypeId() == 'pharm_dir' ||
-//        $entity->getEntityTypeId() == 'special_offer' ||
-//        $entity->getEntityTypeId() == 'drug_search'
-//    ) {
-//     //   var_dump($entity->get('moderation_state')->value);die;
-//        if(!$entity->get('status')->value && $entity->get('moderation_state')->value=='draft'
-//            || !$entity->get('status')->value && $entity->get('moderation_state')->value=='pending'){
-//            $entity->set('status',0);
-//            $entity->set('moderation_state',$entity->get('moderation_state')->value);
-//        }
-//
-//    }
+function epharm_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  // Insert the new entity into a fictional table of all entities.
+  //    if ($entity->getEntityTypeId() == 'event' ||
+  //        $entity->getEntityTypeId() == 'clinical_focus' ||
+  //        $entity->getEntityTypeId() == 'drug_news' ||
+  //        $entity->getEntityTypeId() == 'pharm_dir' ||
+  //        $entity->getEntityTypeId() == 'special_offer' ||
+  //        $entity->getEntityTypeId() == 'drug_search'
+  //    ) {
+  //     //   var_dump($entity->get('moderation_state')->value);die;
+  //        if(!$entity->get('status')->value && $entity->get('moderation_state')->value=='draft'
+  //            || !$entity->get('status')->value && $entity->get('moderation_state')->value=='pending'){
+  //            $entity->set('status',0);
+  //            $entity->set('moderation_state',$entity->get('moderation_state')->value);
+  //        }
+  //
+  //    }
 
 }
 
-function mapping_key($key)
-{
-    $type = '';
-    switch ($key) {
-        case 'event':
-            $type = 'Event';
-            break;
-        case 'clinical_focus':
-            $type = 'Clinical Focus';
-            break;
-        case 'drug_news':
-            $type = 'Drug News';
-            break;
-        case 'pharm_dir':
-            $type = 'Pharm Dir';
-            break;
-        case 'special_offer':
-            $type = 'Special Offers';
-            break;
+function mapping_key($key) {
+  $type = '';
+  switch ($key) {
+    case 'event':
+      $type = 'Event';
+      break;
+    case 'clinical_focus':
+      $type = 'Clinical Focus';
+      break;
+    case 'drug_news':
+      $type = 'Drug News';
+      break;
+    case 'pharm_dir':
+      $type = 'Pharm Dir';
+      break;
+    case 'special_offer':
+      $type = 'Special Offers';
+      break;
 
-    }
-    return $type;
+  }
+  return $type;
 }
 
-function UpdateStateStatus($id, $type, $state)
-{
+function UpdateStateStatus($id, $type, $state) {
 
-    $query = \Drupal::database()->update('content_moderation_state_field_data');
-    $query->fields([
-        'moderation_state' => $state,
-    ]);
-    $query->condition('content_entity_type_id', $type);
-    $query->condition('content_entity_id', $id);
-    $query->execute();
+  $query = \Drupal::database()->update('content_moderation_state_field_data');
+  $query->fields([
+    'moderation_state' => $state,
+  ]);
+  $query->condition('content_entity_type_id', $type);
+  $query->condition('content_entity_id', $id);
+  $query->execute();
 
-    $query2 = \Drupal::database()->update('content_moderation_state_field_revision');
-    $query2->fields([
-        'moderation_state' => $state,
-    ]);
-    $query2->condition('content_entity_type_id', $type);
-    $query2->condition('content_entity_id', $id);
-    $query2->execute();
+  $query2 = \Drupal::database()
+    ->update('content_moderation_state_field_revision');
+  $query2->fields([
+    'moderation_state' => $state,
+  ]);
+  $query2->condition('content_entity_type_id', $type);
+  $query2->condition('content_entity_id', $id);
+  $query2->execute();
 
-    //update status type
-    UpdateStatus($type, $id);
+  //update status type
+  UpdateStatus($type, $id);
 
 }
 
-function epharm_views_pre_render(\Drupal\views\ViewExecutable $view)
-{
+function epharm_views_pre_render(\Drupal\views\ViewExecutable $view) {
 
-    if ($view->id() == "manage_clinical_focus") {
-        foreach ($view->result as $value) {
-            $value->_entity->set('field_count', getResultEntity($value->_entity->get('id')->value, 'clinical_focus'));
-        }
+  if ($view->id() == "manage_clinical_focus") {
+    foreach ($view->result as $value) {
+      $value->_entity->set('field_count',
+        getResultEntity($value->_entity->get('id')->value, 'clinical_focus'));
     }
-    if ($view->id() == "manage_drug_news") {
-        foreach ($view->result as $value) {
-            $value->_entity->set('field_count', getResultEntity($value->_entity->get('id')->value, 'drug_news'));
-        }
+  }
+  if ($view->id() == "manage_drug_news") {
+    foreach ($view->result as $value) {
+      $value->_entity->set('field_count',
+        getResultEntity($value->_entity->get('id')->value, 'drug_news'));
     }
-    if ($view->id() == "manage_drug_search") {
-        foreach ($view->result as $value) {
-            $value->_entity->set('field_count', getResultEntity($value->_entity->get('id')->value, 'drug_search'));
-        }
+  }
+  if ($view->id() == "manage_drug_search") {
+    foreach ($view->result as $value) {
+      $value->_entity->set('field_count',
+        getResultEntity($value->_entity->get('id')->value, 'drug_search'));
     }
-    if ($view->id() == "manage_events") {
-        foreach ($view->result as $value) {
-            $value->_entity->set('field_count', getResultEntity($value->_entity->get('id')->value, 'event'));
-        }
+  }
+  if ($view->id() == "manage_events") {
+    foreach ($view->result as $value) {
+      $value->_entity->set('field_count',
+        getResultEntity($value->_entity->get('id')->value, 'event'));
     }
-    if ($view->id() == "manage_pharm_dir") {
-        foreach ($view->result as $value) {
-            $value->_entity->set('field_count', getResultEntity($value->_entity->get('id')->value, 'pharm_dir'));
-        }
+  }
+  if ($view->id() == "manage_pharm_dir") {
+    foreach ($view->result as $value) {
+      $value->_entity->set('field_count',
+        getResultEntity($value->_entity->get('id')->value, 'pharm_dir'));
     }
-    if ($view->id() == "manage_special_offers") {
-        foreach ($view->result as $value) {
-            $value->_entity->set('field_count', getResultEntity($value->_entity->get('id')->value, 'special_offer'));
-        }
+  }
+  if ($view->id() == "manage_special_offers") {
+    foreach ($view->result as $value) {
+      $value->_entity->set('field_count',
+        getResultEntity($value->_entity->get('id')->value, 'special_offer'));
     }
-    if ($view->id() == "manage_cme_events") {
-        foreach ($view->result as $value) {
-            $value->_entity->set('field_count', getResultEntity($value->_entity->get('id')->value, 'cme_event'));
-        }
+  }
+  if ($view->id() == "manage_cme_events") {
+    foreach ($view->result as $value) {
+      $value->_entity->set('field_count',
+        getResultEntity($value->_entity->get('id')->value, 'cme_event'));
     }
-    if ($view->id() == "quizzes_result_report") {
-        foreach ($view->result as $value) {
-            // var_dump($value->_entity);
-            $value->_entity->set('field_count', getResultEntity(getQuizbyResult($value->_entity->get('id')->value), 'quiz'));
-        }
+  }
+  if ($view->id() == "quizzes_result_report") {
+    foreach ($view->result as $value) {
+      // var_dump($value->_entity);
+      $value->_entity->set('field_count',
+        getResultEntity(getQuizbyResult($value->_entity->get('id')->value),
+          'quiz'));
     }
-    if ($view->id() == "manage_about") {
-        foreach ($view->result as $value) {
-            // var_dump($value->_entity);
-            $value->_entity->set('field_count', getResultEntity($value->_entity->get('id')->value, 'about'));
-        }
+  }
+  if ($view->id() == "manage_about") {
+    foreach ($view->result as $value) {
+      // var_dump($value->_entity);
+      $value->_entity->set('field_count',
+        getResultEntity($value->_entity->get('id')->value, 'about'));
     }
-    if ($view->id() == "manage_e_healthy") {
-        foreach ($view->result as $value) {
-            // var_dump($value->_entity);
-            $value->_entity->set('field_count', getResultEntity($value->_entity->get('id')->value, 'healthy'));
-        }
+  }
+  if ($view->id() == "manage_e_healthy") {
+    foreach ($view->result as $value) {
+      // var_dump($value->_entity);
+      $value->_entity->set('field_count',
+        getResultEntity($value->_entity->get('id')->value, 'healthy'));
     }
-    if ($view->id() == "manage_news") {
-        foreach ($view->result as $value) {
-            // var_dump($value->_entity);
-            $value->_entity->set('field_count', getResultEntity($value->_entity->get('id')->value, 'news'));
-        }
+  }
+  if ($view->id() == "manage_news") {
+    foreach ($view->result as $value) {
+      // var_dump($value->_entity);
+      $value->_entity->set('field_count',
+        getResultEntity($value->_entity->get('id')->value, 'news'));
     }
-    if ($view->id() == "manage_press_release") {
-        foreach ($view->result as $value) {
-            // var_dump($value->_entity);
-            $value->_entity->set('field_count', getResultEntity($value->_entity->get('id')->value, 'media_entity'));
-        }
+  }
+  if ($view->id() == "manage_press_release") {
+    foreach ($view->result as $value) {
+      // var_dump($value->_entity);
+      $value->_entity->set('field_count',
+        getResultEntity($value->_entity->get('id')->value, 'media_entity'));
     }
+  }
 
-//    if ($view->id() == "manage_event_enrolled") {
-//        foreach ($view->result as $value) {
-//            // var_dump($value->_entity);
-//            $value->_entity->set('order_number', getResultEntity($value->_entity->get('id')->value, 'media_entity'));
-//        }
-//    }
+  //    if ($view->id() == "manage_event_enrolled") {
+  //        foreach ($view->result as $value) {
+  //            // var_dump($value->_entity);
+  //            $value->_entity->set('order_number', getResultEntity($value->_entity->get('id')->value, 'media_entity'));
+  //        }
+  //    }
 }
 
-function getResultEntity($id, $type)
-{
-    $query = \Drupal::database()->select('entity_view', 'ev');
-    $query->fields('ev');
-    $query->condition('entity_id', $id);
-    $query->condition('entity_type', $type);
-    $result = $query->execute()->fetchAll();
-    $total = 0;
-    foreach ($result as $r) {
-        $total += $r->count;
+function getResultEntity($id, $type) {
+  $query = \Drupal::database()->select('entity_view', 'ev');
+  $query->fields('ev');
+  $query->condition('entity_id', $id);
+  $query->condition('entity_type', $type);
+  $result = $query->execute()->fetchAll();
+  $total = 0;
+  foreach ($result as $r) {
+    $total += $r->count;
+  }
+  return $total;
+}
+
+function getStateId($id, $type) {
+  $query = \Drupal::database()
+    ->select('content_moderation_state_field_data', 'ev');
+  $query->fields('ev');
+  $query->condition('content_entity_id', $id);
+  $query->condition('content_entity_type_id', $type);
+  $query->range(0, 1);
+  $result = $query->execute()->fetchAll();
+  $state = reset($result);
+  return $state->id;
+}
+
+function UpdateStatus($type, $id) {
+  $query = \Drupal::database()->update($type . '_field_data');
+  $query->fields([
+    'status' => 0,
+  ]);
+  $query->condition('id', $id);
+  $query->execute();
+}
+
+function getQuizbyResult($resultId) {
+  $result = \Drupal\cme_result\Entity\Result::load($resultId);
+  return $result->get('field_quiz')->target_id;
+}
+
+
+function epharm_form_alter(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state,
+  $form_id
+) {
+  //var_dump($form['field_audience']);die;
+  if (isset($form['field_audience'])) {
+    unset($form['field_audience']['widget']['#options']['_none']);
+  }
+
+}
+
+/**
+ * implement send email to user register type email
+ */
+function getEmailsubscription($type) {
+  $ids = \Drupal::entityQuery('user')
+    ->condition('status', 1)
+    ->condition('field_subscription', $type)
+    ->execute();
+  $users = \Drupal\user\Entity\User::loadMultiple($ids);
+  $email = FALSE;
+  $emails = [];
+  if ($users) {
+    foreach ($users as $user) {
+      $emails[] = $user->getEmail();
     }
-    return $total;
+    $email = implode(',', $emails);
+  }
+
+  return $email;
 }
 
-function getStateId($id, $type)
-{
-    $query = \Drupal::database()->select('content_moderation_state_field_data', 'ev');
-    $query->fields('ev');
-    $query->condition('content_entity_id', $id);
-    $query->condition('content_entity_type_id', $type);
-    $query->range(0, 1);
-    $result = $query->execute()->fetchAll();
-    $state = reset($result);
-    return $state->id;
-}
-
-function UpdateStatus($type, $id)
-{
-    $query = \Drupal::database()->update($type . '_field_data');
-    $query->fields([
-        'status' => 0,
-    ]);
-    $query->condition('id', $id);
-    $query->execute();
-}
-
-function getQuizbyResult($resultId)
-{
-    $result = \Drupal\cme_result\Entity\Result::load($resultId);
-    return $result->get('field_quiz')->target_id;
-}
-
-
-function epharm_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
-{
-    //var_dump($form['field_audience']);die;
-    if (isset($form['field_audience'])) {
-        unset($form['field_audience']['widget']['#options']['_none']);
+/**
+ * implement send email to user register type email
+ */
+function getEmailNewsletter($tag) {
+  $ids = \Drupal::entityQuery('user')
+    ->condition('status', 1)
+    ->condition('field_newsletter', $tag, 'IN')
+    ->execute();
+  $users = \Drupal\user\Entity\User::loadMultiple($ids);
+  $email = FALSE;
+  $emails = [];
+  if ($users) {
+    foreach ($users as $user) {
+      $emails[] = $user->getEmail();
     }
+    $email = implode(',', $emails);
+  }
 
+  return $email;
 }

@@ -10,6 +10,7 @@ dependencies:
     - field.field.user.user.field_last_name
     - field.field.user.user.field_mchk_license
     - field.field.user.user.field_membership_type
+    - field.field.user.user.field_newsletter
     - field.field.user.user.field_organization
     - field.field.user.user.field_point
     - field.field.user.user.field_policy
@@ -83,6 +84,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_newsletter:
+    weight: 16
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
     region: content
   field_point:
     weight: 4

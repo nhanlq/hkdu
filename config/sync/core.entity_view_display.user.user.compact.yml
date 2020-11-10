@@ -11,6 +11,7 @@ dependencies:
     - field.field.user.user.field_last_name
     - field.field.user.user.field_mchk_license
     - field.field.user.user.field_membership_type
+    - field.field.user.user.field_newsletter
     - field.field.user.user.field_organization
     - field.field.user.user.field_point
     - field.field.user.user.field_policy
@@ -52,6 +53,7 @@ hidden:
   field_last_name: true
   field_mchk_license: true
   field_membership_type: true
+  field_newsletter: true
   field_organization: true
   field_point: true
   field_policy: true

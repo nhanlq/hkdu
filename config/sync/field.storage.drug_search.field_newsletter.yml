@@ -1,0 +1,24 @@
+uuid: 9477a011-b5d2-40b6-8d37-1854c504c3fc
+langcode: en
+status: true
+dependencies:
+  module:
+    - drug_search
+    - field_permissions
+    - taxonomy
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: drug_search.field_newsletter
+field_name: field_newsletter
+entity_type: drug_search
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

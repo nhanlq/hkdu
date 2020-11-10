@@ -3,7 +3,7 @@ payment_upload.payment_controller_payment:
   path: '/payment/method/{event_id}/{product_id}/{type}'
   defaults:
     _controller: '\Drupal\payment_upload\Controller\PaymentController::payment'
-    _title: 'Payment Method'
+    _title: 'Select Payment Method'
   requirements:
     _permission: 'access content'
 

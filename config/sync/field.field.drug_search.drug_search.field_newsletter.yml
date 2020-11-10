@@ -1,0 +1,30 @@
+uuid: c0f08b86-2799-4b4d-923b-02f424e59ca1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.drug_search.field_newsletter
+    - taxonomy.vocabulary.subscriber
+  module:
+    - drug_search
+id: drug_search.drug_search.field_newsletter
+field_name: field_newsletter
+entity_type: drug_search
+bundle: drug_search
+label: Newsletter
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      subscriber: subscriber
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

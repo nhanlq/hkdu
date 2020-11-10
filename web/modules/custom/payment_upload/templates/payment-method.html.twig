@@ -16,14 +16,14 @@
  */
 #}
 <div class="payment-select">
-  <table>
+  <table border="1" aria-colspan="1">
     <thead>
     <th>Event</th><th>Price</th>
     </thead>
     <tbody>
     <tr>
       <td>{{ event.name.value }}</td>
-      <td>{{ event.field_price.value }}</td>
+      <td>HKD{{ event.field_price.number|number_format(2, '.', ',') }}</td>
     </tr>
     </tbody>
   </table>
