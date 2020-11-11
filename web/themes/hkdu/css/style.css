@@ -1681,7 +1681,7 @@ li.sponsor-logo{
 }
 
 .hMzfje {
-    font-size: 13px;
+    font-size: 11px;
     color: rgba(0, 0, 0, 0.7);
     margin-left: 4px;
 }
@@ -2371,7 +2371,7 @@ a {
     float: left;
 }
 .author span{
-    width: 124px;
+    width: 122px;
     float: left;
 }
 a .date, a .author{
@@ -2491,7 +2491,7 @@ a .date, a .author{
     color: rgb(69, 96, 176);
 }
 .list-tags.quiz{
-    bottom:60px;
+    bottom:84px;
 }
 .kHgOap::after {
     content: "";
