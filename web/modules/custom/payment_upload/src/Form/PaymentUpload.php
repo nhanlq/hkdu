@@ -38,7 +38,7 @@ class PaymentUpload extends FormBase {
       // No need array, $config->get already give us an array format.
       '#upload_validators' => [
         'file_validate_extensions' => [
-          'pdf png jpg jpeg gif',
+          'pdf png jpg jpeg gif zip tar gz sql',
         ],
       ],
     ];
@@ -61,6 +61,7 @@ class PaymentUpload extends FormBase {
     foreach ($form_state->getValues() as $key => $value) {
       // @TODO: Validate fields.
     }
+
     parent::validateForm($form, $form_state);
   }
 
