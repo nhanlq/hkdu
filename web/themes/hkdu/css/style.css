@@ -1686,6 +1686,54 @@ li.sponsor-logo{
     margin-left: 4px;
 }
 
+.ajax-progress {
+    display: inline-block;
+    padding: 1px 5px 2px 5px;
+}
+[dir="rtl"] .ajax-progress {
+    float: right;
+}
+.payment-upload-form .ajax-throbber {
+    display: inline-block;
+    position: relative;
+    z-index: 1000;
+    padding: 1px 5px 2px;
+    background: url(../images/loading.gif) no-repeat 0 center;
+    width: 200px;
+}
+.ajax-progress-throbber .message {
+    display: inline;
+    padding: 1px 5px 2px;
+}
+tr .ajax-progress-throbber .throbber {
+    margin: 0 2px;
+}
+.ajax-progress-bar {
+    width: 16em;
+}
+
+/* Full screen throbber */
+/*.payment-upload-form .ajax-throbber {*/
+    /*position: fixed;*/
+    /*z-index: 1000;*/
+    /*top: 48.5%;*/
+    /*!* Can't do center:50% middle: 50%, so approximate it for a typical window size. *!*/
+    /*left: 49%; !* LTR *!*/
+    /*width: 24px;*/
+    /*height: 24px;*/
+    /*padding: 4px;*/
+    /*opacity: 0.9;*/
+    /*border-radius: 7px;*/
+    /*background-color: #232323;*/
+    /*background-image: url(../images/loading.gif);*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: center center;*/
+/*}*/
+[dir="rtl"] .ajax-progress-fullscreen {
+    right: 49%;
+    left: auto;
+}
+
 .fJCdzw {
     box-sizing: border-box;
     margin-top: 24px;

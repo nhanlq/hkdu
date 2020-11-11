@@ -129,7 +129,7 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
       $module = 'epharm';
       $key = 'createPost';
       $to = \Drupal::state()->get($entity->getEntityTypeId());
-      $params['message'] = '<p>Body:</p><p>' . $entity->get('name')->value . '</p><p>' . $user->getDisplayName() . ' has a content in ' . mapping_key($entity->getEntityTypeId()) . '  for your approval, the content as below:</p><p>' . $entity->get('field_description')->value . '</p>' . $user->getDisplayName() . ' has a content in ' . mapping_key($entity->getEntityTypeId()) . ' waiting for your approval. The content as bellow: ' . $entity->get('field_description')->value;
+      $params['message'] = '<p>Body:</p><p>' . $entity->get('name')->value . '</p><p>' . $user->getDisplayName() . ' has a content in ' . mapping_key($entity->getEntityTypeId()) . '  for your approval, the content as below:</p><p>' . $entity->get('field_description')->value . '</p>';
 
       $params['title'] = $entity->getName();
       $params['user'] = $user->getDisplayName();
@@ -163,12 +163,12 @@ function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
       UpdateStateStatus($entity->id(), $entity->getEntityTypeId(),
         $entity->get('moderation_state')->value);
     }
-    if ($entity->get('moderation_state')->value == 'pending') {
+    if ($entity->get('moderation_state')->value == 'published') {
       $user = \Drupal\user\Entity\User::load($entity->getOwnerId());
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'epharm';
       $key = 'subscription';
-      $to = \Drupal::config('system.site')->get('mail');
+      $to =  '';
       if (getEmailsubscription($entity->getEntityTypeId())) {
         $to .= getEmailsubscription($entity->getEntityTypeId());
       }
@@ -183,8 +183,22 @@ function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
       $langcode = \Drupal::currentUser()->getPreferredLangcode();
       $send = TRUE;
 
+
       $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL,
         $send);
+
+      $approval = $mailManager->mail($module, 'updatePost', $user->getEmail(), $langcode, $params, NULL,
+        $send);
+
+      if ($approval['result'] !== TRUE) {
+        \Drupal::messenger()
+          ->addMessage(t('There was a problem sending your message and it was not sent.'),
+            'error');
+      }
+      else {
+        \Drupal::messenger()->addMessage(t('Your message has been sent.'));
+      }
+
       if ($result['result'] !== TRUE) {
         \Drupal::messenger()
           ->addMessage(t('There was a problem sending your message and it was not sent.'),
