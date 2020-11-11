@@ -28,9 +28,6 @@ settings:
       value: special_offer
       label: 'Special Offers'
     -
-      value: drug_search
-      label: 'Drug Search'
-    -
       value: event
       label: Event
   allowed_values_function: ''
