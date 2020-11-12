@@ -97,6 +97,12 @@ function epharm_mail($key, &$message, $params) {
         ['@title' => $params['title']], $options);
       $message['body'][] = $params['message'];
       break;
+    case 'newsletter':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('[Newsletter] @title',
+        ['@title' => $params['title']], $options);
+      $message['body'][] = $params['message'];
+      break;
     case 'sendEventPayment':
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = t('Link for payment settlement for the event ready register for you.',
@@ -147,6 +153,41 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
       else {
         \Drupal::messenger()->addMessage(t('Your message has been sent.'));
       }
+
+      if ($entity->get('moderation_state')->value == 'published') {
+        $user = \Drupal\user\Entity\User::load($entity->getOwnerId());
+        $mailManager = \Drupal::service('plugin.manager.mail');
+        $module = 'epharm';
+        $key = 'subscription';
+        $to =  '';
+        if (getEmailsubscription($entity->getEntityTypeId())) {
+          $to .= getEmailsubscription($entity->getEntityTypeId());
+        }
+        if ($entity->get('field_newsletter')->getValue()) {
+          $to .= ',' . getEmailNewsletter($entity->get('field_newsletter')
+              ->getValue());
+          $key = 'newsletter';
+        }
+        $params['title'] = $entity->get('name')->value;
+        //  $to = $user->getEmail().',hkdumail@gmail.com,dr.alfredtang@gmail.com';
+        $params['message'] = '<p>Body:</p><p>' . $entity->get('name')->value . '</p><p>' . $entity->get('field_description')->value . '</p>';
+        $params['from'] = \Drupal::config('system.site')->get('mail');
+        $langcode = \Drupal::currentUser()->getPreferredLangcode();
+        $send = TRUE;
+
+
+        $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL,
+          $send);
+
+        if ($result['result'] !== TRUE) {
+          \Drupal::messenger()
+            ->addMessage(t('There was a problem sending your message and it was not sent.'),
+              'error');
+        }
+        else {
+          \Drupal::messenger()->addMessage(t('Your message has been sent.'));
+        }
+      }
     }
   }
 
@@ -175,6 +216,7 @@ function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
       if ($entity->get('field_newsletter')->getValue()) {
         $to .= ',' . getEmailNewsletter($entity->get('field_newsletter')
             ->getValue());
+        $key = 'newsletter';
       }
       $params['title'] = $entity->get('name')->value;
       //  $to = $user->getEmail().',hkdumail@gmail.com,dr.alfredtang@gmail.com';
