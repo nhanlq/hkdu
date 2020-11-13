@@ -49,7 +49,6 @@ class SliderHomeBlock extends BlockBase {
               ->execute();
       }
 
-
       $result = Node::loadMultiple($ids);
       return $result;
   }
