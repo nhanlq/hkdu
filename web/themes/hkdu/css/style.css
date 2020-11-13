@@ -2369,15 +2369,17 @@ a {
 .date span{
     width: 124px;
     float: left;
+    font-size: 15px;
 }
 .author span{
     width: 122px;
     float: left;
+    font-size: 15px;
 }
 a .date, a .author{
     color: #000000;
     margin-top: 10px;
-    font-size: 16px;
+    font-size: 15px;
     width: 100%;
 }
 .cme-event{
