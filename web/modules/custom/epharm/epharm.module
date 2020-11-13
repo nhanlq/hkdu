@@ -81,8 +81,8 @@ function epharm_mail($key, &$message, $params) {
   switch ($key) {
     case 'createPost':
       $message['from'] = $params['from'];
-      $message['subject'] = t('Post created: @title by @user',
-        ['@title' => $params['title'], '@user' => $params['user']], $options);
+      $message['subject'] = t('@type article from @user for Approval',
+        ['@type' => $params['type'], '@user' => $params['user']], $options);
       $message['body'][] = $params['message'];
       break;
     case 'updatePost':
@@ -135,9 +135,9 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
       $module = 'epharm';
       $key = 'createPost';
       $to = \Drupal::state()->get($entity->getEntityTypeId());
-      $params['message'] = '<p>Body:</p><p>' . $entity->get('name')->value . '</p><p>' . $user->getDisplayName() . ' has a content in ' . mapping_key($entity->getEntityTypeId()) . '  for your approval, the content as below:</p><p>' . $entity->get('field_description')->value . '</p>';
+      $params['message'] = '<p>Body:</p><p>' . $entity->get('name')->value . '</p><p>' . $user->getDisplayName() . ' has a content in ' . mapping_key($entity->getEntityTypeId()) . ' waiting for your approval, the content as below:</p><p>' . $entity->get('field_description')->value . '</p>';
 
-      $params['title'] = $entity->getName();
+      $params['type'] = $entity->getEntityTypeId();
       $params['user'] = $user->getDisplayName();
       $params['from'] = $user->getEmail();
       $langcode = \Drupal::currentUser()->getPreferredLangcode();
