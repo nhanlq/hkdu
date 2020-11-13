@@ -137,7 +137,7 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
       $to = \Drupal::state()->get($entity->getEntityTypeId());
       $params['message'] = '<p>Body:</p><p>' . $entity->get('name')->value . '</p><p>' . $user->getDisplayName() . ' has a content in ' . mapping_key($entity->getEntityTypeId()) . ' waiting for your approval, the content as below:</p><p>' . $entity->get('field_description')->value . '</p>';
 
-      $params['type'] = $entity->getEntityTypeId();
+      $params['type'] = mapping_key($entity->getEntityTypeId());
       $params['user'] = $user->getDisplayName();
       $params['from'] = $user->getEmail();
       $langcode = \Drupal::currentUser()->getPreferredLangcode();
