@@ -471,6 +471,7 @@ a:hover {
     flex: 0 0 0%;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-color: rgba(0, 0, 0, 0.1);
+    min-height: 70px;
 }
 
 .eNSAVL {
@@ -2379,7 +2380,7 @@ a {
 a .date, a .author{
     color: #000000;
     margin-top: 10px;
-    font-size: 15px;
+    font-size: 14px;
     width: 100%;
 }
 .cme-event{
@@ -2493,7 +2494,7 @@ a .date, a .author{
     color: rgb(69, 96, 176);
 }
 .list-tags.quiz{
-    bottom:84px;
+    bottom:85px;
 }
 .kHgOap::after {
     content: "";
