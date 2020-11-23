@@ -77,13 +77,9 @@ content:
     region: content
   field_membership_type:
     weight: 14
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_newsletter:
     weight: 16

@@ -10,7 +10,7 @@ dependencies:
 id: clinicalbannerblock
 theme: hkdu
 region: header
-weight: -12
+weight: -15
 provider: null
 plugin: clinical_banner_block
 settings:

@@ -29,7 +29,6 @@ visibility:
     id: user_role
     roles:
       administrator: administrator
-      admins: admins
       hkdu_members: hkdu_members
     negate: false
     context_mapping:

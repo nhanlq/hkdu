@@ -37,8 +37,8 @@ third_party_settings:
         - field_mchk_license
         - field_specialist_fellow_number
         - field_referee
-        - field_membership_type
         - field_specialty
+        - field_membership_type
       parent_name: ''
       weight: 0
       format_type: fieldset
@@ -89,7 +89,7 @@ content:
     region: content
   field_membership_type:
     weight: 13
-    label: above
+    label: inline
     settings:
       link: true
     third_party_settings: {  }

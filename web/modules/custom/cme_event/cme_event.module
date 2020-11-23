@@ -137,13 +137,7 @@ function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity)
                     'target_plugin_id' => 'order_customer_role',
                     'target_plugin_configuration' => [
                         'roles' => [
-                            'administrator' => 'administrator',
-                            'admins' => 'admins',
-                            'doctor' => 'doctor',
-                            'hkdu_members' => 'hkdu_members',
-                            'drug_suppliers' => 'drug_suppliers',
-                            'council_members' => 'council_members',
-                            'cme_member' => 'cme_member'
+                            'hkdu_members' => 'hkdu_members'
                         ]
                     ],
                 ],
@@ -272,13 +266,7 @@ function cme_event_entity_update(Drupal\Core\Entity\EntityInterface $entity)
                         'target_plugin_id' => 'order_customer_role',
                         'target_plugin_configuration' => [
                             'roles' => [
-                                'administrator' => 'administrator',
-                                'admins' => 'admins',
-                                'doctor' => 'doctor',
-                                'hkdu_members' => 'hkdu_members',
-                                'drug_suppliers' => 'drug_suppliers',
-                                'council_members' => 'council_members',
-                                'cme_member' => 'cme_member'
+                                'hkdu_members' => 'hkdu_members'
                             ]
                         ],
                     ],
@@ -333,13 +321,7 @@ function cme_event_entity_update(Drupal\Core\Entity\EntityInterface $entity)
                         'target_plugin_id' => 'order_customer_role',
                         'target_plugin_configuration' => [
                             'roles' => [
-                                'administrator' => 'administrator',
-                                'admins' => 'admins',
-                                'doctor' => 'doctor',
-                                'hkdu_members' => 'hkdu_members',
-                                'drug_suppliers' => 'drug_suppliers',
-                                'council_members' => 'council_members',
-                                'cme_member' => 'cme_member'
+                                'hkdu_members' => 'hkdu_members'
                             ]
                         ],
                     ],
