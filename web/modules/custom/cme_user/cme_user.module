@@ -57,6 +57,7 @@ function cme_user_form_alter(
     unset($form['field_membership_type']['widget']['#options']['authenticated']);
     unset($form['field_membership_type']['widget']['#options']['cme_member']);
     unset($form['field_membership_type']['widget']['#options']['council_members']);
+    unset($form['field_membership_type']['widget']['#options']['admins']);
     unset($form['field_membership_type']['widget']['#options']['doctor']);
     unset($form['field_membership_type']['widget']['#options']['drug_suppliers']);
     $form['field_membership_type']['widget']['#options']['administrator'] = 'Non-Member:HKDU as CME Administrator';
