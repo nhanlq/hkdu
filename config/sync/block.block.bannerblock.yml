@@ -10,7 +10,7 @@ dependencies:
 id: bannerblock
 theme: hkdu
 region: header
-weight: -16
+weight: -19
 provider: null
 plugin: banner_block
 settings:

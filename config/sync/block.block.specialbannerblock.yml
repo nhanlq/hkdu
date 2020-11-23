@@ -10,7 +10,7 @@ dependencies:
 id: specialbannerblock
 theme: hkdu
 region: header
-weight: -10
+weight: -13
 provider: null
 plugin: special_banner_block
 settings:

@@ -10,7 +10,7 @@ dependencies:
 id: newsbanner
 theme: hkdu
 region: header
-weight: -9
+weight: -12
 provider: null
 plugin: banner
 settings:

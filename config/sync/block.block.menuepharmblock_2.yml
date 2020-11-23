@@ -24,7 +24,6 @@ visibility:
     roles:
       authenticated: authenticated
       administrator: administrator
-      admins: admins
       doctor: doctor
       hkdu_members: hkdu_members
       drug_suppliers: drug_suppliers

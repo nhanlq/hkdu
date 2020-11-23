@@ -10,7 +10,7 @@ dependencies:
 id: cmeguidelinesblock
 theme: hkdu
 region: header
-weight: -8
+weight: -11
 provider: null
 plugin: cmeguidelines_block
 settings:

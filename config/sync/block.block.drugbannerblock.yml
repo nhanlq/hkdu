@@ -10,7 +10,7 @@ dependencies:
 id: drugbannerblock
 theme: hkdu
 region: header
-weight: -11
+weight: -14
 provider: null
 plugin: drug_banner_block
 settings:
