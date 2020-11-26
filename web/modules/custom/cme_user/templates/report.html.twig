@@ -1,54 +1,108 @@
 <!-- Add you custom twig html here -->
-<div class="report-wrapper">
-  <div class="report-header-wrapper col-sm-12">
-    <div class="report-logo col-sm-2">
+<style>
+.small-table td, .small-table th{
+  padding: 5px;
+  text-align: left;
+}
+  .large-table th, .large-table td{
+    padding: 5px;
+  }
+.large-table th{
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+  h1{
+    font-weight: bold;
+    font-size: 18px;
+  }
+  h2{
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .report-wrapper, .report-wrapper p{
+    font-size: 14px!important;
+    margin: 0;
+  }
+  .member-info{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .large-table{
+    margin-top: 20px;
+  }
+  .noted{
+    margin-bottom: 60px;
+  }
+  body.path-report{
+    background: #ffffff;
+  }
+</style>
+<div class="report-wrapper" style="width: 100%;background: #ffffff">
+  <div class="report-header-wrapper" style="width: 100%;">
+    <div class="report-logo" style="width: 10%; float: left">
       <img src="/themes/hkdu/images/icon/smalltile.png"/>
     </div>
-    <div class="report-header col-sm-10">
-      <h1>HONG KONG DOCTORS UNION</h1>
+    <div class="report-header" style="width: 90%; float: left; text-align: center">
+      <h1 style="font-weight: bold; font-size: 18px">HONG KONG DOCTORS UNION</h1>
       <p>Room 901, Hang Shing Bldg., 363-373, Nathan Road, Kowloon</p>
       <p>Email: hkdu@hkdu.org Home Page: http://www.hkdu.org Tel. no.: 23882728 Fax no.: 23855275</p>
-      <h2>CME Attendance Report of Individual Members</h2>
-      <h4>For the Period from 2020-02-02 to 2020-09-07</h4>
+      <h2 style="font-weight: bold; font-size: 16px; margin-top: 20px">CME Attendance Report of Individual Members</h2>
+      <p>For the Period from {{ from }} to {{ to }}</p>
 
     </div>
+    <div style="clear: both";></div>
   </div>
-  <div class="report-info col-sm-12">
-    <div class="user-info col-sm-6">
-      <p>HKDU Membership No 4067</p>
-      <p>MC Registration No M13193</p>
+  <div class="report-info" style="width: 100%">
+    <div class="user-info" style="width: 50%; float: left">
+      <p>HKDU Membership No {{ user.field_registration_no.value }}</p>
+      <p>MC Registration No {{ user.field_mchk_license.value }}</p>
       <div class="member-info">
-        <p>To: Dr HO CHIN WAN </p>
-        <p>FLAT A, 11/F PHASE 2, Kings Wing Plaza, 1 On Kwan ST., Shek Mun</p>
+        <p>To: Dr {{ user.field_first_name.value }} </p>
+        <p>{{ user.field_address.value }}</p>
       </div>
       <p>From: Dr. Kong Yim Fai Albert</p>
       <p>Chairman, Committee on CME </p>
     </div>
-    <div class="user-score col-sm-6">
-      <p>Date 07-09-2020</p>
-      <table border="1">
+    <div class="user-score" style="width: 50%; float: left;margin-top: 20px">
+      <p>Date {{ now }}</p>
+      <table border="1" class="small-table">
         <thead>
         <th></th><th>You Gain</th><th>Actual</th>
         </thead>
         <tbody>
-        <tr><td>Lecture</td><td>51</td><td>51</td></tr>
+        <tr><td>Lecture</td><td>{{ total_lecture }}</td><td>{{ total_lecture }}</td></tr>
         <tr>
-          <td>Self Study: <br>Max 20 Points</td><td>9.5</td><td>9.5</td>
+          <td>Self Study: <br>Max 20 Points</td><td>{{ total_study }}</td><td>{{ total_study }}</td>
         </tr>
-        <tr><td>Total:</td><td>60.5</td><td>60.5</td></tr>
+        <tr><td>Total:</td><td>{{ total }}</td><td>{{ total }}</td></tr>
         </tbody>
       </table>
     </div>
+    <div style="clear: both"></div>
   </div>
-  <div class="infor col-sm-12"></div>
-  <table>
+  <div class="infor" style="width: 100%; margin-top: 20px">
+    <p>According to our CME Register, you have attended thr following Continuing Medical Education Courses and Meetings
+      from 2020-01-01 to 2020-09-07 The Individual and total CME Points are list below for you reference.</p>
+  </div>
+  <table border="1" style="width: 100%" class="large-table">
+     <thead>
+     <th>Date of Course</th><th>Event</th><th>Organizer</th><th>CME(Points)</th><th>CPD(Points)</th>
+     </thead>
+    <tbody>
+    {% for score in scores %}
+      <tr>
+        <td>{{ loop.index }}. {{ score.date }}</td><td>{{ score.name }}</td><td>{{ score.organizer }}</td><td>{{ score.score }}</td><td>0</td>
+      </tr>
+    {% endfor %}
 
+    <tr>
+      <td></td><td></td><td style="font-weight: bold">Total</td><td>{{ total }}</td><td>0</td>
+    </tr>
+    </tbody>
   </table>
-  <div class="total">
-
-  </div>
-  <div class="noted">
-
+<div style="clear: both;"></div>
+  <div class="noted" style="margin-top: 60px">
+<p>If there is any discrepancy between yout our record and that of the HKDU, please provide evidence to substantiate your claim of CME Points.</p>
   </div>
 
 </div>

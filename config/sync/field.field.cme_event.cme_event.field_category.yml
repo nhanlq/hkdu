@@ -1,0 +1,37 @@
+uuid: b37b0b30-b86f-4c52-8e09-6d8f0d9cab02
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_category
+    - taxonomy.vocabulary.quiz
+  module:
+    - cme_event
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: cme_event.cme_event.field_category
+field_name: field_category
+entity_type: cme_event
+bundle: cme_event
+label: Category
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      quiz: quiz
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
