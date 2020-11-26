@@ -6,6 +6,7 @@ dependencies:
     - field.field.score.score.field_accreditor
     - field.field.score.score.field_attendance
     - field.field.score.score.field_date
+    - field.field.score.score.field_epharm_event
     - field.field.score.score.field_event
     - field.field.score.score.field_main_score
     - field.field.score.score.field_organizer
@@ -43,6 +44,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_epharm_event:
+    weight: 38
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_event:
     weight: 28

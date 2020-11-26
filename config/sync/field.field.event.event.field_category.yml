@@ -1,11 +1,12 @@
-uuid: 7ebae5f9-218b-4a35-9bab-2e973b0d16c9
+uuid: d60da3f6-b83d-481a-8675-c4e947f401a3
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.score.field_event
+    - field.storage.event.field_category
+    - taxonomy.vocabulary.quiz
   module:
-    - cme_score
+    - event
     - unique_field_ajax
 third_party_settings:
   unique_field_ajax:
@@ -13,21 +14,24 @@ third_party_settings:
     per_lang: 0
     use_ajax: 0
     message: ''
-id: score.score.field_event
-field_name: field_event
-entity_type: score
-bundle: score
-label: 'CME Event'
+id: event.event.field_category
+field_name: field_category
+entity_type: event
+bundle: event
+label: Category
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:cme_event'
+  handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles: null
+    target_bundles:
+      quiz: quiz
     sort:
-      field: _none
+      field: name
+      direction: asc
     auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference
