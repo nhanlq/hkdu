@@ -28,3 +28,10 @@ cme_user.report_controller_report:
     _title: 'report'
   requirements:
     _permission: 'access content'
+cme_user.report:
+  path: '/hkdu/{uid}/report'
+  defaults:
+    _form: '\Drupal\cme_user\Form\Report'
+    _title: 'Report Generation '
+  requirements:
+    _access: 'TRUE'

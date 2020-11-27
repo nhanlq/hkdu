@@ -16,12 +16,14 @@ dependencies:
     - field.field.user.user.field_policy
     - field.field.user.user.field_referee
     - field.field.user.user.field_registration_no
+    - field.field.user.user.field_report_generation
     - field.field.user.user.field_specialist_fellow_number
     - field.field.user.user.field_specialty
     - field.field.user.user.field_subscription
     - field.field.user.user.user_picture
   module:
     - field_group
+    - markup
     - options
     - telephone
     - user
@@ -118,6 +120,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_report_generation:
+    weight: 16
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
     region: content
   field_specialist_fellow_number:
     weight: 8

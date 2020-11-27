@@ -17,6 +17,7 @@ dependencies:
     - field.field.user.user.field_policy
     - field.field.user.user.field_referee
     - field.field.user.user.field_registration_no
+    - field.field.user.user.field_report_generation
     - field.field.user.user.field_specialist_fellow_number
     - field.field.user.user.field_specialty
     - field.field.user.user.field_subscription
@@ -145,6 +146,7 @@ hidden:
   field_newsletter: true
   field_organization: true
   field_point: true
+  field_report_generation: true
   field_specialty: true
   field_subscription: true
   google_analytics: true
