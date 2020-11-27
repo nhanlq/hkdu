@@ -1,0 +1,25 @@
+uuid: b1d3cc2a-2db7-4fa3-9475-ac7d24221635
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_report_generation
+  module:
+    - markup
+    - user
+id: user.user.field_report_generation
+field_name: field_report_generation
+entity_type: user
+bundle: user
+label: 'Report Generation'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p><a href=\"/hkdu/0/report\">Report Generation</a></p>\r\n"
+    format: full_html
+field_type: markup

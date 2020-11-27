@@ -16,6 +16,7 @@ dependencies:
     - field.field.user.user.field_policy
     - field.field.user.user.field_referee
     - field.field.user.user.field_registration_no
+    - field.field.user.user.field_report_generation
     - field.field.user.user.field_specialist_fellow_number
     - field.field.user.user.field_specialty
     - field.field.user.user.field_subscription
@@ -115,6 +116,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_report_generation:
+    weight: 17
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
     region: content
   field_specialist_fellow_number:
     weight: 12
