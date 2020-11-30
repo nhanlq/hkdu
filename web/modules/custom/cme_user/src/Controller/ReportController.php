@@ -111,6 +111,7 @@ class ReportController extends ControllerBase {
 
   public function getTotalScore($uid, $from, $to){
     $scores = $this->getResultUser($uid, $from, $to);
+
     $total = 0;
     foreach($scores as $score){
       $total += $score->get('field_score')->value;
