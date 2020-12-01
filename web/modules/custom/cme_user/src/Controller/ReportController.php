@@ -39,6 +39,8 @@ class ReportController extends ControllerBase {
     $from_date->setTimezone(new \DateTimezone(DATETIME_STORAGE_TIMEZONE));
     $from_formatted = $from_date->format(DATETIME_DATETIME_STORAGE_FORMAT);
 
+    $to = $to.'T23:59:59';
+
     $to_date = new DrupalDateTime($to);
     $to_date->setTimezone(new \DateTimezone(DATETIME_STORAGE_TIMEZONE));
     $to_formatted = $to_date->format(DATETIME_DATETIME_STORAGE_FORMAT);
