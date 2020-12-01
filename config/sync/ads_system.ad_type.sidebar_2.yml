@@ -1,8 +1,0 @@
-uuid: e710a110-8abe-49f5-9400-b870e1dd8735
-langcode: es
-status: true
-dependencies: {  }
-_core:
-  default_config_hash: l7uCuX_noDRApJveo1WU5Frw7XHcw2JoMh8wMqTqbgk
-id: sidebar_2
-label: 'Sidebar Right'

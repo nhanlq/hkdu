@@ -52,6 +52,7 @@
         "drupal/mailsystem": "^4.2",
         "drupal/markup": "^1.0@beta",
         "drupal/media_directories": "^2.0",
+        "drupal/media_private_access": "1.x-dev",
         "drupal/menu_item_role_access": "^2.0",
         "drupal/menu_link_attributes": "^1.0",
         "drupal/nocurrent_pass": "^1.0",

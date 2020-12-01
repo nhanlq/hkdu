@@ -82,7 +82,7 @@
   </div>
   <div class="infor" style="width: 100%; margin-top: 20px">
     <p>According to our CME Register, you have attended thr following Continuing Medical Education Courses and Meetings
-      from 2020-01-01 to 2020-09-07 The Individual and total CME Points are list below for you reference.</p>
+      from {{ from }} to {{ to }} The Individual and total CME Points are list below for you reference.</p>
   </div>
   <table border="1" style="width: 100%" class="large-table">
      <thead>
@@ -91,7 +91,7 @@
     <tbody>
     {% for score in scores %}
       <tr>
-        <td>{{ loop.index }}. {{ score.date }}</td><td>{{ score.name }}</td><td>{{ score.organizer }}</td><td>{{ score.score }}</td><td>0</td>
+        <td>{{ loop.index }}. {{ score.date }}</td><td>{{ score.name }}</td><td>{{ score.organizer }}</td><td>{{ score.score|number_format(0, '.', ',') }}</td><td>0</td>
       </tr>
     {% endfor %}
 
