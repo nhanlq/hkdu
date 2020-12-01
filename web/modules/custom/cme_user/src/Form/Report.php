@@ -70,7 +70,7 @@ class Report extends FormBase {
     }
     $host = \Drupal::request()->getSchemeAndHttpHost();
     $host = str_replace('https','http',$host);
-    $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/wkhtmltopdf/generatepdf?url='.$host.'/report/'.$uid.'/'.$form_state->getValue('from').'/'.$form_state->getValue('to'))->toString());;
+    $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/wkhtmltopdf/generatepdf?url='.$host.'/report/'.$uid.'/'.$form_state->getValue('from').'/'.$form_state->getValue('to').'/'.time())->toString());;
     $redirect->send();
   }
 
