@@ -27,7 +27,10 @@ class ReportController extends ControllerBase {
       '#total_lecture' => $this->getTotalLecture($uid, $from, $to),
       '#from' => $from,
       '#to' =>$to,
-      '#now' => date('Y-m-d')
+      '#now' => date('Y-m-d'),
+      '#cache' => [
+        'max-age' => 0,
+      ],
     ];
   }
 
