@@ -156,6 +156,7 @@ class QuizTestController extends ControllerBase
     public function CreateQuizScore($quizId, $score){
         $user = \Drupal::currentUser();
         $account = \Drupal\user\Entity\User::load($user->id());
+        $quiz = \Drupal\cme_quiz\Entity\Quiz::load($quizId);
         $ids = \Drupal::entityQuery('score')
             ->condition('status', 1)
             ->condition('field_quiz', $quizId)
@@ -181,6 +182,9 @@ class QuizTestController extends ControllerBase
                 'uid' => $user->id(),
                 'field_quiz' => $quizId,
                 'field_user' => $user->id(),
+                'field_date' => date('Y-m-d',time()),
+                'field_attendance' => 1,
+                'field_organizer' => $quiz->get('field_organiser')->value,
                 'field_score' => $score,
                 'name' => 'User '.$user->getDisplayName().' of Quiz '.$quizId,
                 'created' => time(),
