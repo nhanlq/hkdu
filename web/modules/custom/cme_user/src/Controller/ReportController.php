@@ -57,27 +57,28 @@ class ReportController extends ControllerBase {
   }
 
   public function getTotalStudy($uid, $from, $to){
+    $tid = $this->getCategoryId('Self Study');
     $scores = $this->getResultUser($uid, $from, $to);
     $total = 0;
     foreach($scores as $score){
       if($score->get('field_quiz')->target_id > 0){
          $quiz = \Drupal\cme_quiz\Entity\Quiz::load($score->get
          ('field_quiz')->target_id);
-         if($quiz->get('field_category')->target_id == 53){
+         if($quiz->get('field_category')->target_id == $tid){
            $total += $score->get('field_score')->value;
          }
       }
       if($score->get('field_event')->target_id > 0){
           $event = \Drupal\cme_event\Entity\CmeEvent::load($score->get
           ('field_event')->target_id);
-        if($event->get('field_category')->target_id == 53){
+        if($event->get('field_category')->target_id == $tid){
           $total += $score->get('field_score')->value;
         }
       }
       if($score->get('field_epharm_event')->target_id > 0){
         $event = \Drupal\event\Entity\Event::load($score->get
         ('field_epharm_event')->target_id);
-        if($event->get('field_category')->target_id == 53){
+        if($event->get('field_category')->target_id == $tid){
           $total += $score->get('field_score')->value;
         }
       }
@@ -86,27 +87,28 @@ class ReportController extends ControllerBase {
   }
 
   public function getTotalLecture($uid, $from, $to){
+    $tid = $this->getCategoryId('Lecture');
     $scores = $this->getResultUser($uid, $from, $to);
     $total = 0;
     foreach($scores as $score){
       if($score->get('field_quiz')->target_id > 0){
         $quiz = \Drupal\cme_quiz\Entity\Quiz::load($score->get
         ('field_quiz')->target_id);
-        if($quiz->get('field_category')->target_id == 104){
+        if($quiz->get('field_category')->target_id == $tid){
           $total += $score->get('field_score')->value;
         }
       }
       if($score->get('field_event')->target_id > 0){
         $event = \Drupal\cme_event\Entity\CmeEvent::load($score->get
         ('field_event')->target_id);
-        if($event->get('field_category')->target_id == 104){
+        if($event->get('field_category')->target_id == $tid){
           $total += $score->get('field_score')->value;
         }
       }
       if($score->get('field_epharm_event')->target_id > 0){
         $event = \Drupal\event\Entity\Event::load($score->get
         ('field_epharm_event')->target_id);
-        if($event->get('field_category')->target_id == 104){
+        if($event->get('field_category')->target_id == $tid){
           $total += $score->get('field_score')->value;
         }
       }
@@ -147,5 +149,14 @@ class ReportController extends ControllerBase {
 
     }
     return $data;
+  }
+
+  public function getCategoryId($name){
+    $term = \Drupal::entityTypeManager()
+      ->getStorage('taxonomy_term')
+      ->loadByProperties(['name' => $name]);
+    $term = reset($term);
+    $term_id = $term->id();
+    return $term_id;
   }
 }
