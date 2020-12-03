@@ -1,0 +1,27 @@
+uuid: a641c1c2-cfc1-482a-8c5d-e285441e6048
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event.field_end_time
+  module:
+    - event
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: event.event.field_end_time
+field_name: field_end_time
+entity_type: event
+bundle: event
+label: 'End Time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

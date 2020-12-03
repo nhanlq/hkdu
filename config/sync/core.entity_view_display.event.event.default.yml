@@ -8,6 +8,7 @@ dependencies:
     - field.field.event.event.field_count
     - field.field.event.event.field_date
     - field.field.event.event.field_description
+    - field.field.event.event.field_end_time
     - field.field.event.event.field_expired
     - field.field.event.event.field_external_register_link
     - field.field.event.event.field_file
@@ -82,6 +83,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_end_time:
+    weight: 23
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_expired:
     weight: 14
