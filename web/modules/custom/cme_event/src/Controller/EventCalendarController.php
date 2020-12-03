@@ -78,7 +78,7 @@ class EventCalendarController extends ControllerBase
             $event_obj->title = $quiz->getName();
             $date = '';
             if(isset($quiz->get('field_lecture_date')->value)){
-                $date = $quiz->get('field_start_date')->value;
+                $date = $quiz->get('field_lecture_date')->value;
             }else{
                 $date = $quiz->get('field_start_date')->value;
             }
@@ -86,10 +86,13 @@ class EventCalendarController extends ControllerBase
             if(isset($quiz->get('field_lecture_time')->value)){
                 $lecture_time = str_replace(':','',$quiz->get('field_lecture_time')->value);
             }else{
-                $lecture_time  = '080000';
+                $lecture_time  = str_replace(':','',$quiz->get
+                ('field_start_time')->value);
             }
 
-            $time = str_replace('-','',$date).'T'.$lecture_time.'/'.str_replace(':','',str_replace('-','',$quiz->get('field_end_date')->value));
+            $time = str_replace('-','',$date).'T'.$lecture_time.'/'
+              .str_replace('-','',$quiz->get('field_end_date')->value).'T'
+              .str_replace(':','',$quiz->get('field_end_time')->value);
             $options = ['absolute' => TRUE];
             $url_object = \Drupal\Core\Url::fromRoute('entity.quiz.canonical', ['quiz' => $key], $options)->toString();
             $event_obj->url = 'https://calendar.google.com/calendar/u/0/r/eventedit?text='.$quiz->getName().'&dates='.$time.'&details=For+details,+link+here:+'.$url_object.'&sf=true&output=xml';
