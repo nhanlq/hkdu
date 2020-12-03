@@ -1,0 +1,6 @@
+media_private_access_modes:
+  - 'audio:default'
+  - 'document:default'
+  - 'image:permission'
+  - 'remote_video:default'
+  - 'video:default'

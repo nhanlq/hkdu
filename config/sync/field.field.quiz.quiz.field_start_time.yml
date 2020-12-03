@@ -1,0 +1,27 @@
+uuid: 845d36e4-85e1-4fe8-8541-ddb5698291fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_start_time
+  module:
+    - cme_quiz
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: quiz.quiz.field_start_time
+field_name: field_start_time
+entity_type: quiz
+bundle: quiz
+label: 'Start Time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

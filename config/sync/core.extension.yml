@@ -65,10 +65,12 @@ module:
   dynamic_page_cache: 0
   editor: 0
   email_registration: 0
+  embed: 0
   entity: 0
   entity_browser: 0
   entity_browser_entity_form: 0
   entity_bulk_clone: 0
+  entity_embed: 0
   entity_reference_revisions: 0
   epharm: 0
   event: 0
@@ -106,7 +108,10 @@ module:
   markup: 0
   media: 0
   media_directories: 0
+  media_directories_editor: 0
+  media_directories_ui: 0
   media_library: 0
+  media_private_access: 0
   media_release: 0
   menu_item_role_access: 0
   menu_link_attributes: 0
