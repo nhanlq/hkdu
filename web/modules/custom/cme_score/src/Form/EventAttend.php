@@ -25,14 +25,15 @@ class EventAttend extends FormBase {
       '#type' => 'select',
       '#title' => 'CME Event',
       '#options' => $this->getEvents(),
-      '#weight' => 0
+      '#weight' => 0,
+      '#required' => true
     ];
-    $form['epharm_event'] = [
-      '#type' => 'select',
-      '#title' => 'Epharm Event',
-      '#options' => $this->getEpharmEvents(),
-      '#weight' =>1
-    ];
+//    $form['epharm_event'] = [
+//      '#type' => 'select',
+//      '#title' => 'Epharm Event',
+//      '#options' => $this->getEpharmEvents(),
+//      '#weight' =>1
+//    ];
     $form['excel'] = [
       '#type' => 'managed_file',
       '#title' => $this->t('Excel'),
