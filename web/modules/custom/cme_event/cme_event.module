@@ -188,8 +188,7 @@ function createICSFile($entity, $type) {
     file_put_contents($filepath, $data);
   }
   else {
-    $start = new DateTime(date('Y-m-d',strtotime($entity->get('field_start_date')
-      ->value)) . 'T' .
+    $start = new DateTime($entity->get('field_start_date')->value . 'T' .
       $entity->get('field_start_time')->value.':00',new DateTimeZone('HKT'));
     $end = new DateTime($entity->get('field_date')->value . 'T' .
       $entity->get('field_end_time')->value.':00',new DateTimeZone('HKT'));
