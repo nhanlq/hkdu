@@ -165,10 +165,12 @@ function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
 
 function createICSFile($entity, $type) {
   if ($type == 'cme') {
-    $start = new DateTime($entity->get('field_start_date')->value . 'T' .
-      $entity->get('field_start_time')->value.'00', new DateTimeZone('HKT'));
-    $end = new DateTime($entity->get('field_date')->value . 'T' .
-      $entity->get('field_end_time')->value.':00', new DateTimeZone('HKT'));
+    $begin = new DateTime(strtotime($entity->get('field_start_date')->value . 'T' . $entity->get('field_start_time')->value.':00'));
+    $begin->setTimezone(new DateTimeZone('HKT'));
+    $start = $begin->format('Y-m-d H:i:s');
+    $stop = new DateTime(strtotime($entity->get('field_date')->value . 'T' . $entity->get('field_end_time')->value.':00'));
+    $stop->setTimezone(new DateTimeZone('HKT'));
+    $end = $stop->format('Y-m-d H:i:s');
     $name = $entity->getName();
     $location = $entity->get('field_location')->value;
     $body = '';
@@ -188,10 +190,12 @@ function createICSFile($entity, $type) {
     file_put_contents($filepath, $data);
   }
   else {
-    $start = new DateTime($entity->get('field_start_date')->value . 'T' .
-      $entity->get('field_start_time')->value.':00',new DateTimeZone('HKT'));
-    $end = new DateTime($entity->get('field_date')->value . 'T' .
-      $entity->get('field_end_time')->value.':00',new DateTimeZone('HKT'));
+    $begin = new DateTime(strtotime($entity->get('field_start_date')->value . 'T' . $entity->get('field_start_time')->value.':00'));
+    $begin->setTimezone(new DateTimeZone('HKT'));
+    $start = $begin->format('Y-m-d H:i:s');
+    $stop = new DateTime(strtotime($entity->get('field_date')->value . 'T' . $entity->get('field_end_time')->value.':00'));
+    $stop->setTimezone(new DateTimeZone('HKT'));
+    $end = $stop->format('Y-m-d H:i:s');
     $name = $entity->getName();
     $location = $entity->get('field_location')->value;
     $body = '';
@@ -426,3 +430,20 @@ function checkCmeEventStatusUser($event_id) {
   }
   return $return;
 }
+
+
+//function cme_event_entity_view(array &$build,
+//  \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+//
+//  // Only do the extra work if the component is configured to be displayed.
+//  // This assumes a 'mymodule_addition' extra field has been defined for the
+//  // entity bundle in hook_entity_extra_field_info().
+//  if ($entity->getEntityTypeId() == 'event') {
+////    $start = new \DateTime($entity->get('field_start_date')->value . 'T' .
+////      $entity->get('field_start_time')->value.':00',new DateTimeZone('HKT'));
+//    $dt = new DateTime(strtotime($entity->get('field_start_date')->value . 'T' . $entity->get('field_start_time')->value.':00'));
+//    $dt->setTimezone(new DateTimeZone('HKT'));
+//
+//    var_dump($dt->format('F j, Y - G:i'));
+//  }
+//}

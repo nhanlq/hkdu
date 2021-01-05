@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - global_hkdu
+    - system
   theme:
     - hkdu
 id: sliderhomeblock
@@ -17,4 +18,9 @@ settings:
   label: 'Slider home block'
   provider: global_hkdu
   label_display: '0'
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/e-pharm"
+    negate: false
+    context_mapping: {  }
