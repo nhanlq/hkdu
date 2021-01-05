@@ -103,7 +103,8 @@ class EventSuccessSubscriber implements EventSubscriberInterface{
             if ($result['result'] !== true) {
                 \Drupal::messenger()->addMessage(t('There was a problem sending your message and it was not sent.'), 'error');
             } else {
-                \Drupal::messenger()->addMessage(t('Your message has been sent.'));
+              //  \Drupal::messenger()->addMessage(t('Your message has been
+              // sent.'));
             }
         }
         if($product->get('field_cme_event')->target_id > 0){
@@ -167,9 +168,11 @@ class EventSuccessSubscriber implements EventSubscriberInterface{
 
             $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
             if ($result['result'] !== true) {
-                \Drupal::messenger()->addMessage(t('There was a problem sending your message and it was not sent.'), 'error');
+                \Drupal::messenger()->addMessage(t('There was a problem
+              // sending your message and it was not sent.'), 'error');
             } else {
-                \Drupal::messenger()->addMessage(t('Your message has been sent.'));
+               // \Drupal::messenger()->addMessage(t('Your message has been
+              // sent.'));
             }
         }
         $event_tracking = \Drupal\event_tracking\Entity\EventTracking::create([
