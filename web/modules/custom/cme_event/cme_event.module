@@ -165,10 +165,10 @@ function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
 
 function createICSFile($entity, $type) {
   if ($type == 'cme') {
-    $begin = new DateTime(strtotime($entity->get('field_start_date')->value . 'T' . $entity->get('field_start_time')->value.':00'));
+    $begin = new DateTime($entity->get('field_start_date')->value . 'T' . $entity->get('field_start_time')->value.':00');
     $begin->setTimezone(new DateTimeZone('HKT'));
     $start = $begin->format('Y-m-d H:i:s');
-    $stop = new DateTime(strtotime($entity->get('field_date')->value . 'T' . $entity->get('field_end_time')->value.':00'));
+    $stop = new DateTime($entity->get('field_date')->value . 'T' . $entity->get('field_end_time')->value.':00');
     $stop->setTimezone(new DateTimeZone('HKT'));
     $end = $stop->format('Y-m-d H:i:s');
     $name = $entity->getName();
@@ -190,10 +190,12 @@ function createICSFile($entity, $type) {
     file_put_contents($filepath, $data);
   }
   else {
-    $begin = new DateTime(strtotime($entity->get('field_start_date')->value . 'T' . $entity->get('field_start_time')->value.':00'));
+
+    $begin = new DateTime($entity->get('field_start_date')->value . 'T' . $entity->get('field_start_time')->value.':00');
     $begin->setTimezone(new DateTimeZone('HKT'));
     $start = $begin->format('Y-m-d H:i:s');
-    $stop = new DateTime(strtotime($entity->get('field_date')->value . 'T' . $entity->get('field_end_time')->value.':00'));
+
+    $stop = new DateTime($entity->get('field_date')->value . 'T' . $entity->get('field_end_time')->value.':00');
     $stop->setTimezone(new DateTimeZone('HKT'));
     $end = $stop->format('Y-m-d H:i:s');
     $name = $entity->getName();
