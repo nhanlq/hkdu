@@ -118,9 +118,10 @@ class PaymentUpload extends FormBase {
 
     $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
     if ($result['result'] !== true) {
-      \Drupal::messenger()->addMessage(t('There was a problem sending your message and it was not sent.'), 'error');
+    //  \Drupal::messenger()->addMessage(t('There was a problem sending your
+      // message and it was not sent.'), 'error');
     } else {
-      \Drupal::messenger()->addMessage(t('Your message has been sent.'));
+   //   \Drupal::messenger()->addMessage(t('Your message has been sent.'));
     }
     \Drupal::messenger()
       ->addMessage('Your Receipt has uploaded success. Please waiting for administrator approval.');
