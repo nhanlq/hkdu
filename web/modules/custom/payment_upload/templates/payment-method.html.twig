@@ -23,7 +23,11 @@
     <tbody>
     <tr>
       <td>{{ event.name.value }}</td>
+      {% if event.field_member_price.number > 0 %}
+        <td>HKD{{ event.field_member_price.number|number_format(2, '.', ',') }}</td>
+      {% else %}
       <td>HKD{{ event.field_price.number|number_format(2, '.', ',') }}</td>
+      {% endif %}
     </tr>
     </tbody>
   </table>

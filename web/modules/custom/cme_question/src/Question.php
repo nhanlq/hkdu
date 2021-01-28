@@ -141,7 +141,7 @@ class Question
             $output .= '<span class="gsdkyl"></span>';
             $output .= '</span>';
             if ($para->get('field_correct_answer')->value == 1) {
-                $output .= '<span class="fVCIOT"><i class="fa fa-check-circle jiovTI"></i></span><span class="hSMymM blue">' . $para->get('field_answer')->value . '</span></span>';
+                $output .= '<span class="fVCIOT"></span><span class="hSMymM blue">' . $para->get('field_answer')->value . '</span></span>';
             } else {
                 $output .= '<span class="fVCIOT"></span><span class="hSMymM">' . $para->get('field_answer')->value . '</span></span>';
             }
@@ -185,7 +185,7 @@ class Question
             $output .= '<span class="gsdkyl"></span>';
             $output .= '</span>';
             if ($para->get('field_correct_answer')->value == 1) {
-                $output .= '<span class="fVCIOT"><i class="fa fa-check-circle jiovTI"></i></span><span class="hSMymM blue">' . $para->get('field_answer')->value . '</span></span>';
+                $output .= '<span class="fVCIOT"></span><span class="hSMymM blue">' . $para->get('field_answer')->value . '</span></span>';
             } else {
                 $output .= '<span class="fVCIOT"></span><span class="hSMymM">' . $para->get('field_answer')->value . '</span></span>';
             }
@@ -229,7 +229,7 @@ class Question
         $output .= '<span class="gsdkyl"></span>';
         $output .= '</span>';
         if ($tf == 'True') {
-            $output .= '<span class="fVCIOT"><i class="fa fa-check-circle jiovTI"></i></span><span class="hSMymM blue">True</span></span>';
+            $output .= '<span class="fVCIOT"></span><span class="hSMymM blue">True</span></span>';
         } else {
             $output .= '<span class="fVCIOT"></span><span class="hSMymM">True</span></span>';
         }
@@ -240,7 +240,7 @@ class Question
         $output .= '<span class="gsdkyl"></span>';
         $output .= '</span>';
         if ($tf == 'False') {
-            $output .= '<span class="fVCIOT"><i class="fa fa-check-circle jiovTI"></i></span><span class="hSMymM blue">False</span></span>';
+            $output .= '<span class="fVCIOT"></span><span class="hSMymM blue">False</span></span>';
         } else {
             $output .= '<span class="fVCIOT"></span><span class="hSMymM">False</span></span>';
         }
