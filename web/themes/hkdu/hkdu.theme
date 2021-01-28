@@ -372,6 +372,7 @@ function template_preprocess_event(array &$variables) {
   $variables['event'] = $event;
   $variables['product'] = getProduct($id);
   $variables['check_event'] = checkEventStatusUser($id);
+  $variables['payment_upload'] = checkEventUpload($id);
   $variables['expired'] = checkExpiredEvent($event);
   // Helpful $content variable for templates.
   foreach (Element::children($variables['elements']) as $key) {
