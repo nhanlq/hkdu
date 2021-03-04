@@ -74,7 +74,7 @@ class PaymentUpload extends FormBase {
     $user = \Drupal::currentUser();
 
     $product = \Drupal\commerce_product\Entity\Product::load($form_state->getValue('product_id'));
-    if ($product->get('field_event')) {
+    if ($product->get('field_event')->target_id > 0) {
       $event = \Drupal\event\Entity\Event::load($product->get('field_event')->target_id);
     }
     else {
