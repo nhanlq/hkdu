@@ -68,7 +68,7 @@ class PaymentController extends ControllerBase {
     $cme_event = false;
     $body = '';
     $host = \Drupal::request()->getSchemeAndHttpHost();
-    if($product->get('field_event')){
+    if($product->get('field_event')->target_id > 0){
       $event = $product->get('field_event')->target_id;
       $event_entity = \Drupal\event\Entity\Event::load($event);
       $body .='<h2>Event information</h2>';
