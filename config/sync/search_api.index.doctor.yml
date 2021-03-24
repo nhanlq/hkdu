@@ -1,0 +1,183 @@
+uuid: 5edde221-984b-41fc-a558-c452e178f533
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_clinic_address_cn
+    - field.storage.doctor.field_clinic_address
+    - field.storage.doctor.field_clinic_distric
+    - field.storage.doctor.field_clinic_doctor
+    - field.storage.doctor.field_clinic_phone
+    - field.storage.doctor.field_clinic_title_cn
+    - field.storage.doctor.field_cny_date
+    - field.storage.doctor.field_cny_confirm
+    - search_api.server.default_server
+  module:
+    - doctor
+    - search_api
+id: doctor
+name: Doctor
+description: ''
+read_only: false
+field_settings:
+  field_clinic_address:
+    label: 'Clinic Address(Eng)'
+    datasource_id: 'entity:doctor'
+    property_path: field_clinic_address
+    type: text
+    dependencies:
+      config:
+        - field.storage.doctor.field_clinic_address
+  field_clinic_address_1:
+    label: 'Clinic Address(Eng)'
+    datasource_id: 'entity:doctor'
+    property_path: field_clinic_address
+    type: string
+    dependencies:
+      config:
+        - field.storage.doctor.field_clinic_address
+  field_clinic_address_cn:
+    label: 'Clinic Address(Chi)'
+    datasource_id: 'entity:doctor'
+    property_path: field_clinic_address_cn
+    type: text
+    dependencies:
+      config:
+        - field.storage.doctor.field_clinic_address_cn
+  field_clinic_address_cn_1:
+    label: 'Clinic Address(Chi)'
+    datasource_id: 'entity:doctor'
+    property_path: field_clinic_address_cn
+    type: string
+    dependencies:
+      config:
+        - field.storage.doctor.field_clinic_address_cn
+  field_clinic_address_cn_2:
+    label: 'Clinic Address(Chi)'
+    datasource_id: 'entity:doctor'
+    property_path: field_clinic_address_cn
+    type: string
+    dependencies:
+      config:
+        - field.storage.doctor.field_clinic_address_cn
+  field_clinic_address_cn_3:
+    label: 'Clinic Address(Chi)'
+    datasource_id: 'entity:doctor'
+    property_path: field_clinic_address_cn
+    type: string
+    dependencies:
+      config:
+        - field.storage.doctor.field_clinic_address_cn
+  field_clinic_distric:
+    label: 'Clinic Distric'
+    datasource_id: 'entity:doctor'
+    property_path: field_clinic_distric
+    type: string
+    dependencies:
+      config:
+        - field.storage.doctor.field_clinic_distric
+  field_clinic_distric_1:
+    label: 'Clinic Distric'
+    datasource_id: 'entity:doctor'
+    property_path: field_clinic_distric
+    type: string
+    dependencies:
+      config:
+        - field.storage.doctor.field_clinic_distric
+  field_clinic_doctor:
+    label: 'Clinic Doctor'
+    datasource_id: 'entity:doctor'
+    property_path: field_clinic_doctor
+    type: string
+    dependencies:
+      config:
+        - field.storage.doctor.field_clinic_doctor
+  field_clinic_doctor_1:
+    label: 'Clinic Doctor'
+    datasource_id: 'entity:doctor'
+    property_path: field_clinic_doctor
+    type: string
+    dependencies:
+      config:
+        - field.storage.doctor.field_clinic_doctor
+  field_clinic_phone:
+    label: 'Clinic Phone'
+    datasource_id: 'entity:doctor'
+    property_path: field_clinic_phone
+    type: string
+    dependencies:
+      config:
+        - field.storage.doctor.field_clinic_phone
+  field_clinic_title_cn:
+    label: 'Clinic Title(Chi)'
+    datasource_id: 'entity:doctor'
+    property_path: field_clinic_title_cn
+    type: text
+    dependencies:
+      config:
+        - field.storage.doctor.field_clinic_title_cn
+  field_cny_confirm:
+    label: 'CNY Opening Dates Reconfirm'
+    datasource_id: 'entity:doctor'
+    property_path: field_cny_confirm
+    type: integer
+    dependencies:
+      config:
+        - field.storage.doctor.field_cny_confirm
+  field_cny_date:
+    label: 'CNY Date'
+    datasource_id: 'entity:doctor'
+    property_path: field_cny_date
+    type: integer
+    dependencies:
+      config:
+        - field.storage.doctor.field_cny_date
+  field_cny_date_1:
+    label: 'CNY Date'
+    datasource_id: 'entity:doctor'
+    property_path: field_cny_date
+    type: integer
+    dependencies:
+      config:
+        - field.storage.doctor.field_cny_date
+  field_cny_date_2:
+    label: 'CNY Date'
+    datasource_id: 'entity:doctor'
+    property_path: field_cny_date
+    type: integer
+    dependencies:
+      config:
+        - field.storage.doctor.field_cny_date
+  field_cny_date_3:
+    label: 'CNY Date'
+    datasource_id: 'entity:doctor'
+    property_path: field_cny_date
+    type: integer
+    dependencies:
+      config:
+        - field.storage.doctor.field_cny_date
+  name:
+    label: 'Clinic Title(Eng)'
+    datasource_id: 'entity:doctor'
+    property_path: name
+    type: text
+    dependencies:
+      module:
+        - doctor
+datasource_settings:
+  'entity:doctor':
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  language_with_fallback: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: default_server

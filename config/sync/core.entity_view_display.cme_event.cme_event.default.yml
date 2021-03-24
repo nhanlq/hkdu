@@ -16,7 +16,6 @@ dependencies:
     - field.field.cme_event.cme_event.field_external_register_link
     - field.field.cme_event.cme_event.field_file
     - field.field.cme_event.cme_event.field_free
-    - field.field.cme_event.cme_event.field_hkdu_point
     - field.field.cme_event.cme_event.field_is_home
     - field.field.cme_event.cme_event.field_location
     - field.field.cme_event.cme_event.field_member_price
@@ -36,7 +35,6 @@ dependencies:
     - cme_event
     - commerce_price
     - datetime
-    - entity_reference_revisions
     - options
     - text
     - user
@@ -164,15 +162,6 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
-    region: content
-  field_hkdu_point:
-    type: entity_reference_revisions_entity_view
-    weight: 22
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
     region: content
   field_is_home:
     weight: 8

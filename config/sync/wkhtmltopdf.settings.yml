@@ -1,3 +1,3 @@
-wkhtmltopdf_bin: /usr/local/bin/wkhtmltopdf
+wkhtmltopdf_bin: '/usr/bin/xvfb-run /usr/local/bin/wkhtmltopdf'
 wkhtmltopdf_zoom: '0'
 wkhtmltopdf_download: 0

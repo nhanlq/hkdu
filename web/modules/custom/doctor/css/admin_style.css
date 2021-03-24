@@ -1,0 +1,15 @@
+#field-normal-days-values .field--type-string{
+  width: 30%;
+  float: left;
+  margin-right: 20px;
+}
+
+#field-cny-date-values .field--type-string, #field-cny-date-values .form-type-select{
+  width: 30%;
+  float: left;
+  margin-right: 20px;
+}
+
+#field-cny-date-values select{
+  width: 100%;
+}

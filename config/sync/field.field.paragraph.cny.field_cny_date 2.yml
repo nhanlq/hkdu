@@ -1,0 +1,37 @@
+uuid: 3e5a2f01-56f6-4aef-8db7-8159f67fa1b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cny_date
+    - paragraphs.paragraphs_type.cny
+    - taxonomy.vocabulary.cny
+  module:
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: paragraph.cny.field_cny_date
+field_name: field_cny_date
+entity_type: paragraph
+bundle: cny
+label: 'CNY Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cny: cny
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

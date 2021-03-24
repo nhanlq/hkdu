@@ -1,0 +1,61 @@
+uuid: 5864b16e-d758-4e7b-bedd-787fa560c7a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_cny_date
+    - paragraphs.paragraphs_type.cny
+  module:
+    - doctor
+    - entity_reference_revisions
+id: doctor.doctor.field_cny_date
+field_name: field_cny_date
+entity_type: doctor
+bundle: doctor
+label: 'CNY Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      cny: cny
+    target_bundles_drag_drop:
+      cny:
+        enabled: true
+        weight: 12
+      department:
+        weight: 13
+        enabled: false
+      document:
+        weight: 14
+        enabled: false
+      long_answer:
+        weight: 15
+        enabled: false
+      multiple_choice:
+        weight: 16
+        enabled: false
+      open_date:
+        weight: 17
+        enabled: false
+      org_point:
+        weight: 18
+        enabled: false
+      result:
+        weight: 19
+        enabled: false
+      short_answer:
+        weight: 20
+        enabled: false
+      single_choice:
+        weight: 21
+        enabled: false
+      true_false:
+        weight: 22
+        enabled: false
+field_type: entity_reference_revisions

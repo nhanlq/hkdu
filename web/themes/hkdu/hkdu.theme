@@ -4,6 +4,7 @@ use Drupal\Core\Render\Element;
 use Drupal\doctor\Entity\DoctorEntity;
 use Drupal\hospital\Entity\HospitalEntity;
 use Drupal\gallery\Entity\Gallery;
+use Drupal\Core\Config\ConfigFactoryInterface;
 
 /**
  * @file
@@ -16,20 +17,7 @@ function hkdu_preprocess_html(&$variables) {
   $current_path = \Drupal::service('path.current')->getPath();
   $path = explode('/', $current_path);
 
-  if ($path[1] == 'hkdu' && $path[2] == 'doctor' ||
-    $path[1] == 'hkdu' && $path[2] == 'hospital' ||
-    $path[1] == 'hkdu' && $path[2] == 'gallery' ||
-    $path[1] == 'e-pharm' && $path[2] == 'drug-search' && !empty($path[3]) ||
-    $path[1] == 'e-pharm' && empty($path[2]) ||
-    $path[1] == 'e-pharm' && $path[2] == 'pharm-dir' ||
-    $path[1] == 'e-pharm' && $path[2] == 'event' ||
-    $path[1] == 'cme' && $path[2] == 'events' ||
-    $path[1] == 'cme' && empty($path[2]) ||
-    $path[1] == 'cme' && $path[2] == 'event-org' && !empty($path[3]) ||
-    $path[1] == 'checkout' && $path[3] == 'order_information' ||
-    $path[1] == 'account' || $path[1] == 'user' && is_numeric($path[2]) ||
-    $path[1] == 'user' && is_numeric($path[2]) && $path[3] == 'edit' ||
-    $path[1] == 'report' && is_numeric($path[2])) {
+  if ($path[1] == 'hkdu' && $path[2] == 'doctor' || $path[1] == 'hkdu' && $path[2] == 'hospital' || $path[1] == 'hkdu' && $path[2] == 'gallery' || $path[1] == 'e-pharm' && $path[2] == 'drug-search' && !empty($path[3]) || $path[1] == 'e-pharm' && empty($path[2]) || $path[1] == 'e-pharm' && $path[2] == 'pharm-dir' || $path[1] == 'e-pharm' && $path[2] == 'event' || $path[1] == 'cme' && $path[2] == 'events' || $path[1] == 'cme' && empty($path[2]) || $path[1] == 'cme' && $path[2] == 'event-org' && !empty($path[3]) || $path[1] == 'checkout' && $path[3] == 'order_information' || $path[1] == 'account' || $path[1] == 'user' && is_numeric($path[2]) || $path[1] == 'user' && is_numeric($path[2]) && $path[3] == 'edit' || $path[1] == 'report' && is_numeric($path[2])) {
 
     $variables['attributes']['class'][] = 'doctor-detail-page';
   }
@@ -39,6 +27,9 @@ function hkdu_preprocess_html(&$variables) {
 
   if ($path[1] == 'e-pharm' && empty($path[2])) {
     $variables['attributes']['class'][] = 'epharm-landing-page';
+  }
+  if ($path[1] == 'search' && $path[2] == 'clinic') {
+    $variables['attributes']['class'][] = 'search-clinic-page';
   }
   if ($path[1] == 'e-pharm') {
     if (\Drupal::currentUser()->isAnonymous()) {
@@ -120,14 +111,60 @@ function template_preprocess_doctor(array &$variables) {
   $doctor = $variables['elements']['#doctor'];
   $current_path = \Drupal::service('path.current')->getPath();
   $path = explode('/', $current_path);
-  $id = $path[3];
+  $id = $path[2];
   $variables['doctor'] = DoctorEntity::load($id);
-  $variables['store'] = getStoreByDoctor($id);
-  $variables['key'] = \Drupal::config('store_locator.settings')->get('api_key');
+  $api_key = \Drupal::config('google_map_field.settings')->get('google_map_field_apikey');
+  $elements = [];
+  $element = [
+    '#theme' => 'google_map_field_embed',
+    '#name' => $doctor->get('field_clinic_location')->name,
+    '#lat' => $doctor->get('field_clinic_location')->lat,
+    '#lon' => $doctor->get('field_clinic_location')->lon,
+    '#zoom' => $doctor->get('field_clinic_location')->zoom,
+    '#type' => $doctor->get('field_clinic_location')->type,
+    '#show_marker' => $doctor->get('field_clinic_location')->marker === "1" ? "true" : "false",
+    '#show_controls' => $doctor->get('field_clinic_location')->controls === "1" ? "true" : "false",
+    '#width' => $doctor->get('field_clinic_location')->width ? $doctor->get('field_clinic_location')->width : '320px',
+    '#height' => $doctor->get('field_clinic_location')->height ? $doctor->get('field_clinic_location')->height : '200px',
+    '#api_key' => $api_key,
+  ];
+  if (!empty($doctor->get('field_clinic_location')->infowindow)) {
+    $element['#infowindow'] = [
+      '#markup' => $doctor->get('field_clinic_location')->infowindow,
+      '#allowed_tags' => allowedTags(),
+    ];
+  }
+
+  $element['#attached']['library'][] = 'google_map_field/google-map-field-renderer';
+  $element['#attached']['library'][] = 'google_map_field/google-map-apis';
+  $variables['google_map'] = $element;
   // Helpful $content variable for templates.
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];
   }
+}
+
+function allowedTags() {
+  return [
+    'div',
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'p',
+    'span',
+    'br',
+    'em',
+    'strong',
+    'a',
+    'img',
+    'video',
+    'ul',
+    'ol',
+    'li',
+  ];
 }
 
 function template_preprocess_hospital(array &$variables) {
