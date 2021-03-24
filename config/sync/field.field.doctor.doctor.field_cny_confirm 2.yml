@@ -1,0 +1,30 @@
+uuid: 66a6c8ec-f327-4502-8e35-813967c7d6bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_cny_confirm
+    - taxonomy.vocabulary.cny
+  module:
+    - doctor
+id: doctor.doctor.field_cny_confirm
+field_name: field_cny_confirm
+entity_type: doctor
+bundle: doctor
+label: 'CNY Opening Dates Reconfirm'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cny: cny
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

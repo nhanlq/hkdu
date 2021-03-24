@@ -1,0 +1,27 @@
+uuid: 64bdb1c0-fbf5-4912-9c06-0884920d9099
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_clinic_address_cn
+  module:
+    - doctor
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: doctor.doctor.field_clinic_address_cn
+field_name: field_clinic_address_cn
+entity_type: doctor
+bundle: doctor
+label: 'Clinic Address(Chi)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,36 @@
+uuid: 1db4b214-ae6b-4566-87a3-ec64a0528955
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_name_card
+    - media.type.image
+  module:
+    - doctor
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: doctor.doctor.field_name_card
+field_name: field_name_card
+entity_type: doctor
+bundle: doctor
+label: 'Name Card'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

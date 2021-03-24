@@ -1,4 +1,4 @@
-uuid: c116b9d0-da22-4ce7-907c-a08eba05c40d
+uuid: 8293e240-861e-4838-a719-5df60df84651
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - field.storage.doctor.field_clinic_location
   module:
     - doctor
-    - geolocation
+    - google_map_field
 id: doctor.doctor.field_clinic_location
 field_name: field_clinic_location
 entity_type: doctor
@@ -15,7 +15,22 @@ label: 'Clinic Location'
 description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    preview: ''
+    actions: {  }
+    lat: '22.319974037251036'
+    name: ''
+    lon: '114.17044758796692'
+    zoom: '13'
+    type: roadmap
+    width: 100%
+    height: 450px
+    marker: '1'
+    traffic: '0'
+    marker_icon: ''
+    controls: '1'
+    infowindow: ''
 default_value_callback: ''
 settings: {  }
-field_type: geolocation
+field_type: google_map_field

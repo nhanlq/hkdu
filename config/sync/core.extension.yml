@@ -91,6 +91,7 @@ module:
   geolocation_google_places_api: 0
   global_hkdu: 0
   google_analytics: 0
+  google_map_field: 0
   google_qr_code: 0
   healthy: 0
   help: 0
@@ -142,6 +143,8 @@ module:
   rules: 0
   search: 0
   search_api: 0
+  search_api_db: 0
+  search_api_db_defaults: 0
   serialization: 0
   shortcut: 0
   slick: 0

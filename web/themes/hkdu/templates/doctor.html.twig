@@ -1,184 +1,104 @@
 <article{{ attributes.addClass(classes) }}>
-    <div class="jBmhUe">
+    <div class="title-header col-xs-12">
+        <h1 class="title-doctor">{{ doctor.name.value }}</h1>
+        <p class="chinese-title">{{ doctor.field_clinic_title_cn.value }}</p>
+    </div>
+    <div class="location doctor-detail col-xs-6 col-md-6 col-sm-12">
 
-        <div class="jXYawz">
-            <div display="flex"
-                 class="fCkIUK">
-                <div class="bNtIbe">
-                    <img src="{{ doctor.field_photo.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}"/>
-                </div>
-                <div class="jILbrN">{{ doctor.name.value }}</div>
-            </div>
-        </div>
         <div class="ixbjLe">
-            <div class="cxovFu">Contact Information</div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">
-                    Registration No
-                </div>
-                <div class="hnOpua">{{ doctor.field_registration_no.value }}</div>
-            </div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">HKDU
-                    Membership No
-                </div>
-                <div class="hnOpua">{{ doctor.field_membership_no.value }}</div>
-            </div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">Membership
-                    Joining Iteration
-                </div>
-                <div class="hnOpua">{{ doctor.field_joining_iteration.value }}</div>
-            </div>
-        </div>
-        <div class="ixbjLe">
-            <div class="cxovFu">Member Details</div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">Gender
-                </div>
-                <div class="hnOpua">{{ doctor.field_gender.value }}</div>
-            </div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">Language</div>
-                <div class="hnOpua">{{ doctor.field_language.value }}</div>
-            </div>
-            <div class="XXHPz">
-                <div class="jBxOzO">E-mail
-                </div>
-                <div class="hnOpua"><a href="mailto:{{ doctor.field_email.value }}" class="iIttWr">{{ doctor.field_email.value }}</a></div>
-            </div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">Mobile
-                </div>
-                <div class="hnOpua">{{ doctor.field_mobile.value }}</div>
-            </div>
-            <div  class="bXXHPz">
-                <div class="jBxOzO">Fax</div>
-                <div class="hnOpua">{{ doctor.field_fax.value }}</div>
-            </div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">Whatsapp
-                </div>
-                <div class="hnOpua">{{ doctor.field_whatsapp.value }}</div>
-            </div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">WeChat
-                </div>
-                <div class="hnOpua">{{ doctor.field_wechat.value }}</div>
-            </div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">
-                    Correspondence Address
-                </div>
-                <div class="hnOpua">{{ doctor.field_correspondence_address.value }}</div>
-            </div>
-        </div>
-        <div class="ixbjLe">
-            <div class="cxovFu">Qualifications</div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">Basic
-                    Qualifications
-                </div>
-                <div class="hnOpua">{{ doctor.field_basic_qualifications.value }}</div>
-            </div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">
-                    Professional Qualifications
-                </div>
-                <div class="hnOpua">{{ doctor.field_professional_qualification.value }}</div>
-            </div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">Recognized Specialties
-                </div>
-                <div class="hnOpua">{{ doctor.field_recognized_specialties.value }}</div>
-            </div>
+            <div class="cxovFu">Location 地點</div>
+                <p>{{ doctor.field_clinic_address_cn.value }}</p>
+                <p>{{ doctor.field_clinic_address.value }}</p>
         </div>
 
         <div class="ixbjLe">
+            <div class="cxovFu">Registration 註羸</div>
+            <div class="phone">
+                <div class="jBxOzO">Clinic Phone</div>
+                {% for phone in doctor.field_clinic_phone %}
+                <p>{{ phone.value }}</p>
+                {% endfor %}
+            </div>
+            <div class="email">
+                <div class="jBxOzO">Clinic Email</div>
+              {% for email in doctor.field_clinic_email %}
+                  <p>{{ email.value }}</p>
+              {% endfor %}
+            </div>
 
-            {% if store is not empty %}
-            <div class="cxovFu">Clinic Details</div>
+        </div>
+        <div class="ixbjLe">
+            <div class="cxovFu">Doctors 醫生</div>
             <div class="bXXHPz">
-                <div class="jBxOzO">Clinic Name
-                </div>
-                <div class="hnOpua">{{ store.name.value }}</div>
-            </div>
-            <div  class="bXXHPz">
-                <div class="jBxOzO">Phone
-                </div>
-                <div class="hnOpua">{{ store.field_clinic_phone.value }}</div>
-            </div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">Fax</div>
-                <div class="hnOpua">{{ store.field_clinic_fax.value }}</div>
-            </div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">Clinic Address
-                </div>
-                <div class="hnOpua">
-                    <p>{{ store.address_one.value }}</p>
-                    <div class="bJCWne">
-                        <iframe width="100%" height="200" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{ store.latitude.value }},{{ store.longitude.value }}&amp;key={{ key }}"></iframe>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            <div class="bXXHPz">
-                <div class="jBxOzO">Emergency Service
-                </div>
-                <div class="hnOpua">{{ doctor.field_emergency_service.value }}</div>
-            </div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">Emergency Service Contact
-                </div>
-                <div class="hnOpua">{{ doctor.field_emergency_service_contact.value }}</div>
-            </div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">Out-going Services
-                </div>
-                <div class="hnOpua">{{ doctor.field_out_going_services.value }}</div>
-            </div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">Vaccine Service
-                </div>
-                <div class="hnOpua">{{ doctor.field_vaccine_service.value }}</div>
-            </div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">Insurance Scheme Supported
-                </div>
-                <div class="hnOpua">{{ doctor.field_insurance_scheme_supported.value }}</div>
-            </div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">Medical Cards Supported
-                </div>
-                <div class="hnOpua">{{ doctor.field_medical_cards_supported.value }}</div>
-            </div>
-            <div class="bXXHPz">
-                <div class="jBxOzO">Payment Cards
-                </div>
-                <div class="hnOpua">{{ doctor.field_payment_cards.value }}</div>
+              {% for doct in doctor.field_clinic_doctor %}
+                  <p>{{ doct.value }}</p>
+              {% endfor %}
             </div>
         </div>
-        <div class="bBfiTw">
-            <div class="cxovFu">Affiliation of Hospitals</div>
-            <div class="elduio">
-                <div class="fXdYUi">
-                    {% for hospital in doctor.field_affiliation_hospital %}
-                    <a href="{{ hospital.url }}" target="_blank"
-                            class="Content__HyperLink-sc-1pqyh3d-8 yBfEW">
-                        <div class="gkTKde">
-                            <div class="Grid__Box-f9ujw0-0 kwihHI">
-                                <div class="Grid__Box-f9ujw0-0 Content__Title-sc-1pqyh3d-1 cScPFp">{{ hospital.title }}</div>
-                            </div>
-                            <button class="Button__StyledButton-sc-1ocp2z9-2 bySPsk Content__LinkButton-sc-1pqyh3d-7 hpAFsu">
-                                <i class="fa fa-external-link"></i><span
-                                        class="Button__Text-sc-1ocp2z9-1 fjQIzu"></span></button>
-                        </div>
-                    </a>
+    </div>
+
+    <div class="maps doctor-detail col-xs-6 col-md-6 col-sm-12">
+        <div class="ixbjLe">
+            <div class="cxovFu">Google Map</div>
+            <div class="bXXHPz">
+                {{ google_map }}
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12"></div>
+    <div class="table-content-date doctor-detail  col-xs-6 col-md-6 col-sm-12">
+        <div class="ixbjLe">
+            <div class="cxovFu">Name Card 卡片</div>
+            <div class="bXXHPz">
+              <img width="80%" src="{{ doctor.field_name_card.entity.field_media_image.entity.uri.value | image_style('original') }}"/>
+            </div>
+        </div>
+    </div>
+    <div class="open col-xs-6 col-md-6 col-sm-12">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#regular">REGULAR 正常時間</a></li>
+            <li><a data-toggle="tab" href="#cny">CNY HOLIDAY 農曆新年假期</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="regular" class="tab-pane fade in active">
+               <table class="regular">
+                   <thead>
+                   <th>Date 日期</th><th>Opening Hours 開診時間</th><th>Opening Hours 開診時間</th>
+                   </thead>
+                   <tbody>
+                   {% for regular in doctor.field_normal_days %}
+                   <tr>
+                       <td class="first">{{ regular.entity.field_normal_day.value }}</td>
+                       <td>{{ regular.entity.field_open_hour_1.value }}</td>
+                       <td>{{ regular.entity.field_open_hour_2.value }}</td>
+                   </tr>
+                   {% endfor %}
+                   </tbody>
+               </table>
+                <div class="noted">
+                    Opening Hours In The Week
+                </div>
+            </div>
+            <div id="cny" class="tab-pane fade">
+                <table class="cny">
+                    <thead>
+                    <th>Date 日期</th><th>Opening Hours 開診時間</th><th>Opening Hours 開診時間</th>
+                    </thead>
+                    <tbody>
+                    {% for cny in doctor.field_cny_date %}
+                        <tr>
+                            <td class="first">{{ cny.entity.field_cny_date.entity.name.value }}</td>
+                            <td>{{ cny.entity.field_open_hour_1.value }}</td>
+                            <td>{{ cny.entity.field_open_hour_2.value }}</td>
+                        </tr>
                     {% endfor %}
-
+                    </tbody>
+                </table>
+                <div class="noted">
+                    Opening Hours During CNY Holidays
                 </div>
             </div>
+
         </div>
     </div>
 

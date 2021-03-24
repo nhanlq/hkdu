@@ -53,7 +53,7 @@ use Drupal\user\UserInterface;
  *     "published" = "status",
  *   },
  *   links = {
- *     "canonical" = "/hkdu/doctor/{doctor}",
+ *     "canonical" = "/doctor/{doctor}",
  *     "add-form" = "/admin/hkdu/doctor/add",
  *     "edit-form" = "/admin/hkdu/doctor/{doctor}/edit",
  *     "delete-form" = "/admin/hkdu/doctor/{doctor}/delete",
@@ -215,7 +215,7 @@ class DoctorEntity extends EditorialContentEntityBase implements DoctorEntityInt
       ->setDisplayConfigurable('view', TRUE);
 
     $fields['name'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Name'))
+      ->setLabel(t('Clinic Title(Eng)'))
       ->setDescription(t('The name of the Doctor entity entity.'))
       ->setRevisionable(TRUE)
       ->setSettings([

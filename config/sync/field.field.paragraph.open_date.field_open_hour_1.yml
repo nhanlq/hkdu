@@ -1,0 +1,30 @@
+uuid: c012632f-8bea-4da2-a73d-424b10860351
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_open_hour_1
+    - paragraphs.paragraphs_type.open_date
+  module:
+    - field_display_label
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+  field_display_label:
+    display_label: 'Opening Hours'
+id: paragraph.open_date.field_open_hour_1
+field_name: field_open_hour_1
+entity_type: paragraph
+bundle: open_date
+label: 'Opening Hours'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
