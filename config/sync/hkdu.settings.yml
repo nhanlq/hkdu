@@ -20,7 +20,7 @@ features:
   favicon: true
   node_user_picture: true
 logo:
-  path: 'public://HKDU_LOGO_FB.jpg'
+  path: 'public://hkdu_logo.png'
   url: ''
-  use_default: false
+  use_default: true
 breadcrumb_title: 0

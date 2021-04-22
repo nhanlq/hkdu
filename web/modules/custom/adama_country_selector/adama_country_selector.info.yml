@@ -1,0 +1,7 @@
+name: 'adama_country_selector'
+type: module
+description: 'Country Selector'
+core: 9.x
+package: 'Custom Adama'
+dependencies:
+  - adama_content

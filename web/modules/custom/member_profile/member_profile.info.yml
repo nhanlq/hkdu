@@ -1,0 +1,5 @@
+name: 'member_profile'
+type: module
+description: 'Member Profile'
+core: 8.x
+package: 'HKDU'

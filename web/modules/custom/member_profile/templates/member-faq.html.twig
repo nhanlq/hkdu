@@ -1,0 +1,34 @@
+{% if faq %}
+<article class="faq-wrapper">
+  <div class="panel-group" id="accordion">
+    {% for node in faq %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ node.nid.value }}">
+            {{ node.title.value }}</a>
+        </h4>
+      </div>
+      <div id="collapse{{ node.nid.value }}" class="panel-collapse collapse">
+        <div class="panel-body">{{ node.body.value|raw }}</div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+</article><!-- Add you custom twig html here -->
+
+{% endif %}
+
+{% if uid == current_uid %}
+
+
+  <div class="edit-button col-xs-12 faq-button">
+    <div class="submit-button">
+      <a href="/admin/{{ uid }}/manage/content?destination={{ uri }}&type=faq" class="submit-btn">Manage FAQ</a>
+    </div>
+    <div class="submit-button">
+      <a href="/node/add/faq?destination={{ uri }}" class="submit-btn">Add FAQ</a>
+    </div>
+  </div>
+{% endif %}

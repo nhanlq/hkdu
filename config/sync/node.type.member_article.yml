@@ -1,0 +1,17 @@
+uuid: 922af89c-451d-4269-b12c-b6dbacb15928
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Member Article'
+type: member_article
+description: 'Article for member'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

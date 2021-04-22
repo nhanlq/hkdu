@@ -1,0 +1,8 @@
+
+adama_country_selector.country_selector_controller_index:
+  path: '/country-selector'
+  defaults:
+    _controller: '\Drupal\adama_country_selector\Controller\CountrySelectorController::index'
+    _title: 'index'
+  requirements:
+    _permission: 'access content'

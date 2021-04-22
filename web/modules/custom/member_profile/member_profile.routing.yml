@@ -1,0 +1,32 @@
+
+member_profile.profile_controller_profile:
+  path: '/user/{uid}/member/profile'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\ProfileController::profile'
+    _title: 'Profile'
+  requirements:
+    _permission: 'access content'
+
+member_profile.member_faq_controller_faq:
+  path: '/user/{uid}/member/faq'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\MemberFaqController::faq'
+    _title: 'Knowledge Databases'
+  requirements:
+    _permission: 'access content'
+
+member_profile.article_controller_article:
+  path: '/user/{uid}/member/article'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\ArticleController::article'
+    _title: 'Bulletin And Articles'
+  requirements:
+    _permission: 'access content'
+
+member_profile.gallery_controller_gallery:
+  path: '/user/{uid}/member/galleries'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\GalleryController::gallery'
+    _title: 'Media Galleries'
+  requirements:
+    _permission: 'access content'

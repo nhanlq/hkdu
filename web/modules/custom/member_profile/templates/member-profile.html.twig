@@ -1,0 +1,125 @@
+<article{{ attributes.addClass(classes) }}>
+  {% if doctor %}
+    {% if uid == current_uid %}
+      <div class="edit-button col-xs-12">
+        <div class="submit-button">
+          <a href="/admin/hkdu/doctor/{{ doctor.id.value }}/edit?destination={{ uri }}" class="submit-btn">Update
+            profile</a>
+        </div>
+      </div>
+    {% endif %}
+    <div class="title-header col-xs-12">
+      <h1 class="title-doctor">{{ doctor.name.value }}</h1>
+      <p class="chinese-title">{{ doctor.field_clinic_title_cn.value }}</p>
+    </div>
+    <div class="location doctor-detail col-xs-6 col-md-6 col-sm-12">
+
+      <div class="ixbjLe">
+        <div class="cxovFu">Location 地點</div>
+        <p>{{ doctor.field_clinic_address_cn.value }}</p>
+        <p>{{ doctor.field_clinic_address.value }}</p>
+      </div>
+
+      <div class="ixbjLe">
+        <div class="cxovFu">Registration 註羸</div>
+        <div class="phone">
+          <div class="jBxOzO">Clinic Phone</div>
+          {% for phone in doctor.field_clinic_phone %}
+            <p>{{ phone.value }}</p>
+          {% endfor %}
+        </div>
+        <div class="email">
+          <div class="jBxOzO">Clinic Email</div>
+          {% for email in doctor.field_clinic_email %}
+            <p>{{ email.value }}</p>
+          {% endfor %}
+        </div>
+
+      </div>
+      <div class="ixbjLe">
+        <div class="cxovFu">Doctors 醫生</div>
+        <div class="bXXHPz">
+          {% for doct in doctor.field_clinic_doctor %}
+            <p>{{ doct.value }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="maps doctor-detail col-xs-6 col-md-6 col-sm-12">
+      <div class="ixbjLe">
+        <div class="cxovFu">Google Map</div>
+        <div class="bXXHPz">
+          {{ google_map }}
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12"></div>
+    <div class="table-content-date doctor-detail  col-xs-6 col-md-6 col-sm-12">
+      <div class="ixbjLe">
+        <div class="cxovFu">Name Card 卡片</div>
+        <div class="bXXHPz">
+          <img width="80%"
+               src="{{ doctor.field_name_card.entity.field_media_image.entity.uri.value | image_style('original') }}"/>
+        </div>
+      </div>
+    </div>
+    <div class="open col-xs-6 col-md-6 col-sm-12">
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#regular">REGULAR 正常時間</a></li>
+        <li><a data-toggle="tab" href="#cny">CNY HOLIDAY 農曆新年假期</a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="regular" class="tab-pane fade in active">
+          <table class="regular">
+            <thead>
+            <th>Date 日期</th>
+            <th>Opening Hours 開診時間</th>
+            <th>Opening Hours 開診時間</th>
+            </thead>
+            <tbody>
+            {% for regular in doctor.field_normal_days %}
+              <tr>
+                <td class="first">{{ regular.entity.field_normal_day.value }}</td>
+                <td>{{ regular.entity.field_open_hour_1.value }}</td>
+                <td>{{ regular.entity.field_open_hour_2.value }}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+          <div class="noted">
+            Opening Hours In The Week
+          </div>
+        </div>
+        <div id="cny" class="tab-pane fade">
+          <table class="cny">
+            <thead>
+            <th>Date 日期</th>
+            <th>Opening Hours 開診時間</th>
+            <th>Opening Hours 開診時間</th>
+            </thead>
+            <tbody>
+            {% for cny in doctor.field_cny_date %}
+              <tr>
+                <td class="first">{{ cny.entity.field_cny_date.entity.name.value }}</td>
+                <td>{{ cny.entity.field_open_hour_1.value }}</td>
+                <td>{{ cny.entity.field_open_hour_2.value }}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+          <div class="noted">
+            Opening Hours During CNY Holidays
+          </div>
+        </div>
+
+      </div>
+    </div>
+  {% else %}
+    {% if uid == current_uid %}
+      <div class="submit-button">
+        <a href="/admin/hkdu/doctor/add?destination={{ uri }}" class="submit-btn">Create your profile</a>
+      </div>
+    {% endif %}
+  {% endif %}
+</article><!-- Add you custom twig html here -->

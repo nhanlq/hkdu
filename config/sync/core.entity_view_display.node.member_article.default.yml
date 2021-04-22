@@ -1,0 +1,28 @@
+uuid: 23cc4ba2-f7a8-4746-bce2-3ce4f2d41b9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.member_article.body
+    - field.field.node.member_article.field_media
+    - node.type.member_article
+  module:
+    - text
+    - user
+id: node.member_article.default
+targetEntityType: node
+bundle: member_article
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_media: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

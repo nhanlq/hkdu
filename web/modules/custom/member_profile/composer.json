@@ -1,0 +1,13 @@
+{
+    "name": "member_profile",
+    "type": "drupal-module",
+    "description": "Member Profile",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/member_profile",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/member_profile",
+        "source": "http://cgit.drupalcode.org/member_profile",
+    },
+}

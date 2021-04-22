@@ -1,0 +1,70 @@
+<?php
+
+/**
+ * @file
+ * Contains member_profile.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function member_profile_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the member_profile module.
+    case 'help.page.member_profile':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Member Profile') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function member_profile_theme($existing, $type, $theme, $path) {
+  return [
+    'member_profile' => [
+      'variables' => [
+        'google_map' => NULL,
+        'doctor' => NULL,
+        'uri' => NULL,
+        'uid' => NULL,
+        'current_uid' => NULL,
+      ],
+    ],
+    'member_faq' => [
+      'variables' => [
+        'faq' => NULL,
+        'uri' => NULL,
+        'uid' => NULL,
+        'current_uid' => NULL,
+      ],
+    ],
+    'member_article' => [
+      'variables' => [
+        'article' => NULL,
+        'uri' => NULL,
+        'uid' => NULL,
+        'current_uid' => NULL,
+      ],
+    ],
+    'member_gallery' => [
+      'variables' => [
+        'media' => NULL,
+        'uri' => NULL,
+        'uid' => NULL,
+        'current_uid' => NULL,
+      ],
+    ],
+    'member_menu' => [
+      'variables' => ['uid' => NULL],
+      'path' => $path . '/templates/',
+      'template' => 'member-menu',
+    ],
+  ];
+}
