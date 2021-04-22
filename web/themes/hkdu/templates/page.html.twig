@@ -124,11 +124,15 @@
 
             {# Content #}
             {% set content_classes = [
-            page.sidebar_first and page.sidebar_second ? 'col-sm-12',
-            page.sidebar_first and page.sidebar_second is empty ? 'col-sm-12',
-            page.sidebar_second and page.sidebar_first is empty ? 'col-sm-12',
-            page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
+            page.sidebar_profile_first and page.sidebar_profile_first ? 'col-sm-8' : 'col-sm-12'
             ] %}
+          {% if page.sidebar_profile_first %}
+            {% block sidebar_profile_first %}
+              <aside class="col-sm-4" role="complementary">
+                {{ page.sidebar_profile_first }}
+              </aside>
+            {% endblock %}
+          {% endif %}
             <section{{ content_attributes.addClass(content_classes) }}>
 
                 {# Highlighted #}

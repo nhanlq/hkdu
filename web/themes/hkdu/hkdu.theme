@@ -43,6 +43,12 @@ function hkdu_preprocess_page(&$variables) {
   $variables['#attached']['library'][] = 'hkdu/caption-hkdu';
 }
 
+function hkdu_preprocess_node(&$variables) {
+  if($variables['node']->getType() == 'image_gallery'){
+    $variables['#attached']['library'][] = 'hkdu/lightbox-hkdu';
+  }
+}
+
 /**
  * Implements hook_preprocess_menu().
  */

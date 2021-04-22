@@ -2751,6 +2751,31 @@ table.cny td.first{
     border: 1px solid #e0e0e0;
     padding:20px;
 }
+.member-menu li{
+    list-style: none;
+    padding: 5px 10px;
+    background-color: #ddd;
+    margin-bottom: 5px;
+}
+.member-menu{
+    width: 85%;
+    padding: 0px;
+    margin-top: 20px;
+}
+.faq-button{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.faq-wrapper, .article-wrapper{
+    margin-top: 20px;
+}
+h1.page-header span{
+    font-weight: bolder;
+    font-size: 24px;
+}
+.page-node-type-member-article .breadcrumb, .page-node-type-image-gallery .breadcrumb{
+    display: none;
+}
 
 @media screen and (min-width: 770px) {
     .navbar.container {

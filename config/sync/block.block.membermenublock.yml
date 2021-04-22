@@ -1,0 +1,26 @@
+uuid: ad0302c3-2dcf-4f80-8747-85a9a40022cb
+langcode: en
+status: true
+dependencies:
+  module:
+    - member_profile
+    - system
+  theme:
+    - hkdu
+id: membermenublock
+theme: hkdu
+region: sidebar_profile_first
+weight: 0
+provider: null
+plugin: member_menu_block
+settings:
+  id: member_menu_block
+  label: 'Member Menu block'
+  provider: member_profile
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/user/*'
+    negate: false
+    context_mapping: {  }

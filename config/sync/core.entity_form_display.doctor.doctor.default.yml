@@ -172,4 +172,29 @@ content:
       match_limit: 10
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_affiliation_hospital: true
+  field_basic_qualifications: true
+  field_clinic_fax: true
+  field_clinic_name: true
+  field_correspondence_address: true
+  field_email: true
+  field_emergency_service: true
+  field_emergency_service_contact: true
+  field_fax: true
+  field_gender: true
+  field_insurance_scheme_supported: true
+  field_joining_iteration: true
+  field_language: true
+  field_medical_cards_supported: true
+  field_membership_no: true
+  field_mobile: true
+  field_out_going_services: true
+  field_payment_cards: true
+  field_photo: true
+  field_professional_qualification: true
+  field_recognized_specialties: true
+  field_registration_no: true
+  field_vaccine_service: true
+  field_wechat: true
+  field_whatsapp: true
