@@ -1,21 +1,23 @@
-uuid: 7879c4d6-77bb-4fb4-863d-c24519f1ba05
+uuid: 9aacc515-a726-4599-b9d9-e68a8b69de3c
 langcode: en
 status: true
 dependencies:
   module:
-    - doctor
     - field_permissions
+    - node
+    - taxonomy
 third_party_settings:
   field_permissions:
     permission_type: public
-id: doctor.field_clinic_email
-field_name: field_clinic_email
-entity_type: doctor
-type: email
-settings: {  }
+id: node.field_category
+field_name: field_category
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

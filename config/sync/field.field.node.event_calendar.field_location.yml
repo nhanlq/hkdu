@@ -1,10 +1,10 @@
-uuid: 2131eed9-bc79-489d-8ce2-358bff6516e4
+uuid: 0b0b339d-1e08-428b-9062-5a4126a1528e
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_normal_day
-    - paragraphs.paragraphs_type.open_date
+    - field.storage.node.field_location
+    - node.type.event_calendar
   module:
     - unique_field_ajax
 third_party_settings:
@@ -13,11 +13,11 @@ third_party_settings:
     per_lang: 0
     use_ajax: 0
     message: ''
-id: paragraph.open_date.field_normal_day
-field_name: field_normal_day
-entity_type: paragraph
-bundle: open_date
-label: 'Normal Day'
+id: node.event_calendar.field_location
+field_name: field_location
+entity_type: node
+bundle: event_calendar
+label: Location
 description: ''
 required: false
 translatable: false

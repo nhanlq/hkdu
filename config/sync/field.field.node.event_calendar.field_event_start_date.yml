@@ -1,20 +1,20 @@
-uuid: 1ba4e77c-76a1-4292-8a8c-d9bc44653e15
+uuid: 16e4b717-f819-4443-8f92-62fbf23b5bfc
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_date
+    - field.storage.node.field_event_start_date
     - node.type.event_calendar
   module:
     - datetime
-id: node.event_calendar.field_date
-field_name: field_date
+id: node.event_calendar.field_event_start_date
+field_name: field_event_start_date
 entity_type: node
 bundle: event_calendar
-label: Date
+label: 'Event Start Date'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }

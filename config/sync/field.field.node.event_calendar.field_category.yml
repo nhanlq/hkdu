@@ -1,11 +1,11 @@
-uuid: 3e5a2f01-56f6-4aef-8db7-8159f67fa1b9
+uuid: d2e2186f-71fa-4f93-9f38-3024320d66bf
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_cny_date
-    - paragraphs.paragraphs_type.cny
-    - taxonomy.vocabulary.cny
+    - field.storage.node.field_category
+    - node.type.event_calendar
+    - taxonomy.vocabulary.calendar_event
   module:
     - unique_field_ajax
 third_party_settings:
@@ -14,11 +14,11 @@ third_party_settings:
     per_lang: 0
     use_ajax: 0
     message: ''
-id: paragraph.cny.field_cny_date
-field_name: field_cny_date
-entity_type: paragraph
-bundle: cny
-label: 'CNY Date'
+id: node.event_calendar.field_category
+field_name: field_category
+entity_type: node
+bundle: event_calendar
+label: Category
 description: ''
 required: false
 translatable: false
@@ -28,7 +28,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      cny: cny
+      calendar_event: calendar_event
     sort:
       field: name
       direction: asc

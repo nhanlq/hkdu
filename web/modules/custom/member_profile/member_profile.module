@@ -61,10 +61,57 @@ function member_profile_theme($existing, $type, $theme, $path) {
         'current_uid' => NULL,
       ],
     ],
+    'member_event' => [
+      'variables' => [
+        'event' => NULL,
+        'uri' => NULL,
+        'uid' => NULL,
+        'current_uid' => NULL,
+      ],
+    ],
     'member_menu' => [
       'variables' => ['uid' => NULL],
       'path' => $path . '/templates/',
       'template' => 'member-menu',
     ],
   ];
+}
+
+function member_profile_entity_presave(
+  Drupal\Core\Entity\EntityInterface $entity
+) {
+
+  if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'event_calendar') {
+    event_ICSFile($entity);
+  }
+}
+
+
+function event_ICSFile($entity) {
+  $start = str_replace('-', '', $entity->get('field_event_start_date')->value);
+  $start = str_replace(':', '', $start);
+  $end = str_replace('-', '', $entity->get('field_event_end_date')->value);
+  $end = str_replace(':', '', $end);
+  $name = $entity->get('title')->value;
+  $location = $entity->get('field_location')->value;
+  $description = strip_tags($entity->get('body')->value);
+  $filename = 'ICS_event_node_' . $entity->get('nid')->value . '.ics';
+  $data = "BEGIN:VCALENDAR\nVERSION:2.0\nMETHOD:PUBLISH\nBEGIN:VEVENT\nDTSTART:" . $start . "\nDTEND:" . $end . "\nLOCATION:" . $location . "\nTRANSP: OPAQUE\nSEQUENCE:0\nUID:\nDTSTAMP:" . date("Ymd\THis\Z") . "\nSUMMARY:" . $name . "\nDESCRIPTION:" . $description . "\nPRIORITY:1\nCLASS:PUBLIC\nBEGIN:VALARM\nTRIGGER:-PT10080M\nACTION:DISPLAY\nDESCRIPTION:Reminder\nEND:VALARM\nEND:VEVENT\nEND:VCALENDAR\n";
+  $root = getcwd();
+  $filepath = $root . '/sites/default/files/ics/' . $filename;
+  file_put_contents($filepath, $data);
+
+  //create file object
+  $file = Drupal\file\Entity\File::create([
+    'uid' => \Drupal::currentUser()->id(),
+    'filename' => $filename,
+    'uri' => 'public://ics/' . $filename,
+    'status' => 1,
+  ]);
+  $file->save();
+  //add file to field
+  $entity->set('field_ics', [
+    'target_id' => $file->id(),
+    'alt' => $filename,
+  ]);
 }

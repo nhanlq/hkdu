@@ -15,7 +15,7 @@ entity_type: node
 type: calendar_download_type
 settings:
   date_field_reference: field_date
-  file_directory: ics
+  file_directory: calendar
   is_ascii: false
   uri_scheme: public
 module: ics_field

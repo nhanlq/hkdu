@@ -1,0 +1,27 @@
+uuid: 475d8e1e-3e16-4545-9e40-11a8fd0998a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ics
+    - node.type.event_calendar
+  module:
+    - file
+id: node.event_calendar.field_ics
+field_name: field_ics
+entity_type: node
+bundle: event_calendar
+label: ICS
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: ics
+  file_extensions: ics
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file
