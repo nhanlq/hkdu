@@ -11,7 +11,7 @@ id: node.event_calendar.body
 field_name: body
 entity_type: node
 bundle: event_calendar
-label: Body
+label: Description
 description: ''
 required: false
 translatable: true

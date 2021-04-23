@@ -30,3 +30,11 @@ member_profile.gallery_controller_gallery:
     _title: 'Media Galleries'
   requirements:
     _permission: 'access content'
+
+member_profile.event_calendar_controller_event:
+  path: '/user/{uid}/member/event/calendar'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\EventCalendarController::event'
+    _title: 'Event Calendar'
+  requirements:
+    _permission: 'access content'

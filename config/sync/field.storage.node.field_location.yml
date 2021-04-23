@@ -1,16 +1,16 @@
-uuid: 7dedc23c-7268-46c5-a840-fd7dccccb946
+uuid: f5a7536e-c5e1-4ab7-af98-3178af9dca4e
 langcode: en
 status: true
 dependencies:
   module:
-    - doctor
     - field_permissions
+    - node
 third_party_settings:
   field_permissions:
     permission_type: public
-id: doctor.field_clinic_doctor
-field_name: field_clinic_doctor
-entity_type: doctor
+id: node.field_location
+field_name: field_location
+entity_type: node
 type: string
 settings:
   max_length: 255
@@ -18,7 +18,7 @@ settings:
   case_sensitive: false
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

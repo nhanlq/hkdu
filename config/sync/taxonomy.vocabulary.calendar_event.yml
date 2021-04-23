@@ -1,0 +1,8 @@
+uuid: a4a03738-e8af-4644-b484-a380ad9940f3
+langcode: en
+status: true
+dependencies: {  }
+name: 'Calendar Event'
+vid: calendar_event
+description: ''
+weight: 0

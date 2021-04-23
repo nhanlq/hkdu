@@ -1,22 +1,24 @@
-uuid: d543178e-8d34-414c-9ba9-0a46d27d86fc
+uuid: 632faffd-3ea4-4682-b6b1-df4ceb3c8e78
 langcode: en
 status: true
 dependencies:
   module:
     - field_permissions
-    - paragraphs
+    - file
+    - node
 third_party_settings:
   field_permissions:
     permission_type: public
-id: paragraph.field_open_hour_1
-field_name: field_open_hour_1
-entity_type: paragraph
-type: string
+id: node.field_ics
+field_name: field_ics
+entity_type: node
+type: file
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
-module: core
+  display_field: false
+  display_default: false
+  uri_scheme: public
+  target_type: file
+module: file
 locked: false
 cardinality: 1
 translatable: true

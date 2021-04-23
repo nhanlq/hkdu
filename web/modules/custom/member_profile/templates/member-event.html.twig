@@ -1,0 +1,41 @@
+{% if event %}
+  <article class="event-calendar-wrapper">
+    <div class="about-us-wrapper">
+      <div class="Grid__Box-f9ujw0-0 ArticleCardList__ListBox-sc-1nl1zr5-0 hKtiWd">
+        {% for term in event %}
+          <div class="header-event-group">
+            {{ term.name }}
+          </div>
+          {% for node in term.event %}
+            <div class="Grid__Box-f9ujw0-0 hftOhy col-xs-12 col-sm-12 col-lg-12">
+                <div class="Card__Container-sc-1phbti1-3 kZuHUf">
+                  <div class="CardMeta__MetaContent-mwcsl3-0 isAOXn">
+                    <a href="{{ path('entity.node.canonical', {'node': node.nid.value}) }}"><h3 class="CardMeta__Title-mwcsl3-1 flCmuI">{{ node.title.value }}</h3></a>
+                    <span class="kASIaT">Date: {{ node.field_event_start_date.value|date("Y-m-d H:i:s") }} - {{ node.field_event_end_date.value|date("Y-m-d H:i:s") }}</span>
+                    <div class="CardMeta__Content-mwcsl3-3 eclIQj">
+                      <div width="100%" class="Group__List-nb4rtt-0 gPcWZD">
+                        <a href="{{ node.download }}">Download ICS</a><a target="_blank" href="{{ node.google_calendar }}">Add to Google
+                          Calendar</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+      {{ pager }}
+    </div><!-- Add you custom twig html here -->
+  </article>
+{% endif %}
+{% if uid == current_uid %}
+  <div class="edit-button col-xs-12 faq-button">
+    <div class="submit-button">
+      <a href="/admin/{{ uid }}/manage/content?destination={{ uri }}&type=event_calendar" class="submit-btn">Manage
+        Event</a>
+    </div>
+    <div class="submit-button">
+      <a href="/node/add/event_calendar?destination={{ uri }}" class="submit-btn">Add Event</a>
+    </div>
+  </div>
+{% endif %}
