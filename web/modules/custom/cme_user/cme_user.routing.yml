@@ -29,7 +29,7 @@ cme_user.report_controller_report:
   requirements:
     _permission: 'access content'
 cme_user.report:
-  path: '/hkdu/{uid}/report'
+  path: '/user/{uid}/member/report'
   defaults:
     _form: '\Drupal\cme_user\Form\Report'
     _title: 'Report Generation '
