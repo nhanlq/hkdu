@@ -19,7 +19,7 @@ cme_user.user_qrcode_controller_qrcode:
     _controller: '\Drupal\cme_user\Controller\UserQrcodeController::qrcode'
     _title: 'Account Profile'
   requirements:
-    _permission: 'access content'
+    _permission: 'access user profiles'
 
 cme_user.report_controller_report:
   path: '/report/{uid}/{from}/{to}/{time}'
@@ -34,4 +34,4 @@ cme_user.report:
     _form: '\Drupal\cme_user\Form\Report'
     _title: 'Report Generation '
   requirements:
-    _access: 'TRUE'
+    _permission: 'access user profiles'
