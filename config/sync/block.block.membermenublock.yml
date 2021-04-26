@@ -5,6 +5,7 @@ dependencies:
   module:
     - member_profile
     - system
+    - user
   theme:
     - hkdu
 id: membermenublock
@@ -24,3 +25,19 @@ visibility:
     pages: '/user/*'
     negate: false
     context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+      administrator: administrator
+      admins: admins
+      doctor: doctor
+      hkdu_members: hkdu_members
+      drug_suppliers: drug_suppliers
+      council_members: council_members
+      cme_member: cme_member
+      invited: invited
+      tester: tester
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
