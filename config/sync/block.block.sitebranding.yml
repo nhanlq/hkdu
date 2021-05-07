@@ -9,7 +9,7 @@ dependencies:
 id: sitebranding
 theme: hkdu
 region: navigation
-weight: -21
+weight: -20
 provider: null
 plugin: system_branding_block
 settings:

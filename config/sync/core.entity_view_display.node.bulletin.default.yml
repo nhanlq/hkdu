@@ -1,0 +1,31 @@
+uuid: cbfe87cd-ca7d-4e27-a46c-b100c57abf76
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.bulletin.field_file
+    - node.type.bulletin
+  module:
+    - user
+id: node.bulletin.default
+targetEntityType: node
+bundle: bulletin
+mode: default
+content:
+  field_file:
+    type: entity_reference_entity_view
+    weight: 101
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,116 @@
+{% if news %}
+  <div class="leBAWZ about-home">
+    <div class="dacuFr">
+      <div display="flex" class="dUVjnM">
+        <div class="ffcmhf">Council News</div>
+        <a variant="default" class="jzqdsa" href="/member-area/council-news"><span
+            class="fjQIzu">More</span></a></div>
+    </div>
+    <div display="flex" class="cFlllN">
+      {% for node in news %}
+        <div width="1,0.3333333333333333" class="bwndEN event {{ loop.index }}
+            {% if loop.index%3 ==0 %} end {% endif %}"><a class=" gsvDvo"
+                                                          href="{{ path('entity.node.canonical', {'node': node.nid.value}) }}">
+            <div style="background-image:
+            {% if node.field_media is not empty %}
+              url({{ node.field_media.entity.field_media_image.entity.uri.value | image_style('original') }})
+            {% endif %}
+              " class="dCVoiR"></div>
+            <div class="kZuHUf">
+              <div class="jdoHDE">
+                <div class="cLNuli">
+                  <div class="fwejcs">
+                    {# <div class="iFBalX"></div> #}
+                    {{ node.Owner.name.value }}
+                  </div>
+                  <span class="kVIvyA">{{ node.created.value|date("Y-m-d") }}</span></div>
+              </div>
+              <div class="isAOXn">
+                <div>
+                  <h3 class="flCmuI">{{ node.title.value }}</h3>
+                  <p class="itSPxh">{{ node.body.value|striptags|raw }}</p></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+
+{% if forum %}
+  <div class="leBAWZ about-home">
+    <div class="dacuFr">
+      <div display="flex" class="dUVjnM">
+        <div class="ffcmhf">Member's Forum</div>
+        <a variant="default" class="jzqdsa" href="/member-area/forum"><span
+            class="fjQIzu">More</span></a></div>
+    </div>
+    <div display="flex" class="cFlllN">
+      {% for node in forum %}
+        <div width="1,0.3333333333333333" class="bwndEN event {{ loop.index }}
+            {% if loop.index%3 ==0 %} end {% endif %}"><a class=" gsvDvo"
+                                                          href="{{ path('entity.node.canonical', {'node': node.nid.value}) }}">
+            <div style="background-image:
+            {% if node.field_media is not empty %}
+              url({{ node.field_media.entity.field_media_image.entity.uri.value | image_style('original') }})
+            {% endif %}
+              " class="dCVoiR"></div>
+            <div class="kZuHUf">
+              <div class="jdoHDE">
+                <div class="cLNuli">
+                  <div class="fwejcs">
+                    {# <div class="iFBalX"></div> #}
+                    {{ node.Owner.name.value }}
+                  </div>
+                  <span class="kVIvyA">{{ node.created.value|date("Y-m-d") }}</span></div>
+              </div>
+              <div class="isAOXn">
+                <div>
+                  <h3 class="flCmuI">{{ node.title.value }}</h3>
+                  <p class="itSPxh">{{ node.body.value|striptags|raw }}</p></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+
+{% if bulletin %}
+  <div class="leBAWZ about-home">
+    <div class="dacuFr">
+      <div display="flex" class="dUVjnM">
+        <div class="ffcmhf">Latest Bulletins</div>
+        <a variant="default" class="jzqdsa" href="/member-area/bulletin"><span
+            class="fjQIzu">More</span></a></div>
+    </div>
+    <div display="flex" class="dYgNtr">
+      <div display="flex" class="bwcSmZ">
+        {% for node in bulletin %}
+          <div width="1,0.3333333333333333" class="culkFL">
+            <a target="_blank" height="120px"
+               href="{{ file_url(node.field_file.entity.field_media_document.entity.uri.value) }}" class="htzoqv">
+              <div class="kZuHUf">
+                <div class="isAOXn">
+                  <div><h3 class="flCmuI">{{ node.title.value }}</h3></div>
+                  <div class="eclIQj">
+                    <div class="jamtIE" width="100%"><span
+                        rel="noopener" target="_blank" color="#4A90E2" font-size="13px"
+                        class="fLaWbo">
+                                    <i font-size="20" name="LINK" color="icon" class="fal fa fa-paperclip"></i>
+                                    {{ node.field_file.entity.field_media_document.entity.filename.value }}
+                                </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+

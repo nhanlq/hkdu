@@ -4,13 +4,14 @@ status: true
 dependencies:
   module:
     - epharm
+    - system
     - user
   theme:
     - hkdu
 id: menuepharmblock_2
 theme: hkdu
 region: navigation_collapsible
-weight: -15
+weight: -21
 provider: null
 plugin: menu_epharm_block
 settings:
@@ -31,3 +32,8 @@ visibility:
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+  request_path:
+    id: request_path
+    pages: "/e-pharm\r\n/e-pharm/*"
+    negate: false
+    context_mapping: {  }

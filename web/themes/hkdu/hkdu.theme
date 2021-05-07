@@ -21,6 +21,9 @@ function hkdu_preprocess_html(&$variables) {
 
     $variables['attributes']['class'][] = 'doctor-detail-page';
   }
+  if($path[1] == 'member-area' && empty($path[2])){
+    $variables['attributes']['class'][] = 'doctor-detail-page';
+  }
   if ($path[1] == 'user' && $path[2] == 'login' || $path[1] == 'user' && $path[2] == 'reset' || $path[1] == 'user' && $path[2] == 'password') {
     $variables['attributes']['class'][] = 'page-user-login';
   }
@@ -44,7 +47,7 @@ function hkdu_preprocess_page(&$variables) {
 }
 
 function hkdu_preprocess_node(&$variables) {
-  if($variables['node']->getType() == 'image_gallery'){
+  if ($variables['node']->getType() == 'image_gallery') {
     $variables['#attached']['library'][] = 'hkdu/lightbox-hkdu';
   }
 }
@@ -119,7 +122,8 @@ function template_preprocess_doctor(array &$variables) {
   $path = explode('/', $current_path);
   $id = $path[2];
   $variables['doctor'] = DoctorEntity::load($id);
-  $api_key = \Drupal::config('google_map_field.settings')->get('google_map_field_apikey');
+  $api_key = \Drupal::config('google_map_field.settings')
+    ->get('google_map_field_apikey');
   $elements = [];
   $element = [
     '#theme' => 'google_map_field_embed',

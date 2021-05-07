@@ -1,0 +1,8 @@
+uuid: edd41a29-55a0-4efe-a66a-bd58ec4e3144
+langcode: en
+status: true
+dependencies: {  }
+id: member-area
+label: 'Member Area'
+description: ''
+locked: false

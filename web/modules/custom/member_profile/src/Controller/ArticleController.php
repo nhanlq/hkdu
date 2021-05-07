@@ -15,14 +15,11 @@ class ArticleController extends ControllerBase {
    * @return string
    *   Return Hello string.
    */
-  public function article($uid) {
+  public function article() {
     return array(
       'abouts' => [
         '#theme' => array('member_article'),
-        '#article' => $this->getArticles($uid),
-        '#uri' => \Drupal::service('path.current')->getPath(),
-        '#uid' => $uid,
-        '#current_uid' => \Drupal::currentUser()->id(),
+        '#article' => $this->getArticles(),
       ],
 
       'pager' => [
@@ -31,12 +28,11 @@ class ArticleController extends ControllerBase {
     );
   }
 
-  public function getArticles($uid)
+  public function getArticles()
   {
     $ids = \Drupal::entityQuery('node')
       ->condition('type', 'member_article')
       ->condition('status', 1)
-      ->condition('uid', $uid)
       ->sort('created', 'DESC')
       ->pager(10)
       ->execute();

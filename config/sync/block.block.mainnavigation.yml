@@ -11,7 +11,7 @@ dependencies:
 id: mainnavigation
 theme: hkdu
 region: navigation
-weight: -19
+weight: -18
 provider: null
 plugin: 'system_menu_block:main'
 settings:
@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/e-pharm\r\n/e-pharm/*\r\n/cme\r\n/cme/*"
+    pages: "/e-pharm\r\n/e-pharm/*\r\n/cme\r\n/cme/*\r\n/member-area\r\n/member-area/*"
     negate: true
     context_mapping: {  }

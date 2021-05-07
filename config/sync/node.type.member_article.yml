@@ -8,7 +8,7 @@ third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: 'Member Article'
+name: 'Council News'
 type: member_article
 description: 'Article for member'
 help: ''

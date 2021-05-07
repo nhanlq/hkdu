@@ -1,0 +1,36 @@
+uuid: 1aa9ddb0-75d4-4248-985c-99e88622b59e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ads.body
+    - field.field.node.ads.field_commerce
+    - field.field.node.ads.field_media
+    - node.type.ads
+  module:
+    - text
+    - user
+id: node.ads.teaser
+targetEntityType: node
+bundle: ads
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_commerce: true
+  field_media: true
+  langcode: true
+  search_api_excerpt: true

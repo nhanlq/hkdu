@@ -15,13 +15,10 @@ class MemberFaqController extends ControllerBase {
    * @return string
    *   Return Hello string.
    */
-  public function faq($uid) {
+  public function faq() {
     return [
       '#theme' => ['member_faq'],
-      '#faq' => $this->getFAQ($uid),
-      '#uri' => \Drupal::service('path.current')->getPath(),
-      '#uid' => $uid,
-      '#current_uid' => \Drupal::currentUser()->id(),
+      '#faq' => $this->getFAQ(),
     ];
   }
 
@@ -30,10 +27,9 @@ class MemberFaqController extends ControllerBase {
    *
    * @return \Drupal\node\Entity\Node
    */
-  public function getFAQ($uid) {
+  public function getFAQ() {
     $ids = \Drupal::entityQuery('node')
       ->condition('type', 'faq')
-      ->condition('uid', $uid)
       ->condition('status', 1)
       ->execute();
     $nodes = \Drupal\node\Entity\Node::loadMultiple($ids);

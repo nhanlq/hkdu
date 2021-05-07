@@ -3,7 +3,16 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.ads
     - node.type.article
+    - node.type.bulletin
+    - node.type.committee_news
+    - node.type.event_calendar
+    - node.type.faq
+    - node.type.forum
+    - node.type.image_gallery
+    - node.type.know
+    - node.type.member_article
     - node.type.page
   module:
     - about
@@ -147,7 +156,16 @@ type_settings:
     news:
       - news
     node:
+      - ads
       - article
+      - bulletin
+      - committee_news
+      - event_calendar
+      - faq
+      - forum
+      - image_gallery
+      - know
+      - member_article
       - page
     pharm_dir:
       - pharm_dir

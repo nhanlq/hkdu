@@ -1,0 +1,11 @@
+uuid: a6ac319f-7548-4796-a726-925acae81df2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.ads
+id: node.ads
+target_entity_type_id: node
+target_bundle: ads
+default_langcode: site_default
+language_alterable: false
