@@ -19,7 +19,7 @@ member_profile.article_controller_article:
   path: '/member-area/council-news'
   defaults:
     _controller: '\Drupal\member_profile\Controller\ArticleController::article'
-    _title: 'Bulletin And Articles'
+    _title: 'Council News'
   requirements:
     _permission: 'access user profiles'
 
