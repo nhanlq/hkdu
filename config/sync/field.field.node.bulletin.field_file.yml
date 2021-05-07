@@ -1,0 +1,28 @@
+uuid: a4a3e4be-f1c6-49e6-8ea9-a78bc014ce79
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_file
+    - media.type.document
+    - node.type.bulletin
+id: node.bulletin.field_file
+field_name: field_file
+entity_type: node
+bundle: bulletin
+label: Media
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

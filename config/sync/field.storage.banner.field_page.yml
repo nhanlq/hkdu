@@ -62,6 +62,9 @@ settings:
     -
       value: pharm-dir
       label: 'Pharm Dir'
+    -
+      value: member-area
+      label: 'Member Area'
   allowed_values_function: ''
 module: options
 locked: false

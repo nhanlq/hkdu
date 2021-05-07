@@ -9,7 +9,7 @@ dependencies:
 id: loginblock
 theme: hkdu
 region: navigation
-weight: -16
+weight: -14
 provider: null
 plugin: login_block
 settings:

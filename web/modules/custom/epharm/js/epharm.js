@@ -7,6 +7,8 @@
                     window.location.href = "/e-pharm";
                 }else if($(this).val()=='cme'){
                     window.location.href = "/cme";
+                }else if($(this).val()=='member-area') {
+                  window.location.href = "/member-area";
                 }else{
                     window.location.href = "/";
                 }

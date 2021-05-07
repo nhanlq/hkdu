@@ -1,0 +1,22 @@
+uuid: fdeb65f5-4d0d-4be0-abc6-16bbeebe45db
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.committee_news
+id: node.committee_news.promote
+field_name: promote
+entity_type: node
+bundle: committee_news
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

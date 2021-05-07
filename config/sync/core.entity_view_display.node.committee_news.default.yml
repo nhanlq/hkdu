@@ -1,0 +1,39 @@
+uuid: 81830870-1041-4c93-b74d-07ea25f6310c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.committee_news.body
+    - field.field.node.committee_news.field_media
+    - node.type.committee_news
+  module:
+    - text
+    - user
+id: node.committee_news.default
+targetEntityType: node
+bundle: committee_news
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_media:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

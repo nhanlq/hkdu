@@ -10,7 +10,7 @@ dependencies:
 id: menuepharmblock
 theme: hkdu
 region: navigation
-weight: -20
+weight: -19
 provider: null
 plugin: menu_epharm_block
 settings:

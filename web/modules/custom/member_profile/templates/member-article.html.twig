@@ -33,13 +33,3 @@
   </div><!-- Add you custom twig html here -->
 </article>
 {% endif %}
-{% if uid == current_uid %}
-  <div class="edit-button col-xs-12 faq-button">
-    <div class="submit-button">
-      <a href="/admin/{{ uid }}/manage/content?destination={{ uri }}&type=member_article" class="submit-btn">Manage Articles</a>
-    </div>
-    <div class="submit-button">
-      <a href="/node/add/member_article?destination={{ uri }}" class="submit-btn">Add Article</a>
-    </div>
-  </div>
-{% endif %}

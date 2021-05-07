@@ -1,0 +1,17 @@
+uuid: 694ed06d-4055-4d7e-9bab-f41c32de645e
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Drug Databases'
+type: know
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

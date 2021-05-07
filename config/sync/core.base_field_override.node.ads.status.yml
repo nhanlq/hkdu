@@ -1,0 +1,22 @@
+uuid: 3581bb58-4bee-4114-8817-07341d88421e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.ads
+id: node.ads.status
+field_name: status
+entity_type: node
+bundle: ads
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

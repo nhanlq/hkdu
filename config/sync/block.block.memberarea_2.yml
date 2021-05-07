@@ -1,0 +1,30 @@
+uuid: c4f976af-d659-4035-b352-51de8b761ea0
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.member-area
+  module:
+    - system
+  theme:
+    - hkdu
+id: memberarea_2
+theme: hkdu
+region: navigation_collapsible
+weight: -17
+provider: null
+plugin: 'system_menu_block:member-area'
+settings:
+  id: 'system_menu_block:member-area'
+  label: 'Member Area'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    pages: "/member-area\r\n/member-area/*"
+    negate: false
+    context_mapping: {  }

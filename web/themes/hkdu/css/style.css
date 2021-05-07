@@ -1392,7 +1392,9 @@ form.search {
   margin-left: -10px;
 }
 
-.menu--epharm > li > a, .menu--cme > li > a {
+.menu--epharm > li > a,
+.menu--cme > li > a,
+.menu--member-area > li > a{
   color: rgba(0, 0, 0, 0.7);
     font-size: 18px;
     margin-right: 16px;
@@ -2934,7 +2936,7 @@ h1.page-header span{
         width: 31%;
     }
 
-    .menu--epharm, .menu--cme {
+    .menu--epharm, .menu--cme, .menu--member-area {
         float: left;
         margin: 13px 0 0 0;
         display: flex;
@@ -3196,7 +3198,7 @@ h1.page-header span{
 }
 
 @media screen and (max-width: 767px) {
-    #block-mainnavigation, #block-epharm-2, #block-cme {
+    #block-mainnavigation, #block-epharm-2, #block-cme, #block-memberarea {
         display: none !important;
     }
     body.path-cart{

@@ -1,0 +1,34 @@
+uuid: 288c9741-b756-4193-b755-90e803b28bda
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.know.body
+    - field.field.node.know.field_media
+    - node.type.know
+  module:
+    - text
+    - user
+id: node.know.teaser
+targetEntityType: node
+bundle: know
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_media: true
+  langcode: true
+  search_api_excerpt: true

@@ -28,7 +28,7 @@
         "drupal/commerce": "^2.16",
         "drupal/commerce_pricelist": "^2.0@RC",
         "drupal/commerce_stripe": "^1.0@RC",
-        "drupal/console": "^1.0.2",
+        "drupal/console": "~1.9",
         "drupal/core": "8.9.13",
         "drupal/core-composer-scaffold": "^8.8.0",
         "drupal/csv_serialization": "^1.4",
