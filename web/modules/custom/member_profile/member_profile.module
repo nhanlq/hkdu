@@ -81,6 +81,11 @@ function member_profile_theme($existing, $type, $theme, $path) {
         'bulletin' => NULL,
       ],
     ],
+    'member_admin' => [
+      'variables' => [
+        'admin' => NULL,
+      ],
+    ],
     'member_menu' => [
       'variables' => ['uid' => NULL],
       'path' => $path . '/templates/',

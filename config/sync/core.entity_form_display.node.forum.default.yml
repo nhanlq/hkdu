@@ -4,9 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.node.forum.body
+    - field.field.node.forum.field_comments
     - field.field.node.forum.field_media
     - node.type.forum
+    - workflows.workflow.editorial
   module:
+    - comment
     - content_moderation
     - media_library
     - path
@@ -32,6 +35,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_comments:
+    weight: 123
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
   field_media:
     weight: 122
     settings:

@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.committee_news.field_media
     - node.type.committee_news
   module:
+    - media_directories_editor
     - text
     - user
 id: node.committee_news.default
@@ -17,23 +18,24 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     region: content
   field_media:
-    weight: 102
-    label: above
+    weight: 0
+    label: hidden
     settings:
-      link: true
+      dimensions:
+        image_width: ''
+        image_height: ''
+      image_style: ''
+      image_link: ''
     third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
+    type: media_directories_image_dimensions
     region: content
 hidden:
+  content_moderation_control: true
   langcode: true
+  links: true
   search_api_excerpt: true

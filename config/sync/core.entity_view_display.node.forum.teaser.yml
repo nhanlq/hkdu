@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.forum.body
+    - field.field.node.forum.field_comments
     - field.field.node.forum.field_media
     - node.type.forum
   module:
@@ -23,12 +24,18 @@ content:
       trim_length: 600
     third_party_settings: {  }
     region: content
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   links:
     weight: 100
     settings: {  }
     third_party_settings: {  }
     region: content
 hidden:
+  field_comments: true
   field_media: true
   langcode: true
   search_api_excerpt: true
