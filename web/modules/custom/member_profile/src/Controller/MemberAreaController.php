@@ -72,4 +72,10 @@ class MemberAreaController extends ControllerBase {
     $result = \Drupal\node\Entity\Node::loadMultiple($ids);
     return $result;
   }
+
+  public function memberadmin(){
+    return [
+      '#theme' => array('member_admin'),
+    ];
+  }
 }

@@ -3197,6 +3197,21 @@ h1.page-header span{
     background: none!important;
 }
 
+.bulletin-wrapper .gEzcmW {
+  box-sizing: border-box;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 32px;
+  display: inline-block;
+}
+.bulletin-wrapper .title-bullet{
+  color: rgb(69, 96, 176) !important;
+  white-space: break-spaces;
+}
+.path-node .field--name-body{
+  margin-bottom: 40px;
+}
+
 @media screen and (max-width: 767px) {
     #block-mainnavigation, #block-epharm-2, #block-cme, #block-memberarea {
         display: none !important;
