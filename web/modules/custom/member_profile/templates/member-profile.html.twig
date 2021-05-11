@@ -21,7 +21,7 @@
       </div>
 
       <div class="ixbjLe">
-        <div class="cxovFu">Registration 註羸</div>
+        <div class="cxovFu">Contact 聯絡方法</div>
         <div class="phone">
           <div class="jBxOzO">Clinic Phone</div>
           {% for phone in doctor.field_clinic_phone %}
@@ -37,7 +37,7 @@
 
       </div>
       <div class="ixbjLe">
-        <div class="cxovFu">Doctors 醫生</div>
+        <div class="cxovFu">Doctors 駐診醫生</div>
         <div class="bXXHPz">
           {% for doct in doctor.field_clinic_doctor %}
             <p>{{ doct.value }}</p>
@@ -66,16 +66,16 @@
     </div>
     <div class="open col-xs-6 col-md-6 col-sm-12">
       <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#regular">REGULAR 正常時間</a></li>
-        <li><a data-toggle="tab" href="#cny">CNY HOLIDAY 農曆新年假期</a></li>
+        <li class="active"><a data-toggle="tab" href="#regular">REGULAR <br/>正常時間</a></li>
+        <li><a data-toggle="tab" href="#cny">CNY HOLIDAY <br/>農曆新年假期</a></li>
       </ul>
       <div class="tab-content">
         <div id="regular" class="tab-pane fade in active">
           <table class="regular">
             <thead>
-            <th>Date 日期</th>
-            <th>Opening Hours 開診時間</th>
-            <th>Opening Hours 開診時間</th>
+            <th>Date <br/>日期</th>
+            <th>Opening Hours <br/>開診時間</th>
+            <th>Closing time <br/>關門時間</th>
             </thead>
             <tbody>
             {% for regular in doctor.field_normal_days %}
@@ -94,9 +94,9 @@
         <div id="cny" class="tab-pane fade">
           <table class="cny">
             <thead>
-            <th>Date 日期</th>
-            <th>Opening Hours 開診時間</th>
-            <th>Opening Hours 開診時間</th>
+            <th>Date <br/>日期</th>
+            <th>Opening Hours <br/>開診時間</th>
+            <th>Closing time <br/>關門時間</th>
             </thead>
             <tbody>
             {% for cny in doctor.field_cny_date %}
