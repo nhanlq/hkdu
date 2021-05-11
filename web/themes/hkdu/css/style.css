@@ -636,7 +636,7 @@ ul.eNSAVL li i.fa:before {
   padding-bottom: 16px;
   margin-bottom: 16px;
   border: 1px solid #d5d5d5;
-  margin: 20px 5px;
+  margin: 20px 10px;
   padding-left: 20px;
 }
 
@@ -2660,6 +2660,9 @@ a .date, a .author {
   border-bottom: 1px solid #d5d5d5;
   color: rgb(69, 96, 176);
   font-weight: bolder;
+}
+.open ul.nav{
+  margin-left: 0px;
 }
 
 .doctor-detail p {
