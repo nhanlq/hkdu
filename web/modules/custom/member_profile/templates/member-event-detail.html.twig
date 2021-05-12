@@ -92,6 +92,14 @@
   <div class="jvveZx">
     {{ event.field_description.value|raw }}
   </div>
+  <div class="jvveZx">
+    <div class="CardMeta__Content-mwcsl3-3 eclIQj">
+      <div width="100%" class="Group__List-nb4rtt-0 gPcWZD">
+        <a target="_blank" href="{{ google_calendar }}">Add to Google
+          Calendar</a>
+      </div>
+    </div>
+  </div>
   {% if event.field_external_register_link is empty %}
     {% if expired is null %}
       {% if check_event is null %}
