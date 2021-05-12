@@ -79,6 +79,14 @@ member_profile.event_calendar_controller_event:
   requirements:
     _permission: 'access user profiles'
 
+member_profile.event_calendar_controller_event_detail:
+  path: '/member-area/event/{id}'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\EventCalendarController::detail'
+    _title_callback: '\Drupal\member_profile\Controller\EventCalendarController::title'
+  requirements:
+    _permission: 'access user profiles'
+
 member_profile.member_area_controller_member_area:
   path: '/member-area'
   defaults:

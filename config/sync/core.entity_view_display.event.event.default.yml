@@ -16,6 +16,7 @@ dependencies:
     - field.field.event.event.field_free_price_text
     - field.field.event.event.field_is_home
     - field.field.event.event.field_location
+    - field.field.event.event.field_member_area
     - field.field.event.event.field_member_price
     - field.field.event.event.field_newsletter
     - field.field.event.event.field_price
@@ -153,6 +154,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
+  field_member_area:
+    weight: 24
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_member_price:
     weight: 16

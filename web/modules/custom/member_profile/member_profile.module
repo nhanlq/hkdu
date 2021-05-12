@@ -76,6 +76,16 @@ function member_profile_theme($existing, $type, $theme, $path) {
         'bulletin' => NULL,
       ],
     ],
+    'member_event_detail' => [
+      'variables' => [
+        'event' => NULL,
+        'product' => NULL,
+        'check_event' => NULL,
+        'payment_upload' => NULL,
+        'expired' => NULL,
+        'google_calendar' => NULL,
+      ],
+    ],
     'member_bulletin' => [
       'variables' => [
         'bulletin' => NULL,
@@ -132,3 +142,20 @@ function event_ICSFile($entity) {
     'alt' => $filename,
   ]);
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function member_profile_form_alter(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state,
+  $form_id
+) {
+  if ($form_id == 'event_add_form') {
+    $form['field_member_area']['#attributes']['class'][] = 'hidden';
+    if ($_GET['type'] == 'member') {
+      $form['field_member_area']['widget']['value']['#default_value'] = 1;
+    }
+  }
+}
+
