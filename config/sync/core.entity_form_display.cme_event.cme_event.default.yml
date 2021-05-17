@@ -3,32 +3,38 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.cme_event.cme_event.field_application_no
     - field.field.cme_event.cme_event.field_audience
-    - field.field.cme_event.cme_event.field_category
     - field.field.cme_event.cme_event.field_cme_point
+    - field.field.cme_event.cme_event.field_co_organizer
+    - field.field.cme_event.cme_event.field_college
     - field.field.cme_event.cme_event.field_count
     - field.field.cme_event.cme_event.field_date
     - field.field.cme_event.cme_event.field_description
     - field.field.cme_event.cme_event.field_end_time
     - field.field.cme_event.cme_event.field_enrolled
-    - field.field.cme_event.cme_event.field_event_type
     - field.field.cme_event.cme_event.field_expired
     - field.field.cme_event.cme_event.field_external_register_link
     - field.field.cme_event.cme_event.field_file
     - field.field.cme_event.cme_event.field_free
+    - field.field.cme_event.cme_event.field_hkdu_point
     - field.field.cme_event.cme_event.field_is_home
     - field.field.cme_event.cme_event.field_location
     - field.field.cme_event.cme_event.field_member_price
+    - field.field.cme_event.cme_event.field_moderator
     - field.field.cme_event.cme_event.field_organizer
     - field.field.cme_event.cme_event.field_price
     - field.field.cme_event.cme_event.field_published_date
+    - field.field.cme_event.cme_event.field_ref_code
     - field.field.cme_event.cme_event.field_registration_dealine
+    - field.field.cme_event.cme_event.field_remark
     - field.field.cme_event.cme_event.field_speaker
     - field.field.cme_event.cme_event.field_speaker_photo
     - field.field.cme_event.cme_event.field_sponsor
     - field.field.cme_event.cme_event.field_start_date
     - field.field.cme_event.cme_event.field_start_time
     - field.field.cme_event.cme_event.field_tags
+    - field.field.cme_event.cme_event.field_type
     - field.field.cme_event.cme_event.field_veune
     - field.field.cme_event.cme_event.field_weight
     - workflows.workflow.editorial
@@ -38,20 +44,23 @@ dependencies:
     - content_moderation
     - datetime
     - media_library
+    - paragraphs
     - text
 id: cme_event.cme_event.default
 targetEntityType: cme_event
 bundle: cme_event
 mode: default
 content:
+  field_application_no:
+    weight: 38
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_audience:
     weight: 5
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  field_category:
-    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -62,6 +71,28 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_co_organizer:
+    weight: 36
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_college:
+    type: entity_reference_paragraphs
+    weight: 33
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
     region: content
   field_count:
     weight: 8
@@ -98,12 +129,6 @@ content:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
-    region: content
-  field_event_type:
-    weight: 1
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
     region: content
   field_expired:
     weight: 16
@@ -154,8 +179,16 @@ content:
     third_party_settings: {  }
     type: commerce_price_default
     region: content
+  field_moderator:
+    weight: 39
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_organizer:
-    weight: 24
+    weight: 35
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -175,6 +208,22 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_ref_code:
+    weight: 34
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_remark:
+    weight: 37
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
     region: content
   field_speaker:
     weight: 18
@@ -221,6 +270,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_type:
+    weight: 32
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_veune:
     weight: 17

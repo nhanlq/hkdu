@@ -1,4 +1,4 @@
-uuid: ac3b2668-15bf-4945-a147-f39bb30d8076
+uuid: 5899ba57-6d02-4cd3-aeba-bef868f9ca7b
 langcode: en
 status: true
 dependencies:
@@ -9,8 +9,8 @@ dependencies:
 third_party_settings:
   field_permissions:
     permission_type: public
-id: cme_event.field_event_type
-field_name: field_event_type
+id: cme_event.field_co_organizer
+field_name: field_co_organizer
 entity_type: cme_event
 type: entity_reference
 settings:

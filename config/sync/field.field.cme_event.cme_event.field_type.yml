@@ -1,0 +1,28 @@
+uuid: 6338fbaf-2757-4459-a458-839ee959a86a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_type
+  module:
+    - cme_event
+    - options
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: cme_event.cme_event.field_type
+field_name: field_type
+entity_type: cme_event
+bundle: cme_event
+label: 'CME Event Type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

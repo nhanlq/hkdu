@@ -1,23 +1,23 @@
-uuid: 341c2615-c99c-4e01-bfa2-1849b7facdfe
+uuid: 0dd40e5e-53ae-4a0f-bbf4-5af84b6184f2
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_registration_no
+    - field.storage.cme_event.field_application_no
   module:
+    - cme_event
     - unique_field_ajax
-    - user
 third_party_settings:
   unique_field_ajax:
     unique: 0
     per_lang: 0
-    use_ajax: 1
+    use_ajax: 0
     message: ''
-id: user.user.field_registration_no
-field_name: field_registration_no
-entity_type: user
-bundle: user
-label: 'HKDU Membership Number'
+id: cme_event.cme_event.field_application_no
+field_name: field_application_no
+entity_type: cme_event
+bundle: cme_event
+label: 'Application No'
 description: ''
 required: false
 translatable: false

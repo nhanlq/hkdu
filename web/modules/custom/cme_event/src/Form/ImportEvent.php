@@ -4,6 +4,7 @@ namespace Drupal\cme_event\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Class ImportEvent.
@@ -21,29 +22,22 @@ class ImportEvent extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-      $form['audience'] = [
-          '#type' => 'select',
-          '#title' => 'Audience',
-          '#options' => $this->getRoles(),
-          '#multiple' => false,
-          '#required' => true,
-      ];
-      $form['excel'] = [
-          '#type' => 'managed_file',
-          '#title' => $this->t('Excel'),
-          '#weight' => '0',
-          '#upload_location' => 'public://import/',
-          '#upload_validators' => array(
-              'file_validate_extensions' => array('xls xlsx'),
-              // Pass the maximum file size in bytes
-          ),
-          '#description' => $this->t('Allow Extension: xls, xlsx. Click <a target="_blank" href="/sites/default/files/import/cme_event.xlsx">here</a> to download example.')
-      ];
+    $form['excel'] = [
+      '#type' => 'managed_file',
+      '#title' => $this->t('Excel'),
+      '#weight' => '0',
+      '#upload_location' => 'public://import/',
+      '#upload_validators' => [
+        'file_validate_extensions' => ['xls xlsx'],
+        // Pass the maximum file size in bytes
+      ],
+      '#description' => $this->t('Allow Extension: xls, xlsx. Click <a target="_blank" href="/sites/default/files/import/Import_CME_Event.xlsx">here</a> to download example.'),
+    ];
 
-      $form['submit'] = [
-          '#type' => 'submit',
-          '#value' => $this->t('Submit'),
-      ];
+    $form['submit'] = [
+      '#type' => 'submit',
+      '#value' => $this->t('Submit'),
+    ];
 
     return $form;
   }
@@ -61,131 +55,145 @@ class ImportEvent extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, FormStateInterface $form_state)
-  {
-      // Display result.
-      $file = \Drupal\file\Entity\File::load($form_state->getValue('excel')[0]);
-      $inputFileName = file_create_url($file->getFileUri());
-      $stream_wrapper_manager = \Drupal::service('stream_wrapper_manager')->getViaUri($file->getFileUri());
-      $file_path = $stream_wrapper_manager->realpath();
-      $name = $file->getFilename();
-      if (strpos($name, 'xlsx') !== false) {
-          $inputFileType = 'Xlsx';
-      } else {
-          $inputFileType = 'Xls';
-      }
-      /**  Create a new Reader of the type defined in $inputFileType  **/
-      $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
-      /**  Load $inputFileName to a Spreadsheet Object  **/
-      $spreadsheet = $reader->load($file_path);
-      $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
-      $i = 1;
-      $user = \Drupal::currentUser();
-      foreach ($sheetData as $data) {
-          if($i != 1){
-              //var_dump($data['M']);die;
-              $member_price = new \Drupal\commerce_price\Price(number_format($data['M'],2), 'HKD');
-              $price = new \Drupal\commerce_price\Price(number_format($data['L'],2), 'HKD');
-              $date = date('Y-m-d', strtotime($data['D']));
-              $publish_date = date('Y-m-d', strtotime($data['C']));
-              $start_date = date('Y-m-d', strtotime($data['D']));
-              $end_date = date('Y-m-d', strtotime($data['E']));
-              $expired = date('Y-m-d', strtotime($data['F']));
-              $event = \Drupal\cme_event\Entity\CmeEvent::create([
-                  'name' => $data['A'],
-                  'uid' => $user->id(),
-                  'field_cme_point' => $data['B'],
-                  'field_published_date' => $publish_date,
-                  'field_start_date' => $start_date,
-                  'field_date' =>$end_date,
-                  'field_expired' =>$expired,
-                  'field_start_time' => $data['G'],
-                  'field_end_time' => $data['H'],
-                  'field_speaker' => $data['I'],
-                  'field_veune' => $data['J'],
-                  'field_location' => $data['K'],
-                  'field_price' => $price,
-                  'field_member_price' => $member_price,
-                  'field_organizer' => $this->getOrganizer($data['N'])? $this->getOrganizer($data['N']):null,
-                  'field_free' => !empty($data['O']) ? $data['O'] : 0,
-                  'field_description' => ['value' => $data['P'], 'format' => 'full_html'],
-                  'status' => !empty($data['Q']) ? $data['Q'] : 0,
-                  'field_tags' => !empty($data['R']) ? $this->getTagsTid($data['R']): null,
-                  'field_audience' => $form_state->getValue('audience'),
-                  'field_weight' => !empty($data['S']) ? $data['S'] : 0,
-              ]);
-              try {
-                  $event->save();
-                  \Drupal::messenger()->addMessage('Add '.$data['A'].' success.');
-              }catch (\Exception $e){
-                  \Drupal::messenger()->addMessage('Add '.$data['A'].' error: '.$e->getMessage(),'error');
-              }
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    // Display result.
+    $file = \Drupal\file\Entity\File::load($form_state->getValue('excel')[0]);
+    $inputFileName = file_create_url($file->getFileUri());
+    $stream_wrapper_manager = \Drupal::service('stream_wrapper_manager')
+      ->getViaUri($file->getFileUri());
+    $file_path = $stream_wrapper_manager->realpath();
+    $name = $file->getFilename();
+    if (strpos($name, 'xlsx') !== FALSE) {
+      $inputFileType = 'Xlsx';
+    }
+    else {
+      $inputFileType = 'Xls';
+    }
+    /**  Create a new Reader of the type defined in $inputFileType  **/
+    $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
+    /**  Load $inputFileName to a Spreadsheet Object  **/
+    $spreadsheet = $reader->load($file_path);
+    $sheetData = $spreadsheet->getActiveSheet()
+      ->toArray(NULL, TRUE, TRUE, TRUE);
+    $i = 1;
+    $user = \Drupal::currentUser();
+    foreach ($sheetData as $data) {
+      if ($i != 1) {
+        if (!$this->checkCmeEvent($data['A'])) {
+          $publish_date = date('Y-m-d');
+          $start_date = date('Y-m-d', strtotime($data['F']));
+          $end_date = date('Y-m-d', strtotime($data['F']));
+          $expired = date('Y-m-d', strtotime($data['F']));
+          $expired = $expired . 'T' . $data['H'] . ':00';
+          $event = \Drupal\cme_event\Entity\CmeEvent::create([
+            'name' => $data['B'],
+            'uid' => $user->id(),
+            'field_ref_code' => $data['A'],
+            'field_cme_point' => $data['C'],
+            'field_published_date' => $publish_date,
+            'field_type' => $data['D'],
+            'field_organizer' => [
+              'target_id' => $this->getTerm($data['E'], 'cme_organizer'),
+            ],
+            'field_start_date' => $start_date,
+            'field_date' => $end_date,
+            'field_expired' => $expired,
+            'field_start_time' => $data['G'],
+            'field_end_time' => $data['H'],
+            'field_veune' => $data['I'],
+            'field_speaker' => $data['J'],
+            'field_moderator' => $data['K'],
+            'field_co_organizer' => $data['L'],
+            'field_remark' => $data['M'],
+            'field_application_no' => $data['N'],
+            'field_weight' => 0,
+            'field_college' => $this->getCollege($data),
+          ]);
+          try {
+            $event->save();
+
+            \Drupal::messenger()->addMessage('Add ' . $data['A'] . ' success.');
+            $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/admin/cme/cme-event')
+              ->toString());
+            $redirect->send();
+          } catch (\Exception $e) {
+            \Drupal::messenger()
+              ->addMessage('Add ' . $data['A'] . ' error: ' . $e->getMessage(),
+                'error');
           }
-          $i++;
+        }else{
+          \Drupal::messenger()->addMessage('The Event ' . $data['A'] . ' ready exist.','error');
+        }
       }
+      $i++;
+    }
   }
 
-  public function getRoles(){
-      $roles = \Drupal::entityTypeManager()->getStorage('user_role')->loadMultiple();
-      $r = [];
-      foreach($roles as $role){
-          $r[$role->id()] = $role->label();
-      }
+  /**
+   * @param $name
+   * @param $vid
+   *
+   * @return false|int|mixed|string|null
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  public function getTerm($name, $vid) {
+    $ids = \Drupal::entityQuery('taxonomy_term')
+      ->condition('status', 1)
+      ->condition('vid', $vid)
+      ->condition('name', $name)
+      ->execute();
+    if ($ids) {
+      $r = reset($ids);
       return $r;
+    }
+    else {
+      $term = \Drupal\taxonomy\Entity\Term::create([
+        'name' => $name,
+        'vid' => $vid,
+      ]);
+      $term->save();
+      return $term->id();
+    }
   }
 
-    public function getTagsTid($name)
-    {
-        $term_id = [];
-        $termName = explode(',',$name);
-        if(count($termName) > 1){
-            foreach($termName as $n){
-                $term = \Drupal::entityTypeManager()
-                    ->getStorage('taxonomy_term')
-                    ->loadByProperties(['name' => $n, 'vid' => 'event']);
-                if($term){
-                    $term = reset($term);
-                    $term_id[] = $term->id();
-                }else{
-                    $termNew = \Drupal\taxonomy\Entity\Term::create([
-                        'name' => $n,
-                        'vid' => 'event'
-                    ]);
-                    $termNew->save();
-                    $term_id[] = $termNew->id();
-                }
-            }
-        }else{
-            $term = \Drupal::entityTypeManager()
-                ->getStorage('taxonomy_term')
-                ->loadByProperties(['name' => $name, 'vid' => 'event']);
-            if($term){
-                $term = reset($term);
-                $term_id[] = $term->id();
-            }else{
-                $termNew = \Drupal\taxonomy\Entity\Term::create([
-                    'name' => $name,
-                    'vid' => 'event'
-                ]);
-                $termNew->save();
-                $term_id[] = $termNew->id();
-            }
-        }
-
-
-        return $term_id;
+  /**
+   * @param $data
+   *
+   * @return array
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  public function getCollege($data) {
+    $college = [];
+    if (!empty($data['O']) && !empty($data['P']) && !empty($data['Q'])) {
+      $cols = explode(';', $data['O']);
+      $cats = explode(';', $data['P']);
+      $specs = explode(';', $data['Q']);
+      foreach ($cols as $key => $col) {
+        $para = \Drupal\paragraphs\Entity\Paragraph::create([
+            'type' => 'cme_college',
+            'field_college' => $this->getTerm($col, 'cme_college'),
+            'field_category' => $this->getTerm($cats[$key], 'cme'),
+            'field_special_point' => $specs[$key],
+          ]);
+        $para->save();
+        $college[] = [
+          'target_id' => $para->id(),
+          'target_revision_id' => $para->getRevisionId(),
+        ];
+      }
     }
-    public function getOrganizer($name){
-        $ids = \Drupal::entityQuery('cme_event')
-            ->condition('status', 1)
-            ->condition('name',$name)
-            ->execute();
-        $result = \Drupal\cme_event\Entity\CmeEvent::loadMultiple($ids);
-        if($result){
-            $r = reset($result);
-            return $r->id();
-        }else{
-            return false;
-        }
+    return $college;
+  }
+
+  public function checkCmeEvent($ref) {
+    $ids = \Drupal::entityQuery('cme_event')
+      ->condition('field_ref_code', $ref)
+      ->execute();
+    if ($ids) {
+      return TRUE;
     }
+    else {
+      return FALSE;
+    }
+  }
 }

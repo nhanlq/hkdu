@@ -1,20 +1,21 @@
-uuid: 959a3f6d-cf90-4ec0-8fb6-e4ee508f3584
+uuid: 63540ff3-ed60-4d65-afee-9065bf2775ce
 langcode: en
 status: true
 dependencies:
   module:
+    - cme_event
     - field_permissions
-    - taxonomy
-    - user
 third_party_settings:
   field_permissions:
     permission_type: public
-id: user.field_membership_type
-field_name: field_membership_type
-entity_type: user
-type: entity_reference
+id: cme_event.field_ref_code
+field_name: field_ref_code
+entity_type: cme_event
+type: string
 settings:
-  target_type: taxonomy_term
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
 module: core
 locked: false
 cardinality: 1

@@ -1,0 +1,64 @@
+uuid: 07cdbf60-6d6d-4594-ba41-b635a3611e5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_college
+    - paragraphs.paragraphs_type.cme_college
+  module:
+    - cme_event
+    - entity_reference_revisions
+id: cme_event.cme_event.field_college
+field_name: field_college
+entity_type: cme_event
+bundle: cme_event
+label: College
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      cme_college: cme_college
+    target_bundles_drag_drop:
+      cme_college:
+        enabled: true
+        weight: 13
+      cny:
+        weight: 14
+        enabled: false
+      department:
+        weight: 15
+        enabled: false
+      document:
+        weight: 16
+        enabled: false
+      long_answer:
+        weight: 17
+        enabled: false
+      multiple_choice:
+        weight: 18
+        enabled: false
+      open_date:
+        weight: 19
+        enabled: false
+      org_point:
+        weight: 20
+        enabled: false
+      result:
+        weight: 21
+        enabled: false
+      short_answer:
+        weight: 22
+        enabled: false
+      single_choice:
+        weight: 23
+        enabled: false
+      true_false:
+        weight: 24
+        enabled: false
+field_type: entity_reference_revisions

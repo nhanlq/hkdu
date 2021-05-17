@@ -7,6 +7,7 @@ dependencies:
     - field.storage.event.field_date
     - field.storage.event.field_price
     - field.storage.event.field_weight
+    - system.menu.admin
     - user.role.administrator
     - user.role.admins
   module:
@@ -719,11 +720,11 @@ display:
       display_extenders: {  }
       path: admin/member-area/event
       menu:
-        type: none
-        title: 'Manage Event'
+        type: normal
+        title: 'Manage Member Event'
         description: ''
         expanded: false
-        parent: entity.event.collection
+        parent: global_hkdu.admin_hkdu_member
         weight: 0
         context: '0'
         menu_name: admin

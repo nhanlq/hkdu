@@ -11,7 +11,6 @@ dependencies:
     - field.field.user.user.field_mchk_license
     - field.field.user.user.field_membership_type
     - field.field.user.user.field_newsletter
-    - field.field.user.user.field_organization
     - field.field.user.user.field_point
     - field.field.user.user.field_policy
     - field.field.user.user.field_referee
@@ -40,7 +39,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_contact_number:
-    weight: 5
+    weight: 6
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -61,7 +60,7 @@ content:
     type: markup
     region: content
   field_last_name:
-    weight: 3
+    weight: 4
     settings:
       size: 60
       placeholder: ''
@@ -69,7 +68,7 @@ content:
     type: string_textfield
     region: content
   field_mchk_license:
-    weight: 7
+    weight: 8
     settings:
       size: 60
       placeholder: ''
@@ -77,7 +76,7 @@ content:
     type: string_textfield
     region: content
   field_membership_type:
-    weight: 14
+    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -89,7 +88,7 @@ content:
     type: options_buttons
     region: content
   field_point:
-    weight: 4
+    weight: 5
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -102,7 +101,7 @@ content:
     type: markup
     region: content
   field_referee:
-    weight: 13
+    weight: 14
     settings:
       size: 60
       placeholder: ''
@@ -110,7 +109,7 @@ content:
     type: string_textfield
     region: content
   field_registration_no:
-    weight: 6
+    weight: 7
     settings:
       size: 60
       placeholder: ''
@@ -124,7 +123,7 @@ content:
     type: markup
     region: content
   field_specialist_fellow_number:
-    weight: 12
+    weight: 13
     settings:
       size: 60
       placeholder: ''
@@ -165,7 +164,6 @@ hidden:
   customer_profiles: true
   doctor_profiles: true
   drug_supplier_profiles: true
-  field_organization: true
   hkdu_member_profiles: true
   langcode: true
   language: true

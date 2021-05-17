@@ -1,0 +1,11 @@
+uuid: c33f4c9e-5695-492f-b61e-372a4328c7d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.membership_type
+id: taxonomy_term.membership_type
+target_entity_type_id: taxonomy_term
+target_bundle: membership_type
+default_langcode: site_default
+language_alterable: false
