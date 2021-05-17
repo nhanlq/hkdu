@@ -161,7 +161,7 @@ class ImportUser extends FormBase {
               $user->save();
               \Drupal::messenger()
                 ->addMessage('Create member ' . $data['A'] . ' success.');
-              $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/admin/cme/cme-event')
+              $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/admin/members')
                 ->toString());
               $redirect->send();
             } catch (\Exception $e) {
