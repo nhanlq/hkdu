@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.user.user.commerce_remote_id
+    - field.field.user.user.field_clinic_id
     - field.field.user.user.field_contact_number
     - field.field.user.user.field_first_name
     - field.field.user.user.field_guide_info
+    - field.field.user.user.field_hkdu_subscription_period
     - field.field.user.user.field_last_name
     - field.field.user.user.field_mchk_license
     - field.field.user.user.field_membership_type
@@ -14,6 +16,7 @@ dependencies:
     - field.field.user.user.field_point
     - field.field.user.user.field_policy
     - field.field.user.user.field_referee
+    - field.field.user.user.field_referee_name
     - field.field.user.user.field_registration_no
     - field.field.user.user.field_report_generation
     - field.field.user.user.field_specialist_fellow_number
@@ -21,6 +24,7 @@ dependencies:
     - field.field.user.user.field_subscription
     - field.field.user.user.user_picture
   module:
+    - datetime
     - field_group
     - markup
     - options
@@ -56,6 +60,14 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  field_clinic_id:
+    weight: 20
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_contact_number:
     weight: 6
     label: inline
@@ -71,6 +83,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_hkdu_subscription_period:
+    weight: 18
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_last_name:
     weight: 5
@@ -107,6 +128,14 @@ content:
   field_referee:
     weight: 10
     label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_referee_name:
+    weight: 19
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }

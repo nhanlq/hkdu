@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: drug_suppliers
-label: 'Drug suppliers'
+label: 'Drug Suppliers'
 weight: 6
 is_admin: null
 permissions:

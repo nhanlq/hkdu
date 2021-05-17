@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: hkdu_members
-label: 'HKDU members'
+label: 'HKDU Member'
 weight: 5
 is_admin: null
 permissions:

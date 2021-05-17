@@ -1,0 +1,21 @@
+uuid: 531e64dd-d07b-48ca-8831-69452e30d3e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_hkdu_subscription_period
+  module:
+    - datetime
+    - user
+id: user.user.field_hkdu_subscription_period
+field_name: field_hkdu_subscription_period
+entity_type: user
+bundle: user
+label: 'HKDU Subscription Period'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
