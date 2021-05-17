@@ -12,7 +12,6 @@ dependencies:
     - field.field.user.user.field_mchk_license
     - field.field.user.user.field_membership_type
     - field.field.user.user.field_newsletter
-    - field.field.user.user.field_organization
     - field.field.user.user.field_point
     - field.field.user.user.field_policy
     - field.field.user.user.field_referee
@@ -144,7 +143,6 @@ hidden:
   doctor_profiles: true
   drug_supplier_profiles: true
   field_newsletter: true
-  field_organization: true
   field_point: true
   field_report_generation: true
   field_specialty: true

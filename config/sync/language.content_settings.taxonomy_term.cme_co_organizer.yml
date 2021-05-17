@@ -1,0 +1,11 @@
+uuid: 91b0a854-6fff-4486-880b-15d4ec9d4436
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cme_co_organizer
+id: taxonomy_term.cme_co_organizer
+target_entity_type_id: taxonomy_term
+target_bundle: cme_co_organizer
+default_langcode: site_default
+language_alterable: false

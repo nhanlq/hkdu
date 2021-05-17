@@ -1,26 +1,26 @@
-uuid: 1707cd55-1f96-498d-963f-48346bc34088
+uuid: 83a60f8b-746f-498b-b271-133c6d50c44d
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_membership_type
-    - taxonomy.vocabulary.membership_type
+    - field.storage.cme_event.field_co_organizer
+    - taxonomy.vocabulary.cme_co_organizer
   module:
+    - cme_event
     - unique_field_ajax
-    - user
 third_party_settings:
   unique_field_ajax:
     unique: 0
     per_lang: 0
     use_ajax: 0
     message: ''
-id: user.user.field_membership_type
-field_name: field_membership_type
-entity_type: user
-bundle: user
-label: 'Membership Type'
+id: cme_event.cme_event.field_co_organizer
+field_name: field_co_organizer
+entity_type: cme_event
+bundle: cme_event
+label: Co-Organizer
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -28,7 +28,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      membership_type: membership_type
+      cme_co_organizer: cme_co_organizer
     sort:
       field: name
       direction: asc

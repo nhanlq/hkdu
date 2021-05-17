@@ -1,0 +1,8 @@
+uuid: ae63f6e0-f15c-4e48-98de-7303a109c23e
+langcode: en
+status: true
+dependencies: {  }
+name: 'CME Organizer'
+vid: cme_organizer
+description: ''
+weight: 0
