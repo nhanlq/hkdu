@@ -31,7 +31,7 @@ class ImportEvent extends FormBase {
         'file_validate_extensions' => ['xls xlsx'],
         // Pass the maximum file size in bytes
       ],
-      '#description' => $this->t('Allow Extension: xls, xlsx. Click <a target="_blank" href="/sites/default/files/import/Import_CME_Event.xlsx">here</a> to download example.'),
+      '#description' => $this->t('Allow Extension: xls, xlsx. Click <a target="_blank" href="/sites/default/files/import/ImportCMEevent.xlsx">here</a> to download example.'),
     ];
 
     $form['submit'] = [
