@@ -1,0 +1,21 @@
+uuid: c16db81a-b186-43b5-baaa-fe8518f63c42
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_cme_join_date
+  module:
+    - datetime
+    - user
+id: user.user.field_cme_join_date
+field_name: field_cme_join_date
+entity_type: user
+bundle: user
+label: 'CME Cycle Fist Joining Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

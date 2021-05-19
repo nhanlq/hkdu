@@ -1,21 +1,20 @@
-uuid: f421912f-36b4-4e14-8d37-cbefea479204
+uuid: da308f74-8f59-400e-af4c-379d9c65fb4a
 langcode: en
 status: true
 dependencies:
   module:
-    - cme_score
     - field_permissions
+    - user
 third_party_settings:
   field_permissions:
     permission_type: public
-id: score.field_venue
-field_name: field_venue
-entity_type: score
-type: string
+id: user.field_cme_point
+field_name: field_cme_point
+entity_type: user
+type: decimal
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
+  precision: 10
+  scale: 2
 module: core
 locked: false
 cardinality: 1
