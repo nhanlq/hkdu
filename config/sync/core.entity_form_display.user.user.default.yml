@@ -4,12 +4,19 @@ status: true
 dependencies:
   config:
     - field.field.user.user.commerce_remote_id
+    - field.field.user.user.field_address
     - field.field.user.user.field_clinic_id
+    - field.field.user.user.field_cme_cycle_status
+    - field.field.user.user.field_cme_join_date
+    - field.field.user.user.field_cme_point
+    - field.field.user.user.field_college
     - field.field.user.user.field_contact_number
+    - field.field.user.user.field_cpd_point
     - field.field.user.user.field_first_name
     - field.field.user.user.field_guide_info
     - field.field.user.user.field_hkdu_subscription_period
     - field.field.user.user.field_last_name
+    - field.field.user.user.field_lecture_point
     - field.field.user.user.field_mchk_license
     - field.field.user.user.field_membership_type
     - field.field.user.user.field_newsletter
@@ -19,6 +26,7 @@ dependencies:
     - field.field.user.user.field_referee_name
     - field.field.user.user.field_registration_no
     - field.field.user.user.field_report_generation
+    - field.field.user.user.field_self_study_point
     - field.field.user.user.field_specialist_fellow_number
     - field.field.user.user.field_specialty
     - field.field.user.user.field_subscription
@@ -42,8 +50,45 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_address:
+    weight: 28
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
   field_clinic_id:
     weight: 20
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_cme_cycle_status:
+    weight: 22
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_cme_join_date:
+    weight: 21
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_cme_point:
+    weight: 26
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_college:
+    weight: 23
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -58,6 +103,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: telephone_default
+    region: content
+  field_cpd_point:
+    weight: 27
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   field_first_name:
     weight: 2
@@ -86,6 +138,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_lecture_point:
+    weight: 25
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   field_mchk_license:
     weight: 8
@@ -149,6 +208,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: markup
+    region: content
+  field_self_study_point:
+    weight: 24
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   field_specialist_fellow_number:
     weight: 13

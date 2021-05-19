@@ -9,7 +9,22 @@ cme_user.import_user:
   path: '/admin/cme/import/user'
   defaults:
     _form: '\Drupal\cme_user\Form\ImportUser'
-    _title: 'ImportUser'
+    _title: 'Import Membership'
+  requirements:
+    _access: 'TRUE'
+cme_user.import_user_additional:
+  path: '/admin/cme/import/user/additional'
+  defaults:
+    _form: '\Drupal\cme_user\Form\ImportUserAdditional'
+    _title: 'Import Membership Additional'
+  requirements:
+    _access: 'TRUE'
+
+cme_user.import_user_special:
+  path: '/admin/cme/import/user/special'
+  defaults:
+    _form: '\Drupal\cme_user\Form\ImportUserSpecial'
+    _title: 'Import Membership Special'
   requirements:
     _access: 'TRUE'
 

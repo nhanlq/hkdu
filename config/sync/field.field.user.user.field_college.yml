@@ -1,0 +1,30 @@
+uuid: e9a02af0-58a5-4a94-b8e4-77164bf52e7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_college
+    - taxonomy.vocabulary.cme_college
+  module:
+    - user
+id: user.user.field_college
+field_name: field_college
+entity_type: user
+bundle: user
+label: College
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cme_college: cme_college
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

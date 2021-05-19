@@ -1,11 +1,12 @@
-uuid: ad601a3a-e47e-4247-9f6a-2952e607b0e5
+uuid: 035ab885-b1be-4c63-9dea-49e2fa5e0a04
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.score.field_organizer
+    - field.storage.score.field_score_type
   module:
     - cme_score
+    - options
     - unique_field_ajax
 third_party_settings:
   unique_field_ajax:
@@ -13,15 +14,15 @@ third_party_settings:
     per_lang: 0
     use_ajax: 0
     message: ''
-id: score.score.field_organizer
-field_name: field_organizer
+id: score.score.field_score_type
+field_name: field_score_type
 entity_type: score
 bundle: score
-label: Organizer
+label: 'Score Type'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: list_string

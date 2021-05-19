@@ -1,0 +1,31 @@
+uuid: dd2997df-5937-49cb-af83-ff8e9cccb142
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_score
+    - field_permissions
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: score.field_score_type
+field_name: field_score_type
+entity_type: score
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Lecture
+      label: Lecture
+    -
+      value: Self-Study
+      label: Self-Study
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
