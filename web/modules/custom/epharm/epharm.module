@@ -240,9 +240,12 @@ function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
  */
 function epharm_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
   // Insert the new entity into a fictional table of all entities.
-  if ($entity->get('moderation_state')->value == 'draft' || $entity->get('moderation_state')->value == 'pending' || $entity->get('moderation_state')->value == 'expired' || $entity->get('moderation_state')->value == 'archived') {
-    if($entity->getEntityTypeId() != 'content_moderation_state'){
-      $entity->set('status',0);
+  $entity_Arr = $entity->toArray();
+  if ($entity_Arr['moderation_state']) {
+    if ($entity->get('moderation_state')->value == 'draft' || $entity->get('moderation_state')->value == 'pending' || $entity->get('moderation_state')->value == 'expired' || $entity->get('moderation_state')->value == 'archived') {
+      if ($entity->getEntityTypeId() != 'content_moderation_state') {
+        $entity->set('status', 0);
+      }
     }
   }
 }
@@ -394,7 +397,7 @@ function getStateId($id, $type) {
 }
 
 function UpdateStatus($type, $id) {
-  if($type != 'content_moderation_state'){
+  if ($type != 'content_moderation_state') {
     $query = \Drupal::database()->update($type . '_field_data');
     $query->fields([
       'status' => 0,
@@ -462,4 +465,28 @@ function getEmailNewsletter($tags = []) {
   }
 
   return $email;
+}
+
+/**
+ * @return string[]
+ */
+function getListType() {
+  return [
+    'news',
+    'node',
+    'drug_news',
+    'event',
+    'cme_event',
+    'clinical_focus',
+    'pharm_dir',
+    'special_offer',
+    'drug_search',
+    'external_link',
+    'cme_links',
+    'guidelines',
+    'about',
+    'ads',
+    'banner',
+    'doctor',
+  ];
 }
