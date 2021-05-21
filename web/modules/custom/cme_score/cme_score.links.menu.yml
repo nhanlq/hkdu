@@ -14,8 +14,8 @@ score.admin.structure.settings:
   parent: entity.score.collection
 
 entity.score.attend:
-  title: 'Import Attendance'
+  title: 'Import CME Event Attendance'
   route_name: cme_score.event_attend
   description: 'List Score entities'
-  parent: cme.admin_cme
+  parent: entity.cme_event.collection
   weight: 100

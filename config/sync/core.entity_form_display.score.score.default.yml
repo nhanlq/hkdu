@@ -3,44 +3,19 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.score.score.field_accreditor
-    - field.field.score.score.field_attendance
-    - field.field.score.score.field_date
     - field.field.score.score.field_event
-    - field.field.score.score.field_main_score
+    - field.field.score.score.field_hkdu_administrator
     - field.field.score.score.field_quiz
     - field.field.score.score.field_score
     - field.field.score.score.field_score_type
     - field.field.score.score.field_user
   module:
     - cme_score
-    - datetime
 id: score.score.default
 targetEntityType: score
 bundle: score
 mode: default
 content:
-  field_accreditor:
-    weight: 31
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_attendance:
-    weight: 30
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
-  field_date:
-    weight: 34
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_event:
     weight: 28
     settings:
@@ -51,8 +26,8 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_main_score:
-    weight: 32
+  field_hkdu_administrator:
+    weight: 40
     settings:
       display_label: true
     third_party_settings: {  }

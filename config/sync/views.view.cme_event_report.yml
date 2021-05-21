@@ -1,11 +1,9 @@
 uuid: f36c275b-5327-4dd9-a01c-a22a7fcb0867
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - field.storage.cme_event.field_start_date
-    - field.storage.score.field_accreditor
-    - field.storage.score.field_attendance
     - field.storage.score.field_score
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
@@ -338,71 +336,6 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_attendance:
-          id: field_attendance
-          table: score__field_attendance
-          field: field_attendance
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Attendance
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: boolean
-          settings:
-            format: default
-            format_custom_true: ''
-            format_custom_false: ''
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         field_score:
           id: field_score
           table: score__field_score
@@ -458,69 +391,6 @@ display:
             prefix_suffix: true
             decimal_separator: .
             scale: 2
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_accreditor:
-          id: field_accreditor
-          table: score__field_accreditor
-          field: field_accreditor
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Accreditor
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -747,8 +617,6 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.cme_event.field_start_date'
-        - 'config:field.storage.score.field_accreditor'
-        - 'config:field.storage.score.field_attendance'
         - 'config:field.storage.score.field_score'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
@@ -794,8 +662,6 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.cme_event.field_start_date'
-        - 'config:field.storage.score.field_accreditor'
-        - 'config:field.storage.score.field_attendance'
         - 'config:field.storage.score.field_score'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
@@ -818,8 +684,6 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.cme_event.field_start_date'
-        - 'config:field.storage.score.field_accreditor'
-        - 'config:field.storage.score.field_attendance'
         - 'config:field.storage.score.field_score'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
