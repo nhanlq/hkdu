@@ -79,9 +79,11 @@ class ImportUserSpecial extends FormBase {
       if ($i != 1) {
         if (!empty($data['A'])) {
           if ($user = $this->getUserByMCHKNo($data['A'])) {
+            $date = date('Y-m-d', strtotime($data['D']));
             $user->set('field_first_name', $data['B']);
-            $user->set('field_contact_number', $data['D']);
-            $user->set('field_address', $data['E']);
+            $user->set('field_cme_join_date', $date);
+            $user->set('field_contact_number', $data['E']);
+            $user->set('field_address', $data['F']);
             if ($data['C'] == 'Yes') {
               $user->addRole('administrator');
             }
@@ -99,22 +101,24 @@ class ImportUserSpecial extends FormBase {
           else {
             $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
             $user = \Drupal\user\Entity\User::create();
+            $date = date('Y-m-d', strtotime($data['D']));
 
             //Mandatory settings
             $user->setPassword(!empty($data['C']) ? $data['C'] : 'hkdu123');
             $user->enforceIsNew();
-            $user->setEmail($data['F']);
+            $user->setEmail($data['G']);
             $user->setUsername($data['B']); //This username must be unique
             // and accept only a-Z,0-9, - _ @ .
 
             //Optional settings
-            $user->set("init", $data['F']);
+            $user->set("init", $data['G']);
             $user->set("langcode", $language);
             $user->set("preferred_langcode", $language);
             $user->set("preferred_admin_langcode", $language);
             $user->set('field_first_name', $data['B']);
-            $user->set('field_contact_number', $data['D']);
-            $user->set('field_address', $data['E']);
+            $user->set('field_cme_join_date', $date);
+            $user->set('field_contact_number', $data['E']);
+            $user->set('field_address', $data['F']);
             $user->set('field_mchk_license', $data['A']);
             $user->set('status', 0);
             if ($data['C'] == 'yes') {
