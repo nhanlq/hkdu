@@ -29,6 +29,15 @@ class MenuEpharmBlock extends BlockBase {
     if (in_array('administrator', $current_roles)) {
       $au = 1;
     }
+    if (in_array('cme_member', $current_roles)) {
+      $au = 1;
+    }
+    if (in_array('hkdu_members', $current_roles)) {
+      $au = 1;
+    }
+    if (in_array('doctor', $current_roles)) {
+      $au = 1;
+    }
     $id = $ep[1];
     if ($id == 'e-pharm') {
       $epharm = $id;
