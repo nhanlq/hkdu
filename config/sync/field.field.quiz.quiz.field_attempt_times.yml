@@ -1,0 +1,24 @@
+uuid: 4e31441c-739d-4442-a9df-a90c797011e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_attempt_times
+  module:
+    - cme_quiz
+id: quiz.quiz.field_attempt_times
+field_name: field_attempt_times
+entity_type: quiz
+bundle: quiz
+label: 'Attempt times'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

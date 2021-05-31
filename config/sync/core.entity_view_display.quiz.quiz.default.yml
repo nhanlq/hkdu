@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.quiz.quiz.field_attempt_times
     - field.field.quiz.quiz.field_audience
     - field.field.quiz.quiz.field_category
     - field.field.quiz.quiz.field_count
@@ -50,6 +51,15 @@ content:
     weight: -20
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_attempt_times:
+    weight: 32
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   field_audience:
     weight: 4
