@@ -1,0 +1,24 @@
+uuid: ac0c57c1-ba57-46e9-8be1-cc4944da9129
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_quiz
+    - commerce_product
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: commerce_product.field_quiz
+field_name: field_quiz
+entity_type: commerce_product
+type: entity_reference
+settings:
+  target_type: quiz
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

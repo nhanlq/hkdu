@@ -1,0 +1,23 @@
+uuid: d7e46d3d-e548-4e9a-a17f-a312f6946017
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_member_price
+  module:
+    - cme_quiz
+    - commerce_price
+id: quiz.quiz.field_member_price
+field_name: field_member_price
+entity_type: quiz
+bundle: quiz
+label: 'Member Price'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_currencies:
+    - '0'
+field_type: commerce_price

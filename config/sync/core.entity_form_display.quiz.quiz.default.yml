@@ -17,9 +17,11 @@ dependencies:
     - field.field.quiz.quiz.field_lecture_date
     - field.field.quiz.quiz.field_lecture_time
     - field.field.quiz.quiz.field_level
+    - field.field.quiz.quiz.field_member_price
     - field.field.quiz.quiz.field_organiser
     - field.field.quiz.quiz.field_percent
     - field.field.quiz.quiz.field_point
+    - field.field.quiz.quiz.field_price
     - field.field.quiz.quiz.field_reference_code
     - field.field.quiz.quiz.field_registration_dealine
     - field.field.quiz.quiz.field_speaker
@@ -34,6 +36,7 @@ dependencies:
     - workflows.workflow.editorial
   module:
     - cme_quiz
+    - commerce_price
     - content_moderation
     - datetime
     - media_library
@@ -147,6 +150,12 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
+  field_member_price:
+    weight: 33
+    settings: {  }
+    third_party_settings: {  }
+    type: commerce_price_default
+    region: content
   field_organiser:
     weight: 28
     settings:
@@ -168,6 +177,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_price:
+    weight: 32
+    settings: {  }
+    third_party_settings: {  }
+    type: commerce_price_default
     region: content
   field_reference_code:
     weight: 27

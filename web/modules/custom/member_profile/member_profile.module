@@ -53,6 +53,14 @@ function member_profile_theme($existing, $type, $theme, $path) {
         'current_uid' => NULL,
       ],
     ],
+    'member_ads' => [
+      'variables' => [
+        'article' => NULL,
+        'uri' => NULL,
+        'uid' => NULL,
+        'current_uid' => NULL,
+      ],
+    ],
     'member_gallery' => [
       'variables' => [
         'media' => NULL,
