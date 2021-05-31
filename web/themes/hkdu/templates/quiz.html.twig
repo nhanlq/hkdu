@@ -127,10 +127,10 @@
     <div class="jvveZx">
       {{ quiz.field_description.value|raw }}
     </div>
-    {% if roles %}
+    {% if roles is not null %}
       {{ question }}
     {% else %}
-      {% if paid %}
+      {% if paid is not null %}
         {{ question }}
       {% else %}
         <div class="leBAWZ">

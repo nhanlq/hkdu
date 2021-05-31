@@ -632,11 +632,11 @@ function template_preprocess_quiz(array &$variables) {
   $variables['question'] = getQuestionNoTest($quiz);
   $variables['result'] = FALSE;
   $variables['results'] = FALSE;
-  $variables['roles'] = FALSE;
+  $variables['roles'] = NULL;
   $variables['product'] = getQuizProduct($id);
   $variables['paid'] = getUserPaidQuiz($id);
   $roles = $user->getRoles();
-  if (in_array('adminnistrator', $roles)) {
+  if (in_array('administrator', $roles)) {
     $variables['roles'] = TRUE;
   }
   if (in_array('hkdu_members', $roles)) {
@@ -646,7 +646,7 @@ function template_preprocess_quiz(array &$variables) {
     $variables['roles'] = TRUE;
   }
   if(in_array('doctor', $roles)){
-    $variables['roles'] = FALSE;
+    $variables['roles'] = NULL;
   }
   if (getLastestresult($id)) {
     $variables['result'] = getLastestresult($id);
