@@ -18,7 +18,7 @@ class AdsController extends ControllerBase {
   public function index() {
     return array(
       'abouts' => [
-        '#theme' => array('member_article'),
+        '#theme' => array('member_ads'),
         '#article' => $this->getSharing(),
       ],
 

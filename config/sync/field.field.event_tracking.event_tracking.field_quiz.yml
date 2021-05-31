@@ -1,0 +1,33 @@
+uuid: 0abfdbbe-e3a4-4048-9753-35a913214e94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.event_tracking.field_quiz
+  module:
+    - event_tracking
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: event_tracking.event_tracking.field_quiz
+field_name: field_quiz
+entity_type: event_tracking
+bundle: event_tracking
+label: Quiz
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:quiz'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

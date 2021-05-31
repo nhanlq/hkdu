@@ -197,3 +197,15 @@ function getListResult($quiz_id){
         return false;
     }
 }
+function getUserPaidQuiz($quiz_id){
+  $user = \Drupal::currentUser();
+  $ids = \Drupal::entityQuery('event_tracking')
+    ->condition('status', 1)
+    ->condition('field_quiz', $quiz_id)
+    ->condition('field_user', $user->id())
+    ->execute();
+  if($ids){
+    return true;
+  }
+  return false;
+}

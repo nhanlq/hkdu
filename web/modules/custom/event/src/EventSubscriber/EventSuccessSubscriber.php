@@ -74,6 +74,7 @@ class EventSuccessSubscriber implements EventSubscriberInterface {
       $product = \Drupal\commerce_product\Entity\Product::load($product_item['product_id'][0]['target_id']);
       $event = FALSE;
       $cme_event = FALSE;
+      $quiz_id = FALSE;
       if ($product->get('field_event')->target_id > 0) {
         $event = $product->get('field_event')->target_id;
         $event_entity = \Drupal\event\Entity\Event::load($event);
@@ -182,10 +183,14 @@ class EventSuccessSubscriber implements EventSubscriberInterface {
           // sent.'));
         }
       }
+      if ($product->get('field_quiz')->target_id > 0) {
+        $quiz_id = $product->get('field_quiz')->target_id;
+      }
       $event_tracking = \Drupal\event_tracking\Entity\EventTracking::create([
         'name' => 'Order::' . $user->getAccountName() . '::' . $order->getOrderNumber(),
         'field_event' => isset($event) ? $event : NULL,
         'field_cme_event' => isset($cme_event) ? $cme_event : NULL,
+        'field_quiz' => isset($quiz_id) ? $quiz_id : NULL,
         'field_order' => $order->getOrderNumber(),
         'field_user' => $user->id(),
         'created' => time(),

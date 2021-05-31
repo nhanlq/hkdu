@@ -7,6 +7,7 @@ dependencies:
     - field.field.event_tracking.event_tracking.field_cme_event
     - field.field.event_tracking.event_tracking.field_event
     - field.field.event_tracking.event_tracking.field_order
+    - field.field.event_tracking.event_tracking.field_quiz
     - field.field.event_tracking.event_tracking.field_user
   module:
     - event_tracking
@@ -44,6 +45,16 @@ content:
     region: content
   field_order:
     weight: 29
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_quiz:
+    weight: 33
     settings:
       match_operator: CONTAINS
       match_limit: 10

@@ -76,7 +76,8 @@ function cme_event_theme($existing, $type, $theme, $path) {
 function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
 
   // Insert the new entity into a fictional table of all entities.
-  if ($entity->getEntityTypeId() == 'cme_event' | $entity->getEntityTypeId() == 'event') {
+  if ($entity->getEntityTypeId() == 'cme_event' || $entity->getEntityTypeId() == 'event' || $entity->getEntityTypeId
+    () == 'quiz') {
     $type = '';
     // create variation first
     $variation = ProductVariation::create([
@@ -98,7 +99,7 @@ function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
         'variations' => [$variation],
       ]);
     }
-    else {
+    elseif($entity->getEntityTypeId() == 'event') {
       $product = Product::create([
         'type' => 'default',
         'title' => $entity->get('name')->value,
@@ -106,6 +107,14 @@ function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
         'variations' => [$variation],
       ]);
       $type = 'event';
+    }else{
+      $product = Product::create([
+        'type' => 'default',
+        'title' => $entity->get('name')->value,
+        'field_quiz' => $entity->id(),
+        'variations' => [$variation],
+      ]);
+      $type = 'quiz';
     }
 
 
@@ -158,7 +167,6 @@ function cme_event_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
     //create the score
     //add calendar
     createICSFile($entity, $type);
-
   }
 
 }
@@ -227,7 +235,8 @@ function createICSFile($entity, $type) {
 function cme_event_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
 
   // Insert the new entity into a fictional table of all entities.
-  if ($entity->getEntityTypeId() == 'cme_event' | $entity->getEntityTypeId() == 'event') {
+  if ($entity->getEntityTypeId() == 'cme_event' || $entity->getEntityTypeId() == 'event' || $entity->getEntityTypeId
+    () == 'quiz') {
     $type = '';
     if (!getCmeProductEvent($entity->id(), $entity->getEntityTypeId())) {
 
@@ -251,11 +260,18 @@ function cme_event_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
           'variations' => [$variation],
         ]);
       }
-      else {
+      elseif($entity->getEntityTypeId() == 'event') {
         $product = Product::create([
           'type' => 'default',
           'title' => $entity->get('name')->value,
           'field_event' => $entity->id(),
+          'variations' => [$variation],
+        ]);
+      }else{
+        $product = Product::create([
+          'type' => 'default',
+          'title' => $entity->get('name')->value,
+          'field_quiz' => $entity->id(),
           'variations' => [$variation],
         ]);
       }
@@ -384,11 +400,17 @@ function getCmeProductEvent($event_id, $type = NULL) {
       ->condition('field_cme_event', $event_id)
       ->execute();
   }
-  else {
+  elseif($type == 'event') {
     $ids = \Drupal::entityQuery('commerce_product')
       ->condition('type', 'default')
       ->condition('status', 1)
       ->condition('field_event', $event_id)
+      ->execute();
+  }else{
+    $ids = \Drupal::entityQuery('commerce_product')
+      ->condition('type', 'default')
+      ->condition('status', 1)
+      ->condition('field_quiz', $event_id)
       ->execute();
   }
 
@@ -416,6 +438,17 @@ function getCmeProduct($event_id) {
     ->condition('type', 'default')
     ->condition('status', 1)
     ->condition('field_cme_event', $event_id)
+    ->execute();
+  $results = \Drupal\commerce_product\Entity\Product::loadMultiple($ids);
+  $result = reset($results);
+  return $result;
+}
+
+function getQuizProduct($event_id) {
+  $ids = \Drupal::entityQuery('commerce_product')
+    ->condition('type', 'default')
+    ->condition('status', 1)
+    ->condition('field_quiz', $event_id)
     ->execute();
   $results = \Drupal\commerce_product\Entity\Product::loadMultiple($ids);
   $result = reset($results);

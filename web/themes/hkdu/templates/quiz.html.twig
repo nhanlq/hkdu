@@ -16,118 +16,131 @@
  */
 #}
 <article{{ attributes.addClass(classes) }}>
-    <div class="bBnAZb">
-        {% if check_quiz or expired %}
-            {% if result %}
-                <div class="result_button">
-                    <div class="submit-button-result">
-                        <a class="review-button" href="/cme/quiz/{{ quiz.id.value }}/result/{{ result.id.value }}">Review
-                            your last answer</a>
-                    </div>
-                    <div class="list_answer">
-                        <h4>Answers result listing</h4>
-                        <ul class="list_answer">
-                            {% for resul in results %}
-                                <li><a href="/cme/quiz/{{ quiz.id.value }}/result/{{ resul.id.value }}">Test result on {{ resul.created.value|date('Y-m-d H:i:s') }}</a></li>
-                            {% endfor %}
-                        </ul>
+  <div class="bBnAZb">
+    {% if check_quiz or expired %}
+      {% if result %}
+        <div class="result_button">
+          <div class="submit-button-result">
+            <a class="review-button" href="/cme/quiz/{{ quiz.id.value }}/result/{{ result.id.value }}">Review
+              your last answer</a>
+          </div>
+          <div class="list_answer">
+            <h4>Answers result listing</h4>
+            <ul class="list_answer">
+              {% for resul in results %}
+                <li><a href="/cme/quiz/{{ quiz.id.value }}/result/{{ resul.id.value }}">Test result
+                    on {{ resul.created.value|date('Y-m-d H:i:s') }}</a></li>
+              {% endfor %}
+            </ul>
 
-                    </div>
-                </div>
-            {% endif %}
-        {% endif %}
-        <div class="bnGjNu">
-            <div class="iyiBrq">{{ quiz.field_category.entity.name.value }}</div>
+          </div>
         </div>
-        <div class="leBAWZ">
-            <div display="block,flex" class="bXXHPz">
-                <div width="100%,236" class="jBxOzO">CME Point
-                </div>
-                <div class="hnOpua">{{ quiz.field_point.value }}</div>
-            </div>
-            {% if quiz.field_hkdu_point is not empty %}
-                {% for hkdu_point in quiz.field_hkdu_point %}
-                    <div display="block,flex" class="bXXHPz">
-                        <div width="100%,236"
-                             class="jBxOzO">{{ hkdu_point.entity.field_organizer.entity.field_short_name.value }}
-                        </div>
-                        <div class="hnOpua">{{ hkdu_point.entity.field_point.value }}</div>
-                    </div>
-                {% endfor %}
-            {% endif %}
-            <div display="block,flex" class="bXXHPz">
-                <div width="100%,236" class="jBxOzO">End Date
-                </div>
-                <div class="hnOpua">{{ quiz.field_expired.value|date("Y-m-d") }}</div>
-            </div>
-            {% if quiz.field_level is not empty %}
-                <div display="block,flex" class="bXXHPz">
-                    <div width="100%,236" class="jBxOzO">Level
-                    </div>
-                    <div class="hnOpua">{{ quiz.field_level.value }}</div>
-                </div>
-            {% endif %}
-            <div display="block,flex" class="bXXHPz">
-                <div width="100%,236" class="jBxOzO">Passing Percentage
-                </div>
-                <div class="hnOpua">{{ quiz.field_percent.value }}%</div>
-            </div>
-            {% if quiz.field_disclaimer is not empty %}
-                <div display="block,flex" class="bXXHPz">
-                    <div width="100%,236" class="jBxOzO">Disclaimer
-                    </div>
-                    <div class="hnOpua">{{ quiz.field_disclaimer.value }}</div>
-                </div>
-            {% endif %}
-            {% if quiz.field_speaker is not empty %}
-                <div display="block,flex" class="bXXHPz">
-                    <div width="100%,236" class="jBxOzO">Speaker
-                    </div>
-                    <div class="hnOpua">{{ quiz.field_speaker.value }}</div>
-                </div>
-            {% endif %}
-            {% if quiz.field_speaker_photo is not empty %}
-                <div display="block,flex" class="bXXHPz">
-                    <div width="100%,236" class="jBxOzO">Speaker Photo</div>
-                    <div class="hnOpua"><img
-                                src="{{ quiz.field_speaker_photo.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}"/>
-                    </div>
-                </div>
-            {% endif %}
-            {% if quiz.field_lecture_date is not empty %}
-                <div display="block,flex" class="bXXHPz">
-                    <div width="100%,236" class="jBxOzO">Lecture Date
-                    </div>
-                    <div class="hnOpua">{{ quiz.field_lecture_date.value|date('Y-m-d') }}</div>
-                </div>
-            {% endif %}
-            {% if quiz.field_lecture_time is not empty %}
-                <div display="block,flex" class="bXXHPz">
-                    <div width="100%,236" class="jBxOzO">Lecture Time
-                    </div>
-                    <div class="hnOpua">{{ quiz.field_lecture_time.value }}</div>
-                </div>
-            {% endif %}
-            {% if quiz.field_lecture_content is not empty %}
-                <div display="block,flex" class="bXXHPz">
-                    <div width="100%,236" class="jBxOzO">Lecture Content
-                    </div>
-                    <div class="hnOpua">{{ quiz.field_lecture_content.value|raw }}</div>
-                </div>
-            {% endif %}
-            {% if quiz.field_registration_dealine is not empty %}
-                <div display="block,flex" class="bXXHPz">
-                    <div width="100%,236" class="jBxOzO">Registration dealine
-                    </div>
-                    <div class="hnOpua">{{ quiz.field_registration_dealine.value|date('Y-m-d H:i:s') }}</div>
-                </div>
-            {% endif %}
-        </div>
-        <div class="jvveZx">
-            {{ quiz.field_description.value|raw }}
-        </div>
-
-        {{ question }}
-
+      {% endif %}
+    {% endif %}
+    <div class="bnGjNu">
+      <div class="iyiBrq">{{ quiz.field_category.entity.name.value }}</div>
     </div>
+    <div class="leBAWZ">
+      <div display="block,flex" class="bXXHPz">
+        <div width="100%,236" class="jBxOzO">CME Point
+        </div>
+        <div class="hnOpua">{{ quiz.field_point.value }}</div>
+      </div>
+      {% if quiz.field_hkdu_point is not empty %}
+        {% for hkdu_point in quiz.field_hkdu_point %}
+          <div display="block,flex" class="bXXHPz">
+            <div width="100%,236"
+                 class="jBxOzO">{{ hkdu_point.entity.field_organizer.entity.field_short_name.value }}
+            </div>
+            <div class="hnOpua">{{ hkdu_point.entity.field_point.value }}</div>
+          </div>
+        {% endfor %}
+      {% endif %}
+      <div display="block,flex" class="bXXHPz">
+        <div width="100%,236" class="jBxOzO">End Date
+        </div>
+        <div class="hnOpua">{{ quiz.field_expired.value|date("Y-m-d") }}</div>
+      </div>
+      {% if quiz.field_level is not empty %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236" class="jBxOzO">Level
+          </div>
+          <div class="hnOpua">{{ quiz.field_level.value }}</div>
+        </div>
+      {% endif %}
+      <div display="block,flex" class="bXXHPz">
+        <div width="100%,236" class="jBxOzO">Passing Percentage
+        </div>
+        <div class="hnOpua">{{ quiz.field_percent.value }}%</div>
+      </div>
+      {% if quiz.field_disclaimer is not empty %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236" class="jBxOzO">Disclaimer
+          </div>
+          <div class="hnOpua">{{ quiz.field_disclaimer.value }}</div>
+        </div>
+      {% endif %}
+      {% if quiz.field_speaker is not empty %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236" class="jBxOzO">Speaker
+          </div>
+          <div class="hnOpua">{{ quiz.field_speaker.value }}</div>
+        </div>
+      {% endif %}
+      {% if quiz.field_speaker_photo is not empty %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236" class="jBxOzO">Speaker Photo</div>
+          <div class="hnOpua"><img
+              src="{{ quiz.field_speaker_photo.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}"/>
+          </div>
+        </div>
+      {% endif %}
+      {% if quiz.field_lecture_date is not empty %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236" class="jBxOzO">Lecture Date
+          </div>
+          <div class="hnOpua">{{ quiz.field_lecture_date.value|date('Y-m-d') }}</div>
+        </div>
+      {% endif %}
+      {% if quiz.field_lecture_time is not empty %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236" class="jBxOzO">Lecture Time
+          </div>
+          <div class="hnOpua">{{ quiz.field_lecture_time.value }}</div>
+        </div>
+      {% endif %}
+      {% if quiz.field_lecture_content is not empty %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236" class="jBxOzO">Lecture Content
+          </div>
+          <div class="hnOpua">{{ quiz.field_lecture_content.value|raw }}</div>
+        </div>
+      {% endif %}
+      {% if quiz.field_registration_dealine is not empty %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236" class="jBxOzO">Registration dealine
+          </div>
+          <div class="hnOpua">{{ quiz.field_registration_dealine.value|date('Y-m-d H:i:s') }}</div>
+        </div>
+      {% endif %}
+    </div>
+    <div class="jvveZx">
+      {{ quiz.field_description.value|raw }}
+    </div>
+    {% if roles %}
+      {{ question }}
+    {% else %}
+      {% if paid %}
+        {{ question }}
+      {% else %}
+        <div class="leBAWZ">
+          <div display="flex" class="dGmSBT">
+            <a href="/payment/method/{{ quiz.id.value }}/{{ product.product_id.value }}/epharm"
+               class="eXdybn fUVRLe"><span
+                class="fjQIzu">Enroll</span></a>
+          </div>
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
 </article>

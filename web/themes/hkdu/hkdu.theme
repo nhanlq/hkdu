@@ -624,6 +624,7 @@ function template_preprocess_quiz(array &$variables) {
   $current_path = \Drupal::service('path.current')->getPath();
   $path = explode('/', $current_path);
   $id = $path[3];
+  $user = \Drupal::currentUser();
   $quiz = \Drupal\cme_quiz\Entity\Quiz::load($id);
   $variables['quiz'] = $quiz;
   $variables['check_quiz'] = checkQuizStatusUser($id);
@@ -631,6 +632,22 @@ function template_preprocess_quiz(array &$variables) {
   $variables['question'] = getQuestionNoTest($quiz);
   $variables['result'] = FALSE;
   $variables['results'] = FALSE;
+  $variables['roles'] = FALSE;
+  $variables['product'] = getQuizProduct($id);
+  $variables['paid'] = getUserPaidQuiz($id);
+  $roles = $user->getRoles();
+  if (in_array('adminnistrator', $roles)) {
+    $variables['roles'] = TRUE;
+  }
+  if (in_array('hkdu_members', $roles)) {
+    $variables['roles'] = TRUE;
+  }
+  if (in_array('cme_member', $roles)) {
+    $variables['roles'] = TRUE;
+  }
+  if(in_array('doctor', $roles)){
+    $variables['roles'] = FALSE;
+  }
   if (getLastestresult($id)) {
     $variables['result'] = getLastestresult($id);
   }
