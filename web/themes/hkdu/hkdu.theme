@@ -636,6 +636,7 @@ function template_preprocess_quiz(array &$variables) {
   $variables['product'] = getQuizProduct($id);
   $variables['paid'] = getUserPaidQuiz($id);
   $roles = $user->getRoles();
+  $variables['att'] = getUserAttempQuiz($id);
   if (in_array('administrator', $roles)) {
     $variables['roles'] = TRUE;
   }

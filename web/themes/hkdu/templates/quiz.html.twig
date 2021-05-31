@@ -123,15 +123,39 @@
           <div class="hnOpua">{{ quiz.field_registration_dealine.value|date('Y-m-d H:i:s') }}</div>
         </div>
       {% endif %}
+
+      {% if quiz.field_attempt_times is not empty %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236" class="jBxOzO">Attempt Times
+          </div>
+          <div class="hnOpua">{{ quiz.field_attempt_times.value }}</div>
+        </div>
+      {% endif %}
     </div>
     <div class="jvveZx">
       {{ quiz.field_description.value|raw }}
     </div>
     {% if roles is not null %}
-      {{ question }}
+      {% if att is not null and att >= quiz.field_attempt_times.value %}
+        <div class="leBAWZ">
+          <div display="flex" class="dGmSBT">
+            <p>Your attempt times is expired.</p>
+          </div>
+        </div>
+      {% else %}
+        {{ question }}
+      {% endif %}
     {% else %}
       {% if paid is not null %}
-        {{ question }}
+        {% if att is not null and att >= quiz.field_attempt_times.value %}
+          <div class="leBAWZ">
+            <div display="flex" class="dGmSBT">
+              <p>Your attempt times is expired.</p>
+            </div>
+          </div>
+        {% else %}
+          {{ question }}
+        {% endif %}
       {% else %}
         <div class="leBAWZ">
           <div display="flex" class="dGmSBT">
