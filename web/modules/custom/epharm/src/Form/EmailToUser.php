@@ -35,7 +35,7 @@ class EmailToUser extends FormBase {
     $form['users'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Enter special Email'),
-      '#description' => $this->t('Every email, should user ";". EG: abc@domian,.com;def@domian.com'),
+      '#description' => $this->t('Every email, should user ";". EG: abc@domain,.com;def@domain.com'),
       '#weight' => '0',
     ];
     $form['message'] = [
@@ -79,7 +79,6 @@ class EmailToUser extends FormBase {
     if($form_state->getValue('all') == 1){
       $to .= $this->getAllUsers();
     }
-    $to = \Drupal::state()->get('ads','leung0369@gmail.com');
     $params['title'] = $form_state->getValue('subject');
     $params['message'] = $form_state->getValue('message')['value'];
     $params['from'] = \Drupal::config('system.site')->get('mail');
