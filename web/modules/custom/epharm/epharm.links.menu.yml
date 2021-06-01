@@ -4,3 +4,9 @@ epharm.settings:
   parent: system.admin_config_system
   description: 'Email notification.'
   weight: 0
+epharm.settings.user:
+  title: Send Email To Any
+  route_name: epharm.email_to_user
+  parent: system.admin_config_system
+  description: 'Send Email To Any.'
+  weight: 0

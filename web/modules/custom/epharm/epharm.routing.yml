@@ -29,3 +29,10 @@ epharm.email_notify:
     _title: 'EmailNotify'
   requirements:
     _access: 'TRUE'
+epharm.email_to_user:
+  path: '/admin/config/system/email-to-user'
+  defaults:
+    _form: '\Drupal\epharm\Form\EmailToUser'
+    _title: 'Email to users'
+  requirements:
+    _access: 'TRUE'
