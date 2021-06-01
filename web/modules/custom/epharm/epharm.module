@@ -116,9 +116,17 @@ function epharm_mail($key, &$message, $params) {
       $message['subject'] = t('@title.', ['@title' => $params['title']], $options);
       $message['body'][] = $params['message'];
       break;
+    case 'ads':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('@title.', ['@title' => $params['title']], $options);
+      $message['body'][] = $params['message'];
+      break;
   }
 }
 
+/**
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ */
 function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
 
   // Insert the new entity into a fictional table of all entities.
@@ -128,7 +136,7 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'epharm';
       $key = 'createPost';
-      $to = \Drupal::state()->get($entity->getEntityTypeId());
+      $to = \Drupal::state()->get($entity->getEntityTypeId(),'leung0369@gmail.com');
       $params['message'] = '<p>Body:</p><p>' . $entity->get('name')->value . '</p><p>' . $user->getDisplayName() . ' has a content in ' . mapping_key($entity->getEntityTypeId()) . ' waiting for your approval, the content as below:</p><p>' . $entity->get('field_description')->value . '</p>';
 
       $params['type'] = mapping_key($entity->getEntityTypeId());
@@ -175,11 +183,32 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
         }
       }
     }
-  }
+    if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'ads') {
+      $mailManager = \Drupal::service('plugin.manager.mail');
+      $module = 'epharm';
+      $user = \Drupal\user\Entity\User::load($entity->get('uid')->target_id);
+      $key = 'ads';
+      $to = $to = \Drupal::state()->get('ads','leung0369@gmail.com');
+      $params['title'] = 'HKDU – Dr. ' . $user->get('field_first_name')->value . ' has create a Classified Ads ';
+      $params['message'] = '<p>Dr. ' . $user->get('field_first_name')->value . ' of HKDU No. ' . $user->get('field_mchk_license')->value . '. has created a post of Classified Ad at the members area</p><p>Please approve and they will be asked to make payment.</p><p>Thanks,</p><p>-	HKDU admin</p>';
+      $params['from'] = \Drupal::config('system.site')->get('mail');
+      $langcode = \Drupal::currentUser()->getPreferredLangcode();
+      $send = TRUE;
+      $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
 
+      if ($result['result'] !== TRUE) {
+        \Drupal::messenger()->addMessage(t('There was a problem sending your message and it was not sent.'), 'error');
+      }
+      else {
+        \Drupal::messenger()->addMessage(t('Your message has been sent.'));
+      }
+    }
+  }
 }
 
-
+/**
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ */
 function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
 
   // Insert the new entity into a fictional table of all entities.
@@ -335,7 +364,6 @@ function epharm_views_pre_render(\Drupal\views\ViewExecutable $view) {
   }
   if ($view->id() == "quizzes_result_report") {
     foreach ($view->result as $value) {
-      // var_dump($value->_entity);
       $value->_entity->set('field_count', getResultEntity(getQuizbyResult($value->_entity->get('id')->value), 'quiz'));
     }
   }

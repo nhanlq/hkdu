@@ -35,29 +35,33 @@ function cme_question_theme() {
 }
 
 function cme_question_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-   if($form_id=='question_add_form' || $form_id=='question_edit_form'){
-       $form['field_true_false']['widget']['#title']='';
-       unset($form['field_true_false']['widget'][0]['subform']['field_true_false']['widget']['#options']['_none']);
-       $form['field_true_false']['#states'] =  [
-               // Only show this field when the 'toggle_me' checkbox is enabled.
-               'visible' => [':input[name="field_question_type"]' => ['value' => 'true_false']],
-       ];
-       $form['field_single_choice']['#states'] =  [
-           // Only show this field when the 'toggle_me' checkbox is enabled.
-           'visible' => [':input[name="field_question_type"]' => ['value' => 'single']],
-       ];
-       $form['field_multiple_choice']['#states'] =  [
-           // Only show this field when the 'toggle_me' checkbox is enabled.
-           'visible' => [':input[name="field_question_type"]' => ['value' => 'multiple']],
-       ];
+  if ($form_id == 'question_add_form' || $form_id == 'question_edit_form') {
+    $form['field_true_false']['widget']['#title'] = '';
+    unset($form['field_true_false']['widget'][0]['subform']['field_true_false']['widget']['#options']['_none']);
+    //    dpm($form);
+    unset($form['field_question_type']['widget']['#options']['match']);
+    unset($form['field_question_type']['widget']['#options']['short']);
+    unset($form['field_question_type']['widget']['#options']['long']);
+    $form['field_true_false']['#states'] = [
+      // Only show this field when the 'toggle_me' checkbox is enabled.
+      'visible' => [':input[name="field_question_type"]' => ['value' => 'true_false']],
+    ];
+    $form['field_single_choice']['#states'] = [
+      // Only show this field when the 'toggle_me' checkbox is enabled.
+      'visible' => [':input[name="field_question_type"]' => ['value' => 'single']],
+    ];
+    $form['field_multiple_choice']['#states'] = [
+      // Only show this field when the 'toggle_me' checkbox is enabled.
+      'visible' => [':input[name="field_question_type"]' => ['value' => 'multiple']],
+    ];
 
-       if(isset($_GET['quiz'])){
-           $quiz = \Drupal\cme_quiz\Entity\Quiz::load($_GET['quiz']);
-           $form['field_quiz']['widget'][0]['target_id']['#default_value'] = $quiz;
-           $form['field_quiz']['#attributes']['class'][]= 'hidden';
-       }
+    if (isset($_GET['quiz'])) {
+      $quiz = \Drupal\cme_quiz\Entity\Quiz::load($_GET['quiz']);
+      $form['field_quiz']['widget'][0]['target_id']['#default_value'] = $quiz;
+      $form['field_quiz']['#attributes']['class'][] = 'hidden';
+    }
 
-       $form['#attached']['library'][] = 'cme_question/single_choice';
-   }
+    $form['#attached']['library'][] = 'cme_question/single_choice';
+  }
 
 }

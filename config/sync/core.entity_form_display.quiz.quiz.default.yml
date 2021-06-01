@@ -25,6 +25,7 @@ dependencies:
     - field.field.quiz.quiz.field_price
     - field.field.quiz.quiz.field_reference_code
     - field.field.quiz.quiz.field_registration_dealine
+    - field.field.quiz.quiz.field_show_question
     - field.field.quiz.quiz.field_speaker
     - field.field.quiz.quiz.field_speaker_photo
     - field.field.quiz.quiz.field_specialty
@@ -205,6 +206,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_timestamp
+    region: content
+  field_show_question:
+    weight: 35
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_speaker:
     weight: 19
