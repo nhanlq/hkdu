@@ -1,0 +1,24 @@
+uuid: 61cd1313-6611-4a55-adf6-1edb4ffec5a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_show_question
+  module:
+    - cme_quiz
+id: quiz.quiz.field_show_question
+field_name: field_show_question
+entity_type: quiz
+bundle: quiz
+label: 'Show Question'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -59,6 +59,13 @@ class EmailNotify extends FormBase
             '#default_value' => \Drupal::state()->get('event'),
             '#weight' => '0',
         ];
+      $form['ads'] = [
+        '#type' => 'textarea',
+        '#title' => $this->t('Email Notify Classified Ads'),
+        '#description' => $this->t('Each emnail is separated by sign ",".'),
+        '#default_value' => \Drupal::state()->get('ads'),
+        '#weight' => '0',
+      ];
         $form['submit'] = [
             '#type' => 'submit',
             '#value' => $this->t('Submit'),

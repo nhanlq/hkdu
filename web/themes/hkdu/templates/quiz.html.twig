@@ -135,18 +135,8 @@
     <div class="jvveZx">
       {{ quiz.field_description.value|raw }}
     </div>
-    {% if roles is not null %}
-      {% if att is not null and att >= quiz.field_attempt_times.value %}
-        <div class="leBAWZ">
-          <div display="flex" class="dGmSBT">
-            <p>Your attempt times is expired.</p>
-          </div>
-        </div>
-      {% else %}
-        {{ question }}
-      {% endif %}
-    {% else %}
-      {% if paid is not null %}
+    {% if quiz.field_show_question.value == 1 %}
+      {% if roles is not null %}
         {% if att is not null and att >= quiz.field_attempt_times.value %}
           <div class="leBAWZ">
             <div display="flex" class="dGmSBT">
@@ -157,13 +147,25 @@
           {{ question }}
         {% endif %}
       {% else %}
-        <div class="leBAWZ">
-          <div display="flex" class="dGmSBT">
-            <a href="/payment/method/{{ quiz.id.value }}/{{ product.product_id.value }}/epharm"
-               class="eXdybn fUVRLe"><span
-                class="fjQIzu">Enroll</span></a>
+        {% if paid is not null %}
+          {% if att is not null and att >= quiz.field_attempt_times.value %}
+            <div class="leBAWZ">
+              <div display="flex" class="dGmSBT">
+                <p>Your attempt times is expired.</p>
+              </div>
+            </div>
+          {% else %}
+            {{ question }}
+          {% endif %}
+        {% else %}
+          <div class="leBAWZ">
+            <div display="flex" class="dGmSBT">
+              <a href="/payment/method/{{ quiz.id.value }}/{{ product.product_id.value }}/epharm"
+                 class="eXdybn fUVRLe"><span
+                  class="fjQIzu">Enroll</span></a>
+            </div>
           </div>
-        </div>
+        {% endif %}
       {% endif %}
     {% endif %}
   </div>
