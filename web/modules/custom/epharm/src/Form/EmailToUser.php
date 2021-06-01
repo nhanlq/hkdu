@@ -79,7 +79,6 @@ class EmailToUser extends FormBase {
     if($form_state->getValue('all') == 1){
       $to .= $this->getAllUsers();
     }
-    $to = \Drupal::state()->get('ads','leung0369@gmail.com');
     $params['title'] = $form_state->getValue('subject');
     $params['message'] = $form_state->getValue('message')['value'];
     $params['from'] = \Drupal::config('system.site')->get('mail');
