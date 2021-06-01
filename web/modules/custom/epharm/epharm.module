@@ -121,6 +121,11 @@ function epharm_mail($key, &$message, $params) {
       $message['subject'] = t('@title.', ['@title' => $params['title']], $options);
       $message['body'][] = $params['message'];
       break;
+    case 'toUser':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('@title.', ['@title' => $params['title']], $options);
+      $message['body'][] = $params['message'];
+      break;
   }
 }
 
@@ -188,7 +193,7 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
       $module = 'epharm';
       $user = \Drupal\user\Entity\User::load($entity->get('uid')->target_id);
       $key = 'ads';
-      $to = $to = \Drupal::state()->get('ads','leung0369@gmail.com');
+      $to = \Drupal::state()->get('ads','leung0369@gmail.com');
       $params['title'] = 'HKDU – Dr. ' . $user->get('field_first_name')->value . ' has create a Classified Ads ';
       $params['message'] = '<p>Dr. ' . $user->get('field_first_name')->value . ' of HKDU No. ' . $user->get('field_mchk_license')->value . '. has created a post of Classified Ad at the members area</p><p>Please approve and they will be asked to make payment.</p><p>Thanks,</p><p>-	HKDU admin</p>';
       $params['from'] = \Drupal::config('system.site')->get('mail');
