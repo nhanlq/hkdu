@@ -1,0 +1,31 @@
+uuid: 43e88725-0485-4e72-9305-46fbf2e425a5
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_quiz
+    - field_permissions
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: quiz.field_quiz_type
+field_name: field_quiz_type
+entity_type: quiz
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Lecture
+      label: Lecture
+    -
+      value: Self-Study
+      label: Self-Study
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

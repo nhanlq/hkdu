@@ -23,6 +23,7 @@ dependencies:
     - field.field.quiz.quiz.field_percent
     - field.field.quiz.quiz.field_point
     - field.field.quiz.quiz.field_price
+    - field.field.quiz.quiz.field_quiz_type
     - field.field.quiz.quiz.field_reference_code
     - field.field.quiz.quiz.field_registration_dealine
     - field.field.quiz.quiz.field_show_question
@@ -221,6 +222,13 @@ content:
       currency_display: symbol
     third_party_settings: {  }
     type: commerce_price_default
+    region: content
+  field_quiz_type:
+    weight: 34
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
   field_reference_code:
     weight: 22
