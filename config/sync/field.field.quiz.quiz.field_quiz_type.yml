@@ -1,0 +1,28 @@
+uuid: 1fc6a0f7-6768-4eab-a826-f760e69dcb7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_quiz_type
+  module:
+    - cme_quiz
+    - options
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: quiz.quiz.field_quiz_type
+field_name: field_quiz_type
+entity_type: quiz
+bundle: quiz
+label: 'Quiz Type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

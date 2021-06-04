@@ -189,6 +189,7 @@ class QuizTestController extends ControllerBase {
         'field_user' => $user->id(),
         'field_date' => date('Y-m-d', time()),
         'field_score' => $score,
+        'field_score_type'=> $quiz->get('field_quiz_type')->value,
         'name' => 'User ' . $user->getDisplayName() . ' of Quiz ' . $quizId,
         'created' => time(),
         'changed' => time(),
