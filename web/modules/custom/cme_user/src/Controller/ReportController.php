@@ -16,17 +16,43 @@ class ReportController extends ControllerBase {
    * @return string
    *   Return Hello string.
    */
-  public function report($uid, $from, $to) {
+  public function report($uid, $type, $period) {
     $user = \Drupal\user\Entity\User::load($uid);
+    if ($type == 'period') {
+      $date = explode('-', $user->get('field_cme_join_date')->value);
+      if ($period == '1st') {
+        if ($date[0] < date('Y') && (date('Y') - $date[0]) == 2) {
+          $from = $user->get('field_cme_join_date')->value;
+          $to = $date[0] . '-12-31';
+        }
+      }
+      if ($period == '2nd') {
+        if ($date[0] < date('Y') && (date('Y') - ($date[0] + 1)) == 1) {
+          $from = strtotime(str_replace($date[0], $date[0] + 1, $user->get('field_cme_join_date')->value));
+          $to = strtotime(($date[0] + 1) . '-12-31');
+        }
+      }
+      if ($period == '3rd') {
+        $from = strtotime(str_replace($date[0], $date[0] + 2, $user->get('field_cme_join_date')->value));
+        $to = strtotime((date('Y')) . '-12-31');
+      }
+    }
+    else {
+      $fromto = explode('+', $period);
+      $from = $fromto[0];
+      $to = $fromto[1];
+    }
+
     return [
       '#theme' => 'user_report',
-      '#scores' => $this->getRecordDetail($uid, $from, $to),
+      '#scores' => $this->getRecordDetail($uid, $type, $period),
       '#user' => $user,
-      '#total' => $this->getTotalScore($uid, $from, $to),
-      '#total_study' =>$this->getTotalStudy($uid, $from, $to),
-      '#total_lecture' => $this->getTotalLecture($uid, $from, $to),
+      '#total' => $this->getTotalScore($uid, $type, $period),
+      '#total_study' => $this->getTotalStudy($uid, $type, $period),
+      '#total_lecture' => $this->getTotalLecture($uid, $type, $period),
+      '#type' => $type,
       '#from' => $from,
-      '#to' =>$to,
+      '#to' => $to,
       '#now' => date('Y-m-d'),
       '#cache' => [
         'max-age' => 0,
@@ -34,129 +60,177 @@ class ReportController extends ControllerBase {
     ];
   }
 
-  public function getResultUser($uid, $from, $to){
-    $from_date = new DrupalDateTime($from);
-    $from_date->setTimezone(new \DateTimezone(DATETIME_STORAGE_TIMEZONE));
-    $from_formatted = $from_date->format(DATETIME_DATETIME_STORAGE_FORMAT);
+  /**
+   * @param $uid
+   * @param $type
+   * @param $period
+   *
+   * @return \Drupal\cme_score\Entity\Score[]|\Drupal\Core\Entity\EntityBase[]|\Drupal\Core\Entity\EntityInterface[]
+   */
+  public function getResultUser($uid, $type, $period) {
+    $user = \Drupal\user\Entity\User::load($uid);
 
-    $to = $to.'T23:59:59';
-
-    $to_date = new DrupalDateTime($to);
-    $to_date->setTimezone(new \DateTimezone(DATETIME_STORAGE_TIMEZONE));
-    $to_formatted = $to_date->format(DATETIME_DATETIME_STORAGE_FORMAT);
-
+    if ($type == 'period') {
+      $date = explode('-', $user->get('field_cme_join_date')->value);
+      if ($period == '1st') {
+        if ($date[0] < date('Y') && (date('Y') - $date[0]) == 2) {
+          $start = strtotime($user->get('field_cme_join_date')->value);
+          $end = strtotime($date[0] . '-12-31');
+        }
+      }
+      if ($period == '2nd') {
+        if ($date[0] < date('Y') && (date('Y') - $date[0]) == 1) {
+          $start = strtotime(str_replace($date[0], $date[0] + 1, $user->get('field_cme_join_date')->value));
+          $end = strtotime(($date[0] + 1) . '-12-31');
+        }
+      }
+      if ($period == '3rd') {
+        $start = strtotime(str_replace($date[0], $date[0] + 2, $user->get('field_cme_join_date')->value));
+        $end = time();
+      }
+    }
+    else {
+      $fromto = explode('+', $period);
+      $start = strtotime($fromto[0]);
+      $end = strtotime($fromto[1]);
+    }
     $ids = \Drupal::entityQuery('score')
       ->condition('status', 1)
-      ->condition('field_attendance',1)
-      ->condition('field_user',$uid)
-      ->condition('field_date',$from_formatted,'>=')
-      ->condition('field_date',$to_formatted,'<=')
+      ->condition('field_user', $uid)
+      ->condition('created', [$start, $end], 'BETWEEN')
       ->execute();
     $result = \Drupal\cme_score\Entity\Score::loadMultiple($ids);
     return $result;
   }
 
-  public function getTotalStudy($uid, $from, $to){
-    $tid = $this->getCategoryId('Self Study');
-    $scores = $this->getResultUser($uid, $from, $to);
+  /**
+   * @param $uid
+   * @param $type
+   * @param $period
+   *
+   * @return int
+   */
+  public function getTotalStudy($uid, $type, $period) {
+    $scores = $this->getResultUser($uid, $type, $period);
     $total = 0;
-    foreach($scores as $score){
-      if($score->get('field_quiz')->target_id > 0){
-         $quiz = \Drupal\cme_quiz\Entity\Quiz::load($score->get
-         ('field_quiz')->target_id);
-         if($quiz->get('field_category')->target_id == $tid){
-           $total += $score->get('field_score')->value;
-         }
+    foreach ($scores as $score) {
+      if ($score->get('field_score_type')->value == 'Self-Study') {
+        $total += $score->get('field_score')->value;
       }
-      if($score->get('field_event')->target_id > 0){
-          $event = \Drupal\cme_event\Entity\CmeEvent::load($score->get
-          ('field_event')->target_id);
-        if($event->get('field_category')->target_id == $tid){
-          $total += $score->get('field_score')->value;
-        }
-      }
-      if($score->get('field_epharm_event')->target_id > 0){
-        $event = \Drupal\event\Entity\Event::load($score->get
-        ('field_epharm_event')->target_id);
-        if($event->get('field_category')->target_id == $tid){
-          $total += $score->get('field_score')->value;
-        }
+    }
+    if ($total > 20) {
+      return 20;
+    }
+    else {
+      return $total;
+    }
+  }
+
+  /**
+   * @param $uid
+   * @param $type
+   * @param $period
+   *
+   * @return int
+   */
+  public function getTotalLecture($uid, $type, $period) {
+
+    $scores = $this->getResultUser($uid, $type, $period);
+    $total = 0;
+    foreach ($scores as $score) {
+      if ($score->get('field_score_type')->value == 'Lecture') {
+        $total += $score->get('field_score')->value;
       }
     }
     return $total;
+
   }
 
-  public function getTotalLecture($uid, $from, $to){
-    $tid = $this->getCategoryId('Lecture');
-    $scores = $this->getResultUser($uid, $from, $to);
-    $total = 0;
-    foreach($scores as $score){
-      if($score->get('field_quiz')->target_id > 0){
-        $quiz = \Drupal\cme_quiz\Entity\Quiz::load($score->get
-        ('field_quiz')->target_id);
-        if($quiz->get('field_category')->target_id == $tid){
-          $total += $score->get('field_score')->value;
-        }
-      }
-      if($score->get('field_event')->target_id > 0){
-        $event = \Drupal\cme_event\Entity\CmeEvent::load($score->get
-        ('field_event')->target_id);
-        if($event->get('field_category')->target_id == $tid){
-          $total += $score->get('field_score')->value;
-        }
-      }
-      if($score->get('field_epharm_event')->target_id > 0){
-        $event = \Drupal\event\Entity\Event::load($score->get
-        ('field_epharm_event')->target_id);
-        if($event->get('field_category')->target_id == $tid){
-          $total += $score->get('field_score')->value;
-        }
-      }
-    }
+  /**
+   * @param $uid
+   * @param $type
+   * @param $period
+   *
+   * @return int
+   */
+  public function getTotalScore($uid, $type, $period) {
+    $total = $this->getTotalStudy($uid, $type, $period) + $this->getTotalLecture($uid, $type, $period);
     return $total;
   }
 
-  public function getTotalScore($uid, $from, $to){
-    $scores = $this->getResultUser($uid, $from, $to);
-
-    $total = 0;
-    foreach($scores as $score){
-      $total += $score->get('field_score')->value;
-    }
-    return $total;
-  }
-  public function getRecordDetail($uid, $from, $to){
+  /**
+   * @param $uid
+   * @param $from
+   * @param $to
+   *
+   * @return array
+   */
+  public function getRecordDetail($uid, $from, $to) {
     $data = [];
-    $scores = $this->getResultUser($uid, $from, $to);
-    foreach($scores as $score){
 
-      if($score->get('field_quiz')->target_id > 0){
-        $quiz = \Drupal\cme_quiz\Entity\Quiz::load($score->get
-        ('field_quiz')->target_id);
-        $data[] = ['date'=> $score->get('field_date')->value,
-          'name'=>$quiz->get('name')->value,'score' => $score->get('field_score')->value,'organizer' =>$score->get('field_organizer')->value];
-      }elseif ($score->get('field_event')->target_id > 0){
-        $event = \Drupal\cme_event\Entity\CmeEvent::load($score->get
-        ('field_event')->target_id);
-        $data[] = ['date'=> $score->get('field_date')->value,
-          'name'=>$event->get('name')->value,'score' => $score->get('field_score')->value,'organizer' =>$score->get('field_organizer')->value];
-      }else{
-        $event = \Drupal\event\Entity\Event::load($score->get
-        ('field_epharm_event')->target_id);
-        $data[] = ['date'=> $score->get('field_date')->value,
-          'name'=>$event->get('name')->value,'score' => $score->get('field_score')->value,'organizer' =>$score->get('field_organizer')->value];
+    $scores = $this->getResultUser($uid, $from, $to);
+    $total = 0;
+    foreach ($scores as $score) {
+      if ($score->get('field_score_type')->value == 'Lecture') {
+        if ($score->get('field_quiz')->target_id > 0) {
+          $quiz = \Drupal\cme_quiz\Entity\Quiz::load($score->get('field_quiz')->target_id);
+          $data['lecture'][] = [
+            'date' => $score->get('created')->value,
+            'name' => $quiz->get('name')->value,
+            'score' => $score->get('field_score')->value,
+            'organizer' => $quiz->get('field_organiser')->value,
+          ];
+        }
+        elseif ($score->get('field_event')->target_id > 0) {
+          $event = \Drupal\cme_event\Entity\CmeEvent::load($score->get('field_event')->target_id);
+          $data['lecture'][] = [
+            'date' => $score->get('created')->value,
+            'name' => $event->get('name')->value,
+            'score' => $score->get('field_score')->value,
+            'organizer' => $this->getCategory($event->get('field_organizer')->target_id),
+          ];
+        }
       }
+      if ($score->get('field_score_type')->value == 'Self-Study') {
+        $total += $score->get('field_score')->value;
+        if ($total > 20) {
+          break;
+        }
+        if ($score->get('field_quiz')->target_id > 0) {
+          $quiz = \Drupal\cme_quiz\Entity\Quiz::load($score->get('field_quiz')->target_id);
+          $data['self_study'][] = [
+            'date' => $score->get('created')->value,
+            'name' => $quiz->get('name')->value,
+            'score' => $score->get('field_score')->value,
+            'organizer' => $quiz->get('field_organiser')->value,
+          ];
+        }
+        elseif ($score->get('field_event')->target_id > 0) {
+          $event = \Drupal\cme_event\Entity\CmeEvent::load($score->get('field_event')->target_id);
+          $data['self_study'][] = [
+            'date' => $score->get('created')->value,
+            'name' => $event->get('name')->value,
+            'score' => $score->get('field_score')->value,
+            'organizer' => $this->getCategory($event->get('field_organizer')->target_id),
+          ];
+        }
+      }
+
 
     }
     return $data;
   }
 
-  public function getCategoryId($name){
-    $term = \Drupal::entityTypeManager()
-      ->getStorage('taxonomy_term')
-      ->loadByProperties(['name' => $name]);
-    $term = reset($term);
-    $term_id = $term->id();
-    return $term_id;
+  /**
+   * @param $name
+   *
+   * @return int|string|null
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   */
+  public function getCategory($tid) {
+    $term = \Drupal\taxonomy\Entity\Term::load($tid);
+    return $term->getName();
   }
+
 }

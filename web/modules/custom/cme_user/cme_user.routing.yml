@@ -37,7 +37,7 @@ cme_user.user_qrcode_controller_qrcode:
     _permission: 'access user profiles'
 
 cme_user.report_controller_report:
-  path: '/report/{uid}/{from}/{to}/{time}'
+  path: '/report/{uid}/{type}/{period}/{time}'
   defaults:
     _controller: '\Drupal\cme_user\Controller\ReportController::report'
     _title: 'report'
