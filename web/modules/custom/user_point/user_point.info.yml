@@ -1,0 +1,5 @@
+name: 'User Point'
+type: module
+description: 'User Point Cycle'
+core: 8.x
+package: 'HKDU'

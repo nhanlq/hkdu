@@ -47,7 +47,7 @@
       <p>Room 901, Hang Shing Bldg., 363-373, Nathan Road, Kowloon</p>
       <p>Email: hkdu@hkdu.org Home Page: http://www.hkdu.org Tel. no.: 23882728 Fax no.: 23855275</p>
       <h2 style="font-weight: bold; font-size: 16px; margin-top: 20px">CME Attendance Report of Individual Members</h2>
-      <p>For the Period from {{ from }} to {{ to }}</p>
+      <p>For the Period from {{ from|date('Y-m-d') }} to {{ to|date('Y-m-d') }}</p>
 
     </div>
     <div style="clear: both";></div>
@@ -82,16 +82,23 @@
   </div>
   <div class="infor" style="width: 100%; margin-top: 20px">
     <p>According to our CME Register, you have attended thr following Continuing Medical Education Courses and Meetings
-      from {{ from }} to {{ to }} The Individual and total CME Points are list below for you reference.</p>
+      from {{ from|date('Y-m-d') }} to {{ to|date('Y-m-d') }} The Individual and total CME Points are list below for you reference.</p>
   </div>
   <table border="1" style="width: 100%" class="large-table">
      <thead>
      <th>Date of Course</th><th>Event</th><th>Organizer</th><th>CME(Points)</th><th>CPD(Points)</th>
      </thead>
     <tbody>
-    {% for score in scores %}
+    {% for lecture in scores.lecture %}
+
       <tr>
-        <td>{{ loop.index }}. {{ score.date }}</td><td>{{ score.name }}</td><td>{{ score.organizer }}</td><td>{{ score.score|number_format(0, '.', ',') }}</td><td>0</td>
+        <td>{{ lecture.date|date('Y-m-d') }}</td><td>{{ lecture.name }}</td><td>{{ lecture.organizer }}</td><td>{{ lecture.score|number_format(0, '.', ',') }}</td><td>0</td>
+      </tr>
+    {% endfor %}
+    {% for study in scores.self_study %}
+
+      <tr>
+        <td>{{ study.date|date('Y-m-d') }}</td><td>{{ study.name }}</td><td>{{ study.organizer }}</td><td>{{ study.score|number_format(0, '.', ',') }}</td><td>0</td>
       </tr>
     {% endfor %}
 

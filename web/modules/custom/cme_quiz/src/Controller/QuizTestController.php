@@ -118,6 +118,7 @@ class QuizTestController extends ControllerBase {
     $score = 0;
     if ($pass == 1) {
       $score = $quiz->get('field_point')->value;
+      $this->CreateQuizScore($quizId, $score);
     }
     $result = \Drupal\cme_result\Entity\Result::create([
       'name' => 'Result of ' . $quiz->getName() . ' - User ' . $user->getAccountName(),
@@ -134,8 +135,6 @@ class QuizTestController extends ControllerBase {
     ]);
     try {
       $result->save();
-
-      $this->CreateQuizScore($quizId, $score);
 
       $response = new RedirectResponse('/cme/quiz/' . $quizId . '/result/' . $result->id());
       $response->send();
@@ -174,8 +173,6 @@ class QuizTestController extends ControllerBase {
         $highest_score = $highest->get('field_score')->value;
         if ($highest_score < $score) {
           $return->set('field_score', $score);
-          $account->set('field_point', ($account->get('field_point')->value - $highest_score) + $score);
-          $account->save();
         }
       }
       $return->save();
@@ -189,14 +186,30 @@ class QuizTestController extends ControllerBase {
         'field_user' => $user->id(),
         'field_date' => date('Y-m-d', time()),
         'field_score' => $score,
-        'field_score_type'=> $quiz->get('field_quiz_type')->value,
+        'field_score_type' => $quiz->get('field_quiz_type')->value,
         'name' => 'User ' . $user->getDisplayName() . ' of Quiz ' . $quizId,
         'created' => time(),
         'changed' => time(),
       ]);
       $return->save();
-      $account->set('field_point', $account->get('field_point')->value + $score);
-      //   $account->save();
+      if ($quiz->get('field_quiz_type')->value == 'Lecture') {
+        if ($account->get('field_lecture_point')->value < 20) {
+          if ($account->get('field_lecture_point')->value + $score <= 20) {
+            $account->set('field_lecture_point', $account->get('field_lecture_point')->value + $score);
+            $account->set('field_cme_point', $account->get('field_cme_point')->value + $score);
+          }
+          else {
+            $account->set('field_lecture_point', 20);
+            $account->set('field_cme_point',
+              $account->get('field_cme_point')->value + (20 - $account->get('field_lecture_point')->value));
+          }
+        }
+      }
+      if ($quiz->get('field_quiz_type')->value == 'Self-Study') {
+        $account->set('field_self_study_point', $account->get('field_self_study_point')->value + $score);
+        $account->set('field_cme_point', $account->get('field_cme_point')->value + $score);
+      }
+      $account->save();
     }
     return $return;
   }

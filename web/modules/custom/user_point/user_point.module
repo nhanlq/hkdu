@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains user_point.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function user_point_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the user_point module.
+    case 'help.page.user_point':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('User Point Cycle') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function user_point_theme() {
+  return [
+    'user_point' => [
+      'render element' => 'children',
+    ],
+  ];
+}

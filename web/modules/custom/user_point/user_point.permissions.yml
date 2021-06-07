@@ -1,0 +1,31 @@
+add point entities:
+  title: 'Create new Point entities'
+
+administer point entities:
+  title: 'Administer Point entities'
+  description: 'Allow to access the administration form to configure Point entities.'
+  restrict access: true
+
+delete point entities:
+  title: 'Delete Point entities'
+
+edit point entities:
+  title: 'Edit Point entities'
+
+view published point entities:
+  title: 'View published Point entities'
+
+view unpublished point entities:
+  title: 'View unpublished Point entities'
+
+view all point revisions:
+  title: 'View all Point revisions'
+
+revert all point revisions:
+  title: 'Revert all Point revisions'
+  description: 'Role requires permission <em>view Point revisions</em> and <em>edit rights</em> for point entities in question or <em>administer point entities</em>.'
+
+delete all point revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Point revisions</em> and <em>delete rights</em> for point entities in question or <em>administer point entities</em>.'
+

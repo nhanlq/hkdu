@@ -1,0 +1,22 @@
+{#
+/**
+ * @file point.html.twig
+ * Default theme implementation to present Point data.
+ *
+ * This template is used when viewing Point pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_point()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('point') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>
