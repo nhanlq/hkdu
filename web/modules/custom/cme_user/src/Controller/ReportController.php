@@ -233,4 +233,60 @@ class ReportController extends ControllerBase {
     return $term->getName();
   }
 
+  public function admin_report($type, $period) {
+
+    return [
+      '#theme' => 'admin_user_report',
+      '#data' => $this->getAllUsersMember($type, $period),
+      '#period' => $period,
+      '#cache' => [
+        'max-age' => 0,
+      ],
+    ];
+  }
+
+  /**
+   * @param $type
+   * @param $period
+   */
+  public function getAllUsersMember($type, $period){
+    $ids = \Drupal::entityQuery('user')
+      ->condition('roles', ['hkdu_members','cme_member','doctor','council_members','drug_suppliers'], 'IN')
+      ->condition('status',1)
+      ->execute();
+    $users = \Drupal\user\Entity\User::loadMultiple($ids);
+    $data = [];
+
+    foreach($users as $user){
+      $to = NULL;
+      if ($type == 'period') {
+        $date = explode('-', $user->get('field_cme_join_date')->value);
+        if ($period == '1st') {
+          if ($date[0] < date('Y') && (date('Y') - $date[0]) == 2) {
+            $to = $date[0] . '-12-31';
+          }
+        }
+        if ($period == '2nd') {
+          if ($date[0] < date('Y') && (date('Y') - ($date[0] + 1)) == 1) {
+            $to = ($date[0] + 1) . '-12-31';
+          }
+        }
+        if ($period == '3rd') {
+          $to = (date('Y')) . '-12-31';
+        }
+      }
+      $data[] = [
+        'hkdu_membership_no'=> $user->get('field_registration_no')->value,
+        'mchk_no' => $user->get('field_mchk_license')->value,
+        'member_name' => $user->get('field_first_name')->value,
+        'mce_cycle_start' => $user->get('field_cme_join_date')->value,
+        'complete_year' => $to,
+        'lecture' => $this->getTotalLecture($user->id(), $type, $period),
+        'self_study' => $this->getTotalStudy($user->id(), $type, $period),
+        'total' => $this->getTotalScore($user->id(), $type, $period),
+      ];
+    }
+    return $data;
+  }
+
 }

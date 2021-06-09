@@ -12,6 +12,13 @@ cme.admin_cme.import_point:
   description: ''
   weight: -10
 
+cme.admin_cme.member_report:
+  title: 'CME Member Report'
+  route_name: 'cme_user.admin_report'
+  parent: 'cme.admin_cme'
+  description: ''
+  weight: -10
+
 cme.admin_cme.import_user:
   title: 'Import/Update Member'
   route_name: 'cme_user.import_user'

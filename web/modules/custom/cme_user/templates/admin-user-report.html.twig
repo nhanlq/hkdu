@@ -1,0 +1,55 @@
+<script type="application/javascript">
+  function exportTableToExcel(tableID, filename = ''){
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById(tableID);
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+    // Specify file name
+    filename = filename?filename+'.xls':'hkdu_cme_member_report.xls';
+
+    // Create download link element
+    downloadLink = document.createElement("a");
+
+    document.body.appendChild(downloadLink);
+
+    if(navigator.msSaveOrOpenBlob){
+      var blob = new Blob(['\ufeff', tableHTML], {
+        type: dataType
+      });
+      navigator.msSaveOrOpenBlob( blob, filename);
+    }else{
+      // Create a link to the file
+      downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+      // Setting the file name
+      downloadLink.download = filename;
+
+      //triggering the function
+      downloadLink.click();
+    }
+  }
+</script>
+<h1>CME Member Cycle Completed {{ period }} year Report</h1>
+<p>Click <button onclick="exportTableToExcel('admin_report')">Export CME Member Data To Excel File</button></p>
+<table id="admin_report">
+  <thead>
+  <th>HKDU Membership No.</th><th>MCHK No.</th><th>Name of Member</th><th>CME Cycle Starting From</th><th>Completed {{ period }} year on</th><th>Total point On Lecture</th><th>Total point On Self-Study</th><th>Actual Total Point</th>
+  </thead>
+  <tbody>
+  {% for user in data %}
+  <tr>
+    <td>{{ user.hkdu_membership_no }}</td>
+    <td>{{ user.mchk_no }}</td>
+    <td>{{ user.member_name }}</td>
+    <td>{{ user.mce_cycle_start }}</td>
+    <td>{{ user.complete_year }}</td>
+    <td>{{ user.lecture }}</td>
+    <td>{{ user.self_study }}</td>
+    <td>{{ user.total }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+
