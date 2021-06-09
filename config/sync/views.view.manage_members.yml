@@ -1499,7 +1499,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a target="_blank" href="/hkdu/{{uid}}/report">Generate Report</a>'
+            text: '<a target="_blank" href="/user/{{ uid }}/member/report">Generate Report</a>'
             make_link: false
             path: ''
             absolute: false
