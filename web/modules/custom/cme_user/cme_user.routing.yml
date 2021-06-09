@@ -43,10 +43,27 @@ cme_user.report_controller_report:
     _title: 'report'
   requirements:
     _permission: 'access content'
+
+cme_user.admin_controller_report:
+  path: '/admin/cme/report/{type}/{period}'
+  defaults:
+    _controller: '\Drupal\cme_user\Controller\ReportController::admin_report'
+    _title: 'CME Report'
+  requirements:
+    _permission: 'access content'
+
 cme_user.report:
   path: '/user/{uid}/member/report'
   defaults:
     _form: '\Drupal\cme_user\Form\Report'
     _title: 'Report Generation '
+  requirements:
+    _permission: 'access user profiles'
+
+cme_user.admin_report:
+  path: '/admin/cme/report'
+  defaults:
+    _form: '\Drupal\cme_user\Form\AdminReport'
+    _title: 'CME Report Generation '
   requirements:
     _permission: 'access user profiles'
