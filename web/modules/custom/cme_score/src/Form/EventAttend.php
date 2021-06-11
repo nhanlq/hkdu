@@ -30,7 +30,7 @@ class EventAttend extends FormBase {
         'file_validate_extensions' => ['xls xlsx'],
         // Pass the maximum file size in bytes
       ],
-      '#description' => $this->t('Allow Extension: xls, xlsx. Click <a target="_blank" href="/sites/default/files/import/cme_attend.xlsx">here</a> to download example.'),
+      '#description' => $this->t('Allow Extension: xls, xlsx. Click <a target="_blank" href="/sites/default/files/import/cme_event_attend.xlsx">here</a> to download example.'),
       '#weight' => 2,
     ];
 
@@ -82,58 +82,61 @@ class EventAttend extends FormBase {
 
       $attended = 0;
       if ($i != 1) {
-        if ($cme_event = $this->getEvents($data['B'])) {
-          if ($user = $this->getUserByReno($data['A'])) {
-            if (!$this->getUserScoreExist($user->id(), $cme_event->id())) {
-              $admin = 1;
-              if ($data['D'] == 'No') {
-                $admin = 0;
-              }
-              $score = \Drupal\cme_score\Entity\Score::create([
-                'name' => 'Event Score of event ' . $cme_event->getName() . ' of User ' . $user->getDisplayName(),
-                'field_score' => $cme_event->get('field_cme_point')->value,
-                'field_user' => $user->id(),
-                'field_event' => $cme_event->id(),
-                'field_hkdu_administrator' => $admin,
-                'field_score_type' => $cme_event->get('field_type')->value,
-                'uid' => $user->id(),
-                'created' => time(),
-                'changed' => time(),
-              ]);
-              $score->save();
-              //set score for user
-              $point = $cme_event->get('field_cme_point')->value;
-              if ($cme_event->get('field_type')->value == 'Lecture') {
-                if ($user->get('field_lecture_point')->value < 20) {
-                  if ($user->get('field_lecture_point')->value + $point <= 20) {
-                    $user->set('field_lecture_point', $user->get('field_lecture_point')->value + $point);
-                    $user->set('field_cme_point', $user->get('field_cme_point')->value + $point);
-                  }
-                  else {
-                    $user->set('field_lecture_point', 20);
-                    $user->set('field_cme_point',
-                      $user->get('field_cme_point')->value + (20 - $user->get('field_lecture_point')->value));
+        if ($data['C'] != 'NO') {
+          if ($cme_event = $this->getEvents($data['B'])) {
+            if ($user = $this->getUserByReno($data['A'])) {
+              if (!$this->getUserScoreExist($user->id(), $cme_event->id())) {
+                $admin = 1;
+                if ($data['D'] == 'No') {
+                  $admin = 0;
+                }
+                $score = \Drupal\cme_score\Entity\Score::create([
+                  'name' => 'Event Score of event ' . $cme_event->getName() . ' of User ' . $user->getDisplayName(),
+                  'field_score' => $cme_event->get('field_cme_point')->value,
+                  'field_user' => $user->id(),
+                  'field_event' => $cme_event->id(),
+                  'field_hkdu_administrator' => $admin,
+                  'field_score_type' => $cme_event->get('field_type')->value,
+                  'uid' => $user->id(),
+                  'created' => time(),
+                  'changed' => time(),
+                ]);
+                $score->save();
+                //set score for user
+                $point = $cme_event->get('field_cme_point')->value;
+                if ($cme_event->get('field_type')->value == 'Lecture') {
+                  if ($user->get('field_lecture_point')->value < 20) {
+                    if ($user->get('field_lecture_point')->value + $point <= 20) {
+                      $user->set('field_lecture_point', $user->get('field_lecture_point')->value + $point);
+                      $user->set('field_cme_point', $user->get('field_cme_point')->value + $point);
+                    }
+                    else {
+                      $user->set('field_lecture_point', 20);
+                      $user->set('field_cme_point',
+                        $user->get('field_cme_point')->value + (20 - $user->get('field_lecture_point')->value));
+                    }
                   }
                 }
-              }
-              if ($cme_event->get('field_quiz_type')->value == 'Self-Study') {
-                $user->set('field_self_study_point', $user->get('field_self_study_point')->value + $point);
-                $user->set('field_cme_point', $user->get('field_cme_point')->value + $point);
-              }
-              $user->save();
+                if ($cme_event->get('field_quiz_type')->value == 'Self-Study') {
+                  $user->set('field_self_study_point', $user->get('field_self_study_point')->value + $point);
+                  $user->set('field_cme_point', $user->get('field_cme_point')->value + $point);
+                }
+                $user->save();
 
-              \Drupal::messenger()
-                ->addMessage('User ' . $data['A'] . ' attended the event  ' . $data['B'] . ' success. ', 'error');
+                \Drupal::messenger()
+                  ->addMessage('User ' . $data['A'] . ' attended the event  ' . $data['B'] . ' success. ', 'error');
+              }
             }
+            else {
+              \Drupal::messenger()->addMessage('Member ' . $data['A'] . ' does not exist. ', 'error');
+            }
+
           }
           else {
-            \Drupal::messenger()->addMessage('Member ' . $data['A'] . ' does not exist. ', 'error');
+            \Drupal::messenger()->addMessage('Event ' . $data['B'] . ' does not exist. ', 'error');
           }
+        }
 
-        }
-        else {
-          \Drupal::messenger()->addMessage('Event ' . $data['B'] . ' does not exist. ', 'error');
-        }
       }
       $i++;
     }
