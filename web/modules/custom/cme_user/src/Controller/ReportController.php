@@ -75,18 +75,30 @@ class ReportController extends ControllerBase {
       if ($period == '1st') {
         if ($date[0] < date('Y') && (date('Y') - $date[0]) == 2) {
           $start = strtotime($user->get('field_cme_join_date')->value);
-          $end = strtotime($date[0] . '-12-31');
+          if(strpos($user->get('field_cme_join_date')->value,'01-01') !== false){
+            $end = strtotime($date[0] . '-12-31');
+          }else{
+            $end = strtotime(($date[0] + 1) . '-06-30');
+          }
         }
       }
       if ($period == '2nd') {
         if ($date[0] < date('Y') && (date('Y') - $date[0]) == 1) {
-          $start = strtotime(str_replace($date[0], $date[0] + 1, $user->get('field_cme_join_date')->value));
-          $end = strtotime(($date[0] + 1) . '-12-31');
+          $start = strtotime($user->get('field_cme_join_date')->value);
+          if(strpos($user->get('field_cme_join_date')->value,'01-01') !== false){
+            $end = strtotime(($date[0] + 1). '-12-31');
+          }else{
+            $end = strtotime(($date[0] + 2) . '-06-30');
+          }
         }
       }
       if ($period == '3rd') {
-        $start = strtotime(str_replace($date[0], $date[0] + 2, $user->get('field_cme_join_date')->value));
-        $end = time();
+        $start = strtotime($user->get('field_cme_join_date')->value);
+        if(strpos($user->get('field_cme_join_date')->value,'01-01') !== false){
+          $end = strtotime(($date[0] + 2). '-12-31');
+        }else{
+          $end = strtotime(($date[0] + 3) . '-06-30');
+        }
       }
     }
     else {
@@ -118,12 +130,23 @@ class ReportController extends ControllerBase {
         $total += $score->get('field_score')->value;
       }
     }
-    if ($total > 20) {
-      return 20;
+    if($period == '1st'){
+      if ($total > 20) {
+        return 20;
+      }
     }
-    else {
-      return $total;
+    if($period == '2nd'){
+      if ($total > 40) {
+        return 40;
+      }
     }
+    if($period == '3rd'){
+      if ($total > 60) {
+        return 60;
+      }
+    }
+    return $total;
+
   }
 
   /**
@@ -250,11 +273,19 @@ class ReportController extends ControllerBase {
    * @param $period
    */
   public function getAllUsersMember($type, $period){
-    $ids = \Drupal::entityQuery('user')
-      ->condition('roles', ['hkdu_members','cme_member','doctor','council_members','drug_suppliers'], 'IN')
-      ->condition('status',1)
-      ->execute();
-    $users = \Drupal\user\Entity\User::loadMultiple($ids);
+
+      $ids1 = \Drupal::entityQuery('user')
+        ->condition('roles', ['hkdu_members','cme_member','doctor','council_members','drug_suppliers'], 'IN')
+        ->condition('status',1)
+        ->execute();
+      $users1 = \Drupal\user\Entity\User::loadMultiple($ids1);
+    //  var_dump($users1);
+      $ids2 = \Drupal::entityQuery('user')
+        ->condition('roles', ['hkdu_members','cme_member','doctor','council_members','drug_suppliers'], 'IN')
+        ->condition('status',1)
+        ->execute();
+      $users2 = \Drupal\user\Entity\User::loadMultiple($ids2);
+    $users = array_merge($users1, $users2);
     $data = [];
 
     foreach($users as $user){
@@ -263,16 +294,29 @@ class ReportController extends ControllerBase {
         $date = explode('-', $user->get('field_cme_join_date')->value);
         if ($period == '1st') {
           if ($date[0] < date('Y') && (date('Y') - $date[0]) == 2) {
-            $to = $date[0] . '-12-31';
+            if(strpos($user->get('field_cme_join_date')->value,'01-01') !== false){
+              $to = $date[0] . '-12-31';
+            }else{
+              $to = ($date[0] + 1) . '-06-30';
+            }
+
           }
         }
         if ($period == '2nd') {
           if ($date[0] < date('Y') && (date('Y') - ($date[0] + 1)) == 1) {
-            $to = ($date[0] + 1) . '-12-31';
+            if(strpos($user->get('field_cme_join_date')->value,'01-01') !== false){
+              $to = ($date[0] +1) . '-12-31';
+            }else{
+              $to = ($date[0] + 2) . '-06-30';
+            }
           }
         }
         if ($period == '3rd') {
-          $to = (date('Y')) . '-12-31';
+          if(strpos($user->get('field_cme_join_date')->value,'01-01') !== false){
+            $to = ($date[0] +3) . '-12-31';
+          }else{
+            $to = ($date[0] + 4) . '-06-30';
+          }
         }
       }
       $data[] = [
