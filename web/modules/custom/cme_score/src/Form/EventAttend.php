@@ -117,7 +117,7 @@ class EventAttend extends FormBase {
                     }
                   }
                 }
-                if ($cme_event->get('field_quiz_type')->value == 'Self-Study') {
+                if ($cme_event->get('field_type')->value == 'Self-Study') {
                   $user->set('field_self_study_point', $user->get('field_self_study_point')->value + $point);
                   $user->set('field_cme_point', $user->get('field_cme_point')->value + $point);
                 }
