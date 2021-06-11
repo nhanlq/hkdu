@@ -105,20 +105,20 @@ class EventAttend extends FormBase {
                 //set score for user
                 $point = $cme_event->get('field_cme_point')->value;
                 if ($cme_event->get('field_type')->value == 'Self-Study') {
-                  if ($user->get('field_lecture_point')->value < 20) {
-                    if ($user->get('field_lecture_point')->value + $point <= 20) {
-                      $user->set('field_lecture_point', $user->get('field_lecture_point')->value + $point);
+                  if ($user->get('field_self_study_point')->value < 20) {
+                    if ($user->get('field_self_study_point')->value + $point <= 20) {
+                      $user->set('field_self_study_point', $user->get('field_self_study_point')->value + $point);
                       $user->set('field_cme_point', $user->get('field_cme_point')->value + $point);
                     }
                     else {
-                      $user->set('field_lecture_point', 20);
+                      $user->set('field_self_study_point', 20);
                       $user->set('field_cme_point',
-                        $user->get('field_cme_point')->value + (20 - $user->get('field_lecture_point')->value));
+                        $user->get('field_cme_point')->value + (20 - $user->get('field_self_study_point')->value));
                     }
                   }
                 }
                 if ($cme_event->get('field_type')->value == 'Lecture') {
-                  $user->set('field_self_study_point', $user->get('field_self_study_point')->value + $point);
+                  $user->set('field_lecture_point', $user->get('field_lecture_point')->value + $point);
                   $user->set('field_cme_point', $user->get('field_cme_point')->value + $point);
                 }
                 $user->save();
