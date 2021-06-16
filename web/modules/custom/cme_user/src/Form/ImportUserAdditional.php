@@ -80,11 +80,7 @@ class ImportUserAdditional extends FormBase {
         if ($user = $this->getUserByMCHKNo($data['A'])) {
           $date = date('Y-m-d', strtotime($data['C']));
           $user->set('field_cme_join_date', $date);
-          $user->set('field_self_study_point', $data['D']);
-          $user->set('field_lecture_point', $data['E']);
-          $user->set('field_cme_point', $data['F']);
-          $user->set('field_cpd_point', $data['G']);
-          $user->set('field_college', $this->createCollege('cme_college', $data['H']));
+          $user->set('field_college', $this->createCollege('cme_college', $data['D']));
           if ($data['B'] == 'Yes') {
             $user->addRole('administrator');
           }
