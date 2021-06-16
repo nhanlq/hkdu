@@ -192,24 +192,6 @@ class QuizTestController extends ControllerBase {
         'changed' => time(),
       ]);
       $return->save();
-      if ($quiz->get('field_quiz_type')->value == 'Self-Study') {
-        if ($account->get('field_self_study_point')->value < 20) {
-          if ($account->get('field_self_study_point')->value + $score <= 20) {
-            $account->set('field_self_study_point', $account->get('field_self_study_point')->value + $score);
-            $account->set('field_cme_point', $account->get('field_cme_point')->value + $score);
-          }
-          else {
-            $account->set('field_self_study_point', 20);
-            $account->set('field_cme_point',
-              $account->get('field_cme_point')->value + (20 - $account->get('field_self_study_point')->value));
-          }
-        }
-      }
-      if ($quiz->get('field_quiz_type')->value == 'Lecture') {
-        $account->set('field_lecture_point', $account->get('field_lecture_point')->value + $score);
-        $account->set('field_cme_point', $account->get('field_cme_point')->value + $score);
-      }
-      $account->save();
     }
     return $return;
   }

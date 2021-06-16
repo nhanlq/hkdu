@@ -7,17 +7,13 @@ dependencies:
     - field.field.user.user.commerce_remote_id
     - field.field.user.user.field_address
     - field.field.user.user.field_clinic_id
-    - field.field.user.user.field_cme_cycle_status
     - field.field.user.user.field_cme_join_date
-    - field.field.user.user.field_cme_point
     - field.field.user.user.field_college
     - field.field.user.user.field_contact_number
-    - field.field.user.user.field_cpd_point
     - field.field.user.user.field_first_name
     - field.field.user.user.field_guide_info
     - field.field.user.user.field_hkdu_subscription_period
     - field.field.user.user.field_last_name
-    - field.field.user.user.field_lecture_point
     - field.field.user.user.field_mchk_license
     - field.field.user.user.field_membership_type
     - field.field.user.user.field_newsletter
@@ -155,13 +151,9 @@ hidden:
   drug_supplier_profiles: true
   field_address: true
   field_clinic_id: true
-  field_cme_cycle_status: true
   field_cme_join_date: true
-  field_cme_point: true
   field_college: true
-  field_cpd_point: true
   field_hkdu_subscription_period: true
-  field_lecture_point: true
   field_newsletter: true
   field_point: true
   field_referee_name: true

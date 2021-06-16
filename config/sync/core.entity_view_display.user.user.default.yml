@@ -6,17 +6,13 @@ dependencies:
     - field.field.user.user.commerce_remote_id
     - field.field.user.user.field_address
     - field.field.user.user.field_clinic_id
-    - field.field.user.user.field_cme_cycle_status
     - field.field.user.user.field_cme_join_date
-    - field.field.user.user.field_cme_point
     - field.field.user.user.field_college
     - field.field.user.user.field_contact_number
-    - field.field.user.user.field_cpd_point
     - field.field.user.user.field_first_name
     - field.field.user.user.field_guide_info
     - field.field.user.user.field_hkdu_subscription_period
     - field.field.user.user.field_last_name
-    - field.field.user.user.field_lecture_point
     - field.field.user.user.field_mchk_license
     - field.field.user.user.field_membership_type
     - field.field.user.user.field_newsletter
@@ -83,13 +79,6 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_cme_cycle_status:
-    weight: 22
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
   field_cme_join_date:
     weight: 21
     label: above
@@ -98,17 +87,6 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
-    region: content
-  field_cme_point:
-    weight: 26
-    label: above
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_decimal
     region: content
   field_college:
     weight: 23
@@ -125,17 +103,6 @@ content:
       title: ''
     third_party_settings: {  }
     type: telephone_link
-    region: content
-  field_cpd_point:
-    weight: 27
-    label: above
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_decimal
     region: content
   field_first_name:
     weight: 4
@@ -161,17 +128,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
-  field_lecture_point:
-    weight: 25
-    label: above
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_decimal
     region: content
   field_mchk_license:
     weight: 7

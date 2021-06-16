@@ -42,8 +42,8 @@
     <td>{{ user.hkdu_membership_no }}</td>
     <td>{{ user.mchk_no }}</td>
     <td>{{ user.member_name }}</td>
-    <td>{{ user.mce_cycle_start }}</td>
-    <td>{{ user.complete_year }}</td>
+    <td>{{ user.mce_cycle_start|date('Y-m-d') }}</td>
+    <td>{{ user.complete_year|date('Y-m-d') }}</td>
     <td>{{ user.lecture }}</td>
     <td>{{ user.self_study }}</td>
     <td>{{ user.total }}</td>
