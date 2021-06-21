@@ -98,8 +98,8 @@ class EventAttend extends FormBase {
                   'field_hkdu_administrator' => $admin,
                   'field_score_type' => $cme_event->get('field_type')->value,
                   'uid' => $user->id(),
-                  'created' => time(),
-                  'changed' => time(),
+                  'created' => strtotime($cme_event->get('field_date')->value),
+                  'changed' => strtotime($cme_event->get('field_date')->value),
                 ]);
                 $score->save();
 

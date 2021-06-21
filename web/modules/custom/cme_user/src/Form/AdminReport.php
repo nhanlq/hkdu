@@ -35,7 +35,7 @@ class AdminReport extends FormBase {
     $form['cycle_type'] = [
       '#type' => 'select',
       '#title' => $this->t('Cycle Type'),
-      '#options' => ['1st' => '1st year', '2nd' => '2nd Year', '3rd' => '3rd Year'],
+      '#options' => $this->cycle_type(),
       '#weight' => '0',
       '#states' => [
         // Only show this field when the 'toggle_me' checkbox is enabled.
@@ -77,5 +77,21 @@ class AdminReport extends FormBase {
     $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/admin/cme/report/' . $type . '/' . $start . '/')->toString());;
     $redirect->send();
   }
+
+  /**
+   * @return array
+   */
+  public function cycle_type(){
+    $data = [];
+    $year = date('Y');
+    $data[($year-2).'-01-01'] = '1st '.($year-2).'/01/01';
+    $data[($year-2).'-07-01'] = '1st '.($year-2).'/07/01';
+    $data[($year-1).'-01-01'] = '2nd '.($year-1).'/01/01';
+    $data[($year-1).'-07-01'] = '2nd '.($year-1).'/07/01';
+    $data[$year.'-01-01'] = '3rd '.$year.'/01/01';
+    $data[$year.'-07-01'] = '3rd '.$year.'/07/01';
+    return $data;
+  }
+
 
 }
