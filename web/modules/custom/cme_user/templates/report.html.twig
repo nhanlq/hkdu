@@ -37,6 +37,7 @@
     background: #ffffff;
   }
 </style>
+{% if is_cycle %}
 <div class="report-wrapper" style="width: 100%;background: #ffffff">
   <div class="report-header-wrapper" style="width: 100%;">
     <div class="report-logo" style="width: 10%; float: left">
@@ -113,3 +114,6 @@
   </div>
 
 </div>
+  {% else %}
+  <p>Don't have any cycle for this user</p>
+{% endif %}

@@ -222,4 +222,8 @@ class QuizTestController extends ControllerBase {
     }
   }
 
+  private function calculateCycle(){
+
+  }
+
 }
