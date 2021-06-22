@@ -19,18 +19,19 @@ class ReportController extends ControllerBase {
   public function report($uid, $type, $period) {
     $user = \Drupal\user\Entity\User::load($uid);
     if ($type == 'period') {
-      $from = strtotime($period);
-      $to = strtotime($period) + 31449600;
+      $time = $this->getUserCycle($uid ,$type, $period);
+      $from = strtotime($time[$uid]['start']);
+      $to = strtotime($time[$uid]['end']);
     }
     else {
       $fromto = explode('+', $period);
-      $from = $fromto[0];
-      $to = $fromto[1];
+      $from = strtotime($fromto[0]);
+      $to = strtotime($fromto[1]);
     }
 
     return [
       '#theme' => 'user_report',
-      '#scores' => $this->getRecordDetail($uid, $type, $period),
+      '#scores' => $this->getRecordDetail($uid, $from, $to),
       '#user' => $user,
       '#total' => $this->getTotalScore($uid, $type, $period),
       '#total_study' => $this->getTotalStudy($uid, $type, $period),
@@ -39,6 +40,7 @@ class ReportController extends ControllerBase {
       '#from' => $from,
       '#to' => $to,
       '#now' => date('Y-m-d'),
+      '#is_cycle' => $this->getUserCycle($uid ,$type, $period),
       '#cache' => [
         'max-age' => 0,
       ],
@@ -56,8 +58,8 @@ class ReportController extends ControllerBase {
     $user = \Drupal\user\Entity\User::load($uid);
 
     if ($type == 'period') {
-      $from = strtotime($period);
-      $to = strtotime($period) + 31449600;
+      $from = strtotime($period[$uid]['start']);
+      $to = strtotime($period[$uid]['end']);
     }
     else {
       $fromto = explode('+', $period);
@@ -81,7 +83,7 @@ class ReportController extends ControllerBase {
    * @return int
    */
   public function getTotalStudy($uid, $type, $period) {
-    $scores = $this->getResultUser($uid, $type, $period);
+    $scores = $this->getResultUser($uid, $type, $this->getUserCycle($uid ,$type, $period));
     $total = 0;
     foreach ($scores as $score) {
       if ($score->get('field_score_type')->value == 'Self-Study') {
@@ -116,7 +118,7 @@ class ReportController extends ControllerBase {
    */
   public function getTotalLecture($uid, $type, $period) {
 
-    $scores = $this->getResultUser($uid, $type, $period);
+    $scores = $this->getResultUser($uid, $type, $this->getUserCycle($uid ,$type, $period));
     $total = 0;
     foreach ($scores as $score) {
       if ($score->get('field_score_type')->value == 'Lecture') {
@@ -146,10 +148,10 @@ class ReportController extends ControllerBase {
    *
    * @return array
    */
-  public function getRecordDetail($uid, $from, $to) {
+  public function getRecordDetail($uid, $type, $period) {
     $data = [];
 
-    $scores = $this->getResultUser($uid, $from, $to);
+    $scores = $this->getResultUser($uid, $type, $period);
     $total = 0;
     foreach ($scores as $score) {
       if ($score->get('field_score_type')->value == 'Lecture') {
@@ -232,11 +234,13 @@ class ReportController extends ControllerBase {
    */
   public function getAllUsersMember($type, $period) {
 
-    $users = $this->getUserScore($type, $period);
-    foreach ($users as $user) {
+    $users = $this->getUsers($type, $period);
+
+    foreach ($users as $uid => $time) {
+      $user = \Drupal\user\Entity\User::load($uid);
       if ($type == 'period') {
-        $start = strtotime($period);
-        $end = strtotime($period) + 31449600;
+        $start = strtotime($time['start']);
+        $end = strtotime($time['end']);
       }
       $data[$user->id()] = [
         'hkdu_membership_no' => $user->get('field_registration_no')->value,
@@ -252,6 +256,12 @@ class ReportController extends ControllerBase {
     return $data;
   }
 
+  /**
+   * @param $type
+   * @param $period
+   *
+   * @return array
+   */
   public function getUserScore($type, $period) {
     $start = strtotime($period);
     $end = strtotime($period) + 31449600;
@@ -265,6 +275,107 @@ class ReportController extends ControllerBase {
       $user[$score->get('field_user')->target_id] = \Drupal\user\Entity\User::load($score->get('field_user')->target_id);
     }
     return $user;
+  }
+
+  /**
+   * @param $type
+   * @param $period
+   *
+   * @return array
+   */
+  private function getUsers($type, $period) {
+    $users = [];
+    $ids = \Drupal::entityQuery('user')->condition('status', 1)->execute();
+    $result = \Drupal\user\Entity\User::loadMultiple($ids);
+    foreach ($result as $user) {
+
+      if (in_array('hkdu_members', $user->getRoles()) || in_array('doctor', $user->getRoles()) || in_array('cme_member',
+          $user->getRoles()) || in_array('council_members', $user->getRoles()) || in_array('drug_suppliers',
+          $user->getRoles())) {
+
+        if ($year = getCycle($user)) {
+          if(strpos($period,'1st') !== false){
+            if (strpos($user->get('field_cme_join_date')->value, '01-01') !== FALSE && strpos($period,
+                '01_01') !== FALSE) {
+              $users[$user->id()] = ['start'=> $year.'-01-01','end'=>$year.'-12-31'];
+            }
+            if (strpos($user->get('field_cme_join_date')->value, '07-01') !== FALSE && strpos($period,
+                '01_07') !== FALSE) {
+              $users[$user->id()] = ['start'=> $year.'-07-01','end'=>($year + 1).'-06-30'];
+            }
+          }
+          if(strpos($period,'2nd') !== false){
+            if (strpos($user->get('field_cme_join_date')->value, '01-01') !== FALSE && strpos($period,
+                '01_01') !== FALSE) {
+              $users[$user->id()] = ['start'=> $year.'-01-01','end'=>($year+1).'-12-31'];
+            }
+            if (strpos($user->get('field_cme_join_date')->value, '07-01') !== FALSE && strpos($period,
+                '01_07') !== FALSE) {
+              $users[$user->id()] = ['start'=> $year.'-07-01','end'=>($year + 2).'-06-30'];
+            }
+          }
+          if(strpos($period,'3rd') !== false){
+            if (strpos($user->get('field_cme_join_date')->value, '01-01') !== FALSE && strpos($period,
+                '01_01') !== FALSE) {
+              $users[$user->id()] = ['start'=> $year.'-01-01','end'=>($year+2).'-12-31'];
+            }
+            if (strpos($user->get('field_cme_join_date')->value, '07-01') !== FALSE && strpos($period,
+                '01_07') !== FALSE) {
+              $users[$user->id()] = ['start'=> $year.'-07-01','end'=>($year + 3).'-06-30'];
+            }
+          }
+
+        }
+      }
+    }
+    return $users;
+  }
+
+  /**
+   * @param $uid
+   * @param $type
+   * @param $period
+   *
+   * @return array
+   */
+  private function getUserCycle($uid ,$type, $period) {
+    $users = [];
+      $user = \Drupal\user\Entity\User::load($uid);
+        if ($year = getCycle($user)) {
+
+          if(strpos($period,'1st') !== false){
+            if (strpos($user->get('field_cme_join_date')->value, '01-01') !== FALSE && strpos($period,
+                '01_01') !== FALSE) {
+              $users[$user->id()] = ['start'=> $year.'-01-01','end'=>$year.'-12-31'];
+            }
+            if (strpos($user->get('field_cme_join_date')->value, '07-01') !== FALSE && strpos($period,
+                '01_07') !== FALSE) {
+              $users[$user->id()] = ['start'=> $year.'-07-01','end'=>($year + 1).'-06-30'];
+            }
+          }
+          if(strpos($period,'2nd') !== false){
+            if (strpos($user->get('field_cme_join_date')->value, '01-01') !== FALSE && strpos($period,
+                '01_01') !== FALSE) {
+              $users[$user->id()] = ['start'=> $year.'-01-01','end'=>($year+1).'-12-31'];
+            }
+            if (strpos($user->get('field_cme_join_date')->value, '07-01') !== FALSE && strpos($period,
+                '01_07') !== FALSE) {
+              $users[$user->id()] = ['start'=> $year.'-07-01','end'=>($year + 2).'-06-30'];
+            }
+          }
+          if(strpos($period,'3rd') !== false){
+            if (strpos($user->get('field_cme_join_date')->value, '01-01') !== FALSE && strpos($period,
+                '01_01') !== FALSE) {
+              $users[$user->id()] = ['start'=> $year.'-01-01','end'=>($year+2).'-12-31'];
+            }
+            if (strpos($user->get('field_cme_join_date')->value, '07-01') !== FALSE && strpos($period,
+                '01_07') !== FALSE) {
+              $users[$user->id()] = ['start'=> $year.'-07-01','end'=>($year + 3).'-06-30'];
+            }
+          }
+
+        }
+    return $users;
   }
 
 }
