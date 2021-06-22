@@ -87,8 +87,8 @@ class AdminReport extends FormBase {
     $data['1st_07_01'] = '1st 07/01';
     $data['2nd_01_01'] = '2nd 01/01';
     $data['2nd_07_01'] = '2nd 07/01';
-    $data['3rd_01_01'] = '3rd 01/01';
-    $data['3rd_07_01'] = '3rd 07/01';
+    $data['3rd_01_01'] = '3 years 01/01';
+    $data['3rd_07_01'] = '3 years 07/01';
     return $data;
   }
 
