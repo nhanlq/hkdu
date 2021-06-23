@@ -142,10 +142,10 @@ class Report extends FormBase {
    */
   public function cycle_type(){
     $data = [];
-    $data['1st_01_01'] = '1st 01/01';
-    $data['1st_07_01'] = '1st 07/01';
-    $data['2nd_01_01'] = '2nd 01/01';
-    $data['2nd_07_01'] = '2nd 07/01';
+    $data['1st_01_01'] = '1 year 01/01';
+    $data['1st_07_01'] = '1 year 07/01';
+    $data['2nd_01_01'] = '2 years 01/01';
+    $data['2nd_07_01'] = '2 years 07/01';
     $data['3rd_01_01'] = '3 years 01/01';
     $data['3rd_07_01'] = '3 years 07/01';
     return $data;
