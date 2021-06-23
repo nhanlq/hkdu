@@ -31,7 +31,7 @@ class ReportController extends ControllerBase {
 
     return [
       '#theme' => 'user_report',
-      '#scores' => $this->getRecordDetail($uid, $from, $to),
+      '#scores' => $this->getRecordDetail($uid, $type, $period),
       '#user' => $user,
       '#total' => $this->getTotalScore($uid, $type, $period),
       '#total_study' => $this->getTotalStudy($uid, $type, $period),
@@ -55,11 +55,12 @@ class ReportController extends ControllerBase {
    * @return \Drupal\cme_score\Entity\Score[]|\Drupal\Core\Entity\EntityBase[]|\Drupal\Core\Entity\EntityInterface[]
    */
   public function getResultUser($uid, $type, $period) {
-    $user = \Drupal\user\Entity\User::load($uid);
 
+    $user = \Drupal\user\Entity\User::load($uid);
     if ($type == 'period') {
-      $from = strtotime($period[$uid]['start']);
-      $to = strtotime($period[$uid]['end']);
+      $time = $this->getUserCycle($uid ,$type, $period);
+      $from = strtotime($time[$uid]['start']);
+      $to = strtotime($time[$uid]['end']);
     }
     else {
       $fromto = explode('+', $period);
@@ -67,7 +68,7 @@ class ReportController extends ControllerBase {
       $to = strtotime($fromto[1]);
     }
     $ids = \Drupal::entityQuery('score')
-      ->condition('status', 1)
+//      ->condition('status', 1)
       ->condition('field_user', $uid)
       ->condition('created', [$from, $to], 'BETWEEN')
       ->execute();
@@ -90,17 +91,17 @@ class ReportController extends ControllerBase {
         $total += $score->get('field_score')->value;
       }
     }
-    if ($period == '1st') {
+    if (strpos($period, '1st') !== false) {
       if ($total > 20) {
         return 20;
       }
     }
-    if ($period == '2nd') {
+    if (strpos($period, '2nd') !== false) {
       if ($total > 40) {
         return 40;
       }
     }
-    if ($period == '3rd') {
+    if (strpos($period, '3rd') !== false) {
       if ($total > 60) {
         return 60;
       }
@@ -154,6 +155,7 @@ class ReportController extends ControllerBase {
     $scores = $this->getResultUser($uid, $type, $period);
     $total = 0;
     foreach ($scores as $score) {
+
       if ($score->get('field_score_type')->value == 'Lecture') {
         if ($score->get('field_quiz')->target_id > 0) {
           $quiz = \Drupal\cme_quiz\Entity\Quiz::load($score->get('field_quiz')->target_id);
