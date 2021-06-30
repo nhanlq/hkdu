@@ -82,7 +82,7 @@ class EventAttend extends FormBase {
 
       $attended = 0;
       if ($i != 1) {
-        if ($data['C'] != 'NO') {
+        if ($data['C'] != 'No') {
           if ($cme_event = $this->getEvents($data['B'])) {
             if ($user = $this->getUserByReno($data['A'])) {
               if (!$this->getUserScoreExist($user->id(), $cme_event->id())) {
