@@ -127,11 +127,10 @@ function cme_user_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
  */
 function getCycle($user){
   $year = date('Y',strtotime($user->get('field_cme_join_date')->value));
-
   $current = getYear($year);
   $first = date();
   if($current == 0){
-    return false;
+    $first = date('Y') - 3;
   }
   if($current == 1){
     $first = date('Y') - 1;
@@ -142,6 +141,7 @@ function getCycle($user){
   if($current == 3){
     $first = date('Y') - 3;
   }
+
   return $first;
 }
 
@@ -153,6 +153,7 @@ function getCycle($user){
 function getYear($year){
   $now = date('Y');
   $current = $now - $year;
+
   if($current == 0){
     return 3;
   }
