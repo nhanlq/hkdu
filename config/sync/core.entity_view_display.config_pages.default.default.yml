@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - config_pages.type.default
+    - field.field.config_pages.default.field_footer_report
     - field.field.config_pages.default.field_from
     - field.field.config_pages.default.field_header_report
 id: config_pages.default.default
@@ -11,6 +12,13 @@ targetEntityType: config_pages
 bundle: default
 mode: default
 content:
+  field_footer_report:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
   field_from:
     weight: 1
     label: above
