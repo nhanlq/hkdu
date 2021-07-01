@@ -3,7 +3,7 @@
 namespace Drupal\cme_user\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\config_pages\Entity\ConfigPages;
 
 /**
  * Class ReportController.
@@ -41,6 +41,7 @@ class ReportController extends ControllerBase {
       '#to' => $to,
       '#now' => date('Y-m-d'),
       '#is_cycle' => $this->getUserCycle($uid ,$type, $period),
+      '#config' => ConfigPages::config('default'),
       '#cache' => [
         'max-age' => 0,
       ],

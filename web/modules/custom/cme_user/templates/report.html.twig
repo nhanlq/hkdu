@@ -44,9 +44,7 @@
       <img src="/themes/hkdu/images/icon/smalltile.png"/>
     </div>
     <div class="report-header" style="width: 90%; float: left; text-align: center">
-      <h1 style="font-weight: bold; font-size: 18px">HONG KONG DOCTORS UNION</h1>
-      <p>Room 901, Hang Shing Bldg., 363-373, Nathan Road, Kowloon</p>
-      <p>Email: hkdu@hkdu.org Home Page: http://www.hkdu.org Tel. no.: 23882728 Fax no.: 23855275</p>
+      {{ config.field_header_report.value|raw }}
       <h2 style="font-weight: bold; font-size: 16px; margin-top: 20px">CME Attendance Report of Individual Members</h2>
       <p>For the Period from {{ from|date('Y-m-d') }} to {{ to|date('Y-m-d') }}</p>
 
@@ -55,14 +53,13 @@
   </div>
   <div class="report-info" style="width: 100%">
     <div class="user-info" style="width: 50%; float: left">
-      <p>HKDU Membership No {{ user.field_registration_no.value }}</p>
-      <p>MC Registration No {{ user.field_mchk_license.value }}</p>
+      <p>MC Registration No {{ user.field_registration_no.value }}</p>
+      <p>HKDU Membership No {{ user.field_mchk_license.value }}</p>
       <div class="member-info">
         <p>To: Dr {{ user.field_first_name.value }} </p>
         <p>{{ user.field_address.value }}</p>
       </div>
-      <p>From: Dr. Kong Yim Fai Albert</p>
-      <p>Chairman, Committee on CME </p>
+     {{ config.field_from.value|raw }}
     </div>
     <div class="user-score" style="width: 50%; float: left;margin-top: 20px">
       <p>Date {{ now }}</p>
@@ -110,7 +107,7 @@
   </table>
 <div style="clear: both;"></div>
   <div class="noted" style="margin-top: 60px">
-<p>If there is any discrepancy between yout our record and that of the HKDU, please provide evidence to substantiate your claim of CME Points.</p>
+{{ config.field_footer_report.value|raw }}
   </div>
 
 </div>

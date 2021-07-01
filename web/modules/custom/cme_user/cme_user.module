@@ -43,7 +43,7 @@ function cme_user_theme($existing, $type, $theme, $path) {
       'template' => 'admin-user-report',
     ],
     'user_report' => [
-      'variables' => ['user' => NULL, 'scores' => NULL, 'total' => NULL, 'total_study' => NULL, 'total_lecture' => NULL, 'from'=>NULL, 'to' => NULL,'now'=>NULL, 'is_cycle'=> NULL],
+      'variables' => ['user' => NULL, 'scores' => NULL, 'total' => NULL, 'total_study' => NULL, 'total_lecture' => NULL, 'from'=>NULL, 'to' => NULL,'now'=>NULL, 'is_cycle'=> NULL,'config'=>NULL],
       'path' => $path . '/templates/',
       'template' => 'report',
     ],

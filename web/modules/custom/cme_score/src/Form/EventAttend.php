@@ -125,6 +125,11 @@ class EventAttend extends FormBase {
 
   }
 
+  /**
+   * @param $ref
+   *
+   * @return \Drupal\cme_event\Entity\CmeEvent|\Drupal\Core\Entity\EntityBase|\Drupal\Core\Entity\EntityInterface|false
+   */
   public function getEvents($ref) {
     $ids = \Drupal::entityQuery('cme_event')->condition('field_ref_code', $ref)->sort('name', 'ASC')->execute();
     if ($ids) {

@@ -1,0 +1,19 @@
+uuid: 6adc803d-d218-4778-86aa-3e72e107722c
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.default
+    - field.storage.config_pages.field_from
+id: config_pages.default.field_from
+field_name: field_from
+entity_type: config_pages
+bundle: default
+label: From
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
