@@ -1,0 +1,17 @@
+uuid: a0a32910-aa45-47dc-b91a-c899a50f2aa1
+langcode: en
+status: true
+dependencies: {  }
+id: default
+label: Default
+context:
+  show_warning: true
+  group:
+    language: false
+  fallback:
+    language: ''
+menu:
+  path: ''
+  weight: 0
+  description: ''
+token: false

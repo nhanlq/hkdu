@@ -1,0 +1,19 @@
+uuid: e388aa65-0026-4221-8213-606041662494
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.default
+    - field.storage.config_pages.field_header_report
+id: config_pages.default.field_header_report
+field_name: field_header_report
+entity_type: config_pages
+bundle: default
+label: 'Header report'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,29 @@
+uuid: f5663c76-d6aa-4654-b347-5b4a04f629cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.default
+    - field.field.config_pages.default.field_from
+    - field.field.config_pages.default.field_header_report
+id: config_pages.default.default
+targetEntityType: config_pages
+bundle: default
+mode: default
+content:
+  field_from:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_header_report:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  search_api_excerpt: true
