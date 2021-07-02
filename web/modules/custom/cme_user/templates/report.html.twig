@@ -84,24 +84,19 @@
   </div>
   <table border="1" style="width: 100%" class="large-table">
      <thead>
-     <th>Date of Course</th><th>Event</th><th>Organizer</th><th>CME(Points)</th><th>CPD(Points)</th>
+     <th>Date of Course</th><th>Event</th><th>Type</th><th>Organizer</th><th>CME(Points)</th><th>CPD(Points)</th>
      </thead>
     <tbody>
-    {% for lecture in scores.lecture %}
+    {% for score in scores %}
 
       <tr>
-        <td>{{ lecture.date|date('Y-m-d') }}</td><td>{{ lecture.name }}</td><td>{{ lecture.organizer }}</td><td>{{ lecture.score|number_format(0, '.', ',') }}</td><td>0</td>
+        <td>{{ score.date|date('Y-m-d') }}</td><td>{{ score.name }}</td><td>{{ score.type }}</td><td>{{ score.organizer }}</td><td>{{ score.score|number_format(0, '.', ',') }}</td><td>0</td>
       </tr>
     {% endfor %}
-    {% for study in scores.self_study %}
 
-      <tr>
-        <td>{{ study.date|date('Y-m-d') }}</td><td>{{ study.name }}</td><td>{{ study.organizer }}</td><td>{{ study.score|number_format(0, '.', ',') }}</td><td>0</td>
-      </tr>
-    {% endfor %}
 
     <tr>
-      <td></td><td></td><td style="font-weight: bold">Total</td><td>{{ total }}</td><td>0</td>
+      <td></td><td></td><td></td><td style="font-weight: bold">Total</td><td>{{ total }}</td><td>0</td>
     </tr>
     </tbody>
   </table>
