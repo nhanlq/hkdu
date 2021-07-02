@@ -70,9 +70,9 @@
         <tbody>
         <tr><td>Lecture</td><td>{{ total_lecture }}</td><td>{{ total_lecture }}</td></tr>
         <tr>
-          <td>Self Study: <br>Max 20 Points</td><td>{{ total_study }}</td><td>{{ total_study }}</td>
+          <td>Self Study: <br>Max 20 Points <br>per year</td><td>{{ total_gain_study }}</td><td>{{ total_study }}</td>
         </tr>
-        <tr><td>Total:</td><td>{{ total }}</td><td>{{ total }}</td></tr>
+        <tr><td>Total:</td><td>{{ total_gain_study + total_lecture }}</td><td>{{ total }}</td></tr>
         </tbody>
       </table>
     </div>
