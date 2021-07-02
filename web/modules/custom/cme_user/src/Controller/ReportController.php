@@ -35,6 +35,7 @@ class ReportController extends ControllerBase {
       '#user' => $user,
       '#total' => $this->getTotalScore($uid, $type, $period),
       '#total_study' => $this->getTotalStudy($uid, $type, $period),
+      '#total_gain_study' => $this->getSelfStudyGain($uid, $from, $to),
       '#total_lecture' => $this->getTotalLecture($uid, $type, $period),
       '#type' => $type,
       '#from' => $from,
@@ -100,6 +101,13 @@ class ReportController extends ControllerBase {
 
   }
 
+  /**
+   * @param $uid
+   * @param $from
+   * @param $to
+   *
+   * @return int
+   */
   private function getSelfStudyEveryYear($uid, $from, $to) {
     $scores = $this->getResultUser($uid, $from, $to);
     $total = 0;
@@ -110,6 +118,17 @@ class ReportController extends ControllerBase {
     }
     if ($total > 20) {
       return 20;
+    }
+    return $total;
+  }
+
+  private function getSelfStudyGain($uid, $from, $to) {
+    $scores = $this->getResultUser($uid, $from, $to);
+    $total = 0;
+    foreach ($scores as $score) {
+      if ($score->get('field_score_type')->value == 'Self-Study') {
+        $total += $score->get('field_score')->value;
+      }
     }
     return $total;
   }
