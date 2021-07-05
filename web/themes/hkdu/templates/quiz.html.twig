@@ -77,7 +77,7 @@
         <div display="block,flex" class="bXXHPz">
           <div width="100%,236" class="jBxOzO">Disclaimer
           </div>
-          <div class="hnOpua">{{ quiz.field_disclaimer.value }}</div>
+          <div class="hnOpua">{{ quiz.field_disclaimer.value|raw }}</div>
         </div>
       {% endif %}
       {% if quiz.field_speaker is not empty %}
