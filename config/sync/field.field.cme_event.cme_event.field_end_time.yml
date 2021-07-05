@@ -6,13 +6,20 @@ dependencies:
     - field.storage.cme_event.field_end_time
   module:
     - cme_event
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
 id: cme_event.cme_event.field_end_time
 field_name: field_end_time
 entity_type: cme_event
 bundle: cme_event
 label: 'End Time'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
