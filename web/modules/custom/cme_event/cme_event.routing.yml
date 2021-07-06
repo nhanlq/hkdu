@@ -59,3 +59,11 @@ cme_event.event_calendar_controller_calendar:
     _title: 'Events Calendar'
   requirements:
     _permission: 'view published cme event entities'
+
+cme_event.export_enroll_list:
+  path: '/admin/cme/event/export/enrollment/{id}'
+  defaults:
+    _controller: '\Drupal\cme_event\Controller\CmeEventExportController::enroll_list'
+    _title: 'CME Event Export Enrollment'
+  requirements:
+    _permission: 'view published cme event entities'
