@@ -62,7 +62,9 @@ class CmeEventExportController extends ControllerBase {
         /** @var \Drupal\paragraphs\Entity\Paragraph $para */
         $para = \Drupal\paragraphs\Entity\Paragraph::load($col['target_id']);
         $college = \Drupal\taxonomy\Entity\Term::load($para->get('field_college')->target_id);
-        $data[] = $college->get('name')->value;
+        if($college){
+          $data[] = $college->get('name')->value;
+        }
       }
     }
 
@@ -80,7 +82,10 @@ class CmeEventExportController extends ControllerBase {
         /** @var \Drupal\paragraphs\Entity\Paragraph $para */
         $para = \Drupal\paragraphs\Entity\Paragraph::load($col['target_id']);
         $college = \Drupal\taxonomy\Entity\Term::load($para->get('field_category')->target_id);
-        $data[] = $college->get('name')->value;
+        if($college){
+          $data[] = $college->get('name')->value;
+        }
+
       }
     }
 
@@ -97,7 +102,10 @@ class CmeEventExportController extends ControllerBase {
       foreach ($event->get('field_college')->getValue() as $col) {
         /** @var \Drupal\paragraphs\Entity\Paragraph $para */
         $para = \Drupal\paragraphs\Entity\Paragraph::load($col['target_id']);
-        $data[] = $para->get('field_special_point')->value;
+        if($para){
+          $data[] = $para->get('field_special_point')->value;
+        }
+
       }
     }
     return $data;
