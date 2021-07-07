@@ -45,7 +45,7 @@ class CmeEventExportController extends ControllerBase {
     $users = [];
     if ($scores) {
       foreach ($scores as $score) {
-        $users[] = \Drupal\user\Entity\User::load($score->get('field_user')->target_id);
+        $users[$score->get('field_user')->target_id] = \Drupal\user\Entity\User::load($score->get('field_user')->target_id);
       }
     }
     return $users;
