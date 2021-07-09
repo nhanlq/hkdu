@@ -118,16 +118,15 @@ class EventSuccessSubscriber implements EventSubscriberInterface {
         $cme_event_entity = \Drupal\cme_event\Entity\CmeEvent::load($cme_event);
         $score = \Drupal\cme_score\Entity\Score::create([
           'name' => 'Event Score of event ' . $cme_event_entity->getName() . ' of User ' . $user->getDisplayName(),
-          'field_score' => 0,
+          'field_score' => $cme_event_entity->get('field_cme_point')->value,
+          'status' => 0,
           'field_user' => $user->id(),
           'field_event' => $cme_event_entity->id(),
-          'field_attendance' => 0,
           'uid' => $user->id(),
         ]);
         $score->save();
         //send QR code
 
-        $url = '';
         $host = \Drupal::request()->getSchemeAndHttpHost();
         $url = $host . '/cme/event/qrcode/' . $cme_event . '/' . $user->id();
         $google_qr_image_url = "https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=" . $url . '&chld=H|0';

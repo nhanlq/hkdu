@@ -1,0 +1,66 @@
+<script type="application/javascript">
+  function exportTableToExcel(tableID, filename = ''){
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById(tableID);
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+    // Specify file name
+    filename = filename?filename+'.xls':'hkdu_cme_event_enroll.xls';
+
+    // Create download link element
+    downloadLink = document.createElement("a");
+
+    document.body.appendChild(downloadLink);
+
+    if(navigator.msSaveOrOpenBlob){
+      var blob = new Blob(['\ufeff', tableHTML], {
+        type: dataType
+      });
+      navigator.msSaveOrOpenBlob( blob, filename);
+    }else{
+      // Create a link to the file
+      downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+      // Setting the file name
+      downloadLink.download = filename;
+
+      //triggering the function
+      downloadLink.click();
+    }
+  }
+</script>
+<h1>CME Event Enrollment Pending List</h1>
+<p>Click <button onclick="exportTableToExcel('admin_report')">Export Data To Excel File</button></p>
+<table id="admin_report">
+  <thead>
+  <th>Reference code*</th>
+  <th>Event Name</th>
+  <th>Points</th>
+  <th>Type of CME</th>
+  <th>Member MCHK No.</th>
+  <th>Member Email.</th>
+  <th>Member English Name</th>
+  <th>Subscription Date</th>
+  <th>Status</th>
+  <th>Action</th>
+  </thead>
+  <tbody>
+  {% for score in scores %}
+  <tr>
+    <td>{{ score.field_event.entity.field_ref_code.value }}</td>
+    <td><a href="/cme/events/{{ score.field_event.target_id }}">{{ score.field_event.entity.name.value }}</a></td>
+    <td>{{ score.field_event.entity.field_cme_point.value }}</td>
+    <td>{{ score.field_event.entity.field_type.value }}</td>
+    <td>{{ score.field_user.entity.field_mchk_license.value }}</td>
+    <td>{{ score.field_user.entity.mail.value }}</td>
+    <td>{{ score.field_user.entity.field_first_name.value }}</td>
+    <td>{{ score.created.value|date('Y/m/d') }}</td>
+    <td>{{ score.status.value }}</td>
+    <td><a href="/admin/cme/event/confirm/{{ score.id.value }}">Confirm</a></td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+

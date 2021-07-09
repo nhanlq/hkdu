@@ -59,6 +59,7 @@ class ReportController extends ControllerBase {
   public function getResultUser($uid, $from, $to) {
     $ids = \Drupal::entityQuery('score')
       ->condition('field_user', $uid)
+      ->condition('status', 1)
       ->condition('created', $from, '>=')
       ->condition('created', $to, '<=')
       ->execute();
