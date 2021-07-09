@@ -347,4 +347,14 @@ class QuizListController extends ControllerBase {
       '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList(),
     ];
   }
+
+  /**
+   * @return array
+   */
+  public function titleArchived() {
+    return [
+      '#markup' => \Drupal::state()->get('/cme/quiz/archived', 'Archived Quizzes'),
+      '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList(),
+    ];
+  }
 }
