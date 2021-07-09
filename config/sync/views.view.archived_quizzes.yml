@@ -746,7 +746,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: cme/quiz/archived-quizzes
+      path: admin/cme/quiz/archived-quizzes
       menu:
         type: normal
         title: 'Archived Quizzes'
