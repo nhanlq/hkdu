@@ -29,7 +29,6 @@ class FreeCartController extends ControllerBase {
               'field_score' => 0,
               'field_user' => $user->id(),
               'field_event' => $cme_event_entity->id(),
-              'field_attendance' => 0,
               'uid' => $user->id()
           ]);
           $score->save();
@@ -84,9 +83,10 @@ class FreeCartController extends ControllerBase {
           if ($result['result'] !== true) {
               \Drupal::messenger()->addMessage(t('There was a problem sending your message and it was not sent.'), 'error');
           } else {
-              \Drupal::messenger()->addMessage(t('Your message has been sent.'));
+              \Drupal::messenger()->addMessage(t('Thanks for joining the event'));
           }
           $event = false;
+          $cme_event = true;
           $url = '/cme/events/'.$id;
 
       }
