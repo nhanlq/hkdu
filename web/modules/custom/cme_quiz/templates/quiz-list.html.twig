@@ -58,7 +58,7 @@
             eBeRpv
             {% endif %}
             ">
-                <a class="fOtgzp" href="{{ path('entity.quiz.canonical', {'quiz': quiz.id.value}) }}">
+                <a class="{{ quiz.attemp }} fOtgzp" href="{{ path('entity.quiz.canonical', {'quiz': quiz.id.value}) }}">
                     <div class="kZuHUf">
                         <div class="giwJrm">
                             <div class="Owdni">
@@ -66,7 +66,7 @@
                                     <span class="etLNEt">{{ quiz.field_expired.value|date("Y-m-d") }}</span>
                                 {% endif %}
                                 {% if quiz.check_event %}
-                                    <span type="success" class="cUAFfx">{{ quiz.attemp }}</span>
+                                    <span class="{{ quiz.attemp }} cUAFfx">{{ quiz.attemp }}</span>
                                 {% endif %}
                             </div>
                         </div>

@@ -1600,7 +1600,15 @@ select.epharm-switch {
   font-size: 24px;
   font-weight: 600;
 }
-
+.Attempted.cUAFfx{
+  background-color: indianred;
+}
+.Attempted.fOtgzp{
+  border-top: 3px solid indianred;
+}
+.Passed.fOtgzp{
+  border-top: 3px solid rgb(108, 201, 120);
+}
 .cUAFfx {
   font-size: 13px;
   color: white;
