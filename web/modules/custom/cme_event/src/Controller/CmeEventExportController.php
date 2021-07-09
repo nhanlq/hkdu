@@ -40,7 +40,7 @@ class CmeEventExportController extends ControllerBase {
    * @return \Drupal\cme_score\Entity\Score[]|\Drupal\Core\Entity\EntityBase[]|\Drupal\Core\Entity\EntityInterface[]
    */
   public function getScoreCme($id) {
-    $ids = \Drupal::entityQuery('score')->condition('field_event', $id)->execute();
+    $ids = \Drupal::entityQuery('score')->condition('field_event', $id)->condition('status', 1)->execute();
     $scores = \Drupal\cme_score\Entity\Score::loadMultiple($ids);
     $users = [];
     if ($scores) {
