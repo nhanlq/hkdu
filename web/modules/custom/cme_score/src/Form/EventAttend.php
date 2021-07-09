@@ -4,6 +4,7 @@ namespace Drupal\cme_score\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use PHPUnit\Exception;
 
 /**
  * Class EventAttend.
@@ -87,7 +88,7 @@ class EventAttend extends FormBase {
             if ($user = $this->getUserByReno($data['A'])) {
               if (!$this->getUserScoreExist($user->id(), $cme_event->id())) {
                 $admin = 1;
-                if ($data['D'] == 'No') {
+                if ($data['D'] === 'No') {
                   $admin = 0;
                 }
                 $score = \Drupal\cme_score\Entity\Score::create([
@@ -102,21 +103,29 @@ class EventAttend extends FormBase {
                   'changed' => strtotime($cme_event->get('field_date')->value),
                 ]);
                 $score->save();
-
                 \Drupal::messenger()
-                  ->addMessage('User ' . $data['A'] . ' attended the event  ' . $data['B'] . ' success. ', 'error');
+                  ->addMessage('User ' . $data['A'] . ' attended the event  ' . $data['B'] . ' success. ');
+              }
+              if ($scores = $this->getScorePendingExist($user->id(), $cme_event->id())) {
+                foreach ($scores as $score) {
+                  $score->set('status', 1);
+                  try {
+                    $score->save();
+                    \Drupal::messenger()->addMessage('Event ' . $data['B'] . ' was updated success success. ');
+                  } catch (\Exception $e) {
+                    \Drupal::messenger()->addMessage($e->getMessage(), 'error');
+                  }
+                }
               }
             }
             else {
               \Drupal::messenger()->addMessage('Member ' . $data['A'] . ' does not exist. ', 'error');
             }
-
           }
           else {
             \Drupal::messenger()->addMessage('Event ' . $data['B'] . ' does not exist. ', 'error');
           }
         }
-
       }
       $i++;
     }
@@ -172,6 +181,27 @@ class EventAttend extends FormBase {
     $results = \Drupal\cme_score\Entity\Score::loadMultiple($ids);
     if ($results) {
       return TRUE;
+    }
+    else {
+      return FALSE;
+    }
+  }
+
+  /**
+   * @param $uid
+   * @param $eventId
+   *
+   * @return bool
+   */
+  public function getScorePendingExist($uid, $eventId) {
+    $ids = \Drupal::entityQuery('score')
+      ->condition('status', 0)
+      ->condition('field_user', $uid)
+      ->condition('field_event', $eventId)
+      ->execute();
+    $results = \Drupal\cme_score\Entity\Score::loadMultiple($ids);
+    if ($results) {
+      return $results;
     }
     else {
       return FALSE;

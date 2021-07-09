@@ -64,6 +64,11 @@ function cme_event_theme($existing, $type, $theme, $path) {
       'path' => $path . '/templates/',
       'template' => 'event-enrollment-list',
     ],
+    'event_enrollment_pending_list' => [
+      'variables' => ['scores' => NULL,],
+      'path' => $path . '/templates/',
+      'template' => 'event-enrollment-pending-list',
+    ],
     'cme_event_banner_block' => [
       'variables' => ['event' => NULL],
       'path' => $path . '/templates/',

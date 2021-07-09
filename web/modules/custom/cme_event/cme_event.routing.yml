@@ -67,3 +67,10 @@ cme_event.export_enroll_list:
     _title: 'CME Event Export Enrollment'
   requirements:
     _permission: 'view published cme event entities'
+cme_event.manage_enrollment_pending_list:
+  path: '/admin/cme/event/enrollment/pending'
+  defaults:
+    _controller: '\Drupal\cme_event\Controller\CmeEventExportController::enroll_pending'
+    _title: 'CME Event Enrollment Pending List'
+  requirements:
+    _permission: 'view published cme event entities'

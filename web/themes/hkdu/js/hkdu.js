@@ -12,7 +12,12 @@
                $(".advance_search_detail").show();
 
            });
-
+           if($(".waiting-thank").length > 0){
+             $(".waiting-thank").click(function(e){
+               e.preventDefault();
+                $(".waiting-confirm").show();
+             });
+           }
 
 
         }

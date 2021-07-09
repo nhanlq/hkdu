@@ -40,7 +40,7 @@ class CmeEventExportController extends ControllerBase {
    * @return \Drupal\cme_score\Entity\Score[]|\Drupal\Core\Entity\EntityBase[]|\Drupal\Core\Entity\EntityInterface[]
    */
   public function getScoreCme($id) {
-    $ids = \Drupal::entityQuery('score')->condition('field_event', $id)->execute();
+    $ids = \Drupal::entityQuery('score')->condition('field_event', $id)->condition('status', 1)->execute();
     $scores = \Drupal\cme_score\Entity\Score::loadMultiple($ids);
     $users = [];
     if ($scores) {
@@ -124,5 +124,37 @@ class CmeEventExportController extends ControllerBase {
       'tester' => 'Tester',
     ];
     return $roles[$role];
+  }
+
+  public function enroll_pending(){
+    $scores = $this->getScoreCmePending();
+    foreach($scores as $score){
+      if($score->get('status')->value == 0){
+        $score->status = 'Pending';
+      }else{
+        $score->status = 'Completed';
+      }
+    }
+    return [
+      '#theme' => 'event_enrollment_pending_list',
+      '#scores' => $scores,
+      '#cache' => [
+        'max-age' => 0,
+      ],
+    ];
+  }
+
+  /**
+   * @param $id
+   *
+   * @return \Drupal\cme_score\Entity\Score[]|\Drupal\Core\Entity\EntityBase[]|\Drupal\Core\Entity\EntityInterface[]
+   */
+  public function getScoreCmePending() {
+    $ids = \Drupal::entityQuery('score')
+      ->condition('status',0)
+      ->execute();
+    $scores = \Drupal\cme_score\Entity\Score::loadMultiple($ids);
+
+    return $scores;
   }
 }
