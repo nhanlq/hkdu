@@ -60,7 +60,7 @@ class QuizListController extends ControllerBase {
     }
     return [
       'results' => [
-        '#theme' => 'quiz_list',
+        '#theme' => 'quiz_list_archived',
         '#quizs' => $this->getQuizArchived(),
         '#tags' => $this->getTags(),
         '#get' => $tags,
@@ -356,5 +356,41 @@ class QuizListController extends ControllerBase {
       '#markup' => \Drupal::state()->get('/cme/quiz/archived', 'Archived Quizzes'),
       '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList(),
     ];
+  }
+  public function quiz_archived($id){
+    $quiz = \Drupal\cme_quiz\Entity\Quiz::load($id);
+    return $this->getQuestionAnswered($quiz);
+  }
+
+  /**
+   * @return array
+   */
+  public function titleArchivedDetail($id) {
+    $quiz = \Drupal\cme_quiz\Entity\Quiz::load($id);
+    return [
+      '#markup' => $quiz->get('name')->value,
+      '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList(),
+    ];
+  }
+
+  /**
+   * @param $quiz
+   *
+   * @return array
+   */
+  public function getQuestionAnswered($quiz) {
+    $service = \Drupal::service('cme_question.question');
+    $return = [];
+    $questions = getQuestions($quiz->id());
+    foreach ($questions as $question) {
+      $return[] = ['question' => $question, 'type' => $service->getQuestionArchived($question)];
+    }
+
+    $theme = [
+      '#theme' => 'cme_quiz_question_archived',
+      '#quiz' => $quiz,
+      '#questions' => $return,
+    ];
+    return $theme;
   }
 }
