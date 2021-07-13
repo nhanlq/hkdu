@@ -3,39 +3,80 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.know.body
+    - field.field.node.know.field_common_name
+    - field.field.node.know.field_company
+    - field.field.node.know.field_company_fax
+    - field.field.node.know.field_company_tel
     - field.field.node.know.field_media
+    - field.field.node.know.field_packing
+    - field.field.node.know.field_remark
+    - field.field.node.know.field_total_price
     - node.type.know
   module:
-    - media_directories_editor
-    - text
     - user
 id: node.know.default
 targetEntityType: node
 bundle: know
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
+  field_common_name:
+    weight: 0
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_company:
     weight: 1
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_company_fax:
+    weight: 3
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_company_tel:
+    weight: 2
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_packing:
+    weight: 4
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_remark:
+    weight: 6
+    label: above
     settings: {  }
     third_party_settings: {  }
+    type: basic_string
     region: content
-  field_media:
-    weight: 0
-    label: hidden
+  field_total_price:
+    weight: 5
+    label: inline
     settings:
-      dimensions:
-        image_width: ''
-        image_height: ''
-      image_style: ''
-      image_link: ''
+      link_to_entity: false
     third_party_settings: {  }
-    type: media_directories_image_dimensions
+    type: string
     region: content
 hidden:
   content_moderation_control: true
+  field_media: true
   langcode: true
   links: true
   search_api_excerpt: true

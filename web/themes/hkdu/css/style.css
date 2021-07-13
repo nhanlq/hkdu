@@ -1453,7 +1453,7 @@ form.search {
 
 .cAwIuR {
   font-size: 13px;
-  width: 100%;
+  width: 30%;
   box-sizing: border-box;
   height: 32px;
   background-color: rgba(0, 0, 0, 0.05);
@@ -1467,6 +1467,8 @@ form.search {
   border-bottom: 1px solid transparent;
   border-left: 1px solid transparent;
   border-radius: 5px;
+  float: right;
+  margin-left: 20px;
 }
 
 .fLrcjA {
@@ -1474,7 +1476,23 @@ form.search {
   position: absolute;
   right: 8px;
 }
+.drug-database .fLrcjA {
+  display: flex;
+  float: right;
+  margin-left: 20px;
+  position: inherit;
+}
+.drug-database .fLrcjA button {
+  border: 0px;
+  background: rgb(69, 96, 176);
+  font-size: 13px;
+  position: inherit;
+  height: 32px;
+  padding: 0 13px;
+  border-radius: 15px;
+  color: #ffffff;
 
+}
 .fLrcjA button {
   border: 0px;
   background: transparent;
@@ -1594,7 +1612,21 @@ select.epharm-switch {
   -webkit-box-pack: justify;
   justify-content: space-between;
 }
-
+table, th, td {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+table.drug-database th, table.drug-database td{
+  font-size: 14px;
+  padding: 5px;
+}
+table.drug-database th{
+  background: rgb(69, 96, 176);
+  color: white;
+  font-weight: bold;
+}
+th{
+  text-align: center;
+}
 .etLNEt {
   color: rgb(69, 96, 176);
   font-size: 24px;
@@ -1850,7 +1882,7 @@ tr .ajax-progress-throbber .throbber {
 .ilpLeV {
   width: 100%;
   position: relative;
-  display: flex;
+  display: block;
   -webkit-box-pack: justify;
   justify-content: space-between;
   -webkit-box-align: center;
@@ -3329,7 +3361,7 @@ h1.page-header span {
   }
 
   .hZIrar {
-    flex-direction: row;
+    flex-direction: column;
   }
 
   #navbar-collapse {

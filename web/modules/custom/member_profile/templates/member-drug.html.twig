@@ -1,0 +1,46 @@
+<div class="Grid__Box-f9ujw0-0 dacuFr drug-database">
+  <div display="flex" class="Grid__Box-f9ujw0-0 Grid__Flex-f9ujw0-1 hZIrar">
+    <div width="1,200px" class="Grid__Box-f9ujw0-0 dsnieQ">
+      <div width="100%" class="Input__StyledInput-sc-1kwnvoy-0 ilpLeV">
+        <form action="/member-area/drug-databases" method="get" class="search">
+          <span class="fLrcjA">
+                    <button type="submit">
+                <i name="SEARCH" font-size="icon" color="icon" class="fa fa-search"></i> Search
+                        </button>
+            </span>
+          <input placeholder="Company" name="company" class="cAwIuR" value="{{ company }}">
+          <input placeholder="Name/Common Name" name="name" class="cAwIuR" value="{{ name }}">
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<table class="table-responsive drug-database">
+  <thead>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Common Name</th>
+    <th scope="col">Company</th>
+    <th scope="col">Company Tel</th>
+    <th scope="col">Company Fax</th>
+    <th scope="col">Company Packing</th>
+    <th scope="col">Total Price (HKD)</th>
+    <th scope="col">Remark</th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for node in article %}
+    <tr>
+      <td>{{ node.title.value }}</td>
+      <td>{{ node.field_common_name.value }}</td>
+      <td>{{ node.field_company.value }}</td>
+      <td>{{ node.field_company_tel.value }}</td>
+      <td>{{ node.field_company_fax.value }}</td>
+      <td>{{ node.field_packing.value }}</td>
+      <td>${{ node.field_total_price.value }}</td>
+      <td>{{ node.field_remark.value }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>

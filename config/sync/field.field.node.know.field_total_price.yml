@@ -1,0 +1,27 @@
+uuid: be41472c-7c53-428d-9e0f-a2ea9d4f8d5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_total_price
+    - node.type.know
+  module:
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: node.know.field_total_price
+field_name: field_total_price
+entity_type: node
+bundle: know
+label: 'Total Price (HKD)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
