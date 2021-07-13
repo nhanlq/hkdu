@@ -21,6 +21,15 @@ cme_event.import_event:
     _title: 'ImportEvent'
   requirements:
     _access: 'TRUE'
+
+cme_event.import_drug:
+  path: '/admin/member-area/drug/import'
+  defaults:
+    _form: '\Drupal\cme_event\Form\ImportDrug'
+    _title: 'Import Drug Database'
+  requirements:
+    _access: 'TRUE'
+
 cme_event.event_register_offline:
   path: '/admin/cme/events/offline/register'
   defaults:

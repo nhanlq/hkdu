@@ -12,6 +12,13 @@ global_hkdu.admin_hkdu_member:
   description: 'Administer and configure for member Area.'
   weight: -10
 
+global_hkdu.admin_hkdu_member.import_drug:
+  title: 'Import Drug Database'
+  route_name: 'cme_event.import_drug'
+  parent: 'global_hkdu.admin_hkdu_member'
+  description: 'Administer and configure for member Area.'
+  weight: -10
+
 global_hkdu.admin_epharm_hkdu:
   title: 'E-Pharm'
   route_name: 'epharm.admin_controller_admin'
