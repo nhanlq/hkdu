@@ -5,6 +5,7 @@ namespace Drupal\cme_quiz\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Class QuizListController.
@@ -359,6 +360,11 @@ class QuizListController extends ControllerBase {
   }
   public function quiz_archived($id){
     $quiz = \Drupal\cme_quiz\Entity\Quiz::load($id);
+    if (strtotime($quiz->get('field_expired')->value) >= time()) {
+      \Drupal::messenger()->addMessage('The quiz '.$quiz->get('name')->value.' is not archived.', 'error');
+      $response = new RedirectResponse('/cme/quiz/');
+      $response->send();
+    }
     return $this->getQuestionAnswered($quiz);
   }
 

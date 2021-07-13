@@ -48,6 +48,7 @@ class MenuEpharmBlock extends BlockBase {
         $member = $id;
       }
     }
+
     if ($id == 'member-area') {
       $member = $id;
     }

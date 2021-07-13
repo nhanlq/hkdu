@@ -1,0 +1,18 @@
+uuid: 2f7e95e8-a677-4ee9-a222-fce46701f416
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.know
+id: node.know.title
+field_name: title
+entity_type: node
+bundle: know
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

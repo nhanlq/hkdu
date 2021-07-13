@@ -1,5 +1,5 @@
 tag: i
-method: webfonts
+method: svg
 use_cdn: true
 external_svg_location: 'https://use.fontawesome.com/releases/v5.12.0/css/all.css'
 use_shim: true
@@ -12,3 +12,6 @@ external_svg_integrity: ''
 _core:
   default_config_hash: LqU6g2X_toBKUWDJkmcOVYFxMHnWHXImIrkkqmGVAlg
 allow_pseudo_elements: true
+load_assets: true
+use_duotone_file: true
+bypass_validation: false

@@ -1,0 +1,27 @@
+uuid: 958bb443-405e-4e24-bf40-6487e3e8f8a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_company
+    - node.type.know
+  module:
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: node.know.field_company
+field_name: field_company
+entity_type: node
+bundle: know
+label: Company
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
