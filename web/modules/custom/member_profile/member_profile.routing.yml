@@ -13,7 +13,7 @@ member_profile.member_faq_controller_faq:
     _controller: '\Drupal\member_profile\Controller\MemberFaqController::faq'
     _title: 'FAQ'
   requirements:
-    _permission: 'access user profiles'
+    _permission: 'member are access'
 
 member_profile.article_controller_article:
   path: '/member-area/council-news'
@@ -21,7 +21,7 @@ member_profile.article_controller_article:
     _controller: '\Drupal\member_profile\Controller\ArticleController::article'
     _title: 'Council News'
   requirements:
-    _permission: 'access user profiles'
+    _permission: 'member are access'
 
 member_profile.forum_controller:
   path: '/member-area/forum'
@@ -29,7 +29,7 @@ member_profile.forum_controller:
     _controller: '\Drupal\member_profile\Controller\ForumController::forum'
     _title: 'Member Forum'
   requirements:
-    _permission: 'access user profiles'
+    _permission: 'member are access'
 
 member_profile.committee_news_controller:
   path: '/member-area/committee-news'
@@ -37,7 +37,7 @@ member_profile.committee_news_controller:
     _controller: '\Drupal\member_profile\Controller\CommitteeController::index'
     _title: 'Committee News'
   requirements:
-    _permission: 'access user profiles'
+    _permission: 'member are access'
 
 member_profile.sharing_controller:
   path: '/member-area/drug-databases'
@@ -45,7 +45,7 @@ member_profile.sharing_controller:
     _controller: '\Drupal\member_profile\Controller\KnowController::index'
     _title: 'Drug databases'
   requirements:
-    _permission: 'access user profiles'
+    _permission: 'suppliers access member area'
 
 member_profile.classified_ads_controller:
   path: '/member-area/classified-ads'
@@ -53,7 +53,7 @@ member_profile.classified_ads_controller:
     _controller: '\Drupal\member_profile\Controller\AdsController::index'
     _title: 'Classified Ads'
   requirements:
-    _permission: 'access user profiles'
+    _permission: 'member are access'
 
 member_profile.bulletin_controller:
   path: '/member-area/bulletin'
@@ -61,7 +61,7 @@ member_profile.bulletin_controller:
     _controller: '\Drupal\member_profile\Controller\BulletinController::index'
     _title: 'Bulletin'
   requirements:
-    _permission: 'access user profiles'
+    _permission: 'member are access'
 
 member_profile.gallery_controller_gallery:
   path: '/member-area/galleries'
@@ -69,7 +69,7 @@ member_profile.gallery_controller_gallery:
     _controller: '\Drupal\member_profile\Controller\GalleryController::gallery'
     _title: 'Media Galleries'
   requirements:
-    _permission: 'access user profiles'
+    _permission: 'member are access'
 
 member_profile.event_calendar_controller_event:
   path: '/member-area/event/calendar'
@@ -77,7 +77,7 @@ member_profile.event_calendar_controller_event:
     _controller: '\Drupal\member_profile\Controller\EventCalendarController::event'
     _title: 'Event Calendar'
   requirements:
-    _permission: 'access user profiles'
+    _permission: 'member are access'
 
 member_profile.event_calendar_controller_event_detail:
   path: '/member-area/event/{id}'
@@ -85,7 +85,7 @@ member_profile.event_calendar_controller_event_detail:
     _controller: '\Drupal\member_profile\Controller\EventCalendarController::detail'
     _title_callback: '\Drupal\member_profile\Controller\EventCalendarController::title'
   requirements:
-    _permission: 'access user profiles'
+    _permission: 'member are access'
 
 member_profile.member_area_controller_member_area:
   path: '/member-area'

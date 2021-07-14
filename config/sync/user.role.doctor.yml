@@ -9,6 +9,8 @@ is_admin: null
 permissions:
   - 'access epharm'
   - 'manage cme'
+  - 'member are access'
+  - 'suppliers access member area'
   - 'use text format full_html'
   - 'view published cme event entities'
   - 'view published event organizer entities'
