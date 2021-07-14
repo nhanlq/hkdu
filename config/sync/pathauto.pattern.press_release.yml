@@ -1,0 +1,14 @@
+uuid: c636777b-05d1-452f-b344-e0510f28583a
+langcode: en
+status: true
+dependencies:
+  module:
+    - media_release
+id: press_release
+label: 'Press Release'
+type: 'canonical_entities:media_entity'
+pattern: '/press-release/[media_entity:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

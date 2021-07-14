@@ -3016,8 +3016,8 @@ h1.page-header span {
 @media screen and (max-width: 992px) {
   .lcAUJf {
     font-size: 18px;
-    margin-right: 16px;
-    height: 45px;
+    margin-right: 83px;
+    height: 33px;
     line-height: 30px;
     letter-spacing: normal;
     text-decoration: none;
@@ -3099,6 +3099,7 @@ h1.page-header span {
 @media screen and (max-width: 380px) {
   #block-loginblock-2 {
     margin-right: -17px;
+    display: block;
   }
 
   #block-loginblock {
