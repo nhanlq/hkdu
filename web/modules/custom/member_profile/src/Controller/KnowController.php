@@ -32,6 +32,8 @@ class KnowController extends ControllerBase {
   }
 
   public function getSharing() {
+    $user = \Drupal::currentUser();
+
     $ids1 = [];
     $ids2 = [];
     $ids3 = [];
@@ -68,7 +70,17 @@ class KnowController extends ControllerBase {
     }
     $ids = array_merge($ids1, $ids2, $ids3, $ids4);
     $result = \Drupal\node\Entity\Node::loadMultiple($ids);
-    return $result;
+    $data = [];
+    foreach($result as $node){
+      if(in_array('drug_suppliers', $user->getRoles())){
+        if($node->get('uid')->target_id == $user->id()){
+          $data[$node->id()] = $node;
+        }
+      }else{
+        $data[$node->id()] = $node;
+      }
+    }
+    return $data;
   }
 
 }

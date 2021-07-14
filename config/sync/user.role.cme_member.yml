@@ -8,3 +8,5 @@ weight: 8
 is_admin: null
 permissions:
   - 'manage cme'
+  - 'member are access'
+  - 'suppliers access member area'

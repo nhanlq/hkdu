@@ -11,7 +11,6 @@ dependencies:
     - node.type.faq
     - node.type.forum
     - node.type.image_gallery
-    - node.type.know
     - node.type.member_article
     - node.type.page
   module:
@@ -164,7 +163,6 @@ type_settings:
       - faq
       - forum
       - image_gallery
-      - know
       - member_article
       - page
     pharm_dir:
