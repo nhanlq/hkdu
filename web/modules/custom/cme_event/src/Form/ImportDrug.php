@@ -74,29 +74,76 @@ class ImportDrug extends FormBase {
     /**  Load $inputFileName to a Spreadsheet Object  **/
     $spreadsheet = $reader->load($file_path);
     $sheetData = $spreadsheet->getActiveSheet()->toArray(NULL, TRUE, TRUE, TRUE);
+
+    $batch = [
+      'title' => $this->t('Importing companies'),
+      'operations' => [
+        ['Drupal\cme_event\Form\ImportDrug::batchStart', []],
+      ],
+      'finished' => 'Drupal\cme_event\Form\ImportDrug::batchFinished',
+      'progressive' => FALSE,
+    ];
     $i = 1;
+    foreach ($sheetData as $data) {
+      if ($i != 1) {
+        $batch['operations'][] = ['Drupal\cme_event\Form\ImportDrug::batchProcess', [$data]];
+      }
+
+      $i++;
+    }
+
+    batch_set($batch);
+    
+  }
+
+  /**
+   * Batch callback; initialize the number of updated aliases.
+   */
+  public static function batchStart(&$context) {
+    $context['results']['updates'] = 0;
+  }
+
+  /**
+   * @param $entity
+   * Deletes an entity
+   */
+  public function batchProcess($data, &$context) {
+    $user = \Drupal::currentUser();
     $status = 1;
     if (in_array('drug_suppliers', $user->getRoles())) {
       $status = 0;
     }
+    $node = \Drupal\node\Entity\Node::create([
+      'type' => 'know',
+      'title' => $data['A'],
+      'field_common_name' => $data['B'],
+      'field_company' => $data['C'],
+      'field_company_tel' => $data['D'],
+      'field_company_fax' => $data['E'],
+      'field_packing' => $data['F'],
+      'field_total_price' => $data['G'],
+      'field_remark' => $data['H'],
+      'status' => $status,
+    ]);
+    //     $node->enforceIsNew();
+    $node->save();
+    $nodes[] = $node->id();
+    $message = 'Create Drug databases...';
+    $context['message'] = $message;
+    $context['results'] = $nodes;
+  }
 
-    foreach ($sheetData as $data) {
-      if ($i > 1) {
-        $node = \Drupal\node\Entity\Node::create([
-          'type' => 'know',
-          'title' => $data['A'],
-          'field_common_name' => $data['B'],
-          'field_company' => $data['C'],
-          'field_company_tel' => $data['D'],
-          'field_company_fax' => $data['E'],
-          'field_packing' => $data['F'],
-          'field_total_price' => $data['G'],
-          'field_remark' => $data['H'],
-          'status' => $status,
-        ]);
-   //     $node->enforceIsNew();
-        $node->save();
-        \Drupal::messenger()->addMessage('Add ' . $data['A'] . ' success.');
+  /**
+   * @param $success
+   * @param $results
+   * @param $operations
+   */
+  public static function batchFinished($success, $results, $operations) {
+    $user = \Drupal::currentUser();
+    if ($success) {
+      if ($results) {
+        \Drupal::service('messenger')->addMessage(\Drupal::translation()
+          ->formatPlural($results, 'Imported '.count($results).' drug Database.', 'Imported @count drug database.'));
         if (in_array('drug_suppliers', $user->getRoles())) {
           $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/admin/drug-databases')->toString());
         }
@@ -106,7 +153,18 @@ class ImportDrug extends FormBase {
         }
         $redirect->send();
       }
-      $i++;
+      else {
+        \Drupal::service('messenger')->addMessage(t('No companies were imported.'));
+      }
+    }
+    else {
+      $error_operation = reset($operations);
+      \Drupal::service('messenger')
+        ->addMessage(t('An error occurred while processing @operation with arguments : @args'), [
+          '@operation' => $error_operation[0],
+          '@args' => print_r($error_operation[0]),
+        ]);
     }
   }
+
 }
