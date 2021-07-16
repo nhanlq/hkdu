@@ -3,20 +3,25 @@
     <div width="1,200px" class="Grid__Box-f9ujw0-0 dsnieQ">
       <div width="100%" class="Input__StyledInput-sc-1kwnvoy-0 ilpLeV">
         <form action="/member-area/drug-databases" method="get" class="search">
-          <span class="fLrcjA">
-                    <button type="submit">
-                <i name="SEARCH" font-size="icon" color="icon" class="fa fa-search"></i> Search
-                        </button>
-            </span>
-          <input placeholder="Company" name="company" class="cAwIuR" value="{{ company }}">
-          <input placeholder="Name/Common Name" name="name" class="cAwIuR" value="{{ name }}">
+{#          <span class="fLrcjA">#}
+{#                    <button type="submit">#}
+{#                <i name="SEARCH" font-size="icon" color="icon" class="fa fa-search"></i> Search#}
+{#                        </button>#}
+{#            </span>#}
+          <input id="search_name" onkeyup="searchFunction()" placeholder="Name/Common Name/Company" name="name" class="cAwIuR" value="{{ name }}">
+          <select style="width: 20%;" id="drug_type" name="drug_type" class="cAwIuR">
+            <option value="name">Name</option>
+            <option value="common">Common Name</option>
+            <option value="company">Company</option>
+          </select>
+
 
         </form>
       </div>
     </div>
   </div>
 </div>
-<table class="table-responsive drug-database">
+<table id="drug_table" class="table-responsive drug-database">
   <thead>
   <tr>
     <th scope="col">Name</th>
@@ -38,9 +43,39 @@
       <td>{{ node.field_company_tel.value }}</td>
       <td>{{ node.field_company_fax.value }}</td>
       <td>{{ node.field_packing.value }}</td>
-      <td>${{ node.field_total_price.value }}</td>
+      <td>{{ node.field_total_price.value }}</td>
       <td>{{ node.field_remark.value }}</td>
     </tr>
   {% endfor %}
   </tbody>
 </table>
+
+<script>
+  function searchFunction() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("search_name");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("drug_table");
+    tr = table.getElementsByTagName("tr");
+    type = document.getElementById("drug_type");
+    for (i = 0; i < tr.length; i++) {
+      if(type.value == 'name'){
+        td = tr[i].getElementsByTagName("td")[0];
+      }else if(type.value == 'common'){
+        td = tr[i].getElementsByTagName("td")[1];
+      }
+      else{
+        td = tr[i].getElementsByTagName("td")[2];
+      }
+
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+</script>

@@ -60,8 +60,7 @@ class ImportDrug extends FormBase {
     $user = \Drupal::currentUser();
     $file = \Drupal\file\Entity\File::load($form_state->getValue('excel')[0]);
     $inputFileName = file_create_url($file->getFileUri());
-    $stream_wrapper_manager = \Drupal::service('stream_wrapper_manager')
-      ->getViaUri($file->getFileUri());
+    $stream_wrapper_manager = \Drupal::service('stream_wrapper_manager')->getViaUri($file->getFileUri());
     $file_path = $stream_wrapper_manager->realpath();
     $name = $file->getFilename();
     if (strpos($name, 'xlsx') !== FALSE) {
@@ -74,47 +73,39 @@ class ImportDrug extends FormBase {
     $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
     /**  Load $inputFileName to a Spreadsheet Object  **/
     $spreadsheet = $reader->load($file_path);
-    $sheetData = $spreadsheet->getActiveSheet()
-      ->toArray(NULL, TRUE, TRUE, TRUE);
+    $sheetData = $spreadsheet->getActiveSheet()->toArray(NULL, TRUE, TRUE, TRUE);
     $i = 1;
     $status = 1;
-    if(in_array('drug_suppliers', $user->getRoles())){
+    if (in_array('drug_suppliers', $user->getRoles())) {
       $status = 0;
     }
+
     foreach ($sheetData as $data) {
-      if ($i != 1) {
-          $node = \Drupal\node\Entity\Node::create([
-            'type' =>'know',
-            'title' => $data['A'],
-            'field_common_name' => $data['B'],
-            'field_company' => $data['C'],
-            'field_company_tel' => $data['D'],
-            'field_company_fax' => $data['E'],
-            'field_packing' => $data['F'],
-            'field_total_price' => $data['G'],
-            'field_remark' => $data['H'],
-            'status' => $status,
-          ]);
-        $node->enforceIsNew();
-          try {
-            $node->save();
-
-            \Drupal::messenger()->addMessage('Add ' . $data['A'] . ' success.');
-            if(in_array('drug_suppliers', $user->getRoles())){
-              $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/admin/drug-databases')
-                ->toString());
-            }else{
-              $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/admin/member/content?title=&type=know')
-                ->toString());
-            }
-
-            $redirect->send();
-          } catch (\Exception $e) {
-            \Drupal::messenger()
-              ->addMessage('Add ' . $data['A'] . ' error: ' . $e->getMessage(),
-                'error');
-          }
+      if ($i > 1) {
+        $node = \Drupal\node\Entity\Node::create([
+          'type' => 'know',
+          'title' => $data['A'],
+          'field_common_name' => $data['B'],
+          'field_company' => $data['C'],
+          'field_company_tel' => $data['D'],
+          'field_company_fax' => $data['E'],
+          'field_packing' => $data['F'],
+          'field_total_price' => $data['G'],
+          'field_remark' => $data['H'],
+          'status' => $status,
+        ]);
+   //     $node->enforceIsNew();
+        $node->save();
+        \Drupal::messenger()->addMessage('Add ' . $data['A'] . ' success.');
+        if (in_array('drug_suppliers', $user->getRoles())) {
+          $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/admin/drug-databases')->toString());
         }
+        else {
+          $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/admin/member/content?title=&type=know')
+            ->toString());
+        }
+        $redirect->send();
+      }
       $i++;
     }
   }
