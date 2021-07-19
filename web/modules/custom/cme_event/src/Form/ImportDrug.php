@@ -93,7 +93,7 @@ class ImportDrug extends FormBase {
     }
 
     batch_set($batch);
-    
+
   }
 
   /**
@@ -113,21 +113,25 @@ class ImportDrug extends FormBase {
     if (in_array('drug_suppliers', $user->getRoles())) {
       $status = 0;
     }
-    $node = \Drupal\node\Entity\Node::create([
-      'type' => 'know',
-      'title' => $data['A'],
-      'field_common_name' => $data['B'],
-      'field_company' => $data['C'],
-      'field_company_tel' => $data['D'],
-      'field_company_fax' => $data['E'],
-      'field_packing' => $data['F'],
-      'field_total_price' => $data['G'],
-      'field_remark' => $data['H'],
-      'status' => $status,
-    ]);
-    //     $node->enforceIsNew();
-    $node->save();
-    $nodes[] = $node->id();
+    $nodes = [];
+    if(!empty($data['A'])){
+      $node = \Drupal\node\Entity\Node::create([
+        'type' => 'know',
+        'title' => $data['A'],
+        'field_common_name' => $data['B'],
+        'field_company' => $data['C'],
+        'field_company_tel' => $data['D'],
+        'field_company_fax' => $data['E'],
+        'field_packing' => $data['F'],
+        'field_total_price' => $data['G'],
+        'field_remark' => $data['H'],
+        'status' => $status,
+      ]);
+      //     $node->enforceIsNew();
+      $node->save();
+      $nodes[] = $node->id();
+    }
+
     $message = 'Create Drug databases...';
     $context['message'] = $message;
     $context['results'] = $nodes;
