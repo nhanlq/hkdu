@@ -1,0 +1,37 @@
+uuid: d2e2186f-71fa-4f93-9f38-3024320d66bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_category
+    - node.type.event_calendar
+    - taxonomy.vocabulary.calendar_event
+  module:
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: node.event_calendar.field_category
+field_name: field_category
+entity_type: node
+bundle: event_calendar
+label: Category
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      calendar_event: calendar_event
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

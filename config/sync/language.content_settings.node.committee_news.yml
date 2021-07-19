@@ -1,0 +1,11 @@
+uuid: f39675a9-c0c4-4243-bee4-6bc46625a465
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.committee_news
+id: node.committee_news
+target_entity_type_id: node
+target_bundle: committee_news
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,11 @@
+uuid: f970f9b8-4214-46d4-ba78-0f056140f90d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cme_college
+id: taxonomy_term.cme_college
+target_entity_type_id: taxonomy_term
+target_bundle: cme_college
+default_langcode: site_default
+language_alterable: false

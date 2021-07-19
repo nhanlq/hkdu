@@ -1,0 +1,8 @@
+uuid: 374b98e6-3a8f-4671-be79-6c126f237f96
+langcode: en
+status: true
+dependencies: {  }
+name: 'CME Co-Organizer'
+vid: cme_co_organizer
+description: ''
+weight: 0

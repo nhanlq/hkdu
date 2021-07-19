@@ -1,204 +1,219 @@
 <article{{ attributes.addClass(classes) }}>
-    {% if check_event %}
-    <div class="hftOhy"><span type="success" class="cUAFfx">Enrolled</span>
-        {% endif %}
+  {% if check_event %}
+  <div class="hftOhy"><span type="success" class="cUAFfx">Enrolled</span>
+    {% endif %}
+  </div>
+  <h2 class="fxclof">{{ event.name.value }}</h2>
+  <div class="eclIQj">
+    <div class="gPcWZD">
+      {% for tagEntity in  event.field_tags %}
+        <a href="/e-pharm/event?tags={{ tagEntity.entity.name.value }}"
+           class="iyiBrq">{{ tagEntity.entity.name.value }}</a>
+      {% endfor %}
     </div>
-    <h2 class="fxclof">{{ event.name.value }}</h2>
-    <div class="eclIQj">
-        <div class="gPcWZD">
-            {% for tagEntity in  event.field_tags %}
-                <a href="/e-pharm/event?tags={{ tagEntity.entity.name.value }}"
-                   class="iyiBrq">{{ tagEntity.entity.name.value }}</a>
-            {% endfor %}
+  </div>
+  {% if event.field_file is not empty %}
+    <div class="Grid__Box-f9ujw0-0 bBnAZb">
+      <div display="block,flex" class="cWPhzd">
+        <div width="100%,236" class="Grid__Box-f9ujw0-0 MedicalContent__RowLabel-sc-1jlbeob-2 jBxOzO">File
+          for
+          Download
         </div>
-    </div>
-    {% if event.field_file is not empty %}
-        <div class="Grid__Box-f9ujw0-0 bBnAZb">
-            <div display="block,flex" class="cWPhzd">
-                <div width="100%,236" class="Grid__Box-f9ujw0-0 MedicalContent__RowLabel-sc-1jlbeob-2 jBxOzO">File
-                    for
-                    Download
-                </div>
-                <div class="gKKegu">
-                    <div class="kCsMFd">
-                        <div display="flex" class="fSsnif">
-                            <div width="1,0.3333333333333333" class="culkFL">
-                                <a target="_blank" height="120px"
-                                   href="{{ file_url(event.field_file.entity.field_media_document.entity.uri.value) }}"
-                                   class="htzoqv">
-                                    <div class="kZuHUf">
-                                        <div class="isAOXn">
-                                            <div>
-                                                <h3 class="flCmuI">{{ event.field_file.entity.field_media_document.entity.filename.value }}</h3>
-                                            </div>
-                                            <div class="eclIQj">
-                                                <div class="jamtIE" width="100%"><span
-                                                            rel="noopener" target="_blank" color="#4A90E2"
-                                                            font-size="13px"
-                                                            class="fLaWbo">
+        <div class="gKKegu">
+          <div class="kCsMFd">
+            <div display="flex" class="fSsnif">
+              <div width="1,0.3333333333333333" class="culkFL">
+                <a target="_blank" height="120px"
+                   href="{{ file_url(event.field_file.entity.field_media_document.entity.uri.value) }}"
+                   class="htzoqv">
+                  <div class="kZuHUf">
+                    <div class="isAOXn">
+                      <div>
+                        <h3 class="flCmuI">{{ event.field_file.entity.field_media_document.entity.filename.value }}</h3>
+                      </div>
+                      <div class="eclIQj">
+                        <div class="jamtIE" width="100%"><span
+                              rel="noopener" target="_blank" color="#4A90E2"
+                              font-size="13px"
+                              class="fLaWbo">
                                     <i font-size="20" name="LINK" color="icon" class="fal fa fa-paperclip"></i>
 
                                 </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
                         </div>
+                      </div>
                     </div>
-                </div>
+                  </div>
+                </a>
+              </div>
             </div>
+          </div>
         </div>
-    {% endif %}
-    <div class="leBAWZ">
-        <div class="cxovFu">Event Information</div>
-        {% if quiz.field_event_type is not empty %}
-        <div display="block,flex" class="bXXHPz">
-            <div width="100%,236" class="jBxOzO">CME Event Type</div>
-            <div class="hnOpua">{{ event.field_event_type.entity.name.value }}</div>
-        </div>
-        {% endif %}
-        <div display="block,flex" class="bXXHPz">
-            <div width="100%,236" class="jBxOzO">CME Point</div>
-            <div class="hnOpua">{{ event.field_cme_point.value }}</div>
-        </div>
-        {% if event.field_hkdu_point is not empty %}
-            {% for hkdu_point in event.field_hkdu_point %}
-                <div display="block,flex" class="bXXHPz">
-                    <div width="100%,236"
-                         class="jBxOzO">{{ hkdu_point.entity.field_organizer.entity.field_short_name.value }}
-                    </div>
-                    <div class="hnOpua">{{ hkdu_point.entity.field_point.value }}</div>
-                </div>
-            {% endfor %}
-        {% endif %}
-
-        <div display="block,flex" class="bXXHPz">
-            <div width="100%,236" class="jBxOzO">Date</div>
-            <div class="hnOpua">{{ event.field_date.value|date("Y-m-d") }}</div>
-        </div>
-        <div display="block,flex" class="bXXHPz">
-            <div width="100%,236" class="jBxOzO">Time</div>
-            <div class="hnOpua">{{ event.field_start_time.value }} - {{ event.field_end_time.value }}</div>
-        </div>
-        {#<div display="block,flex" class="bXXHPz">#}
-            {#<div width="100%,236" class="jBxOzO">Registration Dealine</div>#}
-            {#<div class="hnOpua">{{ event.field_registration_dealine.value|date('Y-m-d H:i:s') }}#}
-            {#</div>#}
-        {#</div>#}
-        <div display="block,flex" class="bXXHPz">
-            <div width="100%,236" class="jBxOzO">Location</div>
-            <div class="hnOpua">{{ event.field_location.value }}
-            </div>
-        </div>
-        <div display="block,flex" class="bXXHPz">
-            <div width="100%,236" class="jBxOzO">Price</div>
-            <div class="hnOpua">{{ event.field_price.number|number_format(2, '.', ',') }}HKD | Member
-                Price {{ event.field_member_price.number|number_format(2, '.', ',') }}HKD
-            </div>
-        </div>
-        <div display="block,flex" class="bXXHPz">
-            <div width="100%,236" class="jBxOzO">Veune</div>
-            <div class="hnOpua">{{ event.field_veune.value }}
-            </div>
-        </div>
-        <div display="block,flex" class="bXXHPz">
-            <div width="100%,236" class="jBxOzO">Organizer</div>
-            <div class="hnOpua">{{ event.field_organizer.entity.name.value }}
-            </div>
-        </div>
-        {% if event.field_speaker is not empty %}
-        <div display="block,flex" class="bXXHPz">
-            <div width="100%,236" class="jBxOzO">Speaker</div>
-            <div class="hnOpua">{{ event.field_speaker.value }}
-            </div>
-        </div>
-        {% endif %}
-        {% if event.field_speaker_photo is not empty %}
-        <div display="block,flex" class="bXXHPz">
-            <div width="100%,236" class="jBxOzO">Speaker Photo</div>
-            <div class="hnOpua"><img src="{{ event.field_speaker_photo.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}"/>
-            </div>
-        </div>
-        {% endif %}
-        {% if event.field_sponsor is not empty %}
-        <div display="block,flex" class="bXXHPz">
-            <div width="100%,236" class="jBxOzO">Sponsor</div>
-            <div class="hnOpua"><img src="{{ event.field_sponsor.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}"/>
-            </div>
-        </div>
-        {% endif %}
-
-        {% if event.field_external_register_link is not empty %}
-            <div display="block,flex" class="bXXHPz">
-                <div width="100%,236" class="jBxOzO">Register Event</div>
-                <div class="hnOpua"><a target="_blank" href="{{ event.field_external_register_link.value }}">{{ event.field_external_register_link.value }}</a>
-                </div>
-            </div>
-        {% endif %}
+      </div>
     </div>
-    {% if event.field_file is not empty %}
-        <div class="Grid__Box-f9ujw0-0 bBnAZb">
-            <div display="block,flex" class="cWPhzd">
-                <div width="100%,236" class="Grid__Box-f9ujw0-0 MedicalContent__RowLabel-sc-1jlbeob-2 jBxOzO">File for
-                    Download
-                </div>
-                <div class="gKKegu">
-                    <div class="kCsMFd">
-                        <div display="flex" class="fSsnif">
-                            <div width="1,0.3333333333333333" class="culkFL">
-                                <a target="_blank" height="120px"
-                                   href="{{ file_url(event.field_file.entity.field_media_document.entity.uri.value) }}"
-                                   class="htzoqv">
-                                    <div class="kZuHUf">
-                                        <div class="isAOXn">
-                                            <div>
-                                                <h3 class="flCmuI">{{ event.field_file.entity.field_media_document.entity.filename.value }}</h3>
-                                            </div>
-                                            <div class="eclIQj">
-                                                <div class="jamtIE" width="100%"><span
-                                                            rel="noopener" target="_blank" color="#4A90E2"
-                                                            font-size="13px"
-                                                            class="fLaWbo">
+  {% endif %}
+  <div class="leBAWZ">
+    <div class="cxovFu">Event Information</div>
+    {% if quiz.field_event_type is not empty %}
+      <div display="block,flex" class="bXXHPz">
+        <div width="100%,236" class="jBxOzO">CME Event Type</div>
+        <div class="hnOpua">{{ event.field_event_type.entity.name.value }}</div>
+      </div>
+    {% endif %}
+    <div display="block,flex" class="bXXHPz">
+      <div width="100%,236" class="jBxOzO">CME Point</div>
+      <div class="hnOpua">{{ event.field_cme_point.value }}</div>
+    </div>
+    {% if event.field_hkdu_point is not empty %}
+      {% for hkdu_point in event.field_hkdu_point %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236"
+               class="jBxOzO">{{ hkdu_point.entity.field_organizer.entity.field_short_name.value }}
+          </div>
+          <div class="hnOpua">{{ hkdu_point.entity.field_point.value }}</div>
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <div display="block,flex" class="bXXHPz">
+      <div width="100%,236" class="jBxOzO">Date</div>
+      <div class="hnOpua">{{ event.field_date.value|date("Y-m-d") }}</div>
+    </div>
+    <div display="block,flex" class="bXXHPz">
+      <div width="100%,236" class="jBxOzO">Time</div>
+      <div class="hnOpua">{{ event.field_start_time.value }} - {{ event.field_end_time.value }}</div>
+    </div>
+    {#<div display="block,flex" class="bXXHPz">#}
+    {#<div width="100%,236" class="jBxOzO">Registration Dealine</div>#}
+    {#<div class="hnOpua">{{ event.field_registration_dealine.value|date('Y-m-d H:i:s') }}#}
+    {#</div>#}
+    {#</div>#}
+    <div display="block,flex" class="bXXHPz">
+      <div width="100%,236" class="jBxOzO">Location</div>
+      <div class="hnOpua">{{ event.field_location.value }}
+      </div>
+    </div>
+    <div display="block,flex" class="bXXHPz">
+      <div width="100%,236" class="jBxOzO">Price</div>
+      <div class="hnOpua">{{ event.field_price.number|number_format(2, '.', ',') }}HKD | Member
+        Price {{ event.field_member_price.number|number_format(2, '.', ',') }}HKD
+      </div>
+    </div>
+    <div display="block,flex" class="bXXHPz">
+      <div width="100%,236" class="jBxOzO">Veune</div>
+      <div class="hnOpua">{{ event.field_veune.value }}
+      </div>
+    </div>
+    <div display="block,flex" class="bXXHPz">
+      <div width="100%,236" class="jBxOzO">Organizer</div>
+      <div class="hnOpua">{{ event.field_organizer.entity.name.value }}
+      </div>
+    </div>
+    {% if event.field_speaker is not empty %}
+      <div display="block,flex" class="bXXHPz">
+        <div width="100%,236" class="jBxOzO">Speaker</div>
+        <div class="hnOpua">{{ event.field_speaker.value }}
+        </div>
+      </div>
+    {% endif %}
+    {% if event.field_speaker_photo is not empty %}
+      <div display="block,flex" class="bXXHPz">
+        <div width="100%,236" class="jBxOzO">Speaker Photo</div>
+        <div class="hnOpua"><img
+              src="{{ event.field_speaker_photo.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}"/>
+        </div>
+      </div>
+    {% endif %}
+    {% if event.field_sponsor is not empty %}
+      <div display="block,flex" class="bXXHPz">
+        <div width="100%,236" class="jBxOzO">Sponsor</div>
+        <div class="hnOpua"><img
+              src="{{ event.field_sponsor.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}"/>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if event.field_external_register_link is not empty %}
+      <div display="block,flex" class="bXXHPz">
+        <div width="100%,236" class="jBxOzO">Register Event</div>
+        <div class="hnOpua"><a target="_blank"
+                               href="{{ event.field_external_register_link.value }}">{{ event.field_external_register_link.value }}</a>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+  {% if event.field_file is not empty %}
+    <div class="Grid__Box-f9ujw0-0 bBnAZb">
+      <div display="block,flex" class="cWPhzd">
+        <div width="100%,236" class="Grid__Box-f9ujw0-0 MedicalContent__RowLabel-sc-1jlbeob-2 jBxOzO">File for
+          Download
+        </div>
+        <div class="gKKegu">
+          <div class="kCsMFd">
+            <div display="flex" class="fSsnif">
+              <div width="1,0.3333333333333333" class="culkFL">
+                <a target="_blank" height="120px"
+                   href="{{ file_url(event.field_file.entity.field_media_document.entity.uri.value) }}"
+                   class="htzoqv">
+                  <div class="kZuHUf">
+                    <div class="isAOXn">
+                      <div>
+                        <h3 class="flCmuI">{{ event.field_file.entity.field_media_document.entity.filename.value }}</h3>
+                      </div>
+                      <div class="eclIQj">
+                        <div class="jamtIE" width="100%"><span
+                              rel="noopener" target="_blank" color="#4A90E2"
+                              font-size="13px"
+                              class="fLaWbo">
                                     <i font-size="20" name="LINK" color="icon" class="fal fa fa-paperclip"></i>
 
                                 </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
                         </div>
+                      </div>
                     </div>
-                </div>
+                  </div>
+                </a>
+              </div>
             </div>
+          </div>
         </div>
-    {% endif %}
-    <div class="jvveZx">
-        {{ event.field_description.value|raw }}
+      </div>
     </div>
+  {% endif %}
+  <div class="jvveZx">
+    {{ event.field_description.value|raw }}
+  </div>
 
-    {% if event.field_enrolled.value == 1 %}
-        {% if expired is null %}
-            {% if check_event is null %}
-                {% if event.field_free.value == 1 %}
-                    <div class="leBAWZ">
-                        <div display="flex" class="dGmSBT">
-                            <a href="/cart/free/{{ event.id.value}}/cme" class="eXdybn fUVRLe"><span
-                                        class="fjQIzu">Enroll</span></a>
-                        </div>
-                    </div>
-                {% else %}
-                    <div class="leBAWZ">
-                        <div display="flex" class="dGmSBT">
-                            <a href="/e-pharm/addcart/{{ product.product_id.value }}" class="eXdybn fUVRLe"><span
-                                        class="fjQIzu">Enroll</span></a>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endif %}
+  {% if event.field_enrolled.value == 1 %}
+    {% if expired is null %}
+      {% if check_event is null %}
+        {% if event.field_free.value == 1 %}
+          <div class="leBAWZ">
+            <div display="flex" class="dGmSBT">
+              <a href="/cart/free/{{ event.id.value }}/cme" class="eXdybn fUVRLe"><span
+                    class="fjQIzu">Enroll</span></a>
+            </div>
+          </div>
+        {% else %}
+          <div class="leBAWZ">
+            <div display="flex" class="dGmSBT">
+              <a href="/payment/method/{{ event.id.value }}/{{ product.product_id.value }}/cme"
+                 class="eXdybn fUVRLe"><span
+                    class="fjQIzu">Enroll</span></a>
+              {#<a href="/e-pharm/addcart/{{ product.product_id.value }}" class="eXdybn fUVRLe"><span#}
+              {#class="fjQIzu">Enroll</span></a>#}
+            </div>
+          </div>
         {% endif %}
+      {% else %}
+        <div class="leBAWZ">
+          <div display="flex" class="dGmSBT">
+            <a href="#" class="grey eXdybn fUVRLe waiting-thank"><span
+                  class=" fjQIzu">Enroll</span></a>
+          </div>
+          <div style="text-align: center" class="infor"><p style="display: none" class="waiting-confirm">You have already participated in this event, please check your email, thank you.</p>
+          </div>
+        </div>
+      {% endif %}
     {% endif %}
+  {% endif %}
 </article>

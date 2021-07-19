@@ -1,0 +1,27 @@
+uuid: 34d894b1-fdb0-406c-97d0-5a92f5af9211
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.ads.field_link
+  module:
+    - advert
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: ads.ads.field_link
+field_name: field_link
+entity_type: ads
+bundle: ads
+label: Link
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

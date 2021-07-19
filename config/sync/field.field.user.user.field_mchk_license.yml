@@ -10,9 +10,9 @@ dependencies:
     - user
 third_party_settings:
   unique_field_ajax:
-    unique: 0
-    per_lang: 0
-    use_ajax: 0
+    unique: 1
+    per_lang: 1
+    use_ajax: 1
     message: ''
   field_display_label:
     display_label: 'MCHK No.'

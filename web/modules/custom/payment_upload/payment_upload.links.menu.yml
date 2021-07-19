@@ -1,0 +1,14 @@
+
+# Payment upload menu items definition
+entity.payment_upload.collection:
+  title: 'Payment upload list'
+  route_name: entity.payment_upload.collection
+  description: 'List Payment upload entities'
+  parent: system.admin_structure
+  weight: 100
+
+payment_upload.admin.structure.settings:
+  title: 'Payment upload settings'
+  description: 'Configure Payment upload entities'
+  route_name: payment_upload.settings
+  parent: system.admin_structure

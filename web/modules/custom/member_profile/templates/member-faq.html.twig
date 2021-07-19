@@ -1,0 +1,22 @@
+{% if faq %}
+<article class="faq-wrapper">
+  <div class="panel-group" id="accordion">
+    {% for node in faq %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ node.nid.value }}">
+            {{ loop.index }}) {{ node.title.value }}</a>
+        </h4>
+      </div>
+      <div id="collapse{{ node.nid.value }}" class="panel-collapse collapse">
+        <div class="panel-body">{{ node.body.value|raw }}</div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+</article><!-- Add you custom twig html here -->
+
+{% endif %}
+

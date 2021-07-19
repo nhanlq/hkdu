@@ -1,0 +1,10 @@
+uuid: 0f17d449-e714-438a-af85-6800d0036a24
+langcode: en
+status: true
+dependencies: {  }
+id: cme_college
+label: 'CME College'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

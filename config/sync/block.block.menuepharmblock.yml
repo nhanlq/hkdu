@@ -10,7 +10,7 @@ dependencies:
 id: menuepharmblock
 theme: hkdu
 region: navigation
-weight: -14
+weight: -19
 provider: null
 plugin: menu_epharm_block
 settings:
@@ -24,7 +24,6 @@ visibility:
     roles:
       authenticated: authenticated
       administrator: administrator
-      admins: admins
       doctor: doctor
       hkdu_members: hkdu_members
       drug_suppliers: drug_suppliers

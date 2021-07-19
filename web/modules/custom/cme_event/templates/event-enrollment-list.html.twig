@@ -1,0 +1,97 @@
+<script type="application/javascript">
+  function exportTableToExcel(tableID, filename = ''){
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById(tableID);
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+    // Specify file name
+    filename = filename?filename+'.xls':'hkdu_cme_event_enroll.xls';
+
+    // Create download link element
+    downloadLink = document.createElement("a");
+
+    document.body.appendChild(downloadLink);
+
+    if(navigator.msSaveOrOpenBlob){
+      var blob = new Blob(['\ufeff', tableHTML], {
+        type: dataType
+      });
+      navigator.msSaveOrOpenBlob( blob, filename);
+    }else{
+      // Create a link to the file
+      downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+      // Setting the file name
+      downloadLink.download = filename;
+
+      //triggering the function
+      downloadLink.click();
+    }
+  }
+</script>
+<h1>CME Event Enrollment List</h1>
+<p>Click <button onclick="exportTableToExcel('admin_report')">Export Data To Excel File</button></p>
+<table id="admin_report">
+  <thead>
+  <th>Reference code*</th>
+  <th>Event Name</th>
+  <th>CME Points</th>
+  <th>Type of CME</th>
+  <th>Organizer</th>
+  <th>Event Date</th>
+  <th>Event Start Time</th>
+  <th>Event End Time</th>
+  <th>Venue</th>
+  <th>Speaker</th>
+  <th>Moderator</th>
+  <th>Co-Organizer</th>
+  <th>Remark</th>
+  <th>Application No.</th>
+  <th>College</th>
+  <th>Categories</th>
+  <th>Specialty CME Point</th>
+  </thead>
+  <tbody>
+  <tr>
+    <td>{{ event.field_ref_code.value }}</td>
+    <td>{{ event.name.value }}</td>
+    <td>{{ event.field_cme_point.value }}</td>
+    <td>{{ event.field_type.value }}</td>
+    <td>{{ event.field_organizer.entity.name.value }}</td>
+    <td>{{ event.field_start_date.value|date('Y-m-d') }}</td>
+    <td>{{ event.field_start_time.value }}</td>
+    <td>{{ event.field_end_time.value }}</td>
+    <td>{{ event.field_veune.value }}</td>
+    <td>{{ event.field_speaker.value }}</td>
+    <td>{{ event.field_moderator.value }}</td>
+    <td>{{ event.field_co_organizer.entity.name.value }}</td>
+    <td>{{ event.field_remark.value }}</td>
+    <td>{{ event.field_application_no.value }}</td>
+    <td>{{ college }}</td>
+    <td>{{ category }}</td>
+    <td>{{ special_point }}</td>
+  </tr>
+  </tbody>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <thead>
+  <th>MCHK No. </th>
+  <th>HKDU Membership No. </th>
+  <th>Role </th>
+  <th>English Name </th>
+  </thead>
+  <tbody>
+  {% for user in users %}
+  <tr>
+    <td>{{ user.field_mchk_license.value }}</td>
+    <td>{{ user.field_registration_no.value }}</td>
+    <td>{{ user.role }}</td>
+    <td>{{ user.field_first_name.value }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+

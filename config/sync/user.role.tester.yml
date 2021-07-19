@@ -1,0 +1,9 @@
+uuid: 4c96b747-b51a-4ade-85df-a3a7a550905e
+langcode: en
+status: true
+dependencies: {  }
+id: tester
+label: Tester
+weight: 10
+is_admin: null
+permissions: {  }

@@ -23,6 +23,7 @@ class QRcodeController extends ControllerBase {
       if($excore = $this->getUserScoreExist($uid, $event_id)){
           $excore->set('field_score', number_format($event->get('field_cme_point')->value,2));
           $excore->set('field_attendance',1);
+          $excore->set('field_date',date('Y-m-d'));
           $excore->save();
           $user->set('field_point',$user->get('field_point')->value + number_format($event->get('field_cme_point')->value,2));
           $user->save();
@@ -31,13 +32,14 @@ class QRcodeController extends ControllerBase {
               '#markup' => $this->t('Update Score for user success.'),
           ];
       }else{
-          if(!getUserExistAttendance($uid, $event->id())){
+          if(!$this->getUserExistAttendance($uid, $event->id())){
               $score = \Drupal\cme_score\Entity\Score::create([
                   'name' => 'Event Score of event ' . $event->getName() . ' of User ' . $user->getDisplayName(),
                   'field_score' => number_format($event->get('field_cme_point')->value,2),
                   'field_user' => $user->id(),
                   'field_event' => $event->id(),
                   'field_attendance' => 1,
+                  'field_date' => date('Y-m-d'),
                   'uid' => $user->id()
               ]);
               $score->save();

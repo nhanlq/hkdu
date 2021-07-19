@@ -1,0 +1,22 @@
+uuid: 78af1e4f-52e0-4b90-a225-e4cb56e45b9f
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_score
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: score.field_hkdu_administrator
+field_name: field_hkdu_administrator
+entity_type: score
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

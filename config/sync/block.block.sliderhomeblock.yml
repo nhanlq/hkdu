@@ -1,4 +1,4 @@
-uuid: e96d9ccb-41ed-4a78-b14b-fa5e9e237bab
+uuid: 78d9157b-18c0-4c4d-a64d-c610d285b0ee
 langcode: en
 status: true
 dependencies:
@@ -9,8 +9,8 @@ dependencies:
     - hkdu
 id: sliderhomeblock
 theme: hkdu
-region: highlighted
-weight: -8
+region: header
+weight: -20
 provider: null
 plugin: slider_home_block
 settings:
@@ -21,6 +21,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "<front>\r\n/e-pharm"
+    pages: "<front>\r\n/e-pharm\r\n/member-area"
     negate: false
     context_mapping: {  }

@@ -35,8 +35,14 @@
                 <div class="event list-tags eclIQj">
                     <div class="gPcWZD">
                         {% for tagEntity in  event.field_tags %}
+                      {% if loop.index <= 3 %}
                             <a href="/e-pharm/event?tags={{ tagEntity.entity.name.value }}"
                                class="iyiBrq">{{ tagEntity.entity.name.value }}</a>
+                        {% endif %}
+                          {% if loop.index == 4 %}
+                              <a href="{{ path('entity.event.canonical', {'event': event.id.value}) }}"
+                                 class="iyiBrq">...</a>
+                          {% endif %}
                         {% endfor %}
                     </div>
                 </div>

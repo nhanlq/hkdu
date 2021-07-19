@@ -1,0 +1,14 @@
+uuid: cda26257-b328-40c3-9c70-f00d6c7b26e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.invited
+  module:
+    - user
+id: user_remove_role_action.invited
+label: 'Remove the Invited role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: invited

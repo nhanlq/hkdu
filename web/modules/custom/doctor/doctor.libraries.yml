@@ -1,0 +1,12 @@
+admin-style:
+  version: VERSION
+  css:
+    base:
+      css/admin_style.css: {}
+  js:
+    js/admin_doctor.js: { }
+admin-style-edit:
+  version: VERSION
+  css:
+    base:
+      css/admin_style.css: {}

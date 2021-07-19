@@ -1,0 +1,53 @@
+uuid: e350bee3-32ce-44b8-a831-dc8ae0689399
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ads.body
+    - field.field.node.ads.field_commerce
+    - field.field.node.ads.field_media
+    - field.field.node.ads.field_thumbnail
+    - node.type.ads
+  module:
+    - media_directories_editor
+    - text
+    - user
+id: node.ads.default
+targetEntityType: node
+bundle: ads
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_media:
+    weight: 0
+    label: hidden
+    settings:
+      dimensions:
+        image_width: ''
+        image_height: ''
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: media_directories_image_dimensions
+    region: content
+  field_thumbnail:
+    type: entity_reference_entity_view
+    weight: 2
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  content_moderation_control: true
+  field_commerce: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

@@ -1,0 +1,31 @@
+
+payment_upload.payment_controller_payment:
+  path: '/payment/method/{event_id}/{product_id}/{type}'
+  defaults:
+    _controller: '\Drupal\payment_upload\Controller\PaymentController::payment'
+    _title: 'Select Payment Method'
+  requirements:
+    _permission: 'access content'
+
+payment_upload.payment_controller_action:
+  path: '/payment/action'
+  defaults:
+    _controller: '\Drupal\payment_upload\Controller\PaymentController::action'
+    _title: 'Action'
+  requirements:
+    _permission: 'access content'
+payment_upload.payment_upload:
+  path: '/payment/upload/receipt/{product_id}'
+  defaults:
+    _form: '\Drupal\payment_upload\Form\PaymentUpload'
+    _title: 'Upload Receipt'
+  requirements:
+    _access: 'TRUE'
+
+payment_upload.payment_controller_approval:
+  path: '/payment/upload/{id}/approval'
+  defaults:
+    _controller: '\Drupal\payment_upload\Controller\PaymentController::approval'
+    _title: 'Approval'
+  requirements:
+    _permission: 'access content'

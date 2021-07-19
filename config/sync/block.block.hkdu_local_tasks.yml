@@ -26,7 +26,6 @@ visibility:
     id: user_role
     roles:
       administrator: administrator
-      admins: admins
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'

@@ -9,7 +9,7 @@ dependencies:
     - user
 third_party_settings:
   unique_field_ajax:
-    unique: 1
+    unique: 0
     per_lang: 0
     use_ajax: 1
     message: ''

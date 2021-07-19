@@ -1,0 +1,30 @@
+uuid: c6cec7e7-9a3c-4f93-a893-1e5eefda0066
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.clinical_focus.field_newsletter
+    - taxonomy.vocabulary.subscriber
+  module:
+    - clinical_focus
+id: clinical_focus.clinical_focus.field_newsletter
+field_name: field_newsletter
+entity_type: clinical_focus
+bundle: clinical_focus
+label: Newsletter
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      subscriber: subscriber
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

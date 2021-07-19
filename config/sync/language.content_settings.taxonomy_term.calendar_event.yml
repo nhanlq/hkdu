@@ -1,0 +1,11 @@
+uuid: 603052d7-4d1f-4228-8a36-f658b279946d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.calendar_event
+id: taxonomy_term.calendar_event
+target_entity_type_id: taxonomy_term
+target_bundle: calendar_event
+default_langcode: site_default
+language_alterable: false

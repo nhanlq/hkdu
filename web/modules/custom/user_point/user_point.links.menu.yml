@@ -1,0 +1,14 @@
+
+# Point menu items definition
+entity.point.collection:
+  title: 'User Point'
+  route_name: entity.point.collection
+  description: 'List Point entities'
+  parent: cme.admin_cme
+  weight: 100
+
+point.admin.structure.settings:
+  title: 'Point settings'
+  description: 'Configure Point entities'
+  route_name: point.settings
+  parent: entity.point.collection

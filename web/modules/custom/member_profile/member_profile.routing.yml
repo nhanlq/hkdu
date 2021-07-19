@@ -1,0 +1,105 @@
+
+member_profile.profile_controller_profile:
+  path: '/user/{uid}/member/profile'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\ProfileController::profile'
+    _title: 'Profile'
+  requirements:
+    _permission: 'access user profiles'
+
+member_profile.member_faq_controller_faq:
+  path: '/member-area/faq'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\MemberFaqController::faq'
+    _title: 'FAQ'
+  requirements:
+    _permission: 'member are access'
+
+member_profile.article_controller_article:
+  path: '/member-area/council-news'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\ArticleController::article'
+    _title: 'Council News'
+  requirements:
+    _permission: 'member are access'
+
+member_profile.forum_controller:
+  path: '/member-area/forum'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\ForumController::forum'
+    _title: 'Member Forum'
+  requirements:
+    _permission: 'member are access'
+
+member_profile.committee_news_controller:
+  path: '/member-area/committee-news'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\CommitteeController::index'
+    _title: 'Committee News'
+  requirements:
+    _permission: 'member are access'
+
+member_profile.sharing_controller:
+  path: '/member-area/drug-databases'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\KnowController::index'
+    _title: 'Drug databases'
+  requirements:
+    _permission: 'suppliers access member area'
+
+member_profile.classified_ads_controller:
+  path: '/member-area/classified-ads'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\AdsController::index'
+    _title: 'Classified Ads'
+  requirements:
+    _permission: 'member are access'
+
+member_profile.bulletin_controller:
+  path: '/member-area/bulletin'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\BulletinController::index'
+    _title: 'Bulletin'
+  requirements:
+    _permission: 'member are access'
+
+member_profile.gallery_controller_gallery:
+  path: '/member-area/galleries'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\GalleryController::gallery'
+    _title: 'Media Galleries'
+  requirements:
+    _permission: 'member are access'
+
+member_profile.event_calendar_controller_event:
+  path: '/member-area/event/calendar'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\EventCalendarController::event'
+    _title: 'Event Calendar'
+  requirements:
+    _permission: 'member are access'
+
+member_profile.event_calendar_controller_event_detail:
+  path: '/member-area/event/{id}'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\EventCalendarController::detail'
+    _title_callback: '\Drupal\member_profile\Controller\EventCalendarController::title'
+  requirements:
+    _permission: 'member are access'
+
+member_profile.member_area_controller_member_area:
+  path: '/member-area'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\MemberAreaController::member_area'
+    _title: 'Member Area'
+  requirements:
+    _permission: 'access user profiles'
+
+member_profile.member_area_controller_member_area_admin:
+  path: '/admin/member-area'
+  defaults:
+    _controller: '\Drupal\member_profile\Controller\MemberAreaController::memberadmin'
+    _title: 'Admin Member Area'
+  requirements:
+    _permission: 'administer cme event entities'
+

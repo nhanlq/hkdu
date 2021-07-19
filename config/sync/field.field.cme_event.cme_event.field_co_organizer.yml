@@ -1,0 +1,37 @@
+uuid: 83a60f8b-746f-498b-b271-133c6d50c44d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_co_organizer
+    - taxonomy.vocabulary.cme_co_organizer
+  module:
+    - cme_event
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: cme_event.cme_event.field_co_organizer
+field_name: field_co_organizer
+entity_type: cme_event
+bundle: cme_event
+label: Co-Organizer
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cme_co_organizer: cme_co_organizer
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

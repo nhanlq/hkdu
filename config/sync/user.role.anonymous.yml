@@ -20,7 +20,6 @@ permissions:
   - 'view any profile'
   - 'view commerce_product'
   - 'view media'
-  - 'view own field_point'
   - 'view published banner entity entities'
   - 'view published default entity entities'
   - 'view published doctor entity entities'

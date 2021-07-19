@@ -4,242 +4,208 @@ namespace Drupal\cme_score\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use PHPUnit\Exception;
 
 /**
  * Class EventAttend.
  */
-class EventAttend extends FormBase
-{
+class EventAttend extends FormBase {
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getFormId()
-    {
-        return 'event_attend';
+  /**
+   * {@inheritdoc}
+   */
+  public function getFormId() {
+    return 'event_attend';
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function buildForm(array $form, FormStateInterface $form_state) {
+    $form['excel'] = [
+      '#type' => 'managed_file',
+      '#title' => $this->t('Excel'),
+      '#weight' => '0',
+      '#upload_location' => 'public://import/',
+      '#upload_validators' => [
+        'file_validate_extensions' => ['xls xlsx'],
+        // Pass the maximum file size in bytes
+      ],
+      '#description' => $this->t('Allow Extension: xls, xlsx. Click <a target="_blank" href="/sites/default/files/import/cme_event_attend.xlsx">here</a> to download example.'),
+      '#weight' => 2,
+    ];
+
+    $form['submit'] = [
+      '#type' => 'submit',
+      '#value' => $this->t('Submit'),
+      '#weight' => 3,
+    ];
+
+
+    return $form;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    foreach ($form_state->getValues() as $key => $value) {
+      // @TODO: Validate fields.
     }
+    parent::validateForm($form, $form_state);
+  }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(array $form, FormStateInterface $form_state)
-    {
-        $form['event'] = [
-            '#type' => 'select',
-            '#title' => 'Event',
-            '#options' => $this->getEvents(),
-            '#required' => true,
-        ];
-        $form['excel'] = [
-            '#type' => 'managed_file',
-            '#title' => $this->t('Excel'),
-            '#weight' => '0',
-            '#upload_location' => 'public://import/',
-            '#upload_validators' => array(
-                'file_validate_extensions' => array('xls xlsx'),
-                // Pass the maximum file size in bytes
-            ),
-            '#description' => $this->t('Allow Extension: xls, xlsx. Click <a target="_blank" href="/sites/default/files/import/cme_attend.xlsx">here</a> to download example.')
-        ];
-
-        $form['submit'] = [
-            '#type' => 'submit',
-            '#value' => $this->t('Submit'),
-        ];
-
-
-        return $form;
+  /**
+   * {@inheritdoc}
+   */
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    // Display result.
+    // Display result.
+    $file = \Drupal\file\Entity\File::load($form_state->getValue('excel')[0]);
+    $inputFileName = file_create_url($file->getFileUri());
+    $stream_wrapper_manager = \Drupal::service('stream_wrapper_manager')->getViaUri($file->getFileUri());
+    $file_path = $stream_wrapper_manager->realpath();
+    $name = $file->getFilename();
+    if (strpos($name, 'xlsx') !== FALSE) {
+      $inputFileType = 'Xlsx';
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function validateForm(array &$form, FormStateInterface $form_state)
-    {
-        foreach ($form_state->getValues() as $key => $value) {
-            // @TODO: Validate fields.
-        }
-        parent::validateForm($form, $form_state);
+    else {
+      $inputFileType = 'Xls';
     }
+    /**  Create a new Reader of the type defined in $inputFileType  **/
+    $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
+    /**  Load $inputFileName to a Spreadsheet Object  **/
+    $spreadsheet = $reader->load($file_path);
+    $sheetData = $spreadsheet->getActiveSheet()->toArray(NULL, TRUE, TRUE, TRUE);
+    $i = 1;
 
-    /**
-     * {@inheritdoc}
-     */
-    public function submitForm(array &$form, FormStateInterface $form_state)
-    {
-        // Display result.
-        // Display result.
-        $file = \Drupal\file\Entity\File::load($form_state->getValue('excel')[0]);
-        $inputFileName = file_create_url($file->getFileUri());
-        $stream_wrapper_manager = \Drupal::service('stream_wrapper_manager')->getViaUri($file->getFileUri());
-        $file_path = $stream_wrapper_manager->realpath();
-        $name = $file->getFilename();
-        if (strpos($name, 'xlsx') !== false) {
-            $inputFileType = 'Xlsx';
-        } else {
-            $inputFileType = 'Xls';
-        }
-        /**  Create a new Reader of the type defined in $inputFileType  **/
-        $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
-        /**  Load $inputFileName to a Spreadsheet Object  **/
-        $spreadsheet = $reader->load($file_path);
-        $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
-        $i = 1;
-        $event = \Drupal\cme_event\Entity\CmeEvent::load($form_state->getValue('event'));
+    foreach ($sheetData as $data) {
 
-        foreach ($sheetData as $data) {
-            $attended = 0;
-            if ($i != 1) {
-
-                // var_dump($data['C']);die;
-                if ($data['D'] == 'yes') {
-                    $attended = 1;
+      $attended = 0;
+      if ($i != 1) {
+        if ($data['C'] !== 'No') {
+          if ($cme_event = $this->getEvents($data['B'])) {
+            if ($user = $this->getUserByReno($data['A'])) {
+              if (!$this->getUserScoreExist($user->id(), $cme_event->id())) {
+                $admin = 1;
+                if ($data['D'] === 'No') {
+                  $admin = 0;
                 }
-                if (!empty($data['B']) && $user = $this->getUserByReno($data['B'])) {
-                    if (!$this->getUserScoreExist($user->id(), $event->id())) {
-                        $score = \Drupal\cme_score\Entity\Score::create([
-                            'name' => 'Event Score of event ' . $event->getName() . ' of User ' . $user->getDisplayName(),
-                            'field_score' => number_format($data['H'],2),
-                            'field_user' => $user->id(),
-                            'field_event' => $event->id(),
-                            'field_attendance' => $attended,
-                            'field_accreditor' =>$data['I'],
-                            'field_date' =>$data['K'],
-                            'field_time' =>$data['L'],
-                            'field_venue' =>$data['M'],
-                            'field_speaker' =>$data['N'],
-                            'uid' => $user->id()
-                        ]);
-                        $score->save();
-                        //set score for user
-                        $user->set('field_point',$user->get('field_point')->value + number_format($data['C'],2));
-                        $user->save();
-                    }
-
-                } else {
-                    if(!empty($data['A'])){
-
-                        if ($user = user_load_by_mail($data['A'])) {
-                            if (!$this->getUserScoreExist($user->id(), $event->id())) {
-                                $score = \Drupal\cme_score\Entity\Score::create([
-                                    'name' => 'Event Score of event ' . $event->getName() . ' of User ' . $user->getDisplayName(),
-                                    'field_score' => number_format($data['H'],2),
-                                    'field_user' => $user->id(),
-                                    'field_event' => $event->id(),
-                                    'field_attendance' => $attended,
-                                    'field_accreditor' =>$data['I'],
-                                    'field_date' =>$data['K'],
-                                    'field_time' =>$data['L'],
-                                    'field_venue' =>$data['M'],
-                                    'field_speaker' =>$data['N'],
-                                    'uid' => $user->id()
-                                ]);
-                                $score->save();
-                                //set point for user;
-                                $user->set('field_point',$user->get('field_point')->value + number_format($data['C'],2));
-                                $user->save();
-                            }
-                        }else{
-                            $user = $this->create_user($data);
-                            $score = \Drupal\cme_score\Entity\Score::create([
-                                'name' => 'Event Score of event ' . $event->getName() . ' of User ' . $user->getDisplayName(),
-                                'field_score' => number_format($data['H'],2),
-                                'field_user' => $user->id(),
-                                'field_event' => $event->id(),
-                                'field_attendance' => $attended,
-                                'field_accreditor' =>$data['I'],
-                                'field_date' =>$data['K'],
-                                'field_time' =>$data['L'],
-                                'field_venue' =>$data['M'],
-                                'field_speaker' =>$data['N'],
-                                'uid' => $user->id()
-                            ]);
-                            $score->save();
-                        }
-                    }
-
+                $score = \Drupal\cme_score\Entity\Score::create([
+                  'name' => 'Event Score of event ' . $cme_event->getName() . ' of User ' . $user->getDisplayName(),
+                  'field_score' => $cme_event->get('field_cme_point')->value,
+                  'field_user' => $user->id(),
+                  'field_event' => $cme_event->id(),
+                  'field_hkdu_administrator' => $admin,
+                  'field_score_type' => $cme_event->get('field_type')->value,
+                  'uid' => $user->id(),
+                  'created' => strtotime($cme_event->get('field_date')->value),
+                  'changed' => strtotime($cme_event->get('field_date')->value),
+                ]);
+                $score->save();
+                \Drupal::messenger()
+                  ->addMessage('User ' . $data['A'] . ' attended the event  ' . $data['B'] . ' success. ');
+              }
+              if ($scores = $this->getScorePendingExist($user->id(), $cme_event->id())) {
+                foreach ($scores as $score) {
+                  $score->set('status', 1);
+                  try {
+                    $score->save();
+                    \Drupal::messenger()->addMessage('Event ' . $data['B'] . ' was updated success success. ');
+                  } catch (\Exception $e) {
+                    \Drupal::messenger()->addMessage($e->getMessage(), 'error');
+                  }
                 }
-
+              }
             }
-            $i++;
+            else {
+              \Drupal::messenger()->addMessage('Member ' . $data['A'] . ' does not exist. ', 'error');
+            }
+          }
+          else {
+            \Drupal::messenger()->addMessage('Event ' . $data['B'] . ' does not exist. ', 'error');
+          }
         }
+      }
+      $i++;
     }
 
-    public function getEvents()
-    {
-        $ids = \Drupal::entityQuery('cme_event')
-            ->condition('status', 1)
-            ->sort('name', 'ASC')
-            ->execute();
-        $results = \Drupal\cme_event\Entity\CmeEvent::loadMultiple($ids);
-        $events = [];
-        foreach ($results as $result) {
-            $events[$result->id()] = $result->getName();
-        }
-        return $events;
+    \Drupal::messenger()->addMessage('Import Attendance success.');
+
+  }
+
+  /**
+   * @param $ref
+   *
+   * @return \Drupal\cme_event\Entity\CmeEvent|\Drupal\Core\Entity\EntityBase|\Drupal\Core\Entity\EntityInterface|false
+   */
+  public function getEvents($ref) {
+    $ids = \Drupal::entityQuery('cme_event')->condition('field_ref_code', $ref)->sort('name', 'ASC')->execute();
+    if ($ids) {
+      $results = \Drupal\cme_event\Entity\CmeEvent::loadMultiple($ids);
+      return reset($results);
     }
+    return FALSE;
+  }
 
-    public function getUserByReno($id)
-    {
-        $ids = \Drupal::entityQuery('user')
-            ->condition('status', 1)
-            ->condition('field_registration_no', $id)
-            ->execute();
-        $results = \Drupal\user\Entity\User::loadMultiple($ids);
-        if ($results) {
-            return reset($results);
-        } else {
-            return false;
-        }
+
+  /**
+   * @param $mchk
+   *
+   * @return \Drupal\Core\Entity\EntityBase|\Drupal\Core\Entity\EntityInterface|\Drupal\user\Entity\User|false
+   */
+  public function getUserByReno($mchk) {
+    $ids = \Drupal::entityQuery('user')->condition('field_mchk_license', $mchk)->execute();
+    if ($ids) {
+      $results = \Drupal\user\Entity\User::loadMultiple($ids);
+      if ($results) {
+        return reset($results);
+      }
     }
+    return FALSE;
 
-    public function getUserScoreExist($uid, $eventId)
-    {
-        $ids = \Drupal::entityQuery('score')
-            ->condition('status', 1)
-            ->condition('field_user', $uid)
-            ->condition('field_event', $eventId)
-            ->execute();
-        $results = \Drupal\cme_score\Entity\Score::loadMultiple($ids);
-        if ($results) {
-            return true;
-        } else {
-            return false;
-        }
+  }
+
+  /**
+   * @param $uid
+   * @param $eventId
+   *
+   * @return bool
+   */
+  public function getUserScoreExist($uid, $eventId) {
+    $ids = \Drupal::entityQuery('score')
+      ->condition('status', 1)
+      ->condition('field_user', $uid)
+      ->condition('field_event', $eventId)
+      ->execute();
+    $results = \Drupal\cme_score\Entity\Score::loadMultiple($ids);
+    if ($results) {
+      return TRUE;
     }
-
-    public function create_user($data){
-        $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
-        $user = \Drupal\user\Entity\User::create();
-
-        //Mandatory settings
-        $user->setPassword('hkdu123');
-        $user->enforceIsNew();
-        $user->setEmail($data['A']);
-        $user->setUsername($data['A']); //This username must be unique and accept only a-Z,0-9, - _ @ .
-
-        //Optional settings
-        $user->set("init", $data['A']);
-        $user->set("langcode", $language);
-        $user->set("preferred_langcode", $language);
-        $user->set("preferred_admin_langcode", $language);
-        $user->set('field_first_name',$data['D']);
-        $user->set('field_last_name',$data['E']);
-        $user->set('field_point',$data['H']);
-        $user->set('field_registration_no',$data['B']);
-        $user->set('field_mchk_license',$data['C']);
-        $user->set('field_membership_type',$data['G']);
-        $user->set('field_referee',$data['F']);
-            $user->activate();
-
-        try{
-            $user->save();
-            return $user;
-            \Drupal::messenger()->addMessage('Create member '.$data['A'].' success.');
-        }catch (\Exception $e){
-            \Drupal::messenger()->addMessage('Create member '.$data['A'].' error '.$e->getMessage(),'error');
-            return false;
-        }
+    else {
+      return FALSE;
     }
+  }
+
+  /**
+   * @param $uid
+   * @param $eventId
+   *
+   * @return bool
+   */
+  public function getScorePendingExist($uid, $eventId) {
+    $ids = \Drupal::entityQuery('score')
+      ->condition('status', 0)
+      ->condition('field_user', $uid)
+      ->condition('field_event', $eventId)
+      ->execute();
+    $results = \Drupal\cme_score\Entity\Score::loadMultiple($ids);
+    if ($results) {
+      return $results;
+    }
+    else {
+      return FALSE;
+    }
+  }
 
 }

@@ -4,15 +4,18 @@ status: true
 dependencies:
   config:
     - field.field.node.event_calendar.body
-    - field.field.node.event_calendar.field_calendar
-    - field.field.node.event_calendar.field_date
-    - field.field.node.event_calendar.field_event
+    - field.field.node.event_calendar.field_category
+    - field.field.node.event_calendar.field_event_end_date
+    - field.field.node.event_calendar.field_event_start_date
     - field.field.node.event_calendar.field_event_url
+    - field.field.node.event_calendar.field_ics
+    - field.field.node.event_calendar.field_location
     - node.type.event_calendar
   module:
     - content_moderation
     - datetime
-    - ics_field
+    - file
+    - link
     - path
     - text
 id: node.event_calendar.default
@@ -36,30 +39,41 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_calendar:
-    weight: 123
+  field_category:
+    weight: 126
     settings: {  }
     third_party_settings: {  }
-    type: calendar_download_default_widget
+    type: options_select
     region: content
-  field_date:
-    weight: 125
+  field_event_end_date:
+    weight: 128
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_event:
-    weight: 122
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+  field_event_start_date:
+    weight: 127
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: datetime_default
     region: content
   field_event_url:
-    weight: 124
+    weight: 129
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_ics:
+    weight: 130
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_location:
+    weight: 131
     settings:
       size: 60
       placeholder: ''
@@ -126,7 +140,7 @@ content:
     third_party_settings: {  }
   url_redirects:
     weight: 50
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden: {  }

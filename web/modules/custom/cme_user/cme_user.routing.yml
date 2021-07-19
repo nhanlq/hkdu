@@ -9,14 +9,61 @@ cme_user.import_user:
   path: '/admin/cme/import/user'
   defaults:
     _form: '\Drupal\cme_user\Form\ImportUser'
-    _title: 'ImportUser'
+    _title: 'Import Membership'
+  requirements:
+    _access: 'TRUE'
+cme_user.import_user_additional:
+  path: '/admin/cme/import/user/additional'
+  defaults:
+    _form: '\Drupal\cme_user\Form\ImportUserAdditional'
+    _title: 'Import Membership Additional'
+  requirements:
+    _access: 'TRUE'
+
+cme_user.import_user_special:
+  path: '/admin/cme/import/user/special'
+  defaults:
+    _form: '\Drupal\cme_user\Form\ImportUserSpecial'
+    _title: 'Import Membership Special'
   requirements:
     _access: 'TRUE'
 
 cme_user.user_qrcode_controller_qrcode:
-  path: '/account/{uid}/profile'
+  path: '/user/{uid}/member/qrcode'
   defaults:
     _controller: '\Drupal\cme_user\Controller\UserQrcodeController::qrcode'
     _title: 'Account Profile'
   requirements:
+    _permission: 'access user profiles'
+
+cme_user.report_controller_report:
+  path: '/report/{uid}/{type}/{period}/{time}'
+  defaults:
+    _controller: '\Drupal\cme_user\Controller\ReportController::report'
+    _title: 'report'
+  requirements:
     _permission: 'access content'
+
+cme_user.admin_controller_report:
+  path: '/admin/cme/report/{type}/{period}'
+  defaults:
+    _controller: '\Drupal\cme_user\Controller\ReportController::admin_report'
+    _title: 'CME Report'
+  requirements:
+    _permission: 'access content'
+
+cme_user.report:
+  path: '/user/{uid}/member/report'
+  defaults:
+    _form: '\Drupal\cme_user\Form\Report'
+    _title: 'Report Generation '
+  requirements:
+    _permission: 'access user profiles'
+
+cme_user.admin_report:
+  path: '/admin/cme/report'
+  defaults:
+    _form: '\Drupal\cme_user\Form\AdminReport'
+    _title: 'CME Report Generation '
+  requirements:
+    _permission: 'access user profiles'

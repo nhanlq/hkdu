@@ -1,11 +1,19 @@
-uuid: de85674c-ce1e-4244-a945-4ea81f576de0
+uuid: 45560aec-c09a-4505-be95-5bb1f6472c29
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.cme_event.field_organizer
+    - taxonomy.vocabulary.cme_organizer
   module:
     - cme_event
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
 id: cme_event.cme_event.field_organizer
 field_name: field_organizer
 entity_type: cme_event
@@ -17,10 +25,13 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:event_org'
+  handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles: null
+    target_bundles:
+      cme_organizer: cme_organizer
     sort:
-      field: _none
-    auto_create: false
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
 field_type: entity_reference

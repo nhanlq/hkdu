@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: hkdu_members
-label: 'HKDU members'
+label: 'HKDU Member'
 weight: 5
 is_admin: null
 permissions:
@@ -18,8 +18,10 @@ permissions:
   - 'edit external link entities'
   - 'edit tools entities'
   - 'manage cme'
+  - 'member are access'
   - 'revert all external link revisions'
   - 'revert all tools revisions'
+  - 'suppliers access member area'
   - 'use text format full_html'
   - 'view all external link revisions'
   - 'view all tools revisions'

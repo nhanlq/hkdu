@@ -1,0 +1,20 @@
+uuid: 9a30d9f5-3f39-4712-a106-eacd58231531
+langcode: en
+status: true
+dependencies:
+  module:
+    - advert
+  theme:
+    - hkdu
+id: adsleft
+theme: hkdu
+region: sidebar_first
+weight: 0
+provider: null
+plugin: adsleft
+settings:
+  id: adsleft
+  label: Adsleft
+  provider: advert
+  label_display: '0'
+visibility: {  }

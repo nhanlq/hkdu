@@ -6,12 +6,13 @@ dependencies:
     - system.menu.epharm
   module:
     - system
+    - user
   theme:
     - hkdu
 id: epharm_2
 theme: hkdu
 region: navigation
-weight: -12
+weight: -17
 provider: null
 plugin: 'system_menu_block:epharm'
 settings:
@@ -28,3 +29,10 @@ visibility:
     pages: "/e-pharm\r\n/e-pharm/*"
     negate: false
     context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

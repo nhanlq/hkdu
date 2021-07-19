@@ -10,7 +10,7 @@ dependencies:
 id: healthybannerblock
 theme: hkdu
 region: header
-weight: -15
+weight: -18
 provider: null
 plugin: healthy_banner_block
 settings:

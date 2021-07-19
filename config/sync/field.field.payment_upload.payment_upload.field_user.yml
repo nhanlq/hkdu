@@ -1,0 +1,36 @@
+uuid: e9393479-a7cd-467d-b2b1-0633f27478fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.payment_upload.field_user
+  module:
+    - payment_upload
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: payment_upload.payment_upload.field_user
+field_name: field_user
+entity_type: payment_upload
+bundle: payment_upload
+label: User
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

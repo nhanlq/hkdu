@@ -1,0 +1,21 @@
+uuid: a42edb2e-7e6f-453b-bc6e-c2e1c4796221
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.ads.field_section
+  module:
+    - advert
+    - options
+id: ads.ads.field_section
+field_name: field_section
+entity_type: ads
+bundle: ads
+label: Section
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

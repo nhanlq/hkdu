@@ -1,0 +1,31 @@
+uuid: b2a016ae-f14d-452e-9092-bc8c0a4b5bdc
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.bulletin.field_file
+    - field.field.node.bulletin.field_media
+    - node.type.bulletin
+  module:
+    - user
+id: node.bulletin.teaser
+targetEntityType: node
+bundle: bulletin
+mode: teaser
+content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_file: true
+  field_media: true
+  langcode: true
+  search_api_excerpt: true

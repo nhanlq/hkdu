@@ -1,9 +1,10 @@
-uuid: ed8500b5-507b-4f7e-9578-5cb567e6e9dd
+uuid: 1707cd55-1f96-498d-963f-48346bc34088
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.user.field_membership_type
+    - taxonomy.vocabulary.membership_type
   module:
     - unique_field_ajax
     - user
@@ -24,8 +25,13 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:user_role'
+  handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles: null
-    auto_create: false
+    target_bundles:
+      membership_type: membership_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
 field_type: entity_reference

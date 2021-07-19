@@ -6,11 +6,18 @@ dependencies:
     - field.storage.score.field_event
   module:
     - cme_score
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
 id: score.score.field_event
 field_name: field_event
 entity_type: score
 bundle: score
-label: Event
+label: 'CME Event'
 description: ''
 required: false
 translatable: false

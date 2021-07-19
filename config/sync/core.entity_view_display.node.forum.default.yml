@@ -1,0 +1,53 @@
+uuid: b7c9e65d-8968-4866-a4de-50c6ee4de86e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment.default
+    - field.field.node.forum.body
+    - field.field.node.forum.field_comments
+    - field.field.node.forum.field_media
+    - node.type.forum
+  module:
+    - comment
+    - media_directories_editor
+    - text
+    - user
+id: node.forum.default
+targetEntityType: node
+bundle: forum
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_comments:
+    weight: 2
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  field_media:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+      dimensions:
+        image_width: ''
+        image_height: ''
+    third_party_settings: {  }
+    type: media_directories_image_dimensions
+    region: content
+hidden:
+  content_moderation_control: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

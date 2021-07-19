@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.event.event.field_audience
+    - field.field.event.event.field_category
     - field.field.event.event.field_count
     - field.field.event.event.field_date
     - field.field.event.event.field_description
+    - field.field.event.event.field_end_time
     - field.field.event.event.field_expired
     - field.field.event.event.field_external_register_link
     - field.field.event.event.field_file
@@ -14,7 +16,9 @@ dependencies:
     - field.field.event.event.field_free_price_text
     - field.field.event.event.field_is_home
     - field.field.event.event.field_location
+    - field.field.event.event.field_member_area
     - field.field.event.event.field_member_price
+    - field.field.event.event.field_newsletter
     - field.field.event.event.field_price
     - field.field.event.event.field_start_date
     - field.field.event.event.field_start_time
@@ -42,35 +46,53 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
-  field_count:
+  field_category:
     weight: 20
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_count:
+    weight: 24
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_date:
-    weight: 10
+    weight: 14
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_description:
-    weight: 16
+    weight: 4
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
     region: content
+  field_end_time:
+    weight: 15
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_expired:
-    weight: 4
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: datetime_timestamp
     region: content
   field_external_register_link:
-    weight: 7
+    weight: 9
     settings:
       size: 60
       placeholder: ''
@@ -79,20 +101,20 @@ content:
     region: content
   field_file:
     type: media_library_widget
-    weight: 8
+    weight: 10
     settings:
       media_types: {  }
     third_party_settings: {  }
     region: content
   field_free:
-    weight: 6
+    weight: 8
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_free_price_text:
-    weight: 15
+    weight: 19
     settings:
       size: 60
       placeholder: ''
@@ -100,40 +122,71 @@ content:
     type: string_textfield
     region: content
   field_is_home:
-    weight: 5
+    weight: 7
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_location:
-    weight: 12
+    weight: 16
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_member_area:
+    weight: 26
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_member_price:
-    weight: 13
+    weight: 17
     settings: {  }
     third_party_settings: {  }
     type: commerce_price_default
+    region: content
+  field_newsletter:
+    weight: 25
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_price:
-    weight: 14
+    weight: 18
     settings: {  }
     third_party_settings: {  }
     type: commerce_price_default
     region: content
+  field_start_date:
+    type: datetime_default
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_start_time:
+    type: string_textfield
+    weight: 13
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_tags:
-    weight: 17
+    weight: 21
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_time:
-    weight: 11
+    weight: 6
     settings:
       size: 60
       placeholder: ''
@@ -141,7 +194,7 @@ content:
     type: string_textfield
     region: content
   field_weight:
-    weight: 9
+    weight: 11
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -156,7 +209,7 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 18
+    weight: 22
     settings: {  }
     region: content
     third_party_settings: {  }
@@ -170,7 +223,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 19
+    weight: 23
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -185,6 +238,4 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
-  field_start_date: true
-  field_start_time: true
   field_veune: true

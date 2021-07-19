@@ -1,0 +1,23 @@
+uuid: a4cd5422-9eb7-43f8-86d7-e0f79ccdd07f
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: config_pages.field_header_report
+field_name: field_header_report
+entity_type: config_pages
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

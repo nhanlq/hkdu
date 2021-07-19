@@ -1,12 +1,12 @@
 transport: smtp
-smtp_host: gator3207.hostgator.com
-smtp_port: 465
-smtp_encryption: ssl
+smtp_host: smtp.gmail.com
+smtp_port: 587
+smtp_encryption: tls
 smtp_credential_provider: swiftmailer
 smtp_credentials:
   swiftmailer:
-    username: hkdu@branch8.com
-    password: HKDU@123
+    username: nhanlego1@gmail.com
+    password: Mongmo2019
 sendmail_path: /usr/sbin/sendmail
 sendmail_mode: bs
 spool_directory: ''

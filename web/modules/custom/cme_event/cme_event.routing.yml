@@ -21,6 +21,15 @@ cme_event.import_event:
     _title: 'ImportEvent'
   requirements:
     _access: 'TRUE'
+
+cme_event.import_drug:
+  path: '/admin/member-area/drug/import'
+  defaults:
+    _form: '\Drupal\cme_event\Form\ImportDrug'
+    _title: 'Import Drug Database'
+  requirements:
+    _access: 'TRUE'
+
 cme_event.event_register_offline:
   path: '/admin/cme/events/offline/register'
   defaults:
@@ -57,5 +66,20 @@ cme_event.event_calendar_controller_calendar:
   defaults:
     _controller: '\Drupal\cme_event\Controller\EventCalendarController::calendar'
     _title: 'Events Calendar'
+  requirements:
+    _permission: 'view published cme event entities'
+
+cme_event.export_enroll_list:
+  path: '/admin/cme/event/export/enrollment/{id}'
+  defaults:
+    _controller: '\Drupal\cme_event\Controller\CmeEventExportController::enroll_list'
+    _title: 'CME Event Export Enrollment'
+  requirements:
+    _permission: 'view published cme event entities'
+cme_event.manage_enrollment_pending_list:
+  path: '/admin/cme/event/enrollment/pending'
+  defaults:
+    _controller: '\Drupal\cme_event\Controller\CmeEventExportController::enroll_pending'
+    _title: 'CME Event Enrollment Pending List'
   requirements:
     _permission: 'view published cme event entities'

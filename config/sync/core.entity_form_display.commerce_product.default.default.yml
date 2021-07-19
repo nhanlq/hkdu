@@ -6,6 +6,7 @@ dependencies:
     - commerce_product.commerce_product_type.default
     - field.field.commerce_product.default.field_cme_event
     - field.field.commerce_product.default.field_event
+    - field.field.commerce_product.default.field_quiz
   module:
     - commerce
     - path
@@ -34,6 +35,16 @@ content:
     region: content
   field_event:
     weight: 9
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_quiz:
+    weight: 11
     settings:
       match_operator: CONTAINS
       match_limit: 10

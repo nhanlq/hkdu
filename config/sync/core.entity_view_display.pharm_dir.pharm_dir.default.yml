@@ -12,6 +12,7 @@ dependencies:
     - field.field.pharm_dir.pharm_dir.field_fax
     - field.field.pharm_dir.pharm_dir.field_file
     - field.field.pharm_dir.pharm_dir.field_media
+    - field.field.pharm_dir.pharm_dir.field_newsletter
     - field.field.pharm_dir.pharm_dir.field_order_form
     - field.field.pharm_dir.pharm_dir.field_order_form_pdf
     - field.field.pharm_dir.pharm_dir.field_phone
@@ -113,6 +114,14 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
+    region: content
+  field_newsletter:
+    weight: 23
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_order_form:
     weight: 18

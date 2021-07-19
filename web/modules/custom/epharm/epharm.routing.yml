@@ -22,3 +22,17 @@ epharm.clone_entity_controller_clone:
     _title: 'Clone'
   requirements:
     _permission: 'access content'
+epharm.email_notify:
+  path: '/admin/config/system/email-notify'
+  defaults:
+    _form: '\Drupal\epharm\Form\EmailNotify'
+    _title: 'EmailNotify'
+  requirements:
+    _access: 'TRUE'
+epharm.email_to_user:
+  path: '/admin/config/system/email-to-user'
+  defaults:
+    _form: '\Drupal\epharm\Form\EmailToUser'
+    _title: 'Email to users'
+  requirements:
+    _access: 'TRUE'

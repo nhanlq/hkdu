@@ -1,0 +1,44 @@
+uuid: 411e9dd4-daa1-4eb2-aed0-d87dbdf5157b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.member-area
+  module:
+    - system
+    - user
+  theme:
+    - hkdu
+id: memberarea
+theme: hkdu
+region: navigation
+weight: -16
+provider: null
+plugin: 'system_menu_block:member-area'
+settings:
+  id: 'system_menu_block:member-area'
+  label: 'Member Area'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    pages: "/member-area\r\n/member-area/*"
+    negate: false
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      administrator: administrator
+      admins: admins
+      doctor: doctor
+      hkdu_members: hkdu_members
+      drug_suppliers: drug_suppliers
+      council_members: council_members
+      cme_member: cme_member
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

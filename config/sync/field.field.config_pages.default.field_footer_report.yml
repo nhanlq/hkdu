@@ -1,0 +1,19 @@
+uuid: a22beb81-6505-4970-8506-945a2456a048
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.default
+    - field.storage.config_pages.field_footer_report
+id: config_pages.default.field_footer_report
+field_name: field_footer_report
+entity_type: config_pages
+bundle: default
+label: 'Footer Report'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

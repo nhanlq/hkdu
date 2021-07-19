@@ -1,0 +1,27 @@
+uuid: e89fb549-7a74-4da7-b46d-ebe9eec1a557
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.quiz.field_end_time
+  module:
+    - cme_quiz
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: quiz.quiz.field_end_time
+field_name: field_end_time
+entity_type: quiz
+bundle: quiz
+label: 'End Time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

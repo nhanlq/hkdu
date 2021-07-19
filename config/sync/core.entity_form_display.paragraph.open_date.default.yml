@@ -1,0 +1,41 @@
+uuid: daff5d2e-435a-4cb3-ac4c-b7840eb8bca5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.open_date.field_normal_day
+    - field.field.paragraph.open_date.field_open_hour_1
+    - field.field.paragraph.open_date.field_open_hour_2
+    - paragraphs.paragraphs_type.open_date
+id: paragraph.open_date.default
+targetEntityType: paragraph
+bundle: open_date
+mode: default
+content:
+  field_normal_day:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_open_hour_1:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_open_hour_2:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

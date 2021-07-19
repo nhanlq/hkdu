@@ -12,6 +12,7 @@ dependencies:
     - field.field.pharm_dir.pharm_dir.field_fax
     - field.field.pharm_dir.pharm_dir.field_file
     - field.field.pharm_dir.pharm_dir.field_media
+    - field.field.pharm_dir.pharm_dir.field_newsletter
     - field.field.pharm_dir.pharm_dir.field_order_form
     - field.field.pharm_dir.pharm_dir.field_order_form_pdf
     - field.field.pharm_dir.pharm_dir.field_phone
@@ -106,6 +107,16 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+    region: content
+  field_newsletter:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_order_form:
     weight: 13

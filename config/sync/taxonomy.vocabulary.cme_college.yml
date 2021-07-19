@@ -1,0 +1,8 @@
+uuid: b9c737ed-b198-4aaa-925f-cd16c55fd787
+langcode: en
+status: true
+dependencies: {  }
+name: 'CME College'
+vid: cme_college
+description: ''
+weight: 0

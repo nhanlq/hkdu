@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.event.event.field_audience
+    - field.field.event.event.field_category
     - field.field.event.event.field_count
     - field.field.event.event.field_date
     - field.field.event.event.field_description
+    - field.field.event.event.field_end_time
     - field.field.event.event.field_expired
     - field.field.event.event.field_external_register_link
     - field.field.event.event.field_file
@@ -14,7 +16,9 @@ dependencies:
     - field.field.event.event.field_free_price_text
     - field.field.event.event.field_is_home
     - field.field.event.event.field_location
+    - field.field.event.event.field_member_area
     - field.field.event.event.field_member_price
+    - field.field.event.event.field_newsletter
     - field.field.event.event.field_price
     - field.field.event.event.field_start_date
     - field.field.event.event.field_start_time
@@ -46,6 +50,14 @@ content:
     third_party_settings: {  }
     type: list_default
     region: content
+  field_category:
+    weight: 22
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_count:
     weight: 12
     label: above
@@ -72,6 +84,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_end_time:
+    weight: 23
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_expired:
     weight: 14
@@ -135,6 +155,16 @@ content:
     third_party_settings: {  }
     type: basic_string
     region: content
+  field_member_area:
+    weight: 24
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_member_price:
     weight: 16
     label: above
@@ -143,6 +173,14 @@ content:
       currency_display: symbol
     third_party_settings: {  }
     type: commerce_price_default
+    region: content
+  field_newsletter:
+    weight: 21
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_price:
     weight: 7

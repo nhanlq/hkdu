@@ -1,0 +1,31 @@
+add payment upload entities:
+  title: 'Create new Payment upload entities'
+
+administer payment upload entities:
+  title: 'Administer Payment upload entities'
+  description: 'Allow to access the administration form to configure Payment upload entities.'
+  restrict access: true
+
+delete payment upload entities:
+  title: 'Delete Payment upload entities'
+
+edit payment upload entities:
+  title: 'Edit Payment upload entities'
+
+view published payment upload entities:
+  title: 'View published Payment upload entities'
+
+view unpublished payment upload entities:
+  title: 'View unpublished Payment upload entities'
+
+view all payment upload revisions:
+  title: 'View all Payment upload revisions'
+
+revert all payment upload revisions:
+  title: 'Revert all Payment upload revisions'
+  description: 'Role requires permission <em>view Payment upload revisions</em> and <em>edit rights</em> for payment upload entities in question or <em>administer payment upload entities</em>.'
+
+delete all payment upload revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Payment upload revisions</em> and <em>delete rights</em> for payment upload entities in question or <em>administer payment upload entities</em>.'
+

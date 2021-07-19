@@ -1,0 +1,45 @@
+uuid: 41292ae4-1424-4968-b9e9-df4f3d6737a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cme_college.field_category
+    - field.field.paragraph.cme_college.field_college
+    - field.field.paragraph.cme_college.field_special_point
+    - paragraphs.paragraphs_type.cme_college
+id: paragraph.cme_college.default
+targetEntityType: paragraph
+bundle: cme_college
+mode: default
+content:
+  field_category:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_college:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_special_point:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

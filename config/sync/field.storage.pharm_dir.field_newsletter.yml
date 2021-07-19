@@ -1,0 +1,24 @@
+uuid: 010ec284-a345-4060-99f0-f89e4583fcd1
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - pharm_dir
+    - taxonomy
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: pharm_dir.field_newsletter
+field_name: field_newsletter
+entity_type: pharm_dir
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

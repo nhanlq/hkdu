@@ -10,7 +10,7 @@ dependencies:
 id: mediabannerblock
 theme: hkdu
 region: header
-weight: -14
+weight: -17
 provider: null
 plugin: media_banner_block
 settings:

@@ -1,0 +1,31 @@
+uuid: d7a6d42d-4fb0-4694-8c41-17b3271e9092
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: member_area
+label: 'Member Area'
+type: 'canonical_entities:node'
+pattern: '/member-area/[node:content-type]/[node:title]'
+selection_criteria:
+  6638b219-43c2-463a-ab75-f3b9b0b94df6:
+    id: node_type
+    bundles:
+      ads: ads
+      bulletin: bulletin
+      committee_news: committee_news
+      event_calendar: event_calendar
+      faq: faq
+      forum: forum
+      image_gallery: image_gallery
+      know: know
+      member_article: member_article
+      sharing: sharing
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 6638b219-43c2-463a-ab75-f3b9b0b94df6
+selection_logic: and
+weight: -5
+relationships: {  }

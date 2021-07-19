@@ -3,12 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.quiz.quiz.field_attempt_times
     - field.field.quiz.quiz.field_audience
     - field.field.quiz.quiz.field_category
     - field.field.quiz.quiz.field_count
     - field.field.quiz.quiz.field_description
     - field.field.quiz.quiz.field_disclaimer
     - field.field.quiz.quiz.field_end_date
+    - field.field.quiz.quiz.field_end_time
     - field.field.quiz.quiz.field_expired
     - field.field.quiz.quiz.field_hkam_point
     - field.field.quiz.quiz.field_hkdu_point
@@ -16,21 +18,27 @@ dependencies:
     - field.field.quiz.quiz.field_lecture_date
     - field.field.quiz.quiz.field_lecture_time
     - field.field.quiz.quiz.field_level
+    - field.field.quiz.quiz.field_member_price
     - field.field.quiz.quiz.field_organiser
     - field.field.quiz.quiz.field_percent
     - field.field.quiz.quiz.field_point
+    - field.field.quiz.quiz.field_price
+    - field.field.quiz.quiz.field_quiz_type
     - field.field.quiz.quiz.field_reference_code
     - field.field.quiz.quiz.field_registration_dealine
+    - field.field.quiz.quiz.field_show_question
     - field.field.quiz.quiz.field_speaker
     - field.field.quiz.quiz.field_speaker_photo
     - field.field.quiz.quiz.field_specialty
     - field.field.quiz.quiz.field_sponsor
     - field.field.quiz.quiz.field_sponsor_logo
     - field.field.quiz.quiz.field_start_date
+    - field.field.quiz.quiz.field_start_time
     - field.field.quiz.quiz.field_state
     - field.field.quiz.quiz.field_weight
   module:
     - cme_quiz
+    - commerce_price
     - datetime
     - entity_reference_revisions
     - options
@@ -45,6 +53,15 @@ content:
     weight: -20
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_attempt_times:
+    weight: 32
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   field_audience:
     weight: 4
@@ -94,6 +111,14 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_end_time:
+    weight: 29
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_expired:
     weight: 2
@@ -152,6 +177,15 @@ content:
     third_party_settings: {  }
     type: list_default
     region: content
+  field_member_price:
+    weight: 31
+    label: above
+    settings:
+      strip_trailing_zeroes: false
+      currency_display: symbol
+    third_party_settings: {  }
+    type: commerce_price_default
+    region: content
   field_organiser:
     weight: 23
     label: above
@@ -180,6 +214,22 @@ content:
     third_party_settings: {  }
     type: number_decimal
     region: content
+  field_price:
+    weight: 30
+    label: above
+    settings:
+      strip_trailing_zeroes: false
+      currency_display: symbol
+    third_party_settings: {  }
+    type: commerce_price_default
+    region: content
+  field_quiz_type:
+    weight: 34
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_reference_code:
     weight: 22
     label: above
@@ -197,6 +247,16 @@ content:
       timezone: ''
     third_party_settings: {  }
     type: timestamp
+    region: content
+  field_show_question:
+    weight: 33
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_speaker:
     weight: 11
@@ -248,6 +308,14 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_start_time:
+    weight: 28
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_state:
     weight: 26

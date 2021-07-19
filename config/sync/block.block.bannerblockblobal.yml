@@ -10,7 +10,7 @@ dependencies:
 id: bannerblockblobal
 theme: hkdu
 region: header
-weight: -13
+weight: -16
 provider: null
 plugin: banner_block_blobal
 settings:

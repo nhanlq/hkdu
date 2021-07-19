@@ -1,0 +1,33 @@
+uuid: 28f70ac6-d1b8-4dcf-aade-9f276a22fcf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_clinic_id
+  module:
+    - unique_field_ajax
+    - user
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: user.user.field_clinic_id
+field_name: field_clinic_id
+entity_type: user
+bundle: user
+label: 'Clinic ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:doctor'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

@@ -1,0 +1,43 @@
+uuid: 288c9741-b756-4193-b755-90e803b28bda
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.know.field_common_name
+    - field.field.node.know.field_company
+    - field.field.node.know.field_company_fax
+    - field.field.node.know.field_company_tel
+    - field.field.node.know.field_media
+    - field.field.node.know.field_packing
+    - field.field.node.know.field_remark
+    - field.field.node.know.field_total_price
+    - node.type.know
+  module:
+    - user
+id: node.know.teaser
+targetEntityType: node
+bundle: know
+mode: teaser
+content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_common_name: true
+  field_company: true
+  field_company_fax: true
+  field_company_tel: true
+  field_media: true
+  field_packing: true
+  field_remark: true
+  field_total_price: true
+  langcode: true
+  search_api_excerpt: true

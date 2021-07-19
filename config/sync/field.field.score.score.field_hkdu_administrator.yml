@@ -1,0 +1,24 @@
+uuid: 3f6e1081-91e3-4549-bb39-77c5964e58eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.score.field_hkdu_administrator
+  module:
+    - cme_score
+id: score.score.field_hkdu_administrator
+field_name: field_hkdu_administrator
+entity_type: score
+bundle: score
+label: 'HKDU Administrator'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

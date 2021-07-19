@@ -6,11 +6,18 @@ dependencies:
     - field.storage.doctor.field_clinic_address
   module:
     - doctor
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
 id: doctor.doctor.field_clinic_address
 field_name: field_clinic_address
 entity_type: doctor
 bundle: doctor
-label: 'Clinic Address'
+label: 'Clinic Address(Eng)'
 description: ''
 required: false
 translatable: false

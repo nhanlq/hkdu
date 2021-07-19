@@ -17,6 +17,9 @@ settings:
     -
       value: e-pharm
       label: E-Pharm
+    -
+      value: member-area
+      label: 'Member Area'
   allowed_values_function: ''
 module: options
 locked: false

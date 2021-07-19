@@ -1,0 +1,37 @@
+uuid: 326c79ef-5ed8-4cc9-bc44-4ddc546a135f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_college
+    - paragraphs.paragraphs_type.cme_college
+    - taxonomy.vocabulary.cme_college
+  module:
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: paragraph.cme_college.field_college
+field_name: field_college
+entity_type: paragraph
+bundle: cme_college
+label: College
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cme_college: cme_college
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

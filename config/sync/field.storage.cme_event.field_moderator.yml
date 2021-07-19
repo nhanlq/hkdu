@@ -1,0 +1,25 @@
+uuid: 5ea04306-c3bf-481a-94e8-64326c4f8c3e
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_event
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: cme_event.field_moderator
+field_name: field_moderator
+entity_type: cme_event
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

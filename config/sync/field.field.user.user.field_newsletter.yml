@@ -1,0 +1,30 @@
+uuid: d7a640cb-f320-4b7a-8ea6-1905f49f5887
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_newsletter
+    - taxonomy.vocabulary.subscriber
+  module:
+    - user
+id: user.user.field_newsletter
+field_name: field_newsletter
+entity_type: user
+bundle: user
+label: Newsletter
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      subscriber: subscriber
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

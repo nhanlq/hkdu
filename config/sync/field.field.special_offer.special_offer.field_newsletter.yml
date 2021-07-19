@@ -1,0 +1,30 @@
+uuid: 87595733-d29e-439e-92ff-7af0d6a8020e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.special_offer.field_newsletter
+    - taxonomy.vocabulary.subscriber
+  module:
+    - special_offer
+id: special_offer.special_offer.field_newsletter
+field_name: field_newsletter
+entity_type: special_offer
+bundle: special_offer
+label: Newsletter
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      subscriber: subscriber
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

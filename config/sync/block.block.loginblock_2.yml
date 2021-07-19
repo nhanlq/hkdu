@@ -1,4 +1,4 @@
-uuid: 7b6e563c-5e67-4966-8b7b-55840ba4d700
+uuid: ce00e4ad-b435-47ac-8396-03823597856a
 langcode: en
 status: true
 dependencies:
@@ -8,8 +8,8 @@ dependencies:
     - hkdu
 id: loginblock_2
 theme: hkdu
-region: navigation
-weight: -10
+region: navigation_collapsible
+weight: -16
 provider: null
 plugin: login_block
 settings:

@@ -1,0 +1,27 @@
+uuid: 5c1ea243-3cc8-4fc4-b24e-11cbe66b071c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.cme_event.field_moderator
+  module:
+    - cme_event
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: cme_event.cme_event.field_moderator
+field_name: field_moderator
+entity_type: cme_event
+bundle: cme_event
+label: Moderator
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

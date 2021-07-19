@@ -1,0 +1,85 @@
+uuid: f0a49e4b-0cea-4380-9cb1-4596c1f111c1
+langcode: en
+status: true
+dependencies:
+  module:
+    - advert
+    - field_permissions
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: ads.field_section
+field_name: field_section
+entity_type: ads
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: news
+      label: News
+    -
+      value: media-release
+      label: 'Press Release'
+    -
+      value: gallery
+      label: Gallery
+    -
+      value: links
+      label: Links
+    -
+      value: downloads
+      label: Download
+    -
+      value: about-us
+      label: 'About Us'
+    -
+      value: doctors
+      label: Doctors
+    -
+      value: e-healthy
+      label: E-Healthy
+    -
+      value: hospital
+      label: Hospital
+    -
+      value: clinical-focus
+      label: 'Clinical Focus'
+    -
+      value: drug-news
+      label: 'Drug News'
+    -
+      value: tools
+      label: 'Clinical Tools'
+    -
+      value: event
+      label: Events
+    -
+      value: external-links
+      label: 'Useful Links'
+    -
+      value: special-offer
+      label: 'Sepcial Offers'
+    -
+      value: pharm-dir
+      label: 'Pharm Dir'
+    -
+      value: events
+      label: 'CME Event'
+    -
+      value: quiz
+      label: 'CME Quiz'
+    -
+      value: event-org
+      label: 'Event Organizer'
+    -
+      value: cme-links
+      label: 'CME Links'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

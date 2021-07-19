@@ -7,6 +7,7 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 
+use Drupal\Core\Form\FormStateInterface;
 /**
  * Implements hook_help().
  */
@@ -59,4 +60,36 @@ function getStoreByDoctor($id){
     }
 }
 
+/**
+ * Implements hook_form_alter().
+ */
+function doctor_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Change form id here.
+  if ($form_id == 'doctor_add_form') {
+    $form['#attached']['library'][] = 'doctor/admin-style';
+  }
+  if($form_id=='doctor_edit_form'){
+    $form['#attached']['library'][] = 'doctor/admin-style-edit';
+  }
+  if($form['#form_id']=='views_exposed_form' && $form['#id']=='views-exposed-form-clinic-page-1'){
+
+    $form['search_api_fulltext']['#prefix'] = '<div class="form_clinic_address"><a href="#clinic_address"
+data-toggle="collapse">Clinic / Address - 地址</a><div
+id="clinic_address" class="collapse">';
+    $form['search_api_fulltext']['#suffix'] = '</div></div>';
+    $form['field_clinic_distric']['#type'] = 'checkboxes';
+    $form['field_clinic_distric']['#prefix'] = '<div class="field_clinic_distric"><a href="#clinic_distric"
+data-toggle="collapse">Select District - 地區</a><div
+id="clinic_distric" class="collapse">';
+    $form['field_clinic_distric']['#suffix'] = '</div></div>';
+
+    $form['field_cny_confirm']['#prefix'] = '<div class="field_cny_confirm"><a href="#cny_date"
+data-toggle="collapse">Select Date(s) - 日期</a><div
+id="cny_date" class="collapse">';
+    $form['field_cny_confirm']['#suffix'] = '</div></div>';
+    $form['field_cny_confirm']['#type'] = 'checkboxes';
+
+  }
+
+}
 

@@ -1,0 +1,31 @@
+uuid: 44261b55-f3ad-45b3-9c27-58e9dc2d64e2
+langcode: en
+status: true
+dependencies:
+  module:
+    - advert
+    - field_permissions
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: ads.field_ads_type
+field_name: field_ads_type
+entity_type: ads
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: left
+      label: 'Sidebar Left'
+    -
+      value: right
+      label: 'Sidebar Right'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

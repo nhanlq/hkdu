@@ -1,0 +1,31 @@
+uuid: 25d80bb2-4aa1-438e-8183-d263b254ce2b
+langcode: en
+status: true
+dependencies:
+  module:
+    - cme_event
+    - field_permissions
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: cme_event.field_type
+field_name: field_type
+entity_type: cme_event
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Lecture
+      label: Lecture
+    -
+      value: Self-Study
+      label: Self-Study
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

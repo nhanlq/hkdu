@@ -1,0 +1,17 @@
+uuid: 10e8b6e5-386b-4cc9-9bc1-dc82a060a9cb
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Classified ads'
+type: ads
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,24 @@
+uuid: ac145c08-e1a8-4328-91a7-b3ed56d3a867
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - special_offer
+    - taxonomy
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: special_offer.field_newsletter
+field_name: field_newsletter
+entity_type: special_offer
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

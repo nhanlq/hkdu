@@ -1,0 +1,27 @@
+uuid: 9d6969c3-c1bb-472d-8df6-28a9212a9ec2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_special_point
+    - paragraphs.paragraphs_type.cme_college
+  module:
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: paragraph.cme_college.field_special_point
+field_name: field_special_point
+entity_type: paragraph
+bundle: cme_college
+label: 'Special Point'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

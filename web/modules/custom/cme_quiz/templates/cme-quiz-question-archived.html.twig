@@ -1,0 +1,123 @@
+
+<!-- Add you custom twig html here -->
+<article{{ attributes.addClass(classes) }}>
+  <div class="bBnAZb">
+    <div class="bnGjNu">
+      <div class="iyiBrq">{{ quiz.field_category.entity.name.value }}</div>
+    </div>
+    <div class="leBAWZ">
+      <div display="block,flex" class="bXXHPz">
+        <div width="100%,236" class="jBxOzO">CME Point
+        </div>
+        <div class="hnOpua">{{ quiz.field_point.value }}</div>
+      </div>
+      {% if quiz.field_hkdu_point is not empty %}
+        {% for hkdu_point in quiz.field_hkdu_point %}
+          <div display="block,flex" class="bXXHPz">
+            <div width="100%,236"
+                 class="jBxOzO">{{ hkdu_point.entity.field_organizer.entity.field_short_name.value }}
+            </div>
+            <div class="hnOpua">{{ hkdu_point.entity.field_point.value }}</div>
+          </div>
+        {% endfor %}
+      {% endif %}
+      <div display="block,flex" class="bXXHPz">
+        <div width="100%,236" class="jBxOzO">End Date
+        </div>
+        <div class="hnOpua">{{ quiz.field_expired.value|date("Y-m-d") }}</div>
+      </div>
+      {% if quiz.field_level is not empty %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236" class="jBxOzO">Level
+          </div>
+          <div class="hnOpua">{{ quiz.field_level.value }}</div>
+        </div>
+      {% endif %}
+      <div display="block,flex" class="bXXHPz">
+        <div width="100%,236" class="jBxOzO">Passing Percentage
+        </div>
+        <div class="hnOpua">{{ quiz.field_percent.value }}%</div>
+      </div>
+      {% if quiz.field_disclaimer is not empty %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236" class="jBxOzO">Disclaimer
+          </div>
+          <div class="hnOpua">{{ quiz.field_disclaimer.value|raw }}</div>
+        </div>
+      {% endif %}
+      {% if quiz.field_speaker is not empty %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236" class="jBxOzO">Speaker
+          </div>
+          <div class="hnOpua">{{ quiz.field_speaker.value }}</div>
+        </div>
+      {% endif %}
+      {% if quiz.field_speaker_photo is not empty %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236" class="jBxOzO">Speaker Photo</div>
+          <div class="hnOpua"><img
+              src="{{ quiz.field_speaker_photo.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}"/>
+          </div>
+        </div>
+      {% endif %}
+      {% if quiz.field_lecture_date is not empty %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236" class="jBxOzO">Lecture Date
+          </div>
+          <div class="hnOpua">{{ quiz.field_lecture_date.value|date('Y-m-d') }}</div>
+        </div>
+      {% endif %}
+      {% if quiz.field_lecture_time is not empty %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236" class="jBxOzO">Lecture Time
+          </div>
+          <div class="hnOpua">{{ quiz.field_lecture_time.value }}</div>
+        </div>
+      {% endif %}
+      {% if quiz.field_lecture_content is not empty %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236" class="jBxOzO">Lecture Content
+          </div>
+          <div class="hnOpua">{{ quiz.field_lecture_content.value|raw }}</div>
+        </div>
+      {% endif %}
+      {% if quiz.field_registration_dealine is not empty %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236" class="jBxOzO">Registration dealine
+          </div>
+          <div class="hnOpua">{{ quiz.field_registration_dealine.value|date('Y-m-d H:i:s') }}</div>
+        </div>
+      {% endif %}
+
+      {% if quiz.field_attempt_times is not empty %}
+        <div display="block,flex" class="bXXHPz">
+          <div width="100%,236" class="jBxOzO">Attempt Times
+          </div>
+          <div class="hnOpua">{{ quiz.field_attempt_times.value }}</div>
+        </div>
+      {% endif %}
+    </div>
+    <div class="jvveZx">
+      {{ quiz.field_description.value|raw }}
+    </div>
+    <div display="flex" class="dYgNtr">
+      <form action="#" method="post" name="quiz_test">
+        {% for question in questions %}
+          <div class="dDPfwp">
+            <div class="kHgOap">
+              <span class="gvmZok">Q{{ loop.index }}</span></div>
+            <div class="gdnuxf">{{ question.question.name.value }}</div>
+            <div class="gdnuxf">{{ question.question.field_question.value|raw }}</div>
+            <div class="cWWxaz">
+              <div class="kBLJXs">
+                {{ question.type|raw }}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </form>
+    </div>
+  </div>
+</article>
+
+

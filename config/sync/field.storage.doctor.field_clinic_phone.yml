@@ -1,9 +1,13 @@
-uuid: bb50d3dd-d7ab-40e2-8abd-c41897186a16
+uuid: a4725918-f593-4634-906e-d5813e858f4f
 langcode: en
 status: true
 dependencies:
   module:
     - doctor
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
 id: doctor.field_clinic_phone
 field_name: field_clinic_phone
 entity_type: doctor
@@ -14,7 +18,7 @@ settings:
   case_sensitive: false
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

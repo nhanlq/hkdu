@@ -7,6 +7,22 @@ cme_quiz.quiz_list_controller_quizlist:
   requirements:
     _permission: 'view published quiz entities'
 
+cme_quiz.quiz_arxhived_controller_detail:
+  path: '/cme/quiz/{id}/archived'
+  defaults:
+    _controller: '\Drupal\cme_quiz\Controller\QuizListController::quiz_archived'
+    _title_callback: '\Drupal\cme_quiz\Controller\QuizListController::titleArchivedDetail'
+  requirements:
+    _permission: 'view published quiz entities'
+
+cme_quiz.quiz_archived_controller_quizlist:
+  path: '/cme/quiz/archived'
+  defaults:
+    _controller: '\Drupal\cme_quiz\Controller\QuizListController::quizlistarchived'
+    _title_callback: '\Drupal\cme_quiz\Controller\QuizListController::titleArchived'
+  requirements:
+    _permission: 'view published quiz entities'
+
 cme_quiz.quiz_test_controller_quiz_test:
   path: '/cme/quiz/test/{quizId}'
   defaults:

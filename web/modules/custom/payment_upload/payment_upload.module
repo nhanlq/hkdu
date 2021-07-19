@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Contains payment_upload.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function payment_upload_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the payment_upload module.
+    case 'help.page.payment_upload':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Payment Upload') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function payment_upload_theme($existing, $type, $theme, $path) {
+  return [
+    'payment_upload' => [
+      'render element' => 'children',
+    ],
+    'payment_method' => [
+      'variables' => ['product_id' => NULL, 'event'=>NULL],
+      'path' => $path . '/templates/',
+      'template' => 'payment-method'
+    ],
+  ];
+}
+
+function template_preprocess_payment_upload(array &$variables) {
+  // Fetch PaymentUpload Entity Object.
+  $variables['payment'] = $variables['children']['#payment_upload'];
+}

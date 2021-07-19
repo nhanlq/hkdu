@@ -1,0 +1,176 @@
+<?php
+
+/**
+ * @file
+ * Contains member_profile.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function member_profile_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the member_profile module.
+    case 'help.page.member_profile':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Member Profile') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function member_profile_theme($existing, $type, $theme, $path) {
+  return [
+    'member_profile' => [
+      'variables' => [
+        'google_map' => NULL,
+        'doctor' => NULL,
+        'uri' => NULL,
+        'uid' => NULL,
+        'current_uid' => NULL,
+      ],
+    ],
+    'member_faq' => [
+      'variables' => [
+        'faq' => NULL,
+        'uri' => NULL,
+        'uid' => NULL,
+        'current_uid' => NULL,
+      ],
+    ],
+    'member_article' => [
+      'variables' => [
+        'article' => NULL,
+        'uri' => NULL,
+        'uid' => NULL,
+        'current_uid' => NULL,
+      ],
+    ],
+    'member_drug' => [
+      'variables' => [
+        'article' => NULL,
+        'company' => NULL,
+        'name' => NULL,
+      ],
+    ],
+    'member_ads' => [
+      'variables' => [
+        'article' => NULL,
+        'uri' => NULL,
+        'uid' => NULL,
+        'current_uid' => NULL,
+      ],
+    ],
+    'member_gallery' => [
+      'variables' => [
+        'media' => NULL,
+        'uri' => NULL,
+        'uid' => NULL,
+        'current_uid' => NULL,
+      ],
+    ],
+    'member_event' => [
+      'variables' => [
+        'event' => NULL,
+        'uri' => NULL,
+        'uid' => NULL,
+        'current_uid' => NULL,
+      ],
+    ],
+    'member_area' => [
+      'variables' => [
+        'news' => NULL,
+        'forum' => NULL,
+        'bulletin' => NULL,
+      ],
+    ],
+    'member_event_detail' => [
+      'variables' => [
+        'event' => NULL,
+        'product' => NULL,
+        'check_event' => NULL,
+        'payment_upload' => NULL,
+        'expired' => NULL,
+        'google_calendar' => NULL,
+      ],
+    ],
+    'member_bulletin' => [
+      'variables' => [
+        'bulletin' => NULL,
+      ],
+    ],
+    'member_admin' => [
+      'variables' => [
+        'admin' => NULL,
+      ],
+    ],
+    'member_menu' => [
+      'variables' => ['uid' => NULL],
+      'path' => $path . '/templates/',
+      'template' => 'member-menu',
+    ],
+  ];
+}
+
+function member_profile_entity_presave(
+  Drupal\Core\Entity\EntityInterface $entity
+) {
+
+  if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'event_calendar') {
+    event_ICSFile($entity);
+  }
+}
+
+
+function event_ICSFile($entity) {
+  $start = str_replace('-', '', $entity->get('field_event_start_date')->value);
+  $start = str_replace(':', '', $start);
+  $end = str_replace('-', '', $entity->get('field_event_end_date')->value);
+  $end = str_replace(':', '', $end);
+  $name = $entity->get('title')->value;
+  $location = $entity->get('field_location')->value;
+  $description = strip_tags($entity->get('body')->value);
+  $filename = 'ICS_event_node_' . $entity->get('nid')->value . '.ics';
+  $data = "BEGIN:VCALENDAR\nVERSION:2.0\nMETHOD:PUBLISH\nBEGIN:VEVENT\nDTSTART:" . $start . "\nDTEND:" . $end . "\nLOCATION:" . $location . "\nTRANSP: OPAQUE\nSEQUENCE:0\nUID:\nDTSTAMP:" . date("Ymd\THis\Z") . "\nSUMMARY:" . $name . "\nDESCRIPTION:" . $description . "\nPRIORITY:1\nCLASS:PUBLIC\nBEGIN:VALARM\nTRIGGER:-PT10080M\nACTION:DISPLAY\nDESCRIPTION:Reminder\nEND:VALARM\nEND:VEVENT\nEND:VCALENDAR\n";
+  $root = getcwd();
+  $filepath = $root . '/sites/default/files/ics/' . $filename;
+  file_put_contents($filepath, $data);
+
+  //create file object
+  $file = Drupal\file\Entity\File::create([
+    'uid' => \Drupal::currentUser()->id(),
+    'filename' => $filename,
+    'uri' => 'public://ics/' . $filename,
+    'status' => 1,
+  ]);
+  $file->save();
+  //add file to field
+  $entity->set('field_ics', [
+    'target_id' => $file->id(),
+    'alt' => $filename,
+  ]);
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function member_profile_form_alter(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state,
+  $form_id
+) {
+  if ($form_id == 'event_add_form') {
+    $form['field_member_area']['#attributes']['class'][] = 'hidden';
+    if ($_GET['type'] == 'member') {
+      $form['field_member_area']['widget']['value']['#default_value'] = 1;
+    }
+  }
+}
+
