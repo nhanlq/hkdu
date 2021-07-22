@@ -18,16 +18,13 @@ class KnowController extends ControllerBase {
   public function index() {
 
     return [
-      'abouts' => [
         '#theme' => ['member_drug'],
         '#article' => $this->getSharing(),
         '#name' => $_GET['name'],
         '#company' => $_GET['company'],
-      ],
-
-      'pager' => [
-        '#type' => 'pager',
-      ],
+        '#cache' => [
+          'max-age' => 0,
+        ],
     ];
   }
 
