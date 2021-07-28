@@ -5,7 +5,6 @@ entity.event.collection:
   route_name: entity.event.collection
   description: 'List Event entities'
   parent: global_hkdu.admin_epharm_hkdu
-  weight: 100
 
 event.admin.structure.settings:
   title: 'Event settings'
@@ -16,9 +15,9 @@ event.admin.structure.settings:
 event.admin.enrolled.offline:
   title: 'Enrolled Offline Event'
   route_name: event.enroll_form
-  parent: entity.event.collection
+  parent: global_hkdu.admin_epharm_hkdu
 
 event.admin.import:
   title: 'Event Batch Import'
   route_name: event.import_xls_form
-  parent: entity.event.collection
+  parent: global_hkdu.admin_epharm_hkdu

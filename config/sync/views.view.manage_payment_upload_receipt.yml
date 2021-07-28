@@ -638,7 +638,7 @@ display:
         title: 'Payment Upload Receipt'
         description: ''
         expanded: false
-        parent: global_hkdu.admin_hkdu
+        parent: global_hkdu.admin_hkdu_global_config
         weight: 0
         context: '0'
         menu_name: admin

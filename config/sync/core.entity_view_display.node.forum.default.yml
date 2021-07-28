@@ -9,7 +9,7 @@ dependencies:
     - field.field.node.forum.field_media
     - node.type.forum
   module:
-    - comment
+    - fluid_comment
     - media_directories_editor
     - text
     - user
@@ -29,10 +29,10 @@ content:
     weight: 2
     label: above
     settings:
-      view_mode: default
       pager_id: 0
+      view_mode: default
     third_party_settings: {  }
-    type: comment_default
+    type: fluid_comment
     region: content
   field_media:
     weight: 0

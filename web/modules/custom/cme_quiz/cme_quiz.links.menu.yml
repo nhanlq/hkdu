@@ -5,7 +5,6 @@ entity.quiz.collection:
   route_name: entity.quiz.collection
   description: 'List Quiz entities'
   parent: cme.admin_cme
-  weight: 100
 
 quiz.admin.structure.settings:
   title: 'Quiz settings'
@@ -17,4 +16,4 @@ quiz.admin.form.message:
   title: 'Quiz Message Form'
   description: 'Configure Quiz entities'
   route_name: cme_quiz.message_form
-  parent: entity.quiz.collection
+  parent: cme.admin_cme

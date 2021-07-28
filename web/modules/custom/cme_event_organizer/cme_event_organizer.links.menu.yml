@@ -5,7 +5,6 @@ entity.event_org.collection:
   route_name: entity.event_org.collection
   description: 'List Event Organizer entities'
   parent: cme.admin_cme
-  weight: 100
 
 event_org.admin.structure.settings:
   title: 'Event Organizer settings'

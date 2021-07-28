@@ -12,6 +12,13 @@ global_hkdu.admin_hkdu_member:
   description: 'Administer and configure for member Area.'
   weight: -10
 
+  global_hkdu.admin_hkdu_member_child:
+    title: 'Member Area Management'
+    route_name: 'member_profile.member_area_controller_member_area_admin'
+    parent: 'global_hkdu.admin_hkdu_member'
+    description: 'Administer Member Area.'
+    weight: -10
+
 global_hkdu.admin_hkdu_member.import_drug:
   title: 'Import Drug Database'
   route_name: 'cme_event.import_drug'
@@ -33,3 +40,16 @@ global_hkdu.admin_epharm_hkdu_suppliers:
   description: 'E-Pharm Suppliers Administration.'
   weight: -9
 
+global_hkdu.admin_hkdu_public:
+  title: 'Public'
+  route_name: 'global_hkdu.default_controller_public'
+  parent: 'global_hkdu.admin_hkdu'
+  description: 'Administer and configure for Public.'
+  weight: -10
+
+global_hkdu.admin_hkdu_global_config:
+  title: 'Global Config'
+  route_name: 'global_hkdu.default_controller_global_config'
+  parent: 'global_hkdu.admin_hkdu'
+  description: 'Administer global configuration.'
+  weight: -10

@@ -7,6 +7,22 @@ global_hkdu.default_controller_index:
   requirements:
     _permission: 'access hkdu epharm'
 
+global_hkdu.default_controller_public:
+  path: '/admin/hkdu/public'
+  defaults:
+    _controller: '\Drupal\global_hkdu\Controller\DefaultController::public'
+    _title: 'HKDU Public'
+  requirements:
+    _permission: 'access hkdu epharm'
+
+global_hkdu.default_controller_global_config:
+  path: '/admin/hkdu/public'
+  defaults:
+    _controller: '\Drupal\global_hkdu\Controller\DefaultController::global_config'
+    _title: 'HKDU Global Config'
+  requirements:
+    _permission: 'access hkdu epharm'
+
 global_hkdu.suppliers_hkdu_controller_supplier:
   path: '/admin/hkdu/suppliers'
   defaults:

@@ -4,8 +4,7 @@ entity.media_entity.collection:
   title: 'Press Release'
   route_name: entity.media_entity.collection
   description: 'List Media entity entities'
-  parent: global_hkdu.admin_hkdu
-  weight: 100
+  parent: global_hkdu.admin_hkdu_public
 
 media_entity.admin.structure.settings:
   title: 'Press Release settings'

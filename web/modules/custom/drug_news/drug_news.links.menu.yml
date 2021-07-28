@@ -5,7 +5,6 @@ entity.drug_news.collection:
   route_name: entity.drug_news.collection
   description: 'List Drug news entities'
   parent: global_hkdu.admin_epharm_hkdu
-  weight: 100
 
 drug_news.admin.structure.settings:
   title: 'Drug news settings'
@@ -16,4 +15,4 @@ drug_news.admin.structure.settings:
 drug_news.admin.import:
   title: 'Drug News Batch Import'
   route_name: drug_news.import_xls_form
-  parent: entity.drug_news.collection
+  parent: global_hkdu.admin_epharm_hkdu

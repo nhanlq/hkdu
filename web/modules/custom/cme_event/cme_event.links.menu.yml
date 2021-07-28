@@ -5,7 +5,6 @@ entity.cme_event.collection:
   route_name: entity.cme_event.collection
   description: 'List CME Event entities'
   parent: cme.admin_cme
-  weight: 100
 
 cme_event.admin.structure.settings:
   title: 'CME Event settings'
@@ -17,16 +16,16 @@ cme_event.admin.import:
   title: 'Import CME Event'
   description: 'Configure CME Event entities'
   route_name: cme_event.import_event
-  parent: entity.cme_event.collection
+  parent: cme.admin_cme
 
 cme_event.admin.offline.register:
   title: 'Offline Register Event'
   description: 'Configure CME Event entities'
   route_name: cme_event.event_register_offline
-  parent: entity.cme_event.collection
+  parent: cme.admin_cme
 
 cme_event.admin.enroll.list:
   title: 'CME Event Enrollment Pending'
   description: 'Configure CME Event entities'
   route_name: cme_event.manage_enrollment_pending_list
-  parent: entity.cme_event.collection
+  parent: cme.admin_cme

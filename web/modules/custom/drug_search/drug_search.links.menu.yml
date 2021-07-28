@@ -5,7 +5,6 @@ entity.drug_search.collection:
   route_name: entity.drug_search.collection
   description: 'List Drug search entities'
   parent: global_hkdu.admin_epharm_hkdu
-  weight: 100
 
 drug_search.admin.structure.settings:
   title: 'Drug search settings'
@@ -16,4 +15,4 @@ drug_search.admin.structure.settings:
 drug_search.admin.import:
   title: 'Drug Search Batch Import'
   route_name: drug_search.import_xls_form
-  parent: entity.drug_search.collection
+  parent: global_hkdu.admin_epharm_hkdu
