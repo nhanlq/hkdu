@@ -19,7 +19,7 @@ entity_type: quiz
 bundle: quiz
 label: 'Start Time'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

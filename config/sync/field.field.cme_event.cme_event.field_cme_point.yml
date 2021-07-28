@@ -12,7 +12,7 @@ entity_type: cme_event
 bundle: cme_event
 label: 'CME Point'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
