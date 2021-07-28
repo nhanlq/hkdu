@@ -4,8 +4,7 @@ entity.public_links.collection:
   title: 'Links'
   route_name: entity.public_links.collection
   description: 'List Public links entities'
-  parent: global_hkdu.admin_hkdu
-  weight: 100
+  parent: global_hkdu.admin_hkdu_public
 
 public_links.admin.structure.settings:
   title: 'Links settings'

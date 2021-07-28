@@ -5,7 +5,6 @@ entity.special_offer.collection:
   route_name: entity.special_offer.collection
   description: 'List Special offer entities'
   parent: global_hkdu.admin_epharm_hkdu
-  weight: 100
 
 special_offer.admin.structure.settings:
   title: 'Special offer settings'
@@ -16,4 +15,4 @@ special_offer.admin.structure.settings:
 special_offer.admin.import:
   title: 'Special Offer Batch Import'
   route_name: special_offer.import_xls_form
-  parent: entity.special_offer.collection
+  parent: global_hkdu.admin_epharm_hkdu

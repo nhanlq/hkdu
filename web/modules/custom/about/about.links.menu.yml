@@ -4,8 +4,7 @@ entity.about.collection:
   title: 'About'
   route_name: entity.about.collection
   description: 'List About entity entities'
-  parent: global_hkdu.admin_hkdu
-  weight: 100
+  parent: global_hkdu.admin_hkdu_public
 
 about.admin.structure.settings:
   title: 'About settings'

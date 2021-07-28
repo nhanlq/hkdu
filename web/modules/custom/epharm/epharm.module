@@ -58,7 +58,15 @@ function epharm_theme($existing, $type, $theme, $path) {
       'template' => 'epharm-banner',
     ],
     'epharm_menu_block' => [
-      'variables' => ['epharm' => NULL, 'cme' => NULL, 'admin' => NULL, 'member' => NULL],
+      'variables' => [
+        'epharm' => NULL,
+        'cme' => NULL,
+        'admin' => NULL,
+        'member' => NULL,
+        'role_doctor' => NULL,
+        'role_cme' =>NULL,
+        'role_member'=>NULL,
+        ],
       'path' => $path . '/templates/',
       'template' => 'epharm-menu',
     ],
@@ -141,7 +149,7 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'epharm';
       $key = 'createPost';
-      $to = \Drupal::state()->get($entity->getEntityTypeId(),'leung0369@gmail.com');
+      $to = \Drupal::state()->get($entity->getEntityTypeId(), 'leung0369@gmail.com');
       $params['message'] = '<p>Body:</p><p>' . $entity->get('name')->value . '</p><p>' . $user->getDisplayName() . ' has a content in ' . mapping_key($entity->getEntityTypeId()) . ' waiting for your approval, the content as below:</p><p>' . $entity->get('field_description')->value . '</p>';
 
       $params['type'] = mapping_key($entity->getEntityTypeId());
@@ -193,7 +201,7 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
       $module = 'epharm';
       $user = \Drupal\user\Entity\User::load($entity->get('uid')->target_id);
       $key = 'ads';
-      $to = \Drupal::state()->get('ads','leung0369@gmail.com');
+      $to = \Drupal::state()->get('ads', 'leung0369@gmail.com');
       $params['title'] = 'HKDU – Dr. ' . $user->get('field_first_name')->value . ' has create a Classified Ads ';
       $params['message'] = '<p>Dr. ' . $user->get('field_first_name')->value . ' of HKDU No. ' . $user->get('field_mchk_license')->value . '. has created a post of Classified Ad at the members area</p><p>Please approve and they will be asked to make payment.</p><p>Thanks,</p><p>-	HKDU admin</p>';
       $params['from'] = \Drupal::config('system.site')->get('mail');

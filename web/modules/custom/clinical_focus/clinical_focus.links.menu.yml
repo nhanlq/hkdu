@@ -5,7 +5,6 @@ entity.clinical_focus.collection:
   route_name: entity.clinical_focus.collection
   description: 'List Clinical focus entities'
   parent: global_hkdu.admin_epharm_hkdu
-  weight: 100
 
 clinical_focus.admin.structure.settings:
   title: 'Clinical focus settings'
@@ -16,4 +15,4 @@ clinical_focus.admin.structure.settings:
 clinical_focus.admin.import:
   title: 'Clinical focus Batch Import'
   route_name: clinical_focus.import_xls_form
-  parent: entity.clinical_focus.collection
+  parent: global_hkdu.admin_epharm_hkdu

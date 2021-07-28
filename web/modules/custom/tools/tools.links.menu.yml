@@ -5,7 +5,6 @@ entity.tools.collection:
   route_name: entity.tools.collection
   description: 'List Tools entities'
   parent: global_hkdu.admin_epharm_hkdu
-  weight: 100
 
 tools.admin.structure.settings:
   title: 'Tools settings'

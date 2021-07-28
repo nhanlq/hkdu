@@ -4,8 +4,7 @@ entity.news.collection:
   title: 'News'
   route_name: entity.news.collection
   description: 'List News entities'
-  parent: global_hkdu.admin_hkdu
-  weight: 100
+  parent: global_hkdu.admin_hkdu_public
 
 news.admin.structure.settings:
   title: 'News settings'

@@ -5,7 +5,6 @@ entity.guidelines.collection:
   route_name: entity.guidelines.collection
   description: 'List Guidelines entities'
   parent: cme.admin_cme
-  weight: 100
 
 guidelines.admin.structure.settings:
   title: 'Guidelines settings'

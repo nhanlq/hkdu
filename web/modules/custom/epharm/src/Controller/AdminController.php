@@ -3,11 +3,12 @@
 namespace Drupal\epharm\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\system\Controller\SystemController;
 
 /**
  * Class AdminController.
  */
-class AdminController extends ControllerBase {
+class AdminController extends SystemController {
 
   /**
    * Admin.
@@ -16,10 +17,8 @@ class AdminController extends ControllerBase {
    *   Return Hello string.
    */
   public function admin() {
-    return [
-      '#type' => 'markup',
-      '#markup' => $this->t('Implement method: admin')
-    ];
+    $build['blocks'] = parent::overview('global_hkdu.admin_epharm_hkdu');
+    return $build;
   }
 
 }
