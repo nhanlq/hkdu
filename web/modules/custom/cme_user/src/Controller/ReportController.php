@@ -280,7 +280,7 @@ class ReportController extends ControllerBase {
               $users[$user->id()] = ['start' => $year . '-01-01', 'end' => $year . '-12-31'];
             }
             if (strpos($user->get('field_cme_join_date')->value, '07-01') !== FALSE && strpos($period,
-                '01_07') !== FALSE) {
+                '07_01') !== FALSE) {
               $users[$user->id()] = ['start' => $year . '-07-01', 'end' => ($year + 1) . '-06-30'];
             }
           }
@@ -290,7 +290,7 @@ class ReportController extends ControllerBase {
               $users[$user->id()] = ['start' => $year . '-01-01', 'end' => ($year + 1) . '-12-31'];
             }
             if (strpos($user->get('field_cme_join_date')->value, '07-01') !== FALSE && strpos($period,
-                '01_07') !== FALSE) {
+                '07_01') !== FALSE) {
               $users[$user->id()] = ['start' => $year . '-07-01', 'end' => ($year + 2) . '-06-30'];
             }
           }
@@ -300,7 +300,7 @@ class ReportController extends ControllerBase {
               $users[$user->id()] = ['start' => $year . '-01-01', 'end' => ($year + 2) . '-12-31'];
             }
             if (strpos($user->get('field_cme_join_date')->value, '07-01') !== FALSE && strpos($period,
-                '01_07') !== FALSE) {
+                '07_01') !== FALSE) {
               $users[$user->id()] = ['start' => $year . '-07-01', 'end' => ($year + 3) . '-06-30'];
             }
           }
