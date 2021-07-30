@@ -6,16 +6,26 @@
 /* Bar styling (first row), currently unused. */
 .toolbar-icon-global-hkdu-admin-hkdu:before {
   background-image: url("../icons/orgchart.svg");
+  /*background-color: transparent !important;*/
 }
- .toolbar-icon-global-hkdu-admin-hkdu:active:before {
+
+.toolbar-icon-global-hkdu-admin-hkdu:active:before {
   background-image: url("../icons/orgchart.svg");
+  /*background-color: transparent !important;*/
 }
 
 /* Tray styling (second row) */
-.toolbar-icon-global-hkdu-admin-hkdu:before {
-  background-image: url("../icons/orgchart.svg");
+.toolbar-icon-global-hkdu-admin-epharm-hkdu-suppliers:before {
+  background-image: url("../icons/meds.png")!important;
+  background-color: transparent !important;
+  -webkit-mask-image:none!important;
+  background-size: cover!important;
 }
-.toolbar-icon-global-hkdu-admin-hkdu:active:before,
-.toolbar-icon-global-hkdu-admin-hkdu.is-active:before {
-  background-image: url("../icons/orgchart.svg");
+
+.toolbar-icon-global-hkdu-admin-epharm-hkdu-suppliers:active:before,
+.toolbar-icon-global-hkdu-admin-epharm-hkdu-suppliers.is-active:before {
+  background-image: url("../icons/meds.png")!important;
+  background-color: transparent !important;
+  -webkit-mask-image:none!important;
+  background-size: cover!important;
 }
