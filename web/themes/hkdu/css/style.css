@@ -1476,12 +1476,14 @@ form.search {
   position: absolute;
   right: 8px;
 }
+
 .drug-database .fLrcjA {
   display: flex;
   float: right;
   margin-left: 20px;
   position: inherit;
 }
+
 .drug-database .fLrcjA button {
   border: 0px;
   background: rgb(69, 96, 176);
@@ -1493,6 +1495,7 @@ form.search {
   color: #ffffff;
 
 }
+
 .fLrcjA button {
   border: 0px;
   background: transparent;
@@ -1612,35 +1615,44 @@ select.epharm-switch {
   -webkit-box-pack: justify;
   justify-content: space-between;
 }
+
 table, th, td {
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
-table.drug-database th, table.drug-database td{
+
+table.drug-database th, table.drug-database td {
   font-size: 14px;
   padding: 5px;
 }
-table.drug-database th{
+
+table.drug-database th {
   background: rgb(69, 96, 176);
   color: white;
   font-weight: bold;
 }
-th{
+
+th {
   text-align: center;
 }
+
 .etLNEt {
   color: rgb(69, 96, 176);
   font-size: 24px;
   font-weight: 600;
 }
-.Attempted.cUAFfx{
+
+.Attempted.cUAFfx {
   background-color: indianred;
 }
-.Attempted.fOtgzp{
+
+.Attempted.fOtgzp {
   border-top: 3px solid indianred;
 }
-.Passed.fOtgzp{
+
+.Passed.fOtgzp {
   border-top: 3px solid rgb(108, 201, 120);
 }
+
 .cUAFfx {
   font-size: 13px;
   color: white;
@@ -2436,9 +2448,11 @@ a {
   border-color: rgb(69, 96, 176);
   padding: 0px 10px;
 }
-.grey.fUVRLe{
+
+.grey.fUVRLe {
   background-color: grey;
 }
+
 .eXdybn {
   width: 170px;
 }
@@ -2703,7 +2717,8 @@ a .date, a .author {
   color: rgb(69, 96, 176);
   font-weight: bolder;
 }
-.open ul.nav{
+
+.open ul.nav {
   margin-left: 0px;
 }
 
@@ -2991,10 +3006,91 @@ h1.page-header span {
   text-decoration: none;
   border-right: 3px solid rgb(69, 96, 176);
 }
+
 /**
 comment
  */
+article.js-comment {
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  border-width: 1px;
+  border-style: solid;
+  border-image: initial;
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
 
+article.profile {
+  display: none;
+}
+
+.comment__permalink {
+  display: none;
+}
+
+article.js-comment footer {
+  clear: both;
+  float: left;
+  width: 100%;
+  background: rgb(69, 96, 176);
+  float: left;
+  padding: 10px 10px;
+}
+
+article.js-comment footer .author-comment {
+  width: 48%;
+  float: left;
+  position: relative;
+}
+
+article.js-comment footer .author-comment a {
+  color: #ffffff;
+}
+
+article.js-comment footer .created-comment {
+  width: 48%;
+  float: right;
+  color: #ffffff;
+  text-align: right;
+}
+
+.comment__content {
+  /*float: left;*/
+  /*border-left: 1px solid rgba(0, 0, 0, 0.1);*/
+  padding-left: 20px;
+}
+.indented{
+  margin-top: -30px;
+  margin-left: 50px;
+}
+.indented article.js-comment footer{
+  background: transparent;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.indented article.js-comment footer .author-comment a {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.indented article.js-comment footer .created-comment{
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.indented article.js-comment{
+  border-top: 0px;
+
+}
+
+.comment__content ul li {
+  list-style: none;
+  display: inline-flex;
+  margin-right: 20px;
+}
+
+.comment__content ul {
+  padding: 0px;
+  text-align: right;
+}
 
 @media screen and (min-width: 770px) {
   .navbar.container {

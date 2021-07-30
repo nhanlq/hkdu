@@ -5,6 +5,8 @@ use Drupal\doctor\Entity\DoctorEntity;
 use Drupal\hospital\Entity\HospitalEntity;
 use Drupal\gallery\Entity\Gallery;
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
 
 /**
  * @file
@@ -709,7 +711,7 @@ function hkdu_preprocess_comment(&$variables) {
     $variables['permalink'] = '';
   }
 
-  $variables['submitted'] = t('Submitted by @username on @datetime', ['@username' => $variables['author'], '@datetime' => $variables['created']]);
+  $variables['submitted'] = '<div class="author-comment">'.$variables['author'].'</div><div class="created-comment">'.$variables['created'].'</div>';
 
   if ($comment_parent = $comment->getParentComment()) {
     // Fetch and store the parent comment information for use in templates.
@@ -764,5 +766,6 @@ function hkdu_preprocess_comment(&$variables) {
   $variables['attributes']['data-comment-user-id'] = $comment->getOwnerId();
   // Add anchor for each comment.
   $variables['attributes']['id'] = 'comment-' . $comment->id();
+  $variables['attributes']['class'][] = 'comment';
 }
 
