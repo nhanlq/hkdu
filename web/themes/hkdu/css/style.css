@@ -3098,6 +3098,28 @@ article.js-comment footer .created-comment {
   }
 }
 
+@media screen and (max-width: 1920px) {
+  .region-sidebar-first{
+    position: relative;
+    left: 30%;
+  }
+  .region-sidebar-second{
+    position: relative;
+    right: 30%;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .region-sidebar-first{
+    position: relative;
+    left: 20%;
+  }
+  .region-sidebar-second{
+    position: relative;
+    right: 20%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .navbar.container {
     max-width: 100%;
