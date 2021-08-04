@@ -3128,11 +3128,11 @@ article.js-comment footer .created-comment {
 @media screen and (max-width: 1440px) {
   .region-sidebar-first{
     position: relative;
-    left: 50%!important;
+    left: 5%!important;
   }
   .region-sidebar-second{
     position: relative;
-    right: 50%!important;
+    right: 5%!important;
   }
 }
 
