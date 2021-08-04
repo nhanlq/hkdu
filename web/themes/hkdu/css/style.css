@@ -3108,6 +3108,12 @@ article.js-comment footer .created-comment {
     right: 30%;
   }
 }
+.region-sidebar-first{
+  margin-top: 50px;
+}
+.region-sidebar-second{
+  margin-top: 50px;
+}
 
 @media screen and (max-width: 1600px) {
   .region-sidebar-first{
