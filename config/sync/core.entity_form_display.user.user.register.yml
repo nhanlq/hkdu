@@ -12,6 +12,7 @@ dependencies:
     - field.field.user.user.field_contact_number
     - field.field.user.user.field_first_name
     - field.field.user.user.field_guide_info
+    - field.field.user.user.field_hkdu_administrator
     - field.field.user.user.field_hkdu_subscription_period
     - field.field.user.user.field_last_name
     - field.field.user.user.field_mchk_license
@@ -153,6 +154,7 @@ hidden:
   field_clinic_id: true
   field_cme_join_date: true
   field_college: true
+  field_hkdu_administrator: true
   field_hkdu_subscription_period: true
   field_newsletter: true
   field_point: true

@@ -11,6 +11,7 @@ dependencies:
     - field.field.user.user.field_contact_number
     - field.field.user.user.field_first_name
     - field.field.user.user.field_guide_info
+    - field.field.user.user.field_hkdu_administrator
     - field.field.user.user.field_hkdu_subscription_period
     - field.field.user.user.field_last_name
     - field.field.user.user.field_mchk_license
@@ -65,14 +66,14 @@ bundle: user
 mode: default
 content:
   field_address:
-    weight: 28
+    weight: 10
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_clinic_id:
-    weight: 20
+    weight: 6
     label: above
     settings:
       link: true
@@ -80,7 +81,7 @@ content:
     type: entity_reference_label
     region: content
   field_cme_join_date:
-    weight: 21
+    weight: 7
     label: above
     settings:
       format_type: medium
@@ -89,7 +90,7 @@ content:
     type: datetime_default
     region: content
   field_college:
-    weight: 23
+    weight: 8
     label: above
     settings:
       link: true
@@ -113,7 +114,7 @@ content:
     type: string
     region: content
   field_hkdu_subscription_period:
-    weight: 18
+    weight: 4
     label: above
     settings:
       format_type: medium
@@ -146,7 +147,7 @@ content:
     type: entity_reference_label
     region: content
   field_newsletter:
-    weight: 15
+    weight: 2
     label: above
     settings:
       link: true
@@ -162,7 +163,7 @@ content:
     type: string
     region: content
   field_referee_name:
-    weight: 19
+    weight: 5
     label: above
     settings:
       link_to_entity: false
@@ -178,14 +179,14 @@ content:
     type: string
     region: content
   field_report_generation:
-    weight: 16
+    weight: 3
     label: above
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
   field_self_study_point:
-    weight: 24
+    weight: 9
     label: above
     settings:
       thousand_separator: ''
@@ -212,7 +213,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
   field_subscription:
-    weight: 14
+    weight: 1
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -230,6 +231,7 @@ hidden:
   doctor_profiles: true
   drug_supplier_profiles: true
   field_guide_info: true
+  field_hkdu_administrator: true
   field_point: true
   field_policy: true
   hkdu_member_profiles: true

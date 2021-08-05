@@ -1,0 +1,5 @@
+services:
+  cme_user.commands:
+    class: \Drupal\cme_user\Commands\UpdateUserCommands
+    tags:
+      - { name: drush.command }

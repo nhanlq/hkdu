@@ -11,6 +11,7 @@ dependencies:
     - field.field.user.user.field_contact_number
     - field.field.user.user.field_first_name
     - field.field.user.user.field_guide_info
+    - field.field.user.user.field_hkdu_administrator
     - field.field.user.user.field_hkdu_subscription_period
     - field.field.user.user.field_last_name
     - field.field.user.user.field_mchk_license
@@ -47,7 +48,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_address:
-    weight: 28
+    weight: 24
     settings:
       rows: 5
       placeholder: ''
@@ -71,7 +72,7 @@ content:
     type: datetime_default
     region: content
   field_college:
-    weight: 23
+    weight: 22
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -179,7 +180,7 @@ content:
     type: markup
     region: content
   field_self_study_point:
-    weight: 24
+    weight: 23
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -227,6 +228,7 @@ hidden:
   customer_profiles: true
   doctor_profiles: true
   drug_supplier_profiles: true
+  field_hkdu_administrator: true
   hkdu_member_profiles: true
   langcode: true
   language: true
