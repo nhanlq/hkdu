@@ -1,0 +1,14 @@
+uuid: e3059b9a-19dd-4446-ab81-0a0ff0cf84e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.hkdu_administrator
+  module:
+    - user
+id: user_add_role_action.hkdu_administrator
+label: 'Add the HKDU Administrator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: hkdu_administrator
