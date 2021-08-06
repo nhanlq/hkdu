@@ -1119,7 +1119,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a target="_blank" href="/admin/hkdu/manage-event-enrolled/{{id}}">Export CSV</a>'
+            text: '<a target="_blank" href="/admin/e-pharm/event/{{id}}">Export CSV</a>'
             make_link: false
             path: ''
             absolute: false

@@ -60,6 +60,11 @@ function event_theme($existing, $type, $theme, $path) {
       'path' => $path . '/templates/',
       'template' => 'event-banner',
     ],
+    'event_enrollment_list' => [
+      'variables' => ['scores' => NULL,],
+      'path' => $path . '/templates/',
+      'template' => 'event-enrollment-list',
+    ],
   ];
 }
 
