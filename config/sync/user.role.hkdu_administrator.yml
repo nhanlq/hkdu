@@ -1,0 +1,9 @@
+uuid: 679df2cc-c83e-4929-8783-17618e91f6a0
+langcode: en
+status: true
+dependencies: {  }
+id: hkdu_administrator
+label: 'HKDU Administrator'
+weight: 11
+is_admin: null
+permissions: {  }

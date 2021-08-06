@@ -82,7 +82,8 @@ class ImportUserAdditional extends FormBase {
           $user->set('field_cme_join_date', $date);
           $user->set('field_college', $this->createCollege('cme_college', $data['D']));
           if ($data['B'] == 'Yes') {
-            $user->addRole('administrator');
+            $user->addRole('hkdu_administrator');
+            $user->set('field_hkdu_administrator', 1);
           }
           try {
             $user->save();

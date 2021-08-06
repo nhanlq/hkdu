@@ -85,7 +85,7 @@ class ImportUserSpecial extends FormBase {
             $user->set('field_contact_number', $data['E']);
             $user->set('field_address', $data['F']);
             if ($data['C'] == 'Yes') {
-              $user->addRole('administrator');
+              $user->addRole('hkdu_administrator');
               $user->set('field_hkdu_administrator', 1);
             }else{
               $user->set('field_hkdu_administrator', 0);
