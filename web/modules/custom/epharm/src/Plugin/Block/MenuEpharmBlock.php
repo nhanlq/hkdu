@@ -43,6 +43,7 @@ class MenuEpharmBlock extends BlockBase {
     }
     if (in_array('drug_suppliers', $current_roles)) {
       $role_doctor = 1;
+      $role_member = 1;
     }
     if (in_array('doctor', $current_roles)) {
       $role_doctor = 1;
