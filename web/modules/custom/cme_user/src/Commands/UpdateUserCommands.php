@@ -43,7 +43,7 @@ class UpdateUserCommands extends DrushCommands {
     $ids = \Drupal::entityQuery('user')->condition('status', 1)->execute();
     $result = \Drupal\user\Entity\User::loadMultiple($ids);
     foreach ($result as $user) {
-      if (in_array('administrator', $user->getRoles())) {
+      if (in_array('hkdu_administrator', $user->getRoles())) {
         $users[] = $user->get('field_mchk_license')->value;
         $user->set('field_hkdu_administrator', 1);
       }else{
