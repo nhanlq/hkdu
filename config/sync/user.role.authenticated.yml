@@ -6,7 +6,7 @@ _core:
   default_config_hash: btW6TFHajhy7Eo6YUvdFiPh4TcPggo8GBXYctjV6zag
 id: authenticated
 label: 'Authenticated user'
-weight: 1
+weight: -9
 is_admin: false
 permissions:
   - 'access checkout'
@@ -53,7 +53,6 @@ permissions:
   - 'view published clinical focus entities'
   - 'view published cme event entities'
   - 'view published cme links entities'
-  - 'view published default entity entities'
   - 'view published doctor entity entities'
   - 'view published drug news entities'
   - 'view published drug news entity entities'

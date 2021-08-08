@@ -1,9 +1,0 @@
-uuid: 1a59b9dc-5b44-4f16-bb5c-daa2cf83cfd2
-langcode: en
-status: true
-dependencies: {  }
-id: invited
-label: Invited
-weight: 9
-is_admin: null
-permissions: {  }

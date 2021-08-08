@@ -113,13 +113,18 @@ function member_profile_theme($existing, $type, $theme, $path) {
       ],
     ],
     'member_menu' => [
-      'variables' => ['uid' => NULL],
+      'variables' => ['uid' => NULL,'ads' => NULL],
       'path' => $path . '/templates/',
       'template' => 'member-menu',
     ],
   ];
 }
 
+/**
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
 function member_profile_entity_presave(
   Drupal\Core\Entity\EntityInterface $entity
 ) {
@@ -129,7 +134,11 @@ function member_profile_entity_presave(
   }
 }
 
-
+/**
+ * @param $entity
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
 function event_ICSFile($entity) {
   $start = str_replace('-', '', $entity->get('field_event_start_date')->value);
   $start = str_replace(':', '', $start);

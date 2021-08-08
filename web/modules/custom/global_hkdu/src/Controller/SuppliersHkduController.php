@@ -3,11 +3,12 @@
 namespace Drupal\global_hkdu\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\system\Controller\SystemController;
 
 /**
  * Class SuppliersHkduController.
  */
-class SuppliersHkduController extends ControllerBase {
+class SuppliersHkduController extends SystemController {
 
   /**
    * Supplier.
@@ -16,10 +17,8 @@ class SuppliersHkduController extends ControllerBase {
    *   Return Hello string.
    */
   public function supplier() {
-    return [
-      '#type' => 'markup',
-      '#markup' => $this->t('Implement method: supplier')
-    ];
+    $build['blocks'] = parent::overview('global_hkdu.admin_epharm_hkdu_suppliers');
+    return $build;
   }
 
 }

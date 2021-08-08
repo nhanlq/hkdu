@@ -5,11 +5,11 @@ special_offer.special_list_controller_list:
     _controller: '\Drupal\special_offer\Controller\SpecialListController::list'
     _title_callback: '\Drupal\special_offer\Controller\SpecialListController::title'
   requirements:
-    _permission: 'view all list special offer'
+    _permission: 'access epharm'
 special_offer.import_xls_form:
   path: '/admin/hkdu/special-offer/import'
   defaults:
     _form: '\Drupal\special_offer\Form\ImportXlsForm'
     _title: 'ImportXlsForm'
   requirements:
-    _permission: 'view all list special offer'
+    _permission: 'access epharm'
