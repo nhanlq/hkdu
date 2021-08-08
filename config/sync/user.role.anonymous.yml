@@ -6,7 +6,7 @@ _core:
   default_config_hash: pq_mEIu_B4widZN7Ap81iCJSjShFFdcL0jEiCi8VrDk
 id: anonymous
 label: 'Anonymous user'
-weight: 0
+weight: -10
 is_admin: false
 permissions:
   - 'access checkout'
@@ -21,7 +21,6 @@ permissions:
   - 'view commerce_product'
   - 'view media'
   - 'view published banner entity entities'
-  - 'view published default entity entities'
   - 'view published doctor entity entities'
   - 'view published gallery entities'
   - 'view published healthy entities'

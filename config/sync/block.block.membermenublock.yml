@@ -36,7 +36,6 @@ visibility:
       drug_suppliers: drug_suppliers
       council_members: council_members
       cme_member: cme_member
-      invited: invited
       tester: tester
     negate: false
     context_mapping:
