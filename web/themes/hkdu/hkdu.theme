@@ -624,6 +624,9 @@ function template_preprocess_quiz(array &$variables) {
   $variables['paid'] = getUserPaidQuiz($id);
   $roles = $user->getRoles();
   $variables['att'] = getUserAttempQuiz($id);
+  if ($quiz->get('field_price')->number == 0) {
+    $variables['roles'] = TRUE;
+  }
   if (in_array('administrator', $roles)) {
     $variables['roles'] = TRUE;
   }
