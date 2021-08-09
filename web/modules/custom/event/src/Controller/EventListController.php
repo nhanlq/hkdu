@@ -261,7 +261,7 @@ class EventListController extends ControllerBase {
         ->condition('status', 1)
         ->condition('user_id', $uids, 'IN')
         ->execute();
-      $result = \Drupal\special_offer\Entity\SpecialOffer::loadMultiple($spd);
+      $result = \Drupal\event\Entity\Event::loadMultiple($spd);
       if ($result) {
         foreach ($result as $sp) {
           $id[] = $sp->id();
