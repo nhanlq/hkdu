@@ -177,11 +177,13 @@ class DrugNewsListController extends ControllerBase {
       foreach($users as $user){
         $uids[] = $user->id();
       }
+
       $spd = \Drupal::entityQuery('drug_news')
         ->condition('status', 1)
         ->condition('user_id', $uids,'IN')
         ->execute();
-      $result = \Drupal\special_offer\Entity\SpecialOffer::loadMultiple($spd);
+
+      $result = \Drupal\drug_news\Entity\DrugNews::loadMultiple($spd);
       if($result){
         foreach($result as $sp){
           $id[] = $sp->id();
