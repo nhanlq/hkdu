@@ -58,6 +58,7 @@ class EventListController extends ControllerBase {
         ->condition('status', 1)
         ->condition('field_tags', $tid)
         ->condition('field_expired', $currentDate, '>=')
+        ->condition('id', $this->getDrugUsers(), 'NOT IN')
         ->sort('field_weight', 'ASC')
         ->sort('field_date', 'ASC')
         ->pager(15)
@@ -68,6 +69,7 @@ class EventListController extends ControllerBase {
         ->condition('status', 1)
         ->condition('name', $_GET['keys'], 'CONTAINS')
         ->condition('field_expired', $currentDate, '>=')
+        ->condition('id', $this->getDrugUsers(), 'NOT IN')
         ->sort('field_weight', 'ASC')
         ->sort('field_date', 'ASC')
         ->pager(15)
@@ -77,6 +79,7 @@ class EventListController extends ControllerBase {
       $ids = \Drupal::entityQuery('event')
         ->condition('status', 1)
         ->condition('field_expired', $currentDate, '>=')
+        ->condition('id', $this->getDrugUsers(), 'NOT IN')
         ->sort('field_weight', 'ASC')
         ->sort('field_date', 'ASC')
         ->pager(15)
@@ -195,6 +198,11 @@ class EventListController extends ControllerBase {
     ];
   }
 
+  /**
+   * @param $id
+   *
+   * @return array
+   */
   public function list_title($id) {
     $event = \Drupal\event\Entity\Event::load($id);
     return [
@@ -223,5 +231,50 @@ class EventListController extends ControllerBase {
         'max-age' => 0,
       ],
     ];
+  }
+
+  /**
+   * get all drug users
+   */
+  public function getDrugUsers() {
+    $user = \Drupal::currentUser();
+    $uids = [];
+    $id = [];
+
+    if (in_array('drug_suppliers', $user->getRoles())) {
+      $uid = $user->id();
+    }
+    else {
+      $uid = FALSE;
+    }
+    if ($uid) {
+      $ids = \Drupal::entityQuery('user')
+        ->condition('status', 1)
+        ->condition('uid', $uid, '<>')
+        ->condition('roles', 'drug_suppliers')
+        ->execute();
+      $users = \Drupal\user\Entity\User::loadMultiple($ids);
+      foreach ($users as $user) {
+        $uids[] = $user->id();
+      }
+      $spd = \Drupal::entityQuery('event')
+        ->condition('status', 1)
+        ->condition('user_id', $uids, 'IN')
+        ->execute();
+      $result = \Drupal\special_offer\Entity\SpecialOffer::loadMultiple($spd);
+      if ($result) {
+        foreach ($result as $sp) {
+          $id[] = $sp->id();
+        }
+      }
+      else {
+        $id[] = 0;
+      }
+
+    }
+    else {
+      $id[] = 0;
+    }
+    return $id;
   }
 }

@@ -61,6 +61,7 @@ class DrugNewsListController extends ControllerBase {
         ->condition('status', 1)
         ->condition('field_tags', $tid)
         ->condition('field_expired', $currentDate, '>=')
+        ->condition('id',$this->getDrugUsers(),'NOT IN')
         ->sort('field_weight', 'ASC')
         ->sort('field_publish_date', 'DESC')
         ->pager(10)
@@ -71,6 +72,7 @@ class DrugNewsListController extends ControllerBase {
         ->condition('status', 1)
         ->condition('field_expired', $currentDate, '>=')
         ->condition('name', $_GET['keys'], 'CONTAINS')
+        ->condition('id',$this->getDrugUsers(),'NOT IN')
         ->sort('field_weight', 'ASC')
         ->sort('field_publish_date', 'DESC')
         ->pager(10)
@@ -79,6 +81,7 @@ class DrugNewsListController extends ControllerBase {
         ->condition('status', 1)
         ->condition('field_expired', $currentDate, '>=')
         ->condition('field_description', $_GET['keys'], 'CONTAINS')
+        ->condition('id',$this->getDrugUsers(),'NOT IN')
         ->sort('field_weight', 'ASC')
         ->sort('field_publish_date', 'DESC')
         ->pager(10)
@@ -89,6 +92,7 @@ class DrugNewsListController extends ControllerBase {
       $ids = \Drupal::entityQuery('drug_news')
         ->condition('status', 1)
         ->condition('field_expired', $currentDate, '>=')
+        ->condition('id',$this->getDrugUsers(),'NOT IN')
         ->sort('field_weight', 'ASC')
         ->sort('field_publish_date', 'DESC')
         ->pager(10)
@@ -148,6 +152,48 @@ class DrugNewsListController extends ControllerBase {
       '#markup' => \Drupal::state()->get('/e-pharm/drug-news', 'Drug News'),
       '#allowed_tags' => \Drupal\Component\Utility\Xss::getHtmlTagList(),
     ];
+  }
+
+  /**
+   * get all drug users
+   */
+  public function getDrugUsers(){
+    $user = \Drupal::currentUser();
+    $uids = [];
+    $id = [];
+
+    if(in_array('drug_suppliers',$user->getRoles())){
+      $uid = $user->id();
+    }else{
+      $uid = false;
+    }
+    if($uid){
+      $ids = \Drupal::entityQuery('user')
+        ->condition('status', 1)
+        ->condition('uid', $uid,'<>')
+        ->condition('roles', 'drug_suppliers')
+        ->execute();
+      $users = \Drupal\user\Entity\User::loadMultiple($ids);
+      foreach($users as $user){
+        $uids[] = $user->id();
+      }
+      $spd = \Drupal::entityQuery('drug_news')
+        ->condition('status', 1)
+        ->condition('user_id', $uids,'IN')
+        ->execute();
+      $result = \Drupal\special_offer\Entity\SpecialOffer::loadMultiple($spd);
+      if($result){
+        foreach($result as $sp){
+          $id[] = $sp->id();
+        }
+      }else{
+        $id[] = 0;
+      }
+
+    }else{
+      $id[] = 0;
+    }
+    return $id;
   }
 
 
