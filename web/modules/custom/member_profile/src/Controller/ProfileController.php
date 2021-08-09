@@ -56,7 +56,10 @@ class ProfileController extends ControllerBase {
       '#google_map'=>$element,
       '#uri' => \Drupal::service('path.current')->getPath(),
       '#uid'=> $uid,
-      '#current_uid' =>\Drupal::currentUser()->id()
+      '#current_uid' =>\Drupal::currentUser()->id(),
+      '#cache' => [
+        'max-age' => 0,
+      ],
     ];
 
   }

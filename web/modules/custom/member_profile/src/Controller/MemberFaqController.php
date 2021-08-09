@@ -19,6 +19,9 @@ class MemberFaqController extends ControllerBase {
     return [
       '#theme' => ['member_faq'],
       '#faq' => $this->getFAQ(),
+      '#cache' => [
+        'max-age' => 0,
+      ],
     ];
   }
 

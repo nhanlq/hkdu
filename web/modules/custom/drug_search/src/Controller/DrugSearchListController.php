@@ -52,6 +52,9 @@ class DrugSearchListController extends ControllerBase {
             'pager' => [
                 '#type' => 'pager',
             ],
+          '#cache' => [
+            'max-age' => 0,
+          ],
         ];
     }
 

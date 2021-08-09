@@ -29,6 +29,9 @@ class MenuBlock extends BlockBase {
       '#theme' => 'member_menu',
       '#uid' => $path[2],
       '#ads' => $ads,
+      '#cache' => [
+        'max-age' => 0,
+      ],
     ];
 
     return $build;
