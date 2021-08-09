@@ -29,7 +29,7 @@ class QuizAccessControlHandler extends EntityAccessControlHandler {
         }
 
 
-        return AccessResult::allowedIfHasPermission($account, 'view published quiz entities');
+        return AccessResult::allowedIfHasPermission($account, 'view published cme quiz entities');
 
       case 'update':
 

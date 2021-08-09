@@ -5,7 +5,7 @@ cme_quiz.quiz_list_controller_quizlist:
     _controller: '\Drupal\cme_quiz\Controller\QuizListController::quizlist'
     _title_callback: '\Drupal\cme_quiz\Controller\QuizListController::title'
   requirements:
-    _permission: 'view published quiz entities'
+    _permission: 'access cme'
 
 cme_quiz.quiz_arxhived_controller_detail:
   path: '/cme/quiz/{id}/archived'
@@ -13,7 +13,7 @@ cme_quiz.quiz_arxhived_controller_detail:
     _controller: '\Drupal\cme_quiz\Controller\QuizListController::quiz_archived'
     _title_callback: '\Drupal\cme_quiz\Controller\QuizListController::titleArchivedDetail'
   requirements:
-    _permission: 'view published quiz entities'
+    _permission: 'view published cme quiz entities'
 
 cme_quiz.quiz_archived_controller_quizlist:
   path: '/cme/quiz/archived'
@@ -21,7 +21,7 @@ cme_quiz.quiz_archived_controller_quizlist:
     _controller: '\Drupal\cme_quiz\Controller\QuizListController::quizlistarchived'
     _title_callback: '\Drupal\cme_quiz\Controller\QuizListController::titleArchived'
   requirements:
-    _permission: 'view published quiz entities'
+    _permission: 'access cme'
 
 cme_quiz.quiz_test_controller_quiz_test:
   path: '/cme/quiz/test/{quizId}'
@@ -29,7 +29,7 @@ cme_quiz.quiz_test_controller_quiz_test:
     _controller: '\Drupal\cme_quiz\Controller\QuizTestController::quiz_test'
     _title: 'Quiz Test'
   requirements:
-    _permission: 'view published quiz entities'
+    _permission: 'view published cme quiz entities'
     quizId: \d+
 cme_quiz.quiz_result_controller_test_result:
   path: '/cme/quiz/{quizId}/result/{resultId}'
@@ -37,7 +37,7 @@ cme_quiz.quiz_result_controller_test_result:
     _controller: '\Drupal\cme_quiz\Controller\QuizResultController::test_result'
     _title: 'Quiz Test Result'
   requirements:
-    _permission: 'view published quiz entities'
+    _permission: 'view published cme quiz entities'
 
 cme_quiz.result_message_quiz_controller_test_message:
   path: '/cme/quiz/{id}/message'
@@ -45,7 +45,7 @@ cme_quiz.result_message_quiz_controller_test_message:
     _controller: '\Drupal\cme_quiz\Controller\ResultMessageQuizController::test_message'
     _title: 'Tested Success'
   requirements:
-    _permission: 'view published quiz entities'
+    _permission: 'view published cme quiz entities'
 
 cme_quiz.message_form:
   path: '/admin/cme/quiz/form/message'
@@ -53,4 +53,4 @@ cme_quiz.message_form:
     _form: '\Drupal\cme_quiz\Form\MessageForm'
     _title: 'MessageForm'
   requirements:
-    _permission: 'view published quiz entities'
+    _permission: 'view published cme quiz entities'

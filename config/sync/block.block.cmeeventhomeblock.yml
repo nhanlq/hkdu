@@ -5,6 +5,7 @@ dependencies:
   module:
     - cme_event
     - system
+    - user
   theme:
     - hkdu
 id: cmeeventhomeblock
@@ -24,3 +25,15 @@ visibility:
     pages: /cme
     negate: false
     context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      administrator: administrator
+      admins: admins
+      hkdu_members: hkdu_members
+      council_members: council_members
+      cme_member: cme_member
+      tester: tester
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

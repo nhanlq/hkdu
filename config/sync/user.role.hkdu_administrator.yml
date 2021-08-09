@@ -10,6 +10,7 @@ permissions:
   - 'access user profiles'
   - 'add doctor entity entities'
   - 'edit doctor entity entities'
+  - 'manage cme'
   - 'view published banner entity entities'
   - 'view published download entities'
   - 'view published external link entities'

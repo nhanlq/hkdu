@@ -93,7 +93,7 @@ member_profile.member_area_controller_member_area:
     _controller: '\Drupal\member_profile\Controller\MemberAreaController::member_area'
     _title: 'Member Area'
   requirements:
-    _permission: 'access user profiles'
+    _permission: 'member are access'
 
 member_profile.member_area_controller_member_area_admin:
   path: '/admin/member-area'
