@@ -7,13 +7,12 @@ label: 'CME Member'
 weight: -1
 is_admin: null
 permissions:
+  - 'access cme'
   - 'access hkdu epharm'
   - 'access user profiles'
   - 'add doctor entity entities'
   - 'edit doctor entity entities'
   - 'manage cme'
-  - 'member are access'
-  - 'suppliers access member area'
   - 'view published banner entity entities'
   - 'view published default entity entities'
   - 'view published download entities'

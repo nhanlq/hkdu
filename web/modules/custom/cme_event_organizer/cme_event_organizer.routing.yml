@@ -5,4 +5,4 @@ cme_event_organizer.org_list_controller_list:
     _controller: '\Drupal\cme_event_organizer\Controller\OrgListController::list'
     _title_callback: '\Drupal\cme_event_organizer\Controller\OrgListController::title'
   requirements:
-    _permission: 'view published event organizer entities'
+    _permission: 'access cme'

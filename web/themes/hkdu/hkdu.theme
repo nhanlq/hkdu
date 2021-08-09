@@ -7,6 +7,7 @@ use Drupal\gallery\Entity\Gallery;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * @file
@@ -49,7 +50,37 @@ function hkdu_preprocess_html(&$variables) {
 
 function hkdu_preprocess_page(&$variables) {
   $variables['#attached']['library'][] = 'hkdu/caption-hkdu';
+//  $current_path = \Drupal::service('path.current')->getPath();
+//  $path = explode('/', $current_path);
+//  $user = \Drupal::currentUser();
+//  if ($path[1] == 'cme') {
+//    $au = FALSE;
+//    if (in_array('administrator', $user->getRoles())) {
+//      $au = TRUE;
+//    }
+//    if (in_array('admins', $user->getRoles())) {
+//      $au = TRUE;
+//    }
+//    if (in_array('cme_member', $user->getRoles())) {
+//      $au = TRUE;
+//    }
+//    if (in_array('hkdu_members', $user->getRoles())) {
+//      $au = TRUE;
+//    }
+//    if (in_array('council_members', $user->getRoles())) {
+//      $au = TRUE;
+//    }
+//    if (in_array('tester', $user->getRoles())) {
+//      $au = TRUE;
+//    }
+//
+//    if($au){
+//      $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/')->toString());
+//      $redirect->send();
+//    }
+  //}
 }
+
 
 function hkdu_preprocess_node(&$variables) {
   if ($variables['node']->getType() == 'image_gallery') {
@@ -714,7 +745,7 @@ function hkdu_preprocess_comment(&$variables) {
     $variables['permalink'] = '';
   }
 
-  $variables['submitted'] = '<div class="author-comment">'.$variables['author'].'</div><div class="created-comment">'.$variables['created'].'</div>';
+  $variables['submitted'] = '<div class="author-comment">' . $variables['author'] . '</div><div class="created-comment">' . $variables['created'] . '</div>';
 
   if ($comment_parent = $comment->getParentComment()) {
     // Fetch and store the parent comment information for use in templates.

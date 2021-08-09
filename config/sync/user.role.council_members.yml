@@ -7,6 +7,7 @@ label: 'Council Member'
 weight: -2
 is_admin: null
 permissions:
+  - 'access cme'
   - 'access epharm'
   - 'access hkdu epharm'
   - 'access user profiles'

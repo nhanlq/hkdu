@@ -7,6 +7,7 @@ label: 'HKDU Member'
 weight: -4
 is_admin: null
 permissions:
+  - 'access cme'
   - 'access comments'
   - 'access content'
   - 'access epharm'

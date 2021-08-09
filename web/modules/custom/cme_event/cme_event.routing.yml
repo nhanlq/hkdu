@@ -5,7 +5,7 @@ cme_event.cme_event_list_controller_list:
     _controller: '\Drupal\cme_event\Controller\CmeEventListController::list'
     _title_callback: '\Drupal\cme_event\Controller\CmeEventListController::title'
   requirements:
-    _permission: 'view published cme event entities'
+    _permission: 'access cme'
 
 cme_event.free_event_controller_free:
   path: '/cme/free/event/{eventId}'
@@ -67,7 +67,7 @@ cme_event.event_calendar_controller_calendar:
     _controller: '\Drupal\cme_event\Controller\EventCalendarController::calendar'
     _title: 'Events Calendar'
   requirements:
-    _permission: 'view published cme event entities'
+    _permission: 'access cme'
 
 cme_event.export_enroll_list:
   path: '/admin/cme/event/export/enrollment/{id}'

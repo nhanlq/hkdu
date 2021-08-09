@@ -12,8 +12,8 @@ delete quiz entities:
 edit quiz entities:
   title: 'Edit Quiz entities'
 
-view published quiz entities:
-  title: 'View published Quiz entities'
+view published cme quiz entities:
+  title: 'View published CME Quiz entities'
 
 view unpublished quiz entities:
   title: 'View unpublished Quiz entities'

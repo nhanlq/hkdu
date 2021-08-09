@@ -5,4 +5,4 @@ cme_link.links_controller_list:
     _controller: '\Drupal\cme_link\Controller\LinksController::list'
     _title_callback: '\Drupal\cme_link\Controller\LinksController::title'
   requirements:
-    _permission: 'view published cme links entities'
+    _permission: 'access cme'
