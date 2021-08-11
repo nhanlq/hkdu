@@ -27,7 +27,7 @@ class MenuBlock extends BlockBase {
     }
     $build = [
       '#theme' => 'member_menu',
-      '#uid' => $path[2],
+      '#uid' => is_numeric($path[2]) ? $path[2] : $user->id() ,
       '#ads' => $ads,
       '#cache' => [
         'max-age' => 0,
