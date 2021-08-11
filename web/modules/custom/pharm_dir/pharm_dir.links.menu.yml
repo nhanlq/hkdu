@@ -5,7 +5,6 @@ entity.pharm_dir.collection:
   route_name: entity.pharm_dir.collection
   description: 'List Pharm dir entities'
   parent: global_hkdu.admin_epharm_hkdu
-  weight: 100
 
 pharm_dir.admin.structure.settings:
   title: 'Pharm dir settings'
@@ -16,4 +15,4 @@ pharm_dir.admin.structure.settings:
 pharm_dir.admin.import:
   title: 'Pharm Dir Batch Import'
   route_name: pharm_dir.import_xls_form
-  parent: entity.pharm_dir.collection
+  parent: global_hkdu.admin_epharm_hkdu

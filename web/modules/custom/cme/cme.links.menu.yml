@@ -1,15 +1,8 @@
 cme.admin_cme:
   title: 'CME'
   route_name: 'cme.default_controller_index'
-  parent: 'system.admin'
+  parent: 'global_hkdu.admin_hkdu'
   description: 'Administer and configure for CME Entity.'
-  weight: -10
-
-cme.admin_cme.import_point:
-  title: 'Import Point'
-  route_name: 'cme_user.import_point'
-  parent: 'cme.admin_cme'
-  description: ''
   weight: -10
 
 cme.admin_cme.member_report:
@@ -22,20 +15,20 @@ cme.admin_cme.member_report:
 cme.admin_cme.import_user:
   title: 'Import/Update Member'
   route_name: 'cme_user.import_user'
-  parent: 'cme.admin_cme'
+  parent: 'entity.user.collection'
   description: ''
   weight: -10
 
 cme.admin_cme.import_user_additional:
   title: 'Import Membership Additional'
   route_name: 'cme_user.import_user_additional'
-  parent: 'cme.admin_cme.import_user'
+  parent: 'entity.user.collection'
   description: ''
   weight: -10
 
 cme.admin_cme.import_user_selcial:
   title: 'Import Membership Special'
   route_name: 'cme_user.import_user_special'
-  parent: 'cme.admin_cme.import_user'
+  parent: 'entity.user.collection'
   description: ''
   weight: -10

@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_help().
@@ -112,13 +113,18 @@ function member_profile_theme($existing, $type, $theme, $path) {
       ],
     ],
     'member_menu' => [
-      'variables' => ['uid' => NULL],
+      'variables' => ['uid' => NULL,'ads' => NULL],
       'path' => $path . '/templates/',
       'template' => 'member-menu',
     ],
   ];
 }
 
+/**
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
 function member_profile_entity_presave(
   Drupal\Core\Entity\EntityInterface $entity
 ) {
@@ -128,7 +134,11 @@ function member_profile_entity_presave(
   }
 }
 
-
+/**
+ * @param $entity
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
 function event_ICSFile($entity) {
   $start = str_replace('-', '', $entity->get('field_event_start_date')->value);
   $start = str_replace(':', '', $start);
@@ -174,3 +184,28 @@ function member_profile_form_alter(
   }
 }
 
+///**
+// * @param \Drupal\views\ViewExecutable $view
+// */
+//function member_profile_views_pre_render(ViewExecutable $view) {
+//  if ($view->id() == 'member_special') {
+//    foreach($view->result as $value){
+//      $value->_entity->set('field_hkdu_administrator', getUserRole($value->_entity->get('field_mchk_license')->value));
+//    //var_dump(getUserRole($value->_entity->get('field_mchk_license')->value));
+//    }
+//  }
+//}
+//
+//function getUserRole($hkdu_mchk){
+//  $data = 'No';
+//  $ids = \Drupal::entityQuery('user')->condition('field_mchk_license', $hkdu_mchk)->execute();
+//  if ($ids) {
+//    $user = \Drupal\user\Entity\User::load(reset($ids));
+//    $data = 'No';
+//    if(in_array('administrator', $user->getRoles())){
+//      $data = 'Yes';
+//    }
+//
+//  }
+//  return $data;
+//}

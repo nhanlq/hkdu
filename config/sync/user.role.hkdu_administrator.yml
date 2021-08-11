@@ -1,0 +1,18 @@
+uuid: 679df2cc-c83e-4929-8783-17618e91f6a0
+langcode: en
+status: true
+dependencies: {  }
+id: hkdu_administrator
+label: 'HKDU Administrator'
+weight: -5
+is_admin: null
+permissions:
+  - 'access user profiles'
+  - 'add doctor entity entities'
+  - 'edit doctor entity entities'
+  - 'manage cme'
+  - 'view published banner entity entities'
+  - 'view published download entities'
+  - 'view published external link entities'
+  - 'view published public links entities'
+  - 'view published tools entities'

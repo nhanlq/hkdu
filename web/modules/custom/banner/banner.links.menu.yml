@@ -4,8 +4,7 @@ entity.banner.collection:
   title: 'Banner'
   route_name: entity.banner.collection
   description: 'List Banner entity entities'
-  parent: global_hkdu.admin_hkdu
-  weight: 100
+  parent: global_hkdu.admin_hkdu_public
 
 banner.admin.structure.settings:
   title: 'Banner settings'

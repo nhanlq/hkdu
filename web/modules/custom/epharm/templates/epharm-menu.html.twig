@@ -2,22 +2,26 @@
 
   <select id="epharm-switch" class="epharm-switch">
     <option value="public">Public</option>
-    {% if epharm %}
-      <option selected value="e-pharm">e-Pharm</option>
-    {% else %}
-      <option value="e-pharm">e-Pharm</option>
+    {% if role_doctor == 1 or admin == 1 %}
+      {% if epharm %}
+        <option selected value="e-pharm">e-Pharm</option>
+      {% else %}
+        <option value="e-pharm">e-Pharm</option>
+      {% endif %}
     {% endif %}
-    {% if admin == 1 %}
+    {% if admin == 1 or role_cme == 1 %}
       {% if cme %}
         <option selected value="cme">CME</option>
       {% else %}
         <option value="cme">CME</option>
       {% endif %}
     {% endif %}
-    {% if member %}
-      <option selected value="member-area">Member</option>
-    {% else %}
-      <option value="member-area">Member</option>
+    {% if admin == 1 or role_member == 1 %}
+      {% if member %}
+        <option selected value="member-area">Member</option>
+      {% else %}
+        <option value="member-area">Member</option>
+      {% endif %}
     {% endif %}
   </select>
 </div><!-- Add you custom twig html here -->

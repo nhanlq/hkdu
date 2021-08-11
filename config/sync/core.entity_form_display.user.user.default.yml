@@ -11,6 +11,7 @@ dependencies:
     - field.field.user.user.field_contact_number
     - field.field.user.user.field_first_name
     - field.field.user.user.field_guide_info
+    - field.field.user.user.field_hkdu_administrator
     - field.field.user.user.field_hkdu_subscription_period
     - field.field.user.user.field_last_name
     - field.field.user.user.field_mchk_license
@@ -47,7 +48,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_address:
-    weight: 28
+    weight: 24
     settings:
       rows: 5
       placeholder: ''
@@ -55,7 +56,7 @@ content:
     type: string_textarea
     region: content
   field_clinic_id:
-    weight: 20
+    weight: 21
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -65,7 +66,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_cme_join_date:
-    weight: 21
+    weight: 22
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -101,8 +102,15 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_hkdu_administrator:
+    type: boolean_checkbox
+    weight: 13
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_hkdu_subscription_period:
-    weight: 18
+    weight: 19
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -130,7 +138,7 @@ content:
     type: options_select
     region: content
   field_newsletter:
-    weight: 16
+    weight: 17
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
@@ -149,7 +157,7 @@ content:
     type: markup
     region: content
   field_referee:
-    weight: 14
+    weight: 15
     settings:
       size: 60
       placeholder: ''
@@ -157,7 +165,7 @@ content:
     type: string_textfield
     region: content
   field_referee_name:
-    weight: 19
+    weight: 20
     settings:
       size: 60
       placeholder: ''
@@ -173,20 +181,13 @@ content:
     type: string_textfield
     region: content
   field_report_generation:
-    weight: 17
+    weight: 18
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
-  field_self_study_point:
-    weight: 24
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
   field_specialist_fellow_number:
-    weight: 13
+    weight: 14
     settings:
       size: 60
       placeholder: ''
@@ -202,7 +203,7 @@ content:
     type: string_textfield
     region: content
   field_subscription:
-    weight: 15
+    weight: 16
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
@@ -227,6 +228,7 @@ hidden:
   customer_profiles: true
   doctor_profiles: true
   drug_supplier_profiles: true
+  field_self_study_point: true
   hkdu_member_profiles: true
   langcode: true
   language: true

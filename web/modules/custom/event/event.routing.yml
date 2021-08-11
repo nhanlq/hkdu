@@ -5,7 +5,7 @@ event.event_list_controller_list:
     _controller: '\Drupal\event\Controller\EventListController::list'
     _title_callback: '\Drupal\event\Controller\EventListController::title'
   requirements:
-    _permission: 'view event list'
+    _permission: 'access epharm'
 event.enroll_form:
   path: '/admin/e-pharm/event/enroll/offline'
   defaults:
@@ -18,5 +18,13 @@ event.import_xls_form:
   defaults:
     _form: '\Drupal\event\Form\ImportXlsForm'
     _title: 'ImportXlsForm'
+  requirements:
+    _permission: 'access epharm'
+
+event.enroll_list:
+  path: '/admin/e-pharm/event/{id}'
+  defaults:
+    _controller: '\Drupal\event\Controller\EventListController::enrollment'
+    _title_callback: '\Drupal\event\Controller\EventListController::list_title'
   requirements:
     _permission: 'access epharm'

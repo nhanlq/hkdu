@@ -5,7 +5,6 @@ entity.cme_links.collection:
   route_name: entity.cme_links.collection
   description: 'List CME Links entities'
   parent: cme.admin_cme
-  weight: 100
 
 cme_links.admin.structure.settings:
   title: 'CME Links settings'

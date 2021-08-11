@@ -5,4 +5,4 @@ cme_guidelines.guide_list_controller_list:
     _controller: '\Drupal\cme_guidelines\Controller\GuideListController::list'
     _title_callback: '\Drupal\cme_guidelines\Controller\GuideListController::title'
   requirements:
-    _permission: 'view published guidelines entities'
+    _permission: 'access cme'

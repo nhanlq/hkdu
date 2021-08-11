@@ -5,11 +5,11 @@ clinical_focus.clinical_list_controller_list:
     _controller: '\Drupal\clinical_focus\Controller\ClinicalListController::list'
     _title_callback: '\Drupal\clinical_focus\Controller\ClinicalListController::title'
   requirements:
-    _permission: 'view list clinical focus'
+    _permission: 'access epharm'
 clinical_focus.import_xls_form:
   path: '/admin/hkdu/clinical-focus/import'
   defaults:
     _form: '\Drupal\clinical_focus\Form\ImportXLSForm'
     _title: 'Clinical Forcus Batch Import'
   requirements:
-    _permission: 'view list clinical focus'
+    _permission: 'access epharm'

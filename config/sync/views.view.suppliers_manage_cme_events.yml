@@ -13,7 +13,6 @@ dependencies:
     - user.role.administrator
     - user.role.admins
     - user.role.cme_member
-    - user.role.drug_suppliers
   module:
     - cme_event
     - commerce_price
@@ -42,7 +41,6 @@ display:
           role:
             administrator: administrator
             admins: admins
-            drug_suppliers: drug_suppliers
             cme_member: cme_member
       cache:
         type: tag

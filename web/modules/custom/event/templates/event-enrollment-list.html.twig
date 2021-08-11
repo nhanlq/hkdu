@@ -1,0 +1,71 @@
+<script type="application/javascript">
+  function exportTableToExcel(tableID, filename = '') {
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById(tableID);
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+    // Specify file name
+    filename = filename ? filename + '.xls' : 'hkdu_cme_event_enroll.xls';
+
+    // Create download link element
+    downloadLink = document.createElement("a");
+
+    document.body.appendChild(downloadLink);
+
+    if (navigator.msSaveOrOpenBlob) {
+      var blob = new Blob(['\ufeff', tableHTML], {
+        type: dataType
+      });
+      navigator.msSaveOrOpenBlob(blob, filename);
+    } else {
+      // Create a link to the file
+      downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+      // Setting the file name
+      downloadLink.download = filename;
+
+      //triggering the function
+      downloadLink.click();
+    }
+  }
+</script>
+<h1>CME Event Enrollment Pending List</h1>
+<p>Click
+  <button onclick="exportTableToExcel('admin_report')">Export Data To Excel File</button>
+</p>
+<table id="admin_report">
+  <thead>
+  <th>Event Name</th>
+  <th>Category</th>
+  <th>Date</th>
+  <th>Member MCHK No.</th>
+  <th>Member Email.</th>
+  <th>Member English Name</th>
+  <th>Subscription Date</th>
+  <th>Status</th>
+  </thead>
+  <tbody>
+  {% for score in scores %}
+    <tr>
+      <td>{{ score.field_event.entity.name.value }}</td>
+      <td>{{ score.field_event.entity.field_category.entity.name.value }}</td>
+      <td>{{ score.field_event.entity.field_start_date.value|date('d/m/Y') }}</td>
+      <td>{{ score.field_user.entity.field_mchk_license.value }}</td>
+      <td>{{ score.field_user.entity.mail.value }}</td>
+      <td>{{ score.field_user.entity.field_first_name.value }}</td>
+      <td>{{ score.created.value|date('Y/m/d') }}</td>
+      <td>
+        {% if score.status.value == 1 %}
+          Completed
+        {% else %}
+          Pending
+        {% endif %}
+      </td>
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+

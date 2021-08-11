@@ -5,11 +5,11 @@ drug_news.drug_news_list_controller_list:
     _controller: '\Drupal\drug_news\Controller\DrugNewsListController::list'
     _title_callback: '\Drupal\drug_news\Controller\DrugNewsListController::title'
   requirements:
-    _permission: 'view list drug news'
+    _permission: 'access epharm'
 drug_news.import_xls_form:
   path: '/admin/hkdu/drug-news/import'
   defaults:
     _form: '\Drupal\drug_news\Form\ImportXlsForm'
     _title: 'Drug News Batch Import'
   requirements:
-    _permission: 'view list drug news'
+    _permission: 'access epharm'

@@ -24,19 +24,31 @@ class MenuEpharmBlock extends BlockBase {
     $current_path = \Drupal::service('path.current')->getPath();
     $ep = explode('/', $current_path);
     $au = 0;
+    $role_cme = 0;
+    $role_member = 0;
+    $role_doctor = 0;
     $current_user = \Drupal::currentUser();
     $current_roles = $current_user->getRoles();
     if (in_array('administrator', $current_roles)) {
       $au = 1;
     }
-    if (in_array('cme_member', $current_roles)) {
+    if (in_array('admins', $current_roles)) {
       $au = 1;
     }
-    if (in_array('hkdu_members', $current_roles)) {
-      $au = 1;
+    if (in_array('cme_member', $current_roles) || in_array('tester', $current_roles)) {
+      $role_cme = 1;
+      $role_doctor = 1;
+    }
+    if (in_array('hkdu_members', $current_roles) || in_array('council_members', $current_roles) || in_array('tester', $current_roles)) {
+      $role_member = 1;
+      $role_doctor = 1;
+    }
+    if (in_array('drug_suppliers', $current_roles)) {
+      $role_doctor = 1;
+      $role_member = 1;
     }
     if (in_array('doctor', $current_roles)) {
-      $au = 1;
+      $role_doctor = 1;
     }
     $id = $ep[1];
     if ($id == 'e-pharm') {
@@ -60,6 +72,9 @@ class MenuEpharmBlock extends BlockBase {
       '#epharm' => $epharm,
       '#admin' => $au,
       '#cme' => $cme,
+      '#role_doctor' =>$role_doctor,
+      '#role_cme' =>$role_cme,
+      '#role_member' =>$role_member,
       '#member' => $member,
 
       '#attached' => [

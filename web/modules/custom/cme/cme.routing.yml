@@ -13,7 +13,7 @@ cme.default_controller_index_20:
     _controller: '\Drupal\cme\Controller\IndexController::index'
     _title: 'CME'
   requirements:
-    _permission: 'view published cme event entities'
+    _permission: 'access cme'
 
 cme.import_controller_import:
   path: '/admin/cme/import'
@@ -29,4 +29,4 @@ cme.index_controller_index:
     _controller: '\Drupal\cme\Controller\IndexController::index'
     _title: 'CME'
   requirements:
-    _permission: 'view published cme event entities'
+    _permission: 'access cme'

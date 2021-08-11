@@ -5,7 +5,6 @@ entity.external_link.collection:
   route_name: entity.external_link.collection
   description: 'List External link entities'
   parent: global_hkdu.admin_epharm_hkdu
-  weight: 100
 
 external_link.admin.structure.settings:
   title: 'External link settings'

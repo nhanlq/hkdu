@@ -5,6 +5,9 @@ use Drupal\doctor\Entity\DoctorEntity;
 use Drupal\hospital\Entity\HospitalEntity;
 use Drupal\gallery\Entity\Gallery;
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * @file
@@ -21,10 +24,10 @@ function hkdu_preprocess_html(&$variables) {
 
     $variables['attributes']['class'][] = 'doctor-detail-page';
   }
-  if($path[1] == 'member-area' && empty($path[2])){
+  if ($path[1] == 'member-area' && empty($path[2])) {
     $variables['attributes']['class'][] = 'doctor-detail-page';
   }
-  if($path[1] == 'member-area' && $path[2] == 'event' && is_numeric($path[3])){
+  if ($path[1] == 'member-area' && $path[2] == 'event' && is_numeric($path[3])) {
     $variables['attributes']['class'][] = 'doctor-detail-page';
   }
   if ($path[1] == 'user' && $path[2] == 'login' || $path[1] == 'user' && $path[2] == 'reset' || $path[1] == 'user' && $path[2] == 'password') {
@@ -47,7 +50,37 @@ function hkdu_preprocess_html(&$variables) {
 
 function hkdu_preprocess_page(&$variables) {
   $variables['#attached']['library'][] = 'hkdu/caption-hkdu';
+//  $current_path = \Drupal::service('path.current')->getPath();
+//  $path = explode('/', $current_path);
+//  $user = \Drupal::currentUser();
+//  if ($path[1] == 'cme') {
+//    $au = FALSE;
+//    if (in_array('administrator', $user->getRoles())) {
+//      $au = TRUE;
+//    }
+//    if (in_array('admins', $user->getRoles())) {
+//      $au = TRUE;
+//    }
+//    if (in_array('cme_member', $user->getRoles())) {
+//      $au = TRUE;
+//    }
+//    if (in_array('hkdu_members', $user->getRoles())) {
+//      $au = TRUE;
+//    }
+//    if (in_array('council_members', $user->getRoles())) {
+//      $au = TRUE;
+//    }
+//    if (in_array('tester', $user->getRoles())) {
+//      $au = TRUE;
+//    }
+//
+//    if($au){
+//      $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/')->toString());
+//      $redirect->send();
+//    }
+  //}
 }
+
 
 function hkdu_preprocess_node(&$variables) {
   if ($variables['node']->getType() == 'image_gallery') {
@@ -125,8 +158,7 @@ function template_preprocess_doctor(array &$variables) {
   $path = explode('/', $current_path);
   $id = $path[2];
   $variables['doctor'] = DoctorEntity::load($id);
-  $api_key = \Drupal::config('google_map_field.settings')
-    ->get('google_map_field_apikey');
+  $api_key = \Drupal::config('google_map_field.settings')->get('google_map_field_apikey');
   $elements = [];
   $element = [
     '#theme' => 'google_map_field_embed',
@@ -233,8 +265,7 @@ function template_preprocess_clinical_focus(array &$variables) {
         $au = TRUE;
       }
     }
-    if (in_array('admins', $current_roles) || in_array('administrator',
-        $current_roles)) {
+    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles)) {
       $au = TRUE;
     }
 
@@ -252,8 +283,7 @@ function template_preprocess_clinical_focus(array &$variables) {
 
   $roles = $user->getRoles();
   if (in_array('drug_suppliers', $current_roles)) {
-    if (in_array('drug_suppliers',
-        $roles) && $current_user->id() != $user->id()) {
+    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
       throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
   }
@@ -291,8 +321,7 @@ function template_preprocess_drug_news(array &$variables) {
         $au = TRUE;
       }
     }
-    if (in_array('admins', $current_roles) || in_array('administrator',
-        $current_roles)) {
+    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles)) {
       $au = TRUE;
     }
 
@@ -310,8 +339,7 @@ function template_preprocess_drug_news(array &$variables) {
   }
   $roles = $user->getRoles();
   if (in_array('drug_suppliers', $current_roles)) {
-    if (in_array('drug_suppliers',
-        $roles) && $current_user->id() != $user->id()) {
+    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
       throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
   }
@@ -342,8 +370,7 @@ function template_preprocess_special_offer(array &$variables) {
         $au = TRUE;
       }
     }
-    if (in_array('admins', $current_roles) || in_array('administrator',
-        $current_roles)) {
+    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles)) {
       $au = TRUE;
     }
 
@@ -360,8 +387,7 @@ function template_preprocess_special_offer(array &$variables) {
   }
   $roles = $user->getRoles();
   if (in_array('drug_suppliers', $current_roles)) {
-    if (in_array('drug_suppliers',
-        $roles) && $current_user->id() != $user->id()) {
+    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
       throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
   }
@@ -396,8 +422,7 @@ function template_preprocess_event(array &$variables) {
         $au = TRUE;
       }
     }
-    if (in_array('admins', $current_roles) || in_array('administrator',
-        $current_roles)) {
+    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles)) {
       $au = TRUE;
     }
 
@@ -414,8 +439,7 @@ function template_preprocess_event(array &$variables) {
   }
   $roles = $user->getRoles();
   if (in_array('drug_suppliers', $current_roles)) {
-    if (in_array('drug_suppliers',
-        $roles) && $current_user->id() != $user->id()) {
+    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
       throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
   }
@@ -454,8 +478,7 @@ function template_preprocess_drug_search(array &$variables) {
         $au = TRUE;
       }
     }
-    if (in_array('admins', $current_roles) || in_array('administrator',
-        $current_roles)) {
+    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles)) {
       $au = TRUE;
     }
 
@@ -472,8 +495,7 @@ function template_preprocess_drug_search(array &$variables) {
   }
   $roles = $user->getRoles();
   if (in_array('drug_suppliers', $current_roles)) {
-    if (in_array('drug_suppliers',
-        $roles) && $current_user->id() != $user->id()) {
+    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
       throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
   }
@@ -505,8 +527,7 @@ function template_preprocess_pharm_dir(array &$variables) {
         $au = TRUE;
       }
     }
-    if (in_array('admins', $current_roles) || in_array('administrator',
-        $current_roles)) {
+    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles)) {
       $au = TRUE;
     }
 
@@ -523,8 +544,7 @@ function template_preprocess_pharm_dir(array &$variables) {
   }
   $roles = $user->getRoles();
   if (in_array('drug_suppliers', $current_roles)) {
-    if (in_array('drug_suppliers',
-        $roles) && $current_user->id() != $user->id()) {
+    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
       throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
   }
@@ -560,8 +580,7 @@ function template_preprocess_cme_event(array &$variables) {
         $au = TRUE;
       }
     }
-    if (in_array('admins', $current_roles) || in_array('administrator',
-        $current_roles)) {
+    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles)) {
       $au = TRUE;
     }
 
@@ -578,8 +597,7 @@ function template_preprocess_cme_event(array &$variables) {
   }
   $roles = $user->getRoles();
   if (in_array('drug_suppliers', $current_roles)) {
-    if (in_array('drug_suppliers',
-        $roles) && $current_user->id() != $user->id()) {
+    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
       throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
   }
@@ -637,6 +655,9 @@ function template_preprocess_quiz(array &$variables) {
   $variables['paid'] = getUserPaidQuiz($id);
   $roles = $user->getRoles();
   $variables['att'] = getUserAttempQuiz($id);
+  if ($quiz->get('field_price')->number == 0) {
+    $variables['roles'] = TRUE;
+  }
   if (in_array('administrator', $roles)) {
     $variables['roles'] = TRUE;
   }
@@ -646,7 +667,7 @@ function template_preprocess_quiz(array &$variables) {
   if (in_array('cme_member', $roles)) {
     $variables['roles'] = TRUE;
   }
-  if(in_array('doctor', $roles)){
+  if (in_array('doctor', $roles)) {
     $variables['roles'] = NULL;
   }
   if (getLastestresult($id)) {
@@ -662,5 +683,123 @@ function template_preprocess_quiz(array &$variables) {
   $variables['#cache'] = [
     'max-age' => 0,
   ];
+}
+
+/**
+ * Prepares variables for comment templates.
+ *
+ * Default template: comment.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the comment and entity objects.
+ *     Array keys: #comment, #commented_entity.
+ */
+function hkdu_preprocess_comment(&$variables) {
+  /** @var \Drupal\Core\Datetime\DateFormatterInterface $date_formatter */
+  $date_formatter = \Drupal::service('date.formatter');
+  /** @var \Drupal\comment\CommentInterface $comment */
+  $comment = $variables['elements']['#comment'];
+  $commented_entity = $comment->getCommentedEntity();
+  $variables['comment'] = $comment;
+  $variables['commented_entity'] = $commented_entity;
+  $variables['threaded'] = $variables['elements']['#comment_threaded'];
+
+  $account = $comment->getOwner();
+  $username = [
+    '#theme' => 'username',
+    '#account' => $account,
+  ];
+  $variables['author'] = \Drupal::service('renderer')->render($username);
+  $variables['author_id'] = $comment->getOwnerId();
+  $variables['new_indicator_timestamp'] = $comment->getChangedTime();
+  $variables['created'] = $date_formatter->format($comment->getCreatedTime());
+  // Avoid calling DateFormatterInterface::format() twice on the same timestamp.
+  if ($comment->getChangedTime() == $comment->getCreatedTime()) {
+    $variables['changed'] = $variables['created'];
+  }
+  else {
+    $variables['changed'] = $date_formatter->format($comment->getChangedTime());
+  }
+
+  if (theme_get_setting('features.comment_user_picture')) {
+    // To change user picture settings (for instance, image style), edit the
+    // 'compact' view mode on the User entity.
+    $variables['user_picture'] = '';
+  }
+  else {
+    $variables['user_picture'] = '';
+  }
+
+  if (isset($comment->in_preview)) {
+    $variables['title'] = Link::fromTextAndUrl($comment->getSubject(), Url::fromRoute('<front>'))->toString();
+    $variables['permalink'] = '';
+  }
+  else {
+    $uri = $comment->permalink();
+    $attributes = $uri->getOption('attributes') ?: [];
+    $attributes += ['class' => ['permalink'], 'rel' => 'bookmark'];
+    $uri->setOption('attributes', $attributes);
+    $variables['title'] = Link::fromTextAndUrl($comment->getSubject(), $uri)->toString();
+
+    $variables['permalink'] = '';
+  }
+
+  $variables['submitted'] = '<div class="author-comment">' . $variables['author'] . '</div><div class="created-comment">' . $variables['created'] . '</div>';
+
+  if ($comment_parent = $comment->getParentComment()) {
+    // Fetch and store the parent comment information for use in templates.
+    $account_parent = $comment_parent->getOwner();
+    $variables['parent_comment'] = $comment_parent;
+    $username = [
+      '#theme' => 'username',
+      '#account' => $account_parent,
+    ];
+    $variables['parent_author'] = \Drupal::service('renderer')->render($username);
+    $variables['parent_created'] = $date_formatter->format($comment_parent->getCreatedTime());
+    // Avoid calling DateFormatterInterface::format() twice on same timestamp.
+    if ($comment_parent->getChangedTime() == $comment_parent->getCreatedTime()) {
+      $variables['parent_changed'] = $variables['parent_created'];
+    }
+    else {
+      $variables['parent_changed'] = $date_formatter->format($comment_parent->getChangedTime());
+    }
+    $permalink_uri_parent = $comment_parent->permalink();
+    $attributes = $permalink_uri_parent->getOption('attributes') ?: [];
+    $attributes += ['class' => ['permalink'], 'rel' => 'bookmark'];
+    $permalink_uri_parent->setOption('attributes', $attributes);
+    $variables['parent_title'] = Link::fromTextAndUrl($comment_parent->getSubject(), $permalink_uri_parent)->toString();
+    $variables['parent_permalink'] = '';
+    $variables['parent'] = t('In reply to @parent_title by @parent_username',
+      ['@parent_username' => $variables['parent_author'], '@parent_title' => $variables['parent_title']]);
+  }
+  else {
+    $variables['parent_comment'] = '';
+    $variables['parent_author'] = '';
+    $variables['parent_created'] = '';
+    $variables['parent_changed'] = '';
+    $variables['parent_title'] = '';
+    $variables['parent_permalink'] = '';
+    $variables['parent'] = '';
+  }
+
+  // Helpful $content variable for templates.
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+
+  // Set status to a string representation of comment->status.
+  if (isset($comment->in_preview)) {
+    $variables['status'] = 'preview';
+  }
+  else {
+    $variables['status'] = $comment->isPublished() ? 'published' : 'unpublished';
+  }
+
+  // Add comment author user ID. Necessary for the comment-by-viewer library.
+  $variables['attributes']['data-comment-user-id'] = $comment->getOwnerId();
+  // Add anchor for each comment.
+  $variables['attributes']['id'] = 'comment-' . $comment->id();
+  $variables['attributes']['class'][] = 'comment';
 }
 

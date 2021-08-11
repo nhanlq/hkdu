@@ -1,12 +1,12 @@
 epharm.settings:
   title: Email Notification
   route_name: epharm.email_notify
-  parent: system.admin_config_system
+  parent: global_hkdu.admin_hkdu_global_config
   description: 'Email notification.'
   weight: 0
 epharm.settings.user:
   title: Send Email To Any
   route_name: epharm.email_to_user
-  parent: system.admin_config_system
+  parent: global_hkdu.admin_hkdu_global_config
   description: 'Send Email To Any.'
   weight: 0

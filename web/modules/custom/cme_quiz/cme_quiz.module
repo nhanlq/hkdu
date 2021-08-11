@@ -85,7 +85,7 @@ function cme_quiz_theme($existing, $type, $theme, $path) {
       'template' => 'cme-quiz-question-archived',
     ],
     'cme_quiz_question_answered' => [
-      'variables' => ['quiz' => NULL, 'questions' => NULL, 'result' => NULL,'attemp'=>NULL, 'expired' => NULL],
+      'variables' => ['quiz' => NULL, 'questions' => NULL, 'result' => NULL, 'attemp' => NULL, 'expired' => NULL],
       'path' => $path . '/templates/',
       'template' => 'cme-quiz-question-answered',
     ],
@@ -223,6 +223,7 @@ function getListResult($quiz_id) {
 }
 
 function getUserPaidQuiz($quiz_id) {
+  $quiz = \Drupal\cme_quiz\Entity\Quiz::load($quiz_id);
   $user = \Drupal::currentUser();
   $ids = \Drupal::entityQuery('event_tracking')
     ->condition('status', 1)
@@ -232,6 +233,7 @@ function getUserPaidQuiz($quiz_id) {
   if ($ids) {
     return TRUE;
   }
+
   return NULL;
 }
 

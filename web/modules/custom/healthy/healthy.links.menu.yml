@@ -1,14 +1,14 @@
 
 # Healthy menu items definition
-entity.healthy.collection:
-  title: 'E-Healthy'
-  route_name: entity.healthy.collection
-  description: 'List Healthy entities'
-  parent: global_hkdu.admin_hkdu
-  weight: 100
-
-healthy.admin.structure.settings:
-  title: 'E-Healthy settings'
-  description: 'Configure Healthy entities'
-  route_name: healthy.settings
-  parent: entity.healthy.collection
+#entity.healthy.collection:
+#  title: 'E-Healthy'
+#  route_name: entity.healthy.collection
+#  description: 'List Healthy entities'
+#  parent: global_hkdu.admin_hkdu
+#  weight: 100
+#
+#healthy.admin.structure.settings:
+#  title: 'E-Healthy settings'
+#  description: 'Configure Healthy entities'
+#  route_name: healthy.settings
+#  parent: entity.healthy.collection

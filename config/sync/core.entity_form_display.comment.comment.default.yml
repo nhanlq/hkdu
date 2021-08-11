@@ -14,27 +14,16 @@ targetEntityType: comment
 bundle: comment
 mode: default
 content:
-  author:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   comment_body:
     type: text_textarea
-    weight: 2
+    weight: 0
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  subject:
-    type: string_textfield
-    weight: 1
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
 hidden:
+  author: true
   langcode: true
   path: true
+  subject: true

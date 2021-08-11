@@ -4,12 +4,14 @@ status: true
 dependencies:
   config:
     - field.storage.special_offer.field_count
+    - field.storage.special_offer.field_publish_date
     - field.storage.special_offer.field_weight
     - system.menu.admin
     - user.role.administrator
     - user.role.admins
   module:
     - content_moderation
+    - datetime
     - draggableviews
     - sortableviews
     - special_offer
@@ -492,7 +494,58 @@ display:
           entity_type: special_offer
           entity_field: id
           plugin_id: draggable_views_field
-      filters: {  }
+      filters:
+        name:
+          id: name
+          table: special_offer_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: name_op
+            label: Name
+            description: ''
+            use_operator: false
+            operator: name_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              admins: '0'
+              doctor: '0'
+              hkdu_members: '0'
+              drug_suppliers: '0'
+              council_members: '0'
+              cme_member: '0'
+              invited: '0'
+              tester: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: special_offer
+          entity_field: name
+          plugin_id: string
       sorts:
         field_weight_value:
           id: field_weight_value
@@ -552,6 +605,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user.roles
       tags: {  }
@@ -1019,6 +1073,70 @@ display:
           entity_type: special_offer
           entity_field: created
           plugin_id: field
+        field_publish_date:
+          id: field_publish_date
+          table: special_offer__field_publish_date
+          field: field_publish_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Publish Date'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_custom
+          settings:
+            timezone_override: ''
+            date_format: d/m/Y
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         moderation_state:
           id: moderation_state
           table: special_offer_field_data
@@ -1153,8 +1271,10 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user.roles
       tags:
         - 'config:field.storage.special_offer.field_count'
+        - 'config:field.storage.special_offer.field_publish_date'
         - 'config:field.storage.special_offer.field_weight'

@@ -10,62 +10,87 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements hook_help().
  */
-function global_hkdu_help($route_name, RouteMatchInterface $route_match)
-{
-    switch ($route_name) {
-        // Main module help for the global_hkdu module.
-        case 'help.page.global_hkdu':
-            $output = '';
-            $output .= '<h3>' . t('About') . '</h3>';
-            $output .= '<p>' . t('Global config') . '</p>';
-            return $output;
+function global_hkdu_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the global_hkdu module.
+    case 'help.page.global_hkdu':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Global config') . '</p>';
+      return $output;
 
-        default:
-    }
+    default:
+  }
 }
 
 /**
  * Implements hook_theme().
  */
-function global_hkdu_theme($existing, $type, $theme, $path)
-{
-    return [
-        'global_hkdu' => [
-            'render element' => 'children',
-        ],
-        'login_block' => [
-            'variables' => ['user' => NULL, 'islogin' => NULL],
-            'path' => $path . '/templates/',
-            'template' => 'login-block'
-        ],
-        'global_banner_home' => [
-            'variables' => ['nodes' => NULL],
-            'path' => $path . '/templates/',
-            'template' => 'banner-home-block'
-        ],
-    ];
+function global_hkdu_theme($existing, $type, $theme, $path) {
+  return [
+    'global_hkdu' => [
+      'render element' => 'children',
+    ],
+    'login_block' => [
+      'variables' => ['user' => NULL, 'islogin' => NULL],
+      'path' => $path . '/templates/',
+      'template' => 'login-block',
+    ],
+    'global_banner_home' => [
+      'variables' => ['nodes' => NULL],
+      'path' => $path . '/templates/',
+      'template' => 'banner-home-block',
+    ],
+  ];
 }
 
-function global_hkdu_entity_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
-    $db = \Drupal::database()->insert('entity_view')
-        ->fields(['entity_id', 'count', 'entity_type'])
-        ->values(array($entity->id(), 1, $entity->getEntityTypeId()))
-        ->execute();
+/**
+ * @param array $build
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ * @param \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display
+ * @param $view_mode
+ *
+ * @throws \Exception
+ */
+function global_hkdu_entity_view(
+  array &$build,
+  \Drupal\Core\Entity\EntityInterface $entity,
+  \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display,
+  $view_mode
+) {
+  $db = \Drupal::database()
+    ->insert('entity_view')
+    ->fields(['entity_id', 'count', 'entity_type'])
+    ->values([$entity->id(), 1, $entity->getEntityTypeId()])
+    ->execute();
 }
 
-
+/**
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ */
 function global_hkdu_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
-    if($entity->getEntityTypeId()=='menu_link_content'){
-        $data = $entity->toArray();
-        $link = str_replace('internal:','',$data['link'][0]['uri']);
-        \Drupal::state()->set($link, $data['title'][0]['value']);
-    }
+  if ($entity->getEntityTypeId() == 'menu_link_content') {
+    $data = $entity->toArray();
+    $link = str_replace('internal:', '', $data['link'][0]['uri']);
+    \Drupal::state()->set($link, $data['title'][0]['value']);
+  }
 }
+
+/**
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ */
 function global_hkdu_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
-    if($entity->getEntityTypeId()=='menu_link_content'){
-        $data = $entity->toArray();
-        $link = str_replace('internal:','',$data['link'][0]['uri']);
-        \Drupal::state()->set($link, $data['title'][0]['value']);
-    }
+  if ($entity->getEntityTypeId() == 'menu_link_content') {
+    $data = $entity->toArray();
+    $link = str_replace('internal:', '', $data['link'][0]['uri']);
+    \Drupal::state()->set($link, $data['title'][0]['value']);
+  }
+}
+
+/**
+ * @param $variables\
+ */
+function global_hkdu_preprocess_page(&$variables) {
+  $variables['#attached']['library'][] = 'global_hkdu/global_hkdu_menu';
 }
 

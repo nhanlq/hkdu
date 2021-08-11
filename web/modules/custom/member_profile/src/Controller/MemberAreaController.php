@@ -28,6 +28,9 @@ class MemberAreaController extends ControllerBase {
       '#news' => $this->getCouncil(),
       '#forum' => $this->getmemberForum(),
       '#bulletin' => $this->getBulletin(),
+      '#cache' => [
+        'max-age' => 0,
+      ],
     ];
   }
 
