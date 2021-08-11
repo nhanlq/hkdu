@@ -1,10 +1,29 @@
 <!-- Add you custom twig html here -->
 <div class="Grid__Box-f9ujw0-0 hFxHpv">
-    {% if islogin %}
-        <a class="lcAUJf welcome" href="/user/{{ user.id }}/member/profile">My Profile</a>
-        <a href="/user/logout" class="lcAUJf">Logout</a>
-    {% else %}
-        <a class="lcAUJf register" href="/user/register">Apply</a>
-        <a href="/user/login" class="lcAUJf">Login</a>
-    {% endif %}
+  {% if islogin %}
+    <a href="/user/{{ user.id }}" class="hkdu-icon-user" role="button" id="toolbar-item-user">
+      <i class="fa fa-user"></i> {{ user.field_first_name.value }}
+    </a>
+    <div id="user-tray" data-toolbar-tray="toolbar-item-user-tray" class="user-tray">
+      <nav class="toolbar-lining clearfix" role="navigation" aria-label="User account actions">
+        <ul class="toolbar-menu">
+          <li class="account"><a href="/user/{{ user.id }}/member/profile" title="User account">My profile</a></li>
+          <li class="account-edit"><a href="/user/{{ user.id }}/edit" title="Edit user account">Edit profile</a></li>
+          <li class="logout"><a href="/user/logout">Log out</a></li>
+        </ul>
+      </nav>
+    </div>
+  {% else %}
+    <a href="/user/login" class="hkdu-icon-user" role="button" id="toolbar-item-user">
+      <i class="fa fa-user"></i> Login
+    </a>
+    <div id="user-tray" data-toolbar-tray="toolbar-item-user-tray" class="user-tray">
+      <nav class="toolbar-lining clearfix" role="navigation" aria-label="User account actions">
+        <ul class="toolbar-menu">
+          <li class="account"><a href="/user/login" title="User account">Login</a></li>
+          <li class="account-edit"><a href="/user/register" title="Edit user account">Apply</a></li>
+        </ul>
+      </nav>
+    </div>
+  {% endif %}
 </div>
