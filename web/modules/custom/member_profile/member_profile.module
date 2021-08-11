@@ -54,6 +54,15 @@ function member_profile_theme($existing, $type, $theme, $path) {
         'current_uid' => NULL,
       ],
     ],
+    'member_forum' => [
+      'variables' => [
+        'article' => NULL,
+        'uri' => NULL,
+        'uid' => NULL,
+        'current_uid' => NULL,
+        'role' => NULL,
+      ],
+    ],
     'member_drug' => [
       'variables' => [
         'article' => NULL,
@@ -67,6 +76,7 @@ function member_profile_theme($existing, $type, $theme, $path) {
         'uri' => NULL,
         'uid' => NULL,
         'current_uid' => NULL,
+        'role' => NULL,
       ],
     ],
     'member_gallery' => [
@@ -113,7 +123,7 @@ function member_profile_theme($existing, $type, $theme, $path) {
       ],
     ],
     'member_menu' => [
-      'variables' => ['uid' => NULL,'ads' => NULL],
+      'variables' => ['uid' => NULL, 'ads' => NULL],
       'path' => $path . '/templates/',
       'template' => 'member-menu',
     ],

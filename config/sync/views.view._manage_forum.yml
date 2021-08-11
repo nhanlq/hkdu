@@ -1,9 +1,9 @@
-uuid: 7805d8a9-b681-42cb-bb8d-3e642f53b300
+uuid: ffd830cc-97e1-4738-9c1b-1a9ef0181ff1
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.ads
+    - node.type.forum
     - user.role.administrator
     - user.role.admins
     - user.role.council_members
@@ -12,8 +12,8 @@ dependencies:
     - node
     - user
     - views_bulk_operations
-id: manage_classified_ads
-label: 'Manage Classified Ads'
+id: _manage_forum
+label: ' Manage Forum'
 module: views
 description: ''
 tag: ''
@@ -452,14 +452,44 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
           value:
-            ads: ads
+            forum: forum
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           entity_type: node
           entity_field: type
           plugin_id: bundle
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
       sorts:
         created:
           id: created
@@ -476,7 +506,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: 'Manage Classified Ads'
+      title: 'Manage Forum'
       header:
         area:
           id: area
@@ -488,7 +518,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "<ul id=\"views-display-menu-tabs\" class=\"views-tabs views-tabs--secondary\">\r\n<li class=\"add\"><a href=\"/node/add/ads?destination=/user/member/classified-ads\"><span class=\"icon add\"></span>Add Classified Ads</a></li></ul>"
+            value: "<ul id=\"views-display-menu-tabs\" class=\"views-tabs views-tabs--secondary\">\r\n<li class=\"add\"><a href=\"/node/add/forum?destination=/user/member/forum\"><span class=\"icon add\"></span>Add New Topic</a></li></ul>"
             format: full_html
           plugin_id: text
       footer: {  }
@@ -503,7 +533,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "<ul id=\"views-display-menu-tabs\" class=\"views-tabs views-tabs--secondary\">\r\n<li class=\"add\"><a href=\"/node/add/ads?destination=/user/member/classified-ads\"><span class=\"icon add\"></span>Add Classified Ads</a></li></ul>"
+            value: "<ul id=\"views-display-menu-tabs\" class=\"views-tabs views-tabs--secondary\">\r\n<li class=\"add\"><a href=\"/node/add/forum?destination=/user/member/forum\"><span class=\"icon add\"></span>Add New Topic</a></li></ul>"
             format: full_html
           plugin_id: text
       relationships: {  }
@@ -563,7 +593,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: user/member/classified-ads
+      path: user/member/forum
     cache_metadata:
       max-age: 0
       contexts:
