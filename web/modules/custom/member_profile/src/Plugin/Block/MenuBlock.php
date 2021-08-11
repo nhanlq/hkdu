@@ -23,11 +23,11 @@ class MenuBlock extends BlockBase {
     $ads = '';
     $user = \Drupal::currentUser();
     if (in_array('hkdu_members', $user->getRoles()) || in_array('council_members', $user->getRoles())) {
-      $ads = '<li><a href="/member/classified-ads">Manage Classified Ads</a></li>';
+      $ads = '<li><a href="/user/member/classified-ads">Manage Classified Ads</a></li><li><a href="/user/member/forum">Manage Forum</a></li>';
     }
     $build = [
       '#theme' => 'member_menu',
-      '#uid' => $path[2],
+      '#uid' => is_numeric($path[2]) ? $path[2] : $user->id() ,
       '#ads' => $ads,
       '#cache' => [
         'max-age' => 0,

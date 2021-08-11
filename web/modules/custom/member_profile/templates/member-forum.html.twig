@@ -1,0 +1,38 @@
+{% if article %}
+  {% if role %}
+    <div class="forum-action"><a href="/node/add/forum?destination=/user/member/forum">+ Add New Topic</a></div>
+  {% endif %}
+  <article class="article-wrapper">
+    <div class="about-us-wrapper">
+      <div class="Grid__Box-f9ujw0-0 ArticleCardList__ListBox-sc-1nl1zr5-0 hKtiWd">
+        {% for node in article %}
+          <div class="Grid__Box-f9ujw0-0 hftOhy col-xs-12 col-sm-12 col-lg-12">
+            <a variant="vertical,horizontal" class="Card__Wrapper-sc-1phbti1-0 dlodqi"
+               href="{{ path('entity.node.canonical', {'node': node.nid.value}) }}">
+              <div class="Card__Cover-sc-1phbti1-1 eFKGnI" style="background-image:
+                url({{ node.field_media.entity.field_media_image.entity.uri.value | image_style('original') }})">
+              </div>
+              <div class="Card__Container-sc-1phbti1-3 kZuHUf">
+                <div class="Card__Header-sc-1phbti1-2 hYpLPh">
+                  <div class="ArticleCard__Head-jc3vpl-3 cLNuli">
+                  <span
+                    class="ArticleCard__Date-jc3vpl-2 kASIaT">{{ node.created.value|date("Y-m-d") }}</span>
+                  </div>
+                </div>
+                <div class="CardMeta__MetaContent-mwcsl3-0 isAOXn">
+                  <div><h3 class="CardMeta__Title-mwcsl3-1 flCmuI">{{ node.title.value }}</h3>
+                    <p class="CardMeta__Description-mwcsl3-2 itSPxh">{{ node.body.value|striptags|raw }}</p>
+                  </div>
+                  <div class="CardMeta__Content-mwcsl3-3 eclIQj">
+                    <div width="100%" class="Group__List-nb4rtt-0 gPcWZD"></div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+      {{ pager }}
+    </div><!-- Add you custom twig html here -->
+  </article>
+{% endif %}

@@ -16,10 +16,16 @@ class AdsController extends ControllerBase {
    *   Return News.
    */
   public function index() {
+    $user = \Drupal::currentUser();
+    $role = FALSE;
+    if (in_array('hkdu_members', $user->getRoles()) || in_array('council_members', $user->getRoles())) {
+      $role = TRUE;
+    }
     return array(
       'abouts' => [
         '#theme' => array('member_ads'),
         '#article' => $this->getSharing(),
+        '#role' => $role,
       ],
 
       'pager' => [

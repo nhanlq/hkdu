@@ -3793,3 +3793,7 @@ article.js-comment footer .created-comment {
   width: 80%;
   margin-left: 20px;
 }
+.forum-action{
+  margin-bottom: 40px;
+  text-align: right;
+}
