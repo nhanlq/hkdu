@@ -91,9 +91,7 @@ type_settings:
     create_new_draft:
       label: 'Create New Draft'
       from:
-        - draft
         - expired
-        - pending
         - published
       to: draft
       weight: -4
@@ -116,7 +114,6 @@ type_settings:
       to: published
       weight: -2
       from:
-        - draft
         - pending
         - published
   entity_types:
