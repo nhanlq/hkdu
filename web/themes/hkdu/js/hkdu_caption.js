@@ -19,9 +19,20 @@
                     $(this).next().html('<p class="caption-img">'+$(this).attr('data-caption')+'</p>');
                 }
             });
-
+          $(".hkdu-icon-user").hover(function () {
+            $('#user-tray').show();
+          }, function () {
+            $('#user-tray').hide();
+          });
+          $('#user-tray').hover(function () {
+            $(this).show();
+          }, function () {
+            $(this).hide();
+          });
 
         }
+
+
     };
 
 })(jQuery, Drupal);

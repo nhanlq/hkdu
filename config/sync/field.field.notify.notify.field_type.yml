@@ -1,0 +1,28 @@
+uuid: b2c61229-8dc6-48c9-9893-c2663b0ef8d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.notify.field_type
+  module:
+    - notify
+    - options
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: notify.notify.field_type
+field_name: field_type
+entity_type: notify
+bundle: notify
+label: Type
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

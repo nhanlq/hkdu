@@ -1,0 +1,31 @@
+add notify entities:
+  title: 'Create new Notify entities'
+
+administer notify entities:
+  title: 'Administer Notify entities'
+  description: 'Allow to access the administration form to configure Notify entities.'
+  restrict access: true
+
+delete notify entities:
+  title: 'Delete Notify entities'
+
+edit notify entities:
+  title: 'Edit Notify entities'
+
+view published notify entities:
+  title: 'View published Notify entities'
+
+view unpublished notify entities:
+  title: 'View unpublished Notify entities'
+
+view all notify revisions:
+  title: 'View all Notify revisions'
+
+revert all notify revisions:
+  title: 'Revert all Notify revisions'
+  description: 'Role requires permission <em>view Notify revisions</em> and <em>edit rights</em> for notify entities in question or <em>administer notify entities</em>.'
+
+delete all notify revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Notify revisions</em> and <em>delete rights</em> for notify entities in question or <em>administer notify entities</em>.'
+

@@ -1,0 +1,5 @@
+name: 'Notify'
+type: module
+description: 'Notification for HKDU'
+core: 8.x
+package: 'Custom'

@@ -22,7 +22,6 @@ dependencies:
     - cme_link
     - cme_quiz
     - content_moderation
-    - doctor
     - download
     - drug_news
     - drug_search
@@ -125,8 +124,6 @@ type_settings:
       - cme_event
     cme_links:
       - cme_links
-    doctor:
-      - doctor
     download:
       - download
     drug_news:
