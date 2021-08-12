@@ -16,10 +16,16 @@ class ForumController extends ControllerBase {
    *   Return Hello string.
    */
   public function forum() {
-    return array(
+    $user = \Drupal::currentUser();
+    $role = FALSE;
+    if (in_array('hkdu_members', $user->getRoles()) || in_array('council_members', $user->getRoles())) {
+      $role = TRUE;
+    }
+    return [
       'abouts' => [
-        '#theme' => array('member_article'),
+        '#theme' => ['member_forum'],
         '#article' => $this->getForum(),
+        '#role' => $role
       ],
 
       'pager' => [
@@ -28,11 +34,10 @@ class ForumController extends ControllerBase {
       '#cache' => [
         'max-age' => 0,
       ],
-    );
+    ];
   }
 
-  public function getForum()
-  {
+  public function getForum() {
     $ids = \Drupal::entityQuery('node')
       ->condition('type', 'forum')
       ->condition('status', 1)

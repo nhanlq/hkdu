@@ -22,7 +22,6 @@ dependencies:
     - cme_link
     - cme_quiz
     - content_moderation
-    - doctor
     - download
     - drug_news
     - drug_search
@@ -107,8 +106,11 @@ type_settings:
     pending_review:
       label: 'Pending Review'
       from:
+        - archived
         - draft
+        - expired
         - pending
+        - published
       to: pending
       weight: -3
     publish:
@@ -116,7 +118,6 @@ type_settings:
       to: published
       weight: -2
       from:
-        - draft
         - pending
         - published
   entity_types:
@@ -128,8 +129,6 @@ type_settings:
       - cme_event
     cme_links:
       - cme_links
-    doctor:
-      - doctor
     download:
       - download
     drug_news:

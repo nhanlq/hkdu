@@ -1,0 +1,63 @@
+<?php
+
+/**
+ * @file
+ * Contains notify.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function notify_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the notify module.
+    case 'help.page.notify':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Notification for HKDU') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function notify_theme() {
+  return [
+    'notify' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+
+/**
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ */
+function notify_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  $user = \Drupal::currentUser();
+  if ($entity->getEntityTypeId() == 'clinical_focus' || $entity->getEntityTypeId() == 'drug_news' || $entity->getEntityTypeId() == 'pharm_dir' || $entity->getEntityTypeId() == 'special_offer' || $entity->getEntityTypeId() == 'event' || $entity->getEntityTypeId() == 'node' && $entity->bundle() == 'forum' || $entity->getEntityTypeId() == 'node' && $entity->bundle() == 'ads') {
+    if ($entity->get('moderation_state')->value == 'pending' && $user->id() != $entity->get('user_id')->value) {
+      create_notify($entity->getEntityTypeId(), $entity->id(), $entity->get('user_id')->value);
+    }
+  }
+  if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'forum') {
+    if ($entity->get('moderation_state')->value == 'pending' && $user->id() != $entity->get('user_id')->value) {
+      create_notify($entity->bundle(), $entity->id(), $entity->get('uid')->value);
+    }
+  }
+  if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'ads') {
+    if ($entity->get('moderation_state')->value == 'pending' && $user->id() != $entity->get('user_id')->value) {
+      create_notify($entity->bundle(), $entity->id(), $entity->get('uid')->value);
+    }
+  }
+}
+
+function create_notify($type, $id, $uid) {
+  $notify = \Drupal\notify\Entity\Notify::create([
+    'name' => '',
+  ]);
+}

@@ -3152,6 +3152,19 @@ article.js-comment footer .created-comment {
 }
 
 @media screen and (max-width: 992px) {
+  #block-loginblock-2 {
+    margin-right: 145px;
+    display: block!important;
+  }
+
+  #user-tray {
+    position: absolute;
+    display: block!important;
+    right: 28%!important;
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+  }
   .lcAUJf {
     font-size: 18px;
     margin-right: 83px;
@@ -3236,8 +3249,17 @@ article.js-comment footer .created-comment {
 
 @media screen and (max-width: 380px) {
   #block-loginblock-2 {
-    margin-right: -17px;
+    margin-right: 90px;
     display: block;
+  }
+
+  #user-tray {
+    position: absolute;
+    display: block;
+    right: 41px;
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
   }
 
   #block-loginblock {
@@ -3793,3 +3815,34 @@ article.js-comment footer .created-comment {
   width: 80%;
   margin-left: 20px;
 }
+.forum-action{
+  margin-bottom: 40px;
+  text-align: right;
+}
+#user-tray{
+  position: absolute;
+  display: none;
+  background: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  width: 120px;
+  right: 0;
+}
+.path-node .form-type-vertical-tabs{
+  display: none;
+}
+.hFxHpv{
+  padding-top: 15px;
+}
+#user-tray ul{
+  padding-left: 0;
+}
+#user-tray ul li{
+  list-style: none;
+  margin-bottom: 10px;
+}
+.navbar-header{
+  position: relative;
+}
+
+

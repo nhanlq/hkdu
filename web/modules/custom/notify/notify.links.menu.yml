@@ -1,0 +1,14 @@
+
+# Notify menu items definition
+entity.notify.collection:
+  title: 'Notify list'
+  route_name: entity.notify.collection
+  description: 'List Notify entities'
+  parent: system.admin_structure
+  weight: 100
+
+notify.admin.structure.settings:
+  title: 'Notify settings'
+  description: 'Configure Notify entities'
+  route_name: notify.settings
+  parent: system.admin_structure
