@@ -4,7 +4,6 @@ status: true
 dependencies:
   module:
     - epharm
-    - system
     - user
   theme:
     - hkdu
@@ -25,15 +24,14 @@ visibility:
     roles:
       authenticated: authenticated
       administrator: administrator
+      admins: admins
       doctor: doctor
+      hkdu_administrator: hkdu_administrator
       hkdu_members: hkdu_members
       drug_suppliers: drug_suppliers
       council_members: council_members
+      cme_member: cme_member
+      tester: tester
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
-  request_path:
-    id: request_path
-    pages: "/e-pharm\r\n/e-pharm/*"
-    negate: false
-    context_mapping: {  }
