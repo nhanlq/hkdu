@@ -13,12 +13,14 @@
                     }
                 }
             })
-
-            $('img').each(function(){
+            if($('img').length > -1){
+              $('img').each(function(){
                 if($(this).attr('data-caption').length > -1){
-                    $(this).next().html('<p class="caption-img">'+$(this).attr('data-caption')+'</p>');
+                  $(this).next().html('<p class="caption-img">'+$(this).attr('data-caption')+'</p>');
                 }
-            });
+              });
+            }
+
           $(".hkdu-icon-user").hover(function () {
             $('#user-tray').show();
           }, function () {
