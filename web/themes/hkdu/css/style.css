@@ -3828,6 +3828,9 @@ article.js-comment footer .created-comment {
   width: 120px;
   right: 0;
 }
+.path-node .form-type-vertical-tabs{
+  display: none;
+}
 .hFxHpv{
   padding-top: 15px;
 }
