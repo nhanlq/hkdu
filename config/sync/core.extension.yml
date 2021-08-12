@@ -55,7 +55,6 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
-  devel: 0
   doctor: 0
   download: 0
   draggableviews: 0
@@ -126,6 +125,7 @@ module:
   news: 0
   nocurrent_pass: 0
   node: 0
+  notify: 0
   options: 0
   page_cache: 0
   panelbutton: 0

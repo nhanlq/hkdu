@@ -64,9 +64,9 @@ function epharm_theme($existing, $type, $theme, $path) {
         'admin' => NULL,
         'member' => NULL,
         'role_doctor' => NULL,
-        'role_cme' =>NULL,
-        'role_member'=>NULL,
-        ],
+        'role_cme' => NULL,
+        'role_member' => NULL,
+      ],
       'path' => $path . '/templates/',
       'template' => 'epharm-menu',
     ],
@@ -216,6 +216,27 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
         \Drupal::messenger()->addMessage(t('Your message has been sent.'));
       }
     }
+
+    if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'forum') {
+      $mailManager = \Drupal::service('plugin.manager.mail');
+      $module = 'epharm';
+      $user = \Drupal\user\Entity\User::load($entity->get('uid')->target_id);
+      $key = 'ads';
+      $to = \Drupal::state()->get('ads', 'leung0369@gmail.com');
+      $params['title'] = 'HKDU – Dr. ' . $user->get('field_first_name')->value . ' has create a Forum Topic ';
+      $params['message'] = '<p>Dr. ' . $user->get('field_first_name')->value . ' of HKDU No. ' . $user->get('field_mchk_license')->value . '. has created a post of Classified Ad at the members area</p><p>Please approve and they will be asked to make payment.</p><p>Thanks,</p><p>-	HKDU admin</p>';
+      $params['from'] = \Drupal::config('system.site')->get('mail');
+      $langcode = \Drupal::currentUser()->getPreferredLangcode();
+      $send = TRUE;
+      $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+
+      if ($result['result'] !== TRUE) {
+        \Drupal::messenger()->addMessage(t('There was a problem sending your message and it was not sent.'), 'error');
+      }
+      else {
+        \Drupal::messenger()->addMessage(t('Your message has been sent.'));
+      }
+    }
   }
 }
 
@@ -225,9 +246,7 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
 function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
 
   // Insert the new entity into a fictional table of all entities.
-  if ($entity->getEntityTypeId() == 'clinical_focus' || $entity->getEntityTypeId() == 'drug_news' || $entity->getEntityTypeId() == 'pharm_dir' || $entity->getEntityTypeId() == 'special_offer' || $entity->getEntityTypeId() == 'event'
-
-  ) {
+  if ($entity->getEntityTypeId() == 'clinical_focus' || $entity->getEntityTypeId() == 'drug_news' || $entity->getEntityTypeId() == 'pharm_dir' || $entity->getEntityTypeId() == 'special_offer' || $entity->getEntityTypeId() == 'event' || ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'ads') || $entity->getEntityTypeId() == 'node' && $entity->bundle() == 'forum') {
     if (!$entity->get('status')->value && $entity->get('moderation_state')->value == 'draft' || !$entity->get('status')->value && $entity->get('moderation_state')->value == 'pending') {
       UpdateStateStatus($entity->id(), $entity->getEntityTypeId(), $entity->get('moderation_state')->value);
     }

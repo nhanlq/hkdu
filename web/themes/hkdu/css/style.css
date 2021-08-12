@@ -3822,10 +3822,11 @@ article.js-comment footer .created-comment {
 #user-tray{
   position: absolute;
   display: none;
-  right: 5px;
   background: #fff;
   border-radius: 5px;
   padding: 10px;
+  width: 120px;
+  right: 0;
 }
 .hFxHpv{
   padding-top: 15px;
@@ -3836,6 +3837,9 @@ article.js-comment footer .created-comment {
 #user-tray ul li{
   list-style: none;
   margin-bottom: 10px;
+}
+.navbar-header{
+  position: relative;
 }
 
 

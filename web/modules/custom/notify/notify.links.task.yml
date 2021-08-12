@@ -1,0 +1,26 @@
+# Notify routing definition
+notify.settings_tab:
+  route_name: notify.settings
+  title: 'Settings'
+  base_route: notify.settings
+
+entity.notify.canonical:
+  route_name: entity.notify.canonical
+  base_route: entity.notify.canonical
+  title: 'View'
+
+entity.notify.edit_form:
+  route_name: entity.notify.edit_form
+  base_route: entity.notify.canonical
+  title: 'Edit'
+
+entity.notify.version_history:
+  route_name: entity.notify.version_history
+  base_route: entity.notify.canonical
+  title: 'Revisions'
+
+entity.notify.delete_form:
+  route_name:  entity.notify.delete_form
+  base_route:  entity.notify.canonical
+  title: Delete
+  weight: 10

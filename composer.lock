@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e2851499e1c8b45b5e0cefbfe60b584c",
+    "content-hash": "716ef9e2d222a656758402f786fe1efe",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -19041,7 +19041,6 @@
                     "type": "github"
                 }
             ],
-            "abandoned": true,
             "time": "2020-11-30T07:30:19+00:00"
         },
         {
