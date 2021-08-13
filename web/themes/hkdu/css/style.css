@@ -2950,11 +2950,8 @@ table.cny td.first {
   margin-bottom: 5px;
 }
 .member-menu li:hover {
-  background-color: rgb(69, 96, 176);
-  color: #ffffff;
-}
-.member-menu li a:hover{
-  color: #ffffff;
+  border: 1px solid rgb(69, 96, 176);
+  border-radius: 5px;
 }
 
 .header-event-group {
