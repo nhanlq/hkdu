@@ -27,7 +27,7 @@ cme_user.user_qrcode_controller_qrcode:
     _controller: '\Drupal\cme_user\Controller\UserQrcodeController::qrcode'
     _title: 'Account Profile'
   requirements:
-    _permission: 'access user profiles'
+    _permission: 'member card access'
 
 cme_user.report_controller_report:
   path: '/report/{uid}/{type}/{period}/{time}'

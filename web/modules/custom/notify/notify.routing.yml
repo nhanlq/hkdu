@@ -1,0 +1,7 @@
+notify.assign:
+  path: '/admin/{id}/assign'
+  defaults:
+    _form: '\Drupal\notify\Form\Assign'
+    _title: 'Assign'
+  requirements:
+    _access: 'TRUE'

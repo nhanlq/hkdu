@@ -30,11 +30,16 @@ class MenuBlock extends BlockBase {
     if(in_array('doctor', $user->getRoles())){
       $show_clinic = true;
     }
+    $hkdu_member = false;
+    if(in_array('hkdu_members', $user->getRoles())){
+      $hkdu_member = true;
+    }
     $build = [
       '#theme' => 'member_menu',
       '#uid' => is_numeric($path[2]) ? $path[2] : $user->id() ,
       '#ads' => $ads,
       '#clinic' => $show_clinic,
+      '#hkdu_member' => $hkdu_member,
       '#cache' => [
         'max-age' => 0,
       ],
