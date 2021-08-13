@@ -1453,7 +1453,6 @@ form.search {
 
 .cAwIuR {
   font-size: 13px;
-  width: 30%;
   box-sizing: border-box;
   height: 32px;
   background-color: rgba(0, 0, 0, 0.05);
@@ -1469,6 +1468,9 @@ form.search {
   border-radius: 5px;
   float: right;
   margin-left: 20px;
+}
+.cAwIuR.search-drug{
+  width: 30%;
 }
 
 .fLrcjA {
@@ -1500,7 +1502,7 @@ form.search {
   border: 0px;
   background: transparent;
   position: relative;
-  top: -30px;
+  /*top: -30px;*/
   right: -7px;
 }
 
