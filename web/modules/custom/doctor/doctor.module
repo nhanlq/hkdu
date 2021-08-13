@@ -93,7 +93,7 @@ id="cny_date" class="collapse">';
   if($form['#form_id']=='views_exposed_form' && $form['#id']=='views-exposed-form-media-library-widget'){
     $user = \Drupal::currentUser();
     if(in_array('doctor',$user->getRoles()) || in_array('hkdu_members', $user->getRoles()) || in_array('council_members', $user->getRoles())){
-     $form['directory']['#options'] = [159=>'Clinic - Name Card'];
+//     $form['directory']['#options'] = [159=>'Clinic - Name Card'];
     }
   }
 
