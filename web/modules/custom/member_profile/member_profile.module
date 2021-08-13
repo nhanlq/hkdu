@@ -123,7 +123,7 @@ function member_profile_theme($existing, $type, $theme, $path) {
       ],
     ],
     'member_menu' => [
-      'variables' => ['uid' => NULL, 'ads' => NULL],
+      'variables' => ['uid' => NULL, 'ads' => NULL,'clinic' => NULL],
       'path' => $path . '/templates/',
       'template' => 'member-menu',
     ],

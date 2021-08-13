@@ -22,13 +22,19 @@ class MenuBlock extends BlockBase {
     $path = explode('/', $current_path);
     $ads = '';
     $user = \Drupal::currentUser();
+    $show_clinic = false;
     if (in_array('hkdu_members', $user->getRoles()) || in_array('council_members', $user->getRoles())) {
       $ads = '<li><a href="/user/member/classified-ads">Manage Classified Ads</a></li><li><a href="/user/member/forum">Manage Forum</a></li>';
+      $show_clinic = true;
+    }
+    if(in_array('doctor', $user->getRoles())){
+      $show_clinic = true;
     }
     $build = [
       '#theme' => 'member_menu',
       '#uid' => is_numeric($path[2]) ? $path[2] : $user->id() ,
       '#ads' => $ads,
+      '#clinic' => $show_clinic,
       '#cache' => [
         'max-age' => 0,
       ],
