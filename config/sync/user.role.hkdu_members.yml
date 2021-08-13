@@ -26,6 +26,7 @@ permissions:
   - 'edit own forum content'
   - 'manage cme'
   - 'member are access'
+  - 'member card access'
   - 'post comments'
   - 'revert ads revisions'
   - 'suppliers access member area'

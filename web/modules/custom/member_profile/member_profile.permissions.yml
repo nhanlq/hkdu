@@ -5,3 +5,7 @@ member are access:
 suppliers access member area:
   title: 'Suppliers access member area'
   description: 'Allow to access the administration form to configure Special offer entities.'
+
+member card access:
+  title: 'Member Card Access'
+  description: 'Access to Member Ship Card.'
