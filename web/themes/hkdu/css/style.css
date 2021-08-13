@@ -2946,9 +2946,15 @@ table.cny td.first {
 
 .member-menu li {
   list-style: none;
-  padding: 5px 10px;
-  background-color: #ddd;
+  padding: 10px 10px;
   margin-bottom: 5px;
+}
+.member-menu li:hover {
+  background-color: rgb(69, 96, 176);
+  color: #ffffff;
+}
+.member-menu li a:hover{
+  color: #ffffff;
 }
 
 .header-event-group {
@@ -2969,8 +2975,11 @@ table.cny td.first {
 
 .member-menu {
   width: 85%;
-  padding: 0px;
+  /* padding: 0px; */
   margin-top: 20px;
+  background: #ffffff;
+  padding: 10px;
+  box-shadow: 12px 0px #eee;
 }
 
 .faq-button {
