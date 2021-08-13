@@ -18,7 +18,7 @@ class ForumController extends ControllerBase {
   public function forum() {
     $user = \Drupal::currentUser();
     $role = FALSE;
-    if (in_array('hkdu_members', $user->getRoles()) || in_array('council_members', $user->getRoles())) {
+    if (in_array('hkdu_members', $user->getRoles()) || in_array('council_members', $user->getRoles()) || in_array('admins', $user->getRoles()) || in_array('administrator', $user->getRoles())) {
       $role = TRUE;
     }
     return [
