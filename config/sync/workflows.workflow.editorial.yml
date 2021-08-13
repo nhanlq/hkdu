@@ -118,6 +118,8 @@ type_settings:
       to: published
       weight: -2
       from:
+        - draft
+        - expired
         - pending
         - published
   entity_types:
