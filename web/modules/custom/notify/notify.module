@@ -34,30 +34,30 @@ function notify_theme() {
   ];
 }
 
-/**
- * @param \Drupal\Core\Entity\EntityInterface $entity
- */
-function notify_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
-  $user = \Drupal::currentUser();
-  if ($entity->getEntityTypeId() == 'clinical_focus' || $entity->getEntityTypeId() == 'drug_news' || $entity->getEntityTypeId() == 'pharm_dir' || $entity->getEntityTypeId() == 'special_offer' || $entity->getEntityTypeId() == 'event' ) {
-    if ($entity->get('moderation_state')->value == 'pending' && $user->id() != $entity->get('user_id')->value) {
-     // create_notify($entity->getEntityTypeId(), $entity->id(), $entity->get('user_id')->value);
-    }
-  }
-  if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'forum') {
-    if ($entity->get('moderation_state')->value == 'pending' && $user->id() != $entity->get('user_id')->value) {
-     // create_notify($entity->bundle(), $entity->id(), $entity->get('uid')->value);
-    }
-  }
-  if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'ads') {
-    if ($entity->get('moderation_state')->value == 'pending' && $user->id() != $entity->get('user_id')->value) {
-      //create_notify($entity->bundle(), $entity->id(), $entity->get('uid')->value);
-    }
-  }
-}
-
-function create_notify($type, $id, $uid) {
-  $notify = \Drupal\notify\Entity\Notify::create([
-    'name' => '',
-  ]);
-}
+///**
+// * @param \Drupal\Core\Entity\EntityInterface $entity
+// */
+//function notify_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+//  $user = \Drupal::currentUser();
+//  if ($entity->getEntityTypeId() == 'clinical_focus' || $entity->getEntityTypeId() == 'drug_news' || $entity->getEntityTypeId() == 'pharm_dir' || $entity->getEntityTypeId() == 'special_offer' || $entity->getEntityTypeId() == 'event' ) {
+//    if ($entity->get('moderation_state')->value == 'pending' && $user->id() != $entity->get('user_id')->value) {
+//      create_notify($entity->getEntityTypeId(), $entity->id(), $entity->get('user_id')->value);
+//    }
+//  }
+//  if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'forum') {
+//    if ($entity->get('moderation_state')->value == 'pending' && $user->id() != $entity->get('uid')->value) {
+//      create_notify($entity->bundle(), $entity->id(), $entity->get('uid')->value);
+//    }
+//  }
+//  if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'ads') {
+//    if ($entity->get('moderation_state')->value == 'pending' && $user->id() != $entity->get('uid')->value) {
+//      create_notify($entity->bundle(), $entity->id(), $entity->get('uid')->value);
+//    }
+//  }
+//}
+//
+//function create_notify($type, $id, $uid) {
+//  $notify = \Drupal\notify\Entity\Notify::create([
+//    'name' => '',
+//  ]);
+//}
