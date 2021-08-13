@@ -12,6 +12,7 @@ permissions:
   - 'access user profiles'
   - 'manage cme'
   - 'view published banner entity entities'
+  - 'view published cme quiz entities'
   - 'view published default entity entities'
   - 'view published download entities'
   - 'view published external link entities'
