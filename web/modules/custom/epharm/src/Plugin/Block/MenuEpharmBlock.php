@@ -29,19 +29,18 @@ class MenuEpharmBlock extends BlockBase {
     $role_doctor = 0;
     $current_user = \Drupal::currentUser();
     $current_roles = $current_user->getRoles();
-    if (in_array('administrator', $current_roles)) {
+    if (in_array('administrator', $current_roles) || in_array('admins', $current_roles)) {
       $au = 1;
     }
-    if (in_array('admins', $current_roles)) {
-      $au = 1;
-    }
-    if (in_array('cme_member', $current_roles) || in_array('tester', $current_roles) || in_array('hkdu_members', $current_roles)) {
+
+    if (in_array('cme_member', $current_roles)) {
       $role_cme = 1;
       $role_doctor = 1;
     }
     if (in_array('hkdu_members', $current_roles) || in_array('council_members', $current_roles) || in_array('tester', $current_roles)) {
       $role_member = 1;
       $role_doctor = 1;
+      $role_cme = 1;
     }
     if (in_array('drug_suppliers', $current_roles)) {
       $role_doctor = 1;

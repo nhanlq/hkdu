@@ -32,6 +32,20 @@
             $(this).hide();
           });
 
+          /**
+           * notification
+           */
+          $("a.update-notification").each(function(){
+            var id = $(this).attr('data-id');
+            $(this).click(function(e){
+              //  e.preventDefault(); // prevent form from reloading page
+                $.ajax({
+                  'url' : '/notify/'+id+'/update',
+                  'type' : 'GET',
+                });
+              });
+          });
+
         }
 
 

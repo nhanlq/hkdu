@@ -1,4 +1,4 @@
-uuid: 5ac3dd47-a74e-4ca0-89b1-89fe8649f577
+uuid: 9ae7b4a8-5d41-4809-a74d-46d5a6819ba9
 langcode: en
 status: true
 dependencies:
@@ -8,14 +8,13 @@ dependencies:
 third_party_settings:
   field_permissions:
     permission_type: public
-id: notify.field_type
-field_name: field_type
+id: notify.field_id
+field_name: field_id
 entity_type: notify
-type: string
+type: integer
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1

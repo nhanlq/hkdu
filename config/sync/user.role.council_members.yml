@@ -4,12 +4,13 @@ status: true
 dependencies: {  }
 id: council_members
 label: 'Council Member'
-weight: -2
+weight: -1
 is_admin: null
 permissions:
   - 'access cme'
   - 'access epharm'
   - 'access hkdu epharm'
+  - 'access notify'
   - 'access user profiles'
   - 'add doctor entity entities'
   - 'create ads content'
@@ -37,8 +38,12 @@ permissions:
   - 'view published ads entities'
   - 'view published banner entity entities'
   - 'view published cme event entities'
+  - 'view published cme links entities'
+  - 'view published cme quiz entities'
   - 'view published default entity entities'
   - 'view published download entities'
+  - 'view published event organizer entities'
   - 'view published external link entities'
   - 'view published public links entities'
+  - 'view published question entities'
   - 'view published tools entities'
