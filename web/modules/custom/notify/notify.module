@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\notify\Entity\Notify;
 
 /**
  * Implements hook_help().
@@ -42,5 +43,162 @@ function notify_theme($existing, $type, $theme, $path) {
       ],
     ],
   ];
+}
+
+/**
+ * @param $uid
+ * @param $id
+ * @param $type
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function createNotify($uid = null, $id, $type) {
+  $user = \Drupal\user\Entity\User::load($uid);
+  $entity = getObject($id, $type);
+  if ($type == 'node') {
+    $entity_type = $entity->bundle();
+  }
+  else {
+    $entity_type = $type;
+  }
+
+  if($uid){
+    $notify = Notify::create([
+      'name' => mappTypeName($id, $type) . ' has been approved. ',
+      'field_link' => $this->getLink($id, $type),
+      'field_user' => $uid,
+      'field_type' => $entity_type,
+      'field_id' => $id,
+      'user_id' => $uid,
+      'created' => time(),
+      'status' => 1,
+    ]);
+    $notify->save();
+  }else{
+    $users = $this->getadmins();
+    foreach ($users as $admin) {
+      $notify_admin = Notify::create([
+        'name' => $this->mappTypeName($id, $type) . ' from ' . $user->get('field_first_name')->value . ' approval',
+        'field_link' => $this->getLink($id, $type),
+        'field_user' => $admin->id(),
+        'field_type' => $entity_type,
+        'field_id' => $id,
+        'user_id' => $admin->id(),
+        'created' => time(),
+        'status' => 1,
+      ]);
+      $notify_admin->save();
+    }
+  }
+
+
+}
+
+/**
+ * @param $id
+ * @param $type
+ *
+ * @return \Drupal\clinical_focus\Entity\ClinicalFocus|\Drupal\Core\Entity\EntityBase|\Drupal\Core\Entity\EntityInterface|\Drupal\drug_news\Entity\DrugNews|\Drupal\node\Entity\Node|\Drupal\pharm_dir\Entity\PharmDir|\Drupal\special_offer\Entity\SpecialOffer|null
+ */
+function getObject($id, $type) {
+  if ($type == 'node') {
+    $entity = \Drupal\node\Entity\Node::load($id);
+  }
+  else {
+    if ($type == 'clinical_focus') {
+      $entity = \Drupal\clinical_focus\Entity\ClinicalFocus::load($id);
+    }
+    if ($type == 'drug_news') {
+      $entity = \Drupal\drug_news\Entity\DrugNews::load($id);
+    }
+    if ($type == 'special_offer') {
+      $entity = \Drupal\special_offer\Entity\SpecialOffer::load($id);
+    }
+    if ($type == 'pharm_dir') {
+      $entity = \Drupal\pharm_dir\Entity\PharmDir::load($id);
+    }
+  }
+  return $entity;
+}
+
+
+/**
+ * @return array
+ */
+function getadmins() {
+  $ids = \Drupal::entityQuery('user')
+    ->condition('status', 1)
+    ->condition('roles', ['admins', 'administrator'], 'IN')
+    ->execute();
+  $users = \Drupal\user\Entity\User::loadMultiple($ids);
+  $data = [];
+  foreach ($users as $user) {
+    $data[$user->id()] = $user;
+  }
+  return $data;
+}
+
+/**
+ * @param $id
+ * @param $type
+ *
+ * @return \Drupal\Core\StringTranslation\TranslatableMarkup|mixed|string
+ */
+function mappTypeName($id, $type) {
+  $object = $this->getObject($id, $type);
+  $name = '';
+  if ($type == 'node') {
+    $bundle_info = \Drupal::service("entity_type.bundle.info")->getAllBundleInfo();
+    $name = $bundle_info[$object->getEntityTypeId()][$object->bundle()]['label'];
+  }
+  else {
+    $name = $object->getEntityType()->getLabel();
+  }
+  return $name;
+}
+
+/**
+ * @param $id
+ * @param $type
+ *
+ * @return string
+ */
+function getLink($id, $type) {
+  $link = '';
+  if ($type == 'node') {
+    $link = '/node/' . $id . '/edit';
+  }
+  else {
+    if ($type == 'clinical_focus') {
+      $link = '/admin/hkdu/clinical-focus/' . $id . '/edit';
+    }
+    if ($type == 'drug_news') {
+      $link = '/admin/hkdu/drug-news/' . $id . '/edit';
+    }
+    if ($type == 'special_offer') {
+      $link = '/admin/hkdu/special-offer/' . $id . '/edit';
+    }
+    if ($type == 'pharm_dir') {
+      $link = '/admin/hkdu/pharm-dir/' . $id . '/edit';
+    }
+  }
+  return $link;
+}
+
+/**
+ * @param $id
+ * @param $type
+ *
+ * @return mixed
+ */
+function getName($id, $type) {
+  $object = $this->getObject($id, $type);
+  if ($type == 'node') {
+    $name = $object->getTitle();
+  }
+  else {
+    $name = $object->getName();
+  }
+  return $name;
 }
 

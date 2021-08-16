@@ -146,6 +146,9 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
   $user = \Drupal::currentUser();
   if (!in_array('administrator', $user->getRoles()) || !in_array('admins', $user->getRoles())) {
     if ($entity->getEntityTypeId() == 'clinical_focus' || $entity->getEntityTypeId() == 'drug_news' || $entity->getEntityTypeId() == 'pharm_dir' || $entity->getEntityTypeId() == 'special_offer' || $entity->getEntityTypeId() == 'event') {
+     //create notification
+      createNotify(null, $entity->id(), $entity->getEntityTypeId());
+      //email to admin
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'epharm';
       $key = 'createPost';
@@ -167,6 +170,7 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
       }
 
       if ($entity->get('moderation_state')->value == 'published') {
+        //send email
         $mailManager = \Drupal::service('plugin.manager.mail');
         $module = 'epharm';
         $key = 'subscription';
@@ -197,6 +201,9 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
       }
     }
     if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'ads') {
+      //create notify
+      createNotify(null, $entity->id(), $entity->getEntityTypeId());
+      //send email
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'epharm';
       $user = \Drupal\user\Entity\User::load($entity->get('uid')->target_id);
@@ -218,6 +225,9 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
     }
 
     if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'forum') {
+      //create notification
+      createNotify(null, $entity->id(), $entity->getEntityTypeId());
+      //send email
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'epharm';
       $user = \Drupal\user\Entity\User::load($entity->get('uid')->target_id);
@@ -253,6 +263,9 @@ function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
     if ($entity->get('moderation_state')->value == 'published') {
 
       $user = \Drupal\user\Entity\User::load($entity->getOwnerId());
+      //create notify
+      createNotify($entity->getOwnerId(), $entity->id(), $entity->getEntityTypeId());
+      //send email
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'epharm';
       $key = 'subscription';
@@ -319,6 +332,11 @@ function epharm_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
   }
 }
 
+/**
+ * @param $key
+ *
+ * @return string
+ */
 function mapping_key($key) {
   $type = '';
   switch ($key) {
