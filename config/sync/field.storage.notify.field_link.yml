@@ -1,4 +1,4 @@
-uuid: 5ac3dd47-a74e-4ca0-89b1-89fe8649f577
+uuid: 1e6d44cc-2554-4cb9-a6f9-a308d2832dc7
 langcode: en
 status: true
 dependencies:
@@ -8,8 +8,8 @@ dependencies:
 third_party_settings:
   field_permissions:
     permission_type: public
-id: notify.field_type
-field_name: field_type
+id: notify.field_link
+field_name: field_link
 entity_type: notify
 type: string
 settings:

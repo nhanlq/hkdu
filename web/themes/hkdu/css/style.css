@@ -1505,6 +1505,31 @@ form.search {
   /*top: -30px;*/
   right: -7px;
 }
+.notify{
+  width: 30px;
+  float: right;
+  margin-right: 20px;
+  margin-top: 16px;
+  position: relative;
+}
+.notify a{
+  position: relative;
+}
+.notify a span{
+  font-size: 12px;
+  position: absolute;
+  top: -6px;
+  width: 21px;
+  background: red;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  padding-bottom: 2px;
+  left:12px
+}
+table.notification-list, table.notification-list th, table.notification-list tr, table.notification-list td{
+  padding: 10px;
+}
 
 .eRWLLE {
   color: rgba(0, 0, 0, 0.4);
@@ -3163,6 +3188,11 @@ article.js-comment footer .created-comment {
   #block-loginblock-2 {
     margin-right: 145px;
     display: block!important;
+  }
+  .region-notify{
+    position: absolute;
+    right: 20px;
+
   }
 
   #user-tray {

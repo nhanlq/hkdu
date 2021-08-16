@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.notify.notify.field_id
+    - field.field.notify.notify.field_link
     - field.field.notify.notify.field_type
     - field.field.notify.notify.field_user
   module:
@@ -12,11 +14,28 @@ targetEntityType: notify
 bundle: notify
 mode: default
 content:
+  field_id:
+    weight: 29
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_link:
+    weight: 28
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_type:
     weight: 27
-    settings: {  }
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: options_select
+    type: string_textfield
     region: content
   field_user:
     weight: 26

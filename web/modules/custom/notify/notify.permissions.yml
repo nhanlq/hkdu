@@ -1,6 +1,12 @@
 add notify entities:
   title: 'Create new Notify entities'
 
+assign notify:
+  title: 'Assign Notify'
+
+access notify:
+  title: 'Access Notify'
+
 administer notify entities:
   title: 'Administer Notify entities'
   description: 'Allow to access the administration form to configure Notify entities.'

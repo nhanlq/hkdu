@@ -1,0 +1,24 @@
+uuid: a347f199-4738-4bdc-94a1-91ca74f06f65
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.notify.field_id
+  module:
+    - notify
+id: notify.notify.field_id
+field_name: field_id
+entity_type: notify
+bundle: notify
+label: ID
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

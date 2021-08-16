@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: hkdu_members
 label: 'HKDU Member'
-weight: -4
+weight: -3
 is_admin: null
 permissions:
   - 'access cme'
@@ -12,6 +12,7 @@ permissions:
   - 'access content'
   - 'access epharm'
   - 'access hkdu epharm'
+  - 'access notify'
   - 'access user profiles'
   - 'add doctor entity entities'
   - 'create ads content'

@@ -4,11 +4,12 @@ status: true
 dependencies: {  }
 id: cme_member
 label: 'CME Member'
-weight: -1
+weight: 0
 is_admin: null
 permissions:
   - 'access cme'
   - 'access hkdu epharm'
+  - 'access notify'
   - 'access user profiles'
   - 'manage cme'
   - 'view published banner entity entities'
