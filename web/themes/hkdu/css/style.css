@@ -3315,6 +3315,10 @@ article.js-comment footer .created-comment {
   .fSsnif .end {
     margin-right: 0px !important;
   }
+  .region-notify{
+    width: 50px;
+    float: right;
+  }
 
   .fSsnif .event {
     margin-right: 33px;
