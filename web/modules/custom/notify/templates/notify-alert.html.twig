@@ -16,5 +16,9 @@
  */
 #}
 <div class="notify">
-  <a href="/notifications"><i class="fa fa-bell"></i><span>{{ count }}</span></a>
+  <a href="/notifications"><i class="fa fa-bell"></i>
+    {% if count > 0 %}
+    <span>{{ count }}</span>
+    {% endif %}
+  </a>
 </div>
