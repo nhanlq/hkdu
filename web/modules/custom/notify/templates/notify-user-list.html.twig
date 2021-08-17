@@ -16,23 +16,30 @@
  */
 #}
 <div class="notify-wrapper">
-  {% if notifies %}
+  {% if users %}
     <table class="notification-list">
       <thead>
-      <th>#ID</th><th>Notification</th><th>Preview</th><th>Edit</th>
+      <th>#ID</th>
+      <th>Reviewers</th>
+      <th>Article Page</th>
+      <th>Edit</th>
       </thead>
       <tbody>
-      {% for notify in notifies %}
+      {% for user in users %}
         <tr>
           <td>{{ loop.index }}</td>
-          <td>{{ notify.name.value|raw }}</td>
-          <td><a class="update-notification" data-id="{{ notify.id.value }}" href="{{ notify.field_preview.value }}">Preview</a></td>
-          <td><a class="update-notification" data-id="{{ notify.id.value }}" href="{{ notify.field_link.value }}">Edit</a></td>
+          <td>{{ user.field_user.entity.field_first_name.value }}({{ user.field_user.entity.mail.value }})</td>
+          <td>
+            {{ user.typeData|join(', ') }}
+          </td>
+          <td><a
+              href="/admin/structure/user_notify/{{ user.id.value }}/edit?destination=/admin/hkdu/notify/config">Edit</a>
+          </td>
         </tr>
       {% endfor %}
       </tbody>
     </table>
   {% else %}
-    <p>No notification</p>
+    <p>No user has added.</p>
   {% endif %}
 </div>

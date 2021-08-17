@@ -75,8 +75,9 @@ class Assign extends FormBase {
       $entity_type = $type;
     }
     $notify = Notify::create([
-      'name' => $this->mappTypeName($id, $type) . ' from ' . $user->get('field_first_name')->value . ' approval',
+      'name' => $this->mappTypeName($id, $type) . ' from <b>' . $user->get('field_first_name')->value . '</b> approval',
       'field_link' => $this->getLink($id, $type),
+      'field_preview' => $this->getPreview($id, $type),
       'field_user' => $form_state->getValue('uid'),
       'field_type' => $entity_type,
       'field_id' => $id,
@@ -88,8 +89,9 @@ class Assign extends FormBase {
     $users = $this->getadmins();
     foreach($users as $admin){
       $notify_admin = Notify::create([
-        'name' => $this->mappTypeName($id, $type) . ' from ' . $user->get('field_first_name')->value . ' approval',
+        'name' => $this->mappTypeName($id, $type) . ' from <b>' . $user->get('field_first_name')->value . '</b> approval',
         'field_link' => $this->getLink($id, $type),
+        'field_preview' => $this->getPreview($id, $type),
         'field_user' => $admin->id(),
         'field_type' => $entity_type,
         'field_id' => $id,
@@ -204,6 +206,12 @@ class Assign extends FormBase {
     return $link;
   }
 
+  /**
+   * @param $id
+   * @param $type
+   *
+   * @return string
+   */
   public function getName($id, $type){
     $object = $this->getObject($id, $type);
     if ($type == 'node') {
@@ -213,5 +221,33 @@ class Assign extends FormBase {
       $name = $object->getName();
     }
     return $name;
+  }
+
+  /**
+   * @param $id
+   * @param $type
+   *
+   * @return string
+   */
+  public function getPreview($id, $type) {
+    $link = '';
+    if ($type == 'node') {
+      $link = '/node/' . $id;
+    }
+    else {
+      if ($type == 'clinical_focus') {
+        $link = '/e-pharm/clinical-focus/' . $id;
+      }
+      if ($type == 'drug_news') {
+        $link = '/e-pharm/drug-news/' . $id;
+      }
+      if ($type == 'special_offer') {
+        $link = '/e-pharm/special-offer/' . $id;
+      }
+      if ($type == 'pharm_dir') {
+        $link = '/e-pharm/pharm-dir/' . $id;
+      }
+    }
+    return $link;
   }
 }

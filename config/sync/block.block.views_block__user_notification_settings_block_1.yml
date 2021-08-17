@@ -1,0 +1,30 @@
+uuid: c6ca31e0-c06a-4726-b888-c1af17db2f21
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.user_notification_settings
+  module:
+    - system
+    - views
+  theme:
+    - gin
+id: views_block__user_notification_settings_block_1
+theme: gin
+region: content
+weight: -3
+provider: null
+plugin: 'views_block:user_notification_settings-block_1'
+settings:
+  id: 'views_block:user_notification_settings-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /admin/hkdu/notify/config
+    negate: false
+    context_mapping: {  }

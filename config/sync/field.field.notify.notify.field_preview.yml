@@ -1,0 +1,27 @@
+uuid: faaa0ea5-4b44-421c-b8e9-5a9187a8fef4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.notify.field_preview
+  module:
+    - notify
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: notify.notify.field_preview
+field_name: field_preview
+entity_type: notify
+bundle: notify
+label: Preview
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

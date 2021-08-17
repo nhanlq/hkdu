@@ -146,8 +146,10 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
   $user = \Drupal::currentUser();
   if (!in_array('administrator', $user->getRoles()) || !in_array('admins', $user->getRoles())) {
     if ($entity->getEntityTypeId() == 'clinical_focus' || $entity->getEntityTypeId() == 'drug_news' || $entity->getEntityTypeId() == 'pharm_dir' || $entity->getEntityTypeId() == 'special_offer' || $entity->getEntityTypeId() == 'event') {
-     //create notification
-      createNotify(null, $entity->id(), $entity->getEntityTypeId());
+      //create notification
+      if ($entity->get('moderation_state')->value == 'pending') {
+        createNotify(NULL, $entity->id(), $entity->getEntityTypeId());
+      }
       //email to admin
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'epharm';
@@ -202,7 +204,7 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
     }
     if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'ads') {
       //create notify
-      createNotify(null, $entity->id(), $entity->getEntityTypeId());
+      //createNotify(NULL, $entity->id(), $entity->getEntityTypeId());
       //send email
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'epharm';
@@ -226,7 +228,7 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
 
     if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'forum') {
       //create notification
-      createNotify(null, $entity->id(), $entity->getEntityTypeId());
+      //createNotify(NULL, $entity->id(), $entity->getEntityTypeId());
       //send email
       $mailManager = \Drupal::service('plugin.manager.mail');
       $module = 'epharm';
@@ -247,6 +249,12 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
         \Drupal::messenger()->addMessage(t('Your message has been sent.'));
       }
     }
+    if ($entity->getEntityTypeId() == 'node') {
+      if ($entity->get('moderation_state')->value == 'pending') {
+        createNotify(NULL, $entity->id(), $entity->getEntityTypeId());
+      }
+
+    }
   }
 }
 
@@ -256,9 +264,18 @@ function epharm_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
 function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
 
   // Insert the new entity into a fictional table of all entities.
+  if ($entity->getEntityTypeId() == 'node') {
+    if ($entity->get('moderation_state')->value == 'pending') {
+      createNotify(NULL, $entity->id(), $entity->getEntityTypeId());
+    }
+
+  }
   if ($entity->getEntityTypeId() == 'clinical_focus' || $entity->getEntityTypeId() == 'drug_news' || $entity->getEntityTypeId() == 'pharm_dir' || $entity->getEntityTypeId() == 'special_offer' || $entity->getEntityTypeId() == 'event' || ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'ads') || $entity->getEntityTypeId() == 'node' && $entity->bundle() == 'forum') {
     if (!$entity->get('status')->value && $entity->get('moderation_state')->value == 'draft' || !$entity->get('status')->value && $entity->get('moderation_state')->value == 'pending') {
       UpdateStateStatus($entity->id(), $entity->getEntityTypeId(), $entity->get('moderation_state')->value);
+    }
+    if ($entity->get('moderation_state')->value == 'pending') {
+      createNotify(NULL, $entity->id(), $entity->getEntityTypeId());
     }
     if ($entity->get('moderation_state')->value == 'published') {
 
@@ -273,16 +290,17 @@ function epharm_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
       if (getEmailsubscription($entity->getEntityTypeId())) {
         $to .= getEmailsubscription($entity->getEntityTypeId());
       }
-      if( $entity->getEntityTypeId() != 'node'){
+      if ($entity->getEntityTypeId() != 'node') {
         if ($entity->get('field_newsletter')->getValue()) {
           $to .= ',' . getEmailNewsletter($entity->get('field_newsletter')->getValue());
           $key = 'newsletter';
         }
       }
-      if($entity->getEntityTypeId() == 'node'){
+      if ($entity->getEntityTypeId() == 'node') {
         $params['title'] = $entity->get('title')->value;
         $body = $entity->get('body')->value;
-      }else{
+      }
+      else {
         $params['title'] = $entity->get('name')->value;
         $body = $entity->get('field_description')->value;
       }
@@ -488,9 +506,10 @@ function UpdateStatus($type, $id) {
     $query->fields([
       'status' => 0,
     ]);
-    if($type == 'node'){
+    if ($type == 'node') {
       $query->condition('nid', $id);
-    }else{
+    }
+    else {
       $query->condition('id', $id);
     }
 

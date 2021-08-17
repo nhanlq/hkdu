@@ -12,3 +12,17 @@ notify.admin.structure.settings:
   description: 'Configure Notify entities'
   route_name: notify.settings
   parent: system.admin_structure
+
+# User notify menu items definition
+entity.user_notify.collection:
+  title: 'User notify list'
+  route_name: entity.user_notify.collection
+  description: 'List User notify entities'
+  parent: system.admin_structure
+  weight: 100
+
+user_notify.admin.structure.settings:
+  title: 'User notify settings'
+  description: 'Configure User notify entities'
+  route_name: user_notify.settings
+  parent: system.admin_structure

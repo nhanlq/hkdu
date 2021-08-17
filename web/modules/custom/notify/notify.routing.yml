@@ -21,3 +21,10 @@ notify.update_controller_update:
     _title: 'Update Notify'
   requirements:
     _permission: 'access notify'
+notify.user_notify:
+  path: '/admin/hkdu/notify/config'
+  defaults:
+    _form: '\Drupal\notify\Form\UserNotify'
+    _title: 'User Notification Settings'
+  requirements:
+    _permission: 'access notify'

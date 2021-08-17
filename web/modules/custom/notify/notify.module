@@ -42,6 +42,11 @@ function notify_theme($existing, $type, $theme, $path) {
         'notifies' => NULL,
       ],
     ],
+    'notify_user_list' => [
+      'variables' => [
+        'users' => NULL,
+      ],
+    ],
   ];
 }
 
@@ -52,8 +57,8 @@ function notify_theme($existing, $type, $theme, $path) {
  *
  * @throws \Drupal\Core\Entity\EntityStorageException
  */
-function createNotify($uid = null, $id, $type) {
-  $user = \Drupal\user\Entity\User::load($uid);
+function createNotify($uid = NULL, $id, $type) {
+
   $entity = getObject($id, $type);
   if ($type == 'node') {
     $entity_type = $entity->bundle();
@@ -62,10 +67,12 @@ function createNotify($uid = null, $id, $type) {
     $entity_type = $type;
   }
 
-  if($uid){
+  if ($uid) {
+    $user = \Drupal\user\Entity\User::load($uid);
     $notify = Notify::create([
       'name' => mappTypeName($id, $type) . ' has been approved. ',
-      'field_link' => $this->getLink($id, $type),
+      'field_link' => getLink($id, $type),
+      'field_preview' => getPreview($id, $type),
       'field_user' => $uid,
       'field_type' => $entity_type,
       'field_id' => $id,
@@ -74,12 +81,15 @@ function createNotify($uid = null, $id, $type) {
       'status' => 1,
     ]);
     $notify->save();
-  }else{
-    $users = $this->getadmins();
+  }
+  else {
+    $users = getadmins();
     foreach ($users as $admin) {
       $notify_admin = Notify::create([
-        'name' => $this->mappTypeName($id, $type) . ' from ' . $user->get('field_first_name')->value . ' approval',
-        'field_link' => $this->getLink($id, $type),
+        'name' => mappTypeName($id,
+            $type) . ' from <b>' . $admin->get('field_first_name')->value . '</b> approval',
+        'field_link' => getLink($id, $type),
+        'field_preview' => getPreview($id, $type),
         'field_user' => $admin->id(),
         'field_type' => $entity_type,
         'field_id' => $id,
@@ -135,6 +145,14 @@ function getadmins() {
   foreach ($users as $user) {
     $data[$user->id()] = $user;
   }
+  $nids = \Drupal::entityQuery('user_notify')->execute();
+  $notifies = \Drupal\notify\Entity\UserNotify::loadMultiple($nids);
+  if ($notifies) {
+    foreach ($notifies as $notify) {
+      $data[$notify->get('field_user')->target_id] = \Drupal\user\Entity\User::load($notify->get('field_user')->target_id);
+    }
+  }
+
   return $data;
 }
 
@@ -145,7 +163,7 @@ function getadmins() {
  * @return \Drupal\Core\StringTranslation\TranslatableMarkup|mixed|string
  */
 function mappTypeName($id, $type) {
-  $object = $this->getObject($id, $type);
+  $object = getObject($id, $type);
   $name = '';
   if ($type == 'node') {
     $bundle_info = \Drupal::service("entity_type.bundle.info")->getAllBundleInfo();
@@ -189,10 +207,38 @@ function getLink($id, $type) {
  * @param $id
  * @param $type
  *
+ * @return string
+ */
+function getPreview($id, $type) {
+  $link = '';
+  if ($type == 'node') {
+    $link = '/node/' . $id;
+  }
+  else {
+    if ($type == 'clinical_focus') {
+      $link = '/e-pharm/clinical-focus/' . $id;
+    }
+    if ($type == 'drug_news') {
+      $link = '/e-pharm/drug-news/' . $id;
+    }
+    if ($type == 'special_offer') {
+      $link = '/e-pharm/special-offer/' . $id;
+    }
+    if ($type == 'pharm_dir') {
+      $link = '/e-pharm/pharm-dir/' . $id;
+    }
+  }
+  return $link;
+}
+
+/**
+ * @param $id
+ * @param $type
+ *
  * @return mixed
  */
 function getName($id, $type) {
-  $object = $this->getObject($id, $type);
+  $object = getObject($id, $type);
   if ($type == 'node') {
     $name = $object->getTitle();
   }
