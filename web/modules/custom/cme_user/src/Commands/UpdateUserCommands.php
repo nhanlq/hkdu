@@ -40,19 +40,14 @@ class UpdateUserCommands extends DrushCommands {
    */
   public function getCommand() {
     $users = [];
-    $ids = \Drupal::entityQuery('user')->condition('status', 1)->execute();
-    $result = \Drupal\user\Entity\User::loadMultiple($ids);
-    foreach ($result as $user) {
-      if (in_array('hkdu_administrator', $user->getRoles())) {
-        $users[] = $user->get('field_mchk_license')->value;
-        $user->set('field_hkdu_administrator', 1);
-      }else{
-        $user->set('field_hkdu_administrator', 0);
-      }
-      $user->save();
+    $ids = \Drupal::entityQuery('notify')->execute();
+    $result = \Drupal\notify\Entity\Notify::loadMultiple($ids);
+    foreach ($result as $notify) {
+      $users[] = $notify->id();
+      $notify->delete();
     }
     if ($users) {
-      $message = 'The Member : ' . implode(",", $users).' were updated.';
+      $message = 'The notify : ' . implode(",", $users).' were deleted.';
     }
     else {
 
