@@ -1,50 +1,22 @@
-uuid: 20bb95fa-4291-45e7-b509-8c4afba5e7fe
+uuid: 16cd6761-0fb6-45b8-806b-85cb6f3aa629
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.notify.notify.field_id
-    - field.field.notify.notify.field_link
-    - field.field.notify.notify.field_preview
-    - field.field.notify.notify.field_type
-    - field.field.notify.notify.field_user
+    - field.field.user_notify.user_notify.field_type
+    - field.field.user_notify.user_notify.field_user
   module:
     - notify
-id: notify.notify.default
-targetEntityType: notify
-bundle: notify
+id: user_notify.user_notify.default
+targetEntityType: user_notify
+bundle: user_notify
 mode: default
 content:
-  field_id:
-    weight: 29
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
-  field_link:
-    weight: 28
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_preview:
-    weight: 30
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_type:
     weight: 27
-    settings:
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: string_textfield
+    type: options_buttons
     region: content
   field_user:
     weight: 26

@@ -3,3 +3,8 @@ entity.notify.add_form:
   title: 'Add Notify'
   appears_on:
     - entity.notify.collection
+entity.user_notify.add_form:
+  route_name: entity.user_notify.add_form
+  title: 'Add User notify'
+  appears_on:
+    - entity.user_notify.collection
