@@ -3886,5 +3886,12 @@ article.js-comment footer .created-comment {
 .navbar-header{
   position: relative;
 }
+tr.unread{
+  color:rgb(69, 96, 176);
+  font-weight: 600;
+}
+.unread td b{
+  color: #191970;
+}
 
 
