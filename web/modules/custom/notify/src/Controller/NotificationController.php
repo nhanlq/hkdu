@@ -18,8 +18,9 @@ class NotificationController extends ControllerBase {
   public function notification() {
     $user = \Drupal::currentUser();
     $ids = \Drupal::entityQuery('notify')
-      ->condition('status',1)
       ->condition('field_user',$user->id())
+      ->range(0,20)
+      ->sort('created','DESC')
       ->execute();
     $notify = \Drupal\notify\Entity\Notify::loadMultiple($ids);
     return [

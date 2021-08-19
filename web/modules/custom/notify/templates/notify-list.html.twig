@@ -15,19 +15,31 @@
  * @ingroup themeable
  */
 #}
+
 <div class="notify-wrapper">
   {% if notifies %}
     <table class="notification-list">
       <thead>
-      <th>#ID</th><th>Notification</th><th>Preview</th><th>Edit</th>
+      <th>#ID</th><th>Notification</th><th>Status</th><th>Preview</th><th>Edit</th>
       </thead>
       <tbody>
       {% for notify in notifies %}
-        <tr>
+        {% if notify.status.value == 1 %}
+        <tr class="unread">
+          {% else %}
+            <tr>
+            {% endif %}
           <td>{{ loop.index }}</td>
           <td>{{ notify.name.value|raw }}</td>
+          <td>
+            {% if notify.status.value == 1 %}
+            Unread
+            {% else %}
+              Read
+              {% endif %}
+          </td>
           <td><a class="update-notification" data-id="{{ notify.id.value }}" href="{{ notify.field_preview.value }}">Preview</a></td>
-          <td><a class="update-notification" data-id="{{ notify.id.value }}" href="{{ notify.field_link.value }}">Edit</a></td>
+          <td><a class="update-notification-edit" data-id="{{ notify.id.value }}" href="{{ notify.field_link.value }}">Edit</a></td>
         </tr>
       {% endfor %}
       </tbody>
