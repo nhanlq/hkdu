@@ -35,6 +35,8 @@ class Notify extends BlockBase {
     $ids = \Drupal::entityQuery('notify')
       ->condition('status',1)
       ->condition('field_user',$user->id())
+      ->range(0,20)
+      ->sort('created','DESC')
       ->execute();
     return count($ids);
   }
