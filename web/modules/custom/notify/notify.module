@@ -70,7 +70,7 @@ function createNotify($uid = NULL, $id, $type) {
   if ($uid) {
     $user = \Drupal\user\Entity\User::load($uid);
     $notify = Notify::create([
-      'name' => mappTypeName($id, $type) . ' has been approved. ',
+      'name' => 'Your article in '.mappTypeName($id, $type) . ' has been approved. ',
       'field_link' => getLink($id, $type),
       'field_preview' => getPreview($id, $type),
       'field_user' => $uid,
