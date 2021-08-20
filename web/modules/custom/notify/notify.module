@@ -84,16 +84,17 @@ function createNotify($uid = NULL, $id, $type) {
   }
   else {
     $users = getadmins();
+    $uid = $entity->getOwnerId();
     foreach ($users as $admin) {
       $notify_admin = Notify::create([
         'name' => mappTypeName($id,
             $type) . ' from <b>' . $admin->get('field_first_name')->value . '</b> approval',
         'field_link' => getLink($id, $type),
         'field_preview' => getPreview($id, $type),
-        'field_user' => $admin->id(),
+        'field_user' => $uid,
         'field_type' => $entity_type,
         'field_id' => $id,
-        'user_id' => $admin->id(),
+        'user_id' => $uid,
         'created' => time(),
         'status' => 1,
       ]);
