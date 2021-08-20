@@ -13,13 +13,7 @@
                     }
                 }
             })
-            if($('img').length > -1){
-              $('img').each(function(){
-                if($(this).attr('data-caption').length > -1){
-                  $(this).next().html('<p class="caption-img">'+$(this).attr('data-caption')+'</p>');
-                }
-              });
-            }
+
 
           $(".hkdu-icon-user").hover(function () {
             $('#user-tray').show();
@@ -35,7 +29,7 @@
           /**
            * notification
            */
-          $("a.update-notification").each(function(){
+          $(".notification-list a").each(function(){
             var id = $(this).attr('data-id');
             $(this).click(function(e){
               //  e.preventDefault(); // prevent form from reloading page
@@ -45,16 +39,16 @@
                 });
               });
           });
-          $("a.update-notification-edit").each(function(){
-            var id = $(this).attr('data-id');
-            $(this).click(function(e){
-              //  e.preventDefault(); // prevent form from reloading page
-              $.ajax({
-                'url' : '/notify/'+id+'/update',
-                'type' : 'GET',
-              });
+          if($('img').length > -1){
+            $('img').each(function(){
+              if($(this).hasAttribute('data-caption')){
+                if($(this).attr('data-caption').length > -1){
+                  $(this).next().html('<p class="caption-img">'+$(this).attr('data-caption')+'</p>');
+                }
+              }
+
             });
-          });
+          }
 
         }
 
