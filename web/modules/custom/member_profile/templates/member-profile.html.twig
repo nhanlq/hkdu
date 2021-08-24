@@ -67,14 +67,16 @@
     <div class="open col-xs-6 col-md-6 col-sm-12">
       <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#regular">REGULAR <br/>正常時間</a></li>
-        <li><a data-toggle="tab" href="#cny">CNY HOLIDAY <br/>農曆新年假期</a></li>
+        <li><a data-toggle="tab" href="#cny">CNY HOLIDAY<br/> 農曆新年假期</a></li>
+        <li><a data-toggle="tab" href="#easter">EASTER HOLIDAY<br/> 復活節假期</a></li>
+        <li><a data-toggle="tab" href="#christmas">CHRISTMAS HOLIDAY<br/> 聖誕節假期</a></li>
       </ul>
       <div class="tab-content">
         <div id="regular" class="tab-pane fade in active">
           <table class="regular">
             <thead>
             <th>Date <br/>日期</th>
-            <th>Opening Hours <br/>開診時間</th>
+            <th>Opening Hours<br/> 開診時間</th>
             <th>Closing time <br/>關門時間</th>
             </thead>
             <tbody>
@@ -95,7 +97,7 @@
           <table class="cny">
             <thead>
             <th>Date <br/>日期</th>
-            <th>Opening Hours <br/>開診時間</th>
+            <th>Opening Hours<br/> 開診時間</th>
             <th>Closing time <br/>關門時間</th>
             </thead>
             <tbody>
@@ -110,6 +112,48 @@
           </table>
           <div class="noted">
             Opening Hours During CNY Holidays
+          </div>
+        </div>
+        <div id="easter" class="tab-pane fade">
+          <table class="easter">
+            <thead>
+            <th>Date <br/>日期</th>
+            <th>Opening Hours<br/> 開診時間</th>
+            <th>Closing time <br/>關門時間</th>
+            </thead>
+            <tbody>
+            {% for easter in doctor.field_easter %}
+              <tr>
+                <td class="first">{{ easter.entity.field_easter.entity.name.value }}</td>
+                <td>{{ easter.entity.field_open_hour_1.value }}</td>
+                <td>{{ easter.entity.field_open_hour_2.value }}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+          <div class="noted">
+            Opening Hours During Easter Holidays
+          </div>
+        </div>
+        <div id="christmas" class="tab-pane fade">
+          <table class="christmas">
+            <thead>
+            <th>Date <br/>日期</th>
+            <th>Opening Hours<br/> 開診時間</th>
+            <th>Closing time <br/>關門時間</th>
+            </thead>
+            <tbody>
+            {% for chris in doctor.field_christmas %}
+              <tr>
+                <td class="first">{{ chris.entity.field_christmas.entity.name.value }}</td>
+                <td>{{ chris.entity.field_open_hour_1.value }}</td>
+                <td>{{ chris.entity.field_open_hour_2.value }}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+          <div class="noted">
+            Opening Hours During Christmas Holidays
           </div>
         </div>
 

@@ -1,0 +1,39 @@
+uuid: 90eae297-ca42-464f-ab71-eddbf8857ac9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.easter.field_easter
+    - field.field.paragraph.easter.field_open_hour_1
+    - field.field.paragraph.easter.field_open_hour_2
+    - paragraphs.paragraphs_type.easter
+id: paragraph.easter.default
+targetEntityType: paragraph
+bundle: easter
+mode: default
+content:
+  field_easter:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_open_hour_1:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_open_hour_2:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

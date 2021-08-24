@@ -1,0 +1,11 @@
+uuid: 666b781f-2891-4497-94a9-df04c0a653e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.christmas
+id: taxonomy_term.christmas
+target_entity_type_id: taxonomy_term
+target_bundle: christmas
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,10 @@
+uuid: 8091e667-0157-4220-a1fe-d2259c1e1a82
+langcode: en
+status: true
+dependencies: {  }
+id: christmas
+label: Christmas
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

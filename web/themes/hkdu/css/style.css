@@ -2757,7 +2757,10 @@ a .date, a .author {
 .open .nav-tabs > li.active > a {
   background-color: rgb(69, 96, 176);
   color: white !important;
-  font-size: 16px;
+  font-size: 13px;
+}
+.open .nav > li > a {
+  padding: 5px 10px;
 }
 
 .open .nav-tabs > li > a {
@@ -2765,7 +2768,7 @@ a .date, a .author {
   line-height: 1.42857143;
   border: 1px solid #ddd;
   border-radius: 4px 4px 0 0;
-  font-size: 16px;
+  font-size: 13px;
   color: #555555;
 }
 

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.doctor.field_christmas_day_confirm
     - field.storage.doctor.field_clinic_address_cn
     - field.storage.doctor.field_clinic_address
     - field.storage.doctor.field_clinic_distric
@@ -11,6 +12,8 @@ dependencies:
     - field.storage.doctor.field_clinic_title_cn
     - field.storage.doctor.field_cny_date
     - field.storage.doctor.field_cny_confirm
+    - field.storage.doctor.field_easter_day_confirm
+    - field.storage.doctor.field_speciality
     - search_api.server.default_server
   module:
     - doctor
@@ -20,6 +23,22 @@ name: Doctor
 description: ''
 read_only: false
 field_settings:
+  field_christmas_day_confirm:
+    label: 'Christmas Day Confirm'
+    datasource_id: 'entity:doctor'
+    property_path: field_christmas_day_confirm
+    type: integer
+    dependencies:
+      config:
+        - field.storage.doctor.field_christmas_day_confirm
+  field_christmas_day_confirm_1:
+    label: 'Christmas Day Confirm'
+    datasource_id: 'entity:doctor'
+    property_path: field_christmas_day_confirm
+    type: integer
+    dependencies:
+      config:
+        - field.storage.doctor.field_christmas_day_confirm
   field_clinic_address:
     label: 'Clinic Address(Eng)'
     datasource_id: 'entity:doctor'
@@ -156,6 +175,22 @@ field_settings:
     dependencies:
       config:
         - field.storage.doctor.field_cny_date
+  field_easter_day_confirm:
+    label: 'Easter Day Confirm'
+    datasource_id: 'entity:doctor'
+    property_path: field_easter_day_confirm
+    type: integer
+    dependencies:
+      config:
+        - field.storage.doctor.field_easter_day_confirm
+  field_speciality:
+    label: Speciality
+    datasource_id: 'entity:doctor'
+    property_path: field_speciality
+    type: string
+    dependencies:
+      config:
+        - field.storage.doctor.field_speciality
   name:
     label: 'Clinic Title(Eng)'
     datasource_id: 'entity:doctor'
