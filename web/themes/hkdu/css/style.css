@@ -2350,16 +2350,16 @@ tr .ajax-progress-throbber .throbber {
 }
 
 .user-picture .image-radius{
-  margin-top: 110px;
+  margin-top: 108px;
 }
 
 .user-picture .picture img {
   border-radius: 100px;
-  width: 150px;
-  height: 150px;
+  width: 154px;
+  height: 154px;
 }
 .card-name{
-  margin-top: 70px;
+  margin-top: 65px;
   font-size: 20px;
   font-weight: normal;
 }
