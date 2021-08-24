@@ -57,7 +57,7 @@ content:
     type: string_textarea
     region: content
   field_clinic_id:
-    weight: 21
+    weight: 20
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -67,7 +67,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_cme_join_date:
-    weight: 22
+    weight: 21
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -90,7 +90,7 @@ content:
     type: telephone_default
     region: content
   field_expired:
-    weight: 25
+    weight: 22
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -117,7 +117,7 @@ content:
       display_label: true
     third_party_settings: {  }
   field_hkdu_subscription_period:
-    weight: 19
+    weight: 18
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -172,7 +172,7 @@ content:
     type: string_textfield
     region: content
   field_referee_name:
-    weight: 20
+    weight: 19
     settings:
       size: 60
       placeholder: ''
@@ -186,12 +186,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-    region: content
-  field_report_generation:
-    weight: 18
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
     region: content
   field_specialist_fellow_number:
     weight: 14
@@ -235,6 +229,7 @@ hidden:
   customer_profiles: true
   doctor_profiles: true
   drug_supplier_profiles: true
+  field_report_generation: true
   field_self_study_point: true
   hkdu_member_profiles: true
   langcode: true
