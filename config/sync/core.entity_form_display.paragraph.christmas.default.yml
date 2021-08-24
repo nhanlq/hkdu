@@ -1,0 +1,39 @@
+uuid: c9f7e82f-ee1b-4cfc-abd1-6d81e479e91e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.christmas.field_christmas
+    - field.field.paragraph.christmas.field_open_hour_1
+    - field.field.paragraph.christmas.field_open_hour_2
+    - paragraphs.paragraphs_type.christmas
+id: paragraph.christmas.default
+targetEntityType: paragraph
+bundle: christmas
+mode: default
+content:
+  field_christmas:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_open_hour_1:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_open_hour_2:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

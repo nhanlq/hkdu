@@ -6,7 +6,10 @@ dependencies:
     - field.storage.doctor.field_clinic_distric
     - field.storage.doctor.field_clinic_title_cn
     - search_api.index.doctor
+    - taxonomy.vocabulary.christmas
+    - taxonomy.vocabulary.clinic_speciality
     - taxonomy.vocabulary.cny
+    - taxonomy.vocabulary.easter
   module:
     - options
     - search_api
@@ -508,6 +511,118 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: search_api_term
+        field_easter_day_confirm:
+          id: field_easter_day_confirm
+          table: search_api_index_doctor
+          field: field_easter_day_confirm
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_easter_day_confirm_op
+            label: 'Easter Day'
+            description: ''
+            use_operator: false
+            operator: field_easter_day_confirm_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_easter_day_confirm
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              admins: '0'
+              content_reviewer: '0'
+              doctor: '0'
+              hkdu_administrator: '0'
+              hkdu_members: '0'
+              drug_suppliers: '0'
+              council_members: '0'
+              cme_member: '0'
+              tester: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: easter
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
+        field_christmas_day_confirm:
+          id: field_christmas_day_confirm
+          table: search_api_index_doctor
+          field: field_christmas_day_confirm
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_christmas_day_confirm_op
+            label: 'Christmas Day'
+            description: ''
+            use_operator: false
+            operator: field_christmas_day_confirm_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_christmas_day_confirm
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              admins: '0'
+              content_reviewer: '0'
+              doctor: '0'
+              hkdu_administrator: '0'
+              hkdu_members: '0'
+              drug_suppliers: '0'
+              council_members: '0'
+              cme_member: '0'
+              tester: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: christmas
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
         field_clinic_distric:
           id: field_clinic_distric
           table: search_api_index_doctor
@@ -558,6 +673,62 @@ display:
             group_items: {  }
           reduce_duplicates: false
           plugin_id: search_api_options
+        field_speciality:
+          id: field_speciality
+          table: search_api_index_doctor
+          field: field_speciality
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_speciality_op
+            label: Speciality
+            description: ''
+            use_operator: false
+            operator: field_speciality_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_speciality
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              admins: '0'
+              content_reviewer: '0'
+              doctor: '0'
+              hkdu_administrator: '0'
+              hkdu_members: '0'
+              drug_suppliers: '0'
+              council_members: '0'
+              cme_member: '0'
+              tester: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: clinic_speciality
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
       sorts:
         random:
           id: random

@@ -1,13 +1,13 @@
 
 # Doctor entity menu items definition
 entity.doctor.collection:
-  title: 'Doctors'
+  title: 'Clinic'
   route_name: entity.doctor.collection
   description: 'List Doctor entity entities'
-  parent: cme.admin_cme
+  parent: global_hkdu.admin_hkdu_public
 
 doctor.admin.structure.settings:
-  title: 'Doctors settings'
+  title: 'Clinic settings'
   description: 'Configure Doctor entity entities'
   route_name: doctor.settings
   parent: entity.doctor.collection

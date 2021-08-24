@@ -1,0 +1,8 @@
+uuid: d7cb3488-9314-49bd-accf-9b366b59cfaf
+langcode: en
+status: true
+dependencies: {  }
+name: 'Clinic Speciality'
+vid: clinic_speciality
+description: ''
+weight: 0

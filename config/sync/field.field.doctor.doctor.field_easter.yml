@@ -1,0 +1,70 @@
+uuid: 05b855da-b0f2-4560-a098-e63b6b1ccb4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_easter
+    - paragraphs.paragraphs_type.easter
+  module:
+    - doctor
+    - entity_reference_revisions
+id: doctor.doctor.field_easter
+field_name: field_easter
+entity_type: doctor
+bundle: doctor
+label: Easter
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      easter: easter
+    target_bundles_drag_drop:
+      christmas:
+        weight: 15
+        enabled: false
+      cme_college:
+        weight: 16
+        enabled: false
+      cny:
+        weight: 17
+        enabled: false
+      department:
+        weight: 18
+        enabled: false
+      document:
+        weight: 19
+        enabled: false
+      easter:
+        enabled: true
+        weight: 20
+      long_answer:
+        weight: 21
+        enabled: false
+      multiple_choice:
+        weight: 22
+        enabled: false
+      open_date:
+        weight: 23
+        enabled: false
+      org_point:
+        weight: 24
+        enabled: false
+      result:
+        weight: 25
+        enabled: false
+      short_answer:
+        weight: 26
+        enabled: false
+      single_choice:
+        weight: 27
+        enabled: false
+      true_false:
+        weight: 28
+        enabled: false
+field_type: entity_reference_revisions

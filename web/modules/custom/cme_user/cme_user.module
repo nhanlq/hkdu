@@ -33,7 +33,7 @@ function cme_user_theme($existing, $type, $theme, $path) {
       'render element' => 'children',
     ],
     'cme_user_code' => [
-      'variables' => ['user' => NULL, 'qrcode' => NULL],
+      'variables' => ['user' => NULL, 'qrcode' => NULL, 'date' => NULL],
       'path' => $path . '/templates/',
       'template' => 'qrcode',
     ],
@@ -43,7 +43,19 @@ function cme_user_theme($existing, $type, $theme, $path) {
       'template' => 'admin-user-report',
     ],
     'user_report' => [
-      'variables' => ['user' => NULL, 'scores' => NULL, 'total' => NULL, 'total_study' => NULL,'total_gain_study' => NULL, 'total_lecture' => NULL, 'from'=>NULL, 'to' => NULL,'now'=>NULL, 'is_cycle'=> NULL,'config'=>NULL],
+      'variables' => [
+        'user' => NULL,
+        'scores' => NULL,
+        'total' => NULL,
+        'total_study' => NULL,
+        'total_gain_study' => NULL,
+        'total_lecture' => NULL,
+        'from' => NULL,
+        'to' => NULL,
+        'now' => NULL,
+        'is_cycle' => NULL,
+        'config' => NULL,
+      ],
       'path' => $path . '/templates/',
       'template' => 'report',
     ],
@@ -125,20 +137,20 @@ function cme_user_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
  *
  * @return false|int|string
  */
-function getCycle($user){
-  $year = date('Y',strtotime($user->get('field_cme_join_date')->value));
+function getCycle($user) {
+  $year = date('Y', strtotime($user->get('field_cme_join_date')->value));
   $current = getYear($year);
   $first = date();
-  if($current == 0){
+  if ($current == 0) {
     $first = date('Y') - 3;
   }
-  if($current == 1){
+  if ($current == 1) {
     $first = date('Y') - 1;
   }
-  if($current == 2){
+  if ($current == 2) {
     $first = date('Y') - 2;
   }
-  if($current == 3){
+  if ($current == 3) {
     $first = date('Y') - 3;
   }
 
@@ -150,32 +162,33 @@ function getCycle($user){
  *
  * @return int
  */
-function getYear($year){
+function getYear($year) {
   $now = date('Y');
   $current = $now - $year;
 
-  if($current == 0){
+  if ($current == 0) {
     return 3;
   }
-  if($current == 2){
+  if ($current == 2) {
     return 2;
   }
-  if($current == 1){
+  if ($current == 1) {
     return 1;
   }
-  if($current < 0){
-   return 0;
+  if ($current < 0) {
+    return 0;
   }
-  if($current > 3){
-   return calCycle($current);
+  if ($current > 3) {
+    return calCycle($current);
   }
 }
 
-function calCycle($year){
-  if($year <= 3){
+function calCycle($year) {
+  if ($year <= 3) {
     return $year;
-  }else{
-    $now = $year -3;
+  }
+  else {
+    $now = $year - 3;
   }
   return calCycle($now);
 }

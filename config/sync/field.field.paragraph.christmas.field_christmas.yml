@@ -1,0 +1,37 @@
+uuid: 3ebbbc4a-581c-4ba2-adf6-7216266b68c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_christmas
+    - paragraphs.paragraphs_type.christmas
+    - taxonomy.vocabulary.christmas
+  module:
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: paragraph.christmas.field_christmas
+field_name: field_christmas
+entity_type: paragraph
+bundle: christmas
+label: Christmas
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      christmas: christmas
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,30 @@
+uuid: bad5c225-1f1b-44f6-bab3-bd3cb5dc6d98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_christmas_day_confirm
+    - taxonomy.vocabulary.christmas
+  module:
+    - doctor
+id: doctor.doctor.field_christmas_day_confirm
+field_name: field_christmas_day_confirm
+entity_type: doctor
+bundle: doctor
+label: 'Christmas Day Confirm'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      christmas: christmas
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
