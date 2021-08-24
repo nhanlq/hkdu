@@ -114,7 +114,7 @@ id="cny_date" class="collapse">';
     $form['field_christmas_day_confirm']['#suffix'] = '</div></div>';
 
     $form['field_speciality']['#prefix'] = '<div class="form_clinic_address"><a href="#speciality"
-data-toggle="collapse">Specialty - 地址</a><div
+data-toggle="collapse">Specialty - 專科</a><div
 id="speciality" class="collapse">';
     $form['field_speciality']['#suffix'] = '</div></div>';
 

@@ -2285,13 +2285,10 @@ tr .ajax-progress-throbber .throbber {
 }
 
 .user-picture .picture {
-  background: #4560B0;
   margin-left: auto;
   margin-right: auto;
   display: block;
   padding: 20px;
-  border-radius: 0 0 45% 45%;
-  border-bottom: 10px solid lightgrey;
 }
 
 .sale-left {
@@ -2320,13 +2317,13 @@ tr .ajax-progress-throbber .throbber {
 }
 
 .user-qrcode {
-  width: 380px;
-  border: 1px solid grey;
+  width: 364px;
   padding-bottom: 30px;
-  border-radius: 5px;
-  border-bottom: 4px solid #4560B0;
   margin-right: auto;
   margin-left: auto;
+  background-image: url("../images/e-member-card.svg");
+  background-position: top center;
+  height: 709px;
 }
 
 .path-account .logo-register {
@@ -2342,20 +2339,34 @@ tr .ajax-progress-throbber .throbber {
 }
 
 .qrcode img {
-  width: 200px;
+  width: 180px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .user-picture {
   text-align: center;
+ position: relative;
+}
 
+.user-picture .image-radius{
+  margin-top: 110px;
 }
 
 .user-picture .picture img {
   border-radius: 100px;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
+}
+.card-name{
+  margin-top: 70px;
+  font-size: 20px;
+  font-weight: normal;
+}
+.card-code{
+  margin-top: 5px;
+  font-weight: normal;
+  font-size: 22px;
 }
 
 .user-picture p {
@@ -2363,12 +2374,17 @@ tr .ajax-progress-throbber .throbber {
 }
 
 .user-picture .qrcode {
-  margin-top: 40px;
+  margin-top: 0px;
   margin-left: auto;
   margin-right: auto;
   display: block;
   text-align: center;
   width: 250px;
+}
+.timestamp{
+  font-size: 14px;
+  margin-top: 10px;
+  color: #ffffff;
 }
 
 
