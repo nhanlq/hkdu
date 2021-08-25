@@ -90,9 +90,8 @@ class ImportUser extends FormBase {
             $user->set('field_mchk_license', $data['E']);
             $user->set('field_membership_type', ['target->id'=>$this->createType
             ('membership_type',$data['I'])]);
-            $user->set('field_referee', $data['Q']);
+            $user->set('field_referee', $data['Q'].' '.$data['P']);
             $user->set('field_clinic_id', ['target_id'=>$data['Q']]);
-            $user->set('field_referee_name', $data['P']);
             $user->set('field_specialist_fellow_number', $data['O']);
             $user->set('field_hkdu_subscription_period', $data['J']);
             $userRolesArray = explode(',', $data['H']);//role id
@@ -141,9 +140,8 @@ class ImportUser extends FormBase {
             $user->set('field_mchk_license', $data['E']);
             $user->set('field_membership_type', ['target->id'=>$this->createType
             ('membership_type',$data['I'])]);
-            $user->set('field_referee', $data['Q']);
+            $user->set('field_referee', $data['Q'].' '.$data['P']);
             $user->set('field_clinic_id', ['target_id'=>$data['Q']]);
-            $user->set('field_referee_name', $data['P']);
             $user->set('field_specialist_fellow_number', $data['O']);
             $user->set('field_hkdu_subscription_period', $data['J']);
             $user->set('status', $data['D']);

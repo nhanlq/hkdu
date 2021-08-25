@@ -15,12 +15,12 @@ third_party_settings:
     use_ajax: 0
     message: ''
   field_display_label:
-    display_label: 'Referee and contact No.'
+    display_label: 'Referee Name and contact No.'
 id: user.user.field_referee
 field_name: field_referee
 entity_type: user
 bundle: user
-label: 'Referee and contact No.'
+label: 'Referee Name and contact No.'
 description: ''
 required: false
 translatable: false
