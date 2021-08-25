@@ -94,7 +94,15 @@ function cme_user_form_alter(
     unset($form['field_guide_info']);
     $user = \Drupal::currentUser();
 
-    if(!in_array('administrator', $user->getRoles()) || !in_array('admins', $user->getRoles())){
+    if(in_array('administrator', $user->getRoles()) || in_array('admins', $user->getRoles())){
+      $form['field_cme_join_date']['widget'][0]['value']['#attributes']['disabled'] = FALSE;
+      $form['field_expired']['widget'][0]['value']['#attributes']['disabled'] = FALSE;
+      $form['field_hkdu_administrator']['widget']['value']['#attributes']['disabled'] = FALSE;
+      $form['field_registration_no']['widget'][0]['value']['#attributes']['disabled'] = FALSE;
+      $form['field_hkdu_subscription_period']['widget'][0]['value']['#attributes']['disabled'] = FALSE;
+      $form['field_mchk_license']['widget'][0]['value']['#attributes']['disabled'] = FALSE;
+      $form['field_membership_type']['widget']['#attributes']['disabled'] = FALSE;
+    }else{
       $form['field_cme_join_date']['widget'][0]['value']['#attributes']['disabled'] = TRUE;
       $form['field_expired']['widget'][0]['value']['#attributes']['disabled'] = TRUE;
       $form['field_hkdu_administrator']['widget']['value']['#attributes']['disabled'] = TRUE;
@@ -103,7 +111,6 @@ function cme_user_form_alter(
       $form['field_mchk_license']['widget'][0]['value']['#attributes']['disabled'] = TRUE;
       $form['field_membership_type']['widget']['#attributes']['disabled'] = TRUE;
     }
-   // var_dump($form['field_hkdu_administrator']);
   }
 }
 
