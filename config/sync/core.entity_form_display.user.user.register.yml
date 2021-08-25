@@ -43,10 +43,10 @@ third_party_settings:
         - field_first_name
         - field_last_name
         - field_contact_number
-        - field_registration_no
         - field_mchk_license
-        - field_membership_type
         - field_specialist_fellow_number
+        - field_registration_no
+        - field_membership_type
         - field_referee
         - field_policy
       parent_name: ''
@@ -102,7 +102,7 @@ content:
     third_party_settings: {  }
   field_mchk_license:
     type: string_textfield
-    weight: 7
+    weight: 6
     region: content
     settings:
       size: 60
@@ -110,7 +110,7 @@ content:
     third_party_settings: {  }
   field_membership_type:
     type: options_select
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -130,7 +130,7 @@ content:
     third_party_settings: {  }
   field_registration_no:
     type: string_textfield
-    weight: 6
+    weight: 8
     region: content
     settings:
       size: 60
@@ -138,7 +138,7 @@ content:
     third_party_settings: {  }
   field_specialist_fellow_number:
     type: string_textfield
-    weight: 9
+    weight: 7
     region: content
     settings:
       size: 60
