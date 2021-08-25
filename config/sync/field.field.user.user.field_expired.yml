@@ -6,12 +6,16 @@ dependencies:
     - field.storage.user.field_expired
   module:
     - datetime
+    - field_display_label
     - user
+third_party_settings:
+  field_display_label:
+    display_label: 'HKDU Subscription Expired'
 id: user.user.field_expired
 field_name: field_expired
 entity_type: user
 bundle: user
-label: Expired
+label: 'HKDU Subscription Expired'
 description: ''
 required: false
 translatable: false
