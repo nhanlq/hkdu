@@ -2357,11 +2357,17 @@ tr .ajax-progress-throbber .throbber {
   border-radius: 100px;
   width: 154px;
   height: 154px;
+  margin-right: 3px;
+  margin-top: 1px;
 }
 .card-name{
   margin-top: 65px;
   font-size: 20px;
   font-weight: normal;
+}
+input[type="date"].form-control, input[type="time"].form-control, input[type="datetime-local"].form-control, input[type="month"].form-control {
+  line-height: 20px;
+  padding: 0px 5px;
 }
 .card-code{
   margin-top: 5px;
