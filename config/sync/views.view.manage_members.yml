@@ -1,6 +1,6 @@
 uuid: 5f50fba6-fb22-4b46-a201-b00e848b772d
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - field.storage.user.field_clinic_id
