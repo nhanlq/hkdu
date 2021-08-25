@@ -62,13 +62,9 @@ content:
     region: content
   field_college:
     weight: 15
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete_tags
+    type: options_select
     region: content
   field_contact_number:
     weight: 4
