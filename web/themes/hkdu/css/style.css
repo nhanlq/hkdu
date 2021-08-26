@@ -2392,7 +2392,21 @@ input[type="date"].form-control, input[type="time"].form-control, input[type="da
   margin-top: 10px;
   color: #ffffff;
 }
-
+.tab-content th {
+  font-size: 15px;
+  color: #000;
+  padding: 10px 10px;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+.tab-content td {
+  font-size: 15px;
+  color: #555555;
+  padding: 10px 10px;
+}
+.tab-content td.first {
+  background-color: #f0f0f0;
+}
 
 .fLaWbo {
   display: inline-block;
