@@ -9,25 +9,22 @@
                     <img src="/themes/hkdu/images/no_image.png"/>
                 {% endif %}
             </div>
-            <p>
+            <div class="card-name">
                 {% if user.field_first_name is not empty %}
                     {{ user.field_first_name.value }}
                 {% endif %}
-                {% if user.field_last_name is not empty %}
-                    {{ user.field_last_name.value }}
-                {% endif %}
-            </p>
-            <p>
+{#                {% if user.field_last_name is not empty %}#}
+{#                    {{ user.field_last_name.value }}#}
+{#                {% endif %}#}
+            </div>
+            <div class="card-code">
                 HKDU# {% if user.field_registration_no is not empty %}{{ user.field_registration_no.value }}{% else %}N/A
-                {% endif %}</p>
+                {% endif %}</div>
         </div>
         <div class="qrcode">
-            <p>HKDU e-Membership Card</p>
             {{ qrcode }}
 
         </div>
-    </div>
-    <div class="logo-register">
-        <a href="/"><img src="/themes/hkdu/images/logo.png"/></a>
+      <div class="timestamp">{{ date }}</div>
     </div>
 </div>

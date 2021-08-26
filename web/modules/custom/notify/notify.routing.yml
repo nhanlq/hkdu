@@ -1,7 +1,30 @@
 notify.assign:
-  path: '/admin/{id}/assign'
+  path: '/admin/{id}/{type}/assign'
   defaults:
     _form: '\Drupal\notify\Form\Assign'
     _title: 'Assign'
   requirements:
-    _access: 'TRUE'
+    _permission: 'assign notify'
+
+notify.notification_controller_notification:
+  path: '/notifications'
+  defaults:
+    _controller: '\Drupal\notify\Controller\NotificationController::notification'
+    _title: 'Notifications'
+  requirements:
+    _permission: 'access notify'
+
+notify.update_controller_update:
+  path: '/notify/{id}/update'
+  defaults:
+    _controller: '\Drupal\notify\Controller\UpdateController::update'
+    _title: 'Update Notify'
+  requirements:
+    _permission: 'access notify'
+notify.user_notify:
+  path: '/admin/hkdu/notify/config'
+  defaults:
+    _form: '\Drupal\notify\Form\UserNotify'
+    _title: 'User Notification Settings'
+  requirements:
+    _permission: 'access notify'

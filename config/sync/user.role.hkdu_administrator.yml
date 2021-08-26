@@ -4,9 +4,10 @@ status: true
 dependencies: {  }
 id: hkdu_administrator
 label: 'HKDU Administrator'
-weight: -5
+weight: -4
 is_admin: null
 permissions:
+  - 'access notify'
   - 'access user profiles'
   - 'manage cme'
   - 'view published banner entity entities'

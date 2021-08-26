@@ -1,0 +1,30 @@
+uuid: cc157e04-4cdc-4c1e-803a-2d50386138a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_easter_day_confirm
+    - taxonomy.vocabulary.easter
+  module:
+    - doctor
+id: doctor.doctor.field_easter_day_confirm
+field_name: field_easter_day_confirm
+entity_type: doctor
+bundle: doctor
+label: 'Easter Day Confirm'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      easter: easter
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

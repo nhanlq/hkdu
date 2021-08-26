@@ -31,6 +31,7 @@ permissions:
   - 'access media_directories_editor_browser entity browser pages'
   - 'access media_directories_modal entity browser pages'
   - 'access media_directories_overview entity browser pages'
+  - 'access notify'
   - 'access pbt settings'
   - 'access private fields'
   - 'access profile overview'
@@ -322,6 +323,7 @@ permissions:
   - 'administer views'
   - 'administer workflows'
   - administer_mailsystem
+  - 'assign notify'
   - 'bulk generate commerce_promotion_coupon'
   - 'bypass node access'
   - 'bypass rules access'

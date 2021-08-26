@@ -3,22 +3,50 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.doctor.doctor.field_affiliation_hospital
+    - field.field.doctor.doctor.field_basic_qualifications
+    - field.field.doctor.doctor.field_christmas
+    - field.field.doctor.doctor.field_christmas_day_confirm
     - field.field.doctor.doctor.field_clinic_address
     - field.field.doctor.doctor.field_clinic_address_cn
     - field.field.doctor.doctor.field_clinic_distric
     - field.field.doctor.doctor.field_clinic_doctor
     - field.field.doctor.doctor.field_clinic_email
+    - field.field.doctor.doctor.field_clinic_fax
     - field.field.doctor.doctor.field_clinic_location
+    - field.field.doctor.doctor.field_clinic_name
     - field.field.doctor.doctor.field_clinic_phone
     - field.field.doctor.doctor.field_clinic_title_cn
     - field.field.doctor.doctor.field_cny_confirm
     - field.field.doctor.doctor.field_cny_date
+    - field.field.doctor.doctor.field_correspondence_address
+    - field.field.doctor.doctor.field_easter
+    - field.field.doctor.doctor.field_easter_day_confirm
+    - field.field.doctor.doctor.field_email
+    - field.field.doctor.doctor.field_emergency_service
+    - field.field.doctor.doctor.field_emergency_service_contact
+    - field.field.doctor.doctor.field_fax
+    - field.field.doctor.doctor.field_gender
+    - field.field.doctor.doctor.field_insurance_scheme_supported
+    - field.field.doctor.doctor.field_joining_iteration
+    - field.field.doctor.doctor.field_language
+    - field.field.doctor.doctor.field_medical_cards_supported
+    - field.field.doctor.doctor.field_membership_no
+    - field.field.doctor.doctor.field_mobile
     - field.field.doctor.doctor.field_name_card
     - field.field.doctor.doctor.field_normal_days
+    - field.field.doctor.doctor.field_out_going_services
+    - field.field.doctor.doctor.field_payment_cards
+    - field.field.doctor.doctor.field_photo
+    - field.field.doctor.doctor.field_professional_qualification
+    - field.field.doctor.doctor.field_recognized_specialties
+    - field.field.doctor.doctor.field_registration_no
+    - field.field.doctor.doctor.field_speciality
+    - field.field.doctor.doctor.field_vaccine_service
+    - field.field.doctor.doctor.field_wechat
     - field.field.doctor.doctor.field_weight
-    - workflows.workflow.editorial
+    - field.field.doctor.doctor.field_whatsapp
   module:
-    - content_moderation
     - doctor
     - google_map_field
     - inline_entity_form
@@ -29,6 +57,25 @@ targetEntityType: doctor
 bundle: doctor
 mode: default
 content:
+  field_christmas:
+    type: inline_entity_form_simple
+    weight: 15
+    settings:
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+    third_party_settings: {  }
+    region: content
+  field_christmas_day_confirm:
+    weight: 16
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
   field_clinic_address:
     type: string_textfield
     weight: 2
@@ -108,9 +155,28 @@ content:
       collapsed: false
     third_party_settings: {  }
     region: content
+  field_easter:
+    type: inline_entity_form_simple
+    weight: 13
+    settings:
+      form_mode: default
+      revision: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+    third_party_settings: {  }
+    region: content
+  field_easter_day_confirm:
+    weight: 14
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
   field_name_card:
     type: media_library_widget
-    weight: 13
+    weight: 17
     settings:
       media_types: {  }
     third_party_settings: {  }
@@ -128,8 +194,18 @@ content:
       collapsed: false
     third_party_settings: {  }
     region: content
+  field_speciality:
+    weight: 18
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
+    region: content
   field_weight:
-    weight: 17
+    weight: 21
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -137,7 +213,7 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 14
+    weight: 19
     region: content
     settings:
       include_locked: true
@@ -158,7 +234,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 16
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }

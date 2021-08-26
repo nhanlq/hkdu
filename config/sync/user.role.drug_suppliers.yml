@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: drug_suppliers
 label: 'Drug Suppliers'
-weight: -3
+weight: -2
 is_admin: null
 permissions:
   - 'access administration pages'
@@ -12,6 +12,7 @@ permissions:
   - 'access epharm'
   - 'access hkdu epharm'
   - 'access media directories ui browser'
+  - 'access notify'
   - 'access suppliers epharm'
   - 'access toolbar'
   - 'access user profiles'

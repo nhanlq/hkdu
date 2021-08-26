@@ -1,0 +1,36 @@
+uuid: 89d1df0f-e7fe-441d-8f22-cef7287ce167
+langcode: en
+status: true
+dependencies:
+  module:
+    - notify
+    - user
+  theme:
+    - hkdu
+id: notify
+theme: hkdu
+region: notify
+weight: 0
+provider: null
+plugin: notify
+settings:
+  id: notify
+  label: Notify
+  provider: notify
+  label_display: '0'
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      administrator: administrator
+      admins: admins
+      doctor: doctor
+      hkdu_administrator: hkdu_administrator
+      hkdu_members: hkdu_members
+      drug_suppliers: drug_suppliers
+      council_members: council_members
+      cme_member: cme_member
+      content_reviewer: content_reviewer
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

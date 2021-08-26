@@ -1,0 +1,70 @@
+uuid: dbd7c1b0-22bd-4c45-92ed-25bac7f172df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.doctor.field_christmas
+    - paragraphs.paragraphs_type.christmas
+  module:
+    - doctor
+    - entity_reference_revisions
+id: doctor.doctor.field_christmas
+field_name: field_christmas
+entity_type: doctor
+bundle: doctor
+label: Christmas
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      christmas: christmas
+    target_bundles_drag_drop:
+      christmas:
+        enabled: true
+        weight: 15
+      cme_college:
+        weight: 16
+        enabled: false
+      cny:
+        weight: 17
+        enabled: false
+      department:
+        weight: 18
+        enabled: false
+      document:
+        weight: 19
+        enabled: false
+      easter:
+        weight: 20
+        enabled: false
+      long_answer:
+        weight: 21
+        enabled: false
+      multiple_choice:
+        weight: 22
+        enabled: false
+      open_date:
+        weight: 23
+        enabled: false
+      org_point:
+        weight: 24
+        enabled: false
+      result:
+        weight: 25
+        enabled: false
+      short_answer:
+        weight: 26
+        enabled: false
+      single_choice:
+        weight: 27
+        enabled: false
+      true_false:
+        weight: 28
+        enabled: false
+field_type: entity_reference_revisions

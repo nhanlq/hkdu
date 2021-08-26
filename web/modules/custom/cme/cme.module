@@ -33,3 +33,66 @@ function cme_theme() {
     ],
   ];
 }
+
+/**
+ * Implement hook_cron
+ */
+function cme_cron() {
+  //check user expired exist
+  $ids = \Drupal::entityQuery('user')
+    ->condition('status',1)
+    ->condition('roles','hkdu_members')
+    ->condition('field_membership_type',getTaxonomyMember('Life Member'),'<>')
+    ->execute();
+  $users = \Drupal\user\Entity\User::loadMultiple($ids);
+  foreach($users as $user){
+    //check exist expired date
+    if($user->get('field_expired')->value !== NULL){
+      $expired = strtotime($user->get('field_expired')->value);
+      if($expired < time()){
+        $user->removeRole('hkdu_members');
+        $user->addRole('doctor');
+        $user->set('field_membership_type',['target_id'=>getTaxonomyMember('Non Member')]);
+        $user->save();
+      }
+    }else{
+      //set expired;
+      if($user->get('field_cme_join_date')->value !== NULL){
+        $expire = strtotime($user->get('field_cme_join_date')->value) + (365 * 86400);
+        \Drupal::logger('cme')->info(date('Y-m-d',$expire));
+        $user->set('field_expired',date('Y-m-d', $expire));
+        if($expire < time()){
+          $user->removeRole('hkdu_members');
+          $user->addRole('doctor');
+          $user->set('field_membership_type',['target_id'=>getTaxonomyMember('Non Member')]);
+        }
+        $user->save();
+      }else{
+        if(date('m') < 7){
+          $join = date('Y').'-01-01';
+        }else{
+          $join = date('Y').'-07-01';
+        }
+        $expire = strtotime($join) + (365 * 86400);
+        $user->set('field_cme_join_date',date('Y-m-d',strtotime($join)));
+        $user->set('field_expired',date('Y-m-d',$expire));
+        $user->save();
+      }
+    }
+
+    \Drupal::logger('cme')->info('User '.$user->get('mail')->value.' just update expired date');
+  }
+}
+
+/**
+ * @param $name
+ *
+ * @return false|mixed
+ */
+function getTaxonomyMember($name){
+  $ids = \Drupal::entityQuery('taxonomy_term')
+    ->condition('status',1)
+    ->condition('name',$name)
+    ->execute();
+  return reset($ids);
+}

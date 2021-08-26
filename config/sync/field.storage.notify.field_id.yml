@@ -1,0 +1,24 @@
+uuid: 9ae7b4a8-5d41-4809-a74d-46d5a6819ba9
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - notify
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: notify.field_id
+field_name: field_id
+entity_type: notify
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,6 +1,12 @@
 add notify entities:
   title: 'Create new Notify entities'
 
+assign notify:
+  title: 'Assign Notify'
+
+access notify:
+  title: 'Access Notify'
+
 administer notify entities:
   title: 'Administer Notify entities'
   description: 'Allow to access the administration form to configure Notify entities.'
@@ -28,4 +34,35 @@ revert all notify revisions:
 delete all notify revisions:
   title: 'Delete all revisions'
   description: 'Role requires permission to <em>view Notify revisions</em> and <em>delete rights</em> for notify entities in question or <em>administer notify entities</em>.'
+
+add user notify entities:
+  title: 'Create new User notify entities'
+
+administer user notify entities:
+  title: 'Administer User notify entities'
+  description: 'Allow to access the administration form to configure User notify entities.'
+  restrict access: true
+
+delete user notify entities:
+  title: 'Delete User notify entities'
+
+edit user notify entities:
+  title: 'Edit User notify entities'
+
+view published user notify entities:
+  title: 'View published User notify entities'
+
+view unpublished user notify entities:
+  title: 'View unpublished User notify entities'
+
+view all user notify revisions:
+  title: 'View all User notify revisions'
+
+revert all user notify revisions:
+  title: 'Revert all User notify revisions'
+  description: 'Role requires permission <em>view User notify revisions</em> and <em>edit rights</em> for user notify entities in question or <em>administer user notify entities</em>.'
+
+delete all user notify revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view User notify revisions</em> and <em>delete rights</em> for user notify entities in question or <em>administer user notify entities</em>.'
 

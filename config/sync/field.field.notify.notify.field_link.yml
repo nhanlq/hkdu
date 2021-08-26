@@ -1,0 +1,27 @@
+uuid: ca55a199-4c19-44ca-b3c6-25b2fab53c03
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.notify.field_link
+  module:
+    - notify
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: notify.notify.field_link
+field_name: field_link
+entity_type: notify
+bundle: notify
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

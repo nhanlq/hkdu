@@ -6,12 +6,16 @@ dependencies:
     - field.storage.user.field_college
     - taxonomy.vocabulary.cme_college
   module:
+    - field_display_label
     - user
+third_party_settings:
+  field_display_label:
+    display_label: 'Academy College'
 id: user.user.field_college
 field_name: field_college
 entity_type: user
 bundle: user
-label: College
+label: 'Academy College'
 description: ''
 required: false
 translatable: false

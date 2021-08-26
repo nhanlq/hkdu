@@ -1,4 +1,4 @@
-uuid: b2c61229-8dc6-48c9-9893-c2663b0ef8d5
+uuid: 7b70c0ba-71b1-4879-9b98-80fd851f29ee
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,6 @@ dependencies:
     - field.storage.notify.field_type
   module:
     - notify
-    - options
     - unique_field_ajax
 third_party_settings:
   unique_field_ajax:
@@ -25,4 +24,4 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: list_string
+field_type: string

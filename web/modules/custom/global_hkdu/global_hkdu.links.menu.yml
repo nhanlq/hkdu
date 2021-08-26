@@ -53,3 +53,10 @@ global_hkdu.admin_hkdu_global_config:
   parent: 'global_hkdu.admin_hkdu'
   description: 'Administer global configuration.'
   weight: -10
+
+global_hkdu.admin_notify_hkdu_global_config:
+  title: 'Notification Settings'
+  route_name: 'notify.user_notify'
+  parent: 'global_hkdu.admin_hkdu_global_config'
+  description: 'Administer global configuration.'
+

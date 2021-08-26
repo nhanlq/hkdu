@@ -1,0 +1,25 @@
+uuid: aac9d8ad-0d40-4bbc-87e4-b3f3300251d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_expired
+  module:
+    - datetime
+    - field_display_label
+    - user
+third_party_settings:
+  field_display_label:
+    display_label: 'HKDU Subscription Expired'
+id: user.user.field_expired
+field_name: field_expired
+entity_type: user
+bundle: user
+label: 'HKDU Subscription Expired'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,45 @@
+{#
+/**
+ * @file notify.html.twig
+ * Default theme implementation to present Notify data.
+ *
+ * This template is used when viewing Notify pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_notify()
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="notify-wrapper">
+  {% if users %}
+    <table class="notification-list">
+      <thead>
+      <th>#ID</th>
+      <th>Reviewers</th>
+      <th>Article Page</th>
+      <th>Edit</th>
+      </thead>
+      <tbody>
+      {% for user in users %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ user.field_user.entity.field_first_name.value }}({{ user.field_user.entity.mail.value }})</td>
+          <td>
+            {{ user.typeData|join(', ') }}
+          </td>
+          <td><a
+              href="/admin/structure/user_notify/{{ user.id.value }}/edit?destination=/admin/hkdu/notify/config">Edit</a>
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No user has added.</p>
+  {% endif %}
+</div>

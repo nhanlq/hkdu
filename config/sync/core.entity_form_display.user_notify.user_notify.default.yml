@@ -1,0 +1,56 @@
+uuid: 16cd6761-0fb6-45b8-806b-85cb6f3aa629
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user_notify.user_notify.field_type
+    - field.field.user_notify.user_notify.field_user
+  module:
+    - notify
+id: user_notify.user_notify.default
+targetEntityType: user_notify
+bundle: user_notify
+mode: default
+content:
+  field_type:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_user:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

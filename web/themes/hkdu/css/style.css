@@ -1505,6 +1505,31 @@ form.search {
   /*top: -30px;*/
   right: -7px;
 }
+.notify{
+  width: 30px;
+  float: right;
+  margin-right: 20px;
+  margin-top: 16px;
+  position: relative;
+}
+.notify a{
+  position: relative;
+}
+.notify a span{
+  font-size: 12px;
+  position: absolute;
+  top: -6px;
+  width: 21px;
+  background: red;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  padding-bottom: 2px;
+  left:12px
+}
+table.notification-list, table.notification-list th, table.notification-list tr, table.notification-list td{
+  padding: 10px;
+}
 
 .eRWLLE {
   color: rgba(0, 0, 0, 0.4);
@@ -2260,13 +2285,10 @@ tr .ajax-progress-throbber .throbber {
 }
 
 .user-picture .picture {
-  background: #4560B0;
   margin-left: auto;
   margin-right: auto;
   display: block;
   padding: 20px;
-  border-radius: 0 0 45% 45%;
-  border-bottom: 10px solid lightgrey;
 }
 
 .sale-left {
@@ -2295,13 +2317,13 @@ tr .ajax-progress-throbber .throbber {
 }
 
 .user-qrcode {
-  width: 380px;
-  border: 1px solid grey;
+  width: 364px;
   padding-bottom: 30px;
-  border-radius: 5px;
-  border-bottom: 4px solid #4560B0;
   margin-right: auto;
   margin-left: auto;
+  background-image: url("../images/e-member-card.svg");
+  background-position: top center;
+  height: 709px;
 }
 
 .path-account .logo-register {
@@ -2317,20 +2339,40 @@ tr .ajax-progress-throbber .throbber {
 }
 
 .qrcode img {
-  width: 200px;
+  width: 180px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .user-picture {
   text-align: center;
+ position: relative;
+}
 
+.user-picture .image-radius{
+  margin-top: 108px;
 }
 
 .user-picture .picture img {
   border-radius: 100px;
-  width: 200px;
-  height: 200px;
+  width: 154px;
+  height: 154px;
+  margin-right: 3px;
+  margin-top: 1px;
+}
+.card-name{
+  margin-top: 65px;
+  font-size: 20px;
+  font-weight: normal;
+}
+input[type="date"].form-control, input[type="time"].form-control, input[type="datetime-local"].form-control, input[type="month"].form-control {
+  line-height: 20px;
+  padding: 0px 5px;
+}
+.card-code{
+  margin-top: 5px;
+  font-weight: normal;
+  font-size: 22px;
 }
 
 .user-picture p {
@@ -2338,12 +2380,17 @@ tr .ajax-progress-throbber .throbber {
 }
 
 .user-picture .qrcode {
-  margin-top: 40px;
+  margin-top: 0px;
   margin-left: auto;
   margin-right: auto;
   display: block;
   text-align: center;
   width: 250px;
+}
+.timestamp{
+  font-size: 14px;
+  margin-top: 10px;
+  color: #ffffff;
 }
 
 
@@ -2732,7 +2779,10 @@ a .date, a .author {
 .open .nav-tabs > li.active > a {
   background-color: rgb(69, 96, 176);
   color: white !important;
-  font-size: 16px;
+  font-size: 13px;
+}
+.open .nav > li > a {
+  padding: 5px 10px;
 }
 
 .open .nav-tabs > li > a {
@@ -2740,7 +2790,7 @@ a .date, a .author {
   line-height: 1.42857143;
   border: 1px solid #ddd;
   border-radius: 4px 4px 0 0;
-  font-size: 16px;
+  font-size: 13px;
   color: #555555;
 }
 
@@ -3164,6 +3214,11 @@ article.js-comment footer .created-comment {
     margin-right: 145px;
     display: block!important;
   }
+  .region-notify{
+    position: absolute;
+    right: 20px;
+
+  }
 
   #user-tray {
     position: absolute;
@@ -3284,6 +3339,10 @@ article.js-comment footer .created-comment {
 @media screen and (min-width: 992px) {
   .fSsnif .end {
     margin-right: 0px !important;
+  }
+  .region-notify{
+    width: 50px;
+    float: right;
   }
 
   .fSsnif .event {
@@ -3851,6 +3910,13 @@ article.js-comment footer .created-comment {
 }
 .navbar-header{
   position: relative;
+}
+tr.unread{
+  color:rgb(69, 96, 176);
+  font-weight: 600;
+}
+.unread td b{
+  color: #191970;
 }
 
 

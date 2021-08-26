@@ -1,0 +1,60 @@
+uuid: d8cac0f5-6e03-4ef4-ad1d-3cf70b4f35bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - notify
+    - options
+id: user_notify.field_type
+field_name: field_type
+entity_type: user_notify
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: clinical_focus
+      label: 'Clinical Focus'
+    -
+      value: drug_news
+      label: 'Drug News'
+    -
+      value: special_offer
+      label: 'Special Offer'
+    -
+      value: pharm_dir
+      label: 'Pharm Dir'
+    -
+      value: forum
+      label: Forum
+    -
+      value: ads
+      label: 'Classified Ads'
+    -
+      value: know
+      label: 'Dug Databases'
+    -
+      value: bulletin
+      label: Bulletin
+    -
+      value: committee_news
+      label: 'Committee News'
+    -
+      value: member_article
+      label: 'Council News'
+    -
+      value: event_calendar
+      label: 'Event Calendar'
+    -
+      value: faq
+      label: FAQ
+    -
+      value: image_gallery
+      label: 'Image Gallery'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
