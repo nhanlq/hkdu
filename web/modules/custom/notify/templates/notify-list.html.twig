@@ -42,12 +42,12 @@
             Read
           {% endif %}
         </td>
-        <td><a class="update-notification" data-id="{{ notify.id.value }}" href="{{ notify.field_preview.value }}">Preview</a>
+        <td><a class="update-notification" href="notify/{{ notify.id.value }}/update?destination={{ notify.field_preview.value }}">Preview</a>
         </td>
         {% if 'Your' in notify.name.value %}
           <td>&nbsp;</td>
         {% else %}
-          <td><a class="update-notification-edit" data-id="{{ notify.id.value }}" href="{{ notify.field_link.value }}">Edit</a>
+          <td><a class="update-notification-edit" href="/notify/{{ notify.id.value }}/update?destination={{ notify.field_link.value }}">Edit</a>
           </td>
         {% endif %}
         </tr>
