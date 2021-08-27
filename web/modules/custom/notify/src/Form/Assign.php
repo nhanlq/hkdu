@@ -129,6 +129,9 @@ class Assign extends FormBase {
       if ($type == 'pharm_dir') {
         $entity = \Drupal\pharm_dir\Entity\PharmDir::load($id);
       }
+      if ($type == 'event') {
+        $entity = \Drupal\event\Entity\Event::load($id);
+      }
     }
     return $entity;
   }
@@ -202,6 +205,9 @@ class Assign extends FormBase {
       if ($type == 'pharm_dir') {
         $link = '/admin/hkdu/pharm-dir/'.$id.'/edit';
       }
+      if ($type == 'event') {
+        $link = '/admin/hkdu/event/'.$id.'/edit';
+      }
     }
     return $link;
   }
@@ -246,6 +252,9 @@ class Assign extends FormBase {
       }
       if ($type == 'pharm_dir') {
         $link = '/e-pharm/pharm-dir/' . $id;
+      }
+      if ($type == 'event') {
+        $link = '/e-pharm/event/' . $id;
       }
     }
     return $link;

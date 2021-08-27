@@ -68,7 +68,6 @@ function createNotify($uid = NULL, $id, $type) {
   }
 
   if ($uid) {
-    $user = \Drupal\user\Entity\User::load($uid);
     $notify = Notify::create([
       'name' => 'Your article in '.mappTypeName($id, $type) . ' has been approved. ',
       'field_link' => getLink($id, $type),
@@ -128,6 +127,9 @@ function getObject($id, $type) {
     }
     if ($type == 'pharm_dir') {
       $entity = \Drupal\pharm_dir\Entity\PharmDir::load($id);
+    }
+    if ($type == 'event') {
+      $entity = \Drupal\event\Entity\Event::load($id);
     }
   }
   return $entity;
@@ -201,6 +203,9 @@ function getLink($id, $type) {
     if ($type == 'pharm_dir') {
       $link = '/admin/hkdu/pharm-dir/' . $id . '/edit';
     }
+    if ($type == 'event') {
+      $link = '/admin/hkdu/event/' . $id . '/edit';
+    }
   }
   return $link;
 }
@@ -228,6 +233,9 @@ function getPreview($id, $type) {
     }
     if ($type == 'pharm_dir') {
       $link = '/e-pharm/pharm-dir/' . $id;
+    }
+    if ($type == 'event') {
+      $link = '/e-pharm/event/' . $id;
     }
   }
   return $link;
