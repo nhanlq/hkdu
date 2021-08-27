@@ -3,13 +3,14 @@
     <div width="1,200px" class="Grid__Box-f9ujw0-0 dsnieQ">
       <div width="100%" class="Input__StyledInput-sc-1kwnvoy-0 ilpLeV">
         <form action="/member-area/drug-databases" method="get" class="search">
-{#          <span class="fLrcjA">#}
-{#                    <button type="submit">#}
-{#                <i name="SEARCH" font-size="icon" color="icon" class="fa fa-search"></i> Search#}
-{#                        </button>#}
-{#            </span>#}
-          <input id="search_name" onkeyup="searchFunction()" placeholder="Name/Common Name/Company" name="name" class="cAwIuR search-drug" value="{{ name }}">
-          <select style="width: 20%;" id="drug_type" name="drug_type" class="cAwIuR">
+          {# <span class="fLrcjA"> #}
+          {# <button type="submit"> #}
+          {# <i name="SEARCH" font-size="icon" color="icon" class="fa fa-search"></i> Search #}
+          {# </button> #}
+          {# </span> #}
+          <input id="search_name" onkeyup="searchFunction()" placeholder="Name/Common Name/Company" name="name"
+                 class="cAwIuR search-drug" value="{{ name }}">
+          <select id="drug_type" name="drug_type" class="cAwIuR drug-database-input">
             <option value="name">Name</option>
             <option value="common">Common Name</option>
             <option value="company">Company</option>
@@ -21,61 +22,62 @@
     </div>
   </div>
 </div>
-<table id="drug_table" class="table-responsive drug-database">
-  <thead>
-  <tr>
-    <th scope="col">Name</th>
-    <th scope="col">Common Name</th>
-    <th scope="col">Company</th>
-    <th scope="col">Company Tel</th>
-    <th scope="col">Company Fax</th>
-    <th scope="col">Company Packing</th>
-    <th scope="col">Total Price (HKD)</th>
-    <th scope="col">Remark</th>
-  </tr>
-  </thead>
-  <tbody>
-  {% for node in article %}
+<div class="table-responsive">
+  <table id="drug_table" class=" drug-database">
+    <thead>
     <tr>
-      <td>{{ node.title.value }}</td>
-      <td>{{ node.field_common_name.value }}</td>
-      <td>{{ node.field_company.value }}</td>
-      <td>{{ node.field_company_tel.value }}</td>
-      <td>{{ node.field_company_fax.value }}</td>
-      <td>{{ node.field_packing.value }}</td>
-      <td>{{ node.field_total_price.value }}</td>
-      <td>{{ node.field_remark.value }}</td>
+      <th scope="col">Name</th>
+      <th scope="col">Common Name</th>
+      <th scope="col">Company</th>
+      <th scope="col">Company Tel</th>
+      <th scope="col">Company Fax</th>
+      <th scope="col">Company Packing</th>
+      <th scope="col">Total Price (HKD)</th>
+      <th scope="col">Remark</th>
     </tr>
-  {% endfor %}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+    {% for node in article %}
+      <tr>
+        <td>{{ node.title.value }}</td>
+        <td>{{ node.field_common_name.value }}</td>
+        <td>{{ node.field_company.value }}</td>
+        <td>{{ node.field_company_tel.value }}</td>
+        <td>{{ node.field_company_fax.value }}</td>
+        <td>{{ node.field_packing.value }}</td>
+        <td>{{ node.field_total_price.value }}</td>
+        <td>{{ node.field_remark.value }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
 
-<script>
-  function searchFunction() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("search_name");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("drug_table");
-    tr = table.getElementsByTagName("tr");
-    type = document.getElementById("drug_type");
-    for (i = 0; i < tr.length; i++) {
-      if(type.value == 'name'){
-        td = tr[i].getElementsByTagName("td")[0];
-      }else if(type.value == 'common'){
-        td = tr[i].getElementsByTagName("td")[1];
-      }
-      else{
-        td = tr[i].getElementsByTagName("td")[2];
-      }
-
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
+  <script>
+    function searchFunction() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("search_name");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("drug_table");
+      tr = table.getElementsByTagName("tr");
+      type = document.getElementById("drug_type");
+      for (i = 0; i < tr.length; i++) {
+        if (type.value == 'name') {
+          td = tr[i].getElementsByTagName("td")[0];
+        } else if (type.value == 'common') {
+          td = tr[i].getElementsByTagName("td")[1];
         } else {
-          tr[i].style.display = "none";
+          td = tr[i].getElementsByTagName("td")[2];
+        }
+
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
         }
       }
     }
-  }
-</script>
+  </script>
+</div>
