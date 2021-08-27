@@ -1,0 +1,236 @@
+/** CSS for table */
+@media (min-width: 641px) and (max-width: 1007px) {
+  .navbar.container {
+    max-width: 100%;
+  }
+  .form_clinic_address {
+    width: 100%;
+  }
+  #block-loginblock-2 {
+    margin-right: 145px;
+    display: block!important;
+  }
+  .region-notify{
+    position: absolute;
+    right: 30px;
+
+  }
+
+  #user-tray {
+    position: relative;
+    display: block!important;
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    left: 25px;
+  }
+  .lcAUJf {
+    font-size: 18px;
+    margin-right: 83px;
+    height: 33px;
+    line-height: 30px;
+    letter-spacing: normal;
+    text-decoration: none;
+    width: 100%;
+    float: left;
+  }
+
+  elect.epharm-switch {
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    padding-left: 35px;
+    background: transparent;
+    border-bottom: 0px;
+    border-top: 0px;
+    border-color: rgba(0, 0, 0, 0.05);
+    padding: 0px;
+    border: 0;
+    margin-left: -19px;
+    margin-top: 20px;
+  }
+
+  #block-menuepharmblock .epharm-switch {
+    display: none;
+  }
+
+  #block-loginblock-2 {
+    display: none;
+  }
+
+  #block-loginblock {
+    display: none;
+  }
+
+  .navbar.container {
+    max-width: 100%;
+  }
+
+  .navbar-toggle {
+    display: block !important;
+    margin-right: 0px !important;
+    margin-top: 12px;
+  }
+
+  #block-mainnavigation {
+    display: none;
+  }
+
+  #navbar-collapse {
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    width: 312px;
+    height: 100%;
+    position: fixed;
+    top: 45px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1030;
+    overflow: auto;
+    border: 0px;
+    margin-top: 10px;
+  }
+
+  .navbar-default .navbar-nav > li > a {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 14px;
+    height: 30px;
+    line-height: 60px;
+    padding-left: 16px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .navbar-default .navbar-nav > li {
+    width: 100%;
+  }
+  .col-sm-3 {
+    width: 15% !important;
+  }
+  .navbar-collapse.collapse {
+    display: none !important;
+  }
+  .navbar-collapse.collapse.in{
+    display: block!important;
+  }
+  .region-navigation{
+    width: 200px;
+    float: left;
+  }
+  .block-menu-epharm-block{
+    display: none;
+  }
+  #navbar-collapse .block-menu-epharm-block{
+    display: block;
+  }
+  .block-menu-epharm-block select {
+    -webkit-appearance: none;
+    padding: 7px 40px 7px 12px;
+    width: 97%;
+    border: 1px solid #e8eaed;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 1px 3px -2px #9098a9;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 150ms ease;
+    font-weight: bolder;
+    margin-bottom: 0px;
+  }
+  .epharm-menu-wrapper{
+    position: relative;
+  }
+  .epharm-menu-wrapper i.fa{
+    position: absolute;
+    right: 22px;
+    z-index: 28;
+    top: 9px;
+  }
+  .navbar-default .navbar-nav > li > a {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    height: 36px;
+    line-height: 30px;
+    padding-left: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    width: 80%;
+    margin-bottom: 5px;
+  }
+
+  .navbar-default .navbar > li > a:focus {
+    border-radius: 17px!important;
+    background-color: #AED6F1!important;
+  }
+  .navbar-default li.active a{
+    border-radius: 17px;
+    background-color: #AED6F1!important;
+  }
+  .block-menu-epharm-block .eXMIVa{
+    margin-left: 0px;
+  }
+  .user-tray a {
+    font-size: 16px;
+  }
+  #block-epharm-2{
+    display: none;
+  }
+  .menu--epharm > li > a, .menu--cme > li > a, .menu--member-area > li > a{
+    font-size: 16px;
+  }
+  .navbar-collapse ul.nav {
+    margin-left: 22px;
+  }
+  .menu--epharm > li > a, .menu--cme > li > a, .menu--member-area > li > a {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 16px;
+    margin-right: 16px;
+    height: 36px;
+    line-height: 36px;
+    letter-spacing: normal;
+    text-decoration: none;
+    padding: 0px 0px 0px 10px;
+    font-family: 'Noto Sans HK', sans-serif;
+  }
+  #block-cme{
+    display: none;
+  }
+  #block-memberarea{
+    display: none;
+  }
+  .sidebar-left, .sidebar-right{
+    display: none;
+  }
+  .cAwIuR{
+    margin-bottom: 20px;
+  }
+  .bSHJMg {
+    width: 50%;
+  }
+  .eclIQj{
+    bottom: 75px;
+  }
+
+
+  .field_clinic_distric {
+    width: 50%;
+    background-color: #AED6F1;
+    margin-bottom: 5px;
+  }
+  .field_cny_confirm {
+    width: 50%;
+    background-color: #AED6F1;
+    margin-bottom: 5px;
+  }
+  .form_clinic_address {
+    width: 50%;
+    background-color: #AED6F1;
+    margin-bottom: 5px;
+  }
+}

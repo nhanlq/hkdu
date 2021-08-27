@@ -1,0 +1,326 @@
+/**
+* Mobile style
+ */
+@media screen and (max-width: 640px) {
+  #block-mainnavigation, #block-epharm-2, #block-cme, #block-memberarea {
+    display: none !important;
+  }
+
+  .region-sidebar-first img {
+    max-width: 90%;
+  }
+
+  .block-menu-epharm-block select {
+    -webkit-appearance: none;
+    padding: 7px 40px 7px 12px;
+    width: 97%;
+    border: 1px solid #e8eaed;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 1px 3px -2px #9098a9;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 150ms ease;
+    font-weight: bolder;
+    margin-bottom: 0px;
+  }
+
+  body.path-cart {
+    font-size: 14px !important;
+  }
+
+  .path-cart table {
+    width: 99%;
+  }
+
+  .path-cart .table-responsive > .table > thead > tr > th,
+  .path-cart .table-responsive > .table > tbody > tr > th,
+  .path-cart .table-responsive > .table > tfoot > tr > th,
+  .path-cart .table-responsive > .table > thead > tr > td,
+  .path-cart .table-responsive > .table > tbody > tr > td,
+  .path-cart .table-responsive > .table > tfoot > tr > td {
+    white-space: inherit !important;
+  }
+
+  .navbar-header {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  #navbar-collapse {
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    width: 60%;
+    height: 100%;
+    position: fixed;
+    top: 56px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1030;
+    overflow: auto;
+    border: 0px;
+  }
+
+  .navbar-default .navbar-nav > li > a {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    height: 36px;
+    line-height: 30px;
+    padding-left: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    width: 80%;
+    margin-bottom: 5px;
+  }
+
+  .navbar-default .nav > li > a:focus {
+    border-radius: 17px!important;
+    background-color: #AED6F1!important;
+  }
+  .navbar-default li.active a{
+    border-radius: 17px;
+    background-color: #AED6F1!important;
+  }
+
+  .main-container .row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+
+  .bwndEN {
+    margin-bottom: 20px;
+  }
+
+  form.search {
+    width: 100%;
+  }
+
+  .author span, .date span {
+    width: 40%;
+    float: left;
+  }
+
+  .eXMIVa {
+    box-sizing: border-box;
+    margin-left: -10px !important;
+  }
+
+  .dYgNtr {
+    box-sizing: border-box;
+    display: block;
+    flex-direction: row;
+    width: 100%;
+    float: left;
+  }
+
+  #block-drugnewhomeblock .ixzoQI {
+    width: 100%;
+  }
+
+  .kbJbHx {
+    display: block !important;
+  }
+
+  .path-e-pharm .event.list-tags {
+    bottom: 75px;
+  }
+
+  .submit-button-result {
+    width: 100% !important;
+    float: left;
+  }
+
+  .jzqdsa {
+    margin-right: 0px !important;
+  }
+
+  .cHdsrC {
+    width: 60%;
+    line-height: 1.5;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    margin: 0px;
+  }
+
+  .kMAhQW {
+    width: 60%;
+    line-height: 1.5;
+    font-size: 18px;
+    color: white;
+    margin-top: 8px;
+  }
+
+  .path-user p, .path-user .field--item, .path-user .field--label {
+    font-size: 16px;
+  }
+
+  .path-user .label {
+    font-size: 16px !important;
+    font-weight: normal;
+  }
+
+  .path-user h2, .dlCLcZ, h1 {
+    font-size: 21px;
+    line-height: 1.42;
+    font-weight: normal;
+    margin: 0px 0px 16px;
+    border-bottom: 0px;
+  }
+
+  #block-loginblock-2 {
+    margin-right: 90px;
+    display: block;
+  }
+
+  #user-tray {
+    position: relative;
+    display: block;
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    left: 15px;
+  }
+
+  #block-loginblock {
+    display: none;
+  }
+
+  .block-menu-epharm-block {
+    display: none;
+  }
+
+  .region-notify {
+    position: absolute;
+    z-index: 19;
+    right: 20px;
+  }
+  .navbar-toggle{
+    margin-top: 12px;
+  }
+  .navbar-collapse .block-menu-epharm-block{
+    display: block;
+  }
+  .epharm-menu-wrapper{
+    position: relative;
+  }
+  .epharm-menu-wrapper i.fa{
+    position: absolute;
+    right: 22px;
+    z-index: 28;
+    top: 9px;
+  }
+  .sidebar-left{
+    padding: 0px 15px;!important;
+  }
+  .sidebar-right{
+    padding: 0px 15px;!important;
+  }
+  .navbar-toggle {
+    margin-right: -10px;
+  }
+  .region-navigation-collapsible ul.nav{
+    margin-left: 16px;
+  }
+  .user-tray a{
+    font-size: 16px;
+  }
+  .menu--epharm > li > a, .menu--cme > li > a, .menu--member-area > li > a{
+    font-size: 16px;
+  }
+  .menu--epharm > li > a, .menu--cme > li > a, .menu--member-area > li > a {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 16px;
+    margin-right: 16px;
+    height: 38px;
+    line-height: 36px;
+    letter-spacing: normal;
+    text-decoration: none;
+    padding: 0px 0px 0px 10px;
+    font-family: 'Noto Sans HK', sans-serif;
+  }
+  .sidebar-left, .sidebar-right{
+    display: none;
+  }
+  input.cAwIuR{
+    width: 96%;
+    margin-bottom: 20px;
+  }
+  i.fa-search{
+    right: 10px;
+    position: relative;
+  }
+  .cWWxaz a, .cWWxaz, .bkzBvv{
+    font-size: 16px;
+  }
+  .region-content img{
+    max-width: 100%;
+  }
+
+  .field_clinic_distric {
+    width: 100%;
+    background-color: #AED6F1;
+    margin-bottom: 5px;
+  }
+  .field_cny_confirm {
+    width: 100%;
+    background-color: #AED6F1;
+    margin-bottom: 5px;
+  }
+  .form_clinic_address {
+    width: 100%;
+    background-color: #AED6F1;
+    margin-bottom: 5px;
+  }
+  view-clinic .views-row {
+    padding: 10px;
+  }
+  .location.doctor-detail, .maps.doctor-detail,
+  .table-content-date.doctor-detail, .open.col-xs-6{
+    width: 100%;
+  }
+  .open.col-xs-6{
+    margin-top: 20px;
+  }
+  .open .nav-tabs > li > a {
+    font-size: 10px;
+  }
+  .open .nav-tabs > li.active > a {
+    font-size: 10px;
+  }
+  table .tab-content td {
+    font-size: 13px!important;
+  }
+  .tab-content th {
+    font-size: 13px!important;
+  }
+  .hFnlYM {
+    min-height: 90px;
+  }
+  .fc .fc-button{
+    font-size: 11px!important;
+  }
+  .fc .fc-toolbar-title {
+    font-size: 16px!important;
+  }
+  .comment mark{
+    display: none;
+  }
+  .cAwIuR.search-drug{
+    width: 95%!important;
+  }
+  .drug-database-input{
+    width: 95%;
+  }
+  /*.table-responsive {*/
+  /*  width: 100%;*/
+  /*  margin-bottom: 15px;*/
+  /*  overflow: scroll;*/
+  /*  -ms-overflow-style: -ms-autohiding-scrollbar;*/
+  /*  border: 1px solid #ddd;*/
+  /*}*/
+}
