@@ -50,34 +50,34 @@ function hkdu_preprocess_html(&$variables) {
 
 function hkdu_preprocess_page(&$variables) {
   $variables['#attached']['library'][] = 'hkdu/caption-hkdu';
-//  $current_path = \Drupal::service('path.current')->getPath();
-//  $path = explode('/', $current_path);
-//  $user = \Drupal::currentUser();
-//  if ($path[1] == 'cme') {
-//    $au = FALSE;
-//    if (in_array('administrator', $user->getRoles())) {
-//      $au = TRUE;
-//    }
-//    if (in_array('admins', $user->getRoles())) {
-//      $au = TRUE;
-//    }
-//    if (in_array('cme_member', $user->getRoles())) {
-//      $au = TRUE;
-//    }
-//    if (in_array('hkdu_members', $user->getRoles())) {
-//      $au = TRUE;
-//    }
-//    if (in_array('council_members', $user->getRoles())) {
-//      $au = TRUE;
-//    }
-//    if (in_array('tester', $user->getRoles())) {
-//      $au = TRUE;
-//    }
-//
-//    if($au){
-//      $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/')->toString());
-//      $redirect->send();
-//    }
+  //  $current_path = \Drupal::service('path.current')->getPath();
+  //  $path = explode('/', $current_path);
+  //  $user = \Drupal::currentUser();
+  //  if ($path[1] == 'cme') {
+  //    $au = FALSE;
+  //    if (in_array('administrator', $user->getRoles())) {
+  //      $au = TRUE;
+  //    }
+  //    if (in_array('admins', $user->getRoles())) {
+  //      $au = TRUE;
+  //    }
+  //    if (in_array('cme_member', $user->getRoles())) {
+  //      $au = TRUE;
+  //    }
+  //    if (in_array('hkdu_members', $user->getRoles())) {
+  //      $au = TRUE;
+  //    }
+  //    if (in_array('council_members', $user->getRoles())) {
+  //      $au = TRUE;
+  //    }
+  //    if (in_array('tester', $user->getRoles())) {
+  //      $au = TRUE;
+  //    }
+  //
+  //    if($au){
+  //      $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput('/')->toString());
+  //      $redirect->send();
+  //    }
   //}
 }
 
@@ -249,12 +249,12 @@ function template_preprocess_clinical_focus(array &$variables) {
   $current_user = \Drupal::currentUser();
   $current_roles = $current_user->getRoles();
   $date = time();
-  if ($date > $clinical_focus->get('field_expired')->value) {
-    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-  }
   $au = TRUE;
-  if ($clinical_focus->get('field_audience')->getValue()) {
+  if ($date > $clinical_focus->get('field_expired')->value) {
+    $au = FALSE;
+  }
 
+  if ($clinical_focus->get('field_audience')->getValue()) {
     foreach ($clinical_focus->get('field_audience')->getValue() as $audience) {
       if (!in_array($audience['value'], $current_roles)) {
         $au = FALSE;
@@ -265,7 +265,8 @@ function template_preprocess_clinical_focus(array &$variables) {
         $au = TRUE;
       }
     }
-    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles) || in_array('content_reviewer', $current_roles)) {
+    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles) || in_array('content_reviewer',
+        $current_roles)) {
       $au = TRUE;
     }
 
@@ -305,12 +306,10 @@ function template_preprocess_drug_news(array &$variables) {
   $current_roles = $current_user->getRoles();
   $date = time();
   if ($date > $drug_news->get('field_expired')->value) {
-    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+    $au = FALSE;
   }
 
   if ($drug_news->get('field_audience')->getValue()) {
-
-    $au = TRUE;
     foreach ($drug_news->get('field_audience')->getValue() as $audience) {
       if (!in_array($audience['value'], $current_roles)) {
         $au = FALSE;
@@ -321,10 +320,10 @@ function template_preprocess_drug_news(array &$variables) {
         $au = TRUE;
       }
     }
-    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles) || in_array('content_reviewer', $current_roles)) {
+    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles) || in_array('content_reviewer',
+        $current_roles)) {
       $au = TRUE;
     }
-
   }
   $user = $drug_news->getOwner();
   if (in_array('administrator', $current_roles)) {
@@ -358,8 +357,8 @@ function template_preprocess_special_offer(array &$variables) {
   $special_offer = \Drupal\special_offer\Entity\SpecialOffer::load($id);
   $current_user = \Drupal::currentUser();
   $current_roles = $current_user->getRoles();
+  $au = TRUE;
   if ($special_offer->get('field_audience')->getValue()) {
-    $au = TRUE;
     foreach ($special_offer->get('field_audience')->getValue() as $audience) {
       if (!in_array($audience['value'], $current_roles)) {
         $au = FALSE;
@@ -370,7 +369,8 @@ function template_preprocess_special_offer(array &$variables) {
         $au = TRUE;
       }
     }
-    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles) || in_array('content_reviewer', $current_roles)) {
+    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles) || in_array('content_reviewer',
+        $current_roles)) {
       $au = TRUE;
     }
 
@@ -382,14 +382,15 @@ function template_preprocess_special_offer(array &$variables) {
   if ($user->id() == $current_user->id()) {
     $au = TRUE;
   }
-  if (!$au) {
-    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-  }
+
   $roles = $user->getRoles();
   if (in_array('drug_suppliers', $current_roles)) {
     if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
-      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+      $au = FALSE;
     }
+  }
+  if (!$au) {
+    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
   }
   $variables['special_offer'] = $special_offer;
   // Helpful $content variable for templates.
@@ -407,11 +408,11 @@ function template_preprocess_event(array &$variables) {
   $current_user = \Drupal::currentUser();
   $current_roles = $current_user->getRoles();
   $date = time();
+  $au = TRUE;
   if ($date > $event->get('field_expired')->value) {
-    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+    $au = FALSE;
   }
   if ($event->get('field_audience')->getValue()) {
-    $au = TRUE;
     foreach ($event->get('field_audience')->getValue() as $audience) {
       if (!in_array($audience['value'], $current_roles)) {
         $au = FALSE;
@@ -422,7 +423,8 @@ function template_preprocess_event(array &$variables) {
         $au = TRUE;
       }
     }
-    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles) || in_array('content_reviewer', $current_roles)) {
+    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles) || in_array('content_reviewer',
+        $current_roles)) {
       $au = TRUE;
     }
 
@@ -434,14 +436,15 @@ function template_preprocess_event(array &$variables) {
   if ($user->id() == $current_user->id()) {
     $au = TRUE;
   }
-  if (!$au) {
-    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-  }
+
   $roles = $user->getRoles();
   if (in_array('drug_suppliers', $current_roles)) {
     if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
-      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+      $au = FALSE;
     }
+  }
+  if (!$au) {
+    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
   }
   $variables['event'] = $event;
   $variables['product'] = getProduct($id);
@@ -463,11 +466,12 @@ function template_preprocess_drug_search(array &$variables) {
   $current_user = \Drupal::currentUser();
   $current_roles = $current_user->getRoles();
   $date = time();
+  $au = TRUE;
   if ($date > $drug_search->get('field_expired')->value) {
-    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+    $au = FALSE;
   }
   if ($drug_search->get('field_audience')->getValue()) {
-    $au = TRUE;
+
     foreach ($drug_search->get('field_audience')->getValue() as $audience) {
       if (!in_array($audience['value'], $current_roles)) {
         $au = FALSE;
@@ -478,7 +482,8 @@ function template_preprocess_drug_search(array &$variables) {
         $au = TRUE;
       }
     }
-    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles) || in_array('content_reviewer', $current_roles)) {
+    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles) || in_array('content_reviewer',
+        $current_roles)) {
       $au = TRUE;
     }
 
@@ -490,14 +495,15 @@ function template_preprocess_drug_search(array &$variables) {
   if ($user->id() == $current_user->id()) {
     $au = TRUE;
   }
-  if (!$au) {
-    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-  }
+
   $roles = $user->getRoles();
   if (in_array('drug_suppliers', $current_roles)) {
     if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
-      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+      $au = FALSE;
     }
+  }
+  if (!$au) {
+    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
   }
   $variables['drug_search'] = $drug_search;
   // Helpful $content variable for templates.
@@ -515,8 +521,8 @@ function template_preprocess_pharm_dir(array &$variables) {
   $pharm_dir = \Drupal\pharm_dir\Entity\PharmDir::load($id);
   $current_user = \Drupal::currentUser();
   $current_roles = $current_user->getRoles();
+  $au = TRUE;
   if ($pharm_dir->get('field_audience')->getValue()) {
-    $au = TRUE;
     foreach ($pharm_dir->get('field_audience')->getValue() as $audience) {
       if (!in_array($audience['value'], $current_roles)) {
         $au = FALSE;
@@ -527,7 +533,8 @@ function template_preprocess_pharm_dir(array &$variables) {
         $au = TRUE;
       }
     }
-    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles) || in_array('content_reviewer', $current_roles)) {
+    if (in_array('admins', $current_roles) || in_array('administrator', $current_roles) || in_array('content_reviewer',
+        $current_roles)) {
       $au = TRUE;
     }
 
@@ -539,14 +546,15 @@ function template_preprocess_pharm_dir(array &$variables) {
   if ($user->id() == $current_user->id()) {
     $au = TRUE;
   }
-  if (!$au) {
-    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-  }
+
   $roles = $user->getRoles();
   if (in_array('drug_suppliers', $current_roles)) {
     if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
-      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+      $au = FALSE;
     }
+  }
+  if (!$au) {
+    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
   }
   $variables['pharm_dir'] = $pharm_dir;
   // Helpful $content variable for templates.
