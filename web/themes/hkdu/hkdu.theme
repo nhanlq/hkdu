@@ -438,7 +438,9 @@ function template_preprocess_event(array &$variables) {
   }
 
   $roles = $user->getRoles();
+  $drug = null;
   if (in_array('drug_suppliers', $current_roles)) {
+    $drug = true;
     if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
       $au = FALSE;
     }
@@ -451,6 +453,7 @@ function template_preprocess_event(array &$variables) {
   $variables['check_event'] = checkEventStatusUser($id);
   $variables['payment_upload'] = checkEventUpload($id);
   $variables['expired'] = checkExpiredEvent($event);
+  $variables['drug'] = $drug;
 
   // Helpful $content variable for templates.
   foreach (Element::children($variables['elements']) as $key) {
