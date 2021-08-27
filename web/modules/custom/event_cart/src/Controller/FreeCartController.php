@@ -17,7 +17,6 @@ class FreeCartController extends ControllerBase {
    *   Return Hello string.
    */
   public function free_cart($id, $type) {
-
       $user = \Drupal:: currentUser();
       $event = true;
       $cme_event = false;
@@ -36,11 +35,11 @@ class FreeCartController extends ControllerBase {
           $body = '';
           $url = '';
           $host = \Drupal::request()->getSchemeAndHttpHost();
-          $url = $host.'/cme/event/qrcode/'.$id.'/'.$user->id();
-          $google_qr_image_url = "https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=" . $url . '&chld=H|0';
+          $url_code = $host.'/cme/event/qrcode/'.$id.'/'.$user->id();
+          $google_qr_image_url = "https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=" . $url_code . '&chld=H|0';
 
           // Write the alternate description for the QR image.
-          $google_qr_alt = 'QR Code for '.$url;
+          $google_qr_alt = 'QR Code for '.$url_code;
 
           // Return markup, and return the block as being cached per URL path.
           $code =  array(
@@ -90,7 +89,6 @@ class FreeCartController extends ControllerBase {
           $url = '/cme/events/'.$id;
 
       }
-
           $event_tracking = \Drupal\event_tracking\Entity\EventTracking::create([
               'name' => 'Order::'.$user->getAccountName().'::Free Event',
               'field_event' => $event ? $id : null,
@@ -104,10 +102,11 @@ class FreeCartController extends ControllerBase {
 
       $redirect = new RedirectResponse(\Drupal\Core\Url::fromUserInput($url)->toString());
       $redirect->send();
+      $here = '';
 
     return [
       '#type' => 'markup',
-      '#markup' => $this->t('Implement method: free_cart with parameter(s): $id'),
+      '#markup' => $this->t('Your enrollment success. Click <a href="'.$url.'">here</a> to back to event page.'),
     ];
   }
 
