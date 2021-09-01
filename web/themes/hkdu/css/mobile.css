@@ -323,4 +323,8 @@
   /*  -ms-overflow-style: -ms-autohiding-scrollbar;*/
   /*  border: 1px solid #ddd;*/
   /*}*/
+  .ads-mobile .ads-item{
+    width: 100%;
+    margin-top: 30px;
+  }
 }

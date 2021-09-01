@@ -160,6 +160,14 @@
   </div>
 
 {% endblock %}
+{# ads mobile #}
+      {% if page.ads_mobile %}
+        {% block ads_mobile %}
+          <aside class="ads-mobile" role="complementary">
+            {{ page.ads_mobile }}
+          </aside>
+        {% endblock %}
+      {% endif %}
 
 
 {% if page.footer %}

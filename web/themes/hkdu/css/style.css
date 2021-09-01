@@ -3647,6 +3647,9 @@ tr.unread{
   .drug-database-input{
     width: 20%;
   }
+  .ads-mobile{
+    display: none;
+  }
 }
 
 
