@@ -240,6 +240,12 @@
     margin-right: 5px;
     margin-left: 5px;
   }
+  #block-adsright-2{
+    max-width: 100%;
+  }
+  #block-adsleft-2{
+    max-width: 100%;
+  }
   .ads-mobile .ads-item img{
     width: 100%;
   }

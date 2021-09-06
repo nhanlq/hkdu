@@ -4,7 +4,6 @@ status: true
 dependencies:
   module:
     - banner
-    - system
   theme:
     - hkdu
 id: bannerblockblobal
@@ -18,9 +17,4 @@ settings:
   label: 'Banner block blobal'
   provider: banner
   label_display: '0'
-visibility:
-  request_path:
-    id: request_path
-    pages: "/about-us\r\n/news\r\n/healthy\r\n/media-release\r\n/doctors\r\n/hospital\r\n/gallery\r\n/downloads\r\n/links\r\n/e-pharm/drug-news\r\n/e-pharm/clinical-focus\r\n/e-pharm/event\r\n/e-pharm/drug-search\r\n/e-pharm/tools\r\n/e-pharm/special-offer\r\n/e-pharm/pharm-dir\r\n/e-pharm/external-links"
-    negate: false
-    context_mapping: {  }
+visibility: {  }
