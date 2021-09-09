@@ -1,0 +1,61 @@
+uuid: 00d13f1a-1303-47ac-991e-d3b0fb6649ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.tracking.tracking.field_ads
+    - field.field.tracking.tracking.field_count
+    - field.field.tracking.tracking.field_ip
+  module:
+    - ads_tracking
+    - user
+id: tracking.tracking.default
+targetEntityType: tracking
+bundle: tracking
+mode: default
+content:
+  field_ads:
+    weight: 3
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_count:
+    weight: 2
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_ip:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  name:
+    label: above
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true

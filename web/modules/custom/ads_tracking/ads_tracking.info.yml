@@ -1,0 +1,5 @@
+name: 'Ads Tracking'
+type: module
+description: 'Tracking counter ads'
+core: 8.x
+package: 'HKDU'

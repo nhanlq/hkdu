@@ -1,0 +1,33 @@
+uuid: 050569fe-bee4-4a01-b33b-05485e3bce11
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.tracking.field_ads
+  module:
+    - ads_tracking
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: tracking.tracking.field_ads
+field_name: field_ads
+entity_type: tracking
+bundle: tracking
+label: Ads
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:ads'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

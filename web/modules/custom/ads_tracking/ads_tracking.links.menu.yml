@@ -1,0 +1,14 @@
+
+# Tracking menu items definition
+entity.tracking.collection:
+  title: 'Tracking list'
+  route_name: entity.tracking.collection
+  description: 'List Tracking entities'
+  parent: system.admin_structure
+  weight: 100
+
+tracking.admin.structure.settings:
+  title: 'Tracking settings'
+  description: 'Configure Tracking entities'
+  route_name: tracking.settings
+  parent: system.admin_structure

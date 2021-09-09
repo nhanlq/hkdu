@@ -1,0 +1,24 @@
+uuid: 100b6895-cf35-4cbb-8b6b-795109dfb54a
+langcode: en
+status: true
+dependencies:
+  module:
+    - advert
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: ads.field_total_count
+field_name: field_total_count
+entity_type: ads
+type: decimal
+settings:
+  precision: 10
+  scale: 0
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

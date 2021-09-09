@@ -8,6 +8,7 @@ dependencies:
     - field.field.ads.ads.field_media
     - field.field.ads.ads.field_path
     - field.field.ads.ads.field_section
+    - field.field.ads.ads.field_total_count
     - field.field.ads.ads.field_weight
   module:
     - advert
@@ -51,6 +52,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_total_count:
+    weight: 26
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   field_weight:
     weight: 8
