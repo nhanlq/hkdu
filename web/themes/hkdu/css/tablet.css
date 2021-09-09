@@ -214,7 +214,7 @@
     width: 50%;
   }
   .eclIQj{
-    bottom: 75px;
+    bottom: 0px;
   }
 
 
@@ -233,20 +233,18 @@
     background-color: #AED6F1;
     margin-bottom: 5px;
   }
-  .ads-mobile .ads-item{
-    width: 42%;
-    margin-top: 30px;
+  .main-container{
+    width: 590px;
     float: left;
-    margin-right: 5px;
-    margin-left: 5px;
+    padding-left: 25px;
   }
-  #block-adsright-2{
-    max-width: 100%;
-  }
-  #block-adsleft-2{
-    max-width: 100%;
-  }
-  .ads-mobile .ads-item img{
+.ads-item{
+  float: left;
+  margin-left: 5px;
+  max-width: 170px;
+}
+  .ads-item a img{
     width: 100%;
   }
+
 }
