@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains ads_tracking.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function ads_tracking_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ads_tracking module.
+    case 'help.page.ads_tracking':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Tracking counter ads') . '</p>';
+      return $output;
+
+    default:
+  }
+}

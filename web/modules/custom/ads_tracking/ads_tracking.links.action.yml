@@ -1,0 +1,5 @@
+entity.tracking.add_form:
+  route_name: entity.tracking.add_form
+  title: 'Add Tracking'
+  appears_on:
+    - entity.tracking.collection

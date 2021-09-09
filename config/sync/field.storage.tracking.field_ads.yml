@@ -1,0 +1,24 @@
+uuid: be527bb5-4f1d-4a9b-b30b-72527790cca0
+langcode: en
+status: true
+dependencies:
+  module:
+    - ads_tracking
+    - advert
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: tracking.field_ads
+field_name: field_ads
+entity_type: tracking
+type: entity_reference
+settings:
+  target_type: ads
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
