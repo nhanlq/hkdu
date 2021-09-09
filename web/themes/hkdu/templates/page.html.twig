@@ -95,7 +95,7 @@
 {# Sidebar First #}
       {% if page.sidebar_first %}
         {% block sidebar_first %}
-          <aside class="col-sm-3" role="complementary">
+          <aside class="sidebar-left" role="complementary">
             {{ page.sidebar_first }}
           </aside>
         {% endblock %}
@@ -103,7 +103,7 @@
 {# Sidebar Second #}
       {% if page.sidebar_second %}
         {% block sidebar_second %}
-          <aside class="col-sm-3 sidebar-right" role="complementary">
+          <aside class="sidebar-right" role="complementary">
             {{ page.sidebar_second }}
           </aside>
         {% endblock %}
@@ -161,6 +161,15 @@
     </div>
   </div>
 {% endblock %}
+
+{# ads mobile #}
+      {% if page.ads_mobile %}
+        {% block ads_mobile %}
+          <aside class="ads-mobile" role="complementary">
+            {{ page.ads_mobile }}
+          </aside>
+        {% endblock %}
+      {% endif %}
 
 
 {% if page.footer %}

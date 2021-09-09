@@ -1,0 +1,8 @@
+
+ads_tracking.track_controller_track:
+  path: '/ads/track/{id}'
+  defaults:
+    _controller: '\Drupal\ads_tracking\Controller\TrackController::track'
+    _title: 'Tracking'
+  requirements:
+    _permission: 'access content'

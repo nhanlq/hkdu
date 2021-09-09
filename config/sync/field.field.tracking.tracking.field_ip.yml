@@ -1,0 +1,27 @@
+uuid: 0bd506ad-1bd2-447e-9c04-612e5a98fc5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.tracking.field_ip
+  module:
+    - ads_tracking
+    - unique_field_ajax
+third_party_settings:
+  unique_field_ajax:
+    unique: 0
+    per_lang: 0
+    use_ajax: 0
+    message: ''
+id: tracking.tracking.field_ip
+field_name: field_ip
+entity_type: tracking
+bundle: tracking
+label: IP
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

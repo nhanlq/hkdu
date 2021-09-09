@@ -1,0 +1,20 @@
+uuid: 797998b1-a522-4d04-874e-bd8e7d1e9963
+langcode: en
+status: true
+dependencies:
+  module:
+    - advert
+  theme:
+    - hkdu
+id: adstablet
+theme: hkdu
+region: ads_mobile
+weight: 0
+provider: null
+plugin: adstablet
+settings:
+  id: adstablet
+  label: 'Ads Tablet'
+  provider: advert
+  label_display: '0'
+visibility: {  }

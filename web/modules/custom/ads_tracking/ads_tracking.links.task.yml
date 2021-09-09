@@ -1,0 +1,26 @@
+# Tracking routing definition
+tracking.settings_tab:
+  route_name: tracking.settings
+  title: 'Settings'
+  base_route: tracking.settings
+
+entity.tracking.canonical:
+  route_name: entity.tracking.canonical
+  base_route: entity.tracking.canonical
+  title: 'View'
+
+entity.tracking.edit_form:
+  route_name: entity.tracking.edit_form
+  base_route: entity.tracking.canonical
+  title: 'Edit'
+
+entity.tracking.version_history:
+  route_name: entity.tracking.version_history
+  base_route: entity.tracking.canonical
+  title: 'Revisions'
+
+entity.tracking.delete_form:
+  route_name:  entity.tracking.delete_form
+  base_route:  entity.tracking.canonical
+  title: Delete
+  weight: 10

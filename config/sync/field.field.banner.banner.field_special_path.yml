@@ -1,0 +1,20 @@
+uuid: c5487787-ee3a-4a84-b6e6-c4a4c7955eb0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.banner.field_special_path
+  module:
+    - banner
+id: banner.banner.field_special_path
+field_name: field_special_path
+entity_type: banner
+bundle: banner
+label: 'Special Path'
+description: 'Example:  /about-us/advisors'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

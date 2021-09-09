@@ -1,0 +1,24 @@
+uuid: f050d9f1-0904-4a18-8715-21e88fd47b51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.ads.field_total_count
+  module:
+    - advert
+id: ads.ads.field_total_count
+field_name: field_total_count
+entity_type: ads
+bundle: ads
+label: 'Total Count'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

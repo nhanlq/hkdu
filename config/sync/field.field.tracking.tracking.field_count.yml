@@ -1,0 +1,24 @@
+uuid: 2ea0ae52-2afe-4e61-8fd9-17e3cac9e89a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.tracking.field_count
+  module:
+    - ads_tracking
+id: tracking.tracking.field_count
+field_name: field_count
+entity_type: tracking
+bundle: tracking
+label: Count
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

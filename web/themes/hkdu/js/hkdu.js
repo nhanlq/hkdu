@@ -18,11 +18,8 @@
                 $(".waiting-confirm").show();
              });
            }
-
-
         }
-
-
     };
+
 
 })(jQuery, Drupal);

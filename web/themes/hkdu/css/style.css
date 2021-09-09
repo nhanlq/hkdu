@@ -20,6 +20,7 @@ body {
   height: 60px;
   background-color: white;
   z-index: 1010;
+  max-width: 100%;
 }
 
 .review-button {
@@ -84,13 +85,6 @@ p.caption-img {
   text-decoration: none;
   padding: 0px;
   font-family: 'Noto Sans HK', sans-serif;
-}
-
-.navbar-default li.active a {
-  color: rgb(69, 96, 176) !important;
-  font-weight: 600;
-  border-bottom: 5px solid rgb(69, 96, 176);
-  background-color: inherit !important;
 }
 
 .about-us-wrapper {
@@ -992,13 +986,7 @@ button {
   margin-left: 15px;
 }
 
-#block-loginblock-2 {
-  box-sizing: border-box;
-  margin-left: auto;
-  margin-right: 20px;
-  display: flex;
-  float: right;
-}
+
 
 #block-loginblock {
   box-sizing: border-box;
@@ -1548,25 +1536,6 @@ table.notification-list, table.notification-list th, table.notification-list tr,
 .eXMIVa {
   box-sizing: border-box;
   margin-left: 15px;
-}
-
-#block-menuepharmblock {
-  width: 120px;
-  float: left;
-  display: flex;
-  align-items: center;
-}
-
-select.epharm-switch {
-  height: 60px;
-  width: 102px;
-  text-align: center;
-  padding-left: 6px;
-  background: transparent;
-  border-bottom: 0px;
-  border-top: 0px;
-  border-color: rgba(0, 0, 0, 0.05);
-  -moz-appearance: none;
 }
 
 .path-user h4 {
@@ -2450,12 +2419,7 @@ a:focus {
   display: none;
 }
 
-.nav > li > a:hover, .nav > li > a:focus {
-  text-decoration: none;
-  background-color: transparent;
-  color: rgb(69, 96, 176) !important;
-  border-bottom: 5px solid rgb(69, 96, 176);
-}
+
 
 ul.nav {
   margin-left: 20px;
@@ -3163,14 +3127,163 @@ article.js-comment footer .created-comment {
   padding: 0px;
   text-align: right;
 }
-
-@media screen and (min-width: 770px) {
-  .navbar.container {
-    max-width: 100%;
-  }
+.bgOmHj {
+  box-sizing: border-box;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 64px;
 }
 
-@media screen and (max-width: 1920px) {
+.region-sidebar-first img {
+  width: 100%;
+}
+
+.well {
+  border: 0 !important;
+  background: none !important;
+}
+
+.bulletin-wrapper .gEzcmW {
+  box-sizing: border-box;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 32px;
+  display: inline-block;
+}
+
+.bulletin-wrapper .title-bullet {
+  color: rgb(69, 96, 176) !important;
+  white-space: break-spaces;
+}
+
+.path-node .field--name-body {
+  margin-bottom: 40px;
+}
+
+
+.path-user .panel-heading {
+  color: #333333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+}
+
+.empty-score, .Member-Cycle-Score {
+  padding: 15px;
+}
+
+.Member-Cycle-Score p {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+
+}
+
+.Member-Cycle-Score p strong {
+  color: rgb(69, 96, 176);
+}
+
+.path-user .field--label, .path-user .field--item, .path-user .form-item {
+  font-size: 18px;
+}
+
+.path-user .view-content {
+  padding: 15px;
+}
+
+.path-user .panel-heading .panel-title {
+  font-size: 18px;
+}
+
+#edit-field-guide-info-wrapper {
+  border-top: 4px solid #4560b0;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  padding: 15px;
+
+}
+
+#user-register-form #edit-submit {
+  float: left;
+  margin-right: 15px;
+}
+
+.login-link {
+  padding-top: 5px;
+}
+
+.page-user-login .container {
+  width: 400px;
+}
+
+.page-user-login #edit-actions {
+  margin-top: 20px;
+}
+
+.password-link {
+  margin-left: 30px;
+}
+
+.register-link {
+  margin-top: 20px;
+}
+
+.page-user-login .ilDcLX {
+  background: transparent;
+
+}
+
+#user-pass #edit-submit {
+  float: left;
+  margin-right: 20px;
+}
+
+.path-checkout .field--name-product-id {
+  display: none;
+}
+
+.path-checkout .order-total-line__subtotal {
+  margin-top: 30px;
+}
+
+.path-checkout .field--name-title {
+  display: inline-block;
+  width: 80%;
+  margin-left: 20px;
+}
+.forum-action{
+  margin-bottom: 40px;
+  text-align: right;
+}
+
+.path-node .form-type-vertical-tabs{
+  display: none;
+}
+.hFxHpv{
+  padding-top: 15px;
+}
+#user-tray ul{
+  padding-left: 0;
+}
+#user-tray ul li{
+  list-style: none;
+  margin-bottom: 10px;
+}
+.navbar-header{
+  position: relative;
+}
+tr.unread{
+  color:rgb(69, 96, 176);
+  font-weight: 600;
+}
+.unread td b{
+  color: #191970;
+}
+
+
+@media screen and (min-width: 1900px) {
   .region-sidebar-first{
     position: relative;
     left: 30%;
@@ -3183,21 +3296,9 @@ article.js-comment footer .created-comment {
 .region-sidebar-first{
   margin-top: 50px;
 }
-.region-sidebar-second{
-  margin-top: 50px;
-}
 
-@media screen and (max-width: 1600px) {
-  .region-sidebar-first{
-    position: relative;
-    left: 20%;
-  }
-  .region-sidebar-second{
-    position: relative;
-    right: 20%;
-  }
-}
-@media screen and (max-width: 1440px) {
+
+@media screen and (min-width: 1366px) {
   .region-sidebar-first{
     position: relative;
     left: 5%!important;
@@ -3208,149 +3309,7 @@ article.js-comment footer .created-comment {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .navbar.container {
-    max-width: 100%;
-  }
-
-  .form_clinic_address {
-    width: 100%;
-  }
-
-  .navbar-toggle {
-    display: block !important;
-  }
-
-}
-
-@media screen and (max-width: 992px) {
-  #block-loginblock-2 {
-    margin-right: 145px;
-    display: block!important;
-  }
-  .region-notify{
-    position: absolute;
-    right: 20px;
-
-  }
-
-  #user-tray {
-    position: absolute;
-    display: block!important;
-    right: 28%!important;
-    background: #fff;
-    border-radius: 5px;
-    padding: 10px;
-  }
-  .lcAUJf {
-    font-size: 18px;
-    margin-right: 83px;
-    height: 33px;
-    line-height: 30px;
-    letter-spacing: normal;
-    text-decoration: none;
-    width: 100%;
-    float: left;
-  }
-
-  elect.epharm-switch {
-    height: 40px;
-    width: 100%;
-    text-align: center;
-    padding-left: 35px;
-    background: transparent;
-    border-bottom: 0px;
-    border-top: 0px;
-    border-color: rgba(0, 0, 0, 0.05);
-    padding: 0px;
-    border: 0;
-    margin-left: -19px;
-    margin-top: 20px;
-  }
-
-  #block-menuepharmblock .epharm-switch {
-    display: none;
-  }
-
-  #block-loginblock-2 {
-    display: none;
-  }
-
-  #block-loginblock {
-    display: none;
-  }
-
-  .navbar.container {
-    max-width: 100%;
-  }
-
-  .navbar-toggle {
-    display: block !important;
-    margin-right: -15px !important;
-  }
-
-  #block-mainnavigation {
-    display: none;
-  }
-
-  #navbar-collapse {
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    width: 312px;
-    height: 100%;
-    position: fixed;
-    top: 45px;
-    right: 0px;
-    bottom: 0px;
-    z-index: 1030;
-    overflow: auto;
-    border: 0px;
-  }
-
-  .navbar-default .navbar-nav > li > a {
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    font-size: 14px;
-    height: 30px;
-    line-height: 60px;
-    padding-left: 16px;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
-  .navbar-default .navbar-nav > li {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 380px) {
-  #block-loginblock-2 {
-    margin-right: 90px;
-    display: block;
-  }
-
-  #user-tray {
-    position: absolute;
-    display: block;
-    right: 41px;
-    background: #fff;
-    border-radius: 5px;
-    padding: 10px;
-  }
-
-  #block-loginblock {
-    margin-right: -17px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .col-sm-3 {
-    width: 15% !important;
-  }
-}
-
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1008px) {
   .fSsnif .end {
     margin-right: 0px !important;
   }
@@ -3601,336 +3560,98 @@ article.js-comment footer .created-comment {
   .jyYtMa {
     color: black;
   }
-
   .hZIrar {
     flex-direction: column;
   }
-
   #navbar-collapse {
     display: none !important;
   }
-
   .container {
     width: 992px;
   }
-}
-
-.bgOmHj {
-  box-sizing: border-box;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 64px;
-}
-
-@media screen and (min-width: 1200px) {
-  .navbar.container {
-    max-width: 100%;
-  }
-
   .container {
     width: 952px;
   }
-}
 
-.sidebar-right {
-  float: right !important;
-}
-
-.region-sidebar-first img {
-  width: 100%;
-}
-
-.well {
-  border: 0 !important;
-  background: none !important;
-}
-
-.bulletin-wrapper .gEzcmW {
-  box-sizing: border-box;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 32px;
-  display: inline-block;
-}
-
-.bulletin-wrapper .title-bullet {
-  color: rgb(69, 96, 176) !important;
-  white-space: break-spaces;
-}
-
-.path-node .field--name-body {
-  margin-bottom: 40px;
-}
-
-@media screen and (max-width: 767px) {
-  #block-mainnavigation, #block-epharm-2, #block-cme, #block-memberarea {
-    display: none !important;
-  }
-
-  body.path-cart {
-    font-size: 14px !important;
-  }
-
-  .path-cart table {
-    width: 99%;
-  }
-
-  .path-cart .table-responsive > .table > thead > tr > th,
-  .path-cart .table-responsive > .table > tbody > tr > th,
-  .path-cart .table-responsive > .table > tfoot > tr > th,
-  .path-cart .table-responsive > .table > thead > tr > td,
-  .path-cart .table-responsive > .table > tbody > tr > td,
-  .path-cart .table-responsive > .table > tfoot > tr > td {
-    white-space: inherit !important;
-  }
-
-  .navbar-header {
-    max-width: 100%;
-    width: 100%;
-  }
-
-  #navbar-collapse {
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    width: 60%;
-    height: 100%;
-    position: fixed;
-    top: 45px;
-    right: 0px;
-    bottom: 0px;
-    z-index: 1030;
-    overflow: auto;
-    border: 0px;
-  }
-
-  .navbar-default .navbar-nav > li > a {
+  #block-menuepharmblock {
+    width: 130px;
+    float: left;
     display: flex;
-    -webkit-box-align: center;
     align-items: center;
-    color: rgb(0, 0, 0);
-    font-size: 18px;
-    height: 35px;
-    line-height: 30px;
-    padding-left: 16px;
-    cursor: pointer;
+  }
+  #block-loginblock-2 {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: 20px;
+    display: flex;
+    float: right;
+  }
+  #user-tray{
+    position: absolute;
+    display: none;
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    width: 120px;
+    right: 0;
+  }
+
+  .region-sidebar-second{
+    margin-top: 50px;
+  }
+  .nav > li > a:hover, .nav > li > a:focus {
     text-decoration: none;
+    background-color: transparent;
+    color: rgb(69, 96, 176) !important;
+    border-bottom: 5px solid rgb(69, 96, 176);
+  }
+  .navbar-default li.active a {
+    color: rgb(69, 96, 176) !important;
+    font-weight: 600;
+    border-bottom: 5px solid rgb(69, 96, 176);
+    background-color: inherit !important;
   }
 
-  .main-container .row {
-    margin-left: 0px !important;
-    margin-right: 0px !important;
-  }
-
-  .bwndEN {
-    margin-bottom: 20px;
-  }
-
-  form.search {
+  .block-menu-epharm-block select {
+    -webkit-appearance: none;
+    padding: 7px 12px 7px 12px;
     width: 100%;
-  }
-
-  .author span, .date span {
-    width: 40%;
-    float: left;
-  }
-
-  .eXMIVa {
-    box-sizing: border-box;
-    margin-left: -10px !important;
-  }
-
-  .dYgNtr {
-    box-sizing: border-box;
-    display: block;
-    flex-direction: row;
-    width: 100%;
-    float: left;
-  }
-
-  #block-drugnewhomeblock .ixzoQI {
-    width: 100%;
-  }
-
-  .kbJbHx {
-    display: block !important;
-  }
-
-  .path-e-pharm .event.list-tags {
-    bottom: 64px;
-  }
-
-  .submit-button-result {
-    width: 100% !important;
-    float: left;
-  }
-
-  .jzqdsa {
-    margin-right: 0px !important;
-  }
-
-  .cHdsrC {
-    width: 60%;
-    line-height: 1.5;
-    font-size: 20px;
-    font-weight: 700;
-    color: white;
-    margin: 0px;
-  }
-
-  .kMAhQW {
-    width: 60%;
-    line-height: 1.5;
-    font-size: 18px;
-    color: white;
-    margin-top: 8px;
-  }
-
-  .path-user p, .path-user .field--item, .path-user .field--label {
+    border: 1px solid #e8eaed;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 1px 3px -2px #9098a9;
+    cursor: pointer;
+    font-family: inherit;
     font-size: 16px;
+    transition: all 150ms ease;
+    font-weight: bolder;
+    margin-top: 9px;
   }
-
-  .path-user .label {
-    font-size: 16px !important;
-    font-weight: normal;
+  .epharm-menu-wrapper{
+    position: relative;
+    width: 100%;
   }
-
-  .path-user h2, .dlCLcZ, h1 {
-    font-size: 21px;
-    line-height: 1.42;
-    font-weight: normal;
-    margin: 0px 0px 16px;
-    border-bottom: 0px;
+  .epharm-menu-wrapper i.fa{
+    position: absolute;
+    top: 18px;
+    right: 10px;
   }
-
+  .sidebar-left{
+    width: 15%;
+    float: left;
+  }
+  .sidebar-right{
+    width: 15%;
+    float: right;
+  }
+  .drug-database-input{
+    width: 20%;
+  }
+  .ads-mobile{
+    display: none;
+  }
 }
 
-.path-user .panel-heading {
-  color: #333333;
-  background-color: #f5f5f5;
-  border-color: #ddd;
-}
 
-.empty-score, .Member-Cycle-Score {
-  padding: 15px;
-}
-
-.Member-Cycle-Score p {
-  margin: 0;
-  padding: 0;
-  font-size: 18px;
-
-}
-
-.Member-Cycle-Score p strong {
-  color: rgb(69, 96, 176);
-}
-
-.path-user .field--label, .path-user .field--item, .path-user .form-item {
-  font-size: 18px;
-}
-
-.path-user .view-content {
-  padding: 15px;
-}
-
-.path-user .panel-heading .panel-title {
-  font-size: 18px;
-}
-
-#edit-field-guide-info-wrapper {
-  border-top: 4px solid #4560b0;
-  margin-bottom: 20px;
-  background-color: #fff;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-  padding: 15px;
-
-}
-
-#user-register-form #edit-submit {
-  float: left;
-  margin-right: 15px;
-}
-
-.login-link {
-  padding-top: 5px;
-}
-
-.page-user-login .container {
-  width: 400px;
-}
-
-.page-user-login #edit-actions {
-  margin-top: 20px;
-}
-
-.password-link {
-  margin-left: 30px;
-}
-
-.register-link {
-  margin-top: 20px;
-}
-
-.page-user-login .ilDcLX {
-  background: transparent;
-
-}
-
-#user-pass #edit-submit {
-  float: left;
-  margin-right: 20px;
-}
-
-.path-checkout .field--name-product-id {
-  display: none;
-}
-
-.path-checkout .order-total-line__subtotal {
-  margin-top: 30px;
-}
-
-.path-checkout .field--name-title {
-  display: inline-block;
-  width: 80%;
-  margin-left: 20px;
-}
-.forum-action{
-  margin-bottom: 40px;
-  text-align: right;
-}
-#user-tray{
-  position: absolute;
-  display: none;
-  background: #fff;
-  border-radius: 5px;
-  padding: 10px;
-  width: 120px;
-  right: 0;
-}
-.path-node .form-type-vertical-tabs{
-  display: none;
-}
-.hFxHpv{
-  padding-top: 15px;
-}
-#user-tray ul{
-  padding-left: 0;
-}
-#user-tray ul li{
-  list-style: none;
-  margin-bottom: 10px;
-}
-.navbar-header{
-  position: relative;
-}
-tr.unread{
-  color:rgb(69, 96, 176);
-  font-weight: 600;
-}
-.unread td b{
-  color: #191970;
-}
 
 

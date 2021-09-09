@@ -1,0 +1,31 @@
+add tracking entities:
+  title: 'Create new Tracking entities'
+
+administer tracking entities:
+  title: 'Administer Tracking entities'
+  description: 'Allow to access the administration form to configure Tracking entities.'
+  restrict access: true
+
+delete tracking entities:
+  title: 'Delete Tracking entities'
+
+edit tracking entities:
+  title: 'Edit Tracking entities'
+
+view published tracking entities:
+  title: 'View published Tracking entities'
+
+view unpublished tracking entities:
+  title: 'View unpublished Tracking entities'
+
+view all tracking revisions:
+  title: 'View all Tracking revisions'
+
+revert all tracking revisions:
+  title: 'Revert all Tracking revisions'
+  description: 'Role requires permission <em>view Tracking revisions</em> and <em>edit rights</em> for tracking entities in question or <em>administer tracking entities</em>.'
+
+delete all tracking revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Tracking revisions</em> and <em>delete rights</em> for tracking entities in question or <em>administer tracking entities</em>.'
+

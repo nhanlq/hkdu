@@ -3,6 +3,8 @@ global-styling:
   css:
     base:
       css/style.css: {}
+      css/mobile.css: {}
+      css/tablet.css: {}
       'https://fonts.googleapis.com/css?family=Noto+Sans+HK&display=swap&subset=chinese-hongkong': { type: external }
   js:
     js/hkdu.js: { }

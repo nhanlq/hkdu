@@ -1,0 +1,24 @@
+uuid: c3b0e470-fd67-4eea-8d52-9f549af4a8fa
+langcode: en
+status: true
+dependencies:
+  module:
+    - ads_tracking
+    - field_permissions
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: tracking.field_count
+field_name: field_count
+entity_type: tracking
+type: decimal
+settings:
+  precision: 10
+  scale: 0
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

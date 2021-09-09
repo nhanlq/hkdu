@@ -19,7 +19,7 @@
 {% if ads %}
     {% for ad in ads %}
         <div class="ads-item" style="margin-bottom: 20px">
-            <a target="_blank" href="{{ ad.field_link.value }}">
+            <a data-id="{{ ad.id.value }}" target="_blank" href="/ads/track/{{ ad.id.value }}">
                 <img src="{{ file_url(ad.field_media.entity.field_media_image.entity.uri.value) }}"/>
             </a>
         </div>
