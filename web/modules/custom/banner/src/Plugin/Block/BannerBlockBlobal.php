@@ -56,9 +56,16 @@ class BannerBlockBlobal extends BlockBase {
       if($type === $entity->get('field_page')->value){
         return $entity;
       }
-      if(strpos($current_path, $entity->get('field_special_path')->value) !== false){
+      $checkPath = false;
+      foreach($entity->get('field_special_path')->getValue() as $value){
+        if($value['value'] == $current_path){
+          $checkPath = true;
+        }
+      }
+      if($checkPath){
         return $entity;
       }
+
     }
     return [];
   }

@@ -1,4 +1,4 @@
-uuid: 4357520e-85ef-4893-b6ce-2f69e442c3de
+uuid: 797998b1-a522-4d04-874e-bd8e7d1e9963
 langcode: en
 status: true
 dependencies:
@@ -6,15 +6,15 @@ dependencies:
     - advert
   theme:
     - hkdu
-id: adsleft_2
+id: adstablet
 theme: hkdu
 region: ads_mobile
 weight: 0
 provider: null
-plugin: adsleft
+plugin: adstablet
 settings:
-  id: adsleft
-  label: Adsleft
+  id: adstablet
+  label: 'Ads Tablet'
   provider: advert
   label_display: '0'
 visibility: {  }
