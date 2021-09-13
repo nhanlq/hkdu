@@ -5,7 +5,7 @@ global_hkdu.default_controller_index:
     _controller: '\Drupal\global_hkdu\Controller\DefaultController::index'
     _title: 'HKDU'
   requirements:
-    _permission: 'access hkdu epharm'
+    _permission: 'administer hkdu sites'
 
 global_hkdu.default_controller_public:
   path: '/admin/hkdu/public'

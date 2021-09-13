@@ -258,3 +258,29 @@ function getName($id, $type) {
   return $name;
 }
 
+/**
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *
+ * @throws \Exception
+ */
+function notify_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+
+  if($entity->getEntityTypeId() === 'user'){
+    $users = getadmins();
+    foreach ($users as $admin) {
+      $notify_admin = Notify::create([
+        'name' => 'member account '.$entity->getEmail().' pending approval.',
+        'field_link' => '/user/'.$entity->id().'/edit',
+        'field_preview' => '/user/'.$entity->id(),
+        'field_user' => $admin->id(),
+        'field_type' => 'user',
+        'field_id' => $entity->id(),
+        'user_id' => $admin->id(),
+        'created' => time(),
+        'status' => 1,
+      ]);
+      $notify_admin->save();
+    }
+  }
+}
+
