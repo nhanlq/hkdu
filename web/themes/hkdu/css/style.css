@@ -3649,6 +3649,9 @@ tr.unread{
   .ads-mobile{
     display: none;
   }
+  .cme-event{
+    margin-top: 0!important;
+  }
 }
 
 
