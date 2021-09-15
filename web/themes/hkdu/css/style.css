@@ -1547,7 +1547,6 @@ table.notification-list, table.notification-list th, table.notification-list tr,
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  justify-content: end;
 }
 
 .eBeRpv {
@@ -1695,7 +1694,7 @@ th {
 }
 
 .hFnlYM {
-  flex: 0 0 0%;
+  flex: none;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-color: rgba(0, 0, 0, 0.1);
 }
@@ -1723,7 +1722,7 @@ th {
   margin-bottom: 16px;
   overflow: hidden;
   padding: 0px 16px;
-  width: 50%;
+  width: 65%;
 }
 
 .doctor-detail-page .breadcrumb {
@@ -3649,6 +3648,9 @@ tr.unread{
   }
   .ads-mobile{
     display: none;
+  }
+  .cme-event{
+    margin-top: 0!important;
   }
 }
 
