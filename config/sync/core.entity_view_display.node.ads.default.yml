@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.ads.body
-    - field.field.node.ads.field_commerce
     - field.field.node.ads.field_media
     - field.field.node.ads.field_thumbnail
     - node.type.ads
@@ -47,7 +46,6 @@ content:
     region: content
 hidden:
   content_moderation_control: true
-  field_commerce: true
   langcode: true
   links: true
   search_api_excerpt: true
