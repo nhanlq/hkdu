@@ -4,14 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.node.ads.body
-    - field.field.node.ads.field_commerce
     - field.field.node.ads.field_media
     - field.field.node.ads.field_thumbnail
     - node.type.ads
     - workflows.workflow.editorial
   module:
     - content_moderation
-    - inline_entity_form
     - media_library
     - path
     - text
@@ -36,19 +34,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_commerce:
-    weight: 13
-    settings:
-      form_mode: default
-      revision: false
-      override_labels: false
-      label_singular: ''
-      label_plural: ''
-      collapsible: false
-      collapsed: false
-    third_party_settings: {  }
-    type: inline_entity_form_simple
-    region: content
   field_media:
     weight: 12
     settings:
