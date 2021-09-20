@@ -44,7 +44,7 @@ class BannerBlockBlobal extends BlockBase {
     $current_path = \Drupal::service('path.current')->getPath();
     $path = explode('/', $current_path);
     $type = $path[1];
-    if ($type == 'e-pharm') {
+    if (!empty($path[3]) && $type == 'e-pharm') {
       $type = $path[2];
     }
     $ids = \Drupal::entityQuery('banner')
@@ -58,7 +58,7 @@ class BannerBlockBlobal extends BlockBase {
       }
       $checkPath = false;
       foreach($entity->get('field_special_path')->getValue() as $value){
-        if($value['value'] == $current_path){
+        if($value['value'] === $current_path){
           $checkPath = true;
         }
       }
