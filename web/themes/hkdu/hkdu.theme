@@ -459,6 +459,9 @@ function template_preprocess_event(array &$variables) {
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];
   }
+  $variables['#cache'] = [
+      'max-age' => 0,
+    ];
 }
 
 function template_preprocess_drug_search(array &$variables) {
@@ -621,6 +624,9 @@ function template_preprocess_cme_event(array &$variables) {
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];
   }
+  $variables['#cache'] = [
+      'max-age' => 0,
+    ];
 }
 
 function template_preprocess_event_org(array &$variables) {
