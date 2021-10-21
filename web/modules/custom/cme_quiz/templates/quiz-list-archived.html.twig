@@ -16,41 +16,41 @@
  */
 #}
 {% if quizs %}
-    <div width="1,200px" class="yriL">
-        <div width="100%" class="ilpLeV">
-            <span class="ivzsxx"></span>
-            <form action="/cme/quizes" method="get" class="search">
-                <input placeholder="Search" name="keys" class="cAwIuR" value="{{ search }}">
-                <span class="fLrcjA">
+  <div width="1,200px" class="yriL">
+    <div width="100%" class="ilpLeV">
+      <span class="ivzsxx"></span>
+      <form action="/cme/quizes" method="get" class="search">
+        <input placeholder="Search" name="keys" class="cAwIuR" value="{{ search }}">
+        <span class="fLrcjA">
                     <button type="submit">
                 <i name="SEARCH" font-size="icon" color="icon" class="fa fa-search"></i>
                         </button>
             </span>
-            </form>
-        </div>
+      </form>
     </div>
-    <div class="dacuFr">
-        <div class="cWWxaz">
-            <div display="flex" class="iNTbff">
-                {% if get %}
-                    <div class="dsGFaG"><a href="/cme/quiz">All</a></div>
-                {% else %}
-                    <div class="bkzBvv">All</div>
-                {% endif %}
-                {% for tag in tags %}
-                    {% if get == tag %}
-                        <div class="bkzBvv">{{ tag }}</div>
-                    {% else %}
-                        <div class="dsGFaG"><a href="/cme/quiz?tags={{ tag }}">{{ tag }}</a></div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </div>
+  </div>
+  <div class="dacuFr">
+    <div class="cWWxaz">
+      <div display="flex" class="iNTbff">
+        {% if get %}
+          <div class="dsGFaG"><a href="/cme/quiz">All</a></div>
+        {% else %}
+          <div class="bkzBvv">All</div>
+        {% endif %}
+        {% for tag in tags %}
+          {% if get == tag %}
+            <div class="bkzBvv">{{ tag }}</div>
+          {% else %}
+            <div class="dsGFaG"><a href="/cme/quiz?tags={{ tag }}">{{ tag }}</a></div>
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
+  </div>
 
-    <div display="flex" class="fSsnif">
-        {% for quiz in quizs %}
-            <div class="event
+  <div display="flex" class="fSsnif">
+    {% for quiz in quizs %}
+      <div class="event
             {% if loop.index%3 == 0 %} end {% endif %}
             {% if quiz.expired %}
             bSHJMg
@@ -58,79 +58,87 @@
             eBeRpv
             {% endif %}
             ">
-                <a class="{{ quiz.attemp }} fOtgzp" href="{{ path('cme_quiz.quiz_arxhived_controller_detail', {'id': quiz.id.value}) }}">
-                    <div class="kZuHUf">
-                        <div class="giwJrm">
-                            <div class="Owdni">
-                                {% if quiz.field_expired is not null %}
-                                    <span class="etLNEt">{{ quiz.field_expired.value|date("Y-m-d") }}</span>
-                                {% endif %}
-                                {% if quiz.check_event %}
-                                    <span class="{{ quiz.attemp }} cUAFfx">{{ quiz.attemp }}</span>
-                                {% endif %}
-                            </div>
-                        </div>
-                        <div class="isAOXn">
-                            <div>
-                                <h3 class="flCmuI">{{ quiz.name.value }}</h3>
-                                <div class="date"><span>Created Date: </span>
-                                    {% if quiz.field_lecture_date is not empty %}
-                                        {{ quiz.field_lecture_date.value|date('Y-m-d') }}
-                                    {% elseif quiz.field_start_date is not empty %}
-                                        {{ quiz.field_start_date.value|date('Y-m-d') }}
-                                    {% else %}
-                                    {{ quiz.created.value|date('Y-m-d') }}
-                                    {% endif %}
-                                </div>
-                                {% if quiz.field_registration_dealine is not empty %}
-                                    <div class="author">
-                                        <span>Deadline: </span>{{ quiz.field_registration_dealine.value|date('Y-m-d H:i:s') }}
-                                    </div>
-                                 {% elseif quiz.field_end_date is not empty %}
-                                     <div class="author">
-                                         <span>Deadline: </span>{{ quiz.field_end_date.value|date('Y-m-d H:i:s') }}
-                                     </div>
-                                {% endif %}
-                                {% if quiz.field_speaker is not empty %}
-                                <div class="author"><span>Speaker: </span>{{ quiz.field_speaker.value }}</div>
-                                {% endif %}
-                            </div>
+        <a class="{{ quiz.attemp }} fOtgzp"
+           href="{{ path('cme_quiz.quiz_arxhived_controller_detail', {'id': quiz.id.value}) }}">
+          <div class="kZuHUf">
+            <div class="giwJrm">
+              <div class="Owdni">
+                {# {% if quiz.field_expired is not null %} #}
+                {# <span class="etLNEt">{{ quiz.field_expired.value|date("Y-m-d") }}</span> #}
+                {# {% endif %} #}
+                {% if quiz.check_event %}
+                  <span class="{{ quiz.attemp }} cUAFfx">{{ quiz.attemp }}</span>
+                {% endif %}
+              </div>
+            </div>
+            <div class="isAOXn">
+              <div>
+                <h3 class="flCmuI">{{ quiz.name.value }}</h3>
+                <div class="date"><span>Quiz Open: </span>
+                  {# {% if quiz.field_lecture_date is not empty %} #}
+                  {# {{ quiz.field_lecture_date.value|date('Y-m-d') }} #}
+                  {% if quiz.field_start_date is not empty %}
+                    {{ quiz.field_start_date.value|date('Y-m-d') }}
+                    {# {% else %} #}
+                    {# {{ quiz.created.value|date('Y-m-d') }} #}
+                  {% endif %}
+                </div>
+                {# {% if quiz.field_registration_dealine is not empty %} #}
+                {# <div class="author"> #}
+                {# <span>Deadline: </span>{{ quiz.field_registration_dealine.value|date('Y-m-d H:i:s') }} #}
+                {# </div> #}
+                {% if quiz.field_end_date is not empty %}
+                  <div class="author">
+                    <span>Quiz Expiry: </span>{{ quiz.field_end_date.value|date('Y-m-d H:i:s') }}
+                  </div>
+                {% endif %}
+                {% if quiz.field_speaker is not empty %}
+                  <div class="author"><span>by: </span>{{ quiz.field_speaker.value }}</div>
+                {% endif %}
+                {% if quiz.field_specialty is not empty %}
+                  <div class="author"><span>Specialist in: </span>
+                    {{ quiz.specialist | join(' and ') }}
+                  </div>
+                {% endif %}
+              </div>
 
-                        </div>
-                        <div class="hFnlYM">
-                            <ul class="eNSAVL">
-                                <li class="CardInfo__Info-sc-1ty8kif-2 lbZLFv">
-                                    <i class="fa fa-chevron-circle-right"></i>
-                                    <span class="hMzfje">
+            </div>
+            <div class="hFnlYM">
+              <ul class="eNSAVL">
+                <li class="CardInfo__Info-sc-1ty8kif-2 lbZLFv">
+                  <i class="fa fa-chevron-circle-right"></i>
+                  <span class="hMzfje">
                                         {% if quiz.field_point is not empty %}
-                                            MCHK CME Point  {{ quiz.field_point.value }}
-                                            {% elseif quiz.field_hkdu_point is not empty %}
-                                                MCHK CME Point  {{ quiz.field_point.value }}
-                                            {% elseif quiz.field_hkam_point is not empty %}
-                                            HKAM CME Point  {{ quiz.field_hkam_point.value }}
+                                          MCHK CME Point  {{ quiz.field_point.value }}
+                                        {% elseif quiz.field_hkdu_point is not empty %}
+                                          MCHK CME Point  {{ quiz.field_point.value }}
+                                        {% elseif quiz.field_hkam_point is not empty %}
+                                          HKAM CME Point  {{ quiz.field_hkam_point.value }}
                                         {% endif %}
                                         </span>
-                                </li>
-                                {% if quiz.field_sponsor_logo is not empty %}
-                                    <li class="sponsor-logo">
-                                    <img src="{{ quiz.field_sponsor_logo.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}" width="50px" height="auto"/>
-                                    </li>
-                                        {% endif %}
+                </li>
+                {% if quiz.field_sponsor_logo is not empty %}
+                  <li class="sponsor-logo">
+                    <img
+                      src="{{ quiz.field_sponsor_logo.entity.field_media_image.entity.uri.value | image_style('thumbnail') }}"
+                      width="50px" height="auto"/>
+                  </li>
+                {% endif %}
 
-                            </ul>
-                        </div>
-                    </div>
-                </a>
-                <div class="cme-event list-tags quiz eclIQj">
-                    <div class="gPcWZD">
-                        {% for tagEntity in  quiz.field_category %}
-                            <a href="/cme/quiz?tags={{ tagEntity.entity.name.value }}"
-                               class="iyiBrq">{{ tagEntity.entity.name.value }}</a>
-                        {% endfor %}
-                    </div>
-                </div>
+              </ul>
             </div>
-        {% endfor %}
+          </div>
+        </a>
+        <div class="cme-event list-tags quiz eclIQj">
+          <div class="gPcWZD">
+            {% for tagEntity in  quiz.field_category %}
+              <a href="/cme/quiz?tags={{ tagEntity.entity.name.value }}"
+                 class="iyiBrq">{{ tagEntity.entity.name.value }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
 
-    </div>
+  </div>
 {% endif %}
