@@ -117,7 +117,12 @@ class QuizListController extends ControllerBase {
     }
     $result = \Drupal\cme_quiz\Entity\Quiz::loadMultiple($ids);
     foreach ($result as $r) {
-
+      $pse = [];
+      foreach($r->get('field_specialty')->getValue() as $sp){
+        $term = \Drupal\taxonomy\Entity\Term::load($sp['target_id']);
+        $pse[] = $term->getName();
+      }
+      $r->specialist = $pse;
       $r->author = $this->getAuthor($r->getOwnerId());
       if ($this->checkExpiredQuiz($r)) {
         $r->expired = TRUE;

@@ -26,11 +26,19 @@ class EventCalendarController extends ControllerBase
         $data = $response->setContent(json_encode($data));
 
         $date = date('Y-m-d');
-        return [
+        if($event || $quiz){
+          return [
             '#theme' => 'cme_event_calendar',
             '#events' => $data->getContent(),
             '#date' => $date
-        ];
+          ];
+        }
+        else{
+          return [
+            '#markup' => 'There is no event or quiz.'
+          ];
+        }
+
     }
 
     /**
