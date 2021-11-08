@@ -283,11 +283,11 @@ function template_preprocess_clinical_focus(array &$variables) {
   }
 
   $roles = $user->getRoles();
-  if (in_array('drug_suppliers', $current_roles)) {
-    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
-      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-    }
-  }
+//  if (in_array('drug_suppliers', $current_roles)) {
+//    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
+//      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+//    }
+//  }
   $variables['clinical_focus'] = $clinical_focus;
   // Helpful $content variable for templates.
   foreach (Element::children($variables['elements']) as $key) {
@@ -337,11 +337,11 @@ function template_preprocess_drug_news(array &$variables) {
     throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
   }
   $roles = $user->getRoles();
-  if (in_array('drug_suppliers', $current_roles)) {
-    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
-      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-    }
-  }
+//  if (in_array('drug_suppliers', $current_roles)) {
+//    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
+//      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+//    }
+//  }
   $variables['drug_news'] = $drug_news;
   // Helpful $content variable for templates.
   foreach (Element::children($variables['elements']) as $key) {
@@ -439,12 +439,12 @@ function template_preprocess_event(array &$variables) {
 
   $roles = $user->getRoles();
   $drug = null;
-  if (in_array('drug_suppliers', $current_roles)) {
-    $drug = true;
-    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
-      $au = FALSE;
-    }
-  }
+//  if (in_array('drug_suppliers', $current_roles)) {
+//    $drug = true;
+//    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
+//      $au = FALSE;
+//    }
+//  }
   if (!$au) {
     throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
   }
@@ -504,11 +504,11 @@ function template_preprocess_drug_search(array &$variables) {
   }
 
   $roles = $user->getRoles();
-  if (in_array('drug_suppliers', $current_roles)) {
-    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
-      $au = FALSE;
-    }
-  }
+//  if (in_array('drug_suppliers', $current_roles)) {
+//    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
+//      $au = FALSE;
+//    }
+//  }
   if (!$au) {
     throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
   }
@@ -555,11 +555,11 @@ function template_preprocess_pharm_dir(array &$variables) {
   }
 
   $roles = $user->getRoles();
-  if (in_array('drug_suppliers', $current_roles)) {
-    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
-      $au = FALSE;
-    }
-  }
+//  if (in_array('drug_suppliers', $current_roles)) {
+//    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
+//      $au = FALSE;
+//    }
+//  }
   if (!$au) {
     throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
   }
@@ -611,11 +611,11 @@ function template_preprocess_cme_event(array &$variables) {
     throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
   }
   $roles = $user->getRoles();
-  if (in_array('drug_suppliers', $current_roles)) {
-    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
-      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-    }
-  }
+//  if (in_array('drug_suppliers', $current_roles)) {
+//    if (in_array('drug_suppliers', $roles) && $current_user->id() != $user->id()) {
+//      throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+//    }
+//  }
   $variables['event'] = $event;
   $variables['product'] = getCmeProduct($id);
   $variables['check_event'] = checkCmeEventStatusUser($id);

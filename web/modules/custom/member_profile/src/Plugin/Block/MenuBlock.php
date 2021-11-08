@@ -23,6 +23,7 @@ class MenuBlock extends BlockBase {
     $ads = '';
     $user = \Drupal::currentUser();
     $show_clinic = false;
+    $drug = false;
     if (in_array('hkdu_members', $user->getRoles()) || in_array('council_members', $user->getRoles())) {
       $ads = '<li><a href="/user/member/classified-ads">Manage Classified Ads</a></li><li><a href="/user/member/forum">Manage Forum</a></li>';
       $show_clinic = true;
@@ -34,10 +35,15 @@ class MenuBlock extends BlockBase {
     if(in_array('hkdu_members', $user->getRoles())){
       $hkdu_member = true;
     }
+    if(in_array('drug_suppliers', $user->getRoles())){
+      $drug = true;
+    }
+
     $build = [
       '#theme' => 'member_menu',
       '#uid' => is_numeric($path[2]) ? $path[2] : $user->id() ,
       '#ads' => $ads,
+      '#drug' => $drug,
       '#clinic' => $show_clinic,
       '#hkdu_member' => $hkdu_member,
       '#cache' => [
