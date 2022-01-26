@@ -88,7 +88,7 @@ class ImportUser extends FormBase {
             $user->set('field_specialty', $data['N']);
             $user->set('field_registration_no', $data['F']);
             $user->set('field_mchk_license', $data['E']);
-            $user->set('field_membership_type', ['target->id'=>$this->createType
+            $user->set('field_membership_type', ['target_id'=>$this->createType
             ('membership_type',$data['I'])]);
             $user->set('field_referee', $data['Q'].' '.$data['P']);
             $user->set('field_clinic_id', ['target_id'=>$data['Q']]);
@@ -138,7 +138,7 @@ class ImportUser extends FormBase {
             $user->set('field_specialty', $data['N']);
             $user->set('field_registration_no', $data['F']);
             $user->set('field_mchk_license', $data['E']);
-            $user->set('field_membership_type', ['target->id'=>$this->createType
+            $user->set('field_membership_type', ['target_id'=>$this->createType
             ('membership_type',$data['I'])]);
             $user->set('field_referee', $data['Q'].' '.$data['P']);
             $user->set('field_clinic_id', ['target_id'=>$data['Q']]);

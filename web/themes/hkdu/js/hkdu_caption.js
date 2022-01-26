@@ -39,16 +39,16 @@
           //       });
           //     });
           // });
-          if($('img').length > -1){
-            $('img').each(function(){
-              if($(this).hasAttribute('data-caption')){
-                if($(this).attr('data-caption').length > -1){
-                  $(this).next().html('<p class="caption-img">'+$(this).attr('data-caption')+'</p>');
-                }
-              }
-
-            });
-          }
+          // if($('img').length > -1){
+          //   $('img').each(function(){
+          //     if($(this).hasAttribute('data-caption')){
+          //       if($(this).attr('data-caption').length > -1){
+          //         $(this).next().html('<p class="caption-img">'+$(this).attr('data-caption')+'</p>');
+          //       }
+          //     }
+          //
+          //   });
+          // }
 
         }
 
