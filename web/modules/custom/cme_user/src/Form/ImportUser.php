@@ -78,7 +78,7 @@ class ImportUser extends FormBase {
     $i = 1;
 
     foreach ($sheetData as $data) {
-      if ($i != 1) {
+      if ($i > 1) {
         if (!empty($data['A'])) {
           if ($user = user_load_by_mail($data['A'])) {
             $user->setUsername($data['B']);
@@ -88,8 +88,7 @@ class ImportUser extends FormBase {
             $user->set('field_specialty', $data['N']);
             $user->set('field_registration_no', $data['F']);
             $user->set('field_mchk_license', $data['E']);
-            $user->set('field_membership_type', ['target_id'=>$this->createType
-            ('membership_type',$data['I'])]);
+            $user->set('field_membership_type', ['target_id'=>$this->createType('membership_type',$data['I'])]);
             $user->set('field_referee', $data['Q'].' '.$data['P']);
             $user->set('field_clinic_id', ['target_id'=>$data['Q']]);
             $user->set('field_specialist_fellow_number', $data['O']);
@@ -138,8 +137,7 @@ class ImportUser extends FormBase {
             $user->set('field_specialty', $data['N']);
             $user->set('field_registration_no', $data['F']);
             $user->set('field_mchk_license', $data['E']);
-            $user->set('field_membership_type', ['target_id'=>$this->createType
-            ('membership_type',$data['I'])]);
+            $user->set('field_membership_type', ['target_id'=>$this->createType('membership_type',$data['I'])]);
             $user->set('field_referee', $data['Q'].' '.$data['P']);
             $user->set('field_clinic_id', ['target_id'=>$data['Q']]);
             $user->set('field_specialist_fellow_number', $data['O']);
@@ -202,7 +200,7 @@ class ImportUser extends FormBase {
    * @return false|int|mixed|string|null
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  public function createType($name, $vid) {
+  public function createType($vid, $name ) {
     $ids = \Drupal::entityQuery('taxonomy_term')
       ->condition('status', 1)
       ->condition('vid', $vid)
