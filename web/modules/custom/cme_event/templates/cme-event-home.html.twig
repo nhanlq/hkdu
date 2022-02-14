@@ -6,7 +6,11 @@
     </div>
     <div display="flex" class="fSsnif">
         {% for event in events %}
-            <div class="eBeRpv event
+            <div class="{% if event.expired %}
+            bSHJMg
+            {% else %}
+            eBeRpv
+            {% endif %} event
             {% if loop.index%3 == 0 %} end {% endif %}">
                 <a class="fOtgzp" href="{{ path('entity.cme_event.canonical', {'cme_event': event.id.value}) }}">
                     <div class="kZuHUf">

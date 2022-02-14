@@ -49,6 +49,11 @@ class EventHomeBlock extends BlockBase
             }else{
                 $r->check_event = false;
             }
+          if($this->checkExpiredEvent($r)){
+            $r->expired = true;
+          }else{
+            $r->expired = false;
+          }
         }
         return $result;
     }
@@ -68,6 +73,17 @@ class EventHomeBlock extends BlockBase
         }
         return $return;
     }
+
+  public function checkExpiredEvent($event) {
+    $current = time();
+    $date = strtotime($event->get('field_expired')->value);
+    if ($current > $date) {
+      return TRUE;
+    }
+    else {
+      return FALSE;
+    }
+  }
 
 
 }

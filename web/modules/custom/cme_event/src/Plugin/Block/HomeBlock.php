@@ -42,6 +42,11 @@ class HomeBlock extends BlockBase {
 
         $result = \Drupal\cme_event\Entity\CmeEvent::loadMultiple($ids);
         foreach($result as $r){
+          if($this->checkExpiredEvent($r)){
+            $r->expired = true;
+          }else{
+            $r->expired = false;
+          }
             if($this->checkEventStatusUser($r->id())){
                 $r->check_event = true;
             }else{
@@ -66,5 +71,15 @@ class HomeBlock extends BlockBase {
         }
         return $return;
     }
+
+  public function checkExpiredEvent($event){
+    $current = time();
+    $date = strtotime($event->get('field_date')->value.' 00:00:00');
+    if($current > $date){
+      return true;
+    }else{
+      return false;
+    }
+  }
 
 }
