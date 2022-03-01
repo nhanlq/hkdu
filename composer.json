@@ -30,7 +30,7 @@
         "drupal/commerce_stripe": "^1.0@RC",
         "drupal/config_pages": "^2.9",
         "drupal/console": "^1.9",
-        "drupal/core": "8.9.18",
+        "drupal/core": "8.9.20",
         "drupal/core-composer-scaffold": "^8.8.0",
         "drupal/csv_serialization": "^1.4",
         "drupal/devel": "^2.1",
